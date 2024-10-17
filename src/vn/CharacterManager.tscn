@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://f3krgd2lh0al"]
+
+[ext_resource type="Script" path="res://src/vn/CharacterManager.gd" id="1_ha0dp"]
+[ext_resource type="AudioStream" uid="uid://cvqjmta0e3fcj" path="res://data/assets/general/sounds/char_turn.wav" id="2_d6yg1"]
+
+[sub_resource type="Animation" id="Animation_dxbou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCharacter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ryuy6"]
+resource_name = "flip"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCharacter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 1), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"setTexture"
+}, {
+"args": [],
+"method": &"setScale"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_davyh"]
+_data = {
+"RESET": SubResource("Animation_dxbou"),
+"flip": SubResource("Animation_ryuy6")
+}
+
+[node name="CharacterManager" type="Node2D"]
+script = ExtResource("1_ha0dp")
+
+[node name="MainCharacter" type="Sprite2D" parent="."]
+position = Vector2(596, 582)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_davyh")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer"]
+stream = ExtResource("2_d6yg1")

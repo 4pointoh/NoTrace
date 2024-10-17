@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://cwntg664xwvo8"]
+
+[ext_resource type="Script" path="res://data/game_stages/phone_message/poker_girls_first_phone/scripts/poker_girls_first_phone.gd" id="1_plobw"]
+[ext_resource type="Resource" uid="uid://b7tvbysdytcb3" path="res://data/game_stages/phone_message/poker_girls_first_phone/d_poker_girls_first_phone.tres" id="1_q8c02"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_ui4fg"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="3_l1xy1"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_rvf4m"]
+
+[sub_resource type="Resource" id="Resource_l6pd1"]
+script = ExtResource("4_rvf4m")
+name = "room"
+images = ExtResource("3_l1xy1")
+
+[resource]
+script = ExtResource("1_ui4fg")
+name = "poker_girls_first_phone"
+dialogue = ExtResource("1_q8c02")
+dialogueStartKey = ""
+isCompletable = true
+startingBackground = SubResource("Resource_l6pd1")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("1_plobw")
+contactName = "Unknown Number"
+stageButtonLabel = ""
+isDate = false
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""

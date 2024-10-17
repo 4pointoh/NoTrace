@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=29 format=3 uid="uid://d3pamu38a1tjg"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_ggw1t"]
+[ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="1_pqrt6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_mn0sv"]
+[ext_resource type="Texture2D" uid="uid://ccj8bqip2631r" path="res://data/background_lists/chads_party/backgrounds/intro_bg2.png" id="3_mwtid"]
+[ext_resource type="Texture2D" uid="uid://fa6b663hdx3y" path="res://data/background_lists/chads_party/backgrounds/intro_bg3.png" id="4_p2364"]
+[ext_resource type="Texture2D" uid="uid://bj0m7abvjh3mg" path="res://data/background_lists/chads_party/backgrounds/intro_bg4.png" id="5_jdxa8"]
+[ext_resource type="Texture2D" uid="uid://5wdbxvpjpq38" path="res://data/background_lists/chads_party/backgrounds/intro_bg5.png" id="6_qbm6r"]
+[ext_resource type="Texture2D" uid="uid://6h23k8yidsqu" path="res://data/background_lists/chads_party/backgrounds/intro_bg6.png" id="7_yc624"]
+[ext_resource type="Texture2D" uid="uid://d3iriuogfdots" path="res://data/background_lists/chads_party/backgrounds/intro_bg7.png" id="8_ftyqv"]
+[ext_resource type="Texture2D" uid="uid://c6upgk0wr4l8c" path="res://data/background_lists/chads_party/backgrounds/intro_bg8.png" id="9_1ff4n"]
+[ext_resource type="Texture2D" uid="uid://cbi0livwes8cq" path="res://data/background_lists/chads_party/backgrounds/intro_bg9.png" id="10_lwa5c"]
+[ext_resource type="Texture2D" uid="uid://dnamx31mwj3es" path="res://data/background_lists/chads_party/backgrounds/intro_bg10.png" id="11_sw5a6"]
+[ext_resource type="Texture2D" uid="uid://6r2mpnso6yns" path="res://data/background_lists/chads_party/backgrounds/intro_bg12.png" id="12_ae2du"]
+[ext_resource type="Texture2D" uid="uid://bv3hjjkl55e4q" path="res://data/background_lists/chads_party/backgrounds/intro_bg13.png" id="13_6bjgm"]
+[ext_resource type="Texture2D" uid="uid://dtnrqoxxayl1m" path="res://data/background_lists/chads_party/backgrounds/intro_bg14.png" id="14_wwx5y"]
+
+[sub_resource type="Resource" id="Resource_hsf26"]
+script = ExtResource("2_mn0sv")
+name = "intro1"
+images = ExtResource("1_pqrt6")
+
+[sub_resource type="Resource" id="Resource_fpdyr"]
+script = ExtResource("2_mn0sv")
+name = "intro2"
+images = ExtResource("3_mwtid")
+
+[sub_resource type="Resource" id="Resource_0qstd"]
+script = ExtResource("2_mn0sv")
+name = "intro3"
+images = ExtResource("4_p2364")
+
+[sub_resource type="Resource" id="Resource_4rayc"]
+script = ExtResource("2_mn0sv")
+name = "intro4"
+images = ExtResource("5_jdxa8")
+
+[sub_resource type="Resource" id="Resource_4v2p6"]
+script = ExtResource("2_mn0sv")
+name = "intro5"
+images = ExtResource("6_qbm6r")
+
+[sub_resource type="Resource" id="Resource_44uml"]
+script = ExtResource("2_mn0sv")
+name = "intro6"
+images = ExtResource("7_yc624")
+
+[sub_resource type="Resource" id="Resource_6xnbt"]
+script = ExtResource("2_mn0sv")
+name = "intro7"
+images = ExtResource("8_ftyqv")
+
+[sub_resource type="Resource" id="Resource_byvit"]
+script = ExtResource("2_mn0sv")
+name = "intro8"
+images = ExtResource("9_1ff4n")
+
+[sub_resource type="Resource" id="Resource_uwran"]
+script = ExtResource("2_mn0sv")
+name = "intro9"
+images = ExtResource("10_lwa5c")
+
+[sub_resource type="Resource" id="Resource_y15v8"]
+script = ExtResource("2_mn0sv")
+name = "intro10"
+images = ExtResource("11_sw5a6")
+
+[sub_resource type="Resource" id="Resource_as6y5"]
+script = ExtResource("2_mn0sv")
+name = "intro_bg11"
+images = ExtResource("12_ae2du")
+
+[sub_resource type="Resource" id="Resource_ixxah"]
+script = ExtResource("2_mn0sv")
+name = "intro_bg12"
+images = ExtResource("13_6bjgm")
+
+[sub_resource type="Resource" id="Resource_1omgc"]
+script = ExtResource("2_mn0sv")
+name = "bg_14"
+images = ExtResource("14_wwx5y")
+
+[resource]
+script = ExtResource("1_ggw1t")
+name = "chads_party"
+images = Array[ExtResource("2_mn0sv")]([SubResource("Resource_hsf26"), SubResource("Resource_fpdyr"), SubResource("Resource_0qstd"), SubResource("Resource_4rayc"), SubResource("Resource_4v2p6"), SubResource("Resource_44uml"), SubResource("Resource_6xnbt"), SubResource("Resource_byvit"), SubResource("Resource_uwran"), SubResource("Resource_y15v8"), SubResource("Resource_as6y5"), SubResource("Resource_ixxah"), SubResource("Resource_1omgc")])

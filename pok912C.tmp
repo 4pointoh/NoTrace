@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0awfodgehs3n"]
+
+[ext_resource type="Script" path="res://poker_game.gd" id="1_kasnd"]
+[ext_resource type="PackedScene" uid="uid://copd06cjr1uf1" path="res://card.tscn" id="2_w1x1e"]
+
+[node name="PokerGame" type="Node2D"]
+script = ExtResource("1_kasnd")
+cardScene = ExtResource("2_w1x1e")
+
+[node name="Call" type="Button" parent="." groups=["cardContainer"]]
+offset_left = 457.0
+offset_top = 1006.0
+offset_right = 638.0
+offset_bottom = 1087.0
+text = "Call
+"
+
+[node name="Fold" type="Button" parent="." groups=["cardContainer"]]
+offset_left = 31.0
+offset_top = 1006.0
+offset_right = 212.0
+offset_bottom = 1087.0
+text = "Fold"
+
+[node name="Check" type="Button" parent="."]
+offset_left = 242.0
+offset_top = 1006.0
+offset_right = 423.0
+offset_bottom = 1087.0
+text = "Check"
+
+[node name="Raise" type="Button" parent="."]
+offset_left = 690.0
+offset_top = 1006.0
+offset_right = 871.0
+offset_bottom = 1087.0
+text = "Raise"
+
+[node name="RaiseInput" type="SpinBox" parent="Raise"]
+offset_top = -40.0
+offset_right = 181.0
+offset_bottom = -9.0
+step = 10.0
+value = 10.0
+
+[node name="DrawContainer" type="HBoxContainer" parent="." groups=["cardContainer"]]
+offset_left = 124.0
+offset_top = 500.0
+offset_right = 2420.0
+offset_bottom = 667.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 550
+
+[node name="PlayerHand" type="HBoxContainer" parent="." groups=["cardContainer"]]
+offset_left = 369.0
+offset_top = 827.0
+offset_right = 569.0
+offset_bottom = 900.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 550
+
+[node name="CpuHand" type="HBoxContainer" parent="." groups=["cardContainer"]]
+offset_left = 369.0
+offset_top = 135.0
+offset_right = 482.0
+offset_bottom = 185.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 550
+
+[node name="YourMoney" type="Label" parent="."]
+offset_top = 1094.0
+offset_right = 171.0
+offset_bottom = 1144.0
+theme_override_font_sizes/font_size = 30
+text = "You: "
+
+[node name="TheirMoney" type="Label" parent="."]
+offset_left = 403.0
+offset_top = 1094.0
+offset_right = 665.0
+offset_bottom = 1144.0
+theme_override_font_sizes/font_size = 30
+text = "Opponent:"
+
+[node name="Ante" type="Label" parent="."]
+offset_left = 203.0
+offset_top = 1094.0
+offset_right = 381.0
+offset_bottom = 1144.0
+theme_override_font_sizes/font_size = 30
+text = "Ante:"
+
+[node name="Pot" type="Label" parent="."]
+offset_left = 706.0
+offset_top = 1094.0
+offset_right = 884.0
+offset_bottom = 1144.0
+theme_override_font_sizes/font_size = 30
+text = "Pot:"
+
+[connection signal="pressed" from="Call" to="." method="_on_call_pressed"]
+[connection signal="pressed" from="Fold" to="." method="_on_fold_pressed"]
+[connection signal="pressed" from="Check" to="." method="_on_check_pressed"]
+[connection signal="pressed" from="Raise" to="." method="_on_raise_pressed"]

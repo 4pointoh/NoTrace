@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://ba44jtm247lwj"]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_wwoi6"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="2_bk8k6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="3_3rio4"]
+[ext_resource type="AudioStream" uid="uid://dpyabqafcwdxe" path="res://data/assets/general/sounds/bg_music/home2.mp3" id="4_hcuow"]
+
+[sub_resource type="Resource" id="Resource_cuuv2"]
+script = ExtResource("3_3rio4")
+name = "room"
+images = ExtResource("2_bk8k6")
+
+[resource]
+script = ExtResource("1_wwoi6")
+name = "phone"
+dialogueStartKey = ""
+isCompletable = false
+startingBackground = SubResource("Resource_cuuv2")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = true
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("4_hcuow")
+stageButtonLabel = ""
+isDate = false
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""

@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://bu8pn0siowaf1"]
+
+[ext_resource type="Script" path="res://src/phone/message_image.gd" id="1_vk2v2"]
+[ext_resource type="Shader" path="res://src/phone/blur2.gdshader" id="2_63com"]
+[ext_resource type="Texture2D" uid="uid://fsdnc8sjbvew" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg16.png" id="3_2bwlc"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_sugs8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72jr3"]
+shader = ExtResource("2_63com")
+shader_parameter/amount = 50.0
+
+[sub_resource type="Animation" id="Animation_qnaeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageImage:material:shader_parameter/amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1qlpe"]
+resource_name = "unblur"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageImage:material:shader_parameter/amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [200.0, 166.667, 133.333, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ba1ey"]
+_data = {
+"RESET": SubResource("Animation_qnaeu"),
+"unblur": SubResource("Animation_1qlpe")
+}
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 245.0
+offset_bottom = 500.0
+script = ExtResource("1_vk2v2")
+
+[node name="MessageImage" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_72jr3")
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+texture = ExtResource("3_2bwlc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ba1ey")
+}
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_sugs8")
+theme_override_font_sizes/font_size = 40
+text = "
+
+
+
+
+
+
+
+Downloading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://tlo2xv2dxetl"]
+
+[ext_resource type="Script" path="res://src/phone/continue_app.gd" id="1_5dxdv"]
+[ext_resource type="Texture2D" uid="uid://pg2eup6fq4n2" path="res://data/assets/phone/art/continue_background.png" id="2_4xyho"]
+[ext_resource type="PackedScene" uid="uid://besft41xqktl4" path="res://src/phone/selectable_stage.tscn" id="3_hlown"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_pjnll"]
+
+[node name="ContinueApp" type="Node2D"]
+script = ExtResource("1_5dxdv")
+availableMessage = ExtResource("3_hlown")
+
+[node name="ContinueBackground" type="TextureRect" parent="."]
+offset_left = 188.0
+offset_top = 59.0
+offset_right = 762.0
+offset_bottom = 1086.0
+texture = ExtResource("2_4xyho")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="AvailableMessagesContainer" type="VBoxContainer" parent="."]
+offset_left = 227.0
+offset_top = 188.0
+offset_right = 730.0
+offset_bottom = 950.0
+theme_override_constants/separation = 40
+
+[node name="SelectableStage" parent="AvailableMessagesContainer" instance=ExtResource("3_hlown")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 188.0
+offset_top = 98.0
+offset_right = 762.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 50
+text = "Activities"
+horizontal_alignment = 1
+vertical_alignment = 2

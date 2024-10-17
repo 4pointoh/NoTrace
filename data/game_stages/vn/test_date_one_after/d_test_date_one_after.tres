@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://fsiefncxnbel"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_blrv4"]
+
+[resource]
+script = ExtResource("1_blrv4")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-154.449, 62.5),
+"start_id": "START"
+},
+"1_1": {
+"background": 5,
+"backgroundList": 0,
+"characterState": 0,
+"dialogue": "Wow the cafe is closing up we chatted for so long haha, but we didn't talk about poker much!",
+"offset": Vector2(420, -40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(510, 720),
+"speaker": 0
+},
+"1_2": {
+"background": 6,
+"backgroundList": 0,
+"characterState": 1,
+"dialogue": "Let's get out of here before the barista charges at us with that milk frother! ",
+"offset": Vector2(1000, -40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(486, 798),
+"speaker": 0
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 2,
+"dialogue": "Can you walk me to my car? ",
+"offset": Vector2(1580, -40),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 582),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/test_date_one_after/character_list.tres"
+backgroundList = "res://data/game_stages/vn/test_date_one_after/bgs.tres"

@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://coso3dbmucp0f"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_6p5y8"]
+[ext_resource type="Texture2D" uid="uid://c32ml1aosqjbs" path="res://art/intro/intro_bg0.png" id="2_wvyda"]
+[ext_resource type="PackedScene" uid="uid://b0awfodgehs3n" path="res://poker_game.tscn" id="3_qjws7"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="3_u1mj8"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_gekcj"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_ssu4i"]
+[ext_resource type="AudioStream" uid="uid://cnb8860g576dq" path="res://art/sound.wav" id="7_50077"]
+[ext_resource type="Texture2D" uid="uid://ud2cnsoe46yf" path="res://art/title.png" id="7_mfhyb"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_hviyc"]
+script = ExtResource("4_gekcj")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_07j7y"]
+script = ExtResource("5_ssu4i")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6p5y8")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 896.0
+offset_bottom = 1152.0
+texture = ExtResource("2_wvyda")
+expand_mode = 4
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="Start" type="Button" parent="."]
+offset_left = 242.0
+offset_top = 618.0
+offset_right = 707.0
+offset_bottom = 699.0
+theme_override_font_sizes/font_size = 33
+text = "Start"
+
+[node name="PokerGame" parent="." instance=ExtResource("3_qjws7")]
+visible = false
+
+[node name="DialoguePlayer" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 128)
+offset_left = -782.0
+offset_top = 130.0
+offset_right = -82.0
+offset_bottom = 330.0
+script = ExtResource("3_u1mj8")
+start_id = "START"
+default_speaker_color = Color(0, 0, 0, 1)
+skip_input_action = "dialogue_skip"
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_hviyc"), SubResource("RichTextEffect_07j7y")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_50077")
+
+[node name="Title" type="TextureRect" parent="."]
+offset_top = 337.0
+offset_right = 896.0
+offset_bottom = 539.0
+texture = ExtResource("7_mfhyb")
+expand_mode = 2
+stretch_mode = 4
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="gameLost" from="PokerGame" to="." method="_on_poker_game_game_lost"]
+[connection signal="gameWon" from="PokerGame" to="." method="_on_poker_game_game_won"]
+[connection signal="dialogue_proceeded" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_proceeded"]
+[connection signal="dialogue_signal" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_signal"]

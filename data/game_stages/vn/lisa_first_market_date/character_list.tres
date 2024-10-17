@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterList" load_steps=3 format=3 uid="uid://bfhtnnhq3a0ke"]
+
+[ext_resource type="Resource" uid="uid://c0477mwwdpscr" path="res://data/characters/lisa/lisa_party/lisa_party.tres" id="1_co0ip"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_x7ik8"]
+
+[resource]
+script = ExtResource("1_x7ik8")
+characters = Array[Resource("res://addons/dialogue_nodes/objects/Character.gd")]([ExtResource("1_co0ip")])

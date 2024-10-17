@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8xq18q7uj5j2"]
+
+[ext_resource type="Script" path="res://src/phone/wallpaper_app.gd" id="1_ia2dx"]
+[ext_resource type="Texture2D" uid="uid://bra7m0mgk4o61" path="res://data/assets/phone/art/wallpapers_background.png" id="3_fu0o7"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_b03ht"]
+[ext_resource type="PackedScene" uid="uid://iavytdq8vj5e" path="res://src/phone/wallpaper_selection.tscn" id="4_seqyg"]
+
+[node name="WallpaperApp" type="Node2D"]
+script = ExtResource("1_ia2dx")
+wallpaperSelection = ExtResource("4_seqyg")
+
+[node name="WallpaperBackground" type="TextureRect" parent="."]
+offset_left = 188.0
+offset_top = 59.0
+offset_right = 762.0
+offset_bottom = 1086.0
+texture = ExtResource("3_fu0o7")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Next" type="Button" parent="."]
+offset_left = 589.0
+offset_top = 1008.0
+offset_right = 699.0
+offset_bottom = 1058.0
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+offset_left = 245.0
+offset_top = 1008.0
+offset_right = 355.0
+offset_bottom = 1058.0
+text = "Previous"
+
+[node name="Set" type="Button" parent="."]
+offset_left = 375.0
+offset_top = 1008.0
+offset_right = 570.0
+offset_bottom = 1058.0
+text = "Set Wallpaper"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 188.0
+offset_top = 69.0
+offset_right = 762.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_b03ht")
+theme_override_font_sizes/font_size = 50
+text = "Wallpapers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionContainer" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 204.0
+offset_top = 169.0
+offset_right = 746.0
+offset_bottom = 980.0
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Set" to="." method="_on_set_pressed"]

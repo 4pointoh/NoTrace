@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://dikd2kaqlhena"]
+
+[ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_2efnc"]
+[ext_resource type="Resource" uid="uid://b3gac2uwcwbow" path="res://data/game_stages/phone_message/lisa_first_phone/d_lisa_first_phone2.tres" id="1_dnl27"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_hpw7r"]
+[ext_resource type="Script" path="res://data/game_stages/phone_message/lisa_first_phone/scripts/lisa_intro_phone.gd" id="2_wkbwn"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_slyn0"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_j3gse"]
+
+[sub_resource type="Resource" id="Resource_h8fc4"]
+script = ExtResource("5_j3gse")
+name = "room"
+images = ExtResource("4_slyn0")
+
+[resource]
+script = ExtResource("1_hpw7r")
+name = "lisa_first_phone"
+dialogue = ExtResource("1_dnl27")
+dialogueStartKey = ""
+isCompletable = true
+startingBackground = SubResource("Resource_h8fc4")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("2_wkbwn")
+contactName = "Lisa"
+contactImage = ExtResource("1_2efnc")
+stageButtonLabel = ""
+isDate = false
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""

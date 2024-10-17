@@ -1,0 +1,93 @@
+[gd_resource type="Resource" script_class="Character" load_steps=24 format=3 uid="uid://c0477mwwdpscr"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_4ss6p"]
+[ext_resource type="Texture2D" uid="uid://ciibhty1crj25" path="res://data/characters/lisa/lisa_party/lisa_char.png" id="1_nekdv"]
+[ext_resource type="Texture2D" uid="uid://dkp6o6x24rerj" path="res://data/characters/lisa/lisa_party/character_art/lisa_cute3.png" id="3_4yp07"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_anlmc"]
+[ext_resource type="Texture2D" uid="uid://dcq22123774vg" path="res://data/characters/lisa/lisa_party/character_art/lisa_cute.png" id="5_1lcso"]
+[ext_resource type="Texture2D" uid="uid://b5ljmnxvykawm" path="res://data/characters/lisa/lisa_party/character_art/lisa_party_happy2.png" id="6_d763w"]
+[ext_resource type="Texture2D" uid="uid://6gt72o5oou8w" path="res://data/characters/lisa/lisa_party/character_art/lisa_party_happy.png" id="7_lg0pk"]
+[ext_resource type="Texture2D" uid="uid://b333kufm0odd" path="res://data/characters/lisa/lisa_party/character_art/lisa_party_looking.png" id="8_5wv72"]
+[ext_resource type="Texture2D" uid="uid://b8grsrvump8yd" path="res://data/characters/lisa/lisa_party/character_art/lisa_party_pose.png" id="9_gyg1l"]
+[ext_resource type="Texture2D" uid="uid://u4wm67h58ph0" path="res://data/characters/lisa/lisa_party/character_art/lisa_party_shy.png" id="10_ayqxn"]
+[ext_resource type="Texture2D" uid="uid://db0v13d4p78qr" path="res://data/characters/lisa/lisa_party/character_art/lisa_party_win.png" id="11_sa8pd"]
+[ext_resource type="Texture2D" uid="uid://ewohu8f6h8vt" path="res://data/characters/lisa/lisa_party/character_art/lisa_pissed.png" id="12_6l6gb"]
+[ext_resource type="Texture2D" uid="uid://rh6eslp1ew5r" path="res://data/characters/lisa/lisa_party/character_art/lisa_side_pose.png" id="13_rv43p"]
+
+[sub_resource type="Resource" id="Resource_pgcsx"]
+script = ExtResource("4_anlmc")
+name = "cute 2"
+image = ExtResource("3_4yp07")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_xc3pc"]
+script = ExtResource("4_anlmc")
+name = "cute"
+image = ExtResource("5_1lcso")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_quw18"]
+script = ExtResource("4_anlmc")
+name = "happy 2"
+image = ExtResource("6_d763w")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_6m3c7"]
+script = ExtResource("4_anlmc")
+name = "happy"
+image = ExtResource("7_lg0pk")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_5d8j4"]
+script = ExtResource("4_anlmc")
+name = "looking"
+image = ExtResource("8_5wv72")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_rkwle"]
+script = ExtResource("4_anlmc")
+name = "pose"
+image = ExtResource("9_gyg1l")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_uwd81"]
+script = ExtResource("4_anlmc")
+name = "shy"
+image = ExtResource("10_ayqxn")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_pwj6x"]
+script = ExtResource("4_anlmc")
+name = "win"
+image = ExtResource("11_sa8pd")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_sc7kx"]
+script = ExtResource("4_anlmc")
+name = "pissed"
+image = ExtResource("12_6l6gb")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_5jrou"]
+script = ExtResource("4_anlmc")
+name = "side_pose"
+image = ExtResource("13_rv43p")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("1_4ss6p")
+name = "Lisa"
+editorName = "Lisa - Party"
+image = ExtResource("1_nekdv")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_anlmc")]([SubResource("Resource_pgcsx"), SubResource("Resource_xc3pc"), SubResource("Resource_quw18"), SubResource("Resource_6m3c7"), SubResource("Resource_5d8j4"), SubResource("Resource_rkwle"), SubResource("Resource_uwd81"), SubResource("Resource_pwj6x"), SubResource("Resource_sc7kx"), SubResource("Resource_5jrou")])

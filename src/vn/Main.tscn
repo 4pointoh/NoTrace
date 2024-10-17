@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=3 uid="uid://coso3dbmucp0f"]
+
+[ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
+[ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
+[ext_resource type="PackedScene" uid="uid://dwy36oubalf26" path="res://src/phone/phone.tscn" id="3_doilg"]
+[ext_resource type="PackedScene" uid="uid://duykmdise4245" path="res://src/date/date_minigame.tscn" id="4_eoifi"]
+[ext_resource type="PackedScene" uid="uid://cltlkgjbitqgp" path="res://src/poker/PokerGameFive.tscn" id="4_o43ys"]
+[ext_resource type="PackedScene" uid="uid://cfq5e1hicds0i" path="res://src/date/heartsplosion.tscn" id="5_02o78"]
+[ext_resource type="Texture2D" uid="uid://bxloxh8an15dx" path="res://data/assets/general/art/title3.png" id="5_i3bvk"]
+[ext_resource type="PackedScene" uid="uid://b5aupfniotrg8" path="res://src/vn/DialogueManager.tscn" id="5_m0pi8"]
+[ext_resource type="PackedScene" uid="uid://f3krgd2lh0al" path="res://src/vn/CharacterManager.tscn" id="6_qx8ua"]
+[ext_resource type="PackedScene" uid="uid://cx4x2fdhktike" path="res://src/vn/Notification.tscn" id="8_i5hgj"]
+[ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
+[ext_resource type="AudioStream" uid="uid://dkosxg1xda685" path="res://data/assets/general/sounds/bg_music/title.mp3" id="11_1jasj"]
+[ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="13_sdhtv"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ps8m3")
+pokerGameScene = ExtResource("4_o43ys")
+phoneScene = ExtResource("3_doilg")
+dateMinigameScene = ExtResource("4_eoifi")
+heartsplosion = ExtResource("5_02o78")
+metadata/_edit_lock_ = true
+
+[node name="Background" parent="." instance=ExtResource("2_boj0x")]
+metadata/_edit_lock_ = true
+
+[node name="Start" type="Button" parent="."]
+offset_left = 197.0
+offset_top = 618.0
+offset_right = 697.0
+offset_bottom = 699.0
+theme_override_font_sizes/font_size = 33
+text = "Start"
+metadata/_edit_lock_ = true
+
+[node name="Load" type="Button" parent="."]
+offset_left = 197.0
+offset_top = 730.0
+offset_right = 697.0
+offset_bottom = 811.0
+theme_override_font_sizes/font_size = 33
+text = "Load
+"
+metadata/_edit_lock_ = true
+
+[node name="Options" type="Button" parent="."]
+offset_left = 199.0
+offset_top = 842.0
+offset_right = 699.0
+offset_bottom = 923.0
+theme_override_font_sizes/font_size = 33
+text = "Options"
+metadata/_edit_lock_ = true
+
+[node name="Continue" type="Button" parent="."]
+visible = false
+offset_left = 300.0
+offset_top = 805.0
+offset_right = 629.0
+offset_bottom = 863.0
+text = "Continue"
+
+[node name="Title" type="TextureRect" parent="."]
+offset_top = 337.0
+offset_right = 896.0
+offset_bottom = 539.0
+texture = ExtResource("5_i3bvk")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="CharacterManager" parent="." instance=ExtResource("6_qx8ua")]
+
+[node name="DialogueManager" parent="." instance=ExtResource("5_m0pi8")]
+
+[node name="Notifier" parent="." instance=ExtResource("8_i5hgj")]
+visible = false
+z_index = 2
+
+[node name="FullscreenImageBg" type="ColorRect" parent="."]
+visible = false
+offset_right = 894.0
+offset_bottom = 1152.0
+color = Color(0, 0, 0, 1)
+
+[node name="FullscreenImage" type="TextureRect" parent="FullscreenImageBg"]
+visible = false
+layout_mode = 0
+offset_right = 894.0
+offset_bottom = 1152.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_1jasj")
+attenuation = 1.18921
+
+[node name="MainMenuContainer" parent="." instance=ExtResource("10_q6am1")]
+visible = false
+z_index = 3
+
+[node name="TopImage" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(453, 582)
+scale = Vector2(0.873134, 0.873134)
+texture = ExtResource("13_sdhtv")
+
+[connection signal="is_fading" from="Background" to="." method="_on_background_is_fading"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="dialogue_ended" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_ended"]
+[connection signal="dialogue_proceeded" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_proceeded"]
+[connection signal="dialogue_signal" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_signal"]

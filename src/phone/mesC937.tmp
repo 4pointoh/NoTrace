@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3tjbs8klb0sh"]
+
+[ext_resource type="Script" path="res://src/phone/messages_app.gd" id="1_nop6m"]
+[ext_resource type="PackedScene" uid="uid://3n8lkyrp2q07" path="res://src/phone/available_message.tscn" id="2_pvtiw"]
+[ext_resource type="Texture2D" uid="uid://bmx1q6sd4ciy3" path="res://art/phone/messages_background.png" id="3_oqful"]
+[ext_resource type="PackedScene" uid="uid://bu8pn0siowaf1" path="res://src/phone/message_image.tscn" id="4_74deq"]
+[ext_resource type="PackedScene" uid="uid://c3o1djhnvrnb4" path="res://src/phone/phone_loading.tscn" id="5_vla3j"]
+[ext_resource type="PackedScene" uid="uid://bv7mv8sfe22i4" path="res://src/phone/message_text.tscn" id="6_os5er"]
+[ext_resource type="Script" path="res://src/phone/MessageScreen.gd" id="6_us3ry"]
+[ext_resource type="PackedScene" uid="uid://drkv4n8chck8g" path="res://src/phone/phone_choice.tscn" id="7_gcin8"]
+
+[node name="MessagesApp" type="Node2D"]
+script = ExtResource("1_nop6m")
+availableMessage = ExtResource("2_pvtiw")
+messageText = ExtResource("6_os5er")
+messageImage = ExtResource("4_74deq")
+loadingAnim = ExtResource("5_vla3j")
+
+[node name="MessagesBackground" type="TextureRect" parent="."]
+offset_left = 188.0
+offset_top = 59.0
+offset_right = 762.0
+offset_bottom = 1086.0
+texture = ExtResource("3_oqful")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 188.0
+offset_top = 83.0
+offset_right = 762.0
+offset_bottom = 152.0
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="ContactName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="AvailableMessagesContainer" type="VBoxContainer" parent="."]
+offset_left = 224.0
+offset_top = 180.0
+offset_right = 746.0
+offset_bottom = 930.0
+theme_override_constants/separation = 100
+metadata/_edit_lock_ = true
+
+[node name="AvailableMessage" parent="AvailableMessagesContainer" instance=ExtResource("2_pvtiw")]
+layout_mode = 2
+
+[node name="MessageScreen" type="ScrollContainer" parent="."]
+visible = false
+offset_left = 201.0
+offset_top = 170.0
+offset_right = 750.0
+offset_bottom = 940.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("6_us3ry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageScreen"]
+clip_contents = true
+custom_minimum_size = Vector2(541, 782)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Choice" parent="." instance=ExtResource("7_gcin8")]
+visible = false
+
+[connection signal="choice" from="Choice" to="." method="_on_choice_choice"]

@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="Character" load_steps=18 format=3 uid="uid://bbp24sdfbw3oq"]
+
+[ext_resource type="Texture2D" uid="uid://c8ymneglrow75" path="res://data/characters/lisa/lisa_party_new/lisa_char.png" id="1_spx5b"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_xb3fc"]
+[ext_resource type="Texture2D" uid="uid://bexf6culuxd58" path="res://data/characters/lisa/lisa_party_new/character_art/happy.png" id="3_0li5u"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_pm1f8"]
+[ext_resource type="Texture2D" uid="uid://ckustkg5qv1o8" path="res://data/characters/lisa/lisa_party_new/character_art/happy2.png" id="5_jyb6c"]
+[ext_resource type="Texture2D" uid="uid://w44m7ulvqfpu" path="res://data/characters/lisa/lisa_party_new/character_art/listening.png" id="6_gxfi7"]
+[ext_resource type="Texture2D" uid="uid://csmo8o1quvcjj" path="res://data/characters/lisa/lisa_party_new/character_art/sad.png" id="7_o8fmh"]
+[ext_resource type="Texture2D" uid="uid://cvyoojw84xvoq" path="res://data/characters/lisa/lisa_party_new/character_art/sad2.png" id="8_4kqvk"]
+[ext_resource type="Texture2D" uid="uid://cgfp8yj2xry5c" path="res://data/characters/lisa/lisa_party_new/character_art/shy.png" id="9_f2vvr"]
+[ext_resource type="Texture2D" uid="uid://dwysi70sxhyyg" path="res://data/characters/lisa/lisa_party_new/character_art/victory.png" id="10_g4nlr"]
+
+[sub_resource type="Resource" id="Resource_23dvn"]
+script = ExtResource("4_pm1f8")
+name = "Happy"
+image = ExtResource("3_0li5u")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_p4wla"]
+script = ExtResource("4_pm1f8")
+name = "Happy2"
+image = ExtResource("5_jyb6c")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_qt8by"]
+script = ExtResource("4_pm1f8")
+name = "Listening"
+image = ExtResource("6_gxfi7")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_tcpaq"]
+script = ExtResource("4_pm1f8")
+name = "Sad"
+image = ExtResource("7_o8fmh")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_o0hjk"]
+script = ExtResource("4_pm1f8")
+name = "Sad2"
+image = ExtResource("8_4kqvk")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_l37aq"]
+script = ExtResource("4_pm1f8")
+name = "Shy"
+image = ExtResource("9_f2vvr")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_yhv6u"]
+script = ExtResource("4_pm1f8")
+name = "Victory"
+image = ExtResource("10_g4nlr")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("1_xb3fc")
+name = "Lisa"
+editorName = "Lisa_Party"
+image = ExtResource("1_spx5b")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_pm1f8")]([SubResource("Resource_23dvn"), SubResource("Resource_p4wla"), SubResource("Resource_qt8by"), SubResource("Resource_tcpaq"), SubResource("Resource_o0hjk"), SubResource("Resource_l37aq"), SubResource("Resource_yhv6u")])

@@ -1,0 +1,888 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://b6lucidx2xlit"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_fscl6"]
+
+[resource]
+script = ExtResource("1_fscl6")
+starts = {
+"LOST": &"0_26",
+"START": &"0_1",
+"asked_too_many_times": &"0_24",
+"asked_twice_in_a_row_generic": &"0_23",
+"asked_twice_in_a_row_sex": &"0_22",
+"body_count_success": &"0_14",
+"crazy_jealousy_response": &"0_10",
+"current_relationships_fail": &"0_4",
+"dialogue_body_count_fail": &"0_15",
+"dialogue_body_count_first_ask": &"0_13",
+"dialogue_past_girlfriends_q": &"0_5",
+"dialogue_past_rel_topic": &"0_2",
+"dialogue_past_rel_topic_common": &"0_25",
+"dialogue_why_ask_past_q": &"0_9",
+"first_kiss_fail": &"0_17",
+"first_kiss_success": &"0_16",
+"first_sex_fail": &"0_19",
+"first_sex_success": &"0_18",
+"lots_of_girlfriends": &"0_6",
+"no_girlfriends": &"0_7",
+"no_girlfriends_prefer_not_to_answer": &"0_8",
+"no_reason_for_asking": &"0_21",
+"past_boyfriends_fail": &"0_12",
+"past_boyfriends_success": &"0_11",
+"past_rel_sensitive_subject": &"0_20",
+"past_relationships_fail": &"0_3",
+"repeat_generic": &"0_29",
+"smalltalk": &"0_28",
+"smalltalk_topic": &"0_27"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-380, 180),
+"start_id": "START"
+},
+"0_10": {
+"link": &"1_19",
+"offset": Vector2(-1214.08, 8294.74),
+"start_id": "crazy_jealousy_response"
+},
+"0_11": {
+"link": &"1_22",
+"offset": Vector2(-1364.08, 10135.4),
+"start_id": "past_boyfriends_success"
+},
+"0_12": {
+"link": &"1_24",
+"offset": Vector2(-1436.08, 11156),
+"start_id": "past_boyfriends_fail"
+},
+"0_13": {
+"link": &"1_25",
+"offset": Vector2(-1394.77, 11764.7),
+"start_id": "dialogue_body_count_first_ask"
+},
+"0_14": {
+"link": &"1_26",
+"offset": Vector2(-1614.77, 12699.9),
+"start_id": "body_count_success"
+},
+"0_15": {
+"link": &"1_27",
+"offset": Vector2(-600, 12560),
+"start_id": "dialogue_body_count_fail"
+},
+"0_16": {
+"link": &"1_28",
+"offset": Vector2(-1506.77, 13508),
+"start_id": "first_kiss_success"
+},
+"0_17": {
+"link": &"1_30",
+"offset": Vector2(-1580, 14320),
+"start_id": "first_kiss_fail"
+},
+"0_18": {
+"link": &"1_31",
+"offset": Vector2(-1622.77, 15304.2),
+"start_id": "first_sex_success"
+},
+"0_19": {
+"link": &"1_32",
+"offset": Vector2(-1767.34, 16110.8),
+"start_id": "first_sex_fail"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(-553.169, 1118.81),
+"start_id": "dialogue_past_rel_topic"
+},
+"0_20": {
+"link": &"1_33",
+"offset": Vector2(-580, 14800),
+"start_id": "past_rel_sensitive_subject"
+},
+"0_21": {
+"link": &"1_35",
+"offset": Vector2(-225.798, 8393.46),
+"start_id": "no_reason_for_asking"
+},
+"0_22": {
+"link": &"1_36",
+"offset": Vector2(-1981.14, 16828.8),
+"start_id": "asked_twice_in_a_row_sex"
+},
+"0_23": {
+"link": &"1_37",
+"offset": Vector2(-2181.14, 17584.1),
+"start_id": "asked_twice_in_a_row_generic"
+},
+"0_24": {
+"link": &"1_38",
+"offset": Vector2(-2275.14, 18404.3),
+"start_id": "asked_too_many_times"
+},
+"0_25": {
+"link": &"1_39",
+"offset": Vector2(-2459.97, 19102.9),
+"start_id": "dialogue_past_rel_topic_common"
+},
+"0_26": {
+"link": &"1_40",
+"offset": Vector2(880, 60),
+"start_id": "LOST"
+},
+"0_27": {
+"link": &"1_41",
+"offset": Vector2(-2335.56, 19932),
+"start_id": "smalltalk_topic"
+},
+"0_28": {
+"link": &"1_42",
+"offset": Vector2(-2453.74, 20688.4),
+"start_id": "smalltalk"
+},
+"0_29": {
+"link": &"1_43",
+"offset": Vector2(-1340, 20020),
+"start_id": "repeat_generic"
+},
+"0_3": {
+"link": &"1_4",
+"offset": Vector2(-719.008, 1932.15),
+"start_id": "past_relationships_fail"
+},
+"0_4": {
+"link": &"1_5",
+"offset": Vector2(-879.008, 2915.08),
+"start_id": "current_relationships_fail"
+},
+"0_5": {
+"link": &"1_6",
+"offset": Vector2(-1011.48, 3708),
+"start_id": "dialogue_past_girlfriends_q"
+},
+"0_6": {
+"link": &"1_7",
+"offset": Vector2(-935.48, 4384.1),
+"start_id": "lots_of_girlfriends"
+},
+"0_7": {
+"link": &"1_8",
+"offset": Vector2(-985.48, 5283.09),
+"start_id": "no_girlfriends"
+},
+"0_8": {
+"link": &"1_11",
+"offset": Vector2(-967.48, 6118.55),
+"start_id": "no_girlfriends_prefer_not_to_answer"
+},
+"0_9": {
+"link": &"1_13",
+"offset": Vector2(-1085.48, 6767.47),
+"start_id": "dialogue_why_ask_past_q"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright, let's see if I can find something to talk about...",
+"offset": Vector2(280, 40),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(564, 728.998),
+"speaker": ""
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Really? Now that's a surprise!",
+"offset": Vector2(100, 5120),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh... No comment",
+"offset": Vector2(-363.48, 5824.05),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 1
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Don't worry, there's nothing wrong with waiting until the right person!",
+"offset": Vector2(80, 5820),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So we're just supposed to be here to talk about poker, but you're asking about my relationships...",
+"offset": Vector2(-421.48, 6576.97),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(433.998, 663),
+"speaker": 0
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Can I ask what interests you so much about them?",
+"offset": Vector2(200, 6620),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No reason, just trying to make friendly chatter",
+"offset": Vector2(-678.083, 7464.55),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(360, 623),
+"speaker": 1
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh... I thought maybe there might have been another reason",
+"offset": Vector2(-264.083, 7464.55),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nope",
+"offset": Vector2(120, 7460),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 1
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ok!",
+"offset": Vector2(500, 7480),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 622.999),
+"speaker": 0
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ummm, I'm gonna go! Don't text me!",
+"offset": Vector2(-600, 8320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You want to talk about my past relationships? Umm.... ",
+"offset": Vector2(160, 980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(573.997, 663),
+"speaker": 0
+},
+"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ooh sensitive subject? ",
+"offset": Vector2(-814.083, 9141.78),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 1
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No!! It's just an odd topic when we're here to do poker!",
+"offset": Vector2(-460, 9120),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wellll... I did have one boyfriend in the past. He's not really worth talking about",
+"offset": Vector2(-660, 10060),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(597.998, 689),
+"speaker": 0
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I've met a lot of guys in my life, but they never live up to my high expectations! ",
+"offset": Vector2(-20, 10060),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(573.999, 733),
+"speaker": 0
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, I really don't have a lot of time, can we focus on poker?",
+"offset": Vector2(-720, 11020),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What?? Why do you think I know what that means? I don't!",
+"offset": Vector2(-818.768, 11768.2),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay... I do know what it means. But it's really not the time or place for us to talk about it. ",
+"offset": Vector2(-940, 12620),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I don't know what that means, are you asking if I've killed somebody? No!!",
+"offset": Vector2(20, 12480),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.998),
+"speaker": 0
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "My first kiss? Well I played Juliet back in high school. I gave Arnold Dingleswallow a little peck on the lips. That counts right?",
+"offset": Vector2(-922.768, 13391.5),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Not really the kind of kiss I meant...",
+"offset": Vector2(-480, 13400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 621.003),
+"speaker": ""
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I guess that's okay!",
+"offset": Vector2(840, 980),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Kissing?? This really isn't what I came here to talk about!",
+"offset": Vector2(-992.768, 14263.4),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.996),
+"speaker": 0
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay now you have me blushing hahaha, we're defintely NOT talking about [i]that[/i] in a coffee shop!",
+"offset": Vector2(-1000, 15200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.984),
+"speaker": 0
+},
+"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm just going to pretend I didn't hear you because I really just want to get my poker training figured out!",
+"offset": Vector2(-1080, 15960),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.995),
+"speaker": 0
+},
+"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ohh sensitive subject?",
+"offset": Vector2(-20, 14560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300, 622.988),
+"speaker": 1
+},
+"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Noo, it's just not something men usually ask so candidly about!",
+"offset": Vector2(320, 14560),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.988),
+"speaker": 0
+},
+"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh",
+"offset": Vector2(300, 8300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_36": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I told you I don't want to answer that. Are you even listening to me?",
+"offset": Vector2(-1080, 16720),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(362, 622.995),
+"speaker": 0
+},
+"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, you just asked that question, did you not hear what I said?",
+"offset": Vector2(-1100, 17520),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_38": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, I'm gonna go. Sorry but you need to pay more attention next time!",
+"offset": Vector2(-1240, 18280),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your favorite topic, haha. Sure, we can talk about that!",
+"offset": Vector2(-1557.97, 19072.4),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sorry I don't really see why we would talk about my past relationships right now...",
+"offset": Vector2(-80, 1840),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(559.999, 626.998),
+"speaker": 0
+},
+"1_40": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hmm I don't think that went very well. I'm going to need to try again. Maybe with a different strategy. ",
+"offset": Vector2(1399.55, 72),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(505.999, 730.998),
+"speaker": ""
+},
+"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You think of something generic to talk about. ",
+"offset": Vector2(-1700, 19840),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
+},
+"1_42": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You spend some time talking about something unimportant.",
+"offset": Vector2(-1883.37, 20541.6),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
+},
+"1_43": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, didn't we just talk about that?",
+"offset": Vector2(-640, 19740),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I thought we're here to talk about poker? I don't want to talk about my current relationships...",
+"offset": Vector2(-289.008, 2786.58),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Have you had a lot of past girlfriends? ",
+"offset": Vector2(-420, 3540),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh yeah... tons of girlfriends. So many I can't even count.",
+"offset": Vector2(-377.48, 4287.6),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I have never had a girlfriend",
+"offset": Vector2(-361.48, 5122.59),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 1
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow! Well, it's not
+[i]that[/i] surprising I suppose!",
+"offset": Vector2(60, 4280),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"3_1": {
+"link": "END",
+"offset": Vector2(-1050.08, 7536.55),
+"signalValue": "no_reason_for_asking"
+},
+"3_2": {
+"link": "END",
+"offset": Vector2(-1212.08, 9293.78),
+"signalValue": "past_rel_sensitive_subject"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String](["3_1", "1_15", "1_16", "1_17", "1_18", "3_2", "1_20", "1_21"])
+characters = "res://data/game_stages/dates/test_date_one/character_list.tres"
+backgroundList = ""

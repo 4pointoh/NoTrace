@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://besft41xqktl4"]
+
+[ext_resource type="Texture2D" uid="uid://wg0yovvy27c5" path="res://data/assets/stage_art/park.png" id="1_garf1"]
+[ext_resource type="Texture2D" uid="uid://chg07uf16qlc3" path="res://data/assets/stage_art/park_hover.png" id="2_cru45"]
+[ext_resource type="Script" path="res://src/phone/selectable_stage.gd" id="3_dcs3q"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_e8hpe"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(300, 100)
+texture_normal = ExtResource("1_garf1")
+texture_hover = ExtResource("2_cru45")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_dcs3q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 503.0
+offset_bottom = 100.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_e8hpe")
+theme_override_font_sizes/font_size = 50
+text = "Meet Lisa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

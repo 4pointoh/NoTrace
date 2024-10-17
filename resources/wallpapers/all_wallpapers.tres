@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=13 format=3 uid="uid://ben8w4alkj2ss"]
+
+[ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
+[ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
+[ext_resource type="Script" path="res://resources/wallpapers/Wallpaper.gd" id="3_wccuy"]
+[ext_resource type="Texture2D" uid="uid://bntivd5r3cvac" path="res://data/wallpapers/lisa_leaving.png" id="4_dipm0"]
+[ext_resource type="Texture2D" uid="uid://brdsu1blrr44u" path="res://data/wallpapers/phone_proof.png" id="5_w01my"]
+[ext_resource type="Texture2D" uid="uid://bpsyr4aihlpco" path="res://data/wallpapers/lisa_garbage.png" id="6_qlfik"]
+[ext_resource type="Texture2D" uid="uid://dnry46ekvsul5" path="res://data/wallpapers/ashe_selfie.png" id="7_m1d5n"]
+
+[sub_resource type="Resource" id="Resource_fr55m"]
+script = ExtResource("3_wccuy")
+wallpaperId = "DEFAULT"
+image = ExtResource("2_tnhn8")
+hint = "The default wallpaper. Always unlocked."
+
+[sub_resource type="Resource" id="Resource_6bfou"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_LEAVING"
+image = ExtResource("4_dipm0")
+hint = "Alternative art for the end of the introductory sequence. Unlocked by completing the intro."
+
+[sub_resource type="Resource" id="Resource_367e1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_PROOF"
+image = ExtResource("5_w01my")
+hint = "A photo sent by Lisa as proof of her identity. Unlocked in the intro phone conversation."
+
+[sub_resource type="Resource" id="Resource_jgui8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_GARBAGE"
+image = ExtResource("6_qlfik")
+hint = "A photo sent by Lisa to make you feel less garbage. Unlocked in the intro phone conversation."
+
+[sub_resource type="Resource" id="Resource_3ay0b"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHE_SELFIE"
+image = ExtResource("7_m1d5n")
+hint = "A reminder for you, unlocked in the unknown number intro phone conversation."
+
+[resource]
+script = ExtResource("1_ogmi2")
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b")])

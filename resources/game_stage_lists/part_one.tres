@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameStageList" load_steps=13 format=3 uid="uid://b2u1350o40y1c"]
+
+[ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="1_je6vd"]
+[ext_resource type="Script" path="res://src/vn/GameStageList.gd" id="1_jtgnc"]
+[ext_resource type="Resource" uid="uid://dojlfqurdseox" path="res://data/game_stages/vn/pre_first_phone/gs_pre_first_phone.tres" id="2_ahj72"]
+[ext_resource type="Resource" uid="uid://c4vicjmmdrtmf" path="res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres" id="3_xwqg7"]
+[ext_resource type="Resource" uid="uid://w54iw46mgqvf" path="res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres" id="4_6d3ei"]
+[ext_resource type="Resource" uid="uid://ecnuj6pddpsj" path="res://data/game_stages/vn/intro/gs_intro.tres" id="5_j2f0v"]
+[ext_resource type="Resource" uid="uid://budob75qkmq5q" path="res://data/game_stages/vn/ashely_first_park_date/gs_ashely_first_park_date.tres" id="6_lg514"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="7_l1ex3"]
+[ext_resource type="Resource" uid="uid://pexnumnao4y4" path="res://data/game_stages/poker/intro_poker/gs_intro_poker.tres" id="8_irgtk"]
+[ext_resource type="Resource" uid="uid://cwntg664xwvo8" path="res://data/game_stages/phone_message/poker_girls_first_phone/gs_poker_girls_first_phone.tres" id="9_q0jv7"]
+[ext_resource type="Resource" uid="uid://dikd2kaqlhena" path="res://data/game_stages/phone_message/lisa_first_phone/gs_lisa_first_phone.tres" id="10_8dfj8"]
+[ext_resource type="Resource" uid="uid://dtba14boawfr2" path="res://data/game_stages/dates/test_date_one/test_date_one.tres" id="11_1kuxd"]
+
+[resource]
+script = ExtResource("1_jtgnc")
+gameStages = Array[Resource("res://src/vn/GameStage.gd")]([ExtResource("1_je6vd"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("4_6d3ei"), ExtResource("5_j2f0v"), ExtResource("6_lg514"), ExtResource("7_l1ex3"), ExtResource("8_irgtk"), ExtResource("9_q0jv7"), ExtResource("10_8dfj8"), ExtResource("11_1kuxd")])

@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://da4kpoevl51cg"]
+
+[ext_resource type="Script" path="res://src/poker/PokerAnimationController.gd" id="1_7vgsb"]
+
+[sub_resource type="Theme" id="Theme_6im35"]
+default_font_size = 50
+
+[sub_resource type="Animation" id="Animation_jmumj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_stswv"]
+resource_name = "show"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7sirc"]
+_data = {
+"RESET": SubResource("Animation_jmumj"),
+"show": SubResource("Animation_stswv")
+}
+
+[node name="PokerAnimationController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vgsb")
+
+[node name="DrawContainer" type="HBoxContainer" parent="." groups=["cardContainer", "poker_ui"]]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 500.0
+offset_right = 2420.0
+offset_bottom = 667.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 550
+
+[node name="PlayerHand" type="HBoxContainer" parent="." groups=["cardContainer", "poker_ui"]]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 827.0
+offset_right = 569.0
+offset_bottom = 900.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 550
+
+[node name="CpuHand" type="HBoxContainer" parent="." groups=["cardContainer", "hide_on_pause", "poker_ui"]]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 135.0
+offset_right = 482.0
+offset_bottom = 185.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 550
+
+[node name="Info" type="Label" parent="." groups=["hide_on_pause", "poker_ui"]]
+visible = false
+layout_mode = 2
+offset_left = 169.0
+offset_top = 244.0
+offset_right = 726.0
+offset_bottom = 439.0
+theme = SubResource("Theme_6im35")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Info"]
+libraries = {
+"": SubResource("AnimationLibrary_7sirc")
+}

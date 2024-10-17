@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterList" load_steps=3 format=3 uid="uid://dbjdrslf220q1"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_ndfam"]
+[ext_resource type="Resource" uid="uid://b5o4g3w002ehp" path="res://data/characters/ashely/ashely_default/ashely_default.tres" id="1_v6d75"]
+
+[resource]
+script = ExtResource("1_ndfam")
+characters = Array[Resource("res://addons/dialogue_nodes/objects/Character.gd")]([ExtResource("1_v6d75")])

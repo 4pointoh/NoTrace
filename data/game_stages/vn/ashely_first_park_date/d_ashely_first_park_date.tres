@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c6ghauu4riya7"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_c425y"]
+
+[resource]
+script = ExtResource("1_c425y")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(510.544, 306.51),
+"start_id": "START"
+},
+"1_1": {
+"background": 2,
+"backgroundList": 0,
+"characterState": 0,
+"dialogue": "hello",
+"offset": Vector2(852.544, 132.51),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 616),
+"speaker": 0
+},
+"1_2": {
+"background": 3,
+"backgroundList": 0,
+"characterState": 0,
+"dialogue": "Hi",
+"offset": Vector2(1320, 100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 602),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ashely_first_park_date/character_list.tres"
+backgroundList = "res://data/game_stages/vn/ashely_first_park_date/bgs.tres"

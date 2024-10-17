@@ -1,0 +1,176 @@
+[gd_scene load_steps=8 format=3 uid="uid://copd06cjr1uf1"]
+
+[ext_resource type="Script" path="res://src/poker/Card.gd" id="1_ynah6"]
+[ext_resource type="Texture2D" uid="uid://dnyb5oy3jxxvf" path="res://data/assets/poker/art/cardfront.png" id="2_xqinl"]
+[ext_resource type="Texture2D" uid="uid://bvxnjaqgkrde0" path="res://data/assets/poker/art/club.png" id="3_64300"]
+[ext_resource type="AudioStream" uid="uid://maak8nhac1fa" path="res://data/assets/poker/sounds/flip2.wav" id="4_ip25x"]
+
+[sub_resource type="Animation" id="Animation_vp44y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ecnv5"]
+resource_name = "flip"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"toggleCardback"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4us6"]
+_data = {
+"RESET": SubResource("Animation_vp44y"),
+"flip": SubResource("Animation_ecnv5")
+}
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_ynah6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -360.0
+offset_right = 240.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(240, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_xqinl")
+expand_mode = 4
+
+[node name="Icon" type="Sprite2D" parent="TextureRect"]
+visible = false
+position = Vector2(247, 377)
+texture = ExtResource("3_64300")
+
+[node name="NumberTopLeft" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.083
+anchor_bottom = 0.091
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 30.16
+offset_bottom = 38.48
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "X"
+
+[node name="NumberTopRight" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.083
+anchor_bottom = 0.091
+offset_left = 360.0
+offset_top = 28.0
+offset_right = 382.16
+offset_bottom = 99.48
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "X"
+
+[node name="NumberBottomLeft" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.083
+anchor_bottom = 0.091
+offset_left = 36.0
+offset_top = 554.0
+offset_right = 58.16
+offset_bottom = 625.48
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "X"
+
+[node name="NumberBottomRight" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.083
+anchor_bottom = 0.091
+offset_left = 360.0
+offset_top = 554.0
+offset_right = 382.16
+offset_bottom = 625.48
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "X"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_a4us6")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect"]
+stream = ExtResource("4_ip25x")
+volume_db = -10.654

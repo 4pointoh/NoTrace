@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://c4vicjmmdrtmf"]
+
+[ext_resource type="Resource" uid="uid://b3pqn78gsjj5" path="res://data/game_stages/vn/lisa_first_market_date/d_lisa_first_market_date.tres" id="1_rps2q"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_ye4pi"]
+[ext_resource type="Resource" uid="uid://dtba14boawfr2" path="res://data/game_stages/dates/test_date_one/test_date_one.tres" id="2_yunw5"]
+[ext_resource type="Texture2D" uid="uid://ckwnjv51moxmv" path="res://data/assets/stage_art/market_orange_hover.png" id="3_qk1w5"]
+[ext_resource type="Texture2D" uid="uid://yu1xx68sgprx" path="res://data/assets/stage_art/market_orange.png" id="4_hpx7u"]
+
+[resource]
+script = ExtResource("1_ye4pi")
+name = "lisa_first_market_date"
+dialogue = ExtResource("1_rps2q")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_yunw5")
+isCompletable = false
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+stageButtonTexture = ExtResource("4_hpx7u")
+stageButtonHover = ExtResource("3_qk1w5")
+stageButtonLabel = "Meet Lisa"
+isDate = false

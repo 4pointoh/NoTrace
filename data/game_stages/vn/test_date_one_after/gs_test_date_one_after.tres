@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=4 format=3 uid="uid://6nyw1cl2ijhq"]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_3wdxp"]
+[ext_resource type="Resource" uid="uid://fsiefncxnbel" path="res://data/game_stages/vn/test_date_one_after/d_test_date_one_after.tres" id="1_70edq"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_sk71i"]
+
+[resource]
+script = ExtResource("1_3wdxp")
+name = "test_date_one_after"
+dialogue = ExtResource("1_70edq")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_sk71i")
+isCompletable = true
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+stageButtonLabel = ""
+isDate = false
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""

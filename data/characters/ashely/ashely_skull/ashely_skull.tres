@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://bbtiw2h6pj3kc"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_hnc2l"]
+[ext_resource type="Texture2D" uid="uid://cs75wg8lxc5nj" path="res://data/characters/ashely/ashely_skull/character_art/annoyed.png" id="2_vuqjm"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_3e1pt"]
+
+[sub_resource type="Resource" id="Resource_i733m"]
+script = ExtResource("3_3e1pt")
+name = "annoyed"
+image = ExtResource("2_vuqjm")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("1_hnc2l")
+name = "???"
+editorName = "ashely_skull"
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("3_3e1pt")]([SubResource("Resource_i733m")])

@@ -1,0 +1,767 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://m43djeiuybsq"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_leblh"]
+
+[resource]
+script = ExtResource("1_leblh")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"3_7",
+"offset": Vector2(-1300, 900),
+"start_id": "START"
+},
+"1_1": {
+"background": 12,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "You didn't warn me that you were actually good at poker.",
+"offset": Vector2(-520, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_40",
+"text": ""
+}
+},
+"size": Vector2(300, 649.999),
+"speaker": "????"
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 0,
+"dialogue": "Omg!! Really? You're amazing!",
+"offset": Vector2(3659.68, 734.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300.001, 630),
+"speaker": 3
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I play with those girls at every one of Chad's parties and they always win and they're always SO rude and mean to me!",
+"offset": Vector2(4121.68, 708.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300.003, 623),
+"speaker": 3
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I just want to beat them so badly, and really rub it into their pretty little faces!!
+
+But I never can... I'm just not good enough. Tonight they took $100 from me. It made me cry. ",
+"offset": Vector2(4520, 760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 3
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 3,
+"dialogue": "I thought I could finally beat them, but they humiliated me and took my money.
+
+I was outside crying in my car until a few minutes ago... ",
+"offset": Vector2(4900, 760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300.001, 630),
+"speaker": 3
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 6,
+"dialogue": "But then YOU beat them!! You did it!! Thank you!!!",
+"offset": Vector2(5311.13, 716.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300.002, 630),
+"speaker": 3
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 0,
+"dialogue": "You really made my week. Thank you. ",
+"offset": Vector2(5809.32, 700.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300.004, 630),
+"speaker": 3
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It was my pleasure, they were total bitches. And I think they were cheating. 
+
+I think I won your $100 back if you want it.",
+"offset": Vector2(6275.32, 688.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Really?? Oh my goodness you are so nice! 
+
+But  WAIT!! I got so excited I totally didn't introduce myself!",
+"offset": Vector2(6729.32, 618.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300.008, 623),
+"speaker": 1
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 1,
+"dialogue": "My name is Lisa. Lisa Oxson! 
+
+My girlfriend is good friends with Chad, she gets me a ticket to his parties. ",
+"offset": Vector2(7197.32, 678.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 630),
+"speaker": 3
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They're usually miserable though, all because of those girls. I don't know why I keep coming.
+
+But tonight... you made it all worth it! ",
+"offset": Vector2(7662.79, 624.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300.004, 623),
+"speaker": 3
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 0,
+"dialogue": "Are you going to give it back?",
+"offset": Vector2(200, 680),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": "No"
+},
+1: {
+"condition": {},
+"link": &"3_6",
+"text": "Yes"
+}
+},
+"size": Vector2(300, 678),
+"speaker": 2
+},
+"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What about you?? I've been to a dozen of these parties and I've never seen you at one... what's your story?",
+"offset": Vector2(8194.79, 548.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300.002, 623),
+"speaker": 3
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhhh, let's just say me & Chad have a business arrangement. No need to get into any further detail. ",
+"offset": Vector2(8710.79, 518.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay! No problem! ",
+"offset": Vector2(9120, 600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 3
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...
+[wait time=4]...[/wait]
+",
+"offset": Vector2(9571.01, 532.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 630),
+"speaker": 3
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 3,
+"dialogue": "Sorry, I do have another question for you, I'm not sure how to ask this...",
+"offset": Vector2(9920, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300.001, 630),
+"speaker": 3
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I have been trying for so long to teach those poker girls a lesson... but I could never do it...",
+"offset": Vector2(10240, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 3
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 5,
+"dialogue": "... Would you please help me learn poker? How to be good at it? All the advanced strategies? 
+
+Please please please!!",
+"offset": Vector2(10600, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(300.003, 630),
+"speaker": 3
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[i] Well this is unexpected. I'd better agree to this, otherwise the developer of this game would have put all this work in for nothing![/i]",
+"offset": Vector2(11027.1, 510.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay, I think I can do that. You seem really desperate to beat those bitches, and I want to see you win.
+
+BUT I have 1 condition!",
+"offset": Vector2(11433.1, 510.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 1,
+"dialogue": "1 condition? [i] Is he going to ask me to...? No, he doesn't seem like that kind of person.[/i]",
+"offset": Vector2(11857.8, 426.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300.004, 630),
+"speaker": 3
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Great, now fuck off",
+"offset": Vector2(780, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300.001, 621),
+"speaker": "Poker Girls"
+},
+"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes, one condition: Poker is a tough game to master, and I can't spend months or years training you. 
+
+",
+"offset": Vector2(12220, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So my condition is that you respect my unique training practices. We might do some things that seem unusual for you, but if you want to master poker, you will need to agree to do them.",
+"offset": Vector2(12577.8, 364.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_32",
+"text": ""
+}
+},
+"size": Vector2(300.004, 623),
+"speaker": 0
+},
+"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 2,
+"dialogue": "Yes!! Absolutely I can do that, whatever it takes! 
+
+...Master! [i]She gives you a wink[/i]",
+"offset": Vector2(13021.2, 534.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_33",
+"text": ""
+}
+},
+"size": Vector2(300.002, 630),
+"speaker": 3
+},
+"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Perfect, we'll make you a poker master sooner than you think! ",
+"offset": Vector2(13445.2, 530.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Thank you!! This is the greatest day ever!
+
+I'm going to go home and rest now. Can I give you my phone number? ",
+"offset": Vector2(13805.2, 462.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 3
+},
+"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Good idea, I'll text you when I'm ready to begin your training. ",
+"offset": Vector2(14201, 502.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_36",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_36": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "OK!!!",
+"offset": Vector2(14617, 510.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_37",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 3
+},
+"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm going now, thank you again for everything ;)",
+"offset": Vector2(15069, 384.617),
+"options": {
+0: {
+"condition": {},
+"link": &"3_5",
+"text": ""
+}
+},
+"size": Vector2(300.003, 623),
+"speaker": 3
+},
+"1_38": {
+"background": 9,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'll be waiting for your text",
+"offset": Vector2(16760, 460),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.005, 684),
+"speaker": 3
+},
+"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Lisa walks over to the front door, stopping briefly to look back before leaving",
+"offset": Vector2(15900, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_4",
+"text": ""
+}
+},
+"size": Vector2(300.002, 621),
+"speaker": ""
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What the hell? Who invited this bitch to the party? ",
+"offset": Vector2(680, 1260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(300.002, 621.002),
+"speaker": "?????"
+},
+"1_40": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 0,
+"dialogue": "Since you didn't disclose that information, it would be dishonest of you to keep the money right?",
+"offset": Vector2(-160, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(302, 630),
+"speaker": 2
+},
+"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She storms out of the kitchen, her destination unknown.",
+"offset": Vector2(1100, 1560),
+"options": {
+0: {
+"condition": {},
+"link": &"3_10",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_42": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Without even a smile or a \"thanks\", she turns around and storms out of the kitchen, her destination unknown.",
+"offset": Vector2(1380, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"3_8",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright I don't want to be around these bitches anymore. I'm going to check out the rest of the party.",
+"offset": Vector2(1320, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_6": {
+"background": 3,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "[i]You make your way out of the kitchen and take a look around, trying to find something interesting.[/i]",
+"offset": Vector2(1700, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300.001, 643),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hey! You!!",
+"offset": Vector2(2293.79, 750.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 3
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 2,
+"dialogue": "Did you just beat those girls in poker??",
+"offset": Vector2(2735.3, 824.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300.001, 630),
+"speaker": 3
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Mmmhm, just finished wiping the floor with them",
+"offset": Vector2(3179.67, 776.617),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300.004, 623),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_7",
+"offset": Vector2(2022.77, 952.617),
+"signalValue": "tween_lisa"
+},
+"3_10": {
+"link": &"1_5",
+"offset": Vector2(1580, 1880),
+"signalValue": "hide_char"
+},
+"3_2": {
+"link": &"1_39",
+"offset": Vector2(15620, 520),
+"signalValue": "hide_char"
+},
+"3_3": {
+"link": &"1_38",
+"offset": Vector2(16280, 900),
+"signalValue": "reposition_mid"
+},
+"3_4": {
+"link": &"3_3",
+"offset": Vector2(16040, 900),
+"signalValue": "video_pause"
+},
+"3_5": {
+"link": &"3_2",
+"offset": Vector2(15440, 680),
+"signalValue": "fade_next"
+},
+"3_6": {
+"link": &"1_3",
+"offset": Vector2(540, 780),
+"signalValue": "set_paid_back_poker_girls"
+},
+"3_7": {
+"link": &"1_1",
+"offset": Vector2(-740, 900),
+"signalValue": "dont_auto_advance"
+},
+"3_8": {
+"link": &"1_5",
+"offset": Vector2(1719.46, 366.003),
+"signalValue": "hide_char"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/intro_after_poker/character_list.tres"
+backgroundList = "res://data/game_stages/vn/intro_after_poker/bgs.tres"

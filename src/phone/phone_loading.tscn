@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3o1djhnvrnb4"]
+
+[ext_resource type="Script" path="res://src/phone/phone_loading.gd" id="1_x0uic"]
+[ext_resource type="Texture2D" uid="uid://cywfmyrq4irvx" path="res://data/assets/phone/art/loading_sheet2.png" id="2_ovnsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4qn5"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(0, 0, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kg0c"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(108, 0, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05mai"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(216, 0, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqshu"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(0, 40, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_las8u"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(108, 40, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twv02"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(216, 40, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxggt"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(0, 80, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msx6w"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(108, 80, 108, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtutl"]
+atlas = ExtResource("2_ovnsp")
+region = Rect2(216, 80, 108, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5r4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4qn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kg0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05mai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqshu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_las8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twv02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxggt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msx6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtutl")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 13.0
+}]
+
+[node name="Loading" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_x0uic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, 20)
+sprite_frames = SubResource("SpriteFrames_p5r4u")
+animation = &"loading"
+frame = 5
+frame_progress = 0.925471

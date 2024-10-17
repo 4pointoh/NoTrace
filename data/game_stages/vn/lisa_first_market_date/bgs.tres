@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=3 format=3 uid="uid://b8wd1tvdg8lj7"]
+
+[ext_resource type="Resource" uid="uid://d3pamu38a1tjg" path="res://data/background_lists/chads_party/chads_party_bgl.tres" id="1_5ytdi"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_nolsm"]
+
+[resource]
+script = ExtResource("1_nolsm")
+backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_5ytdi")])

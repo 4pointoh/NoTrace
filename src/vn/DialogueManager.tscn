@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5aupfniotrg8"]
+
+[ext_resource type="Script" path="res://src/vn/DialogueManager.gd" id="1_74qok"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_f3hio"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_u7s3f"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_llgkf"]
+[ext_resource type="AudioStream" uid="uid://cu5y7ae0pqsdg" path="res://data/assets/general/sounds/sound.wav" id="5_75cai"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_hviyc"]
+script = ExtResource("2_u7s3f")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_07j7y"]
+script = ExtResource("3_llgkf")
+
+[node name="DialogueManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74qok")
+
+[node name="DialoguePlayer" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 0
+offset_left = 120.0
+offset_top = 200.0
+offset_right = 820.0
+offset_bottom = 400.0
+script = ExtResource("1_f3hio")
+start_id = "START"
+skip_input_action = "dialogue_skip"
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_hviyc"), SubResource("RichTextEffect_07j7y")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_75cai")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="dialogue_ended" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_ended"]
+[connection signal="dialogue_proceeded" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_proceeded"]
+[connection signal="dialogue_signal" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_signal"]

@@ -1,0 +1,147 @@
+[gd_scene load_steps=6 format=3 uid="uid://cltlkgjbitqgp"]
+
+[ext_resource type="Script" path="res://PokerGameFive.gd" id="1_1xw2t"]
+[ext_resource type="PackedScene" uid="uid://da4kpoevl51cg" path="res://poker_animation_controller.tscn" id="2_4x0y5"]
+[ext_resource type="PackedScene" uid="uid://copd06cjr1uf1" path="res://card.tscn" id="3_nf4pq"]
+
+[sub_resource type="Theme" id="Theme_juop8"]
+default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaee4"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+shadow_color = Color(0, 0, 0, 0.823529)
+shadow_size = 8
+
+[node name="PokerGameFive" type="Node2D"]
+script = ExtResource("1_1xw2t")
+
+[node name="PokerAnimationController" parent="." instance=ExtResource("2_4x0y5")]
+cardScene = ExtResource("3_nf4pq")
+
+[node name="Start" type="Button" parent="." groups=["init_element"]]
+offset_left = 284.0
+offset_top = 618.0
+offset_right = 619.0
+offset_bottom = 675.0
+text = "Start"
+
+[node name="Call" type="Button" parent="." groups=["buttons", "cardContainer", "hide_on_pause", "poker_ui"]]
+offset_left = 457.0
+offset_top = 1006.0
+offset_right = 638.0
+offset_bottom = 1087.0
+text = "Call
+"
+
+[node name="Fold" type="Button" parent="." groups=["buttons", "cardContainer", "hide_on_pause", "poker_ui"]]
+offset_left = 31.0
+offset_top = 1006.0
+offset_right = 212.0
+offset_bottom = 1087.0
+text = "Fold"
+
+[node name="Check" type="Button" parent="." groups=["buttons", "hide_on_pause", "poker_ui"]]
+offset_left = 242.0
+offset_top = 1006.0
+offset_right = 423.0
+offset_bottom = 1087.0
+text = "Check"
+
+[node name="Raise" type="Button" parent="." groups=["buttons", "hide_on_pause", "poker_ui"]]
+offset_left = 690.0
+offset_top = 1006.0
+offset_right = 871.0
+offset_bottom = 1087.0
+text = "Raise"
+
+[node name="RaiseInput" type="SpinBox" parent="Raise" groups=["hide_on_pause", "poker_ui"]]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 181.0
+offset_bottom = -9.0
+min_value = 20.0
+step = 20.0
+value = 100.0
+
+[node name="YourMoney" type="Label" parent="." groups=["poker_ui"]]
+offset_top = 1094.0
+offset_right = 171.0
+offset_bottom = 1144.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "You: "
+
+[node name="TheirMoney" type="Label" parent="." groups=["poker_ui"]]
+offset_left = 403.0
+offset_top = 1094.0
+offset_right = 665.0
+offset_bottom = 1144.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Opponent:"
+
+[node name="Ante" type="Label" parent="." groups=["poker_ui"]]
+offset_left = 203.0
+offset_top = 1094.0
+offset_right = 381.0
+offset_bottom = 1144.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Ante:"
+
+[node name="Pot" type="Label" parent="." groups=["poker_ui"]]
+offset_left = 706.0
+offset_top = 1094.0
+offset_right = 884.0
+offset_bottom = 1144.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Pot:"
+
+[node name="Info" type="Label" parent="." groups=["hide_on_pause", "poker_ui"]]
+offset_left = 203.0
+offset_top = 468.0
+offset_right = 716.0
+offset_bottom = 618.0
+theme = SubResource("Theme_juop8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info2" type="Label" parent="." groups=["hide_on_pause", "poker_ui"]]
+offset_left = 227.0
+offset_top = 957.0
+offset_right = 682.0
+offset_bottom = 999.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartingInfo" type="Label" parent="." groups=["init_element"]]
+offset_left = 203.0
+offset_top = 230.0
+offset_right = 713.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qaee4")
+text = "You are facing: {opponent}
+
+You have: {money}
+They have: {money}
+Ante: {ante}"
+
+[connection signal="animation_complete" from="PokerAnimationController" to="." method="_on_poker_animation_controller_animation_complete"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Call" to="." method="_on_call_pressed"]
+[connection signal="pressed" from="Fold" to="." method="_on_fold_pressed"]
+[connection signal="pressed" from="Check" to="." method="_on_check_pressed"]
+[connection signal="pressed" from="Raise" to="." method="_on_raise_pressed"]

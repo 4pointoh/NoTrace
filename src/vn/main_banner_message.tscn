@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://2shao23jxs66"]
+
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_2gu18"]
+[ext_resource type="Script" path="res://MainBannerMessage.gd" id="2_tuj4h"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_1lwc1"]
+[ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="4_65y77"]
+
+[node name="MainBannerMessage" type="NinePatchRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1000.0
+offset_right = 1057.0
+offset_bottom = -920.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2gu18")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+script = ExtResource("2_tuj4h")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 896.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("3_1lwc1")
+theme_override_font_sizes/font_size = 55
+text = "Some Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(471, 117)
+scale = Vector2(0.689055, 0.689055)
+texture = ExtResource("4_65y77")

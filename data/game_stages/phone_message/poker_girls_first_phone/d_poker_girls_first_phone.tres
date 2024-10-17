@@ -1,0 +1,99 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://b7tvbysdytcb3"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_rpteb"]
+
+[resource]
+script = ExtResource("1_rpteb")
+starts = {
+"START1": &"0_1",
+"START2": &"0_2",
+"START3": &"0_3"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-1152.28, 36.2573),
+"start_id": "START1"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(-1191.36, 594.636),
+"start_id": "START2"
+},
+"0_3": {
+"link": &"1_3",
+"offset": Vector2(-340, 40),
+"start_id": "START3"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I have no idea who this is...",
+"offset": Vector2(-720, -200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I still have no idea",
+"offset": Vector2(-720, 500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Shit... how many other people noticed??
+
+",
+"offset": Vector2(16.6377, -248.233),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": " I really gotta tone that down or all the ladies will think I'm swinging for the other team.",
+"offset": Vector2(380, -260),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/phone_message/poker_girls_first_phone/character_list.tres"
+backgroundList = ""

@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmhnmn0imk4df"]
+
+[ext_resource type="Script" path="res://src/vn/Background.gd" id="1_jg27e"]
+[ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="2_sbf2l"]
+
+[sub_resource type="Animation" id="Animation_xy1k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rjx5v"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eohq3"]
+resource_name = "fade_quick"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53abx"]
+_data = {
+"RESET": SubResource("Animation_xy1k7"),
+"fade": SubResource("Animation_rjx5v"),
+"fade_quick": SubResource("Animation_eohq3")
+}
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jg27e")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 912.0
+offset_bottom = 1159.0
+texture = ExtResource("2_sbf2l")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 15.0
+offset_right = 862.0
+offset_bottom = 1087.0
+scale = Vector2(1.04, 1.04)
+expand = true
+
+[node name="Fade" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 896.0
+offset_bottom = 1152.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_53abx")
+}
+
+[node name="FadeTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

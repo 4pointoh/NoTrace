@@ -1,0 +1,212 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=70 format=3 uid="uid://d3k3dbk6cteq2"]
+
+[ext_resource type="Texture2D" uid="uid://bdh5aqul51rrm" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg0.png" id="1_0vsn6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_a7ri2"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_003rk"]
+[ext_resource type="Texture2D" uid="uid://dmd3jm3itobfs" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg1.png" id="3_dtbk3"]
+[ext_resource type="Texture2D" uid="uid://djpiw2e3ctmna" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg2.png" id="4_kaltl"]
+[ext_resource type="Texture2D" uid="uid://btwy4lhkvtqw6" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg3.png" id="5_weqrk"]
+[ext_resource type="Texture2D" uid="uid://cct5gdegls5r6" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg4.png" id="6_kljxr"]
+[ext_resource type="Texture2D" uid="uid://ctl1l8078patj" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg5.png" id="7_foti4"]
+[ext_resource type="Texture2D" uid="uid://bk7lgu27gewus" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg6.png" id="8_ye373"]
+[ext_resource type="Texture2D" uid="uid://deomn4abbsyc0" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg7.png" id="9_7ik2u"]
+[ext_resource type="Texture2D" uid="uid://c7tone6p1rk7n" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg8.png" id="10_5q5c4"]
+[ext_resource type="Texture2D" uid="uid://dvgjylpbhbv1m" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg9.png" id="11_ynv3n"]
+[ext_resource type="Texture2D" uid="uid://celgp72eyl5et" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg10.png" id="12_eb6uw"]
+[ext_resource type="Texture2D" uid="uid://brmyigcgbsui3" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg11.png" id="13_pgbok"]
+[ext_resource type="Texture2D" uid="uid://d4t8m26rgk44" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg13.png" id="14_bomb2"]
+[ext_resource type="Texture2D" uid="uid://beaowtahgp8yh" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg14.png" id="15_slj2u"]
+[ext_resource type="Texture2D" uid="uid://dysjew8igcx2e" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg15.png" id="16_b45dx"]
+[ext_resource type="Texture2D" uid="uid://fsdnc8sjbvew" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg16.png" id="17_n1xue"]
+[ext_resource type="Texture2D" uid="uid://cv82334ydjh6r" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg17.png" id="18_iu00n"]
+[ext_resource type="Texture2D" uid="uid://beteacxccra51" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg18.png" id="19_lmtw0"]
+[ext_resource type="Texture2D" uid="uid://34ny814pk3jy" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg19.png" id="20_rfatx"]
+[ext_resource type="Texture2D" uid="uid://dfc0318ib47cs" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg20.png" id="21_gbrn3"]
+[ext_resource type="Texture2D" uid="uid://cilbk7hjtsn16" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg21.png" id="22_jsgm7"]
+[ext_resource type="Texture2D" uid="uid://cnlotun5nsm61" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg22.png" id="23_k67ti"]
+[ext_resource type="Texture2D" uid="uid://bpy8yoc7d8m2w" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg23.png" id="24_h5417"]
+[ext_resource type="Texture2D" uid="uid://c4xm7nxuy21sn" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg24.png" id="25_u46ww"]
+[ext_resource type="Texture2D" uid="uid://cybecogaoj17u" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg25.png" id="26_ritx5"]
+[ext_resource type="Texture2D" uid="uid://b0bh8bq20fhdj" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg26.png" id="27_httva"]
+[ext_resource type="Texture2D" uid="uid://ct87kslp15ix" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg27.png" id="28_5tsgp"]
+[ext_resource type="Texture2D" uid="uid://df308u851ujk8" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg28.png" id="29_dsejo"]
+[ext_resource type="Texture2D" uid="uid://d3w4s0ufve8bw" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg29.png" id="30_wowe4"]
+[ext_resource type="Texture2D" uid="uid://c30fc5dq4flnk" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg30.png" id="31_3ck7p"]
+[ext_resource type="Texture2D" uid="uid://dexyq8hxmskes" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg31.png" id="32_c6xa6"]
+[ext_resource type="Texture2D" uid="uid://6r3uq4r8pp5f" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg32.png" id="33_h6ft4"]
+[ext_resource type="Texture2D" uid="uid://c8u4q88tjtoam" path="res://data/background_lists/lisa_casino/backgrounds/casino_bg33.png" id="34_88mxo"]
+
+[sub_resource type="Resource" id="Resource_ys41e"]
+script = ExtResource("2_003rk")
+name = "0"
+images = ExtResource("1_0vsn6")
+
+[sub_resource type="Resource" id="Resource_kkdk3"]
+script = ExtResource("2_003rk")
+name = "1"
+images = ExtResource("3_dtbk3")
+
+[sub_resource type="Resource" id="Resource_auqhq"]
+script = ExtResource("2_003rk")
+name = "2"
+images = ExtResource("4_kaltl")
+
+[sub_resource type="Resource" id="Resource_73dwf"]
+script = ExtResource("2_003rk")
+name = "3"
+images = ExtResource("5_weqrk")
+
+[sub_resource type="Resource" id="Resource_tky3r"]
+script = ExtResource("2_003rk")
+name = "4"
+images = ExtResource("6_kljxr")
+
+[sub_resource type="Resource" id="Resource_cq467"]
+script = ExtResource("2_003rk")
+name = "5"
+images = ExtResource("7_foti4")
+
+[sub_resource type="Resource" id="Resource_rvr6r"]
+script = ExtResource("2_003rk")
+name = "6"
+images = ExtResource("8_ye373")
+
+[sub_resource type="Resource" id="Resource_ltu28"]
+script = ExtResource("2_003rk")
+name = "7"
+images = ExtResource("9_7ik2u")
+
+[sub_resource type="Resource" id="Resource_71k63"]
+script = ExtResource("2_003rk")
+name = "8"
+images = ExtResource("10_5q5c4")
+
+[sub_resource type="Resource" id="Resource_q2ok4"]
+script = ExtResource("2_003rk")
+name = "9"
+images = ExtResource("11_ynv3n")
+
+[sub_resource type="Resource" id="Resource_cl5ol"]
+script = ExtResource("2_003rk")
+name = "10"
+images = ExtResource("12_eb6uw")
+
+[sub_resource type="Resource" id="Resource_65nof"]
+script = ExtResource("2_003rk")
+name = "11"
+images = ExtResource("13_pgbok")
+
+[sub_resource type="Resource" id="Resource_ke2vv"]
+script = ExtResource("2_003rk")
+name = "12"
+images = ExtResource("14_bomb2")
+
+[sub_resource type="Resource" id="Resource_gko1i"]
+script = ExtResource("2_003rk")
+name = "13"
+images = ExtResource("14_bomb2")
+
+[sub_resource type="Resource" id="Resource_8ipuo"]
+script = ExtResource("2_003rk")
+name = "14"
+images = ExtResource("15_slj2u")
+
+[sub_resource type="Resource" id="Resource_4l45d"]
+script = ExtResource("2_003rk")
+name = "15"
+images = ExtResource("16_b45dx")
+
+[sub_resource type="Resource" id="Resource_v0lt6"]
+script = ExtResource("2_003rk")
+name = "16"
+images = ExtResource("17_n1xue")
+
+[sub_resource type="Resource" id="Resource_1ymvq"]
+script = ExtResource("2_003rk")
+name = "17"
+images = ExtResource("18_iu00n")
+
+[sub_resource type="Resource" id="Resource_2lrgq"]
+script = ExtResource("2_003rk")
+name = "18"
+images = ExtResource("19_lmtw0")
+
+[sub_resource type="Resource" id="Resource_70r06"]
+script = ExtResource("2_003rk")
+name = "19"
+images = ExtResource("20_rfatx")
+
+[sub_resource type="Resource" id="Resource_he5sx"]
+script = ExtResource("2_003rk")
+name = "20"
+images = ExtResource("21_gbrn3")
+
+[sub_resource type="Resource" id="Resource_gidm2"]
+script = ExtResource("2_003rk")
+name = "21"
+images = ExtResource("22_jsgm7")
+
+[sub_resource type="Resource" id="Resource_p2bl6"]
+script = ExtResource("2_003rk")
+name = "22"
+images = ExtResource("23_k67ti")
+
+[sub_resource type="Resource" id="Resource_nom1p"]
+script = ExtResource("2_003rk")
+name = "23"
+images = ExtResource("24_h5417")
+
+[sub_resource type="Resource" id="Resource_lwl3y"]
+script = ExtResource("2_003rk")
+name = "24"
+images = ExtResource("25_u46ww")
+
+[sub_resource type="Resource" id="Resource_reit5"]
+script = ExtResource("2_003rk")
+name = "25"
+images = ExtResource("26_ritx5")
+
+[sub_resource type="Resource" id="Resource_drx32"]
+script = ExtResource("2_003rk")
+name = "26"
+images = ExtResource("27_httva")
+
+[sub_resource type="Resource" id="Resource_efaia"]
+script = ExtResource("2_003rk")
+name = "27"
+images = ExtResource("28_5tsgp")
+
+[sub_resource type="Resource" id="Resource_xpk43"]
+script = ExtResource("2_003rk")
+name = "28"
+images = ExtResource("29_dsejo")
+
+[sub_resource type="Resource" id="Resource_0lc46"]
+script = ExtResource("2_003rk")
+name = "29"
+images = ExtResource("30_wowe4")
+
+[sub_resource type="Resource" id="Resource_rg5ey"]
+script = ExtResource("2_003rk")
+name = "30"
+images = ExtResource("31_3ck7p")
+
+[sub_resource type="Resource" id="Resource_ug5jg"]
+script = ExtResource("2_003rk")
+name = "31"
+images = ExtResource("32_c6xa6")
+
+[sub_resource type="Resource" id="Resource_fhdhg"]
+script = ExtResource("2_003rk")
+name = "32"
+images = ExtResource("33_h6ft4")
+
+[sub_resource type="Resource" id="Resource_gr67o"]
+script = ExtResource("2_003rk")
+name = "33"
+images = ExtResource("34_88mxo")
+
+[resource]
+script = ExtResource("1_a7ri2")
+name = "lisa_casino"
+images = Array[ExtResource("2_003rk")]([SubResource("Resource_ys41e"), SubResource("Resource_kkdk3"), SubResource("Resource_auqhq"), SubResource("Resource_73dwf"), SubResource("Resource_tky3r"), SubResource("Resource_cq467"), SubResource("Resource_rvr6r"), SubResource("Resource_ltu28"), SubResource("Resource_71k63"), SubResource("Resource_q2ok4"), SubResource("Resource_cl5ol"), SubResource("Resource_65nof"), SubResource("Resource_ke2vv"), SubResource("Resource_gko1i"), SubResource("Resource_8ipuo"), SubResource("Resource_4l45d"), SubResource("Resource_v0lt6"), SubResource("Resource_1ymvq"), SubResource("Resource_2lrgq"), SubResource("Resource_70r06"), SubResource("Resource_he5sx"), SubResource("Resource_gidm2"), SubResource("Resource_p2bl6"), SubResource("Resource_nom1p"), SubResource("Resource_lwl3y"), SubResource("Resource_reit5"), SubResource("Resource_drx32"), SubResource("Resource_efaia"), SubResource("Resource_xpk43"), SubResource("Resource_0lc46"), SubResource("Resource_rg5ey"), SubResource("Resource_ug5jg"), SubResource("Resource_fhdhg"), SubResource("Resource_gr67o")])

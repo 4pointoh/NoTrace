@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=5 format=3 uid="uid://cht80hoqypt6q"]
+
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="1_7d81o"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_gwbg8"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_qtgix"]
+
+[sub_resource type="Resource" id="Resource_2qkpm"]
+script = ExtResource("2_qtgix")
+name = "home"
+images = ExtResource("1_7d81o")
+
+[resource]
+script = ExtResource("1_gwbg8")
+name = "home"
+images = Array[ExtResource("2_qtgix")]([SubResource("Resource_2qkpm")])

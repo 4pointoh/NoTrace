@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx4x2fdhktike"]
+
+[ext_resource type="Script" path="res://src/vn/Notification.gd" id="1_yatcg"]
+[ext_resource type="Texture2D" uid="uid://m2h7k6nv1b2t" path="res://data/assets/phone/art/message_text_bg3_outline.png" id="2_rviwp"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_4bkkd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v32ih"]
+
+[sub_resource type="Animation" id="Animation_acvm8"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Text:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Control/Image:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(384, 227)]
+}
+
+[sub_resource type="Animation" id="Animation_av3iu"]
+resource_name = "open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(500, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Text:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 34), Vector2(4, 34), Vector2(4, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Control/Image:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(187, 213), Vector2(187, 213), Vector2(187, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_06xtj"]
+_data = {
+"RESET": SubResource("Animation_acvm8"),
+"open": SubResource("Animation_av3iu")
+}
+
+[node name="Container" type="Panel"]
+clip_contents = true
+offset_top = 805.0
+offset_right = 896.0
+offset_bottom = 1035.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v32ih")
+script = ExtResource("1_yatcg")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+anchors_preset = 0
+offset_left = 197.0
+offset_right = 697.0
+offset_bottom = 197.0
+
+[node name="Image" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 384.0
+offset_top = 227.0
+offset_right = 522.0
+offset_bottom = 400.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 172.0
+offset_right = 894.0
+offset_bottom = 225.0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_rviwp")
+patch_margin_top = 12
+patch_margin_bottom = 12
+
+[node name="Container" type="Control" parent="HBoxContainer/NinePatchRect"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 486.0
+offset_bottom = 48.0
+
+[node name="Text" type="Label" parent="HBoxContainer/NinePatchRect/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 4.0
+offset_top = 34.0
+offset_right = 473.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("3_4bkkd")
+theme_override_font_sizes/font_size = 24
+text = "WALLPAPER UNLOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Anim" type="AnimationPlayer" parent="HBoxContainer/NinePatchRect/Container/Text"]
+unique_name_in_owner = true
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_06xtj")
+}

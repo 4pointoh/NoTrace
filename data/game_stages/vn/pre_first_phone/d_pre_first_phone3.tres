@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bblqs2uscxmaf"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_sgdw0"]
+
+[resource]
+script = ExtResource("1_sgdw0")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"3_1",
+"offset": Vector2(-1120, 160),
+"start_id": "START"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[i]Alright the party is thinning out. I should stay and help Chad clean up.[/i]
+[wait time=1.4]
+Nah fuck that, I'm out.
+[/wait]",
+"offset": Vector2(80, -160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(538.018, 770.207),
+"speaker": 0
+},
+"1_2": {
+"background": 9,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Several hours pass, you enjoy every minute of Chad's party. 
+
+Eventually the other guests begin to trickle home in their assorted drunken states. ",
+"offset": Vector2(-360, -140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1",
+"text": ""
+}
+},
+"size": Vector2(300, 641),
+"speaker": ""
+},
+"1_3": {
+"background": 0,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You make your way home, exhausted, and fall asleep. 
+
+You sleep until 2pm the next day, waking to the afternoon sunshine in your bedroom.",
+"offset": Vector2(1020, -180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 641),
+"speaker": ""
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[i]I slept kind of late... I told that Lisa chick that I'd text her today... I should probably do that now.[/i]",
+"offset": Vector2(1460, -200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_2",
+"offset": Vector2(-671.214, 162.759),
+"signalValue": "fade_next"
+},
+"3_2": {
+"link": &"3_3",
+"offset": Vector2(680, 200),
+"signalValue": "unlock_wp_lisa_leaving"
+},
+"3_3": {
+"link": &"1_3",
+"offset": Vector2(794.03, 614.818),
+"signalValue": "music_home"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/pre_first_phone/character_list.tres"
+backgroundList = "res://data/game_stages/vn/pre_first_phone/bgs.tres"

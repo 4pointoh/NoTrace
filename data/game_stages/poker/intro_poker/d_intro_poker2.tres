@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://b08ffmkixtdxk"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_0r68e"]
+
+[resource]
+script = ExtResource("1_0r68e")
+starts = {
+"START_TEST": &"0_1",
+"START_TEST2": &"0_2"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(212, 461),
+"start_id": "START_TEST"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(156.626, 1048.57),
+"start_id": "START_TEST2"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Woah we got a poker game going over here?",
+"offset": Vector2(600, 340),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 643),
+"speaker": 0
+},
+"1_2": {
+"background": 11,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Wow he bankrupt the other girl... there's only one left!",
+"offset": Vector2(600, 960),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 643),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/poker/intro_poker/character_list.tres"
+backgroundList = "res://data/game_stages/poker/intro_poker/bgs.tres"

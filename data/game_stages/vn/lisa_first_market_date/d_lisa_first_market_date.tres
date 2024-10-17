@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://b3pqn78gsjj5"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_ooslj"]
+
+[resource]
+script = ExtResource("1_ooslj")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(560, 380),
+"start_id": "START"
+},
+"1_1": {
+"background": 0,
+"backgroundList": 0,
+"characterState": 1,
+"dialogue": "Thanks for coming! The cafe is right over there!",
+"offset": Vector2(1200, 200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 650),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/lisa_first_market_date/character_list.tres"
+backgroundList = "res://data/game_stages/vn/lisa_first_market_date/bgs.tres"

@@ -1,0 +1,175 @@
+[gd_scene load_steps=17 format=3 uid="uid://d3tjbs8klb0sh"]
+
+[ext_resource type="Script" path="res://src/phone/messages_app.gd" id="1_nop6m"]
+[ext_resource type="PackedScene" uid="uid://3n8lkyrp2q07" path="res://src/phone/available_message.tscn" id="2_pvtiw"]
+[ext_resource type="PackedScene" uid="uid://bu8pn0siowaf1" path="res://src/phone/message_image.tscn" id="4_74deq"]
+[ext_resource type="PackedScene" uid="uid://c3o1djhnvrnb4" path="res://src/phone/phone_loading.tscn" id="5_vla3j"]
+[ext_resource type="PackedScene" uid="uid://bo16w2qyom2i4" path="res://src/phone/partner_status_message.tscn" id="6_7x5po"]
+[ext_resource type="PackedScene" uid="uid://bv7mv8sfe22i4" path="res://src/phone/message_text.tscn" id="6_os5er"]
+[ext_resource type="Texture2D" uid="uid://budgmygas074q" path="res://data/assets/phone/art/messages_background.png" id="6_qklb5"]
+[ext_resource type="Script" path="res://src/phone/MessageScreen.gd" id="6_us3ry"]
+[ext_resource type="PackedScene" uid="uid://drkv4n8chck8g" path="res://src/phone/phone_choice.tscn" id="7_gcin8"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="7_w7den"]
+[ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="10_juhdj"]
+
+[sub_resource type="Animation" id="Animation_pxicp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(247, 1109)]
+}
+
+[sub_resource type="Animation" id="Animation_22lni"]
+resource_name = "pop_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(247, 1121)]
+}
+
+[sub_resource type="Animation" id="Animation_oi1ls"]
+resource_name = "pop_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(247, 1178), Vector2(247, 178), Vector2(247, 293)]
+}
+
+[sub_resource type="Animation" id="Animation_pfipv"]
+resource_name = "slide_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(918, 379), Vector2(188, 379)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tiln1"]
+_data = {
+"RESET": SubResource("Animation_pxicp"),
+"pop_down": SubResource("Animation_22lni"),
+"pop_up": SubResource("Animation_oi1ls"),
+"slide_in": SubResource("Animation_pfipv")
+}
+
+[node name="MessagesApp" type="Node2D"]
+script = ExtResource("1_nop6m")
+availableMessage = ExtResource("2_pvtiw")
+messageText = ExtResource("6_os5er")
+messageImage = ExtResource("4_74deq")
+loadingAnim = ExtResource("5_vla3j")
+partnerStatus = ExtResource("6_7x5po")
+
+[node name="MessagesBackground" type="TextureRect" parent="."]
+offset_left = 188.0
+offset_top = 59.0
+offset_right = 762.0
+offset_bottom = 1086.0
+texture = ExtResource("6_qklb5")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 188.0
+offset_top = 87.0
+offset_right = 762.0
+offset_bottom = 156.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="icon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+texture = ExtResource("10_juhdj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContactName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_w7den")
+theme_override_font_sizes/font_size = 50
+text = "Contacts"
+horizontal_alignment = 1
+
+[node name="AvailableMessagesContainer" type="VBoxContainer" parent="."]
+offset_left = 247.0
+offset_top = 170.0
+offset_right = 750.0
+offset_bottom = 932.0
+theme_override_constants/separation = 100
+
+[node name="AvailableMessage" parent="AvailableMessagesContainer" instance=ExtResource("2_pvtiw")]
+layout_mode = 2
+
+[node name="MessageScreen" type="ScrollContainer" parent="."]
+visible = false
+offset_left = 201.0
+offset_top = 170.0
+offset_right = 750.0
+offset_bottom = 940.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("6_us3ry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageScreen"]
+clip_contents = true
+custom_minimum_size = Vector2(541, 782)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Choice" parent="." instance=ExtResource("7_gcin8")]
+visible = false
+offset_left = 247.0
+offset_top = 1109.0
+offset_right = 821.0
+offset_bottom = 1609.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Choice"]
+libraries = {
+"": SubResource("AnimationLibrary_tiln1")
+}
+
+[node name="Respond" type="Button" parent="."]
+visible = false
+offset_left = 220.0
+offset_top = 972.0
+offset_right = 741.0
+offset_bottom = 1037.0
+text = "Send Message"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="choice" from="Choice" to="." method="_on_choice_choice"]
+[connection signal="pressed" from="Respond" to="." method="_on_respond_pressed"]
