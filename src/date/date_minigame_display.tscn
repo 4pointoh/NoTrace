@@ -1618,6 +1618,28 @@ libraries = {
 "": SubResource("AnimationLibrary_g24rx")
 }
 
+[node name="luckbg" type="NinePatchRect" parent="."]
+offset_left = 10.0
+offset_top = 1000.0
+offset_right = 141.0
+offset_bottom = 1144.0
+texture = ExtResource("2_4gai5")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="intensitybg" type="NinePatchRect" parent="."]
+offset_left = 9.0
+offset_top = 840.0
+offset_right = 140.0
+offset_bottom = 984.0
+texture = ExtResource("2_4gai5")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
 [node name="AnimContainer" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
@@ -1645,16 +1667,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloverAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(74, 1049)
+position = Vector2(74, 1062)
 scale = Vector2(0.808333, 0.808333)
 sprite_frames = SubResource("SpriteFrames_44yx7")
 animation = &"breeze"
 frame_progress = 0.341239
 
 [node name="Luck" type="Label" parent="."]
-offset_top = 1068.0
+offset_top = 1090.0
 offset_right = 150.0
-offset_bottom = 1104.0
+offset_bottom = 1126.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1663,11 +1685,22 @@ text = "High"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="bonusbg" type="NinePatchRect" parent="."]
+offset_left = 757.0
+offset_top = 843.0
+offset_right = 888.0
+offset_bottom = 1083.0
+texture = ExtResource("2_4gai5")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
 [node name="BonusEmoji" type="Label" parent="."]
-offset_left = 750.0
-offset_top = 885.0
-offset_right = 900.0
-offset_bottom = 963.0
+offset_left = 748.0
+offset_top = 864.0
+offset_right = 898.0
+offset_bottom = 942.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1677,10 +1710,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BonusesTitle" type="Label" parent="."]
-offset_left = 750.0
-offset_top = 934.0
-offset_right = 892.0
-offset_bottom = 970.0
+offset_left = 754.0
+offset_top = 911.0
+offset_right = 896.0
+offset_bottom = 947.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1691,15 +1724,39 @@ vertical_alignment = 1
 
 [node name="BonusesText" type="Label" parent="."]
 offset_left = 750.0
-offset_top = 974.0
+offset_top = 953.0
 offset_right = 892.0
-offset_bottom = 1140.0
+offset_bottom = 1075.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("3_j5wfl")
 theme_override_font_sizes/font_size = 16
 text = "Fail Bonus (x5)"
 horizontal_alignment = 1
+
+[node name="itemsbg" type="NinePatchRect" parent="."]
+offset_left = 757.0
+offset_top = 1097.0
+offset_right = 888.0
+offset_bottom = 1141.0
+texture = ExtResource("2_4gai5")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="itemstitle" type="Label" parent="."]
+offset_left = 749.0
+offset_top = 1098.0
+offset_right = 896.0
+offset_bottom = 1140.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_j5wfl")
+theme_override_font_sizes/font_size = 30
+text = "Items"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Container/MainButton" to="." method="_on_main_button_pressed"]
 [connection signal="pressed" from="Container/ArrowLeft" to="." method="_on_arrow_left_pressed"]

@@ -4,13 +4,16 @@ var currentActionIndex : int = 0
 
 @onready var intensityAnimation = $AnimContainer/IntensityAnimation
 @onready var intensityAnimationText = $Intensity
+@onready var intensitybg = $intensitybg
 @onready var luckAnimation = $CloverAnim
 @onready var luckAnimationText = $Luck
+@onready var luckbg = $luckbg
 @onready var typeBg = $Type
 @onready var typeBgText = $Type/TypeText
 @onready var bonusesTextIcon = $BonusEmoji
 @onready var bonusesTextTitle = $BonusesTitle
 @onready var bonusesTextValue = $BonusesText
+@onready var bonusbg = $bonusbg
 
 @onready var mainText = $Container/MainText
 @onready var mainButton = $Container/MainButton
@@ -55,9 +58,11 @@ func setUi(action : DateAction):
 	if !action.intensity or action.intensity < 0:
 		intensityAnimation.hide()
 		intensityAnimationText.hide()
+		intensitybg.hide()
 	else:
 		intensityAnimation.show()  
 		intensityAnimationText.show()
+		intensitybg.show()
 		intensityAnimation.play("burning")
 		intensityAnimationText.text = intensityTextArray[action.intensity]
 		intensityAnimation.scale = Vector2((action.intensity / 10.0) + 0.4, (action.intensity / 10.0) + 0.4)
@@ -65,9 +70,11 @@ func setUi(action : DateAction):
 	if !action.luck or action.luck < 0:
 		luckAnimation.hide()
 		luckAnimationText.hide()
+		luckbg.hide()
 	else:
 		luckAnimation.show()
 		luckAnimationText.show()
+		luckbg.show()
 		luckAnimation.play("breeze")
 		luckAnimationText.text = luckTextArray[action.luck]
 	
@@ -90,11 +97,13 @@ func setUi(action : DateAction):
 		bonusesTextIcon.hide()
 		bonusesTextTitle.hide()
 		bonusesTextValue.hide()
+		bonusbg.hide()
 	else:
 		bonusesTextValue.text = getBonusesText(bonuses)
 		bonusesTextIcon.show()
 		bonusesTextTitle.show()
 		bonusesTextValue.show()
+		bonusbg.show()
 	
 	mainText.text = action.text
 	
