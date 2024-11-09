@@ -1,0 +1,3035 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dfbuugnd5gh8f"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_anbfs"]
+
+[resource]
+script = ExtResource("1_anbfs")
+starts = {
+"LOST": &"0_2",
+"START": &"0_1",
+"ask_how_old": &"0_18",
+"ask_how_old_fail": &"0_19",
+"asked_too_many_times": &"0_4",
+"asked_twice_in_a_row_generic": &"0_5",
+"asking_for_no_reason": &"0_14",
+"attractive_women": &"0_32",
+"bitches": &"0_34",
+"born_and_raised": &"0_43",
+"chad_chill": &"0_55",
+"chad_fail": &"0_50",
+"chad_good_friend": &"0_54",
+"chad_i_do_his_homework": &"0_56",
+"chicken_giggler": &"0_40",
+"city_thoughts_success": &"0_23",
+"consciousness": &"0_45",
+"cummington_fail": &"0_49",
+"cummington_state_success": &"0_25",
+"current_relationship_fail": &"0_68",
+"current_relationship_success": &"0_67",
+"definitely_leving": &"0_28",
+"definitely_staying": &"0_27",
+"dialogue_about_lisa": &"0_7",
+"dialogue_about_lisa_common": &"0_6",
+"dialogue_always_lived_here": &"0_42",
+"dialogue_chad": &"0_26",
+"dialogue_chad_party": &"0_57",
+"dialogue_chad_thoughts": &"0_53",
+"dialogue_cummington": &"0_21",
+"dialogue_cummington_common": &"0_20",
+"dialogue_favorite_meat_pie": &"0_38",
+"dialogue_name_origin": &"0_46",
+"dialogue_poker": &"0_9",
+"dialogue_poker_common": &"0_8",
+"dialogue_relationships": &"0_65",
+"dialogue_relationships_common": &"0_64",
+"dialogue_think_about_cummington": &"0_35",
+"dialogue_why_interested_in_lisa_q": &"0_12",
+"dialogue_your_relationship_status": &"0_69",
+"ever_had_fail": &"0_74",
+"farmers_market_success": &"0_24",
+"first_kiss_fail": &"0_73",
+"first_kiss_success": &"0_72",
+"friend_of_chad": &"0_58",
+"friend_of_friend": &"0_59",
+"friend_of_friend_of_friend": &"0_60",
+"friend_of_friend_of_friend_of_friend": &"0_61",
+"go_to_party_fail": &"0_63",
+"go_to_party_success": &"0_62",
+"great_college_town": &"0_36",
+"have_a_shot": &"0_71",
+"is_there_something_you_dislike_about_it": &"0_30",
+"is_there_something_you_like_about_it": &"0_29",
+"job_raise_family": &"0_31",
+"know_chad_fail": &"0_52",
+"know_chad_success": &"0_51",
+"lived_here_success": &"0_22",
+"mega_milker": &"0_39",
+"more_opportunities": &"0_33",
+"moved_for_college": &"0_44",
+"named_after_founder": &"0_47",
+"no_idea_but_funny": &"0_48",
+"okay_but_small": &"0_37",
+"player_ask_fav_color_fail": &"0_17",
+"player_ask_fav_color_success": &"0_16",
+"rel_training_purposes": &"0_70",
+"relationships_fail": &"0_66",
+"repeat_generic": &"0_3",
+"smalltalk": &"0_11",
+"smalltalk_topic": &"0_10",
+"think_youre_cute": &"0_15",
+"training_process": &"0_13",
+"vegan": &"0_41"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(491.546, 3.90536),
+"start_id": "START"
+},
+"0_10": {
+"link": &"1_10",
+"offset": Vector2(216.273, 2846.17),
+"start_id": "smalltalk_topic"
+},
+"0_11": {
+"link": &"1_11",
+"offset": Vector2(240, 3520),
+"start_id": "smalltalk"
+},
+"0_12": {
+"link": &"1_12",
+"offset": Vector2(1258.27, 3335.46),
+"start_id": "dialogue_why_interested_in_lisa_q"
+},
+"0_13": {
+"link": &"1_14",
+"offset": Vector2(1146.3, 4256.11),
+"start_id": "training_process"
+},
+"0_14": {
+"link": &"1_16",
+"offset": Vector2(978.303, 4895.73),
+"start_id": "asking_for_no_reason"
+},
+"0_15": {
+"link": &"1_18",
+"offset": Vector2(802.303, 5547.06),
+"start_id": "think_youre_cute"
+},
+"0_16": {
+"link": &"1_22",
+"offset": Vector2(642.77, 6511.09),
+"start_id": "player_ask_fav_color_success"
+},
+"0_17": {
+"link": &"1_25",
+"offset": Vector2(2280, 6540),
+"start_id": "player_ask_fav_color_fail"
+},
+"0_18": {
+"link": &"1_27",
+"offset": Vector2(502.335, 7144),
+"start_id": "ask_how_old"
+},
+"0_19": {
+"link": &"1_29",
+"offset": Vector2(1860, 7160),
+"start_id": "ask_how_old_fail"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(500, 680),
+"start_id": "LOST"
+},
+"0_20": {
+"link": &"1_31",
+"offset": Vector2(647.412, 8112.57),
+"start_id": "dialogue_cummington_common"
+},
+"0_21": {
+"link": &"1_32",
+"offset": Vector2(443.412, 8470.57),
+"start_id": "dialogue_cummington"
+},
+"0_22": {
+"link": &"1_33",
+"offset": Vector2(2598.02, -117.726),
+"start_id": "lived_here_success"
+},
+"0_23": {
+"link": &"1_37",
+"offset": Vector2(2520, 740),
+"start_id": "city_thoughts_success"
+},
+"0_24": {
+"link": &"1_40",
+"offset": Vector2(2500, 1480),
+"start_id": "farmers_market_success"
+},
+"0_25": {
+"link": &"1_44",
+"offset": Vector2(2379.68, 2287.33),
+"start_id": "cummington_state_success"
+},
+"0_26": {
+"link": &"1_50",
+"offset": Vector2(4923.85, -186.064),
+"start_id": "dialogue_chad"
+},
+"0_27": {
+"link": &"1_51",
+"offset": Vector2(3320, 2900),
+"start_id": "definitely_staying"
+},
+"0_28": {
+"link": &"1_52",
+"offset": Vector2(3840, 2900),
+"start_id": "definitely_leving"
+},
+"0_29": {
+"link": &"1_53",
+"offset": Vector2(4420, 2900),
+"start_id": "is_there_something_you_like_about_it"
+},
+"0_3": {
+"link": &"1_3",
+"offset": Vector2(1480, -100),
+"start_id": "repeat_generic"
+},
+"0_30": {
+"link": &"1_54",
+"offset": Vector2(4924.85, 2885.57),
+"start_id": "is_there_something_you_dislike_about_it"
+},
+"0_31": {
+"link": &"1_55",
+"offset": Vector2(2740, 3760),
+"start_id": "job_raise_family"
+},
+"0_32": {
+"link": &"1_56",
+"offset": Vector2(3300, 3760),
+"start_id": "attractive_women"
+},
+"0_33": {
+"link": &"1_58",
+"offset": Vector2(4040, 3760),
+"start_id": "more_opportunities"
+},
+"0_34": {
+"link": &"1_60",
+"offset": Vector2(4760, 3760),
+"start_id": "bitches"
+},
+"0_35": {
+"link": &"1_64",
+"offset": Vector2(2679.55, 4650.58),
+"start_id": "dialogue_think_about_cummington"
+},
+"0_36": {
+"link": &"1_65",
+"offset": Vector2(3280, 4660),
+"start_id": "great_college_town"
+},
+"0_37": {
+"link": &"1_68",
+"offset": Vector2(4320.31, 4703.31),
+"start_id": "okay_but_small"
+},
+"0_38": {
+"link": &"1_70",
+"offset": Vector2(5039.96, 4697.85),
+"start_id": "dialogue_favorite_meat_pie"
+},
+"0_39": {
+"link": &"1_71",
+"offset": Vector2(5640, 4700),
+"start_id": "mega_milker"
+},
+"0_4": {
+"link": &"1_4",
+"offset": Vector2(1480, 620),
+"start_id": "asked_too_many_times"
+},
+"0_40": {
+"link": &"1_75",
+"offset": Vector2(3260, 5520),
+"start_id": "chicken_giggler"
+},
+"0_41": {
+"link": &"1_79",
+"offset": Vector2(4720.92, 5519.37),
+"start_id": "vegan"
+},
+"0_42": {
+"link": &"1_81",
+"offset": Vector2(5480, 5600),
+"start_id": "dialogue_always_lived_here"
+},
+"0_43": {
+"link": &"1_82",
+"offset": Vector2(6060, 5580),
+"start_id": "born_and_raised"
+},
+"0_44": {
+"link": &"1_85",
+"offset": Vector2(3631.95, 6366.66),
+"start_id": "moved_for_college"
+},
+"0_45": {
+"link": &"1_87",
+"offset": Vector2(4351.95, 6342.66),
+"start_id": "consciousness"
+},
+"0_46": {
+"link": &"1_89",
+"offset": Vector2(5158.76, 6368.66),
+"start_id": "dialogue_name_origin"
+},
+"0_47": {
+"link": &"1_90",
+"offset": Vector2(5720, 6400),
+"start_id": "named_after_founder"
+},
+"0_48": {
+"link": &"1_94",
+"offset": Vector2(2933.15, 7178.22),
+"start_id": "no_idea_but_funny"
+},
+"0_49": {
+"link": &"1_97",
+"offset": Vector2(4460, 500),
+"start_id": "cummington_fail"
+},
+"0_5": {
+"link": &"1_5",
+"offset": Vector2(1500, 1280),
+"start_id": "asked_twice_in_a_row_generic"
+},
+"0_50": {
+"link": &"1_98",
+"offset": Vector2(5071.85, 403.936),
+"start_id": "chad_fail"
+},
+"0_51": {
+"link": &"1_99",
+"offset": Vector2(4865.85, 1273.47),
+"start_id": "know_chad_success"
+},
+"0_52": {
+"link": &"1_103",
+"offset": Vector2(5170.28, 2012.75),
+"start_id": "know_chad_fail"
+},
+"0_53": {
+"link": &"1_105",
+"offset": Vector2(5350.45, 2604.8),
+"start_id": "dialogue_chad_thoughts"
+},
+"0_54": {
+"link": &"1_106",
+"offset": Vector2(5300.75, 3249.9),
+"start_id": "chad_good_friend"
+},
+"0_55": {
+"link": &"1_114",
+"offset": Vector2(6100, 3960),
+"start_id": "chad_chill"
+},
+"0_56": {
+"link": &"1_119",
+"offset": Vector2(6840, 4820),
+"start_id": "chad_i_do_his_homework"
+},
+"0_57": {
+"link": &"1_127",
+"offset": Vector2(6928.7, 6454.28),
+"start_id": "dialogue_chad_party"
+},
+"0_58": {
+"link": &"1_128",
+"offset": Vector2(7500, 6440),
+"start_id": "friend_of_chad"
+},
+"0_59": {
+"link": &"1_129",
+"offset": Vector2(6800.97, 7233.61),
+"start_id": "friend_of_friend"
+},
+"0_6": {
+"link": &"1_6",
+"offset": Vector2(400, 1340),
+"start_id": "dialogue_about_lisa_common"
+},
+"0_60": {
+"link": &"1_132",
+"offset": Vector2(7466.97, 7253.59),
+"start_id": "friend_of_friend_of_friend"
+},
+"0_61": {
+"link": &"1_134",
+"offset": Vector2(5074.74, 7295.59),
+"start_id": "friend_of_friend_of_friend_of_friend"
+},
+"0_62": {
+"link": &"1_138",
+"offset": Vector2(6023.19, 8198.32),
+"start_id": "go_to_party_success"
+},
+"0_63": {
+"link": &"1_142",
+"offset": Vector2(7359.19, 8174.32),
+"start_id": "go_to_party_fail"
+},
+"0_64": {
+"link": &"1_144",
+"offset": Vector2(6157.16, -371.945),
+"start_id": "dialogue_relationships_common"
+},
+"0_65": {
+"link": &"1_145",
+"offset": Vector2(6520, -240),
+"start_id": "dialogue_relationships"
+},
+"0_66": {
+"link": &"1_146",
+"offset": Vector2(5980, 420),
+"start_id": "relationships_fail"
+},
+"0_67": {
+"link": &"1_147",
+"offset": Vector2(6513.16, 540.055),
+"start_id": "current_relationship_success"
+},
+"0_68": {
+"link": &"1_149",
+"offset": Vector2(6940, 380),
+"start_id": "current_relationship_fail"
+},
+"0_69": {
+"link": &"1_150",
+"offset": Vector2(6860, 1320),
+"start_id": "dialogue_your_relationship_status"
+},
+"0_7": {
+"link": &"1_7",
+"offset": Vector2(274.273, 2071.91),
+"start_id": "dialogue_about_lisa"
+},
+"0_70": {
+"link": &"1_151",
+"offset": Vector2(7176.34, 1509.16),
+"start_id": "rel_training_purposes"
+},
+"0_71": {
+"link": &"1_154",
+"offset": Vector2(6420, 2140),
+"start_id": "have_a_shot"
+},
+"0_72": {
+"link": &"1_156",
+"offset": Vector2(7106.34, 2350.35),
+"start_id": "first_kiss_success"
+},
+"0_73": {
+"link": &"1_158",
+"offset": Vector2(7786.34, 2300.35),
+"start_id": "first_kiss_fail"
+},
+"0_74": {
+"link": &"1_160",
+"offset": Vector2(7495.28, 899.677),
+"start_id": "ever_had_fail"
+},
+"0_8": {
+"link": &"1_8",
+"offset": Vector2(1280, 2020),
+"start_id": "dialogue_poker_common"
+},
+"0_9": {
+"link": &"1_9",
+"offset": Vector2(1280, 2580),
+"start_id": "dialogue_poker"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's go!",
+"offset": Vector2(1140, -100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You decide to talk about something meaningless to pass the time.",
+"offset": Vector2(920, 2740),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_100": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, well I don't really know him that well. ",
+"offset": Vector2(5800, 1100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_101",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_101": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "My girlfriend gets me into his parties. ",
+"offset": Vector2(6120, 1120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_102",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_102": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sometimes we chat, he's alright!",
+"offset": Vector2(6460, 1100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_103": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How do you know Chad?",
+"offset": Vector2(5700, 1820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_104",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_104": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Um, I really don't think we should be talking about that right now, sorry!",
+"offset": Vector2(6040, 1800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_105": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How about you, what do you think about Chad?",
+"offset": Vector2(5880, 2580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_106": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We're so tight, total BFFs. ",
+"offset": Vector2(5840, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_107",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_107": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh really? I'm at all of his parties and I never see you. Why is that? ",
+"offset": Vector2(6180, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_108",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_108": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh... Well it's more of a recent friendship. ",
+"offset": Vector2(6540, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_109",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_109": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh okay, are you going to his party this Saturday? ",
+"offset": Vector2(6880, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_110",
+"text": ""
+}
+},
+"size": Vector2(324.793, 623),
+"speaker": 0
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You pass the time chatting.",
+"offset": Vector2(940, 3460),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 621.001),
+"speaker": ""
+},
+"1_110": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm...this Saturday? ",
+"offset": Vector2(7240, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_111",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_111": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes. ",
+"offset": Vector2(7580, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_112",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_112": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh cool, see you there then!",
+"offset": Vector2(7920, 3240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_113",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_113": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": ".... Yes.",
+"offset": Vector2(8260, 3220),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_114": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We hang out sometimes. We're chill like that. ",
+"offset": Vector2(6140, 4080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_115",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_115": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "He's definitely a valuable friend to have in this town! ",
+"offset": Vector2(6500, 4060),
+"options": {
+0: {
+"condition": {},
+"link": &"1_116",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_116": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Did you know he owns his own house already? ",
+"offset": Vector2(6860, 4080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_117",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_117": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah I heard his parents bought it for him",
+"offset": Vector2(7200, 4060),
+"options": {
+0: {
+"condition": {},
+"link": &"1_118",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_118": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow that's so cool",
+"offset": Vector2(7540, 4100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_119": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh y'know, we just study together sometimes, I do his homework for him for free, etc...",
+"offset": Vector2(6920, 4960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_120",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You're really asking a lot about me!",
+"offset": Vector2(1820, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_120": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You... what? ",
+"offset": Vector2(7280, 4980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_121",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_121": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Just study together, like math and stuff. ",
+"offset": Vector2(7680, 4920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_122",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_122": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I mean the other thing... you do his homework for him?",
+"offset": Vector2(8020, 4940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_123",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_123": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh yeah we're kinda bros so we do eachother's homework sometimes. ",
+"offset": Vector2(8400, 5000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_124",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_124": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh so he does your homework sometimes too? ",
+"offset": Vector2(8780, 4980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_125",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_125": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well mostly I do his homework because I'm better at it. ",
+"offset": Vector2(7100, 5680),
+"options": {
+0: {
+"condition": {},
+"link": &"1_126",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_126": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uh... that's kind of weird",
+"offset": Vector2(7460, 5700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_127": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Chad's parties are pretty exclusive, how did you get an invite?",
+"offset": Vector2(7000, 6580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_128": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm a firend of Chad's, I can get in when I want to. ",
+"offset": Vector2(7420, 6600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_130",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_129": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I know  a guy who is a friend of Chad's, he can get me in when I want to. ",
+"offset": Vector2(6680, 7360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_131",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That's okay, but I'm curious why? ",
+"offset": Vector2(2180, 3320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.002),
+"speaker": 0
+},
+"1_130": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh",
+"offset": Vector2(7760, 6620),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_131": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh, sounds mysterious!",
+"offset": Vector2(7040, 7380),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_132": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I know a guy who knows a guy who is a friend of Chad's, he can get me in when I want to. ",
+"offset": Vector2(7440, 7520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_133",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_133": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh, that sounds... complicated? ",
+"offset": Vector2(7800, 7500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_134": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm a friend of a friend of a friend of...",
+"offset": Vector2(5200, 7460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_135",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_135": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ah fuck it, I do his homework for him and he lets me go. ",
+"offset": Vector2(5500, 7480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_136",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_136": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ohhh, well I've heard of people doing much worse things to get an invite than that! ",
+"offset": Vector2(5880, 7500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_137",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_137": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "One time there was a girl who... oh nevermind I probably shouldn't gossip!",
+"offset": Vector2(6200, 7500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_138": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How often do you go to Chad's parties?",
+"offset": Vector2(6040, 8320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_139",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 1
+},
+"1_139": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well I used to go all the time! ",
+"offset": Vector2(6380, 8340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_140",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 0
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's all part of the training, trust in the process!",
+"offset": Vector2(1740, 4080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_140": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But recently the other girls have been unbearable!",
+"offset": Vector2(6740, 8320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_141",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 0
+},
+"1_141": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It kind of put me off the vibe, especially last night!",
+"offset": Vector2(7120, 8320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 0
+},
+"1_142": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How often do you go to Chad's parties?",
+"offset": Vector2(7460, 8320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_143",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 1
+},
+"1_143": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Um, this seems really far off from what we came here to talk about, can we come back to this topic another time please?",
+"offset": Vector2(7820, 8320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 0
+},
+"1_144": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You are really asking about my relationships a lot... but fine, I won't stop you. ",
+"offset": Vector2(6120, -240),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_145": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What? My relationships? That's a bit personal... maybe one question is fine, I guess!",
+"offset": Vector2(6500, -100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_146": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We definitely don't know eachother well enough to talk about that!",
+"offset": Vector2(6120, 500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_147": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Are you seeing anybody right now?",
+"offset": Vector2(6780, 640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_148",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_148": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, yes I have a girlfriend. But I really don't want to talk about this right now, sorry!",
+"offset": Vector2(7120, 620),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_149": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nope, we aren't talking about that right now, sorry!",
+"offset": Vector2(7460, 280),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ohh! I didn't realize! Carry on!",
+"offset": Vector2(2120, 4100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_150": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Why do you need to know about my relationships?",
+"offset": Vector2(6860, 1440),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_151": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's all for training purposes. ",
+"offset": Vector2(7220, 1620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_152",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_152": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I need to know if you will have other commitments that interfere with your training",
+"offset": Vector2(7580, 1640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_153",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_153": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I don't think I believe that but okay!",
+"offset": Vector2(7900, 1580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_154": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Maybe I want to know if I have a shot?",
+"offset": Vector2(6440, 2280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_155",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_155": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Definitely not, sorry!",
+"offset": Vector2(6800, 2320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_156": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What was your first kiss like?",
+"offset": Vector2(7160, 2460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_157",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_157": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Woahh I admire the confidence but we're definitely not at that point yet!",
+"offset": Vector2(7500, 2480),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_158": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What was your first kiss like?",
+"offset": Vector2(7860, 2420),
+"options": {
+0: {
+"condition": {},
+"link": &"1_159",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_159": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Not answering that!",
+"offset": Vector2(8180, 2400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No particular reason, just trying to make small talk. ",
+"offset": Vector2(1560, 4740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_160": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Have you ever...",
+"offset": Vector2(8040, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_161",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_161": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Don't even finish that thought, we're done here. ",
+"offset": Vector2(8380, 900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh okay. That's nice I suppose!",
+"offset": Vector2(2040, 4800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well I think you're cute and was kind of trying to flirt.",
+"offset": Vector2(1380, 5440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh",
+"offset": Vector2(1880, 5540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That didn't seem to go very well, I should try again another date...",
+"offset": Vector2(1140, 580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well I told you at the party I have a girlfriend and I really just want to focus on poker!",
+"offset": Vector2(2340, 5560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Understood, sorry.",
+"offset": Vector2(2800, 5520),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sooo... what's your favorite color?",
+"offset": Vector2(1260, 6340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha, don't we have more important topics to cover?",
+"offset": Vector2(1640, 6340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But it's orange, of course!",
+"offset": Vector2(1980, 6320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 0
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sooo... what's your favorite color?",
+"offset": Vector2(2840, 6360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 1
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sorry but I think we have more important stuff to talk about, don't we?",
+"offset": Vector2(3220, 6400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 0
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm curious how old you are? ",
+"offset": Vector2(1120, 7140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 1
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "24! But after a long race I sometimes feel like I'm 60 haha.",
+"offset": Vector2(1560, 7140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm curious how old you are? ",
+"offset": Vector2(2080, 7280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Um, didn't we already talk about that?",
+"offset": Vector2(2020, -120),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sorry but I think we have more important stuff to talk about, don't we?",
+"offset": Vector2(2500, 7140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You want to talk about Cummington again? Sure",
+"offset": Vector2(1260, 7920),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 622.999),
+"speaker": 0
+},
+"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Cummington is great! Sure, we can talk about it",
+"offset": Vector2(1080, 8560),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How long have you lived in our fair city?",
+"offset": Vector2(3160, -180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I moved here for CSU's famous running team. That was about... 3 years ago, I think! ",
+"offset": Vector2(3560, -180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Cummington State has a famous running team?",
+"offset": Vector2(3940, -180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_36",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_36": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well, it wasn't very famous until I joined it, haha, not to brag or anything =]",
+"offset": Vector2(4320, -180),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How do you feel about Cummington? ",
+"offset": Vector2(3105.68, 554.409),
+"options": {
+0: {
+"condition": {},
+"link": &"1_38",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_38": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I love it! The farmer's markets, the university, it's much better than my old town. ",
+"offset": Vector2(3460, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_39",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I wouldn't complain if we got more food variety though, we need more healthy options!!",
+"offset": Vector2(3780, 540),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(470, 623),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm gonna go. It really doesn't seem like you're paying attention to me.",
+"offset": Vector2(2080, 580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_40": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do you come to the farmer's market often?",
+"offset": Vector2(3040, 1400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh, no not really! ",
+"offset": Vector2(3380, 1400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_42": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Every time I do, I end up eating way too many meat pies and kettle corn and then I end up too sleepy!",
+"offset": Vector2(3720, 1380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_43",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_43": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's always a fun time though!",
+"offset": Vector2(4060, 1380),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_44": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I've never seen you around Cummington State, do you go to school there?",
+"offset": Vector2(3000, 2220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_45",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_45": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh, it's a little bit complicated.",
+"offset": Vector2(3340, 2220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_46",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_46": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm on the running team, but their classes are too expensive!",
+"offset": Vector2(3680, 2220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_47",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_47": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So I run for them, but I don't actually attend school there haha",
+"offset": Vector2(4040, 2200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_48",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_48": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Give me a scholarship!!",
+"offset": Vector2(4400, 2140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_49",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_49": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She waves her first in anger, playfully.",
+"offset": Vector2(4740, 2140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 621.001),
+"speaker": ""
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Didn't you hear what I just said?",
+"offset": Vector2(2080, 1240),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_50": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Huh, you want to know about Chad? I don't know him that well, but sure. ",
+"offset": Vector2(5465.85, -354.564),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_51": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh, absolutely",
+"offset": Vector2(3360, 3040),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_52": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh hell no",
+"offset": Vector2(3840, 3040),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_53": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh? You sound pretty certain about that, is there something you really like about it?",
+"offset": Vector2(4380, 3040),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_54": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh? You sound pretty certain about that, is there something you really dislike about it?",
+"offset": Vector2(4840, 3040),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_55": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'd like to get a job and raise a family here, it just seems like a nice place.",
+"offset": Vector2(2780, 3860),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_56": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There's so many beautiful women here, that makes better odds for me!",
+"offset": Vector2(3300, 3860),
+"options": {
+0: {
+"condition": {},
+"link": &"1_57",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_57": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh... okay",
+"offset": Vector2(3620, 3860),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_58": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There's just not much going on here, I think there are more opportunities elsewhere in the world.",
+"offset": Vector2(4060, 3880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_59",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_59": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh, I've traveled a lot and I have to disagree with you on that one!",
+"offset": Vector2(4400, 3880),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You want to know more about me? Okay, haha, but let's make time to discuss the training as well!",
+"offset": Vector2(940, 1340),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(478, 623),
+"speaker": 0
+},
+"1_60": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Too many of the girls in this city are total bitches",
+"offset": Vector2(4740, 3880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_61",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_61": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Lisa looks at you shocked for a moment, then bursts out laughing.",
+"offset": Vector2(5060, 3880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_62",
+"text": ""
+}
+},
+"size": Vector2(300, 621.001),
+"speaker": ""
+},
+"1_62": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha omg yes!! What is wrong with the women in this town?? ",
+"offset": Vector2(5380, 3880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_63",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_63": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Glad to know I'm not the only one who has trouble with women here!!",
+"offset": Vector2(5720, 3880),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_64": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do you plan to stay in Cummington after college?",
+"offset": Vector2(2740, 4780),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_65": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's great, huge college town with parties everywhere!",
+"offset": Vector2(3260, 4780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_66",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_66": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha true, but I'm pretty burnt out of the party scene at this point. ",
+"offset": Vector2(3600, 4780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_67",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_67": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That won't stop me from getting revenge once I'm a poker master though!",
+"offset": Vector2(3940, 4780),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_68": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's fine, just small. I crave the big city. ",
+"offset": Vector2(4320, 4820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_69",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_69": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I used to live in a big city, trust me, they're not all they're hyped up to be, haha!",
+"offset": Vector2(4640, 4820),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You want to know about me? Um, I guess that's okay!",
+"offset": Vector2(940, 2000),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_70": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I saw you longingly eyeing Chuck's meat pie stand this morning. Spill it, which one is your favorite?",
+"offset": Vector2(5040, 4820),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_71": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The Chuck's Mega Milker (Beef) of course, his signature pie!",
+"offset": Vector2(5500, 4820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_72",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_72": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "OMG! Haha, you're crazy, those have like 2200 calories each!!",
+"offset": Vector2(5820, 4840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_73",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_73": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hey you gotta treat yourself sometimes. ",
+"offset": Vector2(6160, 4840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_74",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_74": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha, very true I suppose. Maybe I'll try one next time!",
+"offset": Vector2(6480, 4820),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_75": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The Chicken Giggler Special of course!",
+"offset": Vector2(3300, 5640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_76",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_76": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes!! The only item on the menu I can eat without feeling guilty, haha. ",
+"offset": Vector2(3660, 5640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_77",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_77": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I wonder why he calls it that though",
+"offset": Vector2(4000, 5640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_78",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_78": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A mystery that may never be solved.",
+"offset": Vector2(4360, 5640),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_79": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm a vegan. Meat is murder. I would never eat from there.",
+"offset": Vector2(4740, 5660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_80",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes, let's keep talking about poker!",
+"offset": Vector2(1790.27, 1879.6),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_80": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh, r...really? Sorry I asked",
+"offset": Vector2(5080, 5660),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_81": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So have you always lived in Cummington?",
+"offset": Vector2(5500, 5700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_82": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Born and raised. I know every square inch of this city. ",
+"offset": Vector2(5980, 5720),
+"options": {
+0: {
+"condition": {},
+"link": &"1_83",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_83": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Stick with me, and I'll show you some cool shit",
+"offset": Vector2(6320, 5720),
+"options": {
+0: {
+"condition": {},
+"link": &"1_84",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_84": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow! Count me in!",
+"offset": Vector2(6640, 5720),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 0
+},
+"1_85": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Moved here for college and just... never left",
+"offset": Vector2(3680, 6480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_86",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_86": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Heyy, me too!! ",
+"offset": Vector2(4020, 6480),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_87": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm not sure, my consciousness only extends back to just before Chad's party. ",
+"offset": Vector2(4440, 6480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_88",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_88": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "😲",
+"offset": Vector2(4780, 6500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 0
+},
+"1_89": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You know a lot about this city right? Where did the name \"Cummington\" come from?",
+"offset": Vector2(5180, 6500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 0
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes, finally some poker talk!",
+"offset": Vector2(1800, 2540),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_90": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Named after the man himself, John Cummington. ",
+"offset": Vector2(5560, 6560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_91",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 1
+},
+"1_91": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sailed here on the SS Cummington and established Cummington Colony back in '69",
+"offset": Vector2(5900, 6560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_92",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 1
+},
+"1_92": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow!! Really? You must have paid attention in history class!",
+"offset": Vector2(6240, 6560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_93",
+"text": ""
+}
+},
+"size": Vector2(300, 623.002),
+"speaker": 0
+},
+"1_93": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nah I made all of that up",
+"offset": Vector2(6580, 6560),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.002),
+"speaker": 1
+},
+"1_94": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No idea, but it sounds pretty funny right?",
+"offset": Vector2(2940, 7300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_95",
+"text": ""
+}
+},
+"size": Vector2(300, 623.001),
+"speaker": 1
+},
+"1_95": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Huh? What's funny about it?",
+"offset": Vector2(3300, 7280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_96",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 0
+},
+"1_96": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uh, nevermind.",
+"offset": Vector2(3640, 7300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 1
+},
+"1_97": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, maybe we can talk about that later?",
+"offset": Vector2(4300, 600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_98": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sorry I really don't think we know each other well enough to talk about that right now.",
+"offset": Vector2(5620, 320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_99": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How do you know Chad?",
+"offset": Vector2(5460, 1100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_100",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/lisa_first_market_date/character_list.tres"
+backgroundList = ""

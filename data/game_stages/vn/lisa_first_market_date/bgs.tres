@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BackgroundLists" load_steps=3 format=3 uid="uid://b8wd1tvdg8lj7"]
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=4 format=3 uid="uid://b8wd1tvdg8lj7"]
 
-[ext_resource type="Resource" uid="uid://d3pamu38a1tjg" path="res://data/background_lists/chads_party/chads_party_bgl.tres" id="1_5ytdi"]
+[ext_resource type="Resource" uid="uid://ioq1xjb3uhw0" path="res://data/background_lists/lisa_market/lisa_market_bgl.tres" id="1_a48eo"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_nolsm"]
+[ext_resource type="Resource" uid="uid://cht80hoqypt6q" path="res://data/background_lists/home/home_bgl.tres" id="2_ep6g5"]
 
 [resource]
 script = ExtResource("1_nolsm")
-backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_5ytdi")])
+backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_a48eo"), ExtResource("2_ep6g5")])

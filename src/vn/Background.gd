@@ -6,7 +6,7 @@ var shouldFade = false
 @onready var zoompan = load("res://src/phone/zoompan.gdshader")
 
 func setBackground(newBackground):
-	if background && (newBackground.name == background.name):
+	if background && (newBackground.name == background.name) && !shouldFade:
 		return 
 	
 	background = newBackground
@@ -56,8 +56,9 @@ func checkForVideo():
 		fadeVideo()
 
 func _on_fade_timer_timeout():
-	$BackgroundImage.texture = background.images
-	checkForVideo()
+	if(!$BackgroundImage.texture == background.images):
+		$BackgroundImage.texture = background.images
+		checkForVideo()
 
 func fadeTransition():
 	$AnimationPlayer.play('fade_quick')

@@ -224,6 +224,7 @@ func _init_variables(var_dict):
 
 ## Starts running the dialogue tree with the start id [member DialogueBox.id].
 func start(id := start_id):
+	print('Starting dialogue with ID:', id)
 	if !dialogue_data:
 		printerr('No dialogue dialogue_data!')
 		return

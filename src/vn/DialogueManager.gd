@@ -38,7 +38,7 @@ func tweenYouDialogue():
 	tween.tween_property($DialoguePlayer, "position", Vector2(120,Y_POS), .6).set_trans(Tween.TRANS_QUAD)
 	
 func tweenLisaDialogue():
-	var Y_POS = 100
+	var Y_POS = 10
 	$DialoguePlayer.position = Vector2(1200,Y_POS)
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", Vector2(120,Y_POS), .4).set_trans(Tween.TRANS_BOUNCE)

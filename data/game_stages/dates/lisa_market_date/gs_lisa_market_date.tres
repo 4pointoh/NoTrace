@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://bcjgx576sc7m4"]
+
+[ext_resource type="Script" path="res://data/game_stages/dates/lisa_market_date/scripts/lisa_market_date_script.gd" id="1_4hr0x"]
+[ext_resource type="Resource" uid="uid://dfbuugnd5gh8f" path="res://data/game_stages/dates/lisa_market_date/d_lisa_market_date.tres" id="1_d143a"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_vhwmg"]
+[ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="2_xcix3"]
+[ext_resource type="Texture2D" uid="uid://db7qcmws0kic4" path="res://data/background_lists/dates/lisa_market_date/date/0.png" id="3_eduou"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_82l6w"]
+[ext_resource type="AudioStream" uid="uid://brhyu14of4pna" path="res://data/assets/general/sounds/bg_music/Cafe Serenade ext v1.2.mp3" id="7_aaoc3"]
+
+[sub_resource type="Resource" id="Resource_gc2m4"]
+script = ExtResource("4_82l6w")
+name = "start"
+images = ExtResource("3_eduou")
+
+[resource]
+script = ExtResource("1_vhwmg")
+name = "lisa_market_date"
+dialogue = ExtResource("1_d143a")
+dialogueStartKey = "START"
+isCompletable = false
+startingBackground = SubResource("Resource_gc2m4")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("7_aaoc3")
+stageButtonLabel = ""
+isDate = true
+dateScript = ExtResource("1_4hr0x")
+dateWinGameStage = ExtResource("2_xcix3")
+dateLossDialogueKey = "LOST"
+dateCharacter = "LISA"
+dateTitle = "Coffee With Lisa"
+maxProgress = 200

@@ -531,7 +531,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "options": {
 0: {
 "condition": {},
-"link": &"3_5",
+"link": &"3_2",
 "text": ""
 }
 },
@@ -563,7 +563,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "options": {
 0: {
 "condition": {},
-"link": &"3_4",
+"link": &"3_9",
 "text": ""
 }
 },
@@ -739,11 +739,6 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "offset": Vector2(16040, 900),
 "signalValue": "video_pause"
 },
-"3_5": {
-"link": &"3_2",
-"offset": Vector2(15440, 680),
-"signalValue": "fade_next"
-},
 "3_6": {
 "link": &"1_3",
 "offset": Vector2(540, 780),
@@ -758,6 +753,11 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "link": &"1_5",
 "offset": Vector2(1719.46, 366.003),
 "signalValue": "hide_char"
+},
+"3_9": {
+"link": &"3_4",
+"offset": Vector2(16280, 600),
+"signalValue": "fade_next"
 }
 }
 variables = {}

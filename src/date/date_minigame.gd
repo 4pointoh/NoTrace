@@ -4,7 +4,7 @@ var dateScript : DateScript
 var currentResult : DateActionResult
 
 var dateProgress : int
-var MAX_PROGRESS : int = 100 # in the future could make this configurable per date
+var maxProgress : int = 100 # in the future could make this configurable per date
 
 var firstLoad = true
 
@@ -15,6 +15,7 @@ signal dateComplete(success : bool)
 func initFromGameStage(stage : GameStage):
 	dateScript = stage.dateScript.new()
 	currentResult = dateScript.start()
+	maxProgress = stage.maxProgress;
 	dateProgress = 0
 	processResultDialogue()
 
@@ -40,7 +41,7 @@ func processDialogueComplete():
 	if currentResult.criticalFailure:
 		GlobalGameStage.resetDate()
 		processDateComplete(false)
-	elif dateProgress >= MAX_PROGRESS:
+	elif dateProgress >= maxProgress:  
 		if dateScript.date_was_successful():
 			processDateComplete(true)
 		else:
@@ -111,7 +112,7 @@ func displayChoices(actionList):
 	
 func updateProgress():
 	dateProgress += 10
-	$DateMinigameDisplay.setProgress(dateProgress)
+	$DateMinigameDisplay.setProgress(dateProgress, maxProgress)
 
 func _on_date_minigame_display_option_selected(index):
 	var selected_action = currentResult.nextGroup[index]
@@ -124,9 +125,9 @@ func completeAction(action : DateAction):
 	var random_roll = randf() * 100
 	
 	# Apply repeat-question bonus
-	random_roll += GlobalGameStage.getCompleteDateAskFailureCount(action.id) * 5
+	random_roll -= GlobalGameStage.getCompleteDateAskFailureCount(action.id) * 5
 	
-	var repeated_result = dateScript.repeated_ask(action.id)
+	var repeated_result = dateScript.repeated_ask(action)
 	
 	# If we already had a success, and its not a topic, skip
 	if (random_roll < success_chance) and ((GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0) or (action.type == DateAction.TYPES.TOPIC)):

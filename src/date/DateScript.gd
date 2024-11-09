@@ -17,7 +17,7 @@ func group_topic_select():
 func getCurrentBackground():
 	assert(false, 'override me')
 
-func repeated_ask(id : String = ''):
+func repeated_ask(action : DateAction):
 	assert(false, 'override me')
 
 func date_was_successful():

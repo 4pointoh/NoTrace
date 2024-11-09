@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=3 format=3 uid="uid://d0l4o5qe8oory"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_7j0kv"]
+[ext_resource type="Resource" uid="uid://dnd1wlgve8o3a" path="res://data/background_lists/dates/lisa_market_date/lisa_market_date_bgl.tres" id="1_sgetf"]
+
+[resource]
+resource_name = "lisa_market_date"
+script = ExtResource("1_7j0kv")
+backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_sgetf")])

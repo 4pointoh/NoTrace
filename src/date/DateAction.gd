@@ -16,7 +16,9 @@ enum CATEGORIES {
 	HIDE,
 	SMALL_TALK,
 	PERSONAL,
-	FIRENDLY
+	FRIENDLY,
+	FLIRTY,
+	DEEP
 }
 
 var id : String = ""

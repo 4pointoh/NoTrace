@@ -1,0 +1,301 @@
+[gd_resource type="Resource" script_class="Character" load_steps=76 format=3 uid="uid://ctyfy58d0wf8f"]
+
+[ext_resource type="Texture2D" uid="uid://c8imx581plawf" path="res://data/characters/lisa/orange_skirt/orange_skirt.png" id="1_1llgt"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_hn6kr"]
+[ext_resource type="Texture2D" uid="uid://dhrfou78uk1ap" path="res://data/characters/lisa/orange_skirt/character_art/arms_behind_blush.png" id="3_l6a1j"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_scsgq"]
+[ext_resource type="Texture2D" uid="uid://3dhahxvaftiv" path="res://data/characters/lisa/orange_skirt/character_art/arms_behind_smile.png" id="5_urjhs"]
+[ext_resource type="Texture2D" uid="uid://c35yh0pst31xh" path="res://data/characters/lisa/orange_skirt/character_art/arms_crossed_angry.png" id="6_uic5p"]
+[ext_resource type="Texture2D" uid="uid://by0p4j4b1hklg" path="res://data/characters/lisa/orange_skirt/character_art/arms_crossed_listening.png" id="7_ikwjq"]
+[ext_resource type="Texture2D" uid="uid://0n7dw77vtuk4" path="res://data/characters/lisa/orange_skirt/character_art/arms_crossed_pout.png" id="8_y2xpq"]
+[ext_resource type="Texture2D" uid="uid://k8yn7oytklwc" path="res://data/characters/lisa/orange_skirt/character_art/arms_crossed_smile.png" id="9_ot7g0"]
+[ext_resource type="Texture2D" uid="uid://dlisltuv1blue" path="res://data/characters/lisa/orange_skirt/character_art/arms_crossed_smug.png" id="10_3peov"]
+[ext_resource type="Texture2D" uid="uid://dxxf0qliearff" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_angry.png" id="11_juryj"]
+[ext_resource type="Texture2D" uid="uid://bn83euxsomilf" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_chest_forward_annoyed.png" id="12_sp1u4"]
+[ext_resource type="Texture2D" uid="uid://t8l74lbq7j36" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_chest_forward_happy.png" id="13_titcr"]
+[ext_resource type="Texture2D" uid="uid://q217ti7dokk2" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_chest_forward_listening.png" id="14_8hefl"]
+[ext_resource type="Texture2D" uid="uid://cc7sy4nw74i5m" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_happy.png" id="15_ktj7p"]
+[ext_resource type="Texture2D" uid="uid://dmqfdccpxwt6b" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_shocked.png" id="16_5uyk1"]
+[ext_resource type="Texture2D" uid="uid://coq7fnmm8j4j8" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_smile.png" id="17_ed35t"]
+[ext_resource type="Texture2D" uid="uid://346ywm6pww62" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_smug.png" id="18_mtdis"]
+[ext_resource type="Texture2D" uid="uid://c0ohirk5s5o6g" path="res://data/characters/lisa/orange_skirt/character_art/arms_down_very_happy.png" id="19_pgh8n"]
+[ext_resource type="Texture2D" uid="uid://d1sd01enw5qvp" path="res://data/characters/lisa/orange_skirt/character_art/arms_in_front_blush.png" id="20_225r6"]
+[ext_resource type="Texture2D" uid="uid://vcnfjhjnpv8f" path="res://data/characters/lisa/orange_skirt/character_art/arms_in_front_down_sad.png" id="21_k2ytr"]
+[ext_resource type="Texture2D" uid="uid://wgl6e5ew0dst" path="res://data/characters/lisa/orange_skirt/character_art/arms_in_front_kinda_horny.png" id="22_3vg8x"]
+[ext_resource type="Texture2D" uid="uid://3cmb0fh3lj18" path="res://data/characters/lisa/orange_skirt/character_art/arms_in_front_kinda_pout.png" id="23_51s7a"]
+[ext_resource type="Texture2D" uid="uid://l8725sgcn78" path="res://data/characters/lisa/orange_skirt/character_art/arms_in_front_thoughtful_smile.png" id="24_qlak0"]
+[ext_resource type="Texture2D" uid="uid://cp17gn74rsjde" path="res://data/characters/lisa/orange_skirt/character_art/arms_on_chest_embarassed.png" id="25_u3efb"]
+[ext_resource type="Texture2D" uid="uid://cm43ueos21441" path="res://data/characters/lisa/orange_skirt/character_art/arms_on_chest_embarassed_less.png" id="26_0jhlb"]
+[ext_resource type="Texture2D" uid="uid://donxo22gugpyt" path="res://data/characters/lisa/orange_skirt/character_art/arms_on_chest_smile.png" id="27_0xcso"]
+[ext_resource type="Texture2D" uid="uid://b4fecs65xb434" path="res://data/characters/lisa/orange_skirt/character_art/hand_on_neck_smile2.png" id="28_xvku1"]
+[ext_resource type="Texture2D" uid="uid://c3h6lq4fckg85" path="res://data/characters/lisa/orange_skirt/character_art/hand_on_neck_smile.png" id="29_1o7v7"]
+[ext_resource type="Texture2D" uid="uid://v8j3sh7e2e5t" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_across_smile.png" id="30_0fybg"]
+[ext_resource type="Texture2D" uid="uid://b6xw6na5tigiv" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_annoyed.png" id="31_nblht"]
+[ext_resource type="Texture2D" uid="uid://sx65m35jbn7b" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_blush.png" id="32_l7tuu"]
+[ext_resource type="Texture2D" uid="uid://ra31nnqynnv7" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_dreamy_smile.png" id="33_cltmc"]
+[ext_resource type="Texture2D" uid="uid://k6ltfgs6jrf0" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_horny.png" id="34_tsduh"]
+[ext_resource type="Texture2D" uid="uid://clk1gge4tjb6g" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_pout.png" id="35_8d6fj"]
+[ext_resource type="Texture2D" uid="uid://cai818ruvtiro" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_smile.png" id="36_p44vq"]
+[ext_resource type="Texture2D" uid="uid://dmn68b8fr5bic" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_smug.png" id="37_7eoms"]
+[ext_resource type="Texture2D" uid="uid://lusgavg476ya" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_thoughtful2.png" id="38_yqk0e"]
+[ext_resource type="Texture2D" uid="uid://cjuida1w1nulc" path="res://data/characters/lisa/orange_skirt/character_art/one_hand_up_thoughtful.png" id="39_xuy7e"]
+
+[sub_resource type="Resource" id="Resource_5brqy"]
+script = ExtResource("4_scsgq")
+name = "arms_behind_blush"
+image = ExtResource("3_l6a1j")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_m2p6b"]
+script = ExtResource("4_scsgq")
+name = "arms_behind_smile"
+image = ExtResource("5_urjhs")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_1f2mc"]
+script = ExtResource("4_scsgq")
+name = "arms_crossed_angry"
+image = ExtResource("6_uic5p")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_o5e1t"]
+script = ExtResource("4_scsgq")
+name = "arms_crossed_listening"
+image = ExtResource("7_ikwjq")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_t7f2v"]
+script = ExtResource("4_scsgq")
+name = "arms_crossed_pout"
+image = ExtResource("8_y2xpq")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_vgxpl"]
+script = ExtResource("4_scsgq")
+name = "arms_crossed_smile"
+image = ExtResource("9_ot7g0")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_8v85u"]
+script = ExtResource("4_scsgq")
+name = "arms_crossed_smug"
+image = ExtResource("10_3peov")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_tky41"]
+script = ExtResource("4_scsgq")
+name = "arms_down_angry"
+image = ExtResource("11_juryj")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_8im8u"]
+script = ExtResource("4_scsgq")
+name = "arms_down_chest_forward_annoyed"
+image = ExtResource("12_sp1u4")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_5ne3i"]
+script = ExtResource("4_scsgq")
+name = "arms_down_chest_forward_happy"
+image = ExtResource("13_titcr")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_6awyn"]
+script = ExtResource("4_scsgq")
+name = "arms_down_chest_forward_listening"
+image = ExtResource("14_8hefl")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_4lme7"]
+script = ExtResource("4_scsgq")
+name = "arms_down_happy"
+image = ExtResource("15_ktj7p")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_2btpj"]
+script = ExtResource("4_scsgq")
+name = "arms_down_shocked"
+image = ExtResource("16_5uyk1")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_p11sw"]
+script = ExtResource("4_scsgq")
+name = "arms_down_smile"
+image = ExtResource("17_ed35t")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_wvd7a"]
+script = ExtResource("4_scsgq")
+name = "arms_down_smug"
+image = ExtResource("18_mtdis")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_gh8wi"]
+script = ExtResource("4_scsgq")
+name = "arms_down_very_happy"
+image = ExtResource("19_pgh8n")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_5x828"]
+script = ExtResource("4_scsgq")
+name = "arms_in_front_blush"
+image = ExtResource("20_225r6")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_playy"]
+script = ExtResource("4_scsgq")
+name = "arms_in_front_down_sad"
+image = ExtResource("21_k2ytr")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_2v4fk"]
+script = ExtResource("4_scsgq")
+name = "arms_in_front_kinda_horny"
+image = ExtResource("22_3vg8x")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_ltivk"]
+script = ExtResource("4_scsgq")
+name = "arms_in_front_kinda_pout"
+image = ExtResource("23_51s7a")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_oncsb"]
+script = ExtResource("4_scsgq")
+name = "arms_in_front_thoughtful_smile"
+image = ExtResource("24_qlak0")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_aygtw"]
+script = ExtResource("4_scsgq")
+name = "arms_on_chest_embarassed"
+image = ExtResource("25_u3efb")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_8he3v"]
+script = ExtResource("4_scsgq")
+name = "arms_on_chest_embarassed_less"
+image = ExtResource("26_0jhlb")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_iij83"]
+script = ExtResource("4_scsgq")
+name = "arms_on_chest_smile"
+image = ExtResource("27_0xcso")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_v5ip7"]
+script = ExtResource("4_scsgq")
+name = "hand_on_neck_smile2"
+image = ExtResource("28_xvku1")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_ai0xg"]
+script = ExtResource("4_scsgq")
+name = "hand_on_neck_smile"
+image = ExtResource("29_1o7v7")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_wi7yv"]
+script = ExtResource("4_scsgq")
+name = "one_hand_across_smile"
+image = ExtResource("30_0fybg")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_b5o75"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_annoyed"
+image = ExtResource("31_nblht")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_rkt0b"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_blush"
+image = ExtResource("32_l7tuu")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_hgjae"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_dreamy_smile"
+image = ExtResource("33_cltmc")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_bp3o2"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_horny"
+image = ExtResource("34_tsduh")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_64edb"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_pout"
+image = ExtResource("35_8d6fj")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_2pxl1"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_smile"
+image = ExtResource("36_p44vq")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_sgwpw"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_smug"
+image = ExtResource("37_7eoms")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_evppl"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_thoughtful2"
+image = ExtResource("38_yqk0e")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_1krv1"]
+script = ExtResource("4_scsgq")
+name = "one_hand_up_thoughtful"
+image = ExtResource("39_xuy7e")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("1_hn6kr")
+name = "Lisa"
+editorName = "lisa_orange_skirt"
+image = ExtResource("1_1llgt")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_scsgq")]([SubResource("Resource_5brqy"), SubResource("Resource_m2p6b"), SubResource("Resource_1f2mc"), SubResource("Resource_o5e1t"), SubResource("Resource_t7f2v"), SubResource("Resource_vgxpl"), SubResource("Resource_8v85u"), SubResource("Resource_tky41"), SubResource("Resource_8im8u"), SubResource("Resource_5ne3i"), SubResource("Resource_6awyn"), SubResource("Resource_4lme7"), SubResource("Resource_2btpj"), SubResource("Resource_p11sw"), SubResource("Resource_wvd7a"), SubResource("Resource_gh8wi"), SubResource("Resource_5x828"), SubResource("Resource_playy"), SubResource("Resource_2v4fk"), SubResource("Resource_ltivk"), SubResource("Resource_oncsb"), SubResource("Resource_aygtw"), SubResource("Resource_8he3v"), SubResource("Resource_iij83"), SubResource("Resource_v5ip7"), SubResource("Resource_ai0xg"), SubResource("Resource_wi7yv"), SubResource("Resource_b5o75"), SubResource("Resource_rkt0b"), SubResource("Resource_hgjae"), SubResource("Resource_bp3o2"), SubResource("Resource_64edb"), SubResource("Resource_2pxl1"), SubResource("Resource_sgwpw"), SubResource("Resource_evppl"), SubResource("Resource_1krv1")])

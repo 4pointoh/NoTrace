@@ -147,6 +147,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"video_pause": videoPause()
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"music_home": playMusicHome()
+		"music_whimsical": playMusicWhimsical()
 
 func videoPause():
 	isVideoPause = true
@@ -161,6 +162,9 @@ func videoPause():
 
 func playMusicHome():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/home2.mp3"))
+	
+func playMusicWhimsical():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/Whispers of the Night.mp3"))
 
 func fadeNext():
 	$Background.shouldFade = true

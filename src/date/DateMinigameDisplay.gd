@@ -87,8 +87,12 @@ func setUi(action : DateAction):
 		typeBgText.text = 'Small Talk'
 	elif action.category == DateAction.CATEGORIES.PERSONAL:
 		typeBgText.text = 'Personal'
-	elif action.category == DateAction.CATEGORIES.FIRENDLY:
+	elif action.category == DateAction.CATEGORIES.FRIENDLY:
 		typeBgText.text = 'Friendly Talk'
+	elif action.category == DateAction.CATEGORIES.FLIRTY:
+		typeBgText.text = 'Flirty'
+	elif action.category == DateAction.CATEGORIES.DEEP:
+		typeBgText.text = 'Deep'
 	else:
 		typeBgText.text = 'enum mismatch, update DateMinigameDisplay'
 		
@@ -134,9 +138,17 @@ func getBonusesText(bonuses):
 	
 	return text
 
-func setProgress(progress):
-	dateProgress.value = progress
-	overlayClipper.size.x = 4.5 * progress
+func setProgress(progress, maxProgress):
+	var increment = 0;
+	
+	if(maxProgress == 100):
+		increment = 4.5;
+		
+	if(maxProgress == 200):
+		increment = 2.25;
+	
+	dateProgress.value = progress * (100.0/maxProgress)
+	overlayClipper.size.x = increment * progress
 
 func setUiForTopic():
 	mainButton.text = 'Ask It!'

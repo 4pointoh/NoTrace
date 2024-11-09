@@ -40,9 +40,11 @@ func getCurrentBackground():
 ################################################
 #            AVAILABLE TOPICS
 ################################################
-func repeated_ask(id : String = ''):
-	if(not id):
+func repeated_ask(action : DateAction):
+	if(not action || not action.id):
 		return null
+	
+	var id = action.ids
 	
 	var result = DateActionResult.new()
 	
@@ -81,7 +83,7 @@ func group_topic_select():
 					2, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(2),  # Luck 0 - 6, = hidden
 					100, #Success Chance 0 - 100
-					DateAction.CATEGORIES.FIRENDLY,
+					DateAction.CATEGORIES.FRIENDLY,
 					group_past_relationships,
 					group_past_relationships_fail,
 					'topic_pastrel'))

@@ -38,3 +38,4 @@ class_name GameStage
 @export var dateLossDialogueKey: String
 @export var dateCharacter: String #LISA, ASHELY, AMY
 @export var dateTitle: String
+@export var maxProgress : int
