@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_4gai5"]
 [ext_resource type="Texture2D" uid="uid://ijqfpy72k535" path="res://data/assets/date/art/datebg4png.png" id="2_go35l"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_j5wfl"]
-[ext_resource type="Texture2D" uid="uid://bcca8k47yey8h" path="res://data/assets/date/art/arrow_left.png" id="4_kl0ht"]
-[ext_resource type="Texture2D" uid="uid://y2u10xiin1h6" path="res://data/assets/date/art/arrow_left_hover.png" id="5_cthca"]
-[ext_resource type="Texture2D" uid="uid://cpyjnyvpn0lt5" path="res://data/assets/date/art/arrow_right.png" id="6_subnr"]
-[ext_resource type="Texture2D" uid="uid://o0b0a0rmabra" path="res://data/assets/date/art/arrow_right_hover.png" id="7_ddj7i"]
+[ext_resource type="Shader" path="res://src/date/ember.gdshader" id="4_4fuag"]
+[ext_resource type="Texture2D" uid="uid://bash07jauknjh" path="res://data/assets/date/art/transparent_green_hard_rounded_rect_8px9patch.png" id="5_d0mds"]
 [ext_resource type="Texture2D" uid="uid://bs2uwidb2e6jk" path="res://data/assets/date/art/prog_bw_small.png" id="8_m04k3"]
 [ext_resource type="Texture2D" uid="uid://p6047m5y4bi1" path="res://data/assets/date/art/prog_color_small.png" id="9_ptp1w"]
 [ext_resource type="Texture2D" uid="uid://cjkjnha4lmk6j" path="res://data/assets/date/art/shapes_overlay.png" id="11_11fku"]
@@ -34,6 +32,12 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7rmac"]
+shader = ExtResource("4_4fuag")
+shader_parameter/glow_strength = 0.5
+shader_parameter/glow_speed = 1.0
+shader_parameter/noise_scale = 5.0
 
 [sub_resource type="Animation" id="Animation_omclh"]
 length = 0.001
@@ -1413,10 +1417,24 @@ animations = [{
 "speed": 18.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg2x"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.843137, 0.843137, 0.843137, 0.0470588)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+
 [node name="DateMinigameDisplay" type="Node2D"]
 script = ExtResource("1_kynup")
 
 [node name="Container" type="NinePatchRect" parent="."]
+clip_contents = true
 offset_left = 150.0
 offset_top = 841.0
 offset_right = 750.0
@@ -1430,12 +1448,13 @@ patch_margin_bottom = 7
 [node name="MainText" type="Label" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 15.0
-offset_top = 104.0
-offset_right = 587.0
-offset_bottom = 212.0
+offset_left = 64.0
+offset_top = 72.0
+offset_right = 536.0
+offset_bottom = 232.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_j5wfl")
 theme_override_font_sizes/font_size = 24
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis cursus mattis. Pellentesque ornare nulla eu ultricies congue."
 horizontal_alignment = 1
@@ -1445,10 +1464,10 @@ autowrap_mode = 3
 [node name="MainButton" type="Button" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 229.0
-offset_top = 224.0
-offset_right = 383.0
-offset_bottom = 278.0
+offset_left = 220.0
+offset_top = 235.0
+offset_right = 374.0
+offset_bottom = 289.0
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1460,38 +1479,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_uw56n")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mdwbl")
 text = "Answer!"
 
-[node name="ArrowLeft" type="TextureButton" parent="Container"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 139.0
-offset_top = 227.0
-offset_right = 199.0
-offset_bottom = 272.0
-texture_normal = ExtResource("4_kl0ht")
-texture_pressed = ExtResource("4_kl0ht")
-texture_hover = ExtResource("5_cthca")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="ArrowRight" type="TextureButton" parent="Container"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 410.0
-offset_top = 227.0
-offset_right = 470.0
-offset_bottom = 272.0
-texture_normal = ExtResource("6_subnr")
-texture_pressed = ExtResource("6_subnr")
-texture_hover = ExtResource("7_ddj7i")
-ignore_texture_size = true
-stretch_mode = 5
-
 [node name="Type" type="NinePatchRect" parent="."]
-offset_left = 478.0
+material = SubResource("ShaderMaterial_7rmac")
+offset_left = 450.0
 offset_top = 853.0
-offset_right = 733.0
+offset_right = 688.0
 offset_bottom = 908.0
-texture = ExtResource("2_4gai5")
+texture = ExtResource("5_d0mds")
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1500,10 +1494,10 @@ patch_margin_bottom = 8
 [node name="TypeText" type="Label" parent="Type"]
 layout_mode = 0
 offset_top = 1.0
-offset_right = 255.0
+offset_right = 237.0
 offset_bottom = 56.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
+theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("3_j5wfl")
 theme_override_font_sizes/font_size = 30
 text = "Small Talk"
@@ -1511,9 +1505,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TopBanner" type="NinePatchRect" parent="."]
-offset_left = 165.0
+offset_left = 210.0
 offset_top = 853.0
-offset_right = 420.0
+offset_right = 445.0
 offset_bottom = 908.0
 texture = ExtResource("2_4gai5")
 patch_margin_left = 8
@@ -1524,8 +1518,9 @@ patch_margin_bottom = 8
 [node name="TopText" type="Label" parent="TopBanner"]
 unique_name_in_owner = true
 layout_mode = 0
+offset_left = 1.0
 offset_top = 1.0
-offset_right = 255.0
+offset_right = 233.0
 offset_bottom = 56.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -1760,6 +1755,32 @@ text = "Items"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonLeft" type="Button" parent="."]
+offset_left = 159.0
+offset_top = 851.0
+offset_right = 207.0
+offset_bottom = 1135.0
+theme_override_colors/font_outline_color = Color(0.408901, 0.393733, 0.385302, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_j5wfl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7qg2x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7qg2x")
+text = "<"
+
+[node name="ButtonRight" type="Button" parent="."]
+offset_left = 693.0
+offset_top = 851.0
+offset_right = 741.0
+offset_bottom = 1135.0
+theme_override_colors/font_outline_color = Color(0.408901, 0.393733, 0.385302, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_j5wfl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7qg2x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7qg2x")
+text = ">"
+
 [connection signal="pressed" from="Container/MainButton" to="." method="_on_main_button_pressed"]
-[connection signal="pressed" from="Container/ArrowLeft" to="." method="_on_arrow_left_pressed"]
-[connection signal="pressed" from="Container/ArrowRight" to="." method="_on_arrow_right_pressed"]
+[connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]

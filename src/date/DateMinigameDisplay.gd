@@ -30,7 +30,20 @@ var currentActionIndex : int = 0
 @onready var failSound = load("res://data/assets/date/sounds/fail.wav")
 @onready var arrowClick = load("res://data/assets/phone/sounds/back.wav")
 
+var blackbg = preload("res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png")
+var orangebg = preload("res://data/assets/date/art/transparent_orange_hard_rounded_rect_8px9patch.png")
+var bluebg = preload("res://data/assets/date/art/transparent_blue_hard_rounded_rect_8px9patch.png")
+var pinkbg = preload("res://data/assets/date/art/transparent_pink_hard_rounded_rect_8px9patch.png")
+var greenbg = preload("res://data/assets/date/art/transparent_green_hard_rounded_rect_8px9patch.png")
+var purplebg = preload("res://data/assets/date/art/transparent_purple_hard_rounded_rect_8px9patch.png")
+var lightgreenbg = preload("res://data/assets/date/art/transparent_light_green_hard_rounded_rect_8px9patch.png")
+
 signal optionSelected(index : int)
+
+var screen_width = 400  # Adjust this to your screen width
+
+func _ready():
+	mainText.set_meta("original_x", mainText.position.x)
 
 func setActions(actions: Array[DateAction]):
 	currentActionIndex = 0
@@ -85,14 +98,24 @@ func setUi(action : DateAction):
 		
 	if action.category == DateAction.CATEGORIES.SMALL_TALK:
 		typeBgText.text = 'Small Talk'
+		typeBg.texture = blackbg;
+		typeBg.material.set_shader_parameter("glow_strength", 2) 
 	elif action.category == DateAction.CATEGORIES.PERSONAL:
 		typeBgText.text = 'Personal'
+		typeBg.texture = bluebg;
+		typeBg.material.set_shader_parameter("glow_strength", 3) 
 	elif action.category == DateAction.CATEGORIES.FRIENDLY:
 		typeBgText.text = 'Friendly Talk'
+		typeBg.texture = greenbg;
+		typeBg.material.set_shader_parameter("glow_strength", 0.5) 
 	elif action.category == DateAction.CATEGORIES.FLIRTY:
 		typeBgText.text = 'Flirty'
+		typeBg.texture = pinkbg;
+		typeBg.material.set_shader_parameter("glow_strength", 0.2) 
 	elif action.category == DateAction.CATEGORIES.DEEP:
 		typeBgText.text = 'Deep'
+		typeBg.texture = purplebg;
+		typeBg.material.set_shader_parameter("glow_strength", 1) 
 	else:
 		typeBgText.text = 'enum mismatch, update DateMinigameDisplay'
 		
@@ -153,18 +176,22 @@ func setProgress(progress, maxProgress):
 func setUiForTopic():
 	mainButton.text = 'Ask It!'
 	topText.text = 'New Topic!'
+	mainText.set("theme_override_font_sizes/font_size", 34)
 
 func setUiForPartnerQuestion():
 	mainButton.text = 'Answer!'
 	topText.text = "Answer Her!"
+	mainText.set("theme_override_font_sizes/font_size", 24)
 	
 func setUiForPlayerQuestion():
 	mainButton.text = 'Ask It!'
 	topText.text = "Ask Her!"
+	mainText.set("theme_override_font_sizes/font_size", 24)
 
 func setUiForQuiz():
 	mainButton.text = 'Answer!'
 	topText.text = "Quiz!"
+	mainText.set("theme_override_font_sizes/font_size", 24)
 
 func playSuccessSound():
 	$AudioStreamPlayer2D.stream = successSound
@@ -177,16 +204,6 @@ func playFailSound():
 func playArrowClick():
 	$AudioStreamPlayer2D.stream = arrowClick
 	$AudioStreamPlayer2D.play()
-
-func _on_arrow_left_pressed():
-	playArrowClick()
-	currentActionIndex = (currentActionIndex - 1) % allActions.size()
-	setUi(allActions[currentActionIndex])
-
-func _on_arrow_right_pressed():
-	playArrowClick()
-	currentActionIndex = (currentActionIndex + 1) % allActions.size()
-	setUi(allActions[currentActionIndex])
 
 func _on_main_button_pressed():
 	optionSelected.emit(currentActionIndex)
@@ -205,3 +222,32 @@ func showSuccess():
 	$AnimContainer.visible = false
 	$AudioStreamPlayer2D.stream = load("res://data/assets/general/sounds/victory2.wav")
 	$AudioStreamPlayer2D.play()
+
+
+func _on_button_left_pressed():
+	playArrowClick()
+	animate_text_transition(1)
+
+func _on_button_right_pressed():
+	playArrowClick()
+	animate_text_transition(-1)
+
+func animate_text_transition(direction: int):
+	var original_x = mainText.get_meta("original_x")
+	var tween = create_tween()
+	
+	# First tween: slide current text off screen
+	var off_screen_x = -screen_width if direction > 0 else screen_width
+	tween.tween_property(mainText, "position:x", off_screen_x, 0.1)
+	
+	# After first tween completes, update text and reset position
+	tween.tween_callback(func():
+		# Update the text content
+		currentActionIndex = (currentActionIndex + direction) % allActions.size()
+		setUi(allActions[currentActionIndex])
+		# Move text to starting position for entrance
+		mainText.position.x = -off_screen_x
+	)
+	
+	# Final tween: slide new text in from opposite side
+	tween.tween_property(mainText, "position:x", original_x, 0.1)

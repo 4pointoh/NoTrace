@@ -136,8 +136,8 @@ func group_topic_select():
 					'topic_lisamarket_relationships'))
 	
 	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]', 
-					1, #intensity 0 - 5
-					getStandardLuck(6),  # Luck 0 - 5
+					0, #intensity 0 - 5
+					getStandardLuck(0),  # Luck 0 - 5
 					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.SMALL_TALK,
 					group_smalltalk,
