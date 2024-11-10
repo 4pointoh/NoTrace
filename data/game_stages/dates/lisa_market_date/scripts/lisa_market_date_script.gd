@@ -993,16 +993,6 @@ func group_poker():
 								group_player_strip_poker,
 								group_player_strip_poker,
 								'id_lisamarket_player_strp_poker'))
-	
-	if(pokerQuestionIndex == 5):
-		result.nextGroup.append(getPlayerQuestionAction("Do you understand where I'm going with this?",
-								1, #intensity 0 - 5
-								getStandardLuck(1),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
-								DateAction.CATEGORIES.DEEP,
-								group_player_where_im_going,
-								group_player_where_im_going,
-								'id_lisamarket_player_where_im_going'))
 		
 	return result
 
@@ -1019,7 +1009,7 @@ func group_poker_expert_answer():
 	result.success = true
 	
 	result.nextGroup.append(getChoiceAction("Practice practice practice", group_poker_expert_answer_choice1))
-	result.nextGroup.append(getChoiceAction("I used to play in extremely high stakes games. You learn fast when you have a lot to lose.", group_poker_expert_answer_choice2))
+	result.nextGroup.append(getChoiceAction("I sometimes play in extremely high stakes games.", group_poker_expert_answer_choice2))
 	return result
 
 func group_poker_expert_answer_choice1():
