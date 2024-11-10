@@ -221,15 +221,20 @@ func _on_poker_game_five_game_won():
 func _on_date_dialogue_start(key):
 	$DialogueManager.startDialogue(key)
 
-func _on_date_complete(success):
+func _on_date_complete(success, dialogueKey = null):
 	currentDate.queue_free()
 	if(success):
+		GlobalGameStage.setDateComplete()
 		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.dateWinGameStage)
 		advanceGameStage()
 	else:
 		fadeNext()
 		forcePhoneStage = true
-		$DialogueManager.startDialogue(GlobalGameStage.currentStage.dateLossDialogueKey)
+
+		if(!dialogueKey):
+			$DialogueManager.startDialogue(GlobalGameStage.currentStage.dateLossDialogueKey)
+		else:
+			$DialogueManager.startDialogue(dialogueKey)
 
 func _on_date_set_wallpaper(wallpaper):
 	$Background.setBackground(wallpaper)

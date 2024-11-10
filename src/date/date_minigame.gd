@@ -10,7 +10,7 @@ var firstLoad = true
 
 signal dialogueStart(startKey : String)
 signal setWallpaper(background : Background)
-signal dateComplete(success : bool)
+signal dateComplete(success : bool, dialogueKey : String)
 
 func initFromGameStage(stage : GameStage):
 	dateScript = stage.dateScript.new()
@@ -40,12 +40,12 @@ func processDialogueComplete():
 		
 	if currentResult.criticalFailure:
 		GlobalGameStage.resetDate()
-		processDateComplete(false)
+		processDateComplete(false, null)
 	elif dateProgress >= maxProgress:  
 		if dateScript.date_was_successful():
-			processDateComplete(true)
+			processDateComplete(true, null)
 		else:
-			processDateComplete(false)
+			processDateComplete(false, dateScript.get_alternate_loss_dialogue())
 		GlobalGameStage.resetDate()
 	elif currentResult.nextGroup.size() > 0:
 		processNextActionOrGroup()
@@ -54,6 +54,25 @@ func processDialogueComplete():
 		processNextActionOrGroup()
 
 func processNextActionOrGroup():
+	# Remove any topics with nothing left in them
+	if currentResult.nextGroup.size() > 0 && currentResult.nextGroup[0].type == DateAction.TYPES.TOPIC:
+		currentResult.nextGroup = currentResult.nextGroup.filter(func(action):
+			var groupResult = action.successFunc.call()
+
+			# Remove any questions asked by the partner which have already been asked
+			var filteredNextGroup = groupResult.nextGroup.filter(func(action):
+				if action.type == DateAction.TYPES.QUIZ or action.type == DateAction.TYPES.PARTNER_QUESTION:
+					return not GlobalGameStage.hasDatePartnerAsked(action.id)
+				return true
+			)
+
+			# If we filtered everything out, go back to topic selection
+			if(filteredNextGroup.is_empty()):
+				return false
+
+			return true
+		)
+
 	# Remove any questions asked by the partner which have already been asked
 	var filteredGroup = currentResult.nextGroup.filter(func(action):
 		if action.type == DateAction.TYPES.QUIZ or action.type == DateAction.TYPES.PARTNER_QUESTION:
@@ -71,6 +90,7 @@ func processNextActionOrGroup():
 	var nextType = currentResult.nextGroup[0].type
 	
 	if nextType == DateAction.TYPES.TOPIC:
+		currentResult.nextGroup.shuffle()
 		displayChoices(currentResult.nextGroup)
 	elif nextType == DateAction.TYPES.PLAYER_QUESTION:
 		displayChoices(currentResult.nextGroup)
@@ -155,11 +175,11 @@ func completeAction(action : DateAction):
 	print(str(GlobalGameStage.getDateStorage().currentDateProgressionScore))
 	processResultDialogue()
 
-func processDateComplete(success):
+func processDateComplete(success, dialogueKey):
 	if(!success):
-		dateComplete.emit(success)
+		dateComplete.emit(success, dialogueKey)
 		return
 	$DateMinigameDisplay.showSuccess()
 	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.PISSED, Heartsplosion.ANIM_TYPE.RAIN)
 	await get_tree().create_timer(3).timeout
-	dateComplete.emit(success)
+	dateComplete.emit(success, dialogueKey)

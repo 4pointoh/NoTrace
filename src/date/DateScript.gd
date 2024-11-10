@@ -23,11 +23,8 @@ func repeated_ask(action : DateAction):
 func date_was_successful():
 	assert(false, 'override me')
 	
-func getStandardLuck(intensity):
-	if intensity < 0 || intensity > MAX_LUCK:
-		return -1
-	else:
-		return MAX_LUCK - intensity
+func getStandardLuck(luck):
+	return luck
 
 func getActionKey(id, dialogueKey):
 	if id != null:

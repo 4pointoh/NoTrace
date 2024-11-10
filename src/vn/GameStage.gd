@@ -35,6 +35,9 @@ class_name GameStage
 @export var isDate : bool
 @export var dateScript : Script
 @export var dateWinGameStage: GameStage
+
+## When the date is completed, you must mark the 'selectable event' phone stage complete. This is the stage that triggers when the event is selected in the phone. 
+@export var dateWinMarkThisStageComplete: String
 @export var dateLossDialogueKey: String
 @export var dateCharacter: String #LISA, ASHELY, AMY
 @export var dateTitle: String

@@ -267,6 +267,12 @@ func modifyDateScore(progression, entertained, horny):
 	dateStorage.currentDateProgressionScore += progression
 	dateStorage.currentDateHornyScore += horny
 
+func setDateComplete():
+	completedStages.append(currentStage.name)
+
+	if(currentStage.dateWinMarkThisStageComplete):
+		completedStages.append(currentStage.dateWinMarkThisStageComplete)
+
 func playParticleEffect(type : Heartsplosion.TYPES, animType : Heartsplosion.ANIM_TYPE):
 	playParticle.emit(type, animType)
 

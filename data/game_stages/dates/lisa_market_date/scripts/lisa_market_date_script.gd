@@ -11,7 +11,15 @@ func start():
 	return result
 
 func date_was_successful():
-	return GlobalGameStage.getDateStorage().currentDateProgressionScore > 150
+	var completedPokerDialgue = pokerQuestionIndex == 5
+	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore > 150
+	return completedPokerDialgue && completedDate
+
+func get_alternate_loss_dialogue():
+	if pokerQuestionIndex < 5:
+		return 'need_more_poker_progress'
+	else:
+		return null;
 
 func getCurrentBackground():
 	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
@@ -19,10 +27,7 @@ func getCurrentBackground():
 	var scoreHorny = GlobalGameStage.getDateStorage().currentDateHornyScore
 	
 	var newBackground : Background = Background.new()
-	if scoreProgression < 20:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/0.png")
-		newBackground.name = '1'
-	elif scoreProgression <= 40:
+	if scoreProgression <= 40:
 		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/1.png")
 		newBackground.name = '2'
 	elif scoreProgression <= 60:
@@ -60,17 +65,17 @@ func repeated_ask(action : DateAction):
 	
 	if(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskSuccessCount(id) > 0):
 		result.success = false
-		result.scoreProgression = -20
+		result.scoreProgression = -30
 		result.dialogueStartKey = 'repeat_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
 	elif(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskFailureCount(id) > 1):
 		result.success = false
 		result.criticalFailure = true
-		result.scoreProgression = -20
+		result.scoreProgression = -30
 		result.dialogueStartKey = 'asked_too_many_times'
 	elif(GlobalGameStage.getDateLastFailure() == id):
 		result.success = false
-		result.scoreProgression = -20
+		result.scoreProgression = -30
 		result.dialogueStartKey = 'asked_twice_in_a_row_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
 	else:
@@ -87,7 +92,7 @@ func group_topic_select():
 	
 	result.nextGroup.append(getTopicAction('Ask About Lisa', 
 					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(2),  # Luck 0 - 6, = hidden
+					getStandardLuck(3),  # Luck 0 - 6, = hidden
 					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.FRIENDLY,
 					group_about_lisa,
@@ -96,7 +101,7 @@ func group_topic_select():
 	
 	result.nextGroup.append(getTopicAction('Poker', 
 					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(5),  # Luck 0 - 6
+					getStandardLuck(6),  # Luck 0 - 6
 					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.FRIENDLY,
 					group_poker,
@@ -105,7 +110,7 @@ func group_topic_select():
 	
 	result.nextGroup.append(getTopicAction('The City of Cummington', 
 					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(1),  # Luck 0 - 6, = hidden
+					getStandardLuck(5),  # Luck 0 - 6, = hidden
 					70, #Success Chance 0 - 100
 					DateAction.CATEGORIES.FRIENDLY,
 					group_cummington,
@@ -114,7 +119,7 @@ func group_topic_select():
 					
 	result.nextGroup.append(getTopicAction('Chad', 
 					3, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(1),  # Luck 0 - 6, = hidden
+					getStandardLuck(2),  # Luck 0 - 6, = hidden
 					50, #Success Chance 0 - 100
 					DateAction.CATEGORIES.PERSONAL,
 					group_chad,
@@ -132,7 +137,7 @@ func group_topic_select():
 	
 	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]', 
 					1, #intensity 0 - 5
-					getStandardLuck(5),  # Luck 0 - 5
+					getStandardLuck(6),  # Luck 0 - 5
 					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.SMALL_TALK,
 					group_smalltalk,
@@ -161,7 +166,7 @@ func group_about_lisa():
 	
 	result.nextGroup.append(getPlayerQuestionAction('What is your favorite color?',
 							1, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_favorite_color_question,
@@ -170,7 +175,7 @@ func group_about_lisa():
 	
 	result.nextGroup.append(getPlayerQuestionAction('How old are you?',
 							3, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							30, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_how_old_question,
@@ -196,7 +201,7 @@ func group_smalltalk():
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about the weather',
 							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
+							getStandardLuck(6),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
@@ -205,7 +210,7 @@ func group_smalltalk():
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about hobbies',
 							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
+							getStandardLuck(6),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
@@ -214,7 +219,7 @@ func group_smalltalk():
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about a dream you had last night',
 							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
+							getStandardLuck(6),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
@@ -223,7 +228,7 @@ func group_smalltalk():
 							
 	result.nextGroup.append(getPlayerQuestionAction('Talk about school',
 							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
+							getStandardLuck(6),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
@@ -333,7 +338,7 @@ func group_cummington():
 	
 	result.nextGroup.append(getPlayerQuestionAction('How long have you lived here?',
 							1, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_cummington_lived_here,
@@ -342,7 +347,7 @@ func group_cummington():
 	
 	result.nextGroup.append(getPlayerQuestionAction('What do you think of the city?',
 							1, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_cummington_thoughts,
@@ -351,7 +356,7 @@ func group_cummington():
 
 	result.nextGroup.append(getPlayerQuestionAction('Do you come to the weekly farmers market often?',
 							1, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_cummington_farmer,
@@ -360,7 +365,7 @@ func group_cummington():
 
 	result.nextGroup.append(getPlayerQuestionAction('Do you go to school at Cummington State?',
 							1, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_cummington_state,
@@ -802,7 +807,7 @@ func group_relationships():
 	
 	result.nextGroup.append(getPlayerQuestionAction('Are you seeing anyone?',
 							4, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							20, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FLIRTY,
 							group_relationships_current,
@@ -811,7 +816,7 @@ func group_relationships():
 	
 	result.nextGroup.append(getPlayerQuestionAction('When was your first kiss?',
 							5, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							0, #Success Chance 0 - 100
 							DateAction.CATEGORIES.DEEP,
 							group_relationships_kiss,
@@ -820,7 +825,7 @@ func group_relationships():
 	
 	result.nextGroup.append(getPlayerQuestionAction('Have you ever had sex?',
 							5, #intensity 0 - 5
-							getStandardLuck(1),  # Luck 0 - 4
+							getStandardLuck(2),  # Luck 0 - 4
 							0, #Success Chance 0 - 100
 							DateAction.CATEGORIES.DEEP,
 							group_relationships_ever_had,
@@ -876,7 +881,7 @@ func group_relationships_you_answer_choice1():
 func group_relationships_you_answer_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = -20
 	result.dialogueStartKey = 'have_a_shot'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
@@ -891,7 +896,7 @@ func group_relationships_kiss():
 func group_relationships_kiss_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = -20
+	result.scoreProgression = -30
 	result.dialogueStartKey = 'first_kiss_fail'
 	return result
 
@@ -920,34 +925,39 @@ func group_poker():
 		result.dialogueStartKey = 'dialogue_poker_common'
 	else:
 		result.dialogueStartKey = 'dialogue_poker'
+
+	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
 		
 	result.success = true
 	result.scoreEntertained = 10
 	result.scoreProgression = 10
-	result.nextGroup.append(getPartnerQuestionAction('How did you learn to be such an expert at poker?',
-							group_poker_expert_answer, 'id_lisamarket_partnerask_pokerexpert'))
+
+	if(pokerQuestionIndex > 0):
+		result.nextGroup.append(getPartnerQuestionAction('How did you learn to be such an expert at poker?',
+								group_poker_expert_answer, 'id_lisamarket_partnerask_pokerexpert'))
 	
-	result.nextGroup.append(getPartnerQuestionAction("Was it hard to beat those girls at Chad's party?",
+	if(pokerQuestionIndex > 1):
+		result.nextGroup.append(getPartnerQuestionAction("Was it hard to beat those girls at Chad's party?",
 							group_party_girls_answer, 'id_lisamarket_partnerask_beatgirlsatparty'))
 	
-	result.nextGroup.append(getPartnerQuestionAction("What's the most you've ever lost in a poker game?",
-							group_poker_lost_answer, 'id_lisamarket_partnerask_pokerlost'))
+	if(pokerQuestionIndex > 2):
+		result.nextGroup.append(getPartnerQuestionAction("What's the most you've ever lost in a poker game?",
+								group_poker_lost_answer, 'id_lisamarket_partnerask_pokerlost'))
+		result.nextGroup.append(getPartnerQuestionAction("Do you play for high stakes often?",
+								group_poker_stakes_answer, 'id_lisamarket_partnerask_poker_stakes'))
 	
-	result.nextGroup.append(getPartnerQuestionAction("Do you play for high stakes often?",
-							group_poker_stakes_answer, 'id_lisamarket_partnerask_poker_stakes'))
-	
-	result.nextGroup.append(getPartnerQuestionAction("How long will it take me to learn to play poker like you?",
-							group_poker_how_long_answer, 'id_lisamarket_partnerask_poker_how_long'))
-	
-	result.nextGroup.append(getPartnerQuestionAction("Have you ever trained anybody else?",
-							group_poker_trained_other_answer, 'id_lisamarket_partnerask_poker_trained_other'))
+	if(pokerQuestionIndex > 3):
+		result.nextGroup.append(getPartnerQuestionAction("How long will it take me to learn to play poker like you?",
+								group_poker_how_long_answer, 'id_lisamarket_partnerask_poker_how_long'))
+		result.nextGroup.append(getPartnerQuestionAction("Have you ever trained anybody else?",
+								group_poker_trained_other_answer, 'id_lisamarket_partnerask_poker_trained_other'))
 
 	# TO-DO these question will unlock chronologically, one at a time, as they progress
 	
 	if(pokerQuestionIndex == 0):
 		result.nextGroup.append(getPlayerQuestionAction('How did you learn to play poker?',
 								1, #intensity 0 - 5
-								getStandardLuck(1),  # Luck 0 - 4
+								getStandardLuck(6),  # Luck 0 - 4
 								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
 								group_player_learn_poker_question,
@@ -957,37 +967,37 @@ func group_poker():
 	if(pokerQuestionIndex == 1):
 		result.nextGroup.append(getPlayerQuestionAction("What's the most you've ever lost in poker?",
 								2, #intensity 0 - 5
-								getStandardLuck(1),  # Luck 0 - 4
+								getStandardLuck(6),  # Luck 0 - 4
 								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.PERSONAL,
 								group_player_most_lost_poker,
 								group_player_most_lost_poker,
 								'id_lisamarket_player_most_lost_poker'))
 
-	if(pokerQuestionIndex == 2):
+	if(pokerQuestionIndex == 2 && scoreProgression > 90):
 		result.nextGroup.append(getPlayerQuestionAction("What would you be willing to lose in a poker game? If it meant getting better?",
 								3, #intensity 0 - 5
-								getStandardLuck(1),  # Luck 0 - 4
+								getStandardLuck(6),  # Luck 0 - 4
 								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.DEEP,
 								group_player_willing_to_lose,
 								group_player_willing_to_lose,
 								'id_lisamarket_player_willingtolose'))
 	
-	if(pokerQuestionIndex == 3):
+	if(pokerQuestionIndex == 3 && scoreProgression > 120):
 		result.nextGroup.append(getPlayerQuestionAction("Would you be more motivated to learn if you stood to lose a lot?",
 								4, #intensity 0 - 5
-								getStandardLuck(1),  # Luck 0 - 4
+								getStandardLuck(6),  # Luck 0 - 4
 								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FLIRTY,
 								group_player_motivation,
 								group_player_motivation,
 								'id_lisamarket_player_motivatedtowin'))
 	
-	if(pokerQuestionIndex == 4):
+	if(pokerQuestionIndex == 4 && scoreProgression > 150):
 		result.nextGroup.append(getPlayerQuestionAction("Have you ever played strip poker?",
 								5, #intensity 0 - 5
-								getStandardLuck(1),  # Luck 0 - 4
+								getStandardLuck(6),  # Luck 0 - 4
 								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FLIRTY,
 								group_player_strip_poker,
@@ -1072,7 +1082,7 @@ func group_poker_lost_answer():
 func group_poker_lost_answer_choice1():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = -20
 	result.dialogueStartKey = 'never_lose_big'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	return result
@@ -1088,7 +1098,7 @@ func group_poker_lost_answer_choice2():
 func group_poker_lost_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = -20
 	result.dialogueStartKey = 'won_more_than_lost'
 	return result
 
@@ -1166,7 +1176,7 @@ func group_poker_stakes_answer_choice2():
 func group_poker_stakes_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = -10
 	result.dialogueStartKey = 'crippling_debt'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
