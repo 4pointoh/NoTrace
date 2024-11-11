@@ -22,6 +22,8 @@ var currentActionIndex : int = 0
 @onready var dateProgress = $DateProgress
 @onready var overlayClipper = $OverlayClipper
 
+@onready var particleContainer = $Container/ParticleContainer
+
 @onready var lisaBg = load("res://data/assets/date/art/datebg2.png")
 @onready var asheBg = load("res://data/assets/date/art/datebg3.png")
 @onready var amyBg = load("res://data/assets/date/art/datebg4png.png")
@@ -44,6 +46,7 @@ var screen_width = 400  # Adjust this to your screen width
 
 func _ready():
 	mainText.set_meta("original_x", mainText.position.x)
+	particleContainer.start_rain()
 
 func setActions(actions: Array[DateAction]):
 	currentActionIndex = 0
@@ -251,3 +254,9 @@ func animate_text_transition(direction: int):
 	
 	# Final tween: slide new text in from opposite side
 	tween.tween_property(mainText, "position:x", original_x, 0.1)
+
+func set_particle_count(amount):
+	particleContainer.set_particle_count(amount)
+	
+func add_particle(particleName):
+	particleContainer.addParticle(particleName)

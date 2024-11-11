@@ -10,6 +10,7 @@ var scoreHorny : int = 0
 var scoreProgression : int = 0
 var particleType : Heartsplosion.TYPES
 var wallpaper : Background
+var addParticleRain: String
 
 func setBackground(texture, name):
 	wallpaper = Background.new()

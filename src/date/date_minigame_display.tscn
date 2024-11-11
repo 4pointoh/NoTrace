@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://d08hy8m7ysx30"]
+[gd_scene load_steps=191 format=3 uid="uid://d08hy8m7ysx30"]
 
 [ext_resource type="Script" path="res://src/date/DateMinigameDisplay.gd" id="1_kynup"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_4gai5"]
@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bs2uwidb2e6jk" path="res://data/assets/date/art/prog_bw_small.png" id="8_m04k3"]
 [ext_resource type="Texture2D" uid="uid://p6047m5y4bi1" path="res://data/assets/date/art/prog_color_small.png" id="9_ptp1w"]
 [ext_resource type="Texture2D" uid="uid://cjkjnha4lmk6j" path="res://data/assets/date/art/shapes_overlay.png" id="11_11fku"]
+[ext_resource type="PackedScene" uid="uid://covwx0wx8e8t8" path="res://src/date/particle_container.tscn" id="12_1hvc1"]
 [ext_resource type="Texture2D" uid="uid://cjgkresdolxep" path="res://data/assets/date/art/firesheet.png" id="12_lqvt8"]
 [ext_resource type="Texture2D" uid="uid://brdefqhlmns6j" path="res://data/assets/date/art/cloversheet.png" id="13_33ll3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1xle"]
-bg_color = Color(0.709804, 0.709804, 0.682353, 0.772549)
+bg_color = Color(0.498039, 0.564706, 0.952941, 0.733333)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -27,7 +28,6 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdwbl"]
-bg_color = Color(0.705194, 0.705194, 0.705194, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -1445,6 +1445,12 @@ patch_margin_top = 7
 patch_margin_right = 7
 patch_margin_bottom = 7
 
+[node name="ParticleContainer" parent="Container" instance=ExtResource("12_1hvc1")]
+offset_left = 55.0
+offset_top = 8.0
+offset_right = 543.0
+offset_bottom = 294.0
+
 [node name="MainText" type="Label" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -1464,9 +1470,9 @@ autowrap_mode = 3
 [node name="MainButton" type="Button" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 220.0
-offset_top = 235.0
-offset_right = 374.0
+offset_left = 106.0
+offset_top = 249.0
+offset_right = 494.0
 offset_bottom = 289.0
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)

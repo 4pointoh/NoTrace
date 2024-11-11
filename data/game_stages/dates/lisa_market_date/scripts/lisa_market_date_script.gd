@@ -130,7 +130,7 @@ func group_topic_select():
 					5, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(2),  # Luck 0 - 6, = hidden
 					10, #Success Chance 0 - 100
-					DateAction.CATEGORIES.PERSONAL,
+					DateAction.CATEGORIES.FLIRTY,
 					group_relationships,
 					group_relationships_fail,
 					'topic_lisamarket_relationships'))
@@ -255,6 +255,7 @@ func group_why_interested_in_lisa_answer_choice1():
 	result.success = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'training_process'
+	result.addParticleRain = 'smile'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
 	
@@ -271,6 +272,7 @@ func group_why_interested_in_lisa_answer_choice3():
 	result.success = true
 	result.scoreProgression = -20
 	result.dialogueStartKey = 'think_youre_cute'
+	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	return result
 
@@ -283,6 +285,7 @@ func group_favorite_color_question():
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'player_ask_fav_color_success'
 	result.particleType = Heartsplosion.TYPES.HAPPY
+	result.addParticleRain = 'heart'
 	return result
 	
 func group_favorite_color_question_fail():
@@ -300,7 +303,7 @@ func group_how_old_question():
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.HAPPY
 	result.dialogueStartKey = 'ask_how_old'
-	
+	result.addParticleRain = 'heart'
 	return result
 	
 func group_how_old_question_fail():
@@ -399,6 +402,7 @@ func group_cummington_lived_here():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'lived_here_success'
 	return result
 
@@ -412,6 +416,7 @@ func group_cummington_thoughts():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'city_thoughts_success'
 	return result
 
@@ -426,6 +431,7 @@ func group_cummington_farmer():
 	result.success = true
 	result.scoreProgression = 10
 	result.scoreEntertained = 5
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'farmers_market_success'
 	return result
 
@@ -440,6 +446,7 @@ func group_cummington_state():
 	result.success = true
 	result.scoreProgression = 10
 	result.scoreEntertained = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'cummington_state_success'
 	return result
 
@@ -463,6 +470,7 @@ func group_staying_in_city_choice1():
 	result.success = true
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.HAPPY
+	result.addParticleRain = 'heart'
 	result.dialogueStartKey = 'definitely_staying'
 	result.nextGroup.append(getPartnerQuestionAction('Oh? Is there something you really like about it?',
 															group_why_staying_answer,
@@ -503,6 +511,7 @@ func group_why_staying_choice1():
 	result.success = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'job_raise_family'
+	result.addParticleRain = 'heart'
 	result.particleType = Heartsplosion.TYPES.HAPPY
 	return result
 
@@ -527,6 +536,7 @@ func group_why_leaving_choice2():
 	result.scoreProgression = 20
 	result.scoreEntertained = 20
 	result.dialogueStartKey = 'bitches'
+	result.addParticleRain = 'laugh'
 	result.particleType = Heartsplosion.TYPES.LAUGH
 	result.setBackground(load("res://data/background_lists/dates/lisa_market_date/date/D.png"), 'answerbitches')
 	return result
@@ -544,6 +554,7 @@ func group_think_about_cummington_choice1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'heart'
 	result.dialogueStartKey = 'great_college_town'
 	return result
 
@@ -551,6 +562,7 @@ func group_think_about_cummington_choice2():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'okay_but_small'
 	return result
 
@@ -568,6 +580,7 @@ func group_favorite_meat_pie_choice1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'mega_milker'
 	return result
 
@@ -576,6 +589,7 @@ func group_favorite_meat_pie_choice2():
 	result.success = true
 	result.scoreProgression = 20
 	result.dialogueStartKey = 'chicken_giggler'
+	result.addParticleRain = 'heart'
 	result.particleType = Heartsplosion.TYPES.HEARTS
 	return result
 
@@ -584,6 +598,7 @@ func group_favorite_meat_pie_choice3():
 	result.success = true
 	result.scoreProgression = -10
 	result.dialogueStartKey = 'vegan'
+	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.CONFUSED
 	return result
 
@@ -609,6 +624,7 @@ func group_always_lived_here_choice2():
 	result.success = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'moved_for_college'
+	result.addParticleRain = 'heart'
 	result.particleType = Heartsplosion.TYPES.HAPPY
 	return result
 
@@ -617,6 +633,7 @@ func group_always_lived_here_choice3():
 	result.success = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'consciousness'
+	result.addParticleRain = 'laugh'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
 
@@ -634,6 +651,7 @@ func group_name_origin_choice1():
 	result.success = true
 	result.scoreProgression = 10
 	result.scoreEntertained = 10
+	result.addParticleRain = 'laugh'
 	result.particleType = Heartsplosion.TYPES.LAUGH
 	result.dialogueStartKey = 'named_after_founder'
 	return result
@@ -694,6 +712,7 @@ func group_chad_know_how():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'know_chad_success'
 	return result
 
@@ -717,6 +736,7 @@ func group_chad_thoughts_answer_choice1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'chad_good_friend'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
@@ -725,6 +745,7 @@ func group_chad_thoughts_answer_choice2():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'chad_chill'
 	return result
 
@@ -740,7 +761,7 @@ func group_chad_party_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_chad_party'
 	result.success = true
-	
+	result.addParticleRain = 'smile'
 	result.nextGroup.append(getChoiceAction("I'm a friend of Chad's", group_chad_party_answer_choice1))
 	result.nextGroup.append(getChoiceAction("I'm a friend of a friend of Chad's", group_chad_party_answer_choice2))
 	result.nextGroup.append(getChoiceAction("I'm a friend of a friend of a friend of Chad's", group_chad_party_answer_choice3))
@@ -782,6 +803,7 @@ func group_chad_go_to_party():
 	result.success = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'go_to_party_success'
+	result.addParticleRain = 'smile'
 	return result
 
 func group_chad_go_to_party_fail():
@@ -842,6 +864,7 @@ func group_relationships_fail():
 	result.success = false 
 	result.scoreProgression = -10
 	result.dialogueStartKey = 'relationships_fail'
+	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	return result
 
@@ -858,6 +881,7 @@ func group_relationships_current_fail():
 	var result = DateActionResult.new()
 	result.success = false
 	result.scoreProgression = -10
+	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	result.dialogueStartKey = 'current_relationship_fail'
 	return result
@@ -883,6 +907,7 @@ func group_relationships_you_answer_choice2():
 	result.success = true
 	result.scoreProgression = -20
 	result.dialogueStartKey = 'have_a_shot'
+	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
 
@@ -897,6 +922,7 @@ func group_relationships_kiss_fail():
 	var result = DateActionResult.new()
 	result.success = false
 	result.scoreProgression = -30
+	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'first_kiss_fail'
 	return result
 
@@ -1017,7 +1043,7 @@ func group_poker_expert_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_poker_expert'
 	result.success = true
-	
+	result.addParticleRain = 'poker'
 	result.nextGroup.append(getChoiceAction("Practice practice practice", group_poker_expert_answer_choice1))
 	result.nextGroup.append(getChoiceAction("I sometimes play in extremely high stakes games.", group_poker_expert_answer_choice2))
 	return result
@@ -1041,7 +1067,7 @@ func group_party_girls_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_party_girls'
 	result.success = true
-	
+	result.addParticleRain = 'poker'
 	result.nextGroup.append(getChoiceAction("Idk I just clicked the 'win' button", group_party_girls_answer_choice1))
 	result.nextGroup.append(getChoiceAction("I had to reload the save repeatedly. It took like 15 tries tbh", group_party_girls_answer_choice2))
 	result.nextGroup.append(getChoiceAction("It was easy, I'm just really good.", group_party_girls_answer_choice3))
@@ -1073,7 +1099,7 @@ func group_poker_lost_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_poker_lost'
 	result.success = true
-	
+	result.addParticleRain = 'poker'
 	result.nextGroup.append(getChoiceAction("I simply have never lost.", group_poker_lost_answer_choice1))
 	result.nextGroup.append(getChoiceAction("One time, at band camp, my punishment for losing was... well it was rough.", group_poker_lost_answer_choice2))
 	result.nextGroup.append(getChoiceAction("I've won much more than I've lost", group_poker_lost_answer_choice3))
@@ -1107,6 +1133,7 @@ func group_player_learn_poker_question():
 	result.success = true
 	result.scoreProgression = 10
 	result.scoreEntertained = 5
+	result.addParticleRain = 'poker'
 	result.dialogueStartKey = 'learn_poker_success'
 	result.particleType = Heartsplosion.TYPES.HAPPY
 	pokerQuestionIndex = 1
@@ -1116,6 +1143,7 @@ func group_player_most_lost_poker():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'poker'
 	result.dialogueStartKey = 'most_lost_poker_success'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	pokerQuestionIndex = 2
@@ -1124,6 +1152,7 @@ func group_player_most_lost_poker():
 func group_player_willing_to_lose():
 	var result = DateActionResult.new()
 	result.success = true
+	result.addParticleRain = 'poker'
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'willing_to_lose_success'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
@@ -1134,6 +1163,7 @@ func group_player_motivation():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'poker'
 	result.dialogueStartKey = 'motivation_success'
 	pokerQuestionIndex = 4
 	result.particleType = Heartsplosion.TYPES.INNOCENT
@@ -1143,6 +1173,7 @@ func group_player_strip_poker():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
+	result.addParticleRain = 'poker'
 	result.dialogueStartKey = 'strip_poker_success'
 	pokerQuestionIndex = 5
 	result.particleType = Heartsplosion.TYPES.HORNY
@@ -1152,7 +1183,7 @@ func group_poker_stakes_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_poker_stakes'
 	result.success = true
-	
+	result.addParticleRain = 'poker'
 	result.nextGroup.append(getChoiceAction("I used to. Not anymore.", group_poker_stakes_answer_choice1))
 	result.nextGroup.append(getChoiceAction("I regularly gamble my entire paycheck on a single hand.", group_poker_stakes_answer_choice2))
 	result.nextGroup.append(getChoiceAction("I am in crippling life long debt", group_poker_stakes_answer_choice3))
@@ -1185,7 +1216,7 @@ func group_poker_how_long_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_poker_how_long'
 	result.success = true
-	
+	result.addParticleRain = 'poker'
 	result.nextGroup.append(getChoiceAction("Never. But I can make you ALMOST as good as me.", group_poker_how_long_answer_choice1))
 	result.nextGroup.append(getChoiceAction("It depends how much you're willing to commit", group_poker_how_long_answer_choice2))
 	result.nextGroup.append(getChoiceAction("Years. Maybe longer.", group_poker_how_long_answer_choice3))

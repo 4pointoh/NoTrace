@@ -164,6 +164,10 @@ func completeAction(action : DateAction):
 		if(action.id):
 			GlobalGameStage.addDateAsk(action.id, false)
 	
+	if(currentResult.particleType):
+		$DateMinigameDisplay.add_particle(currentResult.addParticleRain);
+	
+	$DateMinigameDisplay.set_particle_count(min(20, round((GlobalGameStage.getDateStorage().currentDateProgressionScore / 10) * 1.2)))
 	GlobalGameStage.playParticleEffect(currentResult.particleType, Heartsplosion.ANIM_TYPE.EXPLODE)
 	GlobalGameStage.modifyDateScore(currentResult.scoreProgression, currentResult.scoreEntertained, currentResult.scoreHorny)
 	
@@ -180,6 +184,6 @@ func processDateComplete(success, dialogueKey):
 		dateComplete.emit(success, dialogueKey)
 		return
 	$DateMinigameDisplay.showSuccess()
-	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.PISSED, Heartsplosion.ANIM_TYPE.RAIN)
-	await get_tree().create_timer(3).timeout
+	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.HAPPY, Heartsplosion.ANIM_TYPE.RAIN)
+	await get_tree().create_timer(3).timeoutss
 	dateComplete.emit(success, dialogueKey)
