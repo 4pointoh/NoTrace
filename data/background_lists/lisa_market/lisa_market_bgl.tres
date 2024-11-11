@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=65 format=3 uid="uid://ioq1xjb3uhw0"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=67 format=3 uid="uid://ioq1xjb3uhw0"]
 
 [ext_resource type="Texture2D" uid="uid://choijtah8o7hp" path="res://data/background_lists/lisa_market/00.png" id="1_1ho4m"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_xvofy"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://xm5h07legajw" path="res://data/background_lists/lisa_market/25.png" id="30_1jkuu"]
 [ext_resource type="Texture2D" uid="uid://b1i3y2twtjgut" path="res://data/background_lists/lisa_market/26.png" id="31_uk4pi"]
 [ext_resource type="Texture2D" uid="uid://vtnfye5p8bl3" path="res://data/background_lists/lisa_market/27.png" id="32_sangv"]
+[ext_resource type="Texture2D" uid="uid://drg17lpht0lis" path="res://data/background_lists/dates/lisa_market_date/unused/a5b1ec8a-8ebb-4ede-a892-525577a85357.png" id="33_edsn4"]
 
 [sub_resource type="Resource" id="Resource_yv4k2"]
 script = ExtResource("2_p68ee")
@@ -189,7 +190,12 @@ script = ExtResource("2_p68ee")
 name = "27"
 images = ExtResource("32_sangv")
 
+[sub_resource type="Resource" id="Resource_j1ebi"]
+script = ExtResource("2_p68ee")
+name = "bonus"
+images = ExtResource("33_edsn4")
+
 [resource]
 script = ExtResource("1_xvofy")
 name = "lisa_market"
-images = Array[ExtResource("2_p68ee")]([SubResource("Resource_yv4k2"), SubResource("Resource_731jv"), SubResource("Resource_galr4"), SubResource("Resource_utyjm"), SubResource("Resource_wq1ga"), SubResource("Resource_xxwlp"), SubResource("Resource_ryfkd"), SubResource("Resource_dp2xd"), SubResource("Resource_y0j4n"), SubResource("Resource_52f2h"), SubResource("Resource_vnkok"), SubResource("Resource_gwx8x"), SubResource("Resource_wyomh"), SubResource("Resource_oahsk"), SubResource("Resource_xpto2"), SubResource("Resource_02vjg"), SubResource("Resource_t268c"), SubResource("Resource_jrg6n"), SubResource("Resource_s06il"), SubResource("Resource_883vd"), SubResource("Resource_kvosd"), SubResource("Resource_i51dw"), SubResource("Resource_nmcr0"), SubResource("Resource_iq3u2"), SubResource("Resource_eg0gs"), SubResource("Resource_tc7wg"), SubResource("Resource_lh1vq"), SubResource("Resource_38pga"), SubResource("Resource_4hryp"), SubResource("Resource_n1rp2"), SubResource("Resource_rdxlq")])
+images = Array[ExtResource("2_p68ee")]([SubResource("Resource_yv4k2"), SubResource("Resource_731jv"), SubResource("Resource_galr4"), SubResource("Resource_utyjm"), SubResource("Resource_wq1ga"), SubResource("Resource_xxwlp"), SubResource("Resource_ryfkd"), SubResource("Resource_dp2xd"), SubResource("Resource_y0j4n"), SubResource("Resource_52f2h"), SubResource("Resource_vnkok"), SubResource("Resource_gwx8x"), SubResource("Resource_wyomh"), SubResource("Resource_oahsk"), SubResource("Resource_xpto2"), SubResource("Resource_02vjg"), SubResource("Resource_t268c"), SubResource("Resource_jrg6n"), SubResource("Resource_s06il"), SubResource("Resource_883vd"), SubResource("Resource_kvosd"), SubResource("Resource_i51dw"), SubResource("Resource_nmcr0"), SubResource("Resource_iq3u2"), SubResource("Resource_eg0gs"), SubResource("Resource_tc7wg"), SubResource("Resource_lh1vq"), SubResource("Resource_38pga"), SubResource("Resource_4hryp"), SubResource("Resource_n1rp2"), SubResource("Resource_rdxlq"), SubResource("Resource_j1ebi")])

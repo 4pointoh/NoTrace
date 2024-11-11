@@ -185,5 +185,5 @@ func processDateComplete(success, dialogueKey):
 		return
 	$DateMinigameDisplay.showSuccess()
 	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.HAPPY, Heartsplosion.ANIM_TYPE.RAIN)
-	await get_tree().create_timer(3).timeoutss
+	await get_tree().create_timer(3).timeout
 	dateComplete.emit(success, dialogueKey)

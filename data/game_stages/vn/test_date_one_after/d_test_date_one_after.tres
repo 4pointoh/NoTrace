@@ -9,15 +9,15 @@ starts = {
 }
 nodes = {
 "0_1": {
-"link": &"1_1",
+"link": &"3_6",
 "offset": Vector2(-154.449, 62.5),
 "start_id": "START"
 },
 "1_1": {
-"background": 5,
+"background": 16,
 "backgroundList": 0,
-"characterState": 0,
-"dialogue": "Wow the cafe is closing up we chatted for so long haha, but we didn't talk about poker much!",
+"characterState": -1,
+"dialogue": "Wow the cafe is closing up we chatted for so long haha!",
 "offset": Vector2(420, -40),
 "options": {
 0: {
@@ -29,12 +29,172 @@ nodes = {
 "size": Vector2(510, 720),
 "speaker": 0
 },
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That's the last time I take advantage of a beatiful sunny morning to enjoy the fresh air. ",
+"offset": Vector2(4260, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 6,
+"dialogue": "Aww, don't say that!",
+"offset": Vector2(4640, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(333, 630),
+"speaker": 0
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 11,
+"dialogue": "Taking full advantage of a beautiful summer morning is one of life's greatest pleasures!",
+"offset": Vector2(5020, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(318, 630),
+"speaker": 0
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... you really have unlimited energy, don't you?",
+"offset": Vector2(5440, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 24,
+"dialogue": "Well, that triple caramel frappe venti mochiato certainly helped. ",
+"offset": Vector2(5780, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(346, 630),
+"speaker": 0
+},
+"1_15": {
+"background": 23,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Enough chatting, we gotta go or we will miss the whole thing!",
+"offset": Vector2(6420, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 636),
+"speaker": 0
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She leads you only a short distance away to the market. ",
+"offset": Vector2(6780, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_17": {
+"background": 24,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright here we are! ",
+"offset": Vector2(7420, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300.001, 636),
+"speaker": 0
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Now listen up, it's easy to get lost, don't wander off! ",
+"offset": Vector2(7780, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300.002, 623),
+"speaker": 0
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uh... yes m'am?",
+"offset": Vector2(8140, 240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
 "1_2": {
-"background": 6,
+"background": 17,
 "backgroundList": 0,
-"characterState": 1,
+"characterState": -1,
 "dialogue": "Let's get out of here before the barista charges at us with that milk frother! ",
-"offset": Vector2(1000, -40),
+"offset": Vector2(1000, -80),
 "options": {
 0: {
 "condition": {},
@@ -45,21 +205,775 @@ nodes = {
 "size": Vector2(486, 798),
 "speaker": 0
 },
-"1_3": {
+"1_20": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 2,
-"dialogue": "Can you walk me to my car? ",
-"offset": Vector2(1580, -40),
+"characterState": -1,
+"dialogue": "Haha I'm kidding, you're an adult, you can explore around if you want. ",
+"offset": Vector2(8520, 240),
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"1_21",
 "text": ""
 }
 },
-"size": Vector2(300, 582),
+"size": Vector2(300, 623),
 "speaker": 0
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nah I'll stick by you, it sounds like you know where the good shit is. ",
+"offset": Vector2(8860, 240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_22": {
+"background": 25,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ah, finally the grasshopper because the... grasshopp...ee? ",
+"offset": Vector2(9200, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300.002, 636),
+"speaker": 0
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Grasshoppee?",
+"offset": Vector2(9560, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You heard what I said! Now let's go!",
+"offset": Vector2(9920, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You shrug as she begins to lead you among the vendors. ",
+"offset": Vector2(10280, 240),
+"options": {
+0: {
+"condition": {},
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_26": {
+"background": 27,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Eventually, even she starts to slow down, running low on energy. ",
+"offset": Vector2(10880, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(300.001, 629),
+"speaker": -1
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Losing steam, champ?",
+"offset": Vector2(11280, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300.003, 623),
+"speaker": 1
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah I think it's about time we start getting back. ",
+"offset": Vector2(11620, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300.003, 623),
+"speaker": 0
+},
+"1_29": {
+"background": 27,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "My legs are well streteched out! This training session doubled as a workout!",
+"offset": Vector2(12020, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300.002, 636),
+"speaker": 0
+},
+"1_3": {
+"background": 18,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She stands up, and stretches out. ",
+"offset": Vector2(1580, -80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(335, 634),
+"speaker": ""
+},
+"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She leans up against a little barrier and takes one last big look at the night market. ",
+"offset": Vector2(12360, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300.003, 616),
+"speaker": -1
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She takes in a big deep breath and closes her eyes She counts to 10, and releases. ",
+"offset": Vector2(12740, 360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_32",
+"text": ""
+}
+},
+"size": Vector2(300.002, 621),
+"speaker": ""
+},
+"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright, I'm ready to go!",
+"offset": Vector2(13140, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_33",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's sit down somewhere and recap today's training before I go. ",
+"offset": Vector2(13540, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I want to make sure I didn't forget anything!",
+"offset": Vector2(13920, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She makes her way to the nearest bench, of which there are plenty available in the waning night crowds. ",
+"offset": Vector2(14300, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"3_4",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_36": {
+"background": 28,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ahh, that feels amazing!",
+"offset": Vector2(14980, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_37",
+"text": ""
+}
+},
+"size": Vector2(300, 636),
+"speaker": 0
+},
+"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You're going to stand? ",
+"offset": Vector2(15340, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_38",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_38": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I literally cannot sit down or I may never get back up. ",
+"offset": Vector2(15680, 360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_39",
+"text": ""
+}
+},
+"size": Vector2(300.002, 623),
+"speaker": 1
+},
+"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha, fair enogh! ",
+"offset": Vector2(16060, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_40",
+"text": ""
+}
+},
+"size": Vector2(300.003, 623),
+"speaker": 0
+},
+"1_4": {
+"background": 18,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Omg how long did we talk haha? What time is it! I'm so stiff!",
+"offset": Vector2(2000, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 636),
+"speaker": 0
+},
+"1_40": {
+"background": 29,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay, so to recap!",
+"offset": Vector2(16440, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(300, 636),
+"speaker": 0
+},
+"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "My homework is to research \"stripe poker\" ",
+"offset": Vector2(16780, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_42": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Strip poker",
+"offset": Vector2(17200, 360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_43",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_43": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sorry, strip poker!",
+"offset": Vector2(17580, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_44",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_44": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And we're going to use that as extra motivation for me. ",
+"offset": Vector2(17980, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_45",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_45": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Because if I risk losing something, it will motivate me to learn better!",
+"offset": Vector2(18320, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_46",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_46": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Is that right? ",
+"offset": Vector2(18640, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_47",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_47": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You got it champ. ",
+"offset": Vector2(18960, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_48",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_48": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Once you have done your research, just shoot me a text and we can get to the next part. ",
+"offset": Vector2(19320, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_49",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_49": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Perfect!",
+"offset": Vector2(19680, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"3_5",
+"text": ""
+}
+},
+"size": Vector2(312.002, 623),
+"speaker": 0
+},
+"1_5": {
+"background": 20,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Heyy I have an idea! Do you want to go check out the night market? ",
+"offset": Vector2(2380, -40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(373.999, 678),
+"speaker": 0
+},
+"1_50": {
+"background": 30,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She stands from the bench and takes out her phone. ",
+"offset": Vector2(20240, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_51",
+"text": ""
+}
+},
+"size": Vector2(300, 629),
+"speaker": -1
+},
+"1_51": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright it's like super late! I'm going to call a Boober to take me home. ",
+"offset": Vector2(20580, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_52",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_52": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I assume you will find your own way home, right? ",
+"offset": Vector2(20920, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_53",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_53": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "If you never hear from me again, it's because my legs fell off halfway home. ",
+"offset": Vector2(21260, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_54",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_54": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha, stop it!",
+"offset": Vector2(21600, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_55",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_55": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright, thanks so much again, this is step one of a long journey!",
+"offset": Vector2(21960, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"3_9",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_56": {
+"background": 31,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "And thank you, F95 Zone reader, for play testing my game in this early stage!",
+"offset": Vector2(22340, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_57",
+"text": ""
+}
+},
+"size": Vector2(300, 641),
+"speaker": ""
+},
+"1_57": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright time for me to get home too. ",
+"offset": Vector2(22700, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"3_10",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's like the morning version of the market, but at night!",
+"offset": Vector2(2800, -40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Actually my legs feel like shit too, what was wrong with those chairs? Goddamn!",
+"offset": Vector2(3140, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The night market sounds great, if I don't stretch out a bit, I'm never going to make it home. ",
+"offset": Vector2(3540, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_9": {
+"background": 22,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Omg you walked here? Haha, crazy! ",
+"offset": Vector2(3900, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 636),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_15",
+"offset": Vector2(6180, 320),
+"signalValue": "hide_char"
+},
+"3_10": {
+"link": "END",
+"offset": Vector2(23079.8, 631.244),
+"signalValue": "unlock_wp_first_date"
+},
+"3_2": {
+"link": &"1_17",
+"offset": Vector2(7166.17, 405.69),
+"signalValue": "fade_next"
+},
+"3_3": {
+"link": &"1_26",
+"offset": Vector2(10660, 460),
+"signalValue": "fade_next"
+},
+"3_4": {
+"link": &"1_36",
+"offset": Vector2(14711.2, 392.89),
+"signalValue": "fade_next"
+},
+"3_5": {
+"link": &"3_7",
+"offset": Vector2(20018.7, 371.985),
+"signalValue": "fade_next"
+},
+"3_6": {
+"link": &"1_1",
+"offset": Vector2(30.6638, 492.5),
+"signalValue": "reposition_bottom"
+},
+"3_7": {
+"link": &"1_50",
+"offset": Vector2(19957.6, 480.553),
+"signalValue": "reposition_upper"
+},
+"3_8": {
+"link": &"1_56",
+"offset": Vector2(22248.9, 1054.55),
+"signalValue": "reposition_bottom"
+},
+"3_9": {
+"link": &"3_8",
+"offset": Vector2(21893.7, 1068.55),
+"signalValue": "fade_next"
 }
 }
 variables = {}

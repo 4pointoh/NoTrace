@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=13 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=15 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://brdsu1blrr44u" path="res://data/wallpapers/phone_proof.png" id="5_w01my"]
 [ext_resource type="Texture2D" uid="uid://bpsyr4aihlpco" path="res://data/wallpapers/lisa_garbage.png" id="6_qlfik"]
 [ext_resource type="Texture2D" uid="uid://dnry46ekvsul5" path="res://data/wallpapers/ashe_selfie.png" id="7_m1d5n"]
+[ext_resource type="Texture2D" uid="uid://cn3ss3v3g54w" path="res://data/wallpapers/first_date.png" id="8_flf16"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -38,6 +39,12 @@ wallpaperId = "ASHE_SELFIE"
 image = ExtResource("7_m1d5n")
 hint = "A reminder for you, unlocked in the unknown number intro phone conversation."
 
+[sub_resource type="Resource" id="Resource_q4c1p"]
+script = ExtResource("3_wccuy")
+wallpaperId = "FIRST_DATE"
+image = ExtResource("8_flf16")
+hint = "Coffee with Lisa"
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p")])

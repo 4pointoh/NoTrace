@@ -114,6 +114,7 @@ func _on_dialogue_player_dialogue_signal(value):
 		"reposition_mid": setDialogueBoxMid()
 		"reposition_bottom": setDialogueBoxBottom()
 		"unlock_wp_lisa_leaving": GlobalGameStage.unlockWallpaper("LISA_LEAVING")
+		"unlock_wp_first_date": GlobalGameStage.unlockWallpaper("FIRST_DATE")
 	
 	dialogue_signal.emit(value)
 

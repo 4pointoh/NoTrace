@@ -165,7 +165,7 @@ func group_about_lisa():
 							group_why_interest_in_lisa_answer, 'id_lisamarket_partnerask_favcolor'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('What is your favorite color?',
-							1, #intensity 0 - 5
+							3, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
@@ -982,7 +982,7 @@ func group_poker():
 	
 	if(pokerQuestionIndex == 0):
 		result.nextGroup.append(getPlayerQuestionAction('How did you learn to play poker?',
-								1, #intensity 0 - 5
+								2, #intensity 0 - 5
 								getStandardLuck(6),  # Luck 0 - 4
 								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
