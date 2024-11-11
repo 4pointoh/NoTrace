@@ -41,7 +41,7 @@ He throws some of the wildest ragers at all of Cummington State University.
 "options": {
 0: {
 "condition": {},
-"link": &"3_10",
+"link": &"1_11",
 "text": ""
 }
 },
@@ -59,7 +59,7 @@ I'm sure he's expecting me. ",
 "options": {
 0: {
 "condition": {},
-"link": &"1_12",
+"link": &"3_10",
 "text": ""
 }
 },
@@ -98,7 +98,7 @@ I'm sure he's expecting me. ",
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_14": {
@@ -238,7 +238,7 @@ I think she's in her car crying. Bitch. We need somebody to fill her spot.",
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": "?????"
 },
 "1_21": {
@@ -254,7 +254,7 @@ I think she's in her car crying. Bitch. We need somebody to fill her spot.",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.003, 623),
 "speaker": 0
 },
 "1_22": {
@@ -334,7 +334,7 @@ I think she's in her car crying. Bitch. We need somebody to fill her spot.",
 "text": ""
 }
 },
-"size": Vector2(300.003, 623),
+"size": Vector2(300.005, 623),
 "speaker": 0
 },
 "1_27": {
@@ -366,7 +366,7 @@ I think she's in her car crying. Bitch. We need somebody to fill her spot.",
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.003, 623),
 "speaker": 0
 },
 "1_29": {
@@ -382,7 +382,7 @@ I think she's in her car crying. Bitch. We need somebody to fill her spot.",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_3": {
@@ -397,7 +397,7 @@ This one's going down in Cummington State University history.
 "options": {
 0: {
 "condition": {},
-"link": &"3_7",
+"link": &"1_4",
 "text": ""
 }
 },
@@ -433,7 +433,7 @@ This one's going down in Cummington State University history.
 "text": ""
 }
 },
-"size": Vector2(300.014, 643),
+"size": Vector2(300.015, 643),
 "speaker": 0
 },
 "1_32": {
@@ -462,7 +462,7 @@ This one's going down in Cummington State University history.
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "[i]*You call Chad. He doesn't answer. You call him again. And then a third time. He still doesn't answer.*[/i]",
-"offset": Vector2(3940, 660),
+"offset": Vector2(4100, 620),
 "options": {
 0: {
 "condition": {},
@@ -470,7 +470,7 @@ This one's going down in Cummington State University history.
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_34": {
@@ -486,7 +486,7 @@ This one's going down in Cummington State University history.
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_35": {
@@ -502,7 +502,7 @@ This one's going down in Cummington State University history.
 "text": ""
 }
 },
-"size": Vector2(300, 573.001),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_36": {
@@ -518,7 +518,7 @@ This one's going down in Cummington State University history.
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": "?????"
 },
 "1_37": {
@@ -534,7 +534,7 @@ This one's going down in Cummington State University history.
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": "?????"
 },
 "1_38": {
@@ -552,7 +552,7 @@ I'm pretty much a god at poker (if I lose, the entire universe rewinds back to t
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_4": {
@@ -567,7 +567,7 @@ I really should have just taken a Boober, but I'm so excited for this party that
 "options": {
 0: {
 "condition": {},
-"link": &"1_5",
+"link": &"3_7",
 "text": ""
 }
 },
@@ -585,7 +585,7 @@ I've heard Chad likes to host poker games at his parties. I want to get on his g
 "options": {
 0: {
 "condition": {},
-"link": &"3_8",
+"link": &"1_6",
 "text": ""
 }
 },
@@ -603,7 +603,7 @@ Definitely don't want to get on his bad side. ",
 "options": {
 0: {
 "condition": {},
-"link": &"3_3",
+"link": &"3_8",
 "text": ""
 }
 },
@@ -660,7 +660,7 @@ Should I call Chad and tell him I'm here? Or just walk inside?",
 },
 1: {
 "condition": {},
-"link": &"3_10",
+"link": &"1_11",
 "text": "Just Walk Inside"
 }
 },
@@ -673,8 +673,8 @@ Should I call Chad and tell him I'm here? Or just walk inside?",
 "signalValue": "fade_next"
 },
 "3_10": {
-"link": &"1_11",
-"offset": Vector2(4263.04, 416.829),
+"link": &"1_12",
+"offset": Vector2(4786.74, 628.938),
 "signalValue": "fade_next"
 },
 "3_2": {
@@ -703,13 +703,13 @@ Should I call Chad and tell him I'm here? Or just walk inside?",
 "signalValue": "reposition_bottom"
 },
 "3_7": {
-"link": &"1_4",
-"offset": Vector2(1443.86, 880.438),
+"link": &"1_5",
+"offset": Vector2(1600.32, 705),
 "signalValue": "fade_next"
 },
 "3_8": {
-"link": &"1_6",
-"offset": Vector2(2137.92, 782.048),
+"link": &"3_3",
+"offset": Vector2(2652.32, 711),
 "signalValue": "fade_next"
 },
 "3_9": {
