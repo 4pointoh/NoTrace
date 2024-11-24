@@ -1,0 +1,197 @@
+[gd_resource type="Resource" script_class="Character" load_steps=50 format=3 uid="uid://dgynpn5u4jq0k"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_k48ws"]
+[ext_resource type="Texture2D" uid="uid://cu1ildmkduf64" path="res://data/characters/ashely/ashely_tshirt/ashely_tshirt.png" id="1_w2ra2"]
+[ext_resource type="Texture2D" uid="uid://dfynm5jeske48" path="res://data/characters/ashely/ashely_tshirt/character_art/arms_cossed_judging.png" id="3_eivcv"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_4sdyb"]
+[ext_resource type="Texture2D" uid="uid://bp4lkfbaq30rp" path="res://data/characters/ashely/ashely_tshirt/character_art/arms_crossed_doubting.png" id="5_fgmh7"]
+[ext_resource type="Texture2D" uid="uid://cojw3xjes27am" path="res://data/characters/ashely/ashely_tshirt/character_art/arms_down_blank_stare.png" id="6_n42yx"]
+[ext_resource type="Texture2D" uid="uid://cvcurnb7s5ufe" path="res://data/characters/ashely/ashely_tshirt/character_art/arms_down_frown.png" id="7_dpg7u"]
+[ext_resource type="Texture2D" uid="uid://dio606ieh814l" path="res://data/characters/ashely/ashely_tshirt/character_art/arms_down_leaning_forward.png" id="8_pnyox"]
+[ext_resource type="Texture2D" uid="uid://ddbg8y1jskmkv" path="res://data/characters/ashely/ashely_tshirt/character_art/arms_down_sus.png" id="9_vtyj6"]
+[ext_resource type="Texture2D" uid="uid://b15uxk3ltc8yr" path="res://data/characters/ashely/ashely_tshirt/character_art/eye_roll_annoyed.png" id="10_trkcu"]
+[ext_resource type="Texture2D" uid="uid://hqa7yeaes5ki" path="res://data/characters/ashely/ashely_tshirt/character_art/frown_fist_clench2.png" id="11_chyyn"]
+[ext_resource type="Texture2D" uid="uid://q6v310joshp8" path="res://data/characters/ashely/ashely_tshirt/character_art/frown_fist_clench.png" id="12_mw8j4"]
+[ext_resource type="Texture2D" uid="uid://didldyse2d8jn" path="res://data/characters/ashely/ashely_tshirt/character_art/hands_on_hips_smile.png" id="13_qr34c"]
+[ext_resource type="Texture2D" uid="uid://beju13dpsa828" path="res://data/characters/ashely/ashely_tshirt/character_art/hands_on_hip_angry.png" id="14_ycu77"]
+[ext_resource type="Texture2D" uid="uid://5eyiytobtngu" path="res://data/characters/ashely/ashely_tshirt/character_art/hands_on_hip_annoyed.png" id="15_4dmj4"]
+[ext_resource type="Texture2D" uid="uid://c884k56sj1pdd" path="res://data/characters/ashely/ashely_tshirt/character_art/hands_on_hip_eye_roll.png" id="16_x5g5b"]
+[ext_resource type="Texture2D" uid="uid://dkxbv03duk26w" path="res://data/characters/ashely/ashely_tshirt/character_art/hands_on_hip_smirk.png" id="17_avg58"]
+[ext_resource type="Texture2D" uid="uid://b06y24giolrnv" path="res://data/characters/ashely/ashely_tshirt/character_art/middle_finger_annoyed.png" id="18_ul2t6"]
+[ext_resource type="Texture2D" uid="uid://vptnf7afcow1" path="res://data/characters/ashely/ashely_tshirt/character_art/middle_finger_smug.png" id="19_gi4w1"]
+[ext_resource type="Texture2D" uid="uid://covh52osk6rpg" path="res://data/characters/ashely/ashely_tshirt/character_art/one_hand_in_hair_frown_AA_ONLY.png" id="20_3wo0a"]
+[ext_resource type="Texture2D" uid="uid://ctj8f0b4806qc" path="res://data/characters/ashely/ashely_tshirt/character_art/one_hand_on_back_annoyed.png" id="21_vpbbj"]
+[ext_resource type="Texture2D" uid="uid://bii8urfo4dclh" path="res://data/characters/ashely/ashely_tshirt/character_art/one_hand_on_hip_annoyed.png" id="22_1rtma"]
+[ext_resource type="Texture2D" uid="uid://mb5r28ap37pj" path="res://data/characters/ashely/ashely_tshirt/character_art/one_hand_on_hip_impressed.png" id="23_7q56e"]
+[ext_resource type="Texture2D" uid="uid://0pk1vw4e3yrj" path="res://data/characters/ashely/ashely_tshirt/character_art/one_hand_on_hip_lean.png" id="24_8qhsg"]
+[ext_resource type="Texture2D" uid="uid://ly1tq4yh3fvt" path="res://data/characters/ashely/ashely_tshirt/character_art/one_hand_on_hip_smug.png" id="25_lcahq"]
+[ext_resource type="Texture2D" uid="uid://dymx5ta4pe8ku" path="res://data/characters/ashely/ashely_tshirt/character_art/playing_with_hair_frown.png" id="26_pv1h5"]
+
+[sub_resource type="Resource" id="Resource_qxhmi"]
+script = ExtResource("4_4sdyb")
+name = "arms_cossed_judging"
+image = ExtResource("3_eivcv")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_8yyoa"]
+script = ExtResource("4_4sdyb")
+name = "arms_crossed_doubting"
+image = ExtResource("5_fgmh7")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_w2hyj"]
+script = ExtResource("4_4sdyb")
+name = "arms_down_blank_stare"
+image = ExtResource("6_n42yx")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_cedc5"]
+script = ExtResource("4_4sdyb")
+name = "arms_down_frown"
+image = ExtResource("7_dpg7u")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_6u5et"]
+script = ExtResource("4_4sdyb")
+name = "arms_down_leaning_forward"
+image = ExtResource("8_pnyox")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_xsn4n"]
+script = ExtResource("4_4sdyb")
+name = "arms_down_sus"
+image = ExtResource("9_vtyj6")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_l7wot"]
+script = ExtResource("4_4sdyb")
+name = "eye_roll_annoyed"
+image = ExtResource("10_trkcu")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_ei54l"]
+script = ExtResource("4_4sdyb")
+name = "frown_fist_clench2"
+image = ExtResource("11_chyyn")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_xu7vy"]
+script = ExtResource("4_4sdyb")
+name = "frown_fist_clench"
+image = ExtResource("12_mw8j4")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_0makj"]
+script = ExtResource("4_4sdyb")
+name = "hands_on_hips_smile"
+image = ExtResource("13_qr34c")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_riy3k"]
+script = ExtResource("4_4sdyb")
+name = "hands_on_hip_angry"
+image = ExtResource("14_ycu77")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_kdkhu"]
+script = ExtResource("4_4sdyb")
+name = "hands_on_hip_annoyed"
+image = ExtResource("15_4dmj4")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_ljyma"]
+script = ExtResource("4_4sdyb")
+name = "hands_on_hip_eye_roll"
+image = ExtResource("16_x5g5b")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_auspl"]
+script = ExtResource("4_4sdyb")
+name = "hands_on_hip_smirk"
+image = ExtResource("17_avg58")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_wp3fb"]
+script = ExtResource("4_4sdyb")
+name = "middle_finger_annoyed"
+image = ExtResource("18_ul2t6")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_8ddqf"]
+script = ExtResource("4_4sdyb")
+name = "middle_finger_smug"
+image = ExtResource("19_gi4w1")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_efv2i"]
+script = ExtResource("4_4sdyb")
+name = "one_hand_in_hair_frown_AA_ONLY"
+image = ExtResource("20_3wo0a")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_hhemu"]
+script = ExtResource("4_4sdyb")
+name = "one_hand_on_back_annoyed"
+image = ExtResource("21_vpbbj")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_wpr0p"]
+script = ExtResource("4_4sdyb")
+name = "one_hand_on_hip_annoyed"
+image = ExtResource("22_1rtma")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_0el7y"]
+script = ExtResource("4_4sdyb")
+name = "one_hand_on_hip_impressed"
+image = ExtResource("23_7q56e")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_almtc"]
+script = ExtResource("4_4sdyb")
+name = "one_hand_on_hip_lean"
+image = ExtResource("24_8qhsg")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_lhsij"]
+script = ExtResource("4_4sdyb")
+name = "one_hand_on_hip_smug"
+image = ExtResource("25_lcahq")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_plbds"]
+script = ExtResource("4_4sdyb")
+name = "playing_with_hair_frown"
+image = ExtResource("26_pv1h5")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("1_k48ws")
+name = "Ashely"
+editorName = "ashely_tshirt"
+image = ExtResource("1_w2ra2")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_4sdyb")]([SubResource("Resource_qxhmi"), SubResource("Resource_8yyoa"), SubResource("Resource_w2hyj"), SubResource("Resource_cedc5"), SubResource("Resource_6u5et"), SubResource("Resource_xsn4n"), SubResource("Resource_l7wot"), SubResource("Resource_ei54l"), SubResource("Resource_xu7vy"), SubResource("Resource_0makj"), SubResource("Resource_riy3k"), SubResource("Resource_kdkhu"), SubResource("Resource_ljyma"), SubResource("Resource_auspl"), SubResource("Resource_wp3fb"), SubResource("Resource_8ddqf"), SubResource("Resource_efv2i"), SubResource("Resource_hhemu"), SubResource("Resource_wpr0p"), SubResource("Resource_0el7y"), SubResource("Resource_almtc"), SubResource("Resource_lhsij"), SubResource("Resource_plbds")])

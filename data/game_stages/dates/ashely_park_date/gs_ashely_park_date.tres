@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://cow1ul70kxhmm"]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_82hcq"]
+[ext_resource type="Resource" uid="uid://drycrb7uvh7fj" path="res://data/game_stages/dates/ashely_park_date/d_ashely_park_date.tres" id="1_amqn4"]
+[ext_resource type="Script" path="res://data/game_stages/dates/ashely_park_date/scripts/ashely_park_date_script.gd" id="1_d8fdh"]
+[ext_resource type="Resource" uid="uid://dd34ecbgq64q6" path="res://data/game_stages/vn/ashely_first_park_date_after/gs_ashely_first_park_date.tres" id="2_sdj2d"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_bknb3"]
+[ext_resource type="Texture2D" uid="uid://bf55oyrmblf41" path="res://data/background_lists/dates/ashe_park_date/date/13.png" id="5_rysrt"]
+[ext_resource type="AudioStream" uid="uid://cwx5b51tjejid" path="res://data/assets/general/sounds/bg_music/Echoes of Serenity remix v2 ext v1.1.mp3" id="6_lbyhg"]
+
+[sub_resource type="Resource" id="Resource_s8l8j"]
+script = ExtResource("5_bknb3")
+name = "ashebg"
+images = ExtResource("5_rysrt")
+
+[resource]
+script = ExtResource("1_82hcq")
+name = "ashely_park_date"
+dialogue = ExtResource("1_amqn4")
+dialogueStartKey = "START"
+isCompletable = false
+startingBackground = SubResource("Resource_s8l8j")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("6_lbyhg")
+stageButtonLabel = ""
+isDate = true
+dateScript = ExtResource("1_d8fdh")
+dateWinGameStage = ExtResource("2_sdj2d")
+dateWinMarkThisStageComplete = "ashely_first_park_date"
+dateLossDialogueKey = "LOST"
+dateCharacter = "ASHELY"
+dateTitle = "Ashely At The Park"
+maxProgress = 120

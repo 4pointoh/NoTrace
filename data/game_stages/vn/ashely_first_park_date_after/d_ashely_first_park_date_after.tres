@@ -1,0 +1,361 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bu4rf22by16yn"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_qjf4j"]
+
+[resource]
+script = ExtResource("1_qjf4j")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"3_4",
+"offset": Vector2(-20, 200),
+"start_id": "START"
+},
+"1_1": {
+"background": 7,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Alright sugar, it's getting late. ",
+"offset": Vector2(900, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(344, 650),
+"speaker": 0
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "One I've been tracking for a while. ",
+"offset": Vector2(4600, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I need you to stake her out. Get famiiliar with her.",
+"offset": Vector2(4960, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...her? It's a woman?",
+"offset": Vector2(5340, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You heard right. ",
+"offset": Vector2(5720, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She hangs out at the poker hall. I'll text you details tomorrow. ",
+"offset": Vector2(6080, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You go and see her. Get familiar. Then we move on from there.",
+"offset": Vector2(6460, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_16": {
+"background": 8,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "We're done for today. I'm getting a ride. ",
+"offset": Vector2(7020, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 595),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright, I'm gonna go then. ",
+"offset": Vector2(7380, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She's focused on her phone, and doesn't hear you. ",
+"offset": Vector2(7780, 240),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
+},
+"1_19": {
+"background": 17,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Alright, now to wait for the bus...",
+"offset": Vector2(8340, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 595),
+"speaker": 1
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think you have enough info at this point. ",
+"offset": Vector2(1360, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(344, 650),
+"speaker": 0
+},
+"1_20": {
+"background": 0,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You experience an uneventful ride home. ",
+"offset": Vector2(8960, 300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 593),
+"speaker": ""
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So, straight answer, yes or no. Are you in?",
+"offset": Vector2(1820, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Fuck it. ",
+"offset": Vector2(2200, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's do it.",
+"offset": Vector2(2560, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 19,
+"dialogue": "Excellent.",
+"offset": Vector2(2900, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(417, 582),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So... what's the first step? What do we do now?",
+"offset": Vector2(3360, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 12,
+"dialogue": "Hold your horses, we don't rush through this.",
+"offset": Vector2(3700, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(351, 582),
+"speaker": 0
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 19,
+"dialogue": "I have a target. ",
+"offset": Vector2(4120, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(417.001, 582),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_16",
+"offset": Vector2(6752.5, 407.267),
+"signalValue": "hide_char"
+},
+"3_2": {
+"link": &"1_19",
+"offset": Vector2(8020.04, 583.267),
+"signalValue": "fade_next"
+},
+"3_3": {
+"link": &"1_20",
+"offset": Vector2(8740, 360),
+"signalValue": "fade_next"
+},
+"3_4": {
+"link": &"1_1",
+"offset": Vector2(245.939, 341.267),
+"signalValue": "reposition_upper"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ashely_first_park_date_after/character_list.tres"
+backgroundList = "res://data/game_stages/vn/ashely_first_park_date/bgs.tres"

@@ -90,7 +90,6 @@ func processNextActionOrGroup():
 	var nextType = currentResult.nextGroup[0].type
 	
 	if nextType == DateAction.TYPES.TOPIC:
-		currentResult.nextGroup.shuffle()
 		displayChoices(currentResult.nextGroup)
 	elif nextType == DateAction.TYPES.PLAYER_QUESTION:
 		displayChoices(currentResult.nextGroup)

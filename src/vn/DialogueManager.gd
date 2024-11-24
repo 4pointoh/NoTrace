@@ -2,6 +2,8 @@ extends Control
 
 var dialog_bg_you = preload("res://data/assets/general/art/you_dialogue_bg.png")
 var dialog_bg_lisa = preload("res://data/assets/general/art/lisa_dialogue_bg.png")
+var dialog_bg_ashely = preload("res://data/assets/general/art/ashely_dialogue_bg.png")
+var dialog_bg_amy = preload("res://data/assets/general/art/amy_dialogue_bg.png")
 
 var lisa_dialog_sound = preload("res://data/assets/general/sounds/voice.ogg")
 var you_dialog_sound = preload("res://data/assets/general/sounds/sound.wav")
@@ -60,6 +62,22 @@ func setYouBg():
 	style.texture = dialog_bg_you
 	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
 
+func setAshelyBg():
+	$AudioStreamPlayer.stream = lisa_dialog_sound
+	if !muted:
+		$AudioStreamPlayer.play()
+	var style : StyleBoxTexture = StyleBoxTexture.new()
+	style.texture = dialog_bg_ashely
+	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
+
+func setAmyBg():
+	$AudioStreamPlayer.stream = lisa_dialog_sound
+	if !muted:
+		$AudioStreamPlayer.play()
+	var style : StyleBoxTexture = StyleBoxTexture.new()
+	style.texture = dialog_bg_amy
+	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
+
 func setDefaultBg():
 	$AudioStreamPlayer.stream = you_dialog_sound
 	if !muted:
@@ -97,6 +115,8 @@ func _on_dialogue_player_dialogue_proceeded(node_type):
 	match($DialoguePlayer.speaker.text):
 		"Lisa": setLisaBg()
 		"You": setYouBg()
+		"Ashely": setAshelyBg()
+		"Amy": setAshelyBg()
 		_: setDefaultBg()
 	
 	getCurrentNodeInfo()
