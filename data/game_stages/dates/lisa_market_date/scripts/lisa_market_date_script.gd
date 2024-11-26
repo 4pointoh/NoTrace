@@ -183,7 +183,7 @@ func group_about_lisa():
 							group_why_interest_in_lisa_answer, 'id_lisamarket_partnerask_favcolor'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('What is your favorite color?',
-							3, #intensity 0 - 5
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
@@ -192,7 +192,7 @@ func group_about_lisa():
 							'id_lisamarket_q_favcolor'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('How old are you?',
-							3, #intensity 0 - 5
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
@@ -282,7 +282,6 @@ func group_why_interested_in_lisa_answer_choice2():
 	result.success = true
 	result.scoreProgression = -10
 	result.dialogueStartKey = 'asking_for_no_reason'
-	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
 	
 func group_why_interested_in_lisa_answer_choice3():
@@ -359,7 +358,7 @@ func group_cummington():
 	result.scoreProgression = 10
 	
 	result.nextGroup.append(getPlayerQuestionAction('How long have you lived here?',
-							1, #intensity 0 - 5
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
@@ -368,7 +367,7 @@ func group_cummington():
 							'id_lisamarket_q_lived_here'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('What do you think of the city?',
-							1, #intensity 0 - 5
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
@@ -377,7 +376,7 @@ func group_cummington():
 							'id_lisamarket_q_city_thoughts'))
 
 	result.nextGroup.append(getPlayerQuestionAction('Do you come to the weekly farmers market often?',
-							1, #intensity 0 - 5
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
@@ -386,7 +385,7 @@ func group_cummington():
 							'id_lisamarket_q_farmarket'))
 
 	result.nextGroup.append(getPlayerQuestionAction('Do you go to school at Cummington State?',
-							1, #intensity 0 - 5
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
@@ -609,6 +608,7 @@ func group_favorite_meat_pie_choice2():
 	result.scoreProgression = 20
 	result.dialogueStartKey = 'chicken_giggler'
 	result.addParticleRain = 'heart'
+	result.progressQuantity = 60
 	result.particleType = Heartsplosion.TYPES.HEARTS
 	return result
 
@@ -618,7 +618,7 @@ func group_favorite_meat_pie_choice3():
 	result.scoreProgression = -10
 	result.dialogueStartKey = 'vegan'
 	result.addParticleRain = 'annoyed'
-	result.particleType = Heartsplosion.TYPES.CONFUSED
+	result.particleType = Heartsplosion.TYPES.PISSED
 	return result
 
 func group_always_lived_here_answer():
@@ -773,7 +773,7 @@ func group_chad_thoughts_answer_choice3():
 	result.success = true
 	result.scoreProgression = -20
 	result.dialogueStartKey = 'chad_i_do_his_homework'
-	result.particleType = Heartsplosion.TYPES.CONCERNED
+	result.particleType = Heartsplosion.TYPES.CONFUSED
 	return result
 
 func group_chad_party_answer():
@@ -1056,7 +1056,7 @@ func group_poker():
 								progressionLocked))
 
 	if(pokerQuestionIndex == 2):
-		if(scoreProgression < 180):
+		if(scoreProgression < 140):
 			progressionLocked = true
 		result.nextGroup.append(getPlayerQuestionAction("What would you be willing to lose in a poker game? If it meant getting better?",
 								3, #intensity 0 - 5
@@ -1069,7 +1069,7 @@ func group_poker():
 								progressionLocked))
 	
 	if(pokerQuestionIndex == 3):
-		if(scoreProgression < 180):
+		if(scoreProgression < 150):
 			progressionLocked = true
 
 		result.nextGroup.append(getPlayerQuestionAction("Would you be more motivated to learn if you stood to lose a lot?",
@@ -1083,7 +1083,7 @@ func group_poker():
 								progressionLocked))
 	
 	if(pokerQuestionIndex == 4):
-		if(scoreProgression < 200):
+		if(scoreProgression < 160):
 			progressionLocked = true
 
 		result.nextGroup.append(getPlayerQuestionAction("Have you ever played strip poker?",
@@ -1110,7 +1110,7 @@ func group_poker_expert_answer():
 	result.dialogueStartKey = 'dialogue_poker_expert'
 	result.success = true
 	result.addParticleRain = 'poker'
-	result.nextGroup.append(getChoiceAction("Practice practice practice", group_poker_expert_answer_choice1))
+	result.nextGroup.append(getChoiceAction("Practice!", group_poker_expert_answer_choice1))
 	result.nextGroup.append(getChoiceAction("I sometimes play in extremely high stakes games.", group_poker_expert_answer_choice2))
 	return result
 
