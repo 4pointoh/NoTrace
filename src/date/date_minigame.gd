@@ -188,8 +188,8 @@ func completeAction(action : DateAction):
 			elif(currentResult.progressType == DateActionResult.DATE_PROGRESS_TYPE.LOVE):
 				loveProgress += currentResult.progressQuantity
 
-				if(currentResult.memoryUnlockId):
-					unlockedQuestionMemories.append(currentResult.memoryUnlockId)
+		if(currentResult.memoryUnlockId):
+			unlockedQuestionMemories.append(currentResult.memoryUnlockId)
 
 	# Play the 'repeated result' logic unless it is smalltalk
 	elif( repeated_result and action.category != DateAction.CATEGORIES.SMALL_TALK):

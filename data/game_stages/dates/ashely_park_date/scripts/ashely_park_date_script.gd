@@ -11,8 +11,8 @@ func start():
 	return result
 
 func date_was_successful():
-	var completedKeyQuestions = keyQuestionIndex > 1
-	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore > 60
+	var completedKeyQuestions = keyQuestionIndex >= 7
+	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore > 150
 	return completedKeyQuestions && completedDate
 
 func get_alternate_loss_dialogue():
@@ -353,68 +353,65 @@ func group_topic2():
 	result.success = true
 	result.scoreProgression = 10
 	
-	result.nextGroup.append(getPlayerQuestionAction('So, you basically scam people at poker?',
-							1, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
-							DateAction.CATEGORIES.FRIENDLY,
-							group_ask_poker_scam,
-							group_ask_poker_scam_fail,
-							'id_ashepark_poker_scam'))
-	
-	result.nextGroup.append(getPlayerQuestionAction("How do you 'build a profile' on your targets?",
-							1, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
-							DateAction.CATEGORIES.FRIENDLY,
-							group_ask_building_profile,
-							group_ask_building_profile_fail,
-							'id_ashepark_building_profile'))
-
-	result.nextGroup.append(getPlayerQuestionAction('How much do you make from this?',
-							1, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
-							DateAction.CATEGORIES.FRIENDLY,
-							group_how_much_ask,
-							group_how_much_ask_fail,
-							'id_ashepark_how_much'))
-
-	result.nextGroup.append(getPlayerQuestionAction('What exactly do you need more for?',
-							1, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
-							DateAction.CATEGORIES.FRIENDLY,
-							group_ask_why_need_me,
-							group_ask_why_need_me_fail,
-							'id_ashepark_why_need_me'))
-	
-	result.nextGroup.append(getPlayerQuestionAction('Is this illegal?',
-							1, #intensity 0 - 5
+	if(keyQuestionIndex < 2):
+		result.nextGroup.append(getPlayerQuestionAction('So, you basically scam people at poker?',
+								2, #intensity 0 - 5
+								getStandardLuck(2),  # Luck 0 - 4
+								100, #Success Chance 0 - 100
+								DateAction.CATEGORIES.FRIENDLY,
+								group_ask_poker_scam,
+								group_ask_poker_scam_fail,
+								'id_ashepark_poker_scam'))
+		result.nextGroup.append(getPlayerQuestionAction('Is this illegal?',
+							2, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
 							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_ask_illegal,
 							group_ask_illegal_fail,
 							'id_ashepark_illegal'))
-
-	result.nextGroup.append(getPlayerQuestionAction('How do you convince them to play?',
-							1, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
-							DateAction.CATEGORIES.FRIENDLY,
-							group_ask_convince,
-							group_ask_convince_fail,
-							'id_ashepark_convince'))
-	
-	result.nextGroup.append(getPlayerQuestionAction('You... seduce them?',
-							1, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
-							DateAction.CATEGORIES.FLIRTY,
-							group_ask_seduce,
-							group_ask_seduce_fail,
-							'id_ashepark_seduce'))
+	elif(keyQuestionIndex < 5):
+		result.nextGroup.append(getPlayerQuestionAction("How do you 'build a profile' on your targets?",
+								2, #intensity 0 - 5
+								getStandardLuck(2),  # Luck 0 - 4
+								100, #Success Chance 0 - 100
+								DateAction.CATEGORIES.FRIENDLY,
+								group_ask_building_profile,
+								group_ask_building_profile_fail,
+								'id_ashepark_building_profile'))
+		result.nextGroup.append(getPlayerQuestionAction('How do you convince them to play?',
+								2, #intensity 0 - 5
+								getStandardLuck(2),  # Luck 0 - 4
+								100, #Success Chance 0 - 100
+								DateAction.CATEGORIES.FRIENDLY,
+								group_ask_convince,
+								group_ask_convince_fail,
+								'id_ashepark_convince'))
+		result.nextGroup.append(getPlayerQuestionAction('How much do you make from this?',
+								3, #intensity 0 - 5
+								getStandardLuck(2),  # Luck 0 - 4
+								100, #Success Chance 0 - 100
+								DateAction.CATEGORIES.FRIENDLY,
+								group_how_much_ask,
+								group_how_much_ask_fail,
+								'id_ashepark_how_much'))
+	else:
+		result.nextGroup.append(getPlayerQuestionAction('What exactly do you need more for?',
+								3, #intensity 0 - 5
+								getStandardLuck(2),  # Luck 0 - 4
+								100, #Success Chance 0 - 100
+								DateAction.CATEGORIES.FRIENDLY,
+								group_ask_why_need_me,
+								group_ask_why_need_me_fail,
+								'id_ashepark_why_need_me'))
+		result.nextGroup.append(getPlayerQuestionAction('Do you... seduce them?',
+								4, #intensity 0 - 5
+								getStandardLuck(2),  # Luck 0 - 4
+								100, #Success Chance 0 - 100
+								DateAction.CATEGORIES.FLIRTY,
+								group_ask_seduce,
+								group_ask_seduce_fail,
+								'id_ashepark_seduce'))
 							
 	result.nextGroup.append(getPartnerQuestionAction('How did you get good at poker?',
 							group_partnerask_good_at_poker, 'id_ashepark_partnerask_good_at_poker'))

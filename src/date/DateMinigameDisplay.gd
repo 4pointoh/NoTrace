@@ -166,6 +166,9 @@ func setProgress(progress, maxProgress):
 	
 	if(maxProgress == 120):
 		increment = 4;
+	
+	if(maxProgress == 180):
+		increment = 2.8;
 		
 	if(maxProgress == 200):
 		increment = 2.25;
