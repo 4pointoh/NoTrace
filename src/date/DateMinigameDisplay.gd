@@ -49,6 +49,7 @@ var target_position: Vector2
 var spawn_position: Vector2
 
 signal optionSelected(index : int)
+signal proceedFromComplete()
 
 var screen_width = 400  # Adjust this to your screen width
 
@@ -208,21 +209,31 @@ func playArrowClick():
 func _on_main_button_pressed():
 	optionSelected.emit(currentActionIndex)
 
-func showSuccess():
-	GlobalGameStage.showTopImg(load("res://data/assets/date/art/success_art.png"))
+func showSuccess(memories):
 	$Container.visible = false
 	$Type.visible = false
 	$TopBanner.visible = false
 	$Intensity.visible = false
-	$BonusEmoji.visible = false
-	$BonusesTitle.visible = false
-	$BonusesText.visible = false
 	$Luck.visible = false
-	$CloverAnim.visible = false;
+	$CloverAnim.visible = false
 	$AnimContainer.visible = false
+	$itemsbg.visible = false
+	$itemstitle.visible = false
+	$IntroTextTopBox.visible = false
+	$OverlayClipper.visible = false
+	$ButtonLeft.visible = false
+	$ButtonRight.visible = false
+	$luckbg.visible = false
+	$intensitybg.visible = false
+	$DateProgress.visible = false
+	$LoveBar.visible = false
+	$BusinessBar.visible = false
+	$BarBg.visible = false
 	$AudioStreamPlayer2D.stream = load("res://data/assets/general/sounds/victory2.wav")
 	$AudioStreamPlayer2D.play()
-
+	$DateCompleteDisplay.set_memories(memories)
+	$DateCompleteDisplay.show()
+	$AnimationPlayer2.play("date_success_in")
 
 func _on_button_left_pressed():
 	playArrowClick()
@@ -302,3 +313,6 @@ func showUi():
 
 func displayEmoji(emoji : Heartsplosion.TYPES):
 	$EmojiDisplay.display(emoji)
+
+func _on_date_complete_display_clicked_continue():
+	proceedFromComplete.emit()

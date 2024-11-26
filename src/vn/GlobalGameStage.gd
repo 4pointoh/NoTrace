@@ -3,6 +3,7 @@ extends Node
 var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro/gs_intro.tres")
 #var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres")
 var PHONE_STAGE = preload("res://data/game_stages/special/phone/gs_phone.tres")
+var ALL_WALLPAPERS = preload("res://resources/wallpapers/all_wallpapers.tres")
 
 var currentStage : GameStage
 var nextStage : GameStage
@@ -34,7 +35,7 @@ var currentWallpaper : Wallpaper
 func _init():
 	currentStage = FIRST_GAME_STAGE
 	nextStage = FIRST_GAME_STAGE.guaranteedNextGameStage
-	currentWallpaper = load("res://resources/wallpapers/all_wallpapers.tres").wallpapers[0]
+	currentWallpaper = ALL_WALLPAPERS.wallpapers[0]
 	dateStorage = DateStorage.new()
 	loadConfig()
 	loadPersistentData()
@@ -122,13 +123,12 @@ func addMessage(message):
 
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here
-# Dialogue scenes can be unlocked by emitting a signal & subscribing in DialogueManager
+# Wallpapers in Dialogue scenes can be unlocked by emitting a signal & subscribing in DialogueManager
 func unlockWallpaper(wallpaperResourceId, customMessage = ''):
 	unlockedWallpapers.append(wallpaperResourceId)
-	var availableWallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
 	
 	var selectedWallpaper
-	for wallpaper in availableWallpapers.wallpapers:
+	for wallpaper in ALL_WALLPAPERS.wallpapers:
 		if wallpaper.wallpaperId == wallpaperResourceId:
 			selectedWallpaper = wallpaper
 	
@@ -141,6 +141,16 @@ func unlockWallpaper(wallpaperResourceId, customMessage = ''):
 		printerr("Attempted to unlock wallpaper " + wallpaperResourceId + " but no resource matched this name")
 	
 	savePersistentData()
+
+func getWallpaper(wallpaperResourceId):
+	unlockedWallpapers.append(wallpaperResourceId)
+	
+	var selectedWallpaper
+	for wallpaper in ALL_WALLPAPERS.wallpapers:
+		if wallpaper.wallpaperId == wallpaperResourceId:
+			selectedWallpaper = wallpaper
+			
+	return selectedWallpaper
 	
 func unlockWallpaperWithDelay(wallpaperResourceId, delay, customMessage = ''):
 	await get_tree().create_timer(delay).timeout

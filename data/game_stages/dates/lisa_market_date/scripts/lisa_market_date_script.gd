@@ -1016,25 +1016,21 @@ func group_poker():
 	result.scoreEntertained = 10
 	result.scoreProgression = 10
 
-	if(pokerQuestionIndex >= 0):
-		result.nextGroup.append(getPartnerQuestionAction('How did you learn to be such an expert at poker?',
-								group_poker_expert_answer, 'id_lisamarket_partnerask_pokerexpert'))
+	result.nextGroup.append(getPartnerQuestionAction('How did you learn to be such an expert at poker?',
+							group_poker_expert_answer, 'id_lisamarket_partnerask_pokerexpert'))
 	
-	if(pokerQuestionIndex > 1):
-		result.nextGroup.append(getPartnerQuestionAction("Was it hard to beat those girls at Chad's party?",
-							group_party_girls_answer, 'id_lisamarket_partnerask_beatgirlsatparty'))
+	result.nextGroup.append(getPartnerQuestionAction("Was it hard to beat those girls at Chad's party?",
+						group_party_girls_answer, 'id_lisamarket_partnerask_beatgirlsatparty'))
 	
-	if(pokerQuestionIndex > 2):
-		result.nextGroup.append(getPartnerQuestionAction("What's the most you've ever lost in a poker game?",
-								group_poker_lost_answer, 'id_lisamarket_partnerask_pokerlost'))
-		result.nextGroup.append(getPartnerQuestionAction("Do you play for high stakes often?",
-								group_poker_stakes_answer, 'id_lisamarket_partnerask_poker_stakes'))
+	result.nextGroup.append(getPartnerQuestionAction("What's the most you've ever lost in a poker game?",
+							group_poker_lost_answer, 'id_lisamarket_partnerask_pokerlost'))
+	result.nextGroup.append(getPartnerQuestionAction("Do you play for high stakes often?",
+							group_poker_stakes_answer, 'id_lisamarket_partnerask_poker_stakes'))
 	
-	if(pokerQuestionIndex > 3):
-		result.nextGroup.append(getPartnerQuestionAction("How long will it take me to learn to play poker like you?",
-								group_poker_how_long_answer, 'id_lisamarket_partnerask_poker_how_long'))
-		result.nextGroup.append(getPartnerQuestionAction("Have you ever trained anybody else?",
-								group_poker_trained_other_answer, 'id_lisamarket_partnerask_poker_trained_other'))
+	result.nextGroup.append(getPartnerQuestionAction("How long will it take me to learn to play poker like you?",
+							group_poker_how_long_answer, 'id_lisamarket_partnerask_poker_how_long'))
+	result.nextGroup.append(getPartnerQuestionAction("Have you ever trained anybody else?",
+							group_poker_trained_other_answer, 'id_lisamarket_partnerask_poker_trained_other'))
 	
 	var progressionLocked = false
 	if(pokerQuestionIndex == 0):
@@ -1060,7 +1056,7 @@ func group_poker():
 								progressionLocked))
 
 	if(pokerQuestionIndex == 2):
-		if(scoreProgression < 100):
+		if(scoreProgression < 180):
 			progressionLocked = true
 		result.nextGroup.append(getPlayerQuestionAction("What would you be willing to lose in a poker game? If it meant getting better?",
 								3, #intensity 0 - 5
@@ -1073,7 +1069,7 @@ func group_poker():
 								progressionLocked))
 	
 	if(pokerQuestionIndex == 3):
-		if(scoreProgression < 130):
+		if(scoreProgression < 180):
 			progressionLocked = true
 
 		result.nextGroup.append(getPlayerQuestionAction("Would you be more motivated to learn if you stood to lose a lot?",
@@ -1087,7 +1083,7 @@ func group_poker():
 								progressionLocked))
 	
 	if(pokerQuestionIndex == 4):
-		if(scoreProgression < 150):
+		if(scoreProgression < 200):
 			progressionLocked = true
 
 		result.nextGroup.append(getPlayerQuestionAction("Have you ever played strip poker?",

@@ -237,11 +237,8 @@ func processDateComplete(success, dialogueKey):
 	if(!success):
 		dateComplete.emit(success, dialogueKey)
 		return
-	evaluateMemoryUnlocks()
-	$DateMinigameDisplay.showSuccess()
-	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.HAPPY, Heartsplosion.ANIM_TYPE.RAIN)
-	await get_tree().create_timer(3).timeout
-	dateComplete.emit(success, dialogueKey)
+	var unlocks = evaluateMemoryUnlocks()
+	$DateMinigameDisplay.showSuccess(unlocks)
 
 func evaluateMemoryUnlocks():
 	var possibleUnlocks = dateScript.get_possible_memory_unlocks()
@@ -272,3 +269,10 @@ func evaluateMemoryUnlocks():
 	# print out the status of all memories
 	for memory in finalMemoryUnlocks.keys():
 		print(memory + ' : ' + str(finalMemoryUnlocks[memory]))
+	
+	return finalMemoryUnlocks
+
+func _on_date_minigame_display_proceed_from_complete():
+	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.HAPPY, Heartsplosion.ANIM_TYPE.RAIN)
+	await get_tree().create_timer(3).timeout
+	dateComplete.emit(true, null)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=199 format=3 uid="uid://d08hy8m7ysx30"]
+[gd_scene load_steps=201 format=3 uid="uid://d08hy8m7ysx30"]
 
 [ext_resource type="Script" path="res://src/date/DateMinigameDisplay.gd" id="1_kynup"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_4gai5"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dx18wh0d67qhi" path="res://data/assets/general/sounds/tone4.wav" id="18_1y40a"]
 [ext_resource type="AudioStream" uid="uid://cu5y7ae0pqsdg" path="res://data/assets/general/sounds/sound.wav" id="19_hrdnt"]
 [ext_resource type="PackedScene" uid="uid://deu30lvoriam7" path="res://src/date/emoji_display.tscn" id="20_fod8x"]
+[ext_resource type="PackedScene" uid="uid://blrodu2nk43sr" path="res://src/date/date_complete_display.tscn" id="21_ahp8f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1xle"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -61,6 +62,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(204, -23)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DateCompleteDisplay:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(178, 1198)]
+}
 
 [sub_resource type="Animation" id="Animation_ory2i"]
 resource_name = "overlay_move"
@@ -79,9 +92,26 @@ tracks/0/keys = {
 "values": [Vector2(24, 165), Vector2(439, -126)]
 }
 
+[sub_resource type="Animation" id="Animation_n5i6b"]
+resource_name = "date_success_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../DateCompleteDisplay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(178, 1198), Vector2(178, 120)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25uq3"]
 _data = {
 "RESET": SubResource("Animation_omclh"),
+"date_success_in": SubResource("Animation_n5i6b"),
 "overlay_move": SubResource("Animation_ory2i")
 }
 
@@ -1831,6 +1861,10 @@ visible = false
 position = Vector2(824, 766)
 scale = Vector2(0.6, 0.6)
 
+[node name="DateCompleteDisplay" parent="." instance=ExtResource("21_ahp8f")]
+position = Vector2(178, 1198)
+
 [connection signal="pressed" from="Container/MainButton" to="." method="_on_main_button_pressed"]
 [connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]
+[connection signal="clicked_continue" from="DateCompleteDisplay" to="." method="_on_date_complete_display_clicked_continue"]
