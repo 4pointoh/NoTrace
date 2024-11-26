@@ -11,6 +11,15 @@ var scoreProgression : int = 0
 var particleType : Heartsplosion.TYPES
 var wallpaper : Background
 var addParticleRain: String
+var progressType : DATE_PROGRESS_TYPE = DATE_PROGRESS_TYPE.BUSINESS
+var progressQuantity : int = 30
+var memoryUnlockId : String = ""
+
+enum DATE_PROGRESS_TYPE {
+	LOVE,
+	BUSINESS,
+	NEUTRAL
+}
 
 func setBackground(texture, name):
 	wallpaper = Background.new()

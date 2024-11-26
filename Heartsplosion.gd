@@ -139,7 +139,7 @@ func setTextureToLaugh():
 	sound = load("res://data/assets/general/sounds/laugh2.wav")
 
 func setTextureToInnocent():
-	texture = load("res://data/assets/date/art/blush_surprise.png")
+	texture = load("res://data/assets/date/art/blush.png")
 	sound = load("res://data/assets/general/sounds/mmm.wav")
 	
 func setTextureToBlush():

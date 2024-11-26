@@ -22,13 +22,12 @@ grow_vertical = 2
 script = ExtResource("1_74qok")
 
 [node name="DialoguePlayer" type="Panel" parent="."]
-visible = false
 custom_minimum_size = Vector2(256, 128)
 layout_mode = 0
-offset_left = 120.0
-offset_top = 18.0
-offset_right = 820.0
-offset_bottom = 218.0
+offset_left = 18.0
+offset_top = 935.0
+offset_right = 718.0
+offset_bottom = 1135.0
 script = ExtResource("1_f3hio")
 start_id = "START"
 skip_input_action = "dialogue_skip"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=15 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=19 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://brdsu1blrr44u" path="res://data/wallpapers/phone_proof.png" id="5_w01my"]
 [ext_resource type="Texture2D" uid="uid://bpsyr4aihlpco" path="res://data/wallpapers/lisa_garbage.png" id="6_qlfik"]
 [ext_resource type="Texture2D" uid="uid://dnry46ekvsul5" path="res://data/wallpapers/ashe_selfie.png" id="7_m1d5n"]
-[ext_resource type="Texture2D" uid="uid://cn3ss3v3g54w" path="res://data/wallpapers/first_date.png" id="8_flf16"]
+[ext_resource type="Texture2D" uid="uid://utmkbo6p4a1c" path="res://data/wallpapers/lisamarket_reward1.png" id="8_s4r8a"]
+[ext_resource type="Texture2D" uid="uid://hbuevvnf44t0" path="res://data/wallpapers/lisamarket_reward2.png" id="9_8v3sh"]
+[ext_resource type="Texture2D" uid="uid://bm6hftm5gdbw2" path="res://data/wallpapers/lisamarket_reward3.png" id="10_bmq43"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -41,10 +43,22 @@ hint = "A reminder for you, unlocked in the unknown number intro phone conversat
 
 [sub_resource type="Resource" id="Resource_q4c1p"]
 script = ExtResource("3_wccuy")
-wallpaperId = "FIRST_DATE"
-image = ExtResource("8_flf16")
-hint = "Coffee with Lisa"
+wallpaperId = "FIRST_DATE1"
+image = ExtResource("8_s4r8a")
+hint = "Coffee with Lisa (1)"
+
+[sub_resource type="Resource" id="Resource_87wbd"]
+script = ExtResource("3_wccuy")
+wallpaperId = "FIRST_DATE2"
+image = ExtResource("9_8v3sh")
+hint = "Coffee with Lisa (2)"
+
+[sub_resource type="Resource" id="Resource_tt02v"]
+script = ExtResource("3_wccuy")
+wallpaperId = "FIRST_DATE3"
+image = ExtResource("10_bmq43")
+hint = "Coffee with Lisa (3)"
 
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p"), SubResource("Resource_87wbd"), SubResource("Resource_tt02v")])

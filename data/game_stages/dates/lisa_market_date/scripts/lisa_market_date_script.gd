@@ -1,5 +1,6 @@
 extends DateScript
 var pokerQuestionIndex = 0
+var askedAboutRelationships = false
 
 func scriptId():
 	return 'lisa_market_date'
@@ -50,6 +51,22 @@ func getCurrentBackground():
 		newBackground.name = '8'
 	
 	return newBackground
+
+func get_possible_memory_unlocks():
+	var possibleUnlocks = {}
+
+	var progressUnlocks = []
+	var questionUnlocks = []
+
+	progressUnlocks.append('FIRST_DATE1')
+	progressUnlocks.append('FIRST_DATE3')
+
+	questionUnlocks.append('FIRST_DATE2')
+
+	possibleUnlocks['progressUnlocks'] = progressUnlocks
+	possibleUnlocks['questionUnlocks'] = questionUnlocks
+
+	return possibleUnlocks
 
 
 ################################################
@@ -111,7 +128,7 @@ func group_topic_select():
 	result.nextGroup.append(getTopicAction('The City of Cummington', 
 					2, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(5),  # Luck 0 - 6, = hidden
-					70, #Success Chance 0 - 100
+					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.FRIENDLY,
 					group_cummington,
 					group_cummington_fail,
@@ -120,20 +137,21 @@ func group_topic_select():
 	result.nextGroup.append(getTopicAction('Chad', 
 					3, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(2),  # Luck 0 - 6, = hidden
-					50, #Success Chance 0 - 100
+					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.PERSONAL,
 					group_chad,
 					group_chad_fail,
 					'topic_lisamarket_chad'))
 	
-	result.nextGroup.append(getTopicAction('Relationships', 
+	result.nextGroup.append(getTopicAction('Flirt', 
 					5, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(2),  # Luck 0 - 6, = hidden
-					10, #Success Chance 0 - 100
+					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.FLIRTY,
 					group_relationships,
 					group_relationships_fail,
-					'topic_lisamarket_relationships'))
+					'topic_lisamarket_relationships',
+					true))
 	
 	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]', 
 					0, #intensity 0 - 5
@@ -176,7 +194,7 @@ func group_about_lisa():
 	result.nextGroup.append(getPlayerQuestionAction('How old are you?',
 							3, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
-							30, #Success Chance 0 - 100
+							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_how_old_question,
 							group_how_old_question_fail,
@@ -320,6 +338,7 @@ func group_smalltalk_ask():
 	var result = DateActionResult.new()
 	result.success = true 
 	result.dialogueStartKey = 'smalltalk'
+	result.progressQuantity = 10
 	return result
 
 
@@ -679,7 +698,7 @@ func group_chad():
 	result.nextGroup.append(getPlayerQuestionAction('How do you know Chad?',
 							3, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
-							60, #Success Chance 0 - 100
+							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_chad_know_how,
 							group_chad_know_how_fail,
@@ -688,7 +707,7 @@ func group_chad():
 	result.nextGroup.append(getPlayerQuestionAction("How often do you go to Chad's parties?",
 							3, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
-							60, #Success Chance 0 - 100
+							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_chad_go_to_party,
 							group_chad_go_to_party_fail,
@@ -813,7 +832,7 @@ func group_chad_go_to_party_fail():
 	return result
 
 ################################################
-#            RELATIONSHIPS TOPIC
+#            FLIRT TOPIC
 ################################################
 func group_relationships():
 	var result = DateActionResult.new()
@@ -830,32 +849,42 @@ func group_relationships():
 	result.nextGroup.append(getPlayerQuestionAction('Are you seeing anyone?',
 							4, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
-							20, #Success Chance 0 - 100
+							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FLIRTY,
 							group_relationships_current,
 							group_relationships_current_fail,
 							'id_lisamarket_q_current_relationship'))
 	
-	result.nextGroup.append(getPlayerQuestionAction('When was your first kiss?',
-							5, #intensity 0 - 5
+	result.nextGroup.append(getPlayerQuestionAction("Compliment her outfit",
+							4, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
-							0, #Success Chance 0 - 100
-							DateAction.CATEGORIES.DEEP,
+							100, #Success Chance 0 - 100
+							DateAction.CATEGORIES.FLIRTY,
 							group_relationships_kiss,
 							group_relationships_kiss_fail,
 							'id_lisamarket_q_first_kiss'))
 	
-	result.nextGroup.append(getPlayerQuestionAction('Have you ever had sex?',
-							5, #intensity 0 - 5
+	result.nextGroup.append(getPlayerQuestionAction('Compliment her hair',
+							4, #intensity 0 - 5
 							getStandardLuck(2),  # Luck 0 - 4
-							0, #Success Chance 0 - 100
-							DateAction.CATEGORIES.DEEP,
+							100, #Success Chance 0 - 100
+							DateAction.CATEGORIES.FLIRTY,
 							group_relationships_ever_had,
 							group_relationships_ever_had_fail,
 							'id_lisamarket_q_ever_had'))
-							
-	result.nextGroup.append(getPartnerQuestionAction('Why do you need to know about my relationships?',
-							group_relationships_why_ask, 'id_lisamarket_partnerask_why_asking_relationships'))
+	
+	result.nextGroup.append(getPlayerQuestionAction("Compliment her body",
+							5, #intensity 0 - 5
+							getStandardLuck(2),  # Luck 0 - 4
+							100, #Success Chance 0 - 100
+							DateAction.CATEGORIES.FLIRTY,
+							group_relationships_fit,
+							group_relationships_fit_fail,
+							'id_lisamarket_q_fit'))
+	
+	if(askedAboutRelationships):
+		result.nextGroup.append(getPartnerQuestionAction('Why do you need to know about my relationships?',
+								group_relationships_why_ask, 'id_lisamarket_partnerask_why_asking_relationships'))
 	
 	return result
 
@@ -874,7 +903,11 @@ func group_relationships_current():
 	result.scoreProgression = 10
 	result.scoreHorny = 10
 	result.particleType = Heartsplosion.TYPES.SURPRISED
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 40
 	result.dialogueStartKey = 'current_relationship_success'
+
+	askedAboutRelationships = true
 	return result
 
 func group_relationships_current_fail():
@@ -899,6 +932,8 @@ func group_relationships_you_answer_choice1():
 	result.success = true
 	result.scoreProgression = 10
 	result.scoreHorny = 10
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	result.dialogueStartKey = 'rel_training_purposes'
 	return result
 
@@ -908,6 +943,8 @@ func group_relationships_you_answer_choice2():
 	result.scoreProgression = -20
 	result.dialogueStartKey = 'have_a_shot'
 	result.addParticleRain = 'annoyed'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 10
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
 
@@ -916,6 +953,8 @@ func group_relationships_kiss():
 	var result = DateActionResult.new()
 	result.success = true
 	result.dialogueStartKey = 'first_kiss_success'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	return result
 
 func group_relationships_kiss_fail():
@@ -931,6 +970,9 @@ func group_relationships_ever_had():
 	var result = DateActionResult.new()
 	result.success = true
 	result.dialogueStartKey = 'ever_had_success'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
+	result.memoryUnlockId = 'FIRST_DATE2'
 	return result
 
 func group_relationships_ever_had_fail():
@@ -938,6 +980,22 @@ func group_relationships_ever_had_fail():
 	result.success = false
 	result.criticalFailure = true
 	result.dialogueStartKey = 'ever_had_fail'
+	return result
+
+func group_relationships_fit():
+	var result = DateActionResult.new()
+	result.success = true
+	result.scoreProgression = 10
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 10
+	result.particleType = Heartsplosion.TYPES.PISSED
+	result.dialogueStartKey = 'fit_success'
+	return result
+
+func group_relationships_fit_fail():
+	var result = DateActionResult.new()
+	result.success = false
+	result.dialogueStartKey = 'fit_fail'
 	return result
 
 ################################################
@@ -958,7 +1016,7 @@ func group_poker():
 	result.scoreEntertained = 10
 	result.scoreProgression = 10
 
-	if(pokerQuestionIndex > 0):
+	if(pokerQuestionIndex >= 0):
 		result.nextGroup.append(getPartnerQuestionAction('How did you learn to be such an expert at poker?',
 								group_poker_expert_answer, 'id_lisamarket_partnerask_pokerexpert'))
 	
@@ -977,9 +1035,8 @@ func group_poker():
 								group_poker_how_long_answer, 'id_lisamarket_partnerask_poker_how_long'))
 		result.nextGroup.append(getPartnerQuestionAction("Have you ever trained anybody else?",
 								group_poker_trained_other_answer, 'id_lisamarket_partnerask_poker_trained_other'))
-
-	# TO-DO these question will unlock chronologically, one at a time, as they progress
 	
+	var progressionLocked = false
 	if(pokerQuestionIndex == 0):
 		result.nextGroup.append(getPlayerQuestionAction('How did you learn to play poker?',
 								2, #intensity 0 - 5
@@ -988,7 +1045,8 @@ func group_poker():
 								DateAction.CATEGORIES.FRIENDLY,
 								group_player_learn_poker_question,
 								group_player_learn_poker_question,
-								'id_lisamarket_player_learn_poker'))
+								'id_lisamarket_player_learn_poker',
+								progressionLocked))
 	
 	if(pokerQuestionIndex == 1):
 		result.nextGroup.append(getPlayerQuestionAction("What's the most you've ever lost in poker?",
@@ -998,9 +1056,12 @@ func group_poker():
 								DateAction.CATEGORIES.PERSONAL,
 								group_player_most_lost_poker,
 								group_player_most_lost_poker,
-								'id_lisamarket_player_most_lost_poker'))
+								'id_lisamarket_player_most_lost_poker',
+								progressionLocked))
 
-	if(pokerQuestionIndex == 2 && scoreProgression > 90):
+	if(pokerQuestionIndex == 2):
+		if(scoreProgression < 100):
+			progressionLocked = true
 		result.nextGroup.append(getPlayerQuestionAction("What would you be willing to lose in a poker game? If it meant getting better?",
 								3, #intensity 0 - 5
 								getStandardLuck(6),  # Luck 0 - 4
@@ -1008,9 +1069,13 @@ func group_poker():
 								DateAction.CATEGORIES.DEEP,
 								group_player_willing_to_lose,
 								group_player_willing_to_lose,
-								'id_lisamarket_player_willingtolose'))
+								'id_lisamarket_player_willingtolose',
+								progressionLocked))
 	
-	if(pokerQuestionIndex == 3 && scoreProgression > 120):
+	if(pokerQuestionIndex == 3):
+		if(scoreProgression < 130):
+			progressionLocked = true
+
 		result.nextGroup.append(getPlayerQuestionAction("Would you be more motivated to learn if you stood to lose a lot?",
 								4, #intensity 0 - 5
 								getStandardLuck(6),  # Luck 0 - 4
@@ -1018,9 +1083,13 @@ func group_poker():
 								DateAction.CATEGORIES.FLIRTY,
 								group_player_motivation,
 								group_player_motivation,
-								'id_lisamarket_player_motivatedtowin'))
+								'id_lisamarket_player_motivatedtowin',
+								progressionLocked))
 	
-	if(pokerQuestionIndex == 4 && scoreProgression > 150):
+	if(pokerQuestionIndex == 4):
+		if(scoreProgression < 150):
+			progressionLocked = true
+
 		result.nextGroup.append(getPlayerQuestionAction("Have you ever played strip poker?",
 								5, #intensity 0 - 5
 								getStandardLuck(6),  # Luck 0 - 4
@@ -1028,7 +1097,8 @@ func group_poker():
 								DateAction.CATEGORIES.FLIRTY,
 								group_player_strip_poker,
 								group_player_strip_poker,
-								'id_lisamarket_player_strp_poker'))
+								'id_lisamarket_player_strp_poker',
+								progressionLocked))
 		
 	return result
 

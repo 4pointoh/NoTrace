@@ -34,3 +34,5 @@ var dialogueStartKey : String
 var successFunc : Callable
 var failureFunc : Callable
 var successChance : int = 100
+var loveLocked : bool = false
+var progressLocked : bool = false

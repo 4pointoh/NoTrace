@@ -18,6 +18,9 @@ var currentActionIndex : int = 0
 @onready var mainText = $Container/MainText
 @onready var mainButton = $Container/MainButton
 
+@onready var loveBar = $LoveBar
+@onready var businessBar = $BusinessBar
+
 @onready var topText = $TopBanner/TopText
 @onready var dateProgress = $DateProgress
 @onready var overlayClipper = $OverlayClipper
@@ -40,6 +43,11 @@ var greenbg = preload("res://data/assets/date/art/transparent_green_hard_rounded
 var purplebg = preload("res://data/assets/date/art/transparent_purple_hard_rounded_rect_8px9patch.png")
 var lightgreenbg = preload("res://data/assets/date/art/transparent_light_green_hard_rounded_rect_8px9patch.png")
 
+var allowLoveLocked = true
+
+var target_position: Vector2
+var spawn_position: Vector2
+
 signal optionSelected(index : int)
 
 var screen_width = 400  # Adjust this to your screen width
@@ -48,9 +56,10 @@ func _ready():
 	mainText.set_meta("original_x", mainText.position.x)
 	particleContainer.start_rain()
 
-func setActions(actions: Array[DateAction]):
+func setActions(actions: Array[DateAction], allowLoveLockedP: bool):
 	currentActionIndex = 0
 	allActions = actions
+	allowLoveLocked = allowLoveLockedP
 	setUi(allActions[currentActionIndex])
 
 func firstLoad():
@@ -121,19 +130,6 @@ func setUi(action : DateAction):
 		typeBg.material.set_shader_parameter("glow_strength", 1) 
 	else:
 		typeBgText.text = 'enum mismatch, update DateMinigameDisplay'
-		
-	var bonuses = getBonuses(action)
-	if !bonuses or bonuses.size() < 1:
-		bonusesTextIcon.hide()
-		bonusesTextTitle.hide()
-		bonusesTextValue.hide()
-		bonusbg.hide()
-	else:
-		bonusesTextValue.text = getBonusesText(bonuses)
-		bonusesTextIcon.show()
-		bonusesTextTitle.show()
-		bonusesTextValue.show()
-		bonusbg.show()
 	
 	mainText.text = action.text
 	
@@ -147,16 +143,8 @@ func setUi(action : DateAction):
 		DateAction.TYPES.CHOICE:
 			setUiForPartnerQuestion()
 		DateAction.TYPES.TOPIC:
-			setUiForTopic()
+			setUiForTopic(action.loveLocked, action.progressLocked)
 
-func getBonuses(action : DateAction):
-	var bonuses = []
-	var questionRepeats = GlobalGameStage.getCompleteDateAskFailureCount(action.id)
-	if(action.category != DateAction.CATEGORIES.SMALL_TALK and questionRepeats > 0):
-		var bonusText = 'Fail Bonus (' + str(questionRepeats) + 'x)'
-		bonuses.append(bonusText)
-	return bonuses
-	
 func getBonusesText(bonuses):
 	var text = ''
 	for bonus in bonuses:
@@ -179,8 +167,14 @@ func setProgress(progress, maxProgress):
 	dateProgress.value = progress * (100.0/maxProgress)
 	overlayClipper.size.x = increment * progress
 
-func setUiForTopic():
-	mainButton.text = 'Ask It!'
+func setUiForTopic(loveLocked, progressLocked):
+	if((loveLocked and !allowLoveLocked) || progressLocked):
+		mainButton.text = 'Need More Progress!'
+		mainButton.disabled = true
+	else:
+		mainButton.text = 'Talk About It!'
+		mainButton.disabled = false
+
 	topText.text = 'New Topic!'
 	mainText.set("theme_override_font_sizes/font_size", 34)
 
@@ -263,3 +257,48 @@ func set_particle_count(amount):
 	
 func add_particle(particleName):
 	particleContainer.addParticle(particleName)
+
+func setLoveProgress(progress):
+	loveBar.set_progress(progress)
+
+func setBusinessProgress(progress):
+	businessBar.set_progress(progress)
+
+func hideUi():
+	$Container.visible = false
+	$Type.visible = false
+	$TopBanner.visible = false
+	$Intensity.visible = false
+	$Luck.visible = false
+	$CloverAnim.visible = false
+	$AnimContainer.visible = false
+	$itemsbg.visible = false
+	$itemstitle.visible = false
+	$IntroTextTopBox.visible = false
+	$OverlayClipper.visible = false
+	$ButtonLeft.visible = false
+	$ButtonRight.visible = false
+	$luckbg.visible = false
+	$intensitybg.visible = false
+	$DateProgress.visible = false
+
+func showUi():
+	$Container.visible = true
+	$Type.visible = true
+	$TopBanner.visible = true
+	$Intensity.visible = true
+	$Luck.visible = true
+	$CloverAnim.visible = true
+	$AnimContainer.visible = true
+	$itemsbg.visible = true
+	$itemstitle.visible = true
+	$IntroTextTopBox.visible = true
+	$OverlayClipper.visible = true
+	$ButtonLeft.visible = true
+	$ButtonRight.visible = true
+	$luckbg.visible = true
+	$intensitybg.visible = true
+	$DateProgress.visible = true
+
+func displayEmoji(emoji : Heartsplosion.TYPES):
+	$EmojiDisplay.display(emoji)

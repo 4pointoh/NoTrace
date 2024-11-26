@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://btcjk44b37saf"]
+
+[ext_resource type="Shader" path="res://src/date/progress.gdshader" id="1_4n54k"]
+[ext_resource type="Script" path="res://src/date/progress_bar_with_particle.gd" id="1_8lee7"]
+[ext_resource type="Texture2D" uid="uid://cswkjttqs3smc" path="res://data/assets/date/art/love_bar_small.png" id="2_phhnq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rcmt"]
+resource_local_to_scene = true
+shader = ExtResource("1_4n54k")
+shader_parameter/fill_amount = 0.1
+shader_parameter/wave_amplitude = 0.01
+shader_parameter/wave_frequency = 4.0
+shader_parameter/time_multiplier = 5.0
+
+[node name="ProgressBarWithParticle" type="Node2D"]
+script = ExtResource("1_8lee7")
+
+[node name="ProgressBar" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8rcmt")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_phhnq")

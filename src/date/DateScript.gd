@@ -22,6 +22,9 @@ func repeated_ask(action : DateAction):
 
 func date_was_successful():
 	assert(false, 'override me')
+
+func get_possible_memory_unlocks():
+	assert(false, 'override me')
 	
 func getStandardLuck(luck):
 	return luck
@@ -48,7 +51,7 @@ func getDialogueOnlyAction(successFunc : Callable):
 
 func getTopicAction(text : String, intensity : int,  luck : int, successChance : int,
 					category : DateAction.CATEGORIES, 
-					successFunc : Callable, failFunc: Callable, id : String):
+					successFunc : Callable, failFunc: Callable, id : String, loveLocked : bool = false):
 	var topicAction = DateAction.new()
 	
 	topicAction.id = id
@@ -60,6 +63,7 @@ func getTopicAction(text : String, intensity : int,  luck : int, successChance :
 	topicAction.type = DateAction.TYPES.TOPIC
 	topicAction.successFunc = successFunc
 	topicAction.failureFunc = failFunc
+	topicAction.loveLocked = loveLocked
 	return topicAction
 
 func getQuizAction(text : String, dialogueKey : String, successFunc : Callable, failFunc: Callable):
@@ -72,7 +76,7 @@ func getQuizAction(text : String, dialogueKey : String, successFunc : Callable, 
 	return quizAction
 	
 func getPlayerQuestionAction(text : String, intensity : int,  luck : int, successChance : int, category : DateAction.CATEGORIES, 
-							successFunc : Callable, failFunc: Callable, id : String):
+							successFunc : Callable, failFunc: Callable, id : String, progressLocked : bool = false):
 	var questionAction = DateAction.new()
 	
 	questionAction.id = id
@@ -84,6 +88,7 @@ func getPlayerQuestionAction(text : String, intensity : int,  luck : int, succes
 	questionAction.type = DateAction.TYPES.PLAYER_QUESTION
 	questionAction.successFunc = successFunc
 	questionAction.failureFunc = failFunc
+	questionAction.progressLocked = progressLocked
 	return questionAction
 	
 func getPartnerQuestionAction(text : String, 

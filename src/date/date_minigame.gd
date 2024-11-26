@@ -5,6 +5,10 @@ var currentResult : DateActionResult
 
 var dateProgress : int
 var maxProgress : int = 100 # in the future could make this configurable per date
+var loveProgress : int = 10
+var businessProgress : int = 10
+
+var unlockedQuestionMemories : Array[String] = []
 
 var firstLoad = true
 
@@ -17,6 +21,8 @@ func initFromGameStage(stage : GameStage):
 	currentResult = dateScript.start()
 	maxProgress = stage.maxProgress;
 	dateProgress = 0
+	loveProgress = 10
+	businessProgress = 10
 	processResultDialogue()
 
 func processResultDialogue():
@@ -26,13 +32,13 @@ func processResultDialogue():
 		setWallpaper.emit(dateScript.getCurrentBackground())
 	
 	if currentResult.dialogueStartKey:
-		hide()
+		$DateMinigameDisplay.hideUi()
 		dialogueStart.emit(currentResult.dialogueStartKey)
 	else:
 		processDialogueComplete()
 
 func processDialogueComplete():
-	show()
+	$DateMinigameDisplay.showUi()
 	
 	if firstLoad:
 		firstLoad = false
@@ -55,7 +61,12 @@ func processDialogueComplete():
 
 func processNextActionOrGroup():
 	# Remove any topics with nothing left in them
-	if currentResult.nextGroup.size() > 0 && currentResult.nextGroup[0].type == DateAction.TYPES.TOPIC:
+	var thisIsATopic = false 
+	
+	if currentResult.nextGroup.size() > 0:
+		thisIsATopic = currentResult.nextGroup[0].type == DateAction.TYPES.TOPIC
+
+	if thisIsATopic:
 		currentResult.nextGroup = currentResult.nextGroup.filter(func(action):
 			var groupResult = action.successFunc.call()
 
@@ -85,12 +96,32 @@ func processNextActionOrGroup():
 		currentResult = dateScript.group_topic_select()
 	else:
 		currentResult.nextGroup = filteredGroup
+
+	# If any of the next choices are progress locked, mark it as progress locked
+	if thisIsATopic:
+		for action in currentResult.nextGroup:
+			action.progressLocked = false
+			var groupResult = action.successFunc.call()
+
+			for result in groupResult.nextGroup:
+				if result.progressLocked:
+					action.progressLocked = true
+					break
 	
 	filterActionsToSingleRandomType()
 	var nextType = currentResult.nextGroup[0].type
-	
+
+	var allowLoveLocked = false
+	if(nextType == DateAction.TYPES.TOPIC):
+		if(businessProgress >= 100):
+			allowLoveLocked = true
+		else:
+			allowLoveLocked = false
+	else:
+		allowLoveLocked = true
+
 	if nextType == DateAction.TYPES.TOPIC:
-		displayChoices(currentResult.nextGroup)
+		displayChoices(currentResult.nextGroup, allowLoveLocked)
 	elif nextType == DateAction.TYPES.PLAYER_QUESTION:
 		displayChoices(currentResult.nextGroup)
 	elif nextType == DateAction.TYPES.CHOICE:
@@ -126,8 +157,8 @@ func displayDialogueFirst(actionList):
 	var randomAction = actionList[randi() % actionList.size()]
 	completeAction(randomAction)
 
-func displayChoices(actionList):
-	$DateMinigameDisplay.setActions(actionList)
+func displayChoices(actionList, allowLoveLocked = true):
+	$DateMinigameDisplay.setActions(actionList, allowLoveLocked)
 	
 func updateProgress():
 	dateProgress += 10
@@ -143,34 +174,58 @@ func completeAction(action : DateAction):
 
 	var random_roll = randf() * 100
 	
-	# Apply repeat-question bonus
-	random_roll -= GlobalGameStage.getCompleteDateAskFailureCount(action.id) * 5
-	
 	var repeated_result = dateScript.repeated_ask(action)
 	
 	# If we already had a success, and its not a topic, skip
-	if (random_roll < success_chance) and ((GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0) or (action.type == DateAction.TYPES.TOPIC)):
+	if (action.category == DateAction.CATEGORIES.SMALL_TALK) || (random_roll < success_chance) and ((GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0) or (action.type == DateAction.TYPES.TOPIC)):
 		currentResult = action.successFunc.call()
 		if(action.id):
 			GlobalGameStage.addDateAsk(action.id, true)
+		
+		if(action.type != DateAction.TYPES.TOPIC and action.type != DateAction.TYPES.PARTNER_QUESTION):
+			if(currentResult.progressType == DateActionResult.DATE_PROGRESS_TYPE.BUSINESS):
+				businessProgress += currentResult.progressQuantity
+			elif(currentResult.progressType == DateActionResult.DATE_PROGRESS_TYPE.LOVE):
+				loveProgress += currentResult.progressQuantity
+
+				if(currentResult.memoryUnlockId):
+					unlockedQuestionMemories.append(currentResult.memoryUnlockId)
+					#GlobalGameStage.unlockWallpaper(currentResult.memoryUnlockId, "You'll Remember This!")
 	# Play the 'repeated result' logic unless it is smalltalk
 	elif( repeated_result and action.category != DateAction.CATEGORIES.SMALL_TALK):
 		currentResult = repeated_result
 		if(action.id):
 			GlobalGameStage.addDateAsk(action.id, false)
+		
+		businessProgress -= 30
 	else:
 		currentResult = action.failureFunc.call()
 		if(action.id):
 			GlobalGameStage.addDateAsk(action.id, false)
+		
+		businessProgress -= 30
 	
 	if(currentResult.particleType):
 		$DateMinigameDisplay.add_particle(currentResult.addParticleRain);
 	
+
+	if(action.loveLocked):
+		businessProgress = 10
+
+	if(loveProgress < 10):
+		loveProgress = 10
+	if(businessProgress < 10):
+		businessProgress = 10
+
+	$DateMinigameDisplay.setLoveProgress(loveProgress)
+	$DateMinigameDisplay.setBusinessProgress(businessProgress)
 	$DateMinigameDisplay.set_particle_count(min(20, round((GlobalGameStage.getDateStorage().currentDateProgressionScore / 10) * 1.2)))
-	GlobalGameStage.playParticleEffect(currentResult.particleType, Heartsplosion.ANIM_TYPE.EXPLODE)
+
+	if(currentResult.particleType):
+		$DateMinigameDisplay.displayEmoji(currentResult.particleType)
 	GlobalGameStage.modifyDateScore(currentResult.scoreProgression, currentResult.scoreEntertained, currentResult.scoreHorny)
 	
-	if(action.type != DateAction.TYPES.TOPIC):
+	if(action.type != DateAction.TYPES.TOPIC and action.type != DateAction.TYPES.PARTNER_QUESTION):
 		updateProgress()
 		if(!currentResult.success):
 			$DateMinigameDisplay.playFailSound()
@@ -182,7 +237,38 @@ func processDateComplete(success, dialogueKey):
 	if(!success):
 		dateComplete.emit(success, dialogueKey)
 		return
+	evaluateMemoryUnlocks()
 	$DateMinigameDisplay.showSuccess()
 	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.HAPPY, Heartsplosion.ANIM_TYPE.RAIN)
 	await get_tree().create_timer(3).timeout
 	dateComplete.emit(success, dialogueKey)
+
+func evaluateMemoryUnlocks():
+	var possibleUnlocks = dateScript.get_possible_memory_unlocks()
+
+	var progressUnlocks = possibleUnlocks['progressUnlocks']
+	var questionUnlocks = possibleUnlocks['questionUnlocks']
+
+	var progressNeededPerUnlock = 100 / progressUnlocks.size()
+
+	var unlockThreshold = progressNeededPerUnlock
+
+	var unlockedmemories = []
+	for i in range(progressUnlocks.size()):
+		if(loveProgress >= unlockThreshold):
+			unlockedmemories.append(progressUnlocks[i])
+			unlockThreshold += progressNeededPerUnlock
+	
+	unlockedmemories.append_array(unlockedQuestionMemories)
+
+	var allPossibleUnlocks = progressUnlocks + questionUnlocks
+	var finalMemoryUnlocks = {}
+	for memory in allPossibleUnlocks:
+		if unlockedmemories.has(memory):
+			finalMemoryUnlocks[memory] = true
+		else:
+			finalMemoryUnlocks[memory] = false
+	
+	# print out the status of all memories
+	for memory in finalMemoryUnlocks.keys():
+		print(memory + ' : ' + str(finalMemoryUnlocks[memory]))

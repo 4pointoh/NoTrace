@@ -1828,8 +1828,6 @@ collect_sound = ExtResource("19_hrdnt")
 
 [node name="EmojiDisplay" parent="." instance=ExtResource("20_fod8x")]
 visible = false
-position = Vector2(824, 766)
-scale = Vector2(0.6, 0.6)
 
 [connection signal="pressed" from="Container/MainButton" to="." method="_on_main_button_pressed"]
 [connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]

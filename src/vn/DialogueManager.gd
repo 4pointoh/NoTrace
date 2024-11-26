@@ -17,8 +17,9 @@ signal dialogue_proceeded
 
 var dbox_position_upper = Vector2(120,100)
 var dbox_position_max_upper = Vector2(120,10)
-var dbox_position_mid = Vector2(120, 600)
+var dbox_position_mid = Vector2(120, 680)
 var dbox_position_bottom = Vector2(120, 900)
+var dbox_position_bottom_left = Vector2(55, 890)
 
 var currentBackground : Background
 var currentCharacterState : CharacterState
@@ -106,6 +107,10 @@ func setDialogueBoxBottom():
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom, .6).set_trans(Tween.TRANS_QUAD)
 
+func setDialogueBoxBottomLeft():
+	var tween = get_tree().create_tween()
+	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_left, .6).set_trans(Tween.TRANS_QUAD)
+
 func stopDialogue():
 	$DialoguePlayer.stop()
 
@@ -133,8 +138,8 @@ func _on_dialogue_player_dialogue_signal(value):
 		"reposition_upper": setDialogueBoxUpper()
 		"reposition_mid": setDialogueBoxMid()
 		"reposition_bottom": setDialogueBoxBottom()
+		"reposition_bottom_left": setDialogueBoxBottomLeft()
 		"unlock_wp_lisa_leaving": GlobalGameStage.unlockWallpaper("LISA_LEAVING")
-		"unlock_wp_first_date": GlobalGameStage.unlockWallpaper("FIRST_DATE")
 	
 	dialogue_signal.emit(value)
 

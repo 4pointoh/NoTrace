@@ -132,7 +132,8 @@ func group_topic_select():
 					DateAction.CATEGORIES.FLIRTY,
 					group_topic4,
 					group_topic4_fail,
-					'topic_ashepark_single'))
+					'topic_ashepark_single',
+					true))
 	
 	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]', 
 					0, #intensity 0 - 5
