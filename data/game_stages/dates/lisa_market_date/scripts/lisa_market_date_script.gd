@@ -120,7 +120,7 @@ func group_topic_select():
 					2, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(6),  # Luck 0 - 6
 					100, #Success Chance 0 - 100
-					DateAction.CATEGORIES.FRIENDLY,
+					DateAction.CATEGORIES.CORE,
 					group_poker,
 					group_poker_fail,
 					'topic_lisamrket_poker'))

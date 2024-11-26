@@ -18,7 +18,8 @@ enum CATEGORIES {
 	PERSONAL,
 	FRIENDLY,
 	FLIRTY,
-	DEEP
+	DEEP,
+	CORE
 }
 
 var id : String = ""

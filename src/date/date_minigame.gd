@@ -190,7 +190,7 @@ func completeAction(action : DateAction):
 
 				if(currentResult.memoryUnlockId):
 					unlockedQuestionMemories.append(currentResult.memoryUnlockId)
-					#GlobalGameStage.unlockWallpaper(currentResult.memoryUnlockId, "You'll Remember This!")
+
 	# Play the 'repeated result' logic unless it is smalltalk
 	elif( repeated_result and action.category != DateAction.CATEGORIES.SMALL_TALK):
 		currentResult = repeated_result
@@ -239,6 +239,10 @@ func processDateComplete(success, dialogueKey):
 		return
 	var unlocks = evaluateMemoryUnlocks()
 	$DateMinigameDisplay.showSuccess(unlocks)
+
+	for memory in unlocks.keys():
+		if(unlocks[memory]):
+			GlobalGameStage.unlockWallpaper(memory)
 
 func evaluateMemoryUnlocks():
 	var possibleUnlocks = dateScript.get_possible_memory_unlocks()

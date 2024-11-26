@@ -59,6 +59,23 @@ func getCurrentBackground():
 	
 	return newBackground
 
+func get_possible_memory_unlocks():
+	var possibleUnlocks = {}
+
+	var progressUnlocks = []
+	var questionUnlocks = []
+
+	progressUnlocks.append('ASHEPARK1')
+	progressUnlocks.append('ASHEPARK5')
+	progressUnlocks.append('ASHEPARK4')
+
+	questionUnlocks.append('ASHEPARK2')
+	questionUnlocks.append('ASHEPARK3')
+
+	possibleUnlocks['progressUnlocks'] = progressUnlocks
+	possibleUnlocks['questionUnlocks'] = questionUnlocks
+
+	return possibleUnlocks
 
 ################################################
 #            REPEATED ASK LOGIC
@@ -111,7 +128,7 @@ func group_topic_select():
 					2, #intensity 0 - 6. 0 = hidden
 					getStandardLuck(6),  # Luck 0 - 6
 					100, #Success Chance 0 - 100
-					DateAction.CATEGORIES.FRIENDLY,
+					DateAction.CATEGORIES.CORE,
 					group_topic2,
 					group_topic2_fail,
 					'topic_ashepark_poker'))
@@ -281,6 +298,7 @@ func group_ask_other_plans():
 	result.particleType = Heartsplosion.TYPES.HAPPY
 	result.dialogueStartKey = 'ask_otherplans'
 	result.addParticleRain = 'heart'
+	result.memoryUnlockId = 'ASHEPARK2'
 	return result
 	
 func group_ask_other_plans_fail():
@@ -798,6 +816,9 @@ func group_are_you_single():
 	result.scoreHorny = 10
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	result.dialogueStartKey = 'current_relationship_success'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
+	result.memoryUnlockId = 'ASHEPARK3'
 	return result
 
 func group_are_you_single_fail():
@@ -824,6 +845,8 @@ func group_partnerask_why_ask_choice1():
 	result.scoreProgression = 10
 	result.scoreHorny = 10
 	result.dialogueStartKey = 'have_a_shot_1'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	return result
 
 func group_partnerask_why_ask_choice2():
@@ -833,6 +856,8 @@ func group_partnerask_why_ask_choice2():
 	result.dialogueStartKey = 'have_a_shot_10'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	return result
 
 func group_partnerask_why_ask_choice3():
@@ -840,6 +865,8 @@ func group_partnerask_why_ask_choice3():
 	var result = DateActionResult.new()
 	result.success = true
 	result.dialogueStartKey = 'which_one_yes'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	return result
 
 func group_have_a_shot():
@@ -848,6 +875,8 @@ func group_have_a_shot():
 	result.scoreProgression = -30
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'have_a_shot_success'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	return result
 
 func group_have_a_shot_fail():
@@ -863,6 +892,8 @@ func group_make_you_money():
 	var result = DateActionResult.new()
 	result.success = true
 	result.dialogueStartKey = 'make_you_money'
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 30
 	return result
 
 func group_make_you_money_fail():

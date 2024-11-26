@@ -39,6 +39,7 @@ var blackbg = preload("res://data/assets/date/art/transparent_black_rounded_rect
 var orangebg = preload("res://data/assets/date/art/transparent_orange_hard_rounded_rect_8px9patch.png")
 var bluebg = preload("res://data/assets/date/art/transparent_blue_hard_rounded_rect_8px9patch.png")
 var pinkbg = preload("res://data/assets/date/art/transparent_pink_hard_rounded_rect_8px9patch.png")
+var tealbg = preload("res://data/assets/date/art/transparent_teal_hard_rounded_rect_8px9patch.png")
 var greenbg = preload("res://data/assets/date/art/transparent_green_hard_rounded_rect_8px9patch.png")
 var purplebg = preload("res://data/assets/date/art/transparent_purple_hard_rounded_rect_8px9patch.png")
 var lightgreenbg = preload("res://data/assets/date/art/transparent_light_green_hard_rounded_rect_8px9patch.png")
@@ -124,6 +125,10 @@ func setUi(action : DateAction):
 	elif action.category == DateAction.CATEGORIES.FLIRTY:
 		typeBgText.text = 'Flirty'
 		typeBg.texture = pinkbg;
+		typeBg.material.set_shader_parameter("glow_strength", 0.2) 
+	elif action.category == DateAction.CATEGORIES.CORE:
+		typeBgText.text = 'Core'
+		typeBg.texture = tealbg;
 		typeBg.material.set_shader_parameter("glow_strength", 0.2) 
 	elif action.category == DateAction.CATEGORIES.DEEP:
 		typeBgText.text = 'Deep'

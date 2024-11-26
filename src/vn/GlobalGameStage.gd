@@ -143,13 +143,11 @@ func unlockWallpaper(wallpaperResourceId, customMessage = ''):
 	savePersistentData()
 
 func getWallpaper(wallpaperResourceId):
-	unlockedWallpapers.append(wallpaperResourceId)
-	
 	var selectedWallpaper
 	for wallpaper in ALL_WALLPAPERS.wallpapers:
 		if wallpaper.wallpaperId == wallpaperResourceId:
 			selectedWallpaper = wallpaper
-			
+
 	return selectedWallpaper
 	
 func unlockWallpaperWithDelay(wallpaperResourceId, delay, customMessage = ''):
