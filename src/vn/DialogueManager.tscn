@@ -22,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_74qok")
 
 [node name="DialoguePlayer" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(256, 128)
 layout_mode = 0
 offset_left = 18.0

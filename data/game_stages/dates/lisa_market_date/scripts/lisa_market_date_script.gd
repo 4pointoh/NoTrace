@@ -844,7 +844,7 @@ func group_relationships():
 		result.dialogueStartKey = 'dialogue_relationships'
 		
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 10
 	
 	result.nextGroup.append(getPlayerQuestionAction('Are you seeing anyone?',
 							4, #intensity 0 - 5
