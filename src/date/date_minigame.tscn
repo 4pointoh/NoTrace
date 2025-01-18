@@ -12,5 +12,6 @@ offset_bottom = 1158.0
 
 [node name="DateMinigameDisplay" parent="." instance=ExtResource("2_te5tq")]
 
+[connection signal="goBack" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_go_back"]
 [connection signal="optionSelected" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_option_selected"]
 [connection signal="proceedFromComplete" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_proceed_from_complete"]

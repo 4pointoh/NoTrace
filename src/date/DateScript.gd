@@ -2,6 +2,8 @@ extends Node
 class_name DateScript
 
 var initFunction : Callable
+var mainQuestionIndex : int = 0
+var flags : Array[String] = []
 
 const MAX_LUCK = 6
 
@@ -49,20 +51,18 @@ func getDialogueOnlyAction(successFunc : Callable):
 	startAction.successFunc = successFunc
 	return startAction
 
-func getTopicAction(text : String, intensity : int,  luck : int, successChance : int,
+func getTopicAction(text : String,
 					category : DateAction.CATEGORIES, 
-					successFunc : Callable, failFunc: Callable, id : String, loveLocked : bool = false):
+					successFunc : Callable, failFunc: Callable, id : String, buttonIndex : DateAction.BUTTON_INDEX, loveLocked : bool = false):
 	var topicAction = DateAction.new()
 	
 	topicAction.id = id
-	topicAction.intensity = intensity
-	topicAction.luck = luck
 	topicAction.text = text
-	topicAction.successChance = successChance
 	topicAction.category = category
 	topicAction.type = DateAction.TYPES.TOPIC
 	topicAction.successFunc = successFunc
 	topicAction.failureFunc = failFunc
+	topicAction.buttonIndex = buttonIndex
 	topicAction.loveLocked = loveLocked
 	return topicAction
 
@@ -75,15 +75,12 @@ func getQuizAction(text : String, dialogueKey : String, successFunc : Callable, 
 	quizAction.failureFunc = failFunc
 	return quizAction
 	
-func getPlayerQuestionAction(text : String, intensity : int,  luck : int, successChance : int, category : DateAction.CATEGORIES, 
+func getPlayerQuestionAction(text : String, category : DateAction.CATEGORIES, 
 							successFunc : Callable, failFunc: Callable, id : String, progressLocked : bool = false):
 	var questionAction = DateAction.new()
 	
 	questionAction.id = id
-	questionAction.intensity = intensity
-	questionAction.luck = luck
 	questionAction.text = text
-	questionAction.successChance = successChance
 	questionAction.category = category
 	questionAction.type = DateAction.TYPES.PLAYER_QUESTION
 	questionAction.successFunc = successFunc

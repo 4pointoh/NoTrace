@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfeftrw0tevxh"]
+
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_5gdbh"]
+[ext_resource type="Script" path="res://src/date/date_choice_display.gd" id="1_cn1ca"]
+[ext_resource type="PackedScene" uid="uid://bkmojggq10te6" path="res://src/date/date_choice_option.tscn" id="2_3kh17"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_jokdw"]
+
+[node name="DateChoiceDisplay" type="Node2D"]
+script = ExtResource("1_cn1ca")
+buttonScene = ExtResource("2_3kh17")
+
+[node name="FullBg" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_left = 7.0
+offset_top = 960.0
+offset_right = 729.0
+offset_bottom = 1146.0
+texture = ExtResource("1_5gdbh")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Button" type="Button" parent="."]
+offset_left = 554.0
+offset_top = 918.0
+offset_right = 725.0
+offset_bottom = 956.0
+theme_override_fonts/font = ExtResource("4_jokdw")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

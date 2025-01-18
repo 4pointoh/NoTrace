@@ -1,5 +1,4 @@
 extends DateScript
-var keyQuestionIndex = 0
 
 func scriptId():
 	return 'ashely_park_date'
@@ -11,19 +10,18 @@ func start():
 	return result
 
 func date_was_successful():
-	var completedKeyQuestions = keyQuestionIndex >= 7
+	var completedKeyQuestions = mainQuestionIndex >= 7
 	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore > 150
 	return completedKeyQuestions && completedDate
 
 func get_alternate_loss_dialogue():
-	if keyQuestionIndex < 5:
+	if mainQuestionIndex < 5:
 		return 'need_more_key_question_progress'
 	else:
 		return null;
 
 func getCurrentBackground():
 	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
-	var scoreEntertained = GlobalGameStage.getDateStorage().currentDateEntertainmentScore
 	
 	var newBackground : Background = Background.new()
 	if scoreProgression <= 40:
@@ -93,14 +91,17 @@ func repeated_ask(action : DateAction):
 		result.scoreProgression = -30
 		result.dialogueStartKey = 'repeat_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
+		result.annoyed = true
 	elif(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskFailureCount(id) > 1):
 		result.success = false
 		result.criticalFailure = true
+		result.annoyed = true
 		result.scoreProgression = -30
 		result.dialogueStartKey = 'asked_too_many_times'
 	elif(GlobalGameStage.getDateLastFailure() == id):
 		result.success = false
 		result.scoreProgression = -30
+		result.annoyed = true
 		result.dialogueStartKey = 'asked_twice_in_a_row_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
 	else:
@@ -115,51 +116,42 @@ func group_topic_select():
 	var result = DateActionResult.new()
 	result.success = true
 	
-	result.nextGroup.append(getTopicAction('Ask About Ashely', 
-					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(6),  # Luck 0 - 6, = hidden
-					100, #Success Chance 0 - 100
+	result.nextGroup.append(getTopicAction('Ask About Ashely',
 					DateAction.CATEGORIES.FRIENDLY,
 					group_topic1,
 					group_topic1_fail,
-					'topic_ashepark_aboutashe'))
+					'topic_ashepark_aboutashe',
+					DateAction.BUTTON_INDEX.TALK))
 	
-	result.nextGroup.append(getTopicAction('Her Poker Scheme', 
-					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(6),  # Luck 0 - 6
-					100, #Success Chance 0 - 100
+	result.nextGroup.append(getTopicAction('Her Poker Scheme',
 					DateAction.CATEGORIES.CORE,
 					group_topic2,
 					group_topic2_fail,
-					'topic_ashepark_poker'))
+					'topic_ashepark_poker',
+					DateAction.BUTTON_INDEX.BUSINESS))
 	
-	result.nextGroup.append(getTopicAction("Chad's Parties", 
-					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(6),  # Luck 0 - 6, = hidden
-					100, #Success Chance 0 - 100
+	result.nextGroup.append(getTopicAction("Chad's Parties",
 					DateAction.CATEGORIES.FRIENDLY,
 					group_topic3,
 					group_topic3_fail,
-					'topic_ashepark_chad'))
+					'topic_ashepark_chad',
+					DateAction.BUTTON_INDEX.TALK))
 	
-	result.nextGroup.append(getTopicAction('You single?', 
-					5, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(2),  # Luck 0 - 6, = hidden
-					100, #Success Chance 0 - 100
+	result.nextGroup.append(getTopicAction('You single?',
 					DateAction.CATEGORIES.FLIRTY,
 					group_topic4,
 					group_topic4_fail,
 					'topic_ashepark_single',
+					DateAction.BUTTON_INDEX.FLIRT,
 					true))
 	
-	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]', 
-					0, #intensity 0 - 5
-					getStandardLuck(0),  # Luck 0 - 5
-					100, #Success Chance 0 - 100
+	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]',
 					DateAction.CATEGORIES.SMALL_TALK,
 					group_smalltalk,
 					group_smalltalk,
-					'topic_ashepark_smalltalk'))
+					'topic_ashepark_smalltalk',
+					DateAction.BUTTON_INDEX.SMALL_TALK
+					))
 					
 	return result
 
@@ -179,36 +171,24 @@ func group_topic1():
 	result.scoreProgression = 10
 	
 	result.nextGroup.append(getPlayerQuestionAction("What's with your southern dialect?",
-							3, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_ask_southern,
 							group_ask_southern_fail,
 							'id_ashepark_southern'))
 	
 	result.nextGroup.append(getPlayerQuestionAction("What's with the white hair?",
-							3, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_ask_hair,
 							group_ask_hair_fail,
 							'id_ashepark_hair'))
 	
 	result.nextGroup.append(getPlayerQuestionAction("Any other plans in life besides this poker thing?",
-							3, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_ask_other_plans,
 							group_ask_other_plans_fail,
 							'id_ashepark_otherplans'))
 	
 	result.nextGroup.append(getPlayerQuestionAction("It sounds like you walk here often, why is that?",
-							3, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_ask_whywalk,
 							group_ask_whywalk_fail,
@@ -232,18 +212,12 @@ func group_smalltalk():
 	result.success = true
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about this park.',
-							2, #intensity 0 - 5
-							getStandardLuck(6),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
 							group_smalltalk_ask,
 							'id_smalltalk_ask'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about the weather.',
-							2, #intensity 0 - 5
-							getStandardLuck(6),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
 							group_smalltalk_ask,
@@ -353,61 +327,40 @@ func group_topic2():
 	result.success = true
 	result.scoreProgression = 10
 	
-	if(keyQuestionIndex < 2):
+	if(mainQuestionIndex < 2):
 		result.nextGroup.append(getPlayerQuestionAction('So, you basically scam people at poker?',
-								2, #intensity 0 - 5
-								getStandardLuck(2),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
 								group_ask_poker_scam,
 								group_ask_poker_scam_fail,
 								'id_ashepark_poker_scam'))
 		result.nextGroup.append(getPlayerQuestionAction('Is this illegal?',
-							2, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FRIENDLY,
 							group_ask_illegal,
 							group_ask_illegal_fail,
 							'id_ashepark_illegal'))
-	elif(keyQuestionIndex < 5):
+	elif(mainQuestionIndex < 5):
 		result.nextGroup.append(getPlayerQuestionAction("How do you 'build a profile' on your targets?",
-								2, #intensity 0 - 5
-								getStandardLuck(2),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
 								group_ask_building_profile,
 								group_ask_building_profile_fail,
 								'id_ashepark_building_profile'))
 		result.nextGroup.append(getPlayerQuestionAction('How do you convince them to play?',
-								2, #intensity 0 - 5
-								getStandardLuck(2),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
 								group_ask_convince,
 								group_ask_convince_fail,
 								'id_ashepark_convince'))
 		result.nextGroup.append(getPlayerQuestionAction('How much do you make from this?',
-								3, #intensity 0 - 5
-								getStandardLuck(2),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
 								group_how_much_ask,
 								group_how_much_ask_fail,
 								'id_ashepark_how_much'))
 	else:
 		result.nextGroup.append(getPlayerQuestionAction('What exactly do you need more for?',
-								3, #intensity 0 - 5
-								getStandardLuck(2),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FRIENDLY,
 								group_ask_why_need_me,
 								group_ask_why_need_me_fail,
 								'id_ashepark_why_need_me'))
 		result.nextGroup.append(getPlayerQuestionAction('Do you... seduce them?',
-								4, #intensity 0 - 5
-								getStandardLuck(2),  # Luck 0 - 4
-								100, #Success Chance 0 - 100
 								DateAction.CATEGORIES.FLIRTY,
 								group_ask_seduce,
 								group_ask_seduce_fail,
@@ -439,7 +392,7 @@ func group_ask_poker_scam():
 	result.scoreProgression = 10
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_poker_scam_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_ask_poker_scam_fail():
@@ -454,7 +407,7 @@ func group_ask_building_profile():
 	result.scoreProgression = 10
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_building_profile_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_ask_building_profile_fail():
@@ -467,10 +420,9 @@ func group_how_much_ask():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
-	result.scoreEntertained = 5
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_how_much_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_how_much_ask_fail():
@@ -485,7 +437,7 @@ func group_ask_why_need_me():
 	result.scoreProgression = 10
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_why_need_me_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_ask_why_need_me_fail():
@@ -500,7 +452,7 @@ func group_ask_convince():
 	result.scoreProgression = 10
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_convince_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_ask_convince_fail():
@@ -515,7 +467,7 @@ func group_ask_illegal():
 	result.scoreProgression = 10
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_illegal_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_ask_illegal_fail():
@@ -530,7 +482,7 @@ func group_ask_seduce():
 	result.scoreProgression = 10
 	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'ask_seduce_success'
-	keyQuestionIndex += 1
+	result.incrementMainQuestionIndex = true
 	return result
 
 func group_ask_seduce_fail():
@@ -672,18 +624,12 @@ func group_topic3():
 	result.scoreProgression = 10
 	
 	result.nextGroup.append(getPlayerQuestionAction("If you're this big time poker playing rich girl, what were you doing playing at Chad's party?",
-							3, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_partnerask_why_chad_party,
 							group_partnerask_why_chad_party_fail,
 							'id_asheparty_whychadparty'))
 
 	result.nextGroup.append(getPlayerQuestionAction("How do you know Chad?",
-							3, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_chad_go_to_party,
 							group_chad_go_to_party_fail,
@@ -766,27 +712,18 @@ func group_topic4():
 	result.scoreProgression = 10
 	
 	result.nextGroup.append(getPlayerQuestionAction('So.... are you?',
-							4, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.FLIRTY,
 							group_are_you_single,
 							group_are_you_single_fail,
 							'id_ashepark_q_single'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('Do I have a shot?',
-							5, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.DEEP,
 							group_have_a_shot,
 							group_have_a_shot_fail,
 							'id_ashepark_q_shot'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('Would I have a shot if I make you a lot of money?',
-							5, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.DEEP,
 							group_make_you_money,
 							group_make_you_money_fail,
@@ -810,7 +747,6 @@ func group_are_you_single():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
-	result.scoreHorny = 10
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	result.dialogueStartKey = 'current_relationship_success'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
@@ -840,7 +776,6 @@ func group_partnerask_why_ask_choice1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
-	result.scoreHorny = 10
 	result.dialogueStartKey = 'have_a_shot_1'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 30

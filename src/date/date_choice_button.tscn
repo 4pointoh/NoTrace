@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://2b6xt4j6amrv"]
+
+[ext_resource type="Texture2D" uid="uid://dmyim7ia7ixml" path="res://data/assets/date/art/transparent_purple_rounded_rect_8px9patch.png" id="1_clycv"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_tfmqh"]
+
+[node name="BusinessAction" type="TextureButton"]
+offset_left = 211.0
+offset_top = 969.0
+offset_right = 378.0
+offset_bottom = 1136.0
+texture_normal = ExtResource("1_clycv")
+stretch_mode = 4
+
+[node name="BusinessLabel" type="Label" parent="."]
+offset_right = 167.0
+offset_bottom = 84.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_tfmqh")
+theme_override_font_sizes/font_size = 50
+text = "Talk"
+horizontal_alignment = 1
+vertical_alignment = 1

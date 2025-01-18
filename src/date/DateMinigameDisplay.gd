@@ -1,6 +1,7 @@
 extends Node2D
 var allActions : Array[DateAction]
 var currentActionIndex : int = 0
+var currentActionType : DateAction.TYPES
 
 @onready var intensityAnimation = $AnimContainer/IntensityAnimation
 @onready var intensityAnimationText = $Intensity
@@ -50,6 +51,7 @@ var target_position: Vector2
 var spawn_position: Vector2
 
 signal optionSelected(index : int)
+signal goBack()
 signal proceedFromComplete()
 
 var screen_width = 400  # Adjust this to your screen width
@@ -57,17 +59,34 @@ var screen_width = 400  # Adjust this to your screen width
 func _ready():
 	mainText.set_meta("original_x", mainText.position.x)
 	particleContainer.start_rain()
+	resetAnnoyanceBar()
 
 func setActions(actions: Array[DateAction], allowLoveLockedP: bool):
-	currentActionIndex = 0
 	allActions = actions
 	allowLoveLocked = allowLoveLockedP
-	setUi(allActions[currentActionIndex])
+	#setUi(allActions[currentActionIndex])
+	setUi2(allActions)
 
 func firstLoad():
 	$IntroText.text = GlobalGameStage.currentStage.dateTitle
 	$IntroTextTopBox/IntroTextTop.text = GlobalGameStage.currentStage.dateTitle
 	$AnimationPlayer.play("intro_in")
+	%DateSelectDisplay.setBusinessLabel(GlobalGameStage.currentStage.dateBusinessButtonLabel)
+
+func setUi2(actions: Array[DateAction]):
+	currentActionType = actions[0].type
+
+	match currentActionType:
+		DateAction.TYPES.QUIZ:
+			setUiForQuiz()
+		DateAction.TYPES.PLAYER_QUESTION:
+			setUiForPlayerQuestion()
+		DateAction.TYPES.PARTNER_QUESTION:
+			setUiForPartnerQuestion()
+		DateAction.TYPES.CHOICE:
+			setUiForPartnerQuestion()
+		DateAction.TYPES.TOPIC:
+			setUiForTopicSelection()
 
 func setUi(action : DateAction):
 	var intensityTextArray = ['', '?????', 'Low', 'Mild', 'Medium', 'High', 'Very High']
@@ -82,62 +101,32 @@ func setUi(action : DateAction):
 	else:
 		$Container.texture = lisaBg
 	
-	if !action.intensity or action.intensity < 0:
-		intensityAnimation.hide()
-		intensityAnimationText.hide()
-		intensitybg.hide()
-	else:
-		intensityAnimation.show()  
-		intensityAnimationText.show()
-		intensitybg.show()
-		intensityAnimation.play("burning")
-		intensityAnimationText.text = intensityTextArray[action.intensity]
-		intensityAnimation.scale = Vector2((action.intensity / 10.0) + 0.4, (action.intensity / 10.0) + 0.4)
-	
-	if !action.luck or action.luck < 0:
-		luckAnimation.hide()
-		luckAnimationText.hide()
-		luckbg.hide()
-	else:
-		luckAnimation.show()
-		luckAnimationText.show()
-		luckbg.show()
-		luckAnimation.play("breeze")
-		luckAnimationText.text = luckTextArray[action.luck]
-	
-	if !action.category:
-		typeBg.hide()
-	else:
-		typeBg.show()
-		
-	if action.category == DateAction.CATEGORIES.SMALL_TALK:
-		typeBgText.text = 'Small Talk'
-		typeBg.texture = blackbg;
-		typeBg.material.set_shader_parameter("glow_strength", 2) 
-	elif action.category == DateAction.CATEGORIES.PERSONAL:
-		typeBgText.text = 'Personal'
-		typeBg.texture = bluebg;
-		typeBg.material.set_shader_parameter("glow_strength", 3) 
-	elif action.category == DateAction.CATEGORIES.FRIENDLY:
-		typeBgText.text = 'Friendly Talk'
-		typeBg.texture = greenbg;
-		typeBg.material.set_shader_parameter("glow_strength", 0.5) 
-	elif action.category == DateAction.CATEGORIES.FLIRTY:
-		typeBgText.text = 'Flirty'
-		typeBg.texture = pinkbg;
-		typeBg.material.set_shader_parameter("glow_strength", 0.2) 
-	elif action.category == DateAction.CATEGORIES.CORE:
-		typeBgText.text = 'Core'
-		typeBg.texture = tealbg;
-		typeBg.material.set_shader_parameter("glow_strength", 0.2) 
-	elif action.category == DateAction.CATEGORIES.DEEP:
-		typeBgText.text = 'Deep'
-		typeBg.texture = purplebg;
-		typeBg.material.set_shader_parameter("glow_strength", 1) 
-	else:
-		typeBgText.text = 'enum mismatch, update DateMinigameDisplay'
-	
-	mainText.text = action.text
+	# if action.category == DateAction.CATEGORIES.SMALL_TALK:
+	# 	typeBgText.text = 'Small Talk'
+	# 	typeBg.texture = blackbg;
+	# 	typeBg.material.set_shader_parameter("glow_strength", 2) 
+	# elif action.category == DateAction.CATEGORIES.PERSONAL:
+	# 	typeBgText.text = 'Personal'
+	# 	typeBg.texture = bluebg;
+	# 	typeBg.material.set_shader_parameter("glow_strength", 3) 
+	# elif action.category == DateAction.CATEGORIES.FRIENDLY:
+	# 	typeBgText.text = 'Friendly Talk'
+	# 	typeBg.texture = greenbg;
+	# 	typeBg.material.set_shader_parameter("glow_strength", 0.5) 
+	# elif action.category == DateAction.CATEGORIES.FLIRTY:
+	# 	typeBgText.text = 'Flirty'
+	# 	typeBg.texture = pinkbg;
+	# 	typeBg.material.set_shader_parameter("glow_strength", 0.2) 
+	# elif action.category == DateAction.CATEGORIES.CORE:
+	# 	typeBgText.text = 'Core'
+	# 	typeBg.texture = tealbg;
+	# 	typeBg.material.set_shader_parameter("glow_strength", 0.2) 
+	# elif action.category == DateAction.CATEGORIES.DEEP:
+	# 	typeBgText.text = 'Deep'
+	# 	typeBg.texture = purplebg;
+	# 	typeBg.material.set_shader_parameter("glow_strength", 1) 
+	# else:
+	# 	typeBgText.text = 'enum mismatch, update DateMinigameDisplay'
 	
 	match action.type:
 		DateAction.TYPES.QUIZ:
@@ -148,15 +137,6 @@ func setUi(action : DateAction):
 			setUiForPartnerQuestion()
 		DateAction.TYPES.CHOICE:
 			setUiForPartnerQuestion()
-		DateAction.TYPES.TOPIC:
-			setUiForTopic(action.loveLocked, action.progressLocked)
-
-func getBonusesText(bonuses):
-	var text = ''
-	for bonus in bonuses:
-		text += bonus + '\n'
-	
-	return text
 
 func setProgress(progress, maxProgress):
 	var increment = 0;
@@ -176,31 +156,48 @@ func setProgress(progress, maxProgress):
 	dateProgress.value = progress * (100.0/maxProgress)
 	overlayClipper.size.x = increment * progress
 
-func setUiForTopic(loveLocked, progressLocked):
-	if((loveLocked and !allowLoveLocked) || progressLocked):
-		mainButton.text = 'Need More Progress!'
-		mainButton.disabled = true
-	else:
-		mainButton.text = 'Talk About It!'
-		mainButton.disabled = false
+func setUiForTopicSelection():
+	var lockTalk = false;
+	var lockFlirt = false;
+	var lockBusiness = false;
 
-	topText.text = 'New Topic!'
-	mainText.set("theme_override_font_sizes/font_size", 34)
+	for action in allActions:
+		if(action.buttonIndex == DateAction.BUTTON_INDEX.TALK):
+			lockTalk = (action.loveLocked and !allowLoveLocked)
+			lockTalk = lockTalk or action.progressLocked
+		elif(action.buttonIndex == DateAction.BUTTON_INDEX.FLIRT):
+			lockFlirt = (action.loveLocked and !allowLoveLocked)
+			lockFlirt = lockFlirt or action.progressLocked
+		elif(action.buttonIndex == DateAction.BUTTON_INDEX.BUSINESS):
+			lockBusiness = (action.loveLocked and !allowLoveLocked)
+			lockBusiness = lockBusiness or action.progressLocked
+
+	%DateSelectDisplay.setTalkProgressNeeded(lockTalk)
+	%DateSelectDisplay.setFlirtProgressNeeded(lockFlirt)
+	%DateSelectDisplay.setBusinessProgressNeeded(lockBusiness)
+
+	%DateChoiceDisplay.hide()
+	%DateSelectDisplay.show()
+
+func setUiForSubtopicSelection(actionText):
+	%DateChoiceDisplay.setChoices(actionText)
+	%DateChoiceDisplay.show()
+	%DateSelectDisplay.hide()
 
 func setUiForPartnerQuestion():
-	mainButton.text = 'Answer!'
-	topText.text = "Answer Her!"
-	mainText.set("theme_override_font_sizes/font_size", 24)
+	%DateChoiceDisplay.setChoices(getAllActionTexts())
+	%DateChoiceDisplay.show()
+	%DateSelectDisplay.hide()
 	
 func setUiForPlayerQuestion():
-	mainButton.text = 'Ask It!'
-	topText.text = "Ask Her!"
-	mainText.set("theme_override_font_sizes/font_size", 24)
+	%DateChoiceDisplay.setChoices(getAllActionTexts())
+	%DateChoiceDisplay.show()
+	%DateSelectDisplay.hide()
 
 func setUiForQuiz():
-	mainButton.text = 'Answer!'
-	topText.text = "Quiz!"
-	mainText.set("theme_override_font_sizes/font_size", 24)
+	%DateChoiceDisplay.setChoices(getAllActionTexts())
+	%DateChoiceDisplay.show()
+	%DateSelectDisplay.hide()
 
 func playSuccessSound():
 	$AudioStreamPlayer2D.stream = successSound
@@ -237,39 +234,13 @@ func showSuccess(memories):
 	$LoveBar.visible = false
 	$BusinessBar.visible = false
 	$BarBg.visible = false
+	$BarBg2.visible = false
+	$AnnoyanceBar.visible = false
 	$AudioStreamPlayer2D.stream = load("res://data/assets/general/sounds/victory2.wav")
 	$AudioStreamPlayer2D.play()
 	$DateCompleteDisplay.set_memories(memories)
 	$DateCompleteDisplay.show()
 	$AnimationPlayer2.play("date_success_in")
-
-func _on_button_left_pressed():
-	playArrowClick()
-	animate_text_transition(1)
-
-func _on_button_right_pressed():
-	playArrowClick()
-	animate_text_transition(-1)
-
-func animate_text_transition(direction: int):
-	var original_x = mainText.get_meta("original_x")
-	var tween = create_tween()
-	
-	# First tween: slide current text off screen
-	var off_screen_x = -screen_width if direction > 0 else screen_width
-	tween.tween_property(mainText, "position:x", off_screen_x, 0.1)
-	
-	# After first tween completes, update text and reset position
-	tween.tween_callback(func():
-		# Update the text content
-		currentActionIndex = (currentActionIndex + direction) % allActions.size()
-		setUi(allActions[currentActionIndex])
-		# Move text to starting position for entrance
-		mainText.position.x = -off_screen_x
-	)
-	
-	# Final tween: slide new text in from opposite side
-	tween.tween_property(mainText, "position:x", original_x, 0.1)
 
 func set_particle_count(amount):
 	particleContainer.set_particle_count(amount)
@@ -300,6 +271,8 @@ func hideUi():
 	$luckbg.visible = false
 	$intensitybg.visible = false
 	$DateProgress.visible = false
+	%DateChoiceDisplay.visible = false
+	%DateSelectDisplay.visible = false
 
 func showUi():
 	$Container.visible = true
@@ -318,9 +291,66 @@ func showUi():
 	$luckbg.visible = true
 	$intensitybg.visible = true
 	$DateProgress.visible = true
+	%DateChoiceDisplay.visible = true
+	%DateSelectDisplay.visible = true
 
 func displayEmoji(emoji : Heartsplosion.TYPES):
 	$EmojiDisplay.display(emoji)
 
 func _on_date_complete_display_clicked_continue():
 	proceedFromComplete.emit()
+
+func _on_date_choice_display_choice_selected(text):
+	#find the index of the action which matche the text
+	var index = 0
+
+	for action in allActions:
+		if(action.text == text):
+			break
+		index += 1
+
+	optionSelected.emit(index)
+
+func _on_date_select_display_choice_selected(index):
+	#filter allActions for entries which match the button index
+	var actionText = []
+	for action in allActions:
+		if(action.buttonIndex == index):
+			actionText.append(action.text)
+
+	setUiForSubtopicSelection(actionText)
+	
+func getAllActionTexts():
+	var actionText = []
+	for action in allActions:
+		actionText.append(action.text)
+	
+	return actionText
+
+func reduceAnnoyanceBar():
+	%AnnoyanceBar.value = %AnnoyanceBar.value - 34
+
+	if(%AnnoyanceBar.value < 0):
+		%AnnoyanceBar.value = 0
+
+	if(%AnnoyanceBar.value < 35):
+		%AnnoyanceLabel.text = 'Annoyed'
+	elif(%AnnoyanceBar.value < 70):
+		%AnnoyanceLabel.text = 'Neutral'
+	else:
+		%AnnoyanceLabel.text = 'Content'
+	
+func resetAnnoyanceBar():
+	%AnnoyanceBar.value = 100
+	%AnnoyanceLabel.text = 'Content'
+
+func setCgsAvailable(loveCgsAvailable, talkCgsAvailable, businessCgsAvailable):
+	%DateSelectDisplay.setTalkCgAvailable(talkCgsAvailable)
+	%DateSelectDisplay.setFlirtCgAvailable(loveCgsAvailable)
+	%DateSelectDisplay.setBusinessCgAvailable(businessCgsAvailable)
+
+func _on_date_choice_display_back_button():
+	goBack.emit()
+
+func isMaximumAnnoyance():
+	return %AnnoyanceBar.value == 0

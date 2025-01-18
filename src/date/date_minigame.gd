@@ -23,6 +23,7 @@ func initFromGameStage(stage : GameStage):
 	dateProgress = 0
 	loveProgress = 10
 	businessProgress = 10
+	setUnlockStatusBadges()
 	processResultDialogue()
 
 func processResultDialogue():
@@ -53,6 +54,9 @@ func processDialogueComplete():
 		else:
 			processDateComplete(false, dateScript.get_alternate_loss_dialogue())
 		GlobalGameStage.resetDate()
+	elif $DateMinigameDisplay.isMaximumAnnoyance():
+		GlobalGameStage.resetDate()
+		processDateComplete(false, null)
 	elif currentResult.nextGroup.size() > 0:
 		processNextActionOrGroup()
 	else:
@@ -170,14 +174,10 @@ func _on_date_minigame_display_option_selected(index):
 	completeAction(selected_action)
 
 func completeAction(action : DateAction):
-	var success_chance = action.successChance
-
-	var random_roll = randf() * 100
-	
 	var repeated_result = dateScript.repeated_ask(action)
 	
 	# If we already had a success, and its not a topic, skip
-	if (action.category == DateAction.CATEGORIES.SMALL_TALK) || (random_roll < success_chance) and ((GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0) or (action.type == DateAction.TYPES.TOPIC)):
+	if ((GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0) or (action.type == DateAction.TYPES.TOPIC)):
 		currentResult = action.successFunc.call()
 		if(action.id):
 			GlobalGameStage.addDateAsk(action.id, true)
@@ -217,13 +217,23 @@ func completeAction(action : DateAction):
 	if(businessProgress < 10):
 		businessProgress = 10
 
+	if(currentResult.annoyed):
+		$DateMinigameDisplay.reduceAnnoyanceBar()
+	
+	if(currentResult.incrementMainQuestionIndex):
+		dateScript.mainQuestionIndex += 1
+	
+	if(currentResult.setFlagToTrue):
+		dateScript.flags.append(currentResult.setFlagToTrue)
+
 	$DateMinigameDisplay.setLoveProgress(loveProgress)
 	$DateMinigameDisplay.setBusinessProgress(businessProgress)
 	$DateMinigameDisplay.set_particle_count(min(20, round((GlobalGameStage.getDateStorage().currentDateProgressionScore / 10) * 1.2)))
+	setUnlockStatusBadges()
 
 	if(currentResult.particleType):
 		$DateMinigameDisplay.displayEmoji(currentResult.particleType)
-	GlobalGameStage.modifyDateScore(currentResult.scoreProgression, currentResult.scoreEntertained, currentResult.scoreHorny)
+	GlobalGameStage.modifyDateScore(currentResult.scoreProgression)
 	
 	if(action.type != DateAction.TYPES.TOPIC and action.type != DateAction.TYPES.PARTNER_QUESTION):
 		updateProgress()
@@ -280,3 +290,53 @@ func _on_date_minigame_display_proceed_from_complete():
 	GlobalGameStage.playParticleEffect(Heartsplosion.TYPES.HAPPY, Heartsplosion.ANIM_TYPE.RAIN)
 	await get_tree().create_timer(3).timeout
 	dateComplete.emit(true, null)
+
+func setUnlockStatusBadges():
+	var talkMemories = [];
+	var businessMemories = [];
+	var flirtMemories = [];
+
+	for action in dateScript.group_topic_select().nextGroup:
+		var groupResult = action.successFunc.call()
+		for result2 in groupResult.nextGroup:
+			var result = result2.successFunc.call()
+			if result.memoryUnlockId != "":
+				if action.buttonIndex == DateAction.BUTTON_INDEX.TALK:
+					talkMemories.append(result.memoryUnlockId)
+				elif action.buttonIndex == DateAction.BUTTON_INDEX.BUSINESS:
+					businessMemories.append(result.memoryUnlockId)
+				elif action.buttonIndex == DateAction.BUTTON_INDEX.FLIRT:
+					flirtMemories.append(result.memoryUnlockId)
+
+	var loveCgsAvailable = false;
+	var talkCgsAvailable = false;
+	var businessCgsAvailable = false;
+
+	if(loveProgress < 100):
+		loveCgsAvailable = true
+	else:
+		loveCgsAvailable = false
+
+	for memory in talkMemories:
+		if !unlockedQuestionMemories.has(memory):
+			talkCgsAvailable = true
+			break
+	
+	for memory in businessMemories:
+		if !unlockedQuestionMemories.has(memory):
+			businessCgsAvailable = true
+			break
+	
+	for memory in flirtMemories:
+		if !unlockedQuestionMemories.has(memory):
+			loveCgsAvailable = true
+			break
+	
+	$DateMinigameDisplay.setCgsAvailable(loveCgsAvailable, talkCgsAvailable, businessCgsAvailable)
+
+func goBack():
+	currentResult = dateScript.group_topic_select()
+	processNextActionOrGroup()
+
+func _on_date_minigame_display_go_back():
+	goBack()

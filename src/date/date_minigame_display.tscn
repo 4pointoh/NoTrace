@@ -1,4 +1,4 @@
-[gd_scene load_steps=201 format=3 uid="uid://d08hy8m7ysx30"]
+[gd_scene load_steps=204 format=3 uid="uid://d08hy8m7ysx30"]
 
 [ext_resource type="Script" path="res://src/date/DateMinigameDisplay.gd" id="1_kynup"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_4gai5"]
@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://cu5y7ae0pqsdg" path="res://data/assets/general/sounds/sound.wav" id="19_hrdnt"]
 [ext_resource type="PackedScene" uid="uid://deu30lvoriam7" path="res://src/date/emoji_display.tscn" id="20_fod8x"]
 [ext_resource type="PackedScene" uid="uid://blrodu2nk43sr" path="res://src/date/date_complete_display.tscn" id="21_ahp8f"]
+[ext_resource type="PackedScene" uid="uid://bfeftrw0tevxh" path="res://src/date/date_choice_display.tscn" id="21_q58u0"]
+[ext_resource type="PackedScene" uid="uid://bh8m4ecp5otgq" path="res://src/date/date_select_display.tscn" id="22_6k5wn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1xle"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -1468,15 +1470,22 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4etdm"]
+bg_color = Color(0.160173, 0.722634, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="DateMinigameDisplay" type="Node2D"]
 script = ExtResource("1_kynup")
 
 [node name="Container" type="NinePatchRect" parent="."]
 clip_contents = true
-offset_left = 150.0
-offset_top = 841.0
-offset_right = 750.0
-offset_bottom = 1144.0
+offset_left = 1089.0
+offset_top = 844.0
+offset_right = 1689.0
+offset_bottom = 1147.0
 texture = ExtResource("2_go35l")
 patch_margin_left = 7
 patch_margin_top = 7
@@ -1525,10 +1534,10 @@ text = "Answer!"
 
 [node name="Type" type="NinePatchRect" parent="."]
 material = SubResource("ShaderMaterial_7rmac")
-offset_left = 450.0
-offset_top = 853.0
-offset_right = 688.0
-offset_bottom = 908.0
+offset_left = 1389.0
+offset_top = 856.0
+offset_right = 1627.0
+offset_bottom = 911.0
 texture = ExtResource("5_d0mds")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -1549,10 +1558,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TopBanner" type="NinePatchRect" parent="."]
-offset_left = 210.0
-offset_top = 853.0
-offset_right = 445.0
-offset_bottom = 908.0
+offset_left = 1149.0
+offset_top = 856.0
+offset_right = 1384.0
+offset_bottom = 911.0
 texture = ExtResource("2_4gai5")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -1660,10 +1669,10 @@ libraries = {
 }
 
 [node name="luckbg" type="NinePatchRect" parent="."]
-offset_left = 10.0
-offset_top = 1000.0
-offset_right = 141.0
-offset_bottom = 1144.0
+offset_left = 949.0
+offset_top = 1003.0
+offset_right = 1080.0
+offset_bottom = 1147.0
 texture = ExtResource("2_4gai5")
 patch_margin_left = 9
 patch_margin_top = 9
@@ -1671,10 +1680,10 @@ patch_margin_right = 9
 patch_margin_bottom = 9
 
 [node name="intensitybg" type="NinePatchRect" parent="."]
-offset_left = 9.0
-offset_top = 840.0
-offset_right = 140.0
-offset_bottom = 984.0
+offset_left = 948.0
+offset_top = 843.0
+offset_right = 1079.0
+offset_bottom = 987.0
 texture = ExtResource("2_4gai5")
 patch_margin_left = 9
 patch_margin_top = 9
@@ -1685,20 +1694,22 @@ patch_margin_bottom = 9
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_top = 766.0
-offset_right = 150.0
-offset_bottom = 961.0
+offset_left = 939.0
+offset_top = 787.0
+offset_right = 1089.0
+offset_bottom = 982.0
 
 [node name="IntensityAnimation" type="AnimatedSprite2D" parent="AnimContainer"]
-position = Vector2(76, 135)
+position = Vector2(1015, 138)
 sprite_frames = SubResource("SpriteFrames_1mesl")
 animation = &"burning"
 frame_progress = 0.422604
 
 [node name="Intensity" type="Label" parent="."]
-offset_top = 934.0
-offset_right = 150.0
-offset_bottom = 970.0
+offset_left = 939.0
+offset_top = 937.0
+offset_right = 1089.0
+offset_bottom = 973.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1708,16 +1719,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloverAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(74, 1062)
+position = Vector2(1013, 1065)
 scale = Vector2(0.808333, 0.808333)
 sprite_frames = SubResource("SpriteFrames_44yx7")
 animation = &"breeze"
 frame_progress = 0.341239
 
 [node name="Luck" type="Label" parent="."]
-offset_top = 1090.0
-offset_right = 150.0
-offset_bottom = 1126.0
+offset_left = 939.0
+offset_top = 1093.0
+offset_right = 1089.0
+offset_bottom = 1129.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1780,10 +1792,10 @@ text = "Fail Bonus (x5)"
 horizontal_alignment = 1
 
 [node name="itemsbg" type="NinePatchRect" parent="."]
-offset_left = 757.0
-offset_top = 841.0
-offset_right = 891.0
-offset_bottom = 885.0
+offset_left = 1696.0
+offset_top = 844.0
+offset_right = 1830.0
+offset_bottom = 888.0
 texture = ExtResource("2_4gai5")
 patch_margin_left = 9
 patch_margin_top = 9
@@ -1791,10 +1803,10 @@ patch_margin_right = 9
 patch_margin_bottom = 9
 
 [node name="itemstitle" type="Label" parent="."]
-offset_left = 757.0
-offset_top = 840.0
-offset_right = 891.0
-offset_bottom = 884.0
+offset_left = 1696.0
+offset_top = 843.0
+offset_right = 1830.0
+offset_bottom = 887.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1804,10 +1816,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonLeft" type="Button" parent="."]
-offset_left = 159.0
-offset_top = 851.0
-offset_right = 207.0
-offset_bottom = 1135.0
+offset_left = 1098.0
+offset_top = 854.0
+offset_right = 1146.0
+offset_bottom = 1138.0
 theme_override_colors/font_outline_color = Color(0.408901, 0.393733, 0.385302, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1817,10 +1829,10 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_7qg2x")
 text = "<"
 
 [node name="ButtonRight" type="Button" parent="."]
-offset_left = 693.0
-offset_top = 851.0
-offset_right = 741.0
-offset_bottom = 1135.0
+offset_left = 1632.0
+offset_top = 854.0
+offset_right = 1680.0
+offset_bottom = 1138.0
 theme_override_colors/font_outline_color = Color(0.408901, 0.393733, 0.385302, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_j5wfl")
@@ -1831,9 +1843,20 @@ text = ">"
 
 [node name="BarBg" type="NinePatchRect" parent="."]
 offset_left = 757.0
-offset_top = 888.0
+offset_top = 891.0
 offset_right = 891.0
-offset_bottom = 1144.0
+offset_bottom = 1147.0
+texture = ExtResource("2_4gai5")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BarBg2" type="NinePatchRect" parent="."]
+offset_left = 757.0
+offset_top = 855.0
+offset_right = 891.0
+offset_bottom = 890.0
 texture = ExtResource("2_4gai5")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -1841,7 +1864,7 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="BusinessBar" parent="." instance=ExtResource("16_3o1s3")]
-position = Vector2(760, 888)
+position = Vector2(760, 891)
 texture = ExtResource("14_me0q0")
 particle = ExtResource("15_oniku")
 particle_color = Color(0.299968, 0.511606, 1, 1)
@@ -1849,22 +1872,59 @@ spawn_sound = ExtResource("18_1y40a")
 collect_sound = ExtResource("19_hrdnt")
 
 [node name="LoveBar" parent="." instance=ExtResource("16_3o1s3")]
-position = Vector2(824, 888)
+position = Vector2(824, 891)
 texture = ExtResource("15_1ev88")
 particle = ExtResource("17_ebgjr")
 particle_color = Color(0.937873, 0.00112568, 0.994281, 1)
 spawn_sound = ExtResource("18_1y40a")
 collect_sound = ExtResource("19_hrdnt")
 
-[node name="EmojiDisplay" parent="." instance=ExtResource("20_fod8x")]
-visible = false
-position = Vector2(824, 766)
-scale = Vector2(0.6, 0.6)
-
 [node name="DateCompleteDisplay" parent="." instance=ExtResource("21_ahp8f")]
 position = Vector2(178, 1198)
+
+[node name="DateChoiceDisplay" parent="." instance=ExtResource("21_q58u0")]
+unique_name_in_owner = true
+
+[node name="DateSelectDisplay" parent="." instance=ExtResource("22_6k5wn")]
+unique_name_in_owner = true
+
+[node name="EmojiDisplay" parent="." instance=ExtResource("20_fod8x")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(827, 798)
+scale = Vector2(0.45, 0.45)
+
+[node name="AnnoyanceBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 762.0
+offset_top = 859.0
+offset_right = 887.0
+offset_bottom = 886.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_4etdm")
+step = 1.0
+value = 20.0
+show_percentage = false
+
+[node name="AnnoyanceLabel" type="Label" parent="AnnoyanceBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -1.0
+offset_right = 125.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_j5wfl")
+theme_override_font_sizes/font_size = 22
+text = "Annoyed"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Container/MainButton" to="." method="_on_main_button_pressed"]
 [connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]
 [connection signal="clicked_continue" from="DateCompleteDisplay" to="." method="_on_date_complete_display_clicked_continue"]
+[connection signal="back_button" from="DateChoiceDisplay" to="." method="_on_date_choice_display_back_button"]
+[connection signal="choice_selected" from="DateChoiceDisplay" to="." method="_on_date_choice_display_choice_selected"]
+[connection signal="choice_selected" from="DateSelectDisplay" to="." method="_on_date_select_display_choice_selected"]

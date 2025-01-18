@@ -270,10 +270,8 @@ func hasDatePartnerAsked(id: String):
 func getDateStorage():
 	return dateStorage
 
-func modifyDateScore(progression, entertained, horny):
-	dateStorage.currentDateEntertainmentScore += entertained
+func modifyDateScore(progression):
 	dateStorage.currentDateProgressionScore += progression
-	dateStorage.currentDateHornyScore += horny
 
 func setDateComplete():
 	completedStages.append(currentStage.name)

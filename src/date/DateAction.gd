@@ -22,10 +22,16 @@ enum CATEGORIES {
 	CORE
 }
 
+enum BUTTON_INDEX {
+	TALK,
+	FLIRT,
+	BUSINESS,
+	SMALL_TALK,
+	NONE
+}
+
 var id : String = ""
 var text : String
-var intensity : int
-var luck : int
 
 var type : DateAction.TYPES
 var category : DateAction.CATEGORIES
@@ -34,6 +40,6 @@ var dialogueStartKey : String
 
 var successFunc : Callable
 var failureFunc : Callable
-var successChance : int = 100
 var loveLocked : bool = false
 var progressLocked : bool = false
+var buttonIndex : DateAction.BUTTON_INDEX = DateAction.BUTTON_INDEX.NONE

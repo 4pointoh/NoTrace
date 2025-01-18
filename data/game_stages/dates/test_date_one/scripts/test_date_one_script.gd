@@ -80,31 +80,25 @@ func group_topic_select():
 	result.success = true
 	
 	result.nextGroup.append(getTopicAction('Past Relationships', 
-					2, #intensity 0 - 6. 0 = hidden
-					getStandardLuck(2),  # Luck 0 - 6, = hidden
-					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.FRIENDLY,
 					group_past_relationships,
 					group_past_relationships_fail,
-					'topic_pastrel'))
+					'topic_pastrel',
+					DateAction.BUTTON_INDEX.TALK))
 	
 	result.nextGroup.append(getTopicAction('[Assorted Smalltalk]', 
-					2, #intensity 0 - 5
-					getStandardLuck(4),  # Luck 0 - 5
-					100, #Success Chance 0 - 100
 					DateAction.CATEGORIES.SMALL_TALK,
 					group_smalltalk,
 					group_smalltalk,
-					'topic_1stdat_smalltalk'))
+					'topic_1stdat_smalltalk',
+					DateAction.BUTTON_INDEX.SMALL_TALK))
 	
 	result.nextGroup.append(getTopicAction('Current Relationship (NOT IMPLEMENTED)', 
-					4, #intensity 0 - 5
-					getStandardLuck(4),  # Luck 0 - 5
-					80, #Success Chance 0 - 100
 					DateAction.CATEGORIES.PERSONAL,
 					group_current_relationships,
 					group_current_relationships_fail,
-					'topic_currl'))
+					'topic_currl',
+					DateAction.BUTTON_INDEX.FLIRT))
 					
 	return result
 
@@ -130,36 +124,24 @@ func group_past_relationships():
 							group_why_past_relationships_answer, 'id_partnerask_pastrel'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('Tell me about your past boyfriends?',
-							2, #intensity 0 - 5
-							getStandardLuck(2),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_past_boyfriends_question,
 							group_past_boyfriends_question_fail,
 							'id_pastboyfriends'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('Whats your body count?',
-							5, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_body_count_question,
 							group_body_count_question_fail,
 							'id_bodycount')) # id so we can increment count
 	
 	result.nextGroup.append(getPlayerQuestionAction('First sex',
-							5, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
-							5, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_first_sex_question,
 							group_first_sex_question_fail,
 							'id_firstsex')) # id so we can increment count
 	
 	result.nextGroup.append(getPlayerQuestionAction('First kiss',
-							3, #intensity 0 - 5
-							getStandardLuck(3),  # Luck 0 - 4
-							20, #Success Chance 0 - 100
 							DateAction.CATEGORIES.PERSONAL,
 							group_first_kiss_question,
 							group_first_kiss_question_fail,
@@ -196,36 +178,24 @@ func group_smalltalk():
 	result.success = true
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about the weather',
-							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
 							group_smalltalk_ask,
 							'id_smalltalk_ask'))
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about hobbies',
-							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
 							group_smalltalk_ask,
 							'id_smalltalk_ask')) # id so we can increment count
 	
 	result.nextGroup.append(getPlayerQuestionAction('Talk about a dream you had last night',
-							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
 							group_smalltalk_ask,
 							'id_smalltalk_ask')) # id so we can increment count
 							
 	result.nextGroup.append(getPlayerQuestionAction('Talk about school',
-							2, #intensity 0 - 5
-							getStandardLuck(4),  # Luck 0 - 4
-							100, #Success Chance 0 - 100
 							DateAction.CATEGORIES.SMALL_TALK,
 							group_smalltalk_ask,
 							group_smalltalk_ask,
