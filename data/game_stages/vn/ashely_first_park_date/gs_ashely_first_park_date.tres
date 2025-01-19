@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://budob75qkmq5q"]
 
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_8xbut"]
-[ext_resource type="Resource" uid="uid://c6ghauu4riya7" path="res://data/game_stages/vn/ashely_first_park_date/d_ashely_first_park_date.tres" id="1_ysm1a"]
+[ext_resource type="Resource" uid="uid://c6ghauu4riya7" path="res://resources/dialogue_backups/d_ashely_first_park_date.tres" id="1_ysm1a"]
 [ext_resource type="Resource" uid="uid://cow1ul70kxhmm" path="res://data/game_stages/dates/ashely_park_date/gs_ashely_park_date.tres" id="2_ljmy8"]
 [ext_resource type="Texture2D" uid="uid://wg0yovvy27c5" path="res://data/assets/stage_art/park.png" id="3_gikk0"]
 [ext_resource type="Texture2D" uid="uid://chg07uf16qlc3" path="res://data/assets/stage_art/park_hover.png" id="3_o3rlv"]
@@ -41,4 +41,5 @@ dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""
 dateCharacter = ""
 dateTitle = ""
+dateBusinessButtonLabel = ""
 maxProgress = 0

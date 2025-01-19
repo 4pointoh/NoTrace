@@ -52,3 +52,15 @@ func setComplete(complete):
 func _on_choice_button_pressed():
 	if(disabled == false):
 		clicked.emit()
+		
+
+
+func _on_choice_button_mouse_entered():
+	if(disabled):
+		%Locked.show()
+	else:
+		%Hover.show()
+
+func _on_choice_button_mouse_exited():
+	%Locked.hide()
+	%Hover.hide()

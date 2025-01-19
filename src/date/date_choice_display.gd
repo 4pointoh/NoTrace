@@ -16,6 +16,7 @@ func setChoices(choices2):
 	for i in range(choices.size()):
 		var button = buttonScene.instantiate()
 		button.mainLabel = choices[i]
+		button.setIndex(i)
 		button.texture = load("res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png")
 		button.position = Vector2((i * 177) + 10, 10)
 		button.choice_selected.connect(_on_choice_selected)

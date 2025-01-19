@@ -75,9 +75,9 @@ func processNextActionOrGroup():
 			var groupResult = action.successFunc.call()
 
 			# Remove any questions asked by the partner which have already been asked
-			var filteredNextGroup = groupResult.nextGroup.filter(func(action):
-				if action.type == DateAction.TYPES.QUIZ or action.type == DateAction.TYPES.PARTNER_QUESTION:
-					return not GlobalGameStage.hasDatePartnerAsked(action.id)
+			var filteredNextGroup = groupResult.nextGroup.filter(func(action2):
+				if action2.type == DateAction.TYPES.QUIZ or action2.type == DateAction.TYPES.PARTNER_QUESTION:
+					return not GlobalGameStage.hasDatePartnerAsked(action2.id)
 				return true
 			)
 

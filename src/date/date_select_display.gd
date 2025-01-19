@@ -2,6 +2,10 @@ extends Node2D
 
 signal choice_selected(index : int)
 
+func showWithAnimation():
+	show()
+	%AnimationPlayer.play("pop_up")
+
 func setBusinessLabel(label : String):
 	%BusinessButton.setMainLabel(label)
 
@@ -25,12 +29,16 @@ func setBusinessProgressNeeded(locked: bool):
 
 func _on_talk_button_clicked():
 	choice_selected.emit(0)
+	%AudioStreamPlayer.play()
 
 func _on_flirt_button_clicked():
 	choice_selected.emit(1)
+	%AudioStreamPlayer.play()
 
 func _on_business_button_clicked():
 	choice_selected.emit(2)
+	%AudioStreamPlayer.play()
 
 func _on_small_talk_button_pressed():
 	choice_selected.emit(3)
+	%AudioStreamPlayer.play()

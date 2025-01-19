@@ -22,7 +22,7 @@ enum DATE_PROGRESS_TYPE {
 	NEUTRAL
 }
 
-func setBackground(texture, name):
+func setBackground(texture, name2):
 	wallpaper = Background.new()
 	wallpaper.images = texture
-	wallpaper.name = name
+	wallpaper.name = name2

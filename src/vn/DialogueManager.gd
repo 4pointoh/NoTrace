@@ -4,6 +4,7 @@ var dialog_bg_you = preload("res://data/assets/general/art/you_dialogue_bg.png")
 var dialog_bg_lisa = preload("res://data/assets/general/art/lisa_dialogue_bg.png")
 var dialog_bg_ashely = preload("res://data/assets/general/art/ashely_dialogue_bg.png")
 var dialog_bg_amy = preload("res://data/assets/general/art/amy_dialogue_bg.png")
+var dialog_bg_anna = preload("res://data/assets/general/art/anna_dialogue_bg.png")
 
 var lisa_dialog_sound = preload("res://data/assets/general/sounds/voice.ogg")
 var you_dialog_sound = preload("res://data/assets/general/sounds/sound.wav")
@@ -16,6 +17,7 @@ signal dialogue_ended
 signal dialogue_proceeded
 
 var dbox_position_upper = Vector2(120,100)
+var dbox_position_upper_mid = Vector2(120,150)
 var dbox_position_max_upper = Vector2(120,10)
 var dbox_position_mid = Vector2(120, 680)
 var dbox_position_bottom = Vector2(120, 900)
@@ -79,6 +81,14 @@ func setAmyBg():
 	style.texture = dialog_bg_amy
 	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
 
+func setAnnaBg():
+	$AudioStreamPlayer.stream = lisa_dialog_sound
+	if !muted:
+		$AudioStreamPlayer.play()
+	var style : StyleBoxTexture = StyleBoxTexture.new()
+	style.texture = dialog_bg_anna
+	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
+
 func setDefaultBg():
 	$AudioStreamPlayer.stream = you_dialog_sound
 	if !muted:
@@ -94,6 +104,10 @@ func unmuteDialogueBox():
 func setDialogueBoxUpper():
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", dbox_position_upper, .6).set_trans(Tween.TRANS_QUAD)
+
+func setDialogueBoxUpperMid():
+	var tween = get_tree().create_tween()
+	tween.tween_property($DialoguePlayer, "position", dbox_position_upper_mid, .6).set_trans(Tween.TRANS_QUAD)
 	
 func setDialogueBoxMaxUpper():
 	var tween = get_tree().create_tween()
@@ -121,7 +135,9 @@ func _on_dialogue_player_dialogue_proceeded(node_type):
 		"Lisa": setLisaBg()
 		"You": setYouBg()
 		"Ashely": setAshelyBg()
-		"Amy": setAshelyBg()
+		"Amy": setAmyBg()
+		"Anna": setAnnaBg()
+		"Random Party Girl": setAnnaBg()
 		_: setDefaultBg()
 	
 	getCurrentNodeInfo()
@@ -135,7 +151,9 @@ func _on_dialogue_player_dialogue_signal(value):
 	match(value):
 		"tween_lisa": tweenLisaDialogue()
 		"tween_you": tweenYouDialogue()
+		"reposition_top": setDialogueBoxMaxUpper()
 		"reposition_upper": setDialogueBoxUpper()
+		"reposition_upper_mid": setDialogueBoxUpperMid()
 		"reposition_mid": setDialogueBoxMid()
 		"reposition_bottom": setDialogueBoxBottom()
 		"reposition_bottom_left": setDialogueBoxBottomLeft()

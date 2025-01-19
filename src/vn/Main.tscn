@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=15 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
 [ext_resource type="AudioStream" uid="uid://dkosxg1xda685" path="res://data/assets/general/sounds/bg_music/title.mp3" id="11_1jasj"]
 [ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="13_sdhtv"]
+[ext_resource type="PackedScene" uid="uid://ooat0x0ooh2p" path="res://src/vn/name_enter.tscn" id="14_sr84d"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ps8m3")
@@ -107,6 +108,10 @@ z_index = 1
 position = Vector2(453, 582)
 scale = Vector2(0.873134, 0.873134)
 texture = ExtResource("13_sdhtv")
+
+[node name="NameEnter" parent="." instance=ExtResource("14_sr84d")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="is_fading" from="Background" to="." method="_on_background_is_fading"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

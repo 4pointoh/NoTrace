@@ -19,6 +19,19 @@ func _ready():
 	$ChoiceButton/ChoiceLabel.text = mainLabel
 	$ChoiceButton.texture_normal = texture
 
+func setIndex(index):
+	if(index == 0):
+		%FooterBg.texture = load("res://data/assets/date/art/transparent_teal_hard_rounded_rect_8px9patch.png")
+		%ChoiceButton.texture_hover = load("res://data/assets/date/art/transparent_teal_rounded_rect_8px9patch.png")
+	elif(index == 1):
+		%FooterBg.texture = load("res://data/assets/date/art/transparent_pink_hard_rounded_rect_8px9patch.png")
+		%ChoiceButton.texture_hover = load("res://data/assets/date/art/transparent_pink_rounded_rect_8px9patch.png")
+	elif(index == 2):
+		%FooterBg.texture = load("res://data/assets/date/art/transparent_orange_hard_rounded_rect_8px9patch.png")
+		%ChoiceButton.texture_hover = load("res://data/assets/date/art/transparent_orange_rounded_rect_8px9patch.png")
+	elif(index == 3):
+		%FooterBg.texture = load("res://data/assets/date/art/transparent_light_green_hard_rounded_rect_8px9patch.png")
+		%ChoiceButton.texture_hover = load("res://data/assets/date/art/transparent_green_rounded_rect_8px9patch.png")
 
 func _on_choice_button_pressed():
 	choice_selected.emit(mainLabel)

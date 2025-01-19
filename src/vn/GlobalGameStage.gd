@@ -1,6 +1,6 @@
 extends Node
 
-var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro/gs_intro.tres")
+var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro_rework/gs_intro_rework.tres")
 #var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres")
 var PHONE_STAGE = preload("res://data/game_stages/special/phone/gs_phone.tres")
 var ALL_WALLPAPERS = preload("res://resources/wallpapers/all_wallpapers.tres")
@@ -10,10 +10,11 @@ var nextStage : GameStage
 var completedStages : Array[String]
 var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
+var playerName : String
 
 var dateStorage : DateStorage
 
-const VERSION = 001
+const VERSION = 002
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -181,6 +182,7 @@ func saveSaveData(saveName):
 		file.store_var(currentStage.resource_path)
 	file.store_var(unlockedWallpapers)
 	file.store_var(dateStorage.askHistoryComplete)
+	file.store_var(playerName)
 	
 	
 func loadSaveData(saveName):
@@ -194,6 +196,11 @@ func loadSaveData(saveName):
 		currentStage = load(file.get_var())
 		unlockedWallpapers.assign(file.get_var())
 		dateStorage.askHistoryComplete = file.get_var()
+		
+		if(saveVersion > 001):
+			playerName = file.get_var()
+		else:
+			playerName = 'Sam'
 		
 		if(currentStage.guaranteedNextGameStage):
 			nextStage = currentStage.guaranteedNextGameStage
@@ -284,3 +291,6 @@ func playParticleEffect(type : Heartsplosion.TYPES, animType : Heartsplosion.ANI
 
 func showTopImg(texture : Texture2D):
 	showTopImage.emit(texture)
+
+func setName(name2 : String):
+	playerName = name2

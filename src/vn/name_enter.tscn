@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ooat0x0ooh2p"]
+
+[ext_resource type="Script" path="res://src/vn/name_enter.gd" id="1_wkjyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwf5v"]
+
+[node name="NameEnter" type="ColorRect"]
+offset_right = 912.0
+offset_bottom = 1159.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_wkjyn")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 618.0
+offset_right = 523.0
+offset_bottom = 668.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwf5v")
+text = "Submit"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 197.0
+offset_top = 539.0
+offset_right = 697.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Enter Your Name"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

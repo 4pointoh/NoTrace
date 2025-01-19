@@ -9,6 +9,7 @@
 script = ExtResource("1_kyolu")
 
 [node name="ChoiceButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
 offset_right = 167.0
 offset_bottom = 167.0
 texture_normal = ExtResource("2_l14wa")
@@ -30,6 +31,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="FooterBg" type="NinePatchRect" parent="ChoiceButton"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 144.0
 offset_right = 167.0

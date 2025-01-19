@@ -3,30 +3,13 @@ var allActions : Array[DateAction]
 var currentActionIndex : int = 0
 var currentActionType : DateAction.TYPES
 
-@onready var intensityAnimation = $AnimContainer/IntensityAnimation
-@onready var intensityAnimationText = $Intensity
-@onready var intensitybg = $intensitybg
-@onready var luckAnimation = $CloverAnim
-@onready var luckAnimationText = $Luck
-@onready var luckbg = $luckbg
-@onready var typeBg = $Type
-@onready var typeBgText = $Type/TypeText
-@onready var bonusesTextIcon = $BonusEmoji
-@onready var bonusesTextTitle = $BonusesTitle
-@onready var bonusesTextValue = $BonusesText
-@onready var bonusbg = $bonusbg
-
-@onready var mainText = $Container/MainText
-@onready var mainButton = $Container/MainButton
-
 @onready var loveBar = $LoveBar
 @onready var businessBar = $BusinessBar
 
-@onready var topText = $TopBanner/TopText
 @onready var dateProgress = $DateProgress
 @onready var overlayClipper = $OverlayClipper
 
-@onready var particleContainer = $Container/ParticleContainer
+@onready var particleContainer = $ParticleContainer
 
 @onready var lisaBg = load("res://data/assets/date/art/datebg2.png")
 @onready var asheBg = load("res://data/assets/date/art/datebg3.png")
@@ -57,7 +40,6 @@ signal proceedFromComplete()
 var screen_width = 400  # Adjust this to your screen width
 
 func _ready():
-	mainText.set_meta("original_x", mainText.position.x)
 	particleContainer.start_rain()
 	resetAnnoyanceBar()
 
@@ -89,9 +71,6 @@ func setUi2(actions: Array[DateAction]):
 			setUiForTopicSelection()
 
 func setUi(action : DateAction):
-	var intensityTextArray = ['', '?????', 'Low', 'Mild', 'Medium', 'High', 'Very High']
-	var luckTextArray = ['', '?????', 'Low', 'Mild', 'Medium', 'High', 'Very High']
-	
 	if GlobalGameStage.currentStage.dateCharacter == 'LISA':
 		$Container.texture = lisaBg
 	elif GlobalGameStage.currentStage.dateCharacter == 'ASHELY':
@@ -177,7 +156,7 @@ func setUiForTopicSelection():
 	%DateSelectDisplay.setBusinessProgressNeeded(lockBusiness)
 
 	%DateChoiceDisplay.hide()
-	%DateSelectDisplay.show()
+	%DateSelectDisplay.showWithAnimation()
 
 func setUiForSubtopicSelection(actionText):
 	%DateChoiceDisplay.setChoices(actionText)
@@ -215,27 +194,16 @@ func _on_main_button_pressed():
 	optionSelected.emit(currentActionIndex)
 
 func showSuccess(memories):
-	$Container.visible = false
-	$Type.visible = false
-	$TopBanner.visible = false
-	$Intensity.visible = false
-	$Luck.visible = false
-	$CloverAnim.visible = false
-	$AnimContainer.visible = false
-	$itemsbg.visible = false
-	$itemstitle.visible = false
-	$IntroTextTopBox.visible = false
 	$OverlayClipper.visible = false
-	$ButtonLeft.visible = false
-	$ButtonRight.visible = false
-	$luckbg.visible = false
-	$intensitybg.visible = false
 	$DateProgress.visible = false
 	$LoveBar.visible = false
 	$BusinessBar.visible = false
 	$BarBg.visible = false
 	$BarBg2.visible = false
 	$AnnoyanceBar.visible = false
+	$AnnoyanceLabel.visible = false
+	%DateChoiceDisplay.hide()
+	%DateSelectDisplay.hide()
 	$AudioStreamPlayer2D.stream = load("res://data/assets/general/sounds/victory2.wav")
 	$AudioStreamPlayer2D.play()
 	$DateCompleteDisplay.set_memories(memories)
@@ -255,41 +223,15 @@ func setBusinessProgress(progress):
 	businessBar.set_progress(progress)
 
 func hideUi():
-	$Container.visible = false
-	$Type.visible = false
-	$TopBanner.visible = false
-	$Intensity.visible = false
-	$Luck.visible = false
-	$CloverAnim.visible = false
-	$AnimContainer.visible = false
-	$itemsbg.visible = false
-	$itemstitle.visible = false
 	$IntroTextTopBox.visible = false
 	$OverlayClipper.visible = false
-	$ButtonLeft.visible = false
-	$ButtonRight.visible = false
-	$luckbg.visible = false
-	$intensitybg.visible = false
 	$DateProgress.visible = false
 	%DateChoiceDisplay.visible = false
 	%DateSelectDisplay.visible = false
 
 func showUi():
-	$Container.visible = true
-	$Type.visible = true
-	$TopBanner.visible = true
-	$Intensity.visible = true
-	$Luck.visible = true
-	$CloverAnim.visible = true
-	$AnimContainer.visible = true
-	$itemsbg.visible = true
-	$itemstitle.visible = true
 	$IntroTextTopBox.visible = true
 	$OverlayClipper.visible = true
-	$ButtonLeft.visible = true
-	$ButtonRight.visible = true
-	$luckbg.visible = true
-	$intensitybg.visible = true
 	$DateProgress.visible = true
 	%DateChoiceDisplay.visible = true
 	%DateSelectDisplay.visible = true
@@ -335,8 +277,10 @@ func reduceAnnoyanceBar():
 
 	if(%AnnoyanceBar.value < 35):
 		%AnnoyanceLabel.text = 'Annoyed'
+		$AnnoyanceBar.modulate = Color(5, 0, 0)
 	elif(%AnnoyanceBar.value < 70):
 		%AnnoyanceLabel.text = 'Neutral'
+		$AnnoyanceBar.modulate = Color(5, 5, 0)
 	else:
 		%AnnoyanceLabel.text = 'Content'
 	

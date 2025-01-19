@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=29 format=3 uid="uid://d3pamu38a1tjg"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=55 format=3 uid="uid://d3pamu38a1tjg"]
 
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_ggw1t"]
 [ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="1_pqrt6"]
@@ -15,6 +15,19 @@
 [ext_resource type="Texture2D" uid="uid://6r2mpnso6yns" path="res://data/background_lists/chads_party/backgrounds/intro_bg12.png" id="12_ae2du"]
 [ext_resource type="Texture2D" uid="uid://bv3hjjkl55e4q" path="res://data/background_lists/chads_party/backgrounds/intro_bg13.png" id="13_6bjgm"]
 [ext_resource type="Texture2D" uid="uid://dtnrqoxxayl1m" path="res://data/background_lists/chads_party/backgrounds/intro_bg14.png" id="14_wwx5y"]
+[ext_resource type="Texture2D" uid="uid://dhobf21sx1384" path="res://data/background_lists/chads_party/backgrounds/intro1_1.png" id="15_egg2k"]
+[ext_resource type="Texture2D" uid="uid://dexw8jus1t32d" path="res://data/background_lists/chads_party/backgrounds/intro1_3.png" id="16_g833n"]
+[ext_resource type="Texture2D" uid="uid://cho04xtp6gnxf" path="res://data/background_lists/chads_party/backgrounds/intro1_4.png" id="17_rxyqw"]
+[ext_resource type="Texture2D" uid="uid://cfsd4j5rdqt15" path="res://data/background_lists/chads_party/backgrounds/intro1_5.png" id="18_36do8"]
+[ext_resource type="Texture2D" uid="uid://camphygotuuk2" path="res://data/background_lists/chads_party/backgrounds/intro_1_6.png" id="19_jy4kd"]
+[ext_resource type="Texture2D" uid="uid://emhyfmn6ynmc" path="res://data/background_lists/chads_party/backgrounds/pok1.png" id="20_37vqs"]
+[ext_resource type="Texture2D" uid="uid://de40gkoisim1j" path="res://data/background_lists/chads_party/backgrounds/pok2.png" id="21_vu4dm"]
+[ext_resource type="Texture2D" uid="uid://dwr0ny0w8arns" path="res://data/background_lists/chads_party/backgrounds/pok3.png" id="22_dur3k"]
+[ext_resource type="Texture2D" uid="uid://cg87ykum7gvyk" path="res://data/background_lists/chads_party/backgrounds/pok4.png" id="23_kaktd"]
+[ext_resource type="Texture2D" uid="uid://64vj2qgnmwqm" path="res://data/background_lists/chads_party/backgrounds/pok5.png" id="24_nafho"]
+[ext_resource type="Texture2D" uid="uid://b4crg44mclof5" path="res://data/background_lists/chads_party/backgrounds/pok6.png" id="25_epkg5"]
+[ext_resource type="Texture2D" uid="uid://cqp6oeta0t8r" path="res://data/background_lists/chads_party/backgrounds/pok7.png" id="26_nn21d"]
+[ext_resource type="Texture2D" uid="uid://br7haorbmhfn6" path="res://data/background_lists/chads_party/backgrounds/pok8.png" id="27_gdj1p"]
 
 [sub_resource type="Resource" id="Resource_hsf26"]
 script = ExtResource("2_mn0sv")
@@ -81,7 +94,72 @@ script = ExtResource("2_mn0sv")
 name = "bg_14"
 images = ExtResource("14_wwx5y")
 
+[sub_resource type="Resource" id="Resource_icrcc"]
+script = ExtResource("2_mn0sv")
+name = "intro_1_2"
+images = ExtResource("15_egg2k")
+
+[sub_resource type="Resource" id="Resource_rdm6p"]
+script = ExtResource("2_mn0sv")
+name = "intro_1_3"
+images = ExtResource("16_g833n")
+
+[sub_resource type="Resource" id="Resource_36oii"]
+script = ExtResource("2_mn0sv")
+name = "intro_1_4"
+images = ExtResource("17_rxyqw")
+
+[sub_resource type="Resource" id="Resource_ii8w7"]
+script = ExtResource("2_mn0sv")
+name = "intro_1_5"
+images = ExtResource("18_36do8")
+
+[sub_resource type="Resource" id="Resource_r8mlh"]
+script = ExtResource("2_mn0sv")
+name = "intro_1_6"
+images = ExtResource("19_jy4kd")
+
+[sub_resource type="Resource" id="Resource_gjk5y"]
+script = ExtResource("2_mn0sv")
+name = "pok1"
+images = ExtResource("20_37vqs")
+
+[sub_resource type="Resource" id="Resource_4nnhm"]
+script = ExtResource("2_mn0sv")
+name = "pok2"
+images = ExtResource("21_vu4dm")
+
+[sub_resource type="Resource" id="Resource_5vc45"]
+script = ExtResource("2_mn0sv")
+name = "pok3"
+images = ExtResource("22_dur3k")
+
+[sub_resource type="Resource" id="Resource_60ig3"]
+script = ExtResource("2_mn0sv")
+name = "pok4"
+images = ExtResource("23_kaktd")
+
+[sub_resource type="Resource" id="Resource_1tryu"]
+script = ExtResource("2_mn0sv")
+name = "pok5"
+images = ExtResource("24_nafho")
+
+[sub_resource type="Resource" id="Resource_4m1yn"]
+script = ExtResource("2_mn0sv")
+name = "pok6"
+images = ExtResource("25_epkg5")
+
+[sub_resource type="Resource" id="Resource_ihged"]
+script = ExtResource("2_mn0sv")
+name = "pok7"
+images = ExtResource("26_nn21d")
+
+[sub_resource type="Resource" id="Resource_byule"]
+script = ExtResource("2_mn0sv")
+name = "pok8"
+images = ExtResource("27_gdj1p")
+
 [resource]
 script = ExtResource("1_ggw1t")
 name = "chads_party"
-images = Array[ExtResource("2_mn0sv")]([SubResource("Resource_hsf26"), SubResource("Resource_fpdyr"), SubResource("Resource_0qstd"), SubResource("Resource_4rayc"), SubResource("Resource_4v2p6"), SubResource("Resource_44uml"), SubResource("Resource_6xnbt"), SubResource("Resource_byvit"), SubResource("Resource_uwran"), SubResource("Resource_y15v8"), SubResource("Resource_as6y5"), SubResource("Resource_ixxah"), SubResource("Resource_1omgc")])
+images = Array[ExtResource("2_mn0sv")]([SubResource("Resource_hsf26"), SubResource("Resource_fpdyr"), SubResource("Resource_0qstd"), SubResource("Resource_4rayc"), SubResource("Resource_4v2p6"), SubResource("Resource_44uml"), SubResource("Resource_6xnbt"), SubResource("Resource_byvit"), SubResource("Resource_uwran"), SubResource("Resource_y15v8"), SubResource("Resource_as6y5"), SubResource("Resource_ixxah"), SubResource("Resource_1omgc"), SubResource("Resource_icrcc"), SubResource("Resource_rdm6p"), SubResource("Resource_36oii"), SubResource("Resource_ii8w7"), SubResource("Resource_r8mlh"), SubResource("Resource_gjk5y"), SubResource("Resource_4nnhm"), SubResource("Resource_5vc45"), SubResource("Resource_60ig3"), SubResource("Resource_1tryu"), SubResource("Resource_4m1yn"), SubResource("Resource_ihged"), SubResource("Resource_byule")])

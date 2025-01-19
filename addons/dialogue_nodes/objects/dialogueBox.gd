@@ -403,6 +403,8 @@ func _process_text(text : String, is_dialogue = true):
 	if text == '' and is_dialogue:
 		text = ' '
 
+	text = text.replace("[name]", GlobalGameStage.playerName)
+
 	# Add variables
 	var formatted_variables = {}
 	for key in variables.keys():

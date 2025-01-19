@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStageList" load_steps=15 format=3 uid="uid://b2u1350o40y1c"]
+[gd_resource type="Resource" script_class="GameStageList" load_steps=16 format=3 uid="uid://b2u1350o40y1c"]
 
 [ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="1_je6vd"]
 [ext_resource type="Script" path="res://src/vn/GameStageList.gd" id="1_jtgnc"]
@@ -14,7 +14,8 @@
 [ext_resource type="Resource" uid="uid://dtba14boawfr2" path="res://data/game_stages/dates/test_date_one/test_date_one.tres" id="11_1kuxd"]
 [ext_resource type="Resource" uid="uid://cow1ul70kxhmm" path="res://data/game_stages/dates/ashely_park_date/gs_ashely_park_date.tres" id="12_nl0sf"]
 [ext_resource type="Resource" uid="uid://dd34ecbgq64q6" path="res://data/game_stages/vn/ashely_first_park_date_after/gs_ashely_first_park_date.tres" id="13_6e3me"]
+[ext_resource type="Resource" uid="uid://bfvjblluekexm" path="res://data/game_stages/vn/intro_rework/gs_intro_rework.tres" id="14_vlc4n"]
 
 [resource]
 script = ExtResource("1_jtgnc")
-gameStages = Array[Resource("res://src/vn/GameStage.gd")]([ExtResource("1_je6vd"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("4_6d3ei"), ExtResource("5_j2f0v"), ExtResource("6_lg514"), ExtResource("7_l1ex3"), ExtResource("8_irgtk"), ExtResource("9_q0jv7"), ExtResource("10_8dfj8"), ExtResource("11_1kuxd"), ExtResource("3_xwqg7"), ExtResource("12_nl0sf"), ExtResource("6_lg514"), ExtResource("13_6e3me")])
+gameStages = Array[Resource("res://src/vn/GameStage.gd")]([ExtResource("1_je6vd"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("4_6d3ei"), ExtResource("5_j2f0v"), ExtResource("6_lg514"), ExtResource("7_l1ex3"), ExtResource("8_irgtk"), ExtResource("9_q0jv7"), ExtResource("10_8dfj8"), ExtResource("11_1kuxd"), ExtResource("3_xwqg7"), ExtResource("12_nl0sf"), ExtResource("6_lg514"), ExtResource("13_6e3me"), ExtResource("14_vlc4n")])

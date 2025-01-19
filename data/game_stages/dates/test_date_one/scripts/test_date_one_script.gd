@@ -14,8 +14,6 @@ func date_was_successful():
 
 func getCurrentBackground():
 	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
-	var scoreEntertained = GlobalGameStage.getDateStorage().currentDateEntertainmentScore
-	var scoreHorny = GlobalGameStage.getDateStorage().currentDateHornyScore
 	
 	var newBackground : Background = Background.new()
 	if scoreProgression < 20:
@@ -27,7 +25,7 @@ func getCurrentBackground():
 	elif scoreProgression <= 60:
 		newBackground.images = load("res://data/background_lists/dates/test_date_one/3.png")
 		newBackground.name = '3'
-	elif scoreProgression > 60 and scoreHorny > 10:
+	elif scoreProgression > 60:
 		newBackground.images = load("res://data/background_lists/dates/test_date_one/4.png")
 		newBackground.name = '4'
 	elif scoreProgression > 60:

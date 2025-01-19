@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://lsfj8ts424f7"]
+
+[ext_resource type="Texture2D" uid="uid://b1ns1rrofc26" path="res://data/characters/anna/anna_party/face.png" id="1_2hr7w"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_pfhyt"]
+[ext_resource type="Texture2D" uid="uid://cxvwf2pkrtoah" path="res://data/characters/anna/anna_party/character_art/anna_anon.png" id="3_hwyh6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_qjpvu"]
+[ext_resource type="Texture2D" uid="uid://xh61jtb6m7mo" path="res://data/characters/anna/anna_party/character_art/anna_anon_happy.png" id="5_u8nwg"]
+[ext_resource type="Texture2D" uid="uid://xx3ngln74ebl" path="res://data/characters/anna/anna_party/character_art/anna_anon_think.png" id="6_3u4tu"]
+
+[sub_resource type="Resource" id="Resource_6cifq"]
+script = ExtResource("4_qjpvu")
+name = "anon"
+image = ExtResource("3_hwyh6")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_ndhcd"]
+script = ExtResource("4_qjpvu")
+name = "anon_happy"
+image = ExtResource("5_u8nwg")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_sb6ji"]
+script = ExtResource("4_qjpvu")
+name = "anna_think"
+image = ExtResource("6_3u4tu")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("1_pfhyt")
+name = "Random Party Girl"
+editorName = "anna_party"
+image = ExtResource("1_2hr7w")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_qjpvu")]([SubResource("Resource_6cifq"), SubResource("Resource_ndhcd"), SubResource("Resource_sb6ji")])

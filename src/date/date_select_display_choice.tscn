@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cllt6yprt8qlm"]
+[gd_scene load_steps=9 format=3 uid="uid://cllt6yprt8qlm"]
 
 [ext_resource type="Script" path="res://src/date/date_select_display_choice.gd" id="1_h0k2b"]
 [ext_resource type="Texture2D" uid="uid://dmyim7ia7ixml" path="res://data/assets/date/art/transparent_purple_rounded_rect_8px9patch.png" id="1_hbjvt"]
+[ext_resource type="Shader" path="res://src/date/glow.gdshader" id="2_5pnfk"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_no8wh"]
 [ext_resource type="Texture2D" uid="uid://dtc11chhxb21p" path="res://data/assets/date/art/grey_rounded_bottom.png" id="4_8yxsh"]
+[ext_resource type="Texture2D" uid="uid://uwcqdvqqu7n4" path="res://data/assets/date/art/locked.png" id="5_mpm48"]
+[ext_resource type="Texture2D" uid="uid://bq61jngjoejcy" path="res://data/assets/date/art/transparent_red_hard_rounded_rect_8px9patch.png" id="7_abpe1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilsbm"]
+shader = ExtResource("2_5pnfk")
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/glow_width = 8.0
+shader_parameter/glow_intensity = 0.9
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_h0k2b")
@@ -82,4 +91,24 @@ Available"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Locked" type="TextureRect" parent="ChoiceButton"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 144.0
+texture = ExtResource("5_mpm48")
+expand_mode = 1
+
+[node name="Hover" type="TextureRect" parent="ChoiceButton"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_ilsbm")
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 167.0
+texture = ExtResource("7_abpe1")
+
+[connection signal="mouse_entered" from="ChoiceButton" to="." method="_on_choice_button_mouse_entered"]
+[connection signal="mouse_exited" from="ChoiceButton" to="." method="_on_choice_button_mouse_exited"]
 [connection signal="pressed" from="ChoiceButton" to="." method="_on_choice_button_pressed"]

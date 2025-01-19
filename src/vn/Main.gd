@@ -148,6 +148,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
+		"enter_name": showEnterName()
 
 func videoPause():
 	isVideoPause = true
@@ -322,3 +323,6 @@ func _on_load_pressed():
 func _on_options_pressed():
 	$MainMenuContainer.showMenu(true)
 	$MainMenuContainer.show()
+
+func showEnterName():
+	%NameEnter.show()
