@@ -61,7 +61,7 @@ func actionGroupZero():
 		return getPartnerTextAction("If this doesn't remind you, then fuck off.")
 	
 	if actionIndex == 15:
-		return getPlayerTextAction("Ohh. Sheesh you could have just told me that we played poker or something.")
+		return getPlayerTextAction("Ohh. Sheesh you could have just told me you were that weird chick from the party.")
 	
 	if actionIndex == 16:
 		return getPartnerTextAction("Oh please. Don't pretend like you met sooo many people last night that you can't remember.")

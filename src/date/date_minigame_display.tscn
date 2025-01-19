@@ -266,10 +266,10 @@ corner_radius_bottom_left = 8
 script = ExtResource("1_kynup")
 
 [node name="ParticleContainer" parent="." instance=ExtResource("12_1hvc1")]
-offset_left = 254.0
-offset_top = 798.0
-offset_right = 533.0
-offset_bottom = 949.0
+offset_left = 0.0
+offset_top = 913.0
+offset_right = 757.0
+offset_bottom = 959.0
 
 [node name="DateProgress" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
