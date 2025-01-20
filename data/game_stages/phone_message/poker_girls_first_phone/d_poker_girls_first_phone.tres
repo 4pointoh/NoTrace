@@ -26,8 +26,8 @@ nodes = {
 "start_id": "START3"
 },
 "1_1": {
-"background": -1,
-"backgroundList": -1,
+"background": 0,
+"backgroundList": 0,
 "characterState": -1,
 "dialogue": "I have no idea who this is...",
 "offset": Vector2(-720, -200),
@@ -42,8 +42,8 @@ nodes = {
 "speaker": 0
 },
 "1_2": {
-"background": -1,
-"backgroundList": -1,
+"background": 0,
+"backgroundList": 0,
 "characterState": -1,
 "dialogue": "I still have no idea",
 "offset": Vector2(-720, 500),
@@ -58,8 +58,8 @@ nodes = {
 "speaker": 0
 },
 "1_3": {
-"background": -1,
-"backgroundList": -1,
+"background": 0,
+"backgroundList": 0,
 "characterState": -1,
 "dialogue": "Shit... how many other people noticed??
 
@@ -76,8 +76,8 @@ nodes = {
 "speaker": 0
 },
 "1_4": {
-"background": -1,
-"backgroundList": -1,
+"background": 0,
+"backgroundList": 0,
 "characterState": -1,
 "dialogue": " I really gotta tone that down or all the ladies will think I'm swinging for the other team.",
 "offset": Vector2(380, -260),
@@ -96,4 +96,4 @@ variables = {}
 comments = Array[String]([])
 strays = Array[String]([])
 characters = "res://data/game_stages/phone_message/poker_girls_first_phone/character_list.tres"
-backgroundList = ""
+backgroundList = "res://data/background_lists/home/home_bgls.tres"

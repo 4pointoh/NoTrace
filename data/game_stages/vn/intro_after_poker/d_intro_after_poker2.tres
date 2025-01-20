@@ -26,7 +26,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_10": {
@@ -42,8 +42,40 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 630),
+"size": Vector2(300.002, 630),
 "speaker": 3
+},
+"1_100": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hush up.",
+"offset": Vector2(2740, 2440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_101",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 5
+},
+"1_101": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She stares deep into your eyes, trying to suss out the truth. ",
+"offset": Vector2(-460, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_85",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
 },
 "1_11": {
 "background": -1,
@@ -76,7 +108,7 @@ But I never can... I'm just not good enough. Tonight she took $100 from me. It m
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.006, 623),
 "speaker": 3
 },
 "1_13": {
@@ -94,7 +126,7 @@ I was outside crying in my car until a few minutes ago... ",
 "text": ""
 }
 },
-"size": Vector2(300.002, 630),
+"size": Vector2(300.003, 630),
 "speaker": 3
 },
 "1_14": {
@@ -126,7 +158,7 @@ I was outside crying in my car until a few minutes ago... ",
 "text": ""
 }
 },
-"size": Vector2(300.009, 630),
+"size": Vector2(300.007, 630),
 "speaker": 3
 },
 "1_16": {
@@ -142,7 +174,7 @@ I was outside crying in my car until a few minutes ago... ",
 "text": ""
 }
 },
-"size": Vector2(300.003, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_17": {
@@ -158,7 +190,7 @@ I was outside crying in my car until a few minutes ago... ",
 "text": ""
 }
 },
-"size": Vector2(300.017, 623),
+"size": Vector2(300.02, 623),
 "speaker": 1
 },
 "1_18": {
@@ -176,7 +208,7 @@ My girlfriend is good friends with Chad, she gets me a ticket to his parties. ",
 "text": ""
 }
 },
-"size": Vector2(300.004, 630),
+"size": Vector2(300.008, 630),
 "speaker": 3
 },
 "1_19": {
@@ -194,7 +226,7 @@ But tonight... you made it all worth it! ",
 "text": ""
 }
 },
-"size": Vector2(300.006, 623),
+"size": Vector2(300.005, 623),
 "speaker": 3
 },
 "1_2": {
@@ -210,7 +242,7 @@ But tonight... you made it all worth it! ",
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_20": {
@@ -226,7 +258,7 @@ But tonight... you made it all worth it! ",
 "text": ""
 }
 },
-"size": Vector2(300.008, 623),
+"size": Vector2(300.012, 623),
 "speaker": 3
 },
 "1_21": {
@@ -242,7 +274,7 @@ But tonight... you made it all worth it! ",
 "text": ""
 }
 },
-"size": Vector2(300.005, 623),
+"size": Vector2(300.007, 623),
 "speaker": 0
 },
 "1_22": {
@@ -258,7 +290,7 @@ But tonight... you made it all worth it! ",
 "text": ""
 }
 },
-"size": Vector2(300.003, 623),
+"size": Vector2(300.004, 623),
 "speaker": 3
 },
 "1_23": {
@@ -292,7 +324,7 @@ But tonight... you made it all worth it! ",
 "text": ""
 }
 },
-"size": Vector2(300.002, 630),
+"size": Vector2(300.003, 630),
 "speaker": 3
 },
 "1_25": {
@@ -392,7 +424,7 @@ BUT I have 1 condition!",
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 3
 },
 "1_30": {
@@ -410,7 +442,7 @@ BUT I have 1 condition!",
 "text": ""
 }
 },
-"size": Vector2(300.006, 622.999),
+"size": Vector2(300.006, 623),
 "speaker": 0
 },
 "1_31": {
@@ -426,7 +458,7 @@ BUT I have 1 condition!",
 "text": ""
 }
 },
-"size": Vector2(300.003, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_32": {
@@ -460,7 +492,7 @@ BUT I have 1 condition!",
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_34": {
@@ -478,7 +510,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.012, 623),
+"size": Vector2(300.013, 623),
 "speaker": 3
 },
 "1_35": {
@@ -510,7 +542,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.006, 623),
+"size": Vector2(300.01, 623),
 "speaker": 3
 },
 "1_37": {
@@ -526,7 +558,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.012, 623),
+"size": Vector2(300.018, 623),
 "speaker": 3
 },
 "1_38": {
@@ -542,7 +574,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.009, 683.999),
+"size": Vector2(300.019, 683.999),
 "speaker": 3
 },
 "1_39": {
@@ -558,7 +590,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.001, 621),
+"size": Vector2(300.003, 621),
 "speaker": ""
 },
 "1_4": {
@@ -574,7 +606,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.003, 623),
+"size": Vector2(300.009, 623),
 "speaker": 0
 },
 "1_40": {
@@ -590,7 +622,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_41": {
@@ -606,7 +638,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(344, 582),
+"size": Vector2(344, 630),
 "speaker": 5
 },
 "1_42": {
@@ -618,11 +650,11 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "options": {
 0: {
 "condition": {},
-"link": &"1_82",
+"link": &"1_9",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 5
 },
 "1_43": {
@@ -702,7 +734,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.003, 623),
+"size": Vector2(300.004, 623),
 "speaker": 0
 },
 "1_48": {
@@ -734,7 +766,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.001, 621),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_5": {
@@ -750,7 +782,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.002, 622.999),
+"size": Vector2(300, 623),
 "speaker": 3
 },
 "1_50": {
@@ -782,7 +814,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_52": {
@@ -894,7 +926,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 620.999),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_59": {
@@ -910,7 +942,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(306, 640.999),
+"size": Vector2(306, 641),
 "speaker": ""
 },
 "1_6": {
@@ -926,7 +958,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.003, 642.999),
+"size": Vector2(300.003, 643),
 "speaker": 0
 },
 "1_60": {
@@ -942,7 +974,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 620.999),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_61": {
@@ -974,7 +1006,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 622.999),
+"size": Vector2(300, 623),
 "speaker": 4
 },
 "1_63": {
@@ -990,7 +1022,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 620.999),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_64": {
@@ -1006,7 +1038,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 620.999),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_65": {
@@ -1022,7 +1054,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 640.999),
+"size": Vector2(300, 641),
 "speaker": ""
 },
 "1_66": {
@@ -1102,7 +1134,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 3
 },
 "1_70": {
@@ -1278,7 +1310,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 630),
+"size": Vector2(300.002, 630),
 "speaker": 3
 },
 "1_80": {
@@ -1310,7 +1342,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_82": {
@@ -1326,7 +1358,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_83": {
@@ -1342,79 +1374,31 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 5
 },
 "1_84": {
 "background": -1,
 "backgroundList": -1,
 "characterState": 10,
-"dialogue": "Really? Don't lie to made honey. ",
+"dialogue": "You're lying. You don't want to lie to me, sweetheart.",
 "offset": Vector2(2040, 1880),
 "options": {
 0: {
 "condition": {},
-"link": &"1_85",
+"link": &"1_97",
 "text": ""
 }
 },
-"size": Vector2(335, 582),
+"size": Vector2(335, 630),
 "speaker": 5
 },
 "1_85": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Yeah I mean... we just played a match and I won, not that big of a deal.",
-"offset": Vector2(-500, 320),
-"options": {
-0: {
-"condition": {},
-"link": &"1_86",
-"text": ""
-}
-},
-"size": Vector2(300, 575),
-"speaker": 0
-},
-"1_86": {
-"background": -1,
-"backgroundList": -1,
-"characterState": -1,
-"dialogue": "She looks at you quizzically. ",
-"offset": Vector2(-180, 320),
-"options": {
-0: {
-"condition": {},
-"link": &"1_87",
-"text": ""
-}
-},
-"size": Vector2(300, 573),
-"speaker": ""
-},
-"1_87": {
-"background": -1,
-"backgroundList": -1,
-"characterState": -1,
-"dialogue": "Then suddenly looks impressed. ",
-"offset": Vector2(160, 320),
-"options": {
-0: {
-"condition": {},
-"link": &"1_88",
-"text": ""
-}
-},
-"size": Vector2(300, 573),
-"speaker": ""
-},
-"1_88": {
-"background": -1,
-"backgroundList": -1,
-"characterState": 19,
-"dialogue": "Wow you really aren't lying. ",
-"offset": Vector2(520, 340),
+"dialogue": "Her expression changes, making it clear she found her answer.",
+"offset": Vector2(-156.304, 286.922),
 "options": {
 0: {
 "condition": {},
@@ -1422,15 +1406,15 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(417.001, 582),
-"speaker": 5
+"size": Vector2(300, 573),
+"speaker": ""
 },
 "1_89": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "I...",
-"offset": Vector2(980, 280),
+"offset": Vector2(200, 220),
 "options": {
 0: {
 "condition": {},
@@ -1438,15 +1422,31 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 5
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She has a smooth southern accent.",
+"offset": Vector2(559.456, 2633.41),
+"options": {
+0: {
+"condition": {},
+"link": &"1_82",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
 },
 "1_90": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "Nevermind. We'll talk later.",
-"offset": Vector2(1320, 160),
+"offset": Vector2(700, 200),
 "options": {
 0: {
 "condition": {},
@@ -1454,7 +1454,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 5
 },
 "1_91": {
@@ -1470,7 +1470,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_92": {
@@ -1486,14 +1486,14 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_93": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "...",
+"dialogue": "...bitch",
 "offset": Vector2(1060, 960),
 "options": {
 0: {
@@ -1502,8 +1502,8 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 573),
-"speaker": ""
+"size": Vector2(300.001, 621),
+"speaker": 0
 },
 "1_94": {
 "background": -1,
@@ -1518,7 +1518,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_95": {
@@ -1534,7 +1534,7 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.002, 622.999),
 "speaker": 0
 },
 "1_96": {
@@ -1547,6 +1547,54 @@ I'm going to go home and rest now. Can I give you my phone number? ",
 0: {
 "condition": {},
 "link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300.002, 623),
+"speaker": 0
+},
+"1_97": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm not, I...",
+"offset": Vector2(1647.16, 2672.97),
+"options": {
+0: {
+"condition": {},
+"link": &"1_98",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_98": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You're saying you beat her right here. Just a few moments ago?",
+"offset": Vector2(2000, 2660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_99",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 5
+},
+"1_99": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes I...",
+"offset": Vector2(2380, 2600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_100",
 "text": ""
 }
 },

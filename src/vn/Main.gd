@@ -125,6 +125,7 @@ func startNewDate():
 	currentDate.setWallpaper.connect(_on_date_set_wallpaper)
 	currentDate.initFromGameStage(GlobalGameStage.currentStage)
 	add_child(currentDate)
+	move_child(currentDate, $DialogueManager.get_index() - 1)
 
 func _on_start_pressed():
 	hideTitleStuff()
@@ -298,9 +299,15 @@ func _handle_save_loaded():
 	if is_instance_valid(currentPokerGame):
 		currentPokerGame.free()
 	
+	if is_instance_valid(currentDate):
+		currentDate.free()
+	
 	playBgMusic(load(GlobalGameStage.currentMusic))
 	$DialogueManager.stopDialogue()
 	$MainMenuContainer.visible = false
+	
+	if !$DialogueManager.uiVisible:
+		$DialogueManager.toggleUi()
 	
 	if GlobalGameStage.currentStage.startingBackground:
 		$Background.setBackground(GlobalGameStage.currentStage.startingBackground)

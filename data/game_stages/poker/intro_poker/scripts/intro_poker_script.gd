@@ -17,13 +17,13 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 		updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 		updateResult.shouldPausePoker = true
 		updateResult.shouldHidePoker = true
-	elif _pokerInfo.playerMoney > 300 && !alreadyDisplayed4:
+	elif _pokerInfo.playerMoney > 260 && !alreadyDisplayed4:
 		alreadyDisplayed4 = true
 		updateResult.dialogueStartKey = 'HALF_GONE'
 		updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 		updateResult.shouldPausePoker = true
 		updateResult.shouldHidePoker = true
-	elif _pokerInfo.playerMoney >= 350 && !alreadyDisplayed:
+	elif _pokerInfo.playerMoney >= 310 && !alreadyDisplayed:
 		alreadyDisplayed = true
 		updateResult.dialogueStartKey = 'ALMOST_OVER'
 		updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
