@@ -68,12 +68,13 @@ func setup():
 	playerCards = []
 	cpuCards = []
 	tableCards = []
+	GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
 	money = GlobalGameStage.currentStage.playerStartingMoney
 	opponentMoney = GlobalGameStage.currentStage.cpuStartingMoney
 	ante = GlobalGameStage.currentStage.startingAnte
 	maxRaise = GlobalGameStage.currentStage.maxRaise
 	opponentName = GlobalGameStage.currentStage.opponentName
-	opponentNamePlural = GlobalGameStage.currentStage.opponentName
+	opponentNamePlural = GlobalGameStage.currentStage.opponentNamePlural
 	totalTableWorth = money + opponentMoney
 	clearCallAmount()
 	
@@ -94,10 +95,13 @@ func setupStartingInfoText():
 	$StartingInfo.text = "Poker with " + GlobalGameStage.currentStage.opponentName + "!"
 
 func hidePokerUiElements():
-	$YourMoney.hide()
-	$TheirMoney.hide()
-	$Ante.hide()
-	$Pot.hide()
+	%YourMoney.hide()
+	%TheirMoney.hide()
+	%ChipsBg.hide()
+	%ChipsText.hide()
+	%Ante.hide()
+	%Pot.hide()
+	%StatsBg.hide()
 	$ToCall.hide()
 	$MaxRaise.hide()
 	$Raise.hide()
@@ -107,10 +111,13 @@ func hidePokerUiElements():
 	$PokerAnimationController.hide()
 		
 func unHidePokerUiElements():
-	$YourMoney.show()
-	$TheirMoney.show()
-	$Ante.show()
-	$Pot.show()
+	%YourMoney.show()
+	%TheirMoney.show()
+	%ChipsBg.show()
+	%ChipsText.show()
+	%Ante.show()
+	%Pot.show()
+	%StatsBg.show()
 	$ToCall.show()
 	$MaxRaise.show()
 	$Raise.show()
@@ -721,10 +728,10 @@ func setMinRaise():
 		$Raise.disabled = false
 		
 func updateMoneyText():
-	$YourMoney.text = "You: " + str(money)
-	$TheirMoney.text = "Opponent: " + str(opponentMoney)
-	$Ante.text = "Ante: " + str(ante)
-	$Pot.text = "Pot: " + str(pot)
+	%YourMoney.text = str(money)
+	%TheirMoney.text = str(opponentMoney)
+	%Ante.text = str(ante)
+	%Pot.text = str(pot)
 	$MaxRaise.text = "Max Raise: " + str($Raise/RaiseInput.max_value)
 
 func shouldDialoguePause():

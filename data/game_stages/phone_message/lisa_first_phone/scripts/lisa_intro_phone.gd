@@ -78,7 +78,8 @@ func actionGroupTwo():
 		return getDialogueAction("START1")
 		
 	if actionIndex == 5:
-		return getPlayerTextAction("No... it's poker guy. Remember? It sounds like you don't even remember our plan")
+		var txt = "No... it's " + GlobalGameStage.playerName + ". Poker guy, remember? It sounds like you don't even remember our plan"
+		return getPlayerTextAction(txt)
 	
 	if actionIndex == 6:
 		return getPartnerTextAction("Ohhh!! I'm sorry! I gave you my number but I forgot to get yours!")

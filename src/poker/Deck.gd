@@ -35,3 +35,9 @@ func nextCard():
 
 	return cards.pop_front()
 
+func deal(numCards : int):
+	var dealtCards = []
+	for i in range(numCards):
+		dealtCards.append(nextCard())
+	
+	return dealtCards

@@ -10,7 +10,7 @@ var particleType : Heartsplosion.TYPES
 var wallpaper : Background
 var addParticleRain: String
 var progressType : DATE_PROGRESS_TYPE = DATE_PROGRESS_TYPE.BUSINESS
-var progressQuantity : int = 30 # used to fill the love/business bar
+var progressQuantity : int = 34 # used to fill the love/business bar
 var memoryUnlockId : String = ""
 var annoyed : bool = false
 var incrementMainQuestionIndex : bool = false

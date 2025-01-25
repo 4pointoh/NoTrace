@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://copd06cjr1uf1"]
+[gd_scene load_steps=15 format=3 uid="uid://copd06cjr1uf1"]
 
 [ext_resource type="Script" path="res://src/poker/Card.gd" id="1_ynah6"]
 [ext_resource type="Texture2D" uid="uid://dnyb5oy3jxxvf" path="res://data/assets/poker/art/cardfront.png" id="2_xqinl"]
 [ext_resource type="Texture2D" uid="uid://bvxnjaqgkrde0" path="res://data/assets/poker/art/club.png" id="3_64300"]
 [ext_resource type="AudioStream" uid="uid://maak8nhac1fa" path="res://data/assets/poker/sounds/flip2.wav" id="4_ip25x"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_msqd8"]
+[ext_resource type="Texture2D" uid="uid://bqwf8i4fttohv" path="res://data/assets/general/art/orange_select_border_big.png" id="6_3s621"]
 
 [sub_resource type="Animation" id="Animation_vp44y"]
 length = 0.001
@@ -80,6 +82,16 @@ _data = {
 "flip": SubResource("Animation_ecnv5")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6m0x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ao03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrst6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r4ii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5sj0j"]
+
 [node name="Card" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -107,7 +119,8 @@ expand_mode = 4
 
 [node name="Icon" type="Sprite2D" parent="TextureRect"]
 visible = false
-position = Vector2(247, 377)
+position = Vector2(241.083, 371.133)
+scale = Vector2(2.47443, 2.47443)
 texture = ExtResource("3_64300")
 
 [node name="NumberTopLeft" type="Label" parent="TextureRect"]
@@ -116,13 +129,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.083
 anchor_bottom = 0.091
-offset_left = 36.0
-offset_top = 28.0
-offset_right = 30.16
-offset_bottom = 38.48
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
+offset_right = 440.16
+offset_bottom = 654.48
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 100
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4_msqd8")
+theme_override_font_sizes/font_size = 240
 text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NumberTopRight" type="Label" parent="TextureRect"]
 visible = false
@@ -174,3 +191,31 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect"]
 stream = ExtResource("4_ip25x")
 volume_db = -10.654
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -360.0
+offset_right = 240.0
+offset_bottom = 360.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d6m0x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ao03")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qrst6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8r4ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5sj0j")
+
+[node name="Border" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -240.0
+offset_top = -360.0
+offset_right = 240.0
+offset_bottom = 360.0
+texture = ExtResource("6_3s621")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

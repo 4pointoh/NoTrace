@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=16 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
+[ext_resource type="PackedScene" uid="uid://dnd677crdakvo" path="res://src/pokernew/poker_game.tscn" id="2_reewf"]
 [ext_resource type="PackedScene" uid="uid://dwy36oubalf26" path="res://src/phone/phone.tscn" id="3_doilg"]
 [ext_resource type="PackedScene" uid="uid://duykmdise4245" path="res://src/date/date_minigame.tscn" id="4_eoifi"]
 [ext_resource type="PackedScene" uid="uid://cltlkgjbitqgp" path="res://src/poker/PokerGameFive.tscn" id="4_o43ys"]
@@ -17,7 +18,8 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ps8m3")
-pokerGameScene = ExtResource("4_o43ys")
+pokerGameSceneTexasHoldEm = ExtResource("4_o43ys")
+pokerGameSceneFiveCardDraw = ExtResource("2_reewf")
 phoneScene = ExtResource("3_doilg")
 dateMinigameScene = ExtResource("4_eoifi")
 heartsplosion = ExtResource("5_02o78")
@@ -121,3 +123,4 @@ visible = false
 [connection signal="dialogue_ended" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_ended"]
 [connection signal="dialogue_proceeded" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_proceeded"]
 [connection signal="dialogue_signal" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_signal"]
+[connection signal="start" from="NameEnter" to="." method="_on_name_enter_start"]

@@ -6,8 +6,11 @@
 script = ExtResource("1_0r68e")
 starts = {
 "ALMOST_OVER": &"0_3",
+"COMEBACK": &"0_5",
 "FIRST_LOSS": &"0_1",
-"HALF_GONE": &"0_2"
+"HALF_GONE": &"0_2",
+"PLAYER_LOSS_ALREADY_WON": &"0_6",
+"PLAYER_LOSS_NO_WINS": &"0_4"
 }
 nodes = {
 "0_1": {
@@ -25,11 +28,26 @@ nodes = {
 "offset": Vector2(-80, 1980),
 "start_id": "ALMOST_OVER"
 },
+"0_4": {
+"link": &"1_23",
+"offset": Vector2(-185.016, 2820.04),
+"start_id": "PLAYER_LOSS_NO_WINS"
+},
+"0_5": {
+"link": &"1_25",
+"offset": Vector2(1120, 2780),
+"start_id": "COMEBACK"
+},
+"0_6": {
+"link": &"1_27",
+"offset": Vector2(-275.179, 3648.29),
+"start_id": "PLAYER_LOSS_ALREADY_WON"
+},
 "1_1": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Wow you actually pulled ahead. ",
+"dialogue": "Wow you actually won a hand. ",
 "offset": Vector2(580, 460),
 "options": {
 0: {
@@ -38,7 +56,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_10": {
@@ -54,7 +72,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 588),
+"size": Vector2(300, 636.001),
 "speaker": 1
 },
 "1_11": {
@@ -70,7 +88,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_12": {
@@ -86,7 +104,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_13": {
@@ -102,7 +120,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_14": {
@@ -118,7 +136,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 2
 },
 "1_15": {
@@ -134,7 +152,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 2
 },
 "1_16": {
@@ -150,7 +168,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621.001),
 "speaker": ""
 },
 "1_17": {
@@ -166,7 +184,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_18": {
@@ -182,7 +200,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_19": {
@@ -198,7 +216,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_2": {
@@ -214,7 +232,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_20": {
@@ -230,7 +248,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_21": {
@@ -246,7 +264,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_22": {
@@ -255,6 +273,118 @@ nodes = {
 "characterState": -1,
 "dialogue": "She locks in even harder.",
 "offset": Vector2(4760, 2000),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "When I take that shirt...",
+"offset": Vector2(360, 2760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I might not give it back. ",
+"offset": Vector2(720, 2740),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You're so close, don't choke. ",
+"offset": Vector2(1200, 2940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "After these wins, she has gained back some confidence.",
+"offset": Vector2(1540, 2920),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh please don't tell me that first win was a fluke. ",
+"offset": Vector2(300, 3440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Was hoping for a real challenge here.",
+"offset": Vector2(680, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She's mocking you",
+"offset": Vector2(1080, 3580),
 "options": {
 0: {
 "condition": {},
@@ -278,7 +408,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_4": {
@@ -294,7 +424,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_5": {
@@ -310,7 +440,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_6": {
@@ -326,7 +456,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_7": {
@@ -342,7 +472,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300, 623),
 "speaker": 2
 },
 "1_8": {
@@ -358,7 +488,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300.001, 616),
 "speaker": -1
 },
 "1_9": {
@@ -374,7 +504,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300.001, 616),
 "speaker": -1
 }
 }

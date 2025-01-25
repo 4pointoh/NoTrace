@@ -387,5 +387,113 @@ static func getProbabilitiesFromCardLists(playerCards, cpuCards, boardCards):
 	print('CPU Hand / Chance To Win: ' + str(cpuHandString) + ' / ' + str(probs[1]) + '%')
 	return probs
 
+static func calculate_cpu_discard_indexes(cpu_cards):
+	var cpu_hand_string = []
 	
+	# 1) Convert NonUiCards -> Strings for PokerEval
+	for c in cpu_cards:
+		var card_value = c.value
+		if card_value == "10":
+			card_value = "T"
+		var suit_char = c.suit[0].capitalize()
+		cpu_hand_string.append(card_value + suit_char)
+	
+	# 2) Evaluate the hand with PokerEval
+	var cpu_eval = PokerEval.evaluate_hand(cpu_hand_string)
+	var cpu_hand_rank = cpu_eval[0]                    # e.g. "Pair", "Two Pairs", etc.
+	var cpu_rank_values = cpu_eval[1]["rank_values"]   # Detailed ranks for that hand
+	
+	var cpu_indexes_to_discard = []
+	var cpu_indexes_to_keep = []
+	
+	# 3) Decide which cards to keep or discard based on the hand rank
+	match cpu_hand_rank:
+		"Straight Flush", "Straight", "Flush", "Full House":
+			# Already a strong made hand -> keep all
+			cpu_indexes_to_discard = []
+		
+		"Four of a Kind":
+			var quad_rank = cpu_rank_values[0]  # The 4-of-a-kind rank
+			for i in range(cpu_cards.size()):
+				if get_card_rank_int(cpu_cards[i]) == quad_rank:
+					cpu_indexes_to_keep.append(i)
+			# Discard anything not in the quads
+			for i in range(5):
+				if not cpu_indexes_to_keep.has(i):
+					cpu_indexes_to_discard.append(i)
+		
+		"Three of a Kind":
+			var triple_rank = cpu_rank_values[0]
+			for i in range(cpu_cards.size()):
+				if get_card_rank_int(cpu_cards[i]) == triple_rank:
+					cpu_indexes_to_keep.append(i)
+			# Discard the other 2
+			for i in range(5):
+				if not cpu_indexes_to_keep.has(i):
+					cpu_indexes_to_discard.append(i)
+		
+		"Two Pairs":
+			var pair1 = cpu_rank_values[0]
+			var pair2 = cpu_rank_values[1]
+			# Keep cards that match the pair ranks
+			for i in range(cpu_cards.size()):
+				var rank_int = get_card_rank_int(cpu_cards[i])
+				if rank_int == pair1 or rank_int == pair2:
+					cpu_indexes_to_keep.append(i)
+			# Discard the 5th card
+			for i in range(5):
+				if not cpu_indexes_to_keep.has(i):
+					cpu_indexes_to_discard.append(i)
+		
+		"Pair":
+			var pair_rank = cpu_rank_values[0]
+			# Keep the pair
+			for i in range(cpu_cards.size()):
+				if get_card_rank_int(cpu_cards[i]) == pair_rank:
+					cpu_indexes_to_keep.append(i)
+			# Discard the other 3
+			for i in range(5):
+				if not cpu_indexes_to_keep.has(i):
+					cpu_indexes_to_discard.append(i)
+		
+		"High Card":
+			# Simple heuristic: keep the top one or two high cards (Q, K, A) and discard the rest
+			var sorted_indices = []
+			for i in range(cpu_cards.size()):
+				sorted_indices.append(i)
+			
+			sorted_indices.sort_custom(func(a, b):
+				return get_card_rank_int(cpu_cards[a]) > get_card_rank_int(cpu_cards[b])
+			)
+			
+			var top_card_rank = get_card_rank_int(cpu_cards[sorted_indices[0]])
+			var second_card_rank = get_card_rank_int(cpu_cards[sorted_indices[1]])
+			
+			# If top two are Q(12) or higher, keep both
+			if top_card_rank >= 12 and second_card_rank >= 12:
+				cpu_indexes_to_keep.append(sorted_indices[0])
+				cpu_indexes_to_keep.append(sorted_indices[1])
+			else:
+				# Otherwise keep just the highest card
+				cpu_indexes_to_keep.append(sorted_indices[0])
+			
+			for i in range(5):
+				if not cpu_indexes_to_keep.has(i):
+					cpu_indexes_to_discard.append(i)
+		
+		_:
+			# Fallback if something unexpected
+			cpu_indexes_to_discard = []
+	
+	# 4) Sort discard indices descending so removing them doesn't shift the next index
+	cpu_indexes_to_discard.sort_custom(func(a, b): return a > b)
+	
+	return cpu_indexes_to_discard
 
+	# Small helper to convert NonUiCard -> integer rank
+static func get_card_rank_int(card: NonUiCard) -> int:
+		var val = card.value
+		if val == "10":
+			val = "T"
+		return PokerEval.card_ranks[val]
+	

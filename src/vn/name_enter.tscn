@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ooat0x0ooh2p"]
+[gd_scene load_steps=4 format=3 uid="uid://ooat0x0ooh2p"]
 
 [ext_resource type="Script" path="res://src/vn/name_enter.gd" id="1_wkjyn"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_3ploc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwf5v"]
 
@@ -12,10 +13,10 @@ script = ExtResource("1_wkjyn")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 618.0
-offset_right = 523.0
-offset_bottom = 668.0
+offset_left = 375.0
+offset_top = 1001.0
+offset_right = 533.0
+offset_bottom = 1051.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_jwf5v")
 text = "Submit"
@@ -24,10 +25,87 @@ text = "Submit"
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 197.0
-offset_top = 539.0
+offset_top = 900.0
 offset_right = 697.0
-offset_bottom = 607.0
+offset_bottom = 968.0
 theme_override_font_sizes/font_size = 30
+text = "Mike Oxlong"
 placeholder_text = "Enter Your Name"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 31.0
+offset_right = 849.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("2_3ploc")
+theme_override_font_sizes/font_size = 48
+text = "No Trace of Luck"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 106.0
+offset_right = 869.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource("2_3ploc")
+theme_override_font_sizes/font_size = 28
+text = "This game contains content intended for adult audiences.
+
+If somehow you didn't already know that, you can exit now.
+
+This game is provided free of charge. 
+If you paid for this game, you have been scammed."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 358.0
+offset_right = 846.0
+offset_bottom = 413.0
+theme_override_fonts/font = ExtResource("2_3ploc")
+theme_override_font_sizes/font_size = 28
+text = "All characters depicted in this game are of age 21 or over"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 432.0
+offset_right = 892.0
+offset_bottom = 521.0
+theme_override_fonts/font = ExtResource("2_3ploc")
+theme_override_font_sizes/font_size = 48
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 507.0
+offset_right = 869.0
+offset_bottom = 678.0
+theme_override_fonts/font = ExtResource("2_3ploc")
+theme_override_font_sizes/font_size = 24
+text = "Tap spacebar to progress dialogue
+
+Press H to hide/unhide the UI
+
+Right-click or Esc to show the menu"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 772.0
+offset_right = 892.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("2_3ploc")
+theme_override_font_sizes/font_size = 24
+text = "Ready to play? Enter your character's first name
+
+You can change this in the Options menu at any time"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

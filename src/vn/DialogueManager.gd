@@ -184,3 +184,6 @@ func _on_dialogue_player_dialogue_ended():
 func _on_visibility_changed():
 	if visible == true:
 		$DialoguePlayer.refocusOption()
+
+func refocusDbox():
+	$DialoguePlayer.refocusOption()

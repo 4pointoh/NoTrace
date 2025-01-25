@@ -1,5 +1,7 @@
 extends DateScript
 
+const FLAG_ASKED_IF_SHOT = 'askedIfShot'
+
 func scriptId():
 	return 'ashely_park_date'
 
@@ -723,11 +725,12 @@ func group_topic4():
 							group_have_a_shot_fail,
 							'id_ashepark_q_shot'))
 	
-	result.nextGroup.append(getPlayerQuestionAction('Would I have a shot if I make you a lot of money?',
-							DateAction.CATEGORIES.DEEP,
-							group_make_you_money,
-							group_make_you_money_fail,
-							'id_ashepark_q_money'))
+	if(flags.has(FLAG_ASKED_IF_SHOT)):
+		result.nextGroup.append(getPlayerQuestionAction('Would I have a shot if I make you a lot of money?',
+								DateAction.CATEGORIES.DEEP,
+								group_make_you_money,
+								group_make_you_money_fail,
+								'id_ashepark_q_money'))
 							
 	result.nextGroup.append(getPartnerQuestionAction('On a scale of one to ten, to what extent is your reasoning for participating just to get with me?',
 							group_partnerask_why_ask, 'id_ashepark_partnerask_why_ask'))
@@ -809,6 +812,7 @@ func group_have_a_shot():
 	result.dialogueStartKey = 'have_a_shot_success'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 30
+	result.setFlagToTrue = FLAG_ASKED_IF_SHOT
 	return result
 
 func group_have_a_shot_fail():

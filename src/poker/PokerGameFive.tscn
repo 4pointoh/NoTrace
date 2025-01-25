@@ -1,12 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://cltlkgjbitqgp"]
+[gd_scene load_steps=12 format=3 uid="uid://cltlkgjbitqgp"]
 
 [ext_resource type="Script" path="res://src/poker/PokerGameFive.gd" id="1_7r5q5"]
 [ext_resource type="PackedScene" uid="uid://da4kpoevl51cg" path="res://src/poker/PokerAnimationController.tscn" id="2_x34y7"]
 [ext_resource type="PackedScene" uid="uid://copd06cjr1uf1" path="res://src/poker/Card.tscn" id="3_0e6mi"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_p3pr5"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="5_b6bia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3jtp"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjj3h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57l4p"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh7mc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Theme" id="Theme_4hfsa"]
+default_font = ExtResource("4_p3pr5")
+default_font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaee4"]
-bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.580392)
 shadow_color = Color(0, 0, 0, 0.823529)
 shadow_size = 8
 
@@ -25,83 +58,216 @@ offset_bottom = 675.0
 text = "Start"
 
 [node name="Call" type="Button" parent="." groups=["buttons", "cardContainer", "hide_on_pause", "poker_ui"]]
-offset_left = 457.0
-offset_top = 1006.0
-offset_right = 638.0
-offset_bottom = 1087.0
+offset_left = 512.0
+offset_top = 1054.0
+offset_right = 693.0
+offset_bottom = 1135.0
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_a3jtp")
 text = "Call
 "
 
 [node name="Fold" type="Button" parent="." groups=["buttons", "cardContainer", "hide_on_pause", "poker_ui"]]
-offset_left = 31.0
-offset_top = 1006.0
-offset_right = 212.0
-offset_bottom = 1087.0
+offset_left = 18.0
+offset_top = 1054.0
+offset_right = 199.0
+offset_bottom = 1135.0
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_pjj3h")
 text = "Fold"
 
 [node name="Check" type="Button" parent="." groups=["buttons", "hide_on_pause", "poker_ui"]]
-offset_left = 242.0
-offset_top = 1006.0
-offset_right = 423.0
-offset_bottom = 1087.0
+offset_left = 208.0
+offset_top = 1054.0
+offset_right = 389.0
+offset_bottom = 1135.0
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_57l4p")
 text = "Check"
 
 [node name="Raise" type="Button" parent="." groups=["buttons", "hide_on_pause", "poker_ui"]]
-offset_left = 690.0
-offset_top = 1006.0
-offset_right = 871.0
-offset_bottom = 1087.0
+offset_left = 703.0
+offset_top = 1054.0
+offset_right = 884.0
+offset_bottom = 1135.0
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_kh7mc")
 text = "Raise"
 
 [node name="RaiseInput" type="SpinBox" parent="Raise" groups=["hide_on_pause", "poker_ui"]]
 layout_mode = 0
-offset_top = -40.0
+offset_top = -50.0
 offset_right = 181.0
-offset_bottom = -9.0
+offset_bottom = -6.0
+theme = SubResource("Theme_4hfsa")
 min_value = 10.0
 step = 10.0
 value = 10.0
+select_all_on_focus = true
 
-[node name="YourMoney" type="Label" parent="." groups=["poker_ui"]]
-offset_top = 1094.0
-offset_right = 171.0
-offset_bottom = 1144.0
+[node name="ChipsBg" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_left = 18.0
+offset_top = 847.0
+offset_right = 197.0
+offset_bottom = 946.0
+texture = ExtResource("5_b6bia")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="YourMoney" type="Label" parent="ChipsBg" groups=["poker_ui"]]
+unique_name_in_owner = true
+offset_left = 104.0
+offset_top = 25.0
+offset_right = 175.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0.686275, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_p3pr5")
 theme_override_font_sizes/font_size = 30
-text = "You: "
+text = "123"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="TheirMoney" type="Label" parent="." groups=["poker_ui"]]
-offset_left = 403.0
-offset_top = 1094.0
-offset_right = 665.0
-offset_bottom = 1144.0
+[node name="TheirMoney" type="Label" parent="ChipsBg" groups=["poker_ui"]]
+unique_name_in_owner = true
+offset_left = 104.0
+offset_top = 61.0
+offset_right = 175.0
+offset_bottom = 97.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_p3pr5")
 theme_override_font_sizes/font_size = 30
-text = "Opponent:"
+text = "1456"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="Ante" type="Label" parent="." groups=["poker_ui"]]
-offset_left = 203.0
-offset_top = 1094.0
-offset_right = 381.0
-offset_bottom = 1144.0
+[node name="ChipsText" type="Label" parent="ChipsBg"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 133.0
+offset_right = 176.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_p3pr5")
+text = "Chips"
+
+[node name="YouLabel" type="Label" parent="ChipsBg"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 25.0
+offset_right = 80.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0.686275, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 30
+text = "You"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ThemLabel" type="Label" parent="ChipsBg"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 97.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 30
+text = "Them"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Divider" type="ColorRect" parent="ChipsBg"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 94.0
+
+[node name="StatsBg" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_left = 18.0
+offset_top = 954.0
+offset_right = 197.0
+offset_bottom = 1027.0
+texture = ExtResource("5_b6bia")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Ante" type="Label" parent="StatsBg" groups=["poker_ui"]]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 33.0
+offset_right = 174.0
+offset_bottom = 69.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_p3pr5")
 theme_override_font_sizes/font_size = 30
-text = "Ante:"
+text = "123"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="Pot" type="Label" parent="." groups=["poker_ui"]]
-offset_left = 706.0
-offset_top = 1094.0
-offset_right = 884.0
-offset_bottom = 1144.0
+[node name="Pot" type="Label" parent="StatsBg" groups=["poker_ui"]]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 174.0
+offset_bottom = 42.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_p3pr5")
 theme_override_font_sizes/font_size = 30
-text = "Pot:"
+text = "1200"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="PotLabel" type="Label" parent="StatsBg"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 30
+text = "Pot"
+
+[node name="AnteLabel" type="Label" parent="StatsBg"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 33.0
+offset_right = 79.0
+offset_bottom = 69.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 30
+text = "Ante"
+
+[node name="Divider" type="ColorRect" parent="StatsBg"]
+offset_left = 96.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 64.0
 
 [node name="StartingInfo" type="Label" parent="." groups=["init_element"]]
+unique_name_in_owner = true
 offset_left = -47.0
 offset_top = 353.0
 offset_right = 954.0
@@ -114,31 +280,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToCall" type="Label" parent="." groups=["poker_ui"]]
-offset_left = 457.0
-offset_top = 966.0
-offset_right = 638.0
-offset_bottom = 989.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 21
+unique_name_in_owner = true
+offset_left = 257.0
+offset_top = 989.0
+offset_right = 556.0
+offset_bottom = 1047.0
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 48
 text = "Call Amount: "
 
 [node name="MaxRaise" type="Label" parent="." groups=["poker_ui"]]
-offset_left = 690.0
-offset_top = 929.0
-offset_right = 871.0
-offset_bottom = 959.0
+unique_name_in_owner = true
+offset_left = 703.0
+offset_top = 971.0
+offset_right = 884.0
+offset_bottom = 1001.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_p3pr5")
 theme_override_font_sizes/font_size = 21
 text = "Max Raise:"
-
-[node name="Win" type="Button" parent="."]
-offset_left = 63.0
-offset_top = 805.0
-offset_right = 187.0
-offset_bottom = 925.0
-text = "Win"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -156,4 +319,3 @@ offset_bottom = 888.0
 [connection signal="pressed" from="Fold" to="." method="_on_fold_pressed"]
 [connection signal="pressed" from="Check" to="." method="_on_check_pressed"]
 [connection signal="pressed" from="Raise" to="." method="_on_raise_pressed"]
-[connection signal="pressed" from="Win" to="." method="_on_win_pressed"]

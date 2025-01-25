@@ -130,6 +130,8 @@ func _enter_tree():
 	dialogue.bbcode_enabled = true
 	dialogue.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	dialogue.custom_effects = custom_effects
+	dialogue.add_theme_font_size_override("normal_font_size", 20)  # Adjust 24 to desired size
+	dialogue.add_theme_font_size_override("italics_font_size", 20)
 
 	# setup options
 	options = BoxContainer.new()

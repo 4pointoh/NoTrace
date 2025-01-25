@@ -8,7 +8,8 @@ var isFullscreenImage = false
 var currentStageIsLoaded = false
 var forcePhoneStage = false
 
-@export var pokerGameScene : PackedScene
+@export var pokerGameSceneTexasHoldEm : PackedScene
+@export var pokerGameSceneFiveCardDraw : PackedScene
 @export var phoneScene : PackedScene
 @export var dateMinigameScene : PackedScene
 @export var heartsplosion : PackedScene
@@ -44,11 +45,13 @@ func _input(event):
 
 	if event.is_action_pressed("hide_ui"):
 		toggleUi()
+		$DialogueManager.refocusDbox()
 	
 	if event.is_action_pressed("menu"):
 		toggleUi()
 		if $MainMenuContainer.visible:
 			$MainMenuContainer.hide()
+			$DialogueManager.refocusDbox()
 		else:
 			$MainMenuContainer.showMenu()
 			$MainMenuContainer.show()
@@ -110,12 +113,18 @@ func startNewPhone():
 	currentPhone.setup()
 
 func startNewPoker():
-	currentPokerGame = pokerGameScene.instantiate()
+	createPokerGame()
 	currentPokerGame.gamePaused.connect(_on_poker_game_five_game_paused)
 	currentPokerGame.gameWon.connect(_on_poker_game_five_game_won)
 	currentPokerGame.gameLost.connect(_on_poker_game_five_game_lost)
 	currentPokerGame.setup()
 	add_child(currentPokerGame)
+
+func createPokerGame():
+	if(GlobalGameStage.currentStage.pokerType == PokerEnums.PokerType.TEXAS_HOLD_EM):
+		currentPokerGame = pokerGameSceneTexasHoldEm.instantiate()
+	else:
+		currentPokerGame = pokerGameSceneFiveCardDraw.instantiate()
 
 func startNewDate():
 	$DialogueManager.setDialogueBoxMaxUpper()
@@ -128,9 +137,13 @@ func startNewDate():
 	move_child(currentDate, $DialogueManager.get_index() - 1)
 
 func _on_start_pressed():
+	%NameEnter.show()
+
+func _on_name_enter_start():
 	hideTitleStuff()
 	$DialogueManager.startDialogue()
 	playBgMusic(firstSceneMusic)
+
 
 func hideTitleStuff():
 	$Start.visible = false
@@ -149,7 +162,6 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
-		"enter_name": showEnterName()
 
 func videoPause():
 	isVideoPause = true
@@ -214,7 +226,9 @@ func _on_poker_game_five_game_paused():
 		$DialogueManager.startDialogue(nextAction.dialogueStartKey)
 
 func _on_poker_game_five_game_lost():
-	currentPokerGame.setup()
+	remove_child(currentPokerGame)
+	currentPokerGame.queue_free()
+	startNewPoker()
 
 func _on_poker_game_five_game_won():
 	currentPokerGame.queue_free()

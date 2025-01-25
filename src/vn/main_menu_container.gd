@@ -18,6 +18,7 @@ func showMenu(show_back = false):
 	$SavesContainer.hide()
 	$Label.hide()
 	$Back.visible = show_back
+	%CharName.text = GlobalGameStage.playerName
 	showBack = show_back 
 		
 	
@@ -99,3 +100,7 @@ func _on_back_pressed():
 
 func _on_main_menu_pressed():
 	pass # Replace with function body.
+
+
+func _on_text_edit_text_changed():
+	GlobalGameStage.setName(%CharName.text)

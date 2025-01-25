@@ -1,5 +1,6 @@
 extends ColorRect
 
+signal start
 
 func _on_button_pressed():
 	var name2 = %TextEdit.text
@@ -11,3 +12,4 @@ func _on_button_pressed():
 	
 	print(GlobalGameStage.playerName)
 	hide()
+	start.emit()

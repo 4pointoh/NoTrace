@@ -49,16 +49,16 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Well, here I am. Fresh. And meat. ",
+"dialogue": "Well, here I am. Fresh.",
 "offset": Vector2(33640, -540),
 "options": {
 0: {
 "condition": {},
-"link": &"1_101",
+"link": &"1_64",
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.004, 623),
 "speaker": 0
 },
 "1_101": {
@@ -74,7 +74,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 621),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_102": {
@@ -90,7 +90,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 621),
+"size": Vector2(300.006, 621),
 "speaker": ""
 },
 "1_103": {
@@ -122,7 +122,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 621),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_105": {
@@ -138,7 +138,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.005, 621),
 "speaker": ""
 },
 "1_106": {
@@ -154,7 +154,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 623),
+"size": Vector2(300.003, 623),
 "speaker": 3
 },
 "1_107": {
@@ -170,7 +170,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.002, 623),
 "speaker": 3
 },
 "1_108": {
@@ -186,7 +186,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300, 623),
 "speaker": 3
 },
 "1_109": {
@@ -234,7 +234,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.006, 621),
 "speaker": ""
 },
 "1_111": {
@@ -266,7 +266,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_113": {
@@ -314,7 +314,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.004, 623),
 "speaker": 0
 },
 "1_116": {
@@ -346,7 +346,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_118": {
@@ -362,7 +362,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.004, 623),
 "speaker": 3
 },
 "1_119": {
@@ -378,7 +378,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.003, 623),
 "speaker": 3
 },
 "1_12": {
@@ -458,7 +458,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 3
 },
 "1_124": {
@@ -474,7 +474,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 3
 },
 "1_125": {
@@ -490,7 +490,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_126": {
@@ -732,7 +732,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 630),
+"size": Vector2(300, 650),
 "speaker": 2
 },
 "1_17": {
@@ -787,7 +787,7 @@ nodes = {
 "background": -1,
 "backgroundList": 0,
 "characterState": -1,
-"dialogue": "... and so that's exactly why I never give my phone number to my Uber driver. ",
+"dialogue": "... and so that's the last time I ever take an Uber after eating Taco Bell.",
 "offset": Vector2(-960, -540),
 "options": {
 0: {
@@ -818,7 +818,7 @@ nodes = {
 "1_21": {
 "background": -1,
 "backgroundList": 0,
-"characterState": 2,
+"characterState": -1,
 "dialogue": "[i]She goes back to inspecting you, still clearly not convinced of something[/i]",
 "offset": Vector2(6640, -580),
 "options": {
@@ -940,7 +940,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.003, 621),
 "speaker": ""
 },
 "1_29": {
@@ -988,7 +988,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.003, 623),
 "speaker": 0
 },
 "1_31": {
@@ -1100,7 +1100,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_38": {
@@ -1183,6 +1183,22 @@ nodes = {
 "size": Vector2(300, 623.001),
 "speaker": 0
 },
+"1_42": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "",
+"offset": Vector2(21676.2, -600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_67",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
 "1_43": {
 "background": -1,
 "backgroundList": -1,
@@ -1212,7 +1228,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.005, 621),
+"size": Vector2(300.006, 621),
 "speaker": ""
 },
 "1_45": {
@@ -1292,8 +1308,24 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300.002, 623),
 "speaker": 1
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's [name]",
+"offset": Vector2(21270.2, -440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
 },
 "1_50": {
 "background": -1,
@@ -1324,7 +1356,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_52": {
@@ -1420,7 +1452,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.007, 623),
+"size": Vector2(300.009, 623),
 "speaker": 0
 },
 "1_58": {
@@ -1436,7 +1468,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 616),
+"size": Vector2(300.003, 616),
 "speaker": -1
 },
 "1_59": {
@@ -1452,7 +1484,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.004, 623),
 "speaker": 1
 },
 "1_6": {
@@ -1500,7 +1532,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.008, 621),
 "speaker": ""
 },
 "1_62": {
@@ -1528,28 +1560,28 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"3_3",
+"link": &"1_5",
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.003, 623),
 "speaker": 1
 },
 "1_64": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "You tell him your name is [name]",
-"offset": Vector2(21800, -600),
+"dialogue": "... and I'm also meat I suppose? ",
+"offset": Vector2(33460, 200),
 "options": {
 0: {
 "condition": {},
-"link": &"1_67",
+"link": &"1_101",
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
-"speaker": ""
+"size": Vector2(300, 575),
+"speaker": 0
 },
 "1_65": {
 "background": -1,
@@ -1564,24 +1596,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623.001),
+"size": Vector2(300.009, 623.001),
 "speaker": 0
-},
-"1_66": {
-"background": -1,
-"backgroundList": -1,
-"characterState": -1,
-"dialogue": "",
-"offset": Vector2(21420, -600),
-"options": {
-0: {
-"condition": {},
-"link": &"1_64",
-"text": ""
-}
-},
-"size": Vector2(300.005, 621),
-"speaker": ""
 },
 "1_67": {
 "background": -1,
@@ -1596,7 +1612,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_68": {
@@ -1772,7 +1788,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.003, 623),
 "speaker": 0
 },
 "1_78": {
@@ -1788,7 +1804,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.003, 623),
 "speaker": 0
 },
 "1_79": {
@@ -1858,7 +1874,7 @@ nodes = {
 "1_82": {
 "background": -1,
 "backgroundList": -1,
-"characterState": -1,
+"characterState": 2,
 "dialogue": "Maybe if I add a hat...",
 "offset": Vector2(6860, 120),
 "options": {
@@ -1900,7 +1916,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 636),
+"size": Vector2(300.003, 636),
 "speaker": -1
 },
 "1_85": {
@@ -1964,7 +1980,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.006, 621),
+"size": Vector2(300.005, 621),
 "speaker": "Partygoer"
 },
 "1_89": {
@@ -1980,7 +1996,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.006, 621),
+"size": Vector2(300.011, 621),
 "speaker": "Partygoer"
 },
 "1_9": {
@@ -2012,7 +2028,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.014, 621),
+"size": Vector2(300.018, 621),
 "speaker": "Partygoer"
 },
 "1_91": {
@@ -2060,7 +2076,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.02, 623),
+"size": Vector2(300.019, 623),
 "speaker": 0
 },
 "1_94": {
@@ -2076,7 +2092,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.006, 643),
+"size": Vector2(300.007, 643),
 "speaker": 3
 },
 "1_95": {
@@ -2092,7 +2108,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.006, 621),
+"size": Vector2(300.009, 621),
 "speaker": ""
 },
 "1_96": {
@@ -2108,7 +2124,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_97": {
@@ -2140,7 +2156,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.005, 623),
 "speaker": 3
 },
 "1_99": {
@@ -2156,7 +2172,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.002, 623),
 "speaker": 3
 },
 "3_1": {
@@ -2188,11 +2204,6 @@ nodes = {
 "link": &"3_1",
 "offset": Vector2(7617.66, 15.0056),
 "signalValue": "fade_next"
-},
-"3_3": {
-"link": &"1_66",
-"offset": Vector2(21135, -441.502),
-"signalValue": "enter_name"
 },
 "3_4": {
 "link": &"1_131",

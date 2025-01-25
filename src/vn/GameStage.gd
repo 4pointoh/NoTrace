@@ -16,6 +16,11 @@ class_name GameStage
 @export var opponentName : String
 @export var opponentNamePlural : bool
 @export var maxRaise : int
+@export var pokerType : PokerEnums.PokerType = PokerEnums.PokerType.FIVE_CARD_DRAW
+@export var playerLives : int
+@export var cpuLives : int
+@export var playerLivesWithEvents : Array[int]
+@export var cpuLivesWithEvents : Array[int]
 @export var pokerScript : Script
 
 # Phone

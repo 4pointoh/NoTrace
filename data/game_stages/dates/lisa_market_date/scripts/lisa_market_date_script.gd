@@ -1091,7 +1091,6 @@ func group_party_girls_answer():
 	result.dialogueStartKey = 'dialogue_party_girls'
 	result.success = true
 	result.addParticleRain = 'poker'
-	result.nextGroup.append(getChoiceAction("Idk I just clicked the 'win' button", group_party_girls_answer_choice1))
 	result.nextGroup.append(getChoiceAction("I had to reload the save repeatedly. It took like 15 tries tbh", group_party_girls_answer_choice2))
 	result.nextGroup.append(getChoiceAction("It was easy, I'm just really good.", group_party_girls_answer_choice3))
 	return result

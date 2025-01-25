@@ -7,3 +7,5 @@ class_name PokerInfo
 @export var pot: int
 @export var amountLost: int
 @export var playerLost: bool
+@export var playerLives: int
+@export var cpuLives: int
