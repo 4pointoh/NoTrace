@@ -4,10 +4,392 @@
 
 [resource]
 script = ExtResource("1_nx5ii")
-starts = {}
-nodes = {}
+starts = {
+"START1": &"0_1",
+"START2": &"0_2",
+"START3": &"0_3"
+}
+nodes = {
+"0_1": {
+"link": &"3_1",
+"offset": Vector2(-140, 440),
+"start_id": "START1"
+},
+"0_2": {
+"link": &"3_2",
+"offset": Vector2(-120, 1220),
+"start_id": "START2"
+},
+"0_3": {
+"link": &"1_16",
+"offset": Vector2(-222.666, 1952.51),
+"start_id": "START3"
+},
+"1_1": {
+"background": 10,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "So what brings you here? ",
+"offset": Vector2(620, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(336, 595),
+"speaker": 0
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm, no I probably shouldn't say why. ",
+"offset": Vector2(940, 1060),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's nothing bad but...",
+"offset": Vector2(1280, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I kind of need to flirt with her and becomes friends with her. ",
+"offset": Vector2(1620, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_13": {
+"background": 11,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "What?? Haha, good luck with that!!",
+"offset": Vector2(1982.73, 1155.36),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(336.001, 595),
+"speaker": 0
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She's literally like a billionaire!! ",
+"offset": Vector2(2320, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I believe in you though, you can do it!",
+"offset": Vector2(2660, 1080),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Woww you're winning haha. ",
+"offset": Vector2(360, 1920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Practice often?",
+"offset": Vector2(722.481, 2091.23),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well, sort of. ",
+"offset": Vector2(1148.48, 2001.23),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "By the way what the hell kind of casino is this where you play Texas Hold 'Em 1v1 versus the dealer? ",
+"offset": Vector2(1508.41, 2087.23),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You didn't really seem all that interested in playing",
+"offset": Vector2(960, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_20": {
+"background": 12,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Heyy you're not supposed to acknowledge that!",
+"offset": Vector2(1881.97, 2091.23),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(336.001, 595),
+"speaker": 0
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... I just do what they pay me for, haha. ",
+"offset": Vector2(2300, 1980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I agree it is kinda weird though!",
+"offset": Vector2(2665.97, 2057.23),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I saw you standing at the bar for three hours, hahaha!",
+"offset": Vector2(1300, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well long story short I was hoping to chat with Amy. ",
+"offset": Vector2(1660, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But Pluto had other thoughts in mind. ",
+"offset": Vector2(2021.64, 328.19),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oooh Amy Perrier.. ",
+"offset": Vector2(2400, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She's a VERY high roller here.",
+"offset": Vector2(2760, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Never plays at my table though, haha, she gets the big fancy dealers in private rooms!",
+"offset": Vector2(3100, 360),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So you're here to meat Miss Perrier, any reason you want to share?",
+"offset": Vector2(514.061, 1052.19),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_1",
+"offset": Vector2(84.4344, 722.49),
+"signalValue": "reposition_lower"
+},
+"3_2": {
+"link": &"1_9",
+"offset": Vector2(60, 1400),
+"signalValue": "repositionreposition_lower)l"
+}
+}
 variables = {}
 comments = Array[String]([])
 strays = Array[String]([])
-characters = ""
-backgroundList = ""
+characters = "res://data/game_stages/vn/amy_poker_hall_intro/characters.tres"
+backgroundList = "res://data/game_stages/vn/amy_poker_hall_intro/bgs.tres"

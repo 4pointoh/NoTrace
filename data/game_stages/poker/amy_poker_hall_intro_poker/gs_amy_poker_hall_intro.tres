@@ -1,9 +1,16 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://csnaegkeae5xf"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://csnaegkeae5xf"]
 
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_ds177"]
 [ext_resource type="Resource" uid="uid://d14v6nq0nqqjy" path="res://data/game_stages/poker/amy_poker_hall_intro_poker/d_amy_poker_hall_intro_poker.tres" id="1_sgxco"]
 [ext_resource type="Script" path="res://data/game_stages/poker/amy_poker_hall_intro_poker/scripts/amy_poker_hall_intro_script.gd" id="2_tyvtp"]
 [ext_resource type="Resource" uid="uid://o02dk2ikese4" path="res://data/game_stages/vn/amy_poker_hall_intro_after/gs_amy_poker_hall_intro_after.tres" id="2_xnlsr"]
+[ext_resource type="Texture2D" uid="uid://2nuxj00lpwu2" path="res://data/background_lists/amy_poker_hall_intro/tessa_1.png" id="5_yjyu6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_nh38f"]
+
+[sub_resource type="Resource" id="Resource_46n2r"]
+script = ExtResource("6_nh38f")
+name = "fkdd"
+images = ExtResource("5_yjyu6")
 
 [resource]
 script = ExtResource("1_ds177")
@@ -12,6 +19,7 @@ dialogue = ExtResource("1_sgxco")
 dialogueStartKey = "START"
 guaranteedNextGameStage = ExtResource("2_xnlsr")
 isCompletable = true
+startingBackground = SubResource("Resource_46n2r")
 isPokerMatch = true
 playerStartingMoney = 200
 cpuStartingMoney = 200
