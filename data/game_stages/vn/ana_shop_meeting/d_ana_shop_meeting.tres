@@ -202,7 +202,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.002, 575),
 "speaker": 1
 },
 "1_11": {
@@ -254,8 +254,8 @@ nodes = {
 "speaker": 0
 },
 "1_112": {
-"background": -1,
-"backgroundList": -1,
+"background": 23,
+"backgroundList": 0,
 "characterState": -1,
 "dialogue": "Her eyes open wide in shock.",
 "offset": Vector2(41968.4, 1425.94),
@@ -266,7 +266,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(313, 593),
 "speaker": ""
 },
 "1_113": {
@@ -314,7 +314,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.004, 575),
 "speaker": 0
 },
 "1_116": {
@@ -362,7 +362,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.004, 575),
 "speaker": 1
 },
 "1_119": {
@@ -374,7 +374,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_120",
+"link": &"1_160",
 "text": ""
 }
 },
@@ -422,7 +422,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_122",
+"link": &"3_16",
 "text": ""
 }
 },
@@ -688,7 +688,7 @@ nodes = {
 "1_137": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 10,
+"characterState": 8,
 "dialogue": "Umm ",
 "offset": Vector2(51300, 2000),
 "options": {
@@ -698,23 +698,23 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 582),
+"size": Vector2(323, 582),
 "speaker": 1
 },
 "1_138": {
 "background": -1,
 "backgroundList": -1,
-"characterState": -1,
+"characterState": 10,
 "dialogue": "I'm gonna need your phone number. ",
 "offset": Vector2(51680, 2000),
 "options": {
 0: {
 "condition": {},
-"link": &"1_139",
+"link": &"1_159",
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 582),
 "speaker": 1
 },
 "1_139": {
@@ -1041,17 +1041,49 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "What do you do? ",
-"offset": Vector2(58720, 2140),
+"dialogue": "You stick your foot out and trip her ",
+"offset": Vector2(58914.5, 2273.78),
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"1_158",
 "text": ""
 }
 },
 "size": Vector2(300, 573),
 "speaker": ""
+},
+"1_158": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... you're welcome crazy chick. ",
+"offset": Vector2(59320, 2340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_161",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_159": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wh--",
+"offset": Vector2(51677.7, 2540.08),
+"options": {
+0: {
+"condition": {},
+"link": &"1_139",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
 },
 "1_16": {
 "background": -1,
@@ -1068,6 +1100,54 @@ nodes = {
 },
 "size": Vector2(415, 582),
 "speaker": 1
+},
+"1_160": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(44617, 2050.31),
+"options": {
+0: {
+"condition": {},
+"link": &"1_162",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_161": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright I really gotta go, I need to run home and get ready to meet Lisa. ",
+"offset": Vector2(59940, 2460),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_162": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Should...",
+"offset": Vector2(44840.6, 2377.97),
+"options": {
+0: {
+"condition": {},
+"link": &"1_120",
+"text": ""
+}
+},
+"size": Vector2(300, 573),
+"speaker": ""
 },
 "1_17": {
 "background": -1,
@@ -1210,7 +1290,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 575.001),
 "speaker": 1
 },
 "1_25": {
@@ -1578,7 +1658,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(313.002, 595),
+"size": Vector2(313, 595),
 "speaker": 1
 },
 "1_46": {
@@ -1594,7 +1674,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 575),
+"size": Vector2(300, 575),
 "speaker": 0
 },
 "1_47": {
@@ -1610,7 +1690,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 575),
+"size": Vector2(300, 575),
 "speaker": 0
 },
 "1_48": {
@@ -1642,7 +1722,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 573),
+"size": Vector2(300, 573),
 "speaker": ""
 },
 "1_5": {
@@ -1658,7 +1738,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 575),
+"size": Vector2(300.008, 575),
 "speaker": 0
 },
 "1_50": {
@@ -1754,14 +1834,14 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(304.002, 573),
+"size": Vector2(304, 573),
 "speaker": ""
 },
 "1_56": {
 "background": 11,
 "backgroundList": 0,
 "characterState": -1,
-"dialogue": "She follow you in and closes the door, locking it. ",
+"dialogue": "She follows you in and closes the door, locking it. ",
 "offset": Vector2(21120, 900),
 "options": {
 0: {
@@ -2042,7 +2122,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 575),
+"size": Vector2(300.004, 575),
 "speaker": 1
 },
 "1_72": {
@@ -2506,7 +2586,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(313, 593),
+"size": Vector2(313.002, 593),
 "speaker": ""
 },
 "1_99": {
@@ -2555,6 +2635,16 @@ nodes = {
 "offset": Vector2(57745.8, 2868.98),
 "signalValue": "walk_off"
 },
+"3_15": {
+"link": &"1_56",
+"offset": Vector2(21005.3, 1720.24),
+"signalValue": "reposition_max_lower"
+},
+"3_16": {
+"link": &"1_122",
+"offset": Vector2(45227.9, 2162.2),
+"signalValue": "reposition_upper_mid"
+},
 "3_2": {
 "link": &"3_9",
 "offset": Vector2(4597.1, 1556),
@@ -2581,7 +2671,7 @@ nodes = {
 "signalValue": "fade_next"
 },
 "3_7": {
-"link": &"1_56",
+"link": &"3_15",
 "offset": Vector2(20789.8, 1655.32),
 "signalValue": "fade_next"
 },
