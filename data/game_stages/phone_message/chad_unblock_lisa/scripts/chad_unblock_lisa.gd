@@ -80,7 +80,8 @@ var actions = [
 	},
 	{
 		"type": "image",
-		"path": "res://data/game_stages/phone_message/chad_unblock_lisa/pool1.png"
+		"path": "res://data/game_stages/phone_message/chad_unblock_lisa/pool1.png",
+		"wallpaperUnlock": "chad_pool_img1"
 	},
 	{
 		"type": "player_text",
@@ -140,7 +141,8 @@ var actions = [
 	},
 	{
 		"type": "image",
-		"path": "res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png"
+		"path": "res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png",
+		"wallpaperUnlock": "chad_pool_img2"
 	},
 	{
 		"type": "player_text",
@@ -268,6 +270,10 @@ func actionGroupZero():
 		return null
 		
 	var action = actions[actionIndex]
+
+	if "wallpaperUnlock" in action:
+		GlobalGameStage.unlockWallpaperWithDelay(action["wallpaperUnlock"], 14)
+
 	match action["type"]:
 		"player_text":
 			var content = action["content"]

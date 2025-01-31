@@ -109,7 +109,7 @@ func getAvailableMessages():
 	if completedStages.has('lisa_blocked'):
 		addMessage(Flags.CHAD_UNBLOCK_LISA)
 	
-	if completedStages.has('chad_unblock_lisa'):
+	if completedStages.has('chad_unblock_lisa') or completedStages.has('Chad Unblock Lisa'):
 		addMessage(Flags.LISA_AFTER_UNBLOCK)
 	
 	return availableMessages
