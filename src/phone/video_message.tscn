@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbl2yyqp48ltq"]
+
+[ext_resource type="Script" path="res://src/phone/video_message.gd" id="1_uwt6d"]
+[ext_resource type="VideoStream" path="res://data/background_lists/ana_shop_meeting/video/out.ogv" id="2_ki76c"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_left = 21.0
+offset_right = 621.0
+offset_bottom = 1024.0
+script = ExtResource("1_uwt6d")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(0, 766)
+layout_mode = 2
+stream = ExtResource("2_ki76c")
+autoplay = true
+expand = true
+loop = true

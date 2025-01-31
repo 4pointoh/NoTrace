@@ -65,3 +65,6 @@ func fadeTransition():
 
 func fadeTransitionQuick():
 	$AnimationPlayer.play('fade_quick')
+
+func clearBackground():
+	background = null

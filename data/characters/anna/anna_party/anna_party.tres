@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://lsfj8ts424f7"]
+[gd_resource type="Resource" script_class="Character" load_steps=28 format=3 uid="uid://lsfj8ts424f7"]
 
 [ext_resource type="Texture2D" uid="uid://b1ns1rrofc26" path="res://data/characters/anna/anna_party/face.png" id="1_2hr7w"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_pfhyt"]
@@ -6,6 +6,15 @@
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_qjpvu"]
 [ext_resource type="Texture2D" uid="uid://xh61jtb6m7mo" path="res://data/characters/anna/anna_party/character_art/anna_anon_happy.png" id="5_u8nwg"]
 [ext_resource type="Texture2D" uid="uid://xx3ngln74ebl" path="res://data/characters/anna/anna_party/character_art/anna_anon_think.png" id="6_3u4tu"]
+[ext_resource type="Texture2D" uid="uid://gansk001bmaa" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_angry.png" id="7_q8f6x"]
+[ext_resource type="Texture2D" uid="uid://kmnssme7d85a" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_shocked.png" id="8_cik7x"]
+[ext_resource type="Texture2D" uid="uid://b8vv75dedhtb0" path="res://data/characters/anna/anna_party/character_art/ana_pointing.png" id="9_40f03"]
+[ext_resource type="Texture2D" uid="uid://dyte36gjcbvw5" path="res://data/characters/anna/anna_party/character_art/ana_shirt_arms_out.png" id="10_ya6o1"]
+[ext_resource type="Texture2D" uid="uid://bnipg4y6veqpv" path="res://data/characters/anna/anna_party/character_art/ana_shirt_confused2.png" id="11_a7lfw"]
+[ext_resource type="Texture2D" uid="uid://m51fdyw4rpa8" path="res://data/characters/anna/anna_party/character_art/ana_shirt_confused.png" id="12_c2xnk"]
+[ext_resource type="Texture2D" uid="uid://bj0pyediydit5" path="res://data/characters/anna/anna_party/character_art/ana_shirt_hands_on_hips.png" id="13_o4rc7"]
+[ext_resource type="Texture2D" uid="uid://ctyeiq43x4lgp" path="res://data/characters/anna/anna_party/character_art/ana_shirt_smirk.png" id="14_ewhxx"]
+[ext_resource type="Texture2D" uid="uid://d2gufe287pdn1" path="res://data/characters/anna/anna_party/character_art/ana_shirt_worried.png" id="15_xyefq"]
 
 [sub_resource type="Resource" id="Resource_6cifq"]
 script = ExtResource("4_qjpvu")
@@ -28,10 +37,73 @@ image = ExtResource("6_3u4tu")
 scale = Vector2(0.7, 0.7)
 animateTransition = true
 
+[sub_resource type="Resource" id="Resource_03qyo"]
+script = ExtResource("4_qjpvu")
+name = "hoodie_hands_on_hips_angry"
+image = ExtResource("7_q8f6x")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_5vbuj"]
+script = ExtResource("4_qjpvu")
+name = "ana_hands_on_hips_shocked"
+image = ExtResource("8_cik7x")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_23v8h"]
+script = ExtResource("4_qjpvu")
+name = "ana_pointing"
+image = ExtResource("9_40f03")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_g70ix"]
+script = ExtResource("4_qjpvu")
+name = "ana_shirt_arms_out"
+image = ExtResource("10_ya6o1")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_fqu80"]
+script = ExtResource("4_qjpvu")
+name = "ana_shirt_confused2"
+image = ExtResource("11_a7lfw")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_d5xa0"]
+script = ExtResource("4_qjpvu")
+name = "ana_shirt_confused"
+image = ExtResource("12_c2xnk")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_duald"]
+script = ExtResource("4_qjpvu")
+name = "ana_shirt_hands_on_hips"
+image = ExtResource("13_o4rc7")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_pk36n"]
+script = ExtResource("4_qjpvu")
+name = "ana_shirt_smirk"
+image = ExtResource("14_ewhxx")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_hrb56"]
+script = ExtResource("4_qjpvu")
+name = "ana_shirt_worried"
+image = ExtResource("15_xyefq")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
 [resource]
 script = ExtResource("1_pfhyt")
 name = "Random Party Girl"
 editorName = "anna_party"
 image = ExtResource("1_2hr7w")
 color = Color(1, 1, 1, 1)
-states = Array[ExtResource("4_qjpvu")]([SubResource("Resource_6cifq"), SubResource("Resource_ndhcd"), SubResource("Resource_sb6ji")])
+states = Array[ExtResource("4_qjpvu")]([SubResource("Resource_6cifq"), SubResource("Resource_ndhcd"), SubResource("Resource_sb6ji"), SubResource("Resource_03qyo"), SubResource("Resource_5vbuj"), SubResource("Resource_23v8h"), SubResource("Resource_g70ix"), SubResource("Resource_fqu80"), SubResource("Resource_d5xa0"), SubResource("Resource_duald"), SubResource("Resource_pk36n"), SubResource("Resource_hrb56")])

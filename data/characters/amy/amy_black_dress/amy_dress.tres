@@ -1,0 +1,285 @@
+[gd_resource type="Resource" script_class="Character" load_steps=72 format=3 uid="uid://xqjr1b5iuvqo"]
+
+[ext_resource type="Texture2D" uid="uid://cfiovoy3s6p4s" path="res://data/characters/amy/amy_black_dress/face.png" id="1_tgxn3"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_1cdje"]
+[ext_resource type="Texture2D" uid="uid://cmj2qwmekq6e4" path="res://data/characters/amy/amy_black_dress/character_art/adjusting_hair_neutral.png" id="3_1ookw"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_jecx1"]
+[ext_resource type="Texture2D" uid="uid://cf78bgfxxq3bn" path="res://data/characters/amy/amy_black_dress/character_art/adjusting_hair_side_eye.png" id="5_1oye0"]
+[ext_resource type="Texture2D" uid="uid://cy3ep410ctmb7" path="res://data/characters/amy/amy_black_dress/character_art/adjusting_hair_smile2.png" id="6_tqos3"]
+[ext_resource type="Texture2D" uid="uid://cjj67qanr6u5a" path="res://data/characters/amy/amy_black_dress/character_art/adjusting_hair_smile.png" id="7_fkqqr"]
+[ext_resource type="Texture2D" uid="uid://cfxkaptjmrnmj" path="res://data/characters/amy/amy_black_dress/character_art/arms_at_sides_annoyed2.png" id="8_t63i0"]
+[ext_resource type="Texture2D" uid="uid://jney8cp0ijbs" path="res://data/characters/amy/amy_black_dress/character_art/arms_at_sides_annoyed.png" id="9_3mprv"]
+[ext_resource type="Texture2D" uid="uid://jk3qpyjfwkeq" path="res://data/characters/amy/amy_black_dress/character_art/arms_at_sides_frown.png" id="10_imdrb"]
+[ext_resource type="Texture2D" uid="uid://2wrguj083icw" path="res://data/characters/amy/amy_black_dress/character_art/arms_at_sides_neutral.png" id="11_4h585"]
+[ext_resource type="Texture2D" uid="uid://c84gendd7ya3m" path="res://data/characters/amy/amy_black_dress/character_art/arms_crossed_frown.png" id="12_ejwwn"]
+[ext_resource type="Texture2D" uid="uid://b3wvuvx4e1pcq" path="res://data/characters/amy/amy_black_dress/character_art/arms_crossed_neutral.png" id="13_j6jvk"]
+[ext_resource type="Texture2D" uid="uid://bmu0yi76hh2a7" path="res://data/characters/amy/amy_black_dress/character_art/arms_crossed_shy_neutral.png" id="14_wgr48"]
+[ext_resource type="Texture2D" uid="uid://c6y3yor6pcvm6" path="res://data/characters/amy/amy_black_dress/character_art/arms_crossed_shy_smile.png" id="15_rfunh"]
+[ext_resource type="Texture2D" uid="uid://3qjtyyu86sh" path="res://data/characters/amy/amy_black_dress/character_art/arms_crossed_smile.png" id="16_y3dvx"]
+[ext_resource type="Texture2D" uid="uid://dj1ovfv3pxf47" path="res://data/characters/amy/amy_black_dress/character_art/from_behind_impressed.png" id="17_hmbc1"]
+[ext_resource type="Texture2D" uid="uid://cmxbruosafsf6" path="res://data/characters/amy/amy_black_dress/character_art/from_behind_unimpressed.png" id="18_lyqdt"]
+[ext_resource type="Texture2D" uid="uid://cwl0x38ehyv3h" path="res://data/characters/amy/amy_black_dress/character_art/hands_on_hips_bored.png" id="19_mogem"]
+[ext_resource type="Texture2D" uid="uid://dbip0m4vpf2au" path="res://data/characters/amy/amy_black_dress/character_art/hands_on_hips_smirk.png" id="20_jl1hq"]
+[ext_resource type="Texture2D" uid="uid://cr5smrog21h1w" path="res://data/characters/amy/amy_black_dress/character_art/hand_in_hair_neutral.png" id="21_w5gjt"]
+[ext_resource type="Texture2D" uid="uid://dtc08ro45us8i" path="res://data/characters/amy/amy_black_dress/character_art/holding_hair_neutral.png" id="22_k5v8o"]
+[ext_resource type="Texture2D" uid="uid://dmtjnopbnyv4e" path="res://data/characters/amy/amy_black_dress/character_art/holding_hair_smile.png" id="23_mv0ts"]
+[ext_resource type="Texture2D" uid="uid://jdhv8kj15aok" path="res://data/characters/amy/amy_black_dress/character_art/leaning_forward_frown.png" id="24_am3f8"]
+[ext_resource type="Texture2D" uid="uid://cq6leydxglj6c" path="res://data/characters/amy/amy_black_dress/character_art/leaning_forward_smile.png" id="25_mthau"]
+[ext_resource type="Texture2D" uid="uid://btxttfjfmuhet" path="res://data/characters/amy/amy_black_dress/character_art/middle_finger_frown.png" id="26_de51r"]
+[ext_resource type="Texture2D" uid="uid://blecejk83ti72" path="res://data/characters/amy/amy_black_dress/character_art/middle_finger_smirk.png" id="27_sur83"]
+[ext_resource type="Texture2D" uid="uid://dywjaqry3q4ks" path="res://data/characters/amy/amy_black_dress/character_art/one_fist_frown.png" id="28_tcny4"]
+[ext_resource type="Texture2D" uid="uid://ogd1hqjj5ort" path="res://data/characters/amy/amy_black_dress/character_art/one_fist_smile.png" id="29_3pcyt"]
+[ext_resource type="Texture2D" uid="uid://41s5w84jenxh" path="res://data/characters/amy/amy_black_dress/character_art/one_hand_on_hip_neutral.png" id="30_7uhhs"]
+[ext_resource type="Texture2D" uid="uid://dlyvcgpci4uex" path="res://data/characters/amy/amy_black_dress/character_art/one_hand_on_hip_smile.png" id="31_78gfh"]
+[ext_resource type="Texture2D" uid="uid://d3ukkmymj4toh" path="res://data/characters/amy/amy_black_dress/character_art/playing_with_fingers_neutral.png" id="32_c2vm2"]
+[ext_resource type="Texture2D" uid="uid://d2nt34dottpof" path="res://data/characters/amy/amy_black_dress/character_art/playing_with_fingers_smile2.png" id="33_goqlu"]
+[ext_resource type="Texture2D" uid="uid://xjovp6ads8wl" path="res://data/characters/amy/amy_black_dress/character_art/playing_with_fingers_smile.png" id="34_ashec"]
+[ext_resource type="Texture2D" uid="uid://rarkuu72l74y" path="res://data/characters/amy/amy_black_dress/character_art/playing_with_fingers_smirk.png" id="35_86o1y"]
+[ext_resource type="Texture2D" uid="uid://cyjlgvrm5ks0x" path="res://data/characters/amy/amy_black_dress/character_art/table_lean_neutral.png" id="36_xnw8n"]
+[ext_resource type="Texture2D" uid="uid://pnu7q8nymen2" path="res://data/characters/amy/amy_black_dress/character_art/table_lean_smile.png" id="37_ptyd6"]
+
+[sub_resource type="Resource" id="Resource_ucgv7"]
+script = ExtResource("4_jecx1")
+name = "adjusting_hair_neutral"
+image = ExtResource("3_1ookw")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_7jjlf"]
+script = ExtResource("4_jecx1")
+name = "adjusting_hair_side_eye"
+image = ExtResource("5_1oye0")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_ih67e"]
+script = ExtResource("4_jecx1")
+name = "adjusting_hair_smile2"
+image = ExtResource("6_tqos3")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_pus6u"]
+script = ExtResource("4_jecx1")
+name = "adjusting_hair_smile"
+image = ExtResource("7_fkqqr")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_a3njw"]
+script = ExtResource("4_jecx1")
+name = "arms_at_sides_annoyed2"
+image = ExtResource("8_t63i0")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_e82ld"]
+script = ExtResource("4_jecx1")
+name = "arms_at_sides_annoyed"
+image = ExtResource("9_3mprv")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_qvknb"]
+script = ExtResource("4_jecx1")
+name = "arms_at_sides_frown"
+image = ExtResource("10_imdrb")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_fg0qf"]
+script = ExtResource("4_jecx1")
+name = "arms_at_sides_neutral"
+image = ExtResource("11_4h585")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_0f1qb"]
+script = ExtResource("4_jecx1")
+name = "arms_crossed_frown"
+image = ExtResource("12_ejwwn")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_ledln"]
+script = ExtResource("4_jecx1")
+name = "arms_crossed_neutral"
+image = ExtResource("13_j6jvk")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_5om6g"]
+script = ExtResource("4_jecx1")
+name = "arms_crossed_shy_neutral"
+image = ExtResource("14_wgr48")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_83fs7"]
+script = ExtResource("4_jecx1")
+name = "arms_crossed_shy_smile"
+image = ExtResource("15_rfunh")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_6ol1w"]
+script = ExtResource("4_jecx1")
+name = "arms_crossed_smile"
+image = ExtResource("16_y3dvx")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_muixw"]
+script = ExtResource("4_jecx1")
+name = "from_behind_impressed"
+image = ExtResource("17_hmbc1")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_fiy5e"]
+script = ExtResource("4_jecx1")
+name = "from_behind_unimpressed"
+image = ExtResource("18_lyqdt")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_slb8o"]
+script = ExtResource("4_jecx1")
+name = "hands_on_hips_bored"
+image = ExtResource("19_mogem")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_nf7ja"]
+script = ExtResource("4_jecx1")
+name = "hands_on_hips_smirk"
+image = ExtResource("20_jl1hq")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_vsjvm"]
+script = ExtResource("4_jecx1")
+name = "hand_in_hair_neutral"
+image = ExtResource("21_w5gjt")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_r22ql"]
+script = ExtResource("4_jecx1")
+name = "holding_hair_neutral"
+image = ExtResource("22_k5v8o")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_nwlnl"]
+script = ExtResource("4_jecx1")
+name = "holding_hair_smile"
+image = ExtResource("23_mv0ts")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_vlrvr"]
+script = ExtResource("4_jecx1")
+name = "leaning_forward_frown"
+image = ExtResource("24_am3f8")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_yhh4p"]
+script = ExtResource("4_jecx1")
+name = "leaning_forward_smile"
+image = ExtResource("25_mthau")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_aj0ke"]
+script = ExtResource("4_jecx1")
+name = "middle_finger_frown"
+image = ExtResource("26_de51r")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_5wlvs"]
+script = ExtResource("4_jecx1")
+name = "middle_finger_smirk"
+image = ExtResource("27_sur83")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_u8118"]
+script = ExtResource("4_jecx1")
+name = "one_fist_frown"
+image = ExtResource("28_tcny4")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_ir8of"]
+script = ExtResource("4_jecx1")
+name = "one_fist_smile"
+image = ExtResource("29_3pcyt")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_y1hd4"]
+script = ExtResource("4_jecx1")
+name = "one_hand_on_hip_neutral"
+image = ExtResource("30_7uhhs")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_cgrcf"]
+script = ExtResource("4_jecx1")
+name = "one_hand_on_hip_smile"
+image = ExtResource("31_78gfh")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_l2py4"]
+script = ExtResource("4_jecx1")
+name = "playing_with_fingers_neutral"
+image = ExtResource("32_c2vm2")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_6ru4v"]
+script = ExtResource("4_jecx1")
+name = "playing_with_fingers_smile2"
+image = ExtResource("33_goqlu")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_3d66b"]
+script = ExtResource("4_jecx1")
+name = "playing_with_fingers_smile"
+image = ExtResource("34_ashec")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_uf73x"]
+script = ExtResource("4_jecx1")
+name = "playing_with_fingers_smirk"
+image = ExtResource("35_86o1y")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_rhnfy"]
+script = ExtResource("4_jecx1")
+name = "table_lean_neutral"
+image = ExtResource("36_xnw8n")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_u1qlh"]
+script = ExtResource("4_jecx1")
+name = "table_lean_smile"
+image = ExtResource("37_ptyd6")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("2_1cdje")
+name = "Amy"
+editorName = "Amy_Dress"
+image = ExtResource("1_tgxn3")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_jecx1")]([SubResource("Resource_ucgv7"), SubResource("Resource_7jjlf"), SubResource("Resource_ih67e"), SubResource("Resource_pus6u"), SubResource("Resource_a3njw"), SubResource("Resource_e82ld"), SubResource("Resource_qvknb"), SubResource("Resource_fg0qf"), SubResource("Resource_0f1qb"), SubResource("Resource_ledln"), SubResource("Resource_5om6g"), SubResource("Resource_83fs7"), SubResource("Resource_6ol1w"), SubResource("Resource_muixw"), SubResource("Resource_fiy5e"), SubResource("Resource_slb8o"), SubResource("Resource_nf7ja"), SubResource("Resource_vsjvm"), SubResource("Resource_r22ql"), SubResource("Resource_nwlnl"), SubResource("Resource_vlrvr"), SubResource("Resource_yhh4p"), SubResource("Resource_aj0ke"), SubResource("Resource_5wlvs"), SubResource("Resource_u8118"), SubResource("Resource_ir8of"), SubResource("Resource_y1hd4"), SubResource("Resource_cgrcf"), SubResource("Resource_l2py4"), SubResource("Resource_6ru4v"), SubResource("Resource_3d66b"), SubResource("Resource_uf73x"), SubResource("Resource_rhnfy"), SubResource("Resource_u1qlh")])

@@ -1,0 +1,240 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://541ph2d0am1r"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_xkdc1"]
+
+[resource]
+script = ExtResource("1_xkdc1")
+starts = {
+"START": &"0_1",
+"START1": &"0_2"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-720, 240),
+"start_id": "START"
+},
+"0_2": {
+"link": &"3_1",
+"offset": Vector2(-369.828, 1010.87),
+"start_id": "START1"
+},
+"1_1": {
+"background": 0,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "It's been several days since I told Lisa to research strip poker...",
+"offset": Vector2(300, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She said she always goes to Chad's parties",
+"offset": Vector2(2319.19, 932.721),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I bet Chad has her number. I'll text him. ",
+"offset": Vector2(2700, 920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And ask if he can tell her to unblock me. ",
+"offset": Vector2(3060, 940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300.002, 623),
+"speaker": 0
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes this will work perfectly, Chad is my bro. ",
+"offset": Vector2(3380, 900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She hasn't texted me back yet",
+"offset": Vector2(620, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I guess I should text her and see what's up",
+"offset": Vector2(940, 200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_4": {
+"background": 0,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "What the hell?",
+"offset": Vector2(220, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It says I'm blocked?",
+"offset": Vector2(568.172, 906.358),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This must be a mistake, why would she block me?",
+"offset": Vector2(900, 940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(330.909, 623),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hmm how can I message her? ",
+"offset": Vector2(1300, 900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You think, how can you contact her? ",
+"offset": Vector2(1640, 940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh I know. ",
+"offset": Vector2(2000, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_4",
+"offset": Vector2(-413.915, 1298.72),
+"signalValue": "reposition_lower"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/phone_message/lisa_blocked/characters.tres"
+backgroundList = "res://data/background_lists/home/home_bgls.tres"

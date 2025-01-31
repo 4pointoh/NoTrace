@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://cfrdge5kjn1u7"]
+
+[ext_resource type="Resource" uid="uid://cq8icwxvxh6bo" path="res://data/game_stages/phone_message/chad_unblock_lisa/d_chad_unblock_lisa.tres" id="1_3ni5j"]
+[ext_resource type="Texture2D" uid="uid://uywnlu8oot4r" path="res://data/characters/chad/phone_icons/default.png" id="1_awchp"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_xk4jg"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="3_826oj"]
+[ext_resource type="Script" path="res://data/game_stages/phone_message/chad_unblock_lisa/scripts/chad_unblock_lisa.gd" id="3_kas7g"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_mep8p"]
+
+[sub_resource type="Resource" id="Resource_3o28l"]
+script = ExtResource("4_mep8p")
+name = "Home"
+images = ExtResource("3_826oj")
+
+[resource]
+script = ExtResource("1_xk4jg")
+name = "Chad Unblock Lisa"
+dialogue = ExtResource("1_3ni5j")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_3o28l")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+playerLives = 0
+cpuLives = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_kas7g")
+contactName = "Chad"
+contactImage = ExtResource("1_awchp")
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

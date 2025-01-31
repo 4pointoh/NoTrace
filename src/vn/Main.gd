@@ -162,6 +162,9 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
+		"walk_on": $CharacterManager.walkOnNext()
+		"walk_off": $CharacterManager.characterWalkOff()
+		"zoom": $CharacterManager.zoomCharacter()
 
 func videoPause():
 	isVideoPause = true

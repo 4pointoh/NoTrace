@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://mqiy0ctslexr"]
+
+[ext_resource type="Texture2D" uid="uid://bq61jngjoejcy" path="res://data/assets/date/art/transparent_red_hard_rounded_rect_8px9patch.png" id="1_v3aqq"]
+
+[node name="BlockedMessage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 232.0
+texture = ExtResource("1_v3aqq")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 256.0
+offset_bottom = 65.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "Failed To 
+Send Message"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 87.0
+offset_right = 243.0
+offset_bottom = 224.0
+text = "You Have Been Blocked By This User"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

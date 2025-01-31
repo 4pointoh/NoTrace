@@ -55,3 +55,14 @@ func getPartnerDelay(message = ''):
 	action.action = PhoneAction.ACTIONS.PARTNER_DELAY
 	action.message = message
 	return action
+
+func getBlockedMessage():
+	var action = PhoneAction.new()
+	action.action = PhoneAction.ACTIONS.BLOCKED
+	return action
+
+func getVideoAction(videoPath):
+	var action = PhoneAction.new()
+	action.action = PhoneAction.ACTIONS.VIDEO
+	action.videoPath = videoPath
+	return action

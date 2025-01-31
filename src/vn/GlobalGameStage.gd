@@ -102,6 +102,16 @@ func getAvailableMessages():
 		addMessage(Flags.LISA_FIRST_PHONE)
 		addMessage(Flags.POKER_GIRLS_FIRST_PHONE)
 	
+	if completedStages.has('lisa_first_market_date') and completedStages.has('ashely_first_park_date'):
+		addMessage(Flags.ASHELY_INTRODUCE_AMY)
+		addMessage(Flags.LISA_BLOCKED)
+	
+	if completedStages.has('lisa_blocked'):
+		addMessage(Flags.CHAD_UNBLOCK_LISA)
+	
+	if completedStages.has('chad_unblock_lisa'):
+		addMessage(Flags.LISA_AFTER_UNBLOCK)
+	
 	return availableMessages
 
 func getAvailableSelectableEvents():

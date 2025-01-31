@@ -1,0 +1,105 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=35 format=3 uid="uid://c06kb6jw73txb"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_5u04s"]
+[ext_resource type="Texture2D" uid="uid://blt7843muoh1u" path="res://data/background_lists/amy_poker_hall_intro/amy1.png" id="1_mqnpc"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_4sgbj"]
+[ext_resource type="Texture2D" uid="uid://dhsop5kgept2y" path="res://data/background_lists/amy_poker_hall_intro/amy2.png" id="3_gf7n1"]
+[ext_resource type="Texture2D" uid="uid://dceb1ahpmtsfa" path="res://data/background_lists/amy_poker_hall_intro/amy3.png" id="4_lel3g"]
+[ext_resource type="Texture2D" uid="uid://ublojxrhrsyl" path="res://data/background_lists/amy_poker_hall_intro/bar.png" id="5_w4jsv"]
+[ext_resource type="Texture2D" uid="uid://daiu671ybu7us" path="res://data/background_lists/amy_poker_hall_intro/bar_aerial.png" id="6_0dneu"]
+[ext_resource type="Texture2D" uid="uid://cwc138caws0dn" path="res://data/background_lists/amy_poker_hall_intro/bouncer.png" id="7_a1rt8"]
+[ext_resource type="Texture2D" uid="uid://clkhdcl00ruap" path="res://data/background_lists/amy_poker_hall_intro/outside_casino.png" id="8_jd8pe"]
+[ext_resource type="Texture2D" uid="uid://ciw332epy8gl5" path="res://data/background_lists/amy_poker_hall_intro/outside_casino_with_amy.png" id="9_pte5g"]
+[ext_resource type="Texture2D" uid="uid://c7n142f5aow2o" path="res://data/background_lists/amy_poker_hall_intro/outside_casino_with_amy2.png" id="10_ob5uu"]
+[ext_resource type="Texture2D" uid="uid://q56cfsjl6f3y" path="res://data/background_lists/amy_poker_hall_intro/tessa_0.png" id="11_jklrm"]
+[ext_resource type="Texture2D" uid="uid://2nuxj00lpwu2" path="res://data/background_lists/amy_poker_hall_intro/tessa_1.png" id="12_5ry0a"]
+[ext_resource type="Texture2D" uid="uid://cpj1lcw35t5ho" path="res://data/background_lists/amy_poker_hall_intro/tessa_2.png" id="13_dkn3f"]
+[ext_resource type="Texture2D" uid="uid://hdndl1jdt33q" path="res://data/background_lists/amy_poker_hall_intro/tessa_3.png" id="14_o20vr"]
+[ext_resource type="Texture2D" uid="uid://c12hs8u8cgpv2" path="res://data/background_lists/amy_poker_hall_intro/tessa_4.png" id="15_gguj4"]
+[ext_resource type="Texture2D" uid="uid://dgaw7y2dlgm6w" path="res://data/background_lists/amy_poker_hall_intro/tessa_5.png" id="16_uufo3"]
+[ext_resource type="Texture2D" uid="uid://cnx8o5uj6utoa" path="res://data/background_lists/amy_poker_hall_intro/tessa_7.png" id="17_w6w3r"]
+
+[sub_resource type="Resource" id="Resource_n5xs8"]
+script = ExtResource("2_4sgbj")
+name = "amy1"
+images = ExtResource("1_mqnpc")
+
+[sub_resource type="Resource" id="Resource_f5mdt"]
+script = ExtResource("2_4sgbj")
+name = "amy2"
+images = ExtResource("3_gf7n1")
+
+[sub_resource type="Resource" id="Resource_5bpsk"]
+script = ExtResource("2_4sgbj")
+name = "amy3"
+images = ExtResource("4_lel3g")
+
+[sub_resource type="Resource" id="Resource_x0hg8"]
+script = ExtResource("2_4sgbj")
+name = "bar"
+images = ExtResource("5_w4jsv")
+
+[sub_resource type="Resource" id="Resource_ikr2w"]
+script = ExtResource("2_4sgbj")
+name = "bar_aerial"
+images = ExtResource("6_0dneu")
+
+[sub_resource type="Resource" id="Resource_1tjkh"]
+script = ExtResource("2_4sgbj")
+name = "bouncer"
+images = ExtResource("7_a1rt8")
+
+[sub_resource type="Resource" id="Resource_rdwi6"]
+script = ExtResource("2_4sgbj")
+name = "outside_casino"
+images = ExtResource("8_jd8pe")
+
+[sub_resource type="Resource" id="Resource_5bbm5"]
+script = ExtResource("2_4sgbj")
+name = "outside_casino_with_amy"
+images = ExtResource("9_pte5g")
+
+[sub_resource type="Resource" id="Resource_pgnoi"]
+script = ExtResource("2_4sgbj")
+name = "outside_casino_with_amy2"
+images = ExtResource("10_ob5uu")
+
+[sub_resource type="Resource" id="Resource_ytn88"]
+script = ExtResource("2_4sgbj")
+name = "tessa_0"
+images = ExtResource("11_jklrm")
+
+[sub_resource type="Resource" id="Resource_o2re2"]
+script = ExtResource("2_4sgbj")
+name = "tessa_1"
+images = ExtResource("12_5ry0a")
+
+[sub_resource type="Resource" id="Resource_3q66l"]
+script = ExtResource("2_4sgbj")
+name = "tessa_2"
+images = ExtResource("13_dkn3f")
+
+[sub_resource type="Resource" id="Resource_2apdh"]
+script = ExtResource("2_4sgbj")
+name = "tessa_3"
+images = ExtResource("14_o20vr")
+
+[sub_resource type="Resource" id="Resource_j4om5"]
+script = ExtResource("2_4sgbj")
+name = "tessa_4"
+images = ExtResource("15_gguj4")
+
+[sub_resource type="Resource" id="Resource_23ta4"]
+script = ExtResource("2_4sgbj")
+name = "tessa_5"
+images = ExtResource("16_uufo3")
+
+[sub_resource type="Resource" id="Resource_uwb6d"]
+script = ExtResource("2_4sgbj")
+name = "tessa_7"
+images = ExtResource("17_w6w3r")
+
+[resource]
+script = ExtResource("1_5u04s")
+name = "Amy Poker Hall Intro"
+images = Array[ExtResource("2_4sgbj")]([SubResource("Resource_n5xs8"), SubResource("Resource_f5mdt"), SubResource("Resource_5bpsk"), SubResource("Resource_x0hg8"), SubResource("Resource_ikr2w"), SubResource("Resource_1tjkh"), SubResource("Resource_rdwi6"), SubResource("Resource_5bbm5"), SubResource("Resource_pgnoi"), SubResource("Resource_ytn88"), SubResource("Resource_o2re2"), SubResource("Resource_3q66l"), SubResource("Resource_2apdh"), SubResource("Resource_j4om5"), SubResource("Resource_23ta4"), SubResource("Resource_uwb6d")])

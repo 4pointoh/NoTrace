@@ -93,7 +93,10 @@ func setDefaultBg():
 	$AudioStreamPlayer.stream = you_dialog_sound
 	if !muted:
 		$AudioStreamPlayer.play()
-	$DialoguePlayer.remove_theme_stylebox_override("panel")
+	
+	var style : StyleBoxFlat = StyleBoxFlat.new()
+	style.bg_color = Color(0, 0, 0, 0.7) # Black with 50% alpha
+	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
 
 func muteDialogueBox():
 	muted = true

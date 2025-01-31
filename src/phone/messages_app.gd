@@ -2,6 +2,8 @@ extends Node2D
 
 @export var availableMessage : PackedScene
 @export var messageText : PackedScene
+@export var blockedMessage : PackedScene
+@export var videoMessage : PackedScene
 @export var messageImage : PackedScene
 @export var loadingAnim : PackedScene
 @export var partnerStatus : PackedScene
@@ -110,6 +112,14 @@ func processNextAction():
 	elif nextAction.action == PhoneAction.ACTIONS.PARTNER_DELAY:
 		await delay(nextAction.message)
 		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.BLOCKED:
+		await get_tree().create_timer(2).timeout
+		addBlocked()
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.VIDEO:
+		await loadingMessage()
+		addVideo(nextAction.videoPath)
+		processNextAction()
 
 func loadingMessage():
 	var loading = loadingAnim.instantiate()
@@ -125,7 +135,7 @@ func loadingMessage():
 	$MessageScreen/VBoxContainer.add_child(loading)
 	$AudioStreamPlayer2D.stream = messageStartTyping
 	$AudioStreamPlayer2D.play()
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2).timeout
 	$MessageScreen/VBoxContainer.remove_child(loading)
 	loading.queue_free()
 	
@@ -169,6 +179,21 @@ func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT):
 	elif soundType == PhoneAction.SOUND_TYPE.HAPPY:
 		$AudioStreamPlayer2D.stream = messageReceivedHappySound
 		$AudioStreamPlayer2D.play()
+	
+func addBlocked():
+	var blocked = blockedMessage.instantiate()
+	blocked.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	$MessageScreen/VBoxContainer.add_child(blocked)
+	
+	$AudioStreamPlayer2D.stream = load("res://data/assets/date/sounds/fail.wav")
+	$AudioStreamPlayer2D.play()
+
+func addVideo(videoPath):
+	var video = videoMessage.instantiate()
+	video.setVideo(videoPath)
+	$AudioStreamPlayer2D.stream = messageReceivedDefaultSound
+	$AudioStreamPlayer2D.play()
+	$MessageScreen/VBoxContainer.add_child(video)
 
 func enableRespond():
 	$Respond.visible = true

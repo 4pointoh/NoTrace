@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3tjbs8klb0sh"]
+[gd_scene load_steps=19 format=3 uid="uid://d3tjbs8klb0sh"]
 
 [ext_resource type="Script" path="res://src/phone/messages_app.gd" id="1_nop6m"]
 [ext_resource type="PackedScene" uid="uid://3n8lkyrp2q07" path="res://src/phone/available_message.tscn" id="2_pvtiw"]
 [ext_resource type="PackedScene" uid="uid://bu8pn0siowaf1" path="res://src/phone/message_image.tscn" id="4_74deq"]
+[ext_resource type="PackedScene" uid="uid://mqiy0ctslexr" path="res://src/phone/BlockedMessage.tscn" id="4_fqf6p"]
 [ext_resource type="PackedScene" uid="uid://c3o1djhnvrnb4" path="res://src/phone/phone_loading.tscn" id="5_vla3j"]
+[ext_resource type="PackedScene" uid="uid://cbl2yyqp48ltq" path="res://src/phone/video_message.tscn" id="5_wijxh"]
 [ext_resource type="PackedScene" uid="uid://bo16w2qyom2i4" path="res://src/phone/partner_status_message.tscn" id="6_7x5po"]
 [ext_resource type="PackedScene" uid="uid://bv7mv8sfe22i4" path="res://src/phone/message_text.tscn" id="6_os5er"]
 [ext_resource type="Texture2D" uid="uid://budgmygas074q" path="res://data/assets/phone/art/messages_background.png" id="6_qklb5"]
@@ -86,6 +88,8 @@ _data = {
 script = ExtResource("1_nop6m")
 availableMessage = ExtResource("2_pvtiw")
 messageText = ExtResource("6_os5er")
+blockedMessage = ExtResource("4_fqf6p")
+videoMessage = ExtResource("5_wijxh")
 messageImage = ExtResource("4_74deq")
 loadingAnim = ExtResource("5_vla3j")
 partnerStatus = ExtResource("6_7x5po")

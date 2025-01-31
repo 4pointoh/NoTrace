@@ -1,0 +1,159 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=53 format=3 uid="uid://br1jc87g52mop"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_7k0w2"]
+[ext_resource type="Texture2D" uid="uid://s6e4y1j4beos" path="res://data/background_lists/ana_shop_meeting/bathroom.png" id="1_j86k1"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_nne1u"]
+[ext_resource type="Texture2D" uid="uid://bw55mrsjh3n3b" path="res://data/background_lists/ana_shop_meeting/bathrooms.png" id="3_lbs32"]
+[ext_resource type="Texture2D" uid="uid://fd2dnoxmrlo2" path="res://data/background_lists/ana_shop_meeting/extra1.png" id="4_cfdrc"]
+[ext_resource type="Texture2D" uid="uid://ddfouinqf3i1" path="res://data/background_lists/ana_shop_meeting/extra2.png" id="5_xwb1w"]
+[ext_resource type="Texture2D" uid="uid://fww0q68flpw3" path="res://data/background_lists/ana_shop_meeting/Intro_1.png" id="6_hk75a"]
+[ext_resource type="Texture2D" uid="uid://cky1p5r4keacj" path="res://data/background_lists/ana_shop_meeting/intro_2.png" id="7_oimme"]
+[ext_resource type="Texture2D" uid="uid://81c42ndlk0vx" path="res://data/background_lists/ana_shop_meeting/pull2.png" id="8_7ibxo"]
+[ext_resource type="Texture2D" uid="uid://yx0hfjam4w7v" path="res://data/background_lists/ana_shop_meeting/pull3.png" id="9_4bro1"]
+[ext_resource type="Texture2D" uid="uid://bxp6g4p388vxs" path="res://data/background_lists/ana_shop_meeting/pull_1.png" id="10_1o7vc"]
+[ext_resource type="Texture2D" uid="uid://bbg1h4hmw0tpl" path="res://data/background_lists/ana_shop_meeting/shop1.png" id="11_uybyu"]
+[ext_resource type="Texture2D" uid="uid://b4lk4wulp7fav" path="res://data/background_lists/ana_shop_meeting/shop2.png" id="12_b7y0u"]
+[ext_resource type="Texture2D" uid="uid://c77mptqawv43i" path="res://data/background_lists/ana_shop_meeting/undress_0.png" id="13_2c7t8"]
+[ext_resource type="Texture2D" uid="uid://dk8wuuwgy125x" path="res://data/background_lists/ana_shop_meeting/undress_1.png" id="14_qyeep"]
+[ext_resource type="Texture2D" uid="uid://bji8ctl8rsgna" path="res://data/background_lists/ana_shop_meeting/undress_2.png" id="15_fmja3"]
+[ext_resource type="Texture2D" uid="uid://b4rh18rddhm1c" path="res://data/background_lists/ana_shop_meeting/undress_3.png" id="16_61h10"]
+[ext_resource type="Texture2D" uid="uid://doxe1e4x6r1ev" path="res://data/background_lists/ana_shop_meeting/undress_4.png" id="17_rlv05"]
+[ext_resource type="Texture2D" uid="uid://cveet1unopftk" path="res://data/background_lists/ana_shop_meeting/undress_5.png" id="18_7wu4q"]
+[ext_resource type="Texture2D" uid="uid://bnejnr43jl0mr" path="res://data/background_lists/ana_shop_meeting/undress_6.png" id="19_ivmba"]
+[ext_resource type="Texture2D" uid="uid://daab747eiqxik" path="res://data/background_lists/ana_shop_meeting/undress_7.png" id="20_46h1w"]
+[ext_resource type="Texture2D" uid="uid://c0v5xuynlx2c" path="res://data/background_lists/ana_shop_meeting/undress_8.png" id="21_j83bs"]
+[ext_resource type="Texture2D" uid="uid://climqdw53i22x" path="res://data/background_lists/ana_shop_meeting/undress_9.png" id="22_3k17q"]
+[ext_resource type="Texture2D" uid="uid://c7cnac1l06hdg" path="res://data/background_lists/ana_shop_meeting/undress_10.png" id="23_kmkwx"]
+[ext_resource type="Texture2D" uid="uid://cw30gst8s06v8" path="res://data/background_lists/ana_shop_meeting/undress_11.png" id="24_g3bmf"]
+[ext_resource type="Texture2D" uid="uid://f02aca6b4g57" path="res://data/background_lists/ana_shop_meeting/undress_12.png" id="25_2uh66"]
+[ext_resource type="Texture2D" uid="uid://bart0uepqco8d" path="res://data/background_lists/ana_shop_meeting/undress_13.png" id="26_q50um"]
+
+[sub_resource type="Resource" id="Resource_d77mx"]
+script = ExtResource("2_nne1u")
+name = "Bathroom"
+images = ExtResource("1_j86k1")
+
+[sub_resource type="Resource" id="Resource_bymct"]
+script = ExtResource("2_nne1u")
+name = "bathroom_door"
+images = ExtResource("3_lbs32")
+
+[sub_resource type="Resource" id="Resource_psj1o"]
+script = ExtResource("2_nne1u")
+name = "extra1"
+images = ExtResource("4_cfdrc")
+
+[sub_resource type="Resource" id="Resource_pqh66"]
+script = ExtResource("2_nne1u")
+name = "extra2"
+images = ExtResource("5_xwb1w")
+
+[sub_resource type="Resource" id="Resource_0ohlx"]
+script = ExtResource("2_nne1u")
+name = "intro_1"
+images = ExtResource("6_hk75a")
+
+[sub_resource type="Resource" id="Resource_d5wie"]
+script = ExtResource("2_nne1u")
+name = "intro_2"
+images = ExtResource("7_oimme")
+
+[sub_resource type="Resource" id="Resource_behpn"]
+script = ExtResource("2_nne1u")
+name = "pull2"
+images = ExtResource("8_7ibxo")
+
+[sub_resource type="Resource" id="Resource_alu4n"]
+script = ExtResource("2_nne1u")
+name = "pull3"
+images = ExtResource("9_4bro1")
+
+[sub_resource type="Resource" id="Resource_s7phc"]
+script = ExtResource("2_nne1u")
+name = "pull_1"
+images = ExtResource("10_1o7vc")
+
+[sub_resource type="Resource" id="Resource_jjkgn"]
+script = ExtResource("2_nne1u")
+name = "shop1"
+images = ExtResource("11_uybyu")
+
+[sub_resource type="Resource" id="Resource_gvm4r"]
+script = ExtResource("2_nne1u")
+name = "shop2"
+images = ExtResource("12_b7y0u")
+
+[sub_resource type="Resource" id="Resource_y6nmm"]
+script = ExtResource("2_nne1u")
+name = "undress0"
+images = ExtResource("13_2c7t8")
+
+[sub_resource type="Resource" id="Resource_0f88b"]
+script = ExtResource("2_nne1u")
+name = "undress1"
+images = ExtResource("14_qyeep")
+
+[sub_resource type="Resource" id="Resource_81ofl"]
+script = ExtResource("2_nne1u")
+name = "undress2"
+images = ExtResource("15_fmja3")
+
+[sub_resource type="Resource" id="Resource_7e2t7"]
+script = ExtResource("2_nne1u")
+name = "undress3"
+images = ExtResource("16_61h10")
+
+[sub_resource type="Resource" id="Resource_fi635"]
+script = ExtResource("2_nne1u")
+name = "undress4"
+images = ExtResource("17_rlv05")
+
+[sub_resource type="Resource" id="Resource_2vy2t"]
+script = ExtResource("2_nne1u")
+name = "undress5"
+images = ExtResource("18_7wu4q")
+
+[sub_resource type="Resource" id="Resource_cjs1b"]
+script = ExtResource("2_nne1u")
+name = "undress6"
+images = ExtResource("19_ivmba")
+
+[sub_resource type="Resource" id="Resource_pqsnn"]
+script = ExtResource("2_nne1u")
+name = "undress7"
+images = ExtResource("20_46h1w")
+
+[sub_resource type="Resource" id="Resource_eutkl"]
+script = ExtResource("2_nne1u")
+name = "undress8"
+images = ExtResource("21_j83bs")
+
+[sub_resource type="Resource" id="Resource_ixb1i"]
+script = ExtResource("2_nne1u")
+name = "undress9"
+images = ExtResource("22_3k17q")
+
+[sub_resource type="Resource" id="Resource_r8chs"]
+script = ExtResource("2_nne1u")
+name = "undress10"
+images = ExtResource("23_kmkwx")
+
+[sub_resource type="Resource" id="Resource_e1nyo"]
+script = ExtResource("2_nne1u")
+name = "undress11"
+images = ExtResource("24_g3bmf")
+
+[sub_resource type="Resource" id="Resource_jh7pr"]
+script = ExtResource("2_nne1u")
+name = "undress12"
+images = ExtResource("25_2uh66")
+
+[sub_resource type="Resource" id="Resource_hslgk"]
+script = ExtResource("2_nne1u")
+name = "undress13"
+images = ExtResource("26_q50um")
+
+[resource]
+script = ExtResource("1_7k0w2")
+name = "Ana Shop Meeting"
+images = Array[ExtResource("2_nne1u")]([SubResource("Resource_d77mx"), SubResource("Resource_bymct"), SubResource("Resource_psj1o"), SubResource("Resource_pqh66"), SubResource("Resource_0ohlx"), SubResource("Resource_d5wie"), SubResource("Resource_behpn"), SubResource("Resource_alu4n"), SubResource("Resource_s7phc"), SubResource("Resource_jjkgn"), SubResource("Resource_gvm4r"), SubResource("Resource_y6nmm"), SubResource("Resource_0f88b"), SubResource("Resource_81ofl"), SubResource("Resource_7e2t7"), SubResource("Resource_fi635"), SubResource("Resource_2vy2t"), SubResource("Resource_cjs1b"), SubResource("Resource_pqsnn"), SubResource("Resource_eutkl"), SubResource("Resource_ixb1i"), SubResource("Resource_r8chs"), SubResource("Resource_e1nyo"), SubResource("Resource_jh7pr"), SubResource("Resource_hslgk")])

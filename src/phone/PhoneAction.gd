@@ -8,7 +8,9 @@ enum ACTIONS {
 	CHOICE,
 	DIALOGUE,
 	COMPLETE,
-	PARTNER_DELAY
+	PARTNER_DELAY,
+	BLOCKED,
+	VIDEO
 }
 
 enum SOUND_TYPE {
@@ -21,4 +23,5 @@ var message : String
 var image : Texture
 var choices : Array[String] = []
 var dialogueKey : String
+var videoPath : String
 var soundType : PhoneAction.SOUND_TYPE = SOUND_TYPE.DEFAULT

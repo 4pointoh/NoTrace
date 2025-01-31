@@ -25,6 +25,7 @@ func actionGroupZero():
 		
 	if actionIndex == 1:
 		return getPartnerTextAction("Uhh, sorry you aren't in my phone, who is this?")
+		#return getVideoAction("res://data/game_stages/phone_message/chad_unblock_lisa/videos/pool.ogv")
 		
 	if actionIndex == 2:
 		return getChoiceAction(["From the party?", "Uhh, nevermind."])
