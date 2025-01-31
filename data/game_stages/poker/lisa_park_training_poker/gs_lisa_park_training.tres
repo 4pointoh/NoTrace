@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://bfawa4sl645nm"]
+
+[ext_resource type="Resource" uid="uid://d2qlv2m37vh85" path="res://data/game_stages/poker/lisa_park_training_poker/d_lisa_park_training_poker.tres" id="1_7xaue"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_pwgoe"]
+[ext_resource type="Script" path="res://data/game_stages/poker/lisa_park_training_poker/scripts/lisa_park_training_poker_script.gd" id="2_1v7j0"]
+[ext_resource type="Resource" uid="uid://b7h73cw37mti4" path="res://data/game_stages/vn/lisa_park_training_after/gs_lisa_park_training_after.tres.tres" id="2_re2is"]
+
+[resource]
+script = ExtResource("1_pwgoe")
+name = "lisa_park_training_poker"
+dialogue = ExtResource("1_7xaue")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_re2is")
+isCompletable = true
+isPokerMatch = true
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = "Lisa"
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+playerLives = 4
+cpuLives = 4
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+pokerScript = ExtResource("2_1v7j0")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

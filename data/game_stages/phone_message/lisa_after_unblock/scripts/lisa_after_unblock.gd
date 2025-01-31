@@ -196,16 +196,40 @@ var actions = [
 		"content": "Yess! Perfect! How about right after my morning run? I can run at the park! And then we can play poker!"
 	},
 	{
+		"type": "partner_text",
+		"content": "A run then poker - double endorphins! Nothing better!"
+	},
+	{
 		"type": "player_text",
 		"content": "Perfect, I'll see you there"
 	},
 	{
 		"type": "partner_text",
-		"content": "Thank you!! Sorry again :(( I can't wait!"
+		"content": "Ooh wait one more thing!"
 	},
 	{
 		"type": "partner_text",
-		"content": "I'll be the one in orange 😉"
+		"content": "I kind of um... threw out all my poker cards when I was angry 😅"
+	},
+	{
+		"type": "partner_text",
+		"content": "Can you bring some with you? I'll pay you back!"
+	},
+	{
+		"type": "player_text",
+		"content": "Sure, I'll pick some up at the shop before I come"
+	},
+	{
+		"type": "player_text",
+		"content": "Free of charge, as an apology for the misunderstanding"
+	},
+	{
+		"type": "partner_text",
+		"content": "Ok!! See you there!"
+	},
+	{
+		"type": "partner_text",
+		"content": "I'll be the one in orange, can't miss me! 😉"
 	},
 	{
 		"type": "complete"

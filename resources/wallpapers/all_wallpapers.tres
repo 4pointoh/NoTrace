@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=39 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=43 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://br7haorbmhfn6" path="res://data/background_lists/chads_party/backgrounds/pok8.png" id="18_68i32"]
 [ext_resource type="Texture2D" uid="uid://dtdkgf6ruvaoh" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool1.png" id="19_v5ci5"]
 [ext_resource type="Texture2D" uid="uid://dxhv4626n88xj" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png" id="20_yxqy0"]
+[ext_resource type="Texture2D" uid="uid://cfq73hfyrlomt" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger.png" id="21_vn4i6"]
+[ext_resource type="Texture2D" uid="uid://cknmnxuvpbwdi" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger-altart.png" id="22_l4qir"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -129,6 +131,18 @@ wallpaperId = "chad_pool_img2"
 image = ExtResource("20_yxqy0")
 hint = "Chat with chad about lisa (2)"
 
+[sub_resource type="Resource" id="Resource_b4gnm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ashe_middlefinger"
+image = ExtResource("21_vn4i6")
+hint = "Insist on more money"
+
+[sub_resource type="Resource" id="Resource_rej7w"]
+script = ExtResource("3_wccuy")
+wallpaperId = "middlefinger-alt-art"
+image = ExtResource("22_l4qir")
+hint = "Insist on more money - Alternate art"
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p"), SubResource("Resource_87wbd"), SubResource("Resource_tt02v"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_482xq"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p"), SubResource("Resource_87wbd"), SubResource("Resource_tt02v"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_482xq"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w")])

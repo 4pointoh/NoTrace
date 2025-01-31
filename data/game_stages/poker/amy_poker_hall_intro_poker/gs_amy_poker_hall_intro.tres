@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://csnaegkeae5xf"]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_ds177"]
+[ext_resource type="Resource" uid="uid://d14v6nq0nqqjy" path="res://data/game_stages/poker/amy_poker_hall_intro_poker/d_amy_poker_hall_intro_poker.tres" id="1_sgxco"]
+[ext_resource type="Script" path="res://data/game_stages/poker/amy_poker_hall_intro_poker/scripts/amy_poker_hall_intro_script.gd" id="2_tyvtp"]
+[ext_resource type="Resource" uid="uid://o02dk2ikese4" path="res://data/game_stages/vn/amy_poker_hall_intro_after/gs_amy_poker_hall_intro_after.tres" id="2_xnlsr"]
+
+[resource]
+script = ExtResource("1_ds177")
+name = "amy_poker_hall_intro_poker"
+dialogue = ExtResource("1_sgxco")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_xnlsr")
+isCompletable = true
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Tessa"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 1
+playerLives = 0
+cpuLives = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+pokerScript = ExtResource("2_tyvtp")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

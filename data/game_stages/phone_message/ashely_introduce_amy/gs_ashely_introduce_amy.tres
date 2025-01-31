@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://uoqxt3tv1s6n"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://uoqxt3tv1s6n"]
 
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_ub7ap"]
 [ext_resource type="Texture2D" uid="uid://c3rl67kfnx64c" path="res://data/characters/ashely/phone_icons/default.png" id="1_w15n1"]
 [ext_resource type="Resource" uid="uid://cr5pccfb8cihw" path="res://data/game_stages/phone_message/ashely_introduce_amy/d_ashely_introduce_amy.tres" id="2_ktscn"]
+[ext_resource type="Script" path="res://data/game_stages/phone_message/ashely_introduce_amy/scripts/ashely_introduce_amy.gd" id="3_r4bq1"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_wij3x"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_uy0fx"]
 
@@ -13,7 +14,7 @@ images = ExtResource("4_wij3x")
 
 [resource]
 script = ExtResource("1_ub7ap")
-name = "Ashely"
+name = "ashely_intro_amy"
 dialogue = ExtResource("2_ktscn")
 dialogueStartKey = "START"
 isCompletable = true
@@ -31,7 +32,8 @@ cpuLives = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
-isPhoneMessageEvent = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_r4bq1")
 contactName = "Ashely"
 contactImage = ExtResource("1_w15n1")
 stageButtonLabel = ""

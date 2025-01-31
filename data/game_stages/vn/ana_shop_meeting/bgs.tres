@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=3 format=3 uid="uid://c1rjqidfg2bad"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_7ks37"]
+[ext_resource type="Resource" uid="uid://br1jc87g52mop" path="res://data/background_lists/ana_shop_meeting/ana_shop_meeting.tres" id="1_sdvdu"]
+
+[resource]
+script = ExtResource("1_7ks37")
+backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_sdvdu")])

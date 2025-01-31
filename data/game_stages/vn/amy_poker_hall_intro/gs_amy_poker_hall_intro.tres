@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://btvbgys8khmck"]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_4pita"]
+[ext_resource type="Resource" uid="uid://bq1p27kolfv6s" path="res://data/game_stages/vn/amy_poker_hall_intro/d_amy_poker_hall_intro.tres" id="1_tq8m8"]
+[ext_resource type="Resource" uid="uid://csnaegkeae5xf" path="res://data/game_stages/poker/amy_poker_hall_intro_poker/gs_amy_poker_hall_intro.tres" id="2_2iau4"]
+[ext_resource type="Texture2D" uid="uid://clkhdcl00ruap" path="res://data/background_lists/amy_poker_hall_intro/outside_casino.png" id="4_7upb3"]
+[ext_resource type="Texture2D" uid="uid://bb2ohpt8wrurh" path="res://data/assets/stage_art/poker_hall_hover.png" id="4_hrud5"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_1iiwl"]
+[ext_resource type="Texture2D" uid="uid://ce8ohyf43o75i" path="res://data/assets/stage_art/poker_hall.png" id="5_iaknk"]
+[ext_resource type="AudioStream" uid="uid://ck8wqkmvk3m4t" path="res://data/assets/general/sounds/bg_music/poker.mp3" id="6_8ptn5"]
+
+[sub_resource type="Resource" id="Resource_2heoi"]
+script = ExtResource("5_1iiwl")
+name = "bg"
+images = ExtResource("4_7upb3")
+
+[resource]
+script = ExtResource("1_4pita")
+name = "amy_poker_hall_intro"
+dialogue = ExtResource("1_tq8m8")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_2iau4")
+isCompletable = true
+startingBackground = SubResource("Resource_2heoi")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+playerLives = 0
+cpuLives = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("6_8ptn5")
+stageButtonTexture = ExtResource("5_iaknk")
+stageButtonHover = ExtResource("4_hrud5")
+stageButtonLabel = "Track Amy Perrier"
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

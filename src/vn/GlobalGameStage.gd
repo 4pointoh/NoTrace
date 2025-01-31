@@ -109,7 +109,7 @@ func getAvailableMessages():
 	if completedStages.has('lisa_blocked'):
 		addMessage(Flags.CHAD_UNBLOCK_LISA)
 	
-	if completedStages.has('chad_unblock_lisa') or completedStages.has('Chad Unblock Lisa'):
+	if (completedStages.has('chad_unblock_lisa') or completedStages.has('Chad Unblock Lisa')) and completedStages.has('ashely_intro_amy'):
 		addMessage(Flags.LISA_AFTER_UNBLOCK)
 	
 	return availableMessages
@@ -120,6 +120,16 @@ func getAvailableSelectableEvents():
 	if completedStages.has('lisa_first_phone') and completedStages.has('poker_girls_first_phone'):
 		addSelectableEvent(Flags.LISA_FIRST_MARKET_DATE)
 		addSelectableEvent(Flags.ASHELY_FIRST_PARK_DATE)
+	
+	if completedStages.has('ashely_intro_amy'):
+		addSelectableEvent(Flags.AMY_POKER_HALL_INTRO)
+	
+	if completedStages.has('lisa_after_unblock'):
+		addSelectableEvent(Flags.ANA_MARKET_INTRO)
+	
+	if completedStages.has('ana_shop_meeting'):
+		addSelectableEvent(Flags.LISA_PARK_TRAINING)
+
 	
 	return availableSelectableEvents
 

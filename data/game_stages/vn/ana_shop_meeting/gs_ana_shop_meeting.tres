@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://decl88ymi2qlj"]
+
+[ext_resource type="Resource" uid="uid://bdcjg0ghacpej" path="res://data/game_stages/vn/ana_shop_meeting/d_ana_shop_meeting.tres" id="1_fmkle"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_gg6xc"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_4bstm"]
+[ext_resource type="Texture2D" uid="uid://bbg1h4hmw0tpl" path="res://data/background_lists/ana_shop_meeting/shop1.png" id="4_111i0"]
+[ext_resource type="Texture2D" uid="uid://bossnqtdmsdq2" path="res://data/assets/stage_art/grocery_hover.png" id="4_sk0q6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_3oeps"]
+[ext_resource type="Texture2D" uid="uid://cstmdfs7pjpq5" path="res://data/assets/stage_art/grocery.png" id="5_5n6eu"]
+[ext_resource type="AudioStream" uid="uid://w2tujw5fbas5" path="res://data/assets/general/sounds/bg_music/date1.mp3" id="6_oc2wo"]
+
+[sub_resource type="Resource" id="Resource_gn4f0"]
+script = ExtResource("5_3oeps")
+name = "shop"
+images = ExtResource("4_111i0")
+
+[resource]
+script = ExtResource("1_gg6xc")
+name = "ana_shop_meeting"
+dialogue = ExtResource("1_fmkle")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_4bstm")
+isCompletable = true
+startingBackground = SubResource("Resource_gn4f0")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+playerLives = 0
+cpuLives = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("6_oc2wo")
+stageButtonTexture = ExtResource("5_5n6eu")
+stageButtonHover = ExtResource("4_sk0q6")
+stageButtonLabel = "Get Cards For Lisa"
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

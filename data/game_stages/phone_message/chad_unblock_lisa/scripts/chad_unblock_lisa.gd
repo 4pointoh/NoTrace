@@ -71,6 +71,9 @@ var actions = [
 		"type": "partner_delay"
 	},
 	{
+		"type": "partner_delay"
+	},
+	{
 		"type": "partner_delay",
 		"content": "Partner is browsing their photos app"
 	},
