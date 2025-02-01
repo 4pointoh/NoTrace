@@ -231,6 +231,7 @@ func _on_poker_game_five_game_paused():
 func _on_poker_game_five_game_lost():
 	remove_child(currentPokerGame)
 	currentPokerGame.queue_free()
+	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
 	startNewPoker()
 
 func _on_poker_game_five_game_won():

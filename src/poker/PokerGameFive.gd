@@ -598,7 +598,12 @@ func determineCpuActionAndRaiseAmount():
 			if randomizer.randf() < (aggression_factor * 0.2):
 				cpuAction = "call"
 			else:
-				cpuAction = "fold"
+				# Check if CPU has better than high card before applying 50% call chance
+				var has_better_than_high_card = check_better_than_high_card()
+				if has_better_than_high_card and randomizer.randf() < 0.5:
+					cpuAction = "call"
+				else:
+					cpuAction = "fold"
 	else:
 		if expected_value > 0 or can_bluff:
 			if randomizer.randf() < (aggression_factor * 0.5) and opponentMoney > 0:
@@ -791,6 +796,28 @@ func adjusted_cpu_win_percent() -> float:
 		win_percent = estimate_pre_flop_win_percent()
 
 	return clamp(win_percent + adjustment, 0, 100)
+
+func check_better_than_high_card() -> bool:
+	var card1 = cpuCards[0]
+	var card2 = cpuCards[1]
+	
+	var rank1 = PokerEval.card_ranks[card1.value]
+	var rank2 = PokerEval.card_ranks[card2.value]
+	
+	# Check for pairs
+	if rank1 == rank2:
+		return true
+		
+	# Check for suited cards
+	if card1.suit == card2.suit:
+		return true
+		
+	# Check for connected cards (straight potential)
+	if abs(rank1 - rank2) == 1:
+		return true
+		
+	# Otherwise it's just a high card hand
+	return false
 
 func estimate_pre_flop_win_percent() -> float:
 	var card1 = cpuCards[0]
