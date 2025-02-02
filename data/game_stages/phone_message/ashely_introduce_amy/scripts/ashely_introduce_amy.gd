@@ -30,7 +30,7 @@ var actions = [
 	},
 	{
 		"type": "partner_text",
-		"content": "Alright honey I'm going to share the details on your target"
+		"content": "Now listen, I'm going to share the details on your target"
 	},
 	{
 		"type": "partner_text",
@@ -42,7 +42,7 @@ var actions = [
 	},
 	{
 		"type": "player_text",
-		"content": "... sorry I stopped reading after 'I'll personally fuck you', which sound great btw"
+		"content": "... sorry I stopped reading after 'I'll personally fuck you', which sounds great btw"
 	},
 	{
 		"type": "partner_text",

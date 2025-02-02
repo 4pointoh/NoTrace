@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=23 format=3 uid="uid://c7tg4pp1kt145"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_04nsk"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_hv6io"]
+
+[sub_resource type="Resource" id="Resource_k8cya"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_uy3nh"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_h4x0k"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_6i6xb"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_j3puh"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_dl7ec"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_5raac"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_l4j0y"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_nf8qc"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_phsrh"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_mtctf"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_sakbe"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_8ja62"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_j5s8q"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_c4fjd"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_0gqdh"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_eyiug"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_7yh68"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_n1uvp"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[sub_resource type="Resource" id="Resource_rxxdq"]
+script = ExtResource("1_hv6io")
+name = ""
+
+[resource]
+script = ExtResource("1_04nsk")
+name = ""
+images = Array[ExtResource("1_hv6io")]([SubResource("Resource_k8cya"), SubResource("Resource_uy3nh"), SubResource("Resource_h4x0k"), SubResource("Resource_6i6xb"), SubResource("Resource_j3puh"), SubResource("Resource_dl7ec"), SubResource("Resource_5raac"), SubResource("Resource_l4j0y"), SubResource("Resource_nf8qc"), SubResource("Resource_phsrh"), SubResource("Resource_mtctf"), SubResource("Resource_sakbe"), SubResource("Resource_8ja62"), SubResource("Resource_j5s8q"), SubResource("Resource_c4fjd"), SubResource("Resource_0gqdh"), SubResource("Resource_eyiug"), SubResource("Resource_7yh68"), SubResource("Resource_n1uvp"), SubResource("Resource_rxxdq"), null])

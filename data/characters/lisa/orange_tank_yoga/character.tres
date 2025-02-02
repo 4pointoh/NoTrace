@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://b4f31lln416xg"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_j7myj"]
+[ext_resource type="Texture2D" uid="uid://bgndusafiy6qt" path="res://data/characters/lisa/orange_tank_yoga/face.png" id="1_quxit"]
+
+[resource]
+script = ExtResource("1_j7myj")
+name = "Lisa"
+editorName = "lisa-orange-tank"
+image = ExtResource("1_quxit")
+color = Color(1, 1, 1, 1)
+states = Array[Resource("res://addons/dialogue_nodes/objects/CharacterState.gd")]([])
