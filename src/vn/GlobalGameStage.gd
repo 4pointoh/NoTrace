@@ -6,15 +6,17 @@ var PHONE_STAGE = preload("res://data/game_stages/special/phone/gs_phone.tres")
 var ALL_WALLPAPERS = preload("res://resources/wallpapers/all_wallpapers.tres")
 
 var currentStage : GameStage
+var previousStage : GameStage
 var nextStage : GameStage
 var completedStages : Array[String]
+var completedStagesGLOBAL : Array[String]
 var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
 
 var dateStorage : DateStorage
 
-const VERSION = 002
+const VERSION = 004
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -26,6 +28,7 @@ signal showTopImage(image: Texture2D)
 
 var bg_volume
 var text_speed
+var skip_speed
 
 var currentMusic = preload("res://data/assets/general/sounds/bg_music/title2.mp3")
 
@@ -35,6 +38,7 @@ var currentWallpaper : Wallpaper
 
 func _init():
 	currentStage = FIRST_GAME_STAGE
+	previousStage = FIRST_GAME_STAGE
 	nextStage = FIRST_GAME_STAGE.guaranteedNextGameStage
 	currentWallpaper = ALL_WALLPAPERS.wallpapers[0]
 	dateStorage = DateStorage.new()
@@ -47,10 +51,12 @@ func loadConfig():
 	if err != OK:
 		config.set_value("Audio", "bg_volume", 100);
 		config.set_value("Text", "text_speed", 100)
+		config.set_value("Text", "skip_speed", 0.1)
 		config.save("user://settings.cfg");
 	
 	bg_volume = config.get_value("Audio", "bg_volume")
 	text_speed = config.get_value("Text", "text_speed")
+	skip_speed = config.get_value("Text", "skip_speed")
 
 func getBgVolume():
 	return (bg_volume / 10)
@@ -73,6 +79,13 @@ func setTextSpeed(newVal):
 	config.save("user://settings.cfg");
 	text_speed = newVal
 
+func setSkipSpeed(newVal):
+	var config = ConfigFile.new()
+	config.load("user://settings.cfg")
+	config.set_value("Text", "skip_speed", newVal)
+	config.save("user://settings.cfg");
+	skip_speed = newVal
+
 
 func advanceGameStage():
 	if !nextStage:
@@ -80,7 +93,11 @@ func advanceGameStage():
 		
 	if currentStage.isCompletable:
 		completedStages.append(currentStage.name)
-		
+
+		if(!completedStagesGLOBAL.has(currentStage.name)):
+			completedStagesGLOBAL.append(currentStage.name)
+	
+	previousStage = currentStage
 	currentStage = nextStage
 	
 	if(currentStage.guaranteedNextGameStage):
@@ -140,6 +157,12 @@ func addSelectableEvent(event):
 func addMessage(message):
 	if !completedStages.has(message.name):
 		availableMessages.append(message)
+	
+func hasCompletedCurrentStage():
+	return completedStages.has(currentStage.name)
+
+func hasCompletedCurrentStageGlobally():
+	return completedStagesGLOBAL.has(currentStage.name)
 
 
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
@@ -184,11 +207,16 @@ func setImageFullscreen(image):
 
 func savePersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.WRITE)
+	file.store_var(VERSION)
 	file.store_var(unlockedWallpapers)
+	file.store_var(completedStagesGLOBAL)
 
 func loadPersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.READ)
-	# this isnt currently used but could be used to store stuff for a gallery
+	if file:
+		var saveVersion = file.get_var()
+		unlockedWallpapers.assign(file.get_var())
+		completedStagesGLOBAL.assign(file.get_var())
 
 func saveSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.WRITE)
@@ -204,6 +232,13 @@ func saveSaveData(saveName):
 	file.store_var(dateStorage.askHistoryComplete)
 	file.store_var(playerName)
 	
+	if previousStage.isPhoneMessageEvent:
+		file.store_var("res://data/game_stages/special/phone/gs_phone.tres")
+	else:
+		file.store_var(previousStage.resource_path)
+	
+	savePersistentData()
+	
 	
 func loadSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.READ)
@@ -214,13 +249,22 @@ func loadSaveData(saveName):
 			completedStages.assign(completedStageTemp)
 		currentMusic = file.get_var()
 		currentStage = load(file.get_var())
-		unlockedWallpapers.assign(file.get_var())
+		
+		file.get_var() #this is here just to skip wallpapers for backwards compat
+
 		dateStorage.askHistoryComplete = file.get_var()
 		
 		if(saveVersion > 001):
 			playerName = file.get_var()
 		else:
 			playerName = 'Sam'
+		
+		if(saveVersion > 003):
+			previousStage = load(file.get_var())
+		else:
+			previousStage = currentStage
+
+		print(previousStage.resource_path)
 		
 		if(currentStage.guaranteedNextGameStage):
 			nextStage = currentStage.guaranteedNextGameStage
@@ -254,6 +298,8 @@ func getExistingSaves():
 		availableFiles.append("user://save9.dat")
 	if FileAccess.file_exists("user://save10.dat"):
 		availableFiles.append("user://save10.dat")
+	if FileAccess.file_exists("user://save11.dat"):
+		availableFiles.append("user://save11.dat")
 	
 	return availableFiles
 

@@ -2,6 +2,7 @@ extends Resource
 class_name GameStage
 
 @export var name : String
+@export var displayName : String
 @export var dialogue: DialogueData
 @export var dialogueStartKey : String
 @export var guaranteedNextGameStage: GameStage

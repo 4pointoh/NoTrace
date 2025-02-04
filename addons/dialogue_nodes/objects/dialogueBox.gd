@@ -309,6 +309,10 @@ func refocusOption():
 	if options && options.get_child_count() > 0:
 		options.get_child(0).grab_focus()
 
+func clickNext():
+	if options && options.get_child_count() > 0:
+		options.get_child(0).emit_signal('pressed')
+
 func _set_dialogue(dict):
 	# set speaker and portrait
 	speaker.text = ''
@@ -339,6 +343,8 @@ func _set_dialogue(dict):
 			var idx2 = dict['background']
 			if idx2 != -1:
 				background = backgrounds[idx2]
+			else:
+				background = null
 
 	dialogue.text = '' # workaround for bug
 	dialogue.text = _process_text(dict['dialogue'])

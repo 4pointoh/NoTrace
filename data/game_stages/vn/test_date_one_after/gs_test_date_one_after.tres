@@ -1,16 +1,25 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=4 format=3 uid="uid://6nyw1cl2ijhq"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://6nyw1cl2ijhq"]
 
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_3wdxp"]
 [ext_resource type="Resource" uid="uid://fsiefncxnbel" path="res://data/game_stages/vn/test_date_one_after/d_test_date_one_after.tres" id="1_70edq"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_sk71i"]
+[ext_resource type="Texture2D" uid="uid://cp1rrkfmq7pir" path="res://data/background_lists/lisa_market/14.png" id="4_1hiex"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_l4qtg"]
+
+[sub_resource type="Resource" id="Resource_8wcai"]
+script = ExtResource("5_l4qtg")
+name = "sdff"
+images = ExtResource("4_1hiex")
 
 [resource]
 script = ExtResource("1_3wdxp")
 name = "test_date_one_after"
+displayName = "TestDebug"
 dialogue = ExtResource("1_70edq")
 dialogueStartKey = "START"
 guaranteedNextGameStage = ExtResource("2_sk71i")
 isCompletable = true
+startingBackground = SubResource("Resource_8wcai")
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -18,11 +27,19 @@ startingAnte = 0
 opponentName = ""
 opponentNamePlural = false
 maxRaise = 0
+pokerType = 0
+playerLives = 0
+cpuLives = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
 stageButtonLabel = ""
 isDate = false
+dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""
 dateCharacter = ""
 dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

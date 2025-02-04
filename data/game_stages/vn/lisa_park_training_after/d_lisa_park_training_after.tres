@@ -4,10 +4,306 @@
 
 [resource]
 script = ExtResource("1_ubgnv")
-starts = {}
-nodes = {}
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(560, 920),
+"start_id": "START"
+},
+"1_1": {
+"background": 8,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Alright Miss Oxson, now I just need to tabulate your results to figure out the optimal training path...",
+"offset": Vector2(960, 1100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(388, 643),
+"speaker": 0
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay okay I admit that was all just a warm up. ",
+"offset": Vector2(4440, 1160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's like doing stretches before a big run. You can understand how important that is, right?",
+"offset": Vector2(5040, 1160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_12": {
+"background": 8,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Haha okay fine I see your point. ",
+"offset": Vector2(5460, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(388, 643),
+"speaker": 1
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Getting the brain working, ready to make quick decisions under pressure. ",
+"offset": Vector2(4460, 1840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "By asking my favorite clouds??",
+"offset": Vector2(4800, 1900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But I'm ready to get cards in hand! Chips on the table!!",
+"offset": Vector2(5880, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright, I think you're ready. ",
+"offset": Vector2(6220, 1160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There's really no better way to learn than to just start playing. ",
+"offset": Vector2(6600, 1160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So let's go! ",
+"offset": Vector2(6980, 1160),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Haha you know I don't believe for a second that any of that was actually relevant to the training!",
+"offset": Vector2(1420, 1100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh but I assure you it was. ",
+"offset": Vector2(1760, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You make gestures as if performing calculations and making decisions. ",
+"offset": Vector2(2120, 1120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Holding your hand to your chin to appear as if you're thinking. ",
+"offset": Vector2(2440, 1120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh no no no this must be incorrect. ",
+"offset": Vector2(2820, 1120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It says here you're...",
+"offset": Vector2(3160, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Unteachable!",
+"offset": Vector2(3500, 1160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_9": {
+"background": 18,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Hahaha stop it!!",
+"offset": Vector2(3840, 1160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(523.999, 643),
+"speaker": 1
+}
+}
 variables = {}
 comments = Array[String]([])
 strays = Array[String]([])
-characters = ""
-backgroundList = ""
+characters = "res://data/game_stages/vn/lisa_park_training_after/characters.tres"
+backgroundList = "res://data/game_stages/vn/lisa_park_training/bgs.tres"

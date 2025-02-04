@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("2_68ses")
 name = "intro"
+displayName = "Intro"
 dialogue = ExtResource("1_vsx5k")
 dialogueStartKey = "START"
 guaranteedNextGameStage = ExtResource("2_pxhgx")
@@ -18,6 +19,19 @@ startingAnte = 0
 opponentName = ""
 opponentNamePlural = false
 maxRaise = 0
+pokerType = 0
+playerLives = 0
+cpuLives = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

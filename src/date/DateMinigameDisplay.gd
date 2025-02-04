@@ -298,3 +298,9 @@ func _on_date_choice_display_back_button():
 
 func isMaximumAnnoyance():
 	return %AnnoyanceBar.value == 0
+
+func hideBackButton():
+	%DateChoiceDisplay.hideBackButton()
+
+func showBackButton():
+	%DateChoiceDisplay.showBackButton()

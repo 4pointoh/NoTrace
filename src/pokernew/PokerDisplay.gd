@@ -24,6 +24,7 @@ var currentCPULifeIndex = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%IntroLabel.text = 'Poker With ' + GlobalGameStage.currentStage.opponentName
 	%AnimationPlayer.play("intro_label_in")
 	%IntroBg.show()
 	%IntroLabel.show()

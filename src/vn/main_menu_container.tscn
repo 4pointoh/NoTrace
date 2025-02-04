@@ -85,6 +85,41 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 context_menu_enabled = false
 
+[node name="Space6" type="Control" parent="MainMenuContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Quick Skip Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeedContainer" type="HBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SlowButton" type="Button" parent="MainMenuContainer/SpeedContainer"]
+layout_mode = 2
+text = "Slow"
+
+[node name="FastButton" type="Button" parent="MainMenuContainer/SpeedContainer"]
+layout_mode = 2
+text = "Fast"
+
+[node name="ExtremeButton" type="Button" parent="MainMenuContainer/SpeedContainer"]
+layout_mode = 2
+text = "Extreme"
+
+[node name="Control" type="Control" parent="MainMenuContainer/SpeedContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="CurrentSpeed" type="Label" parent="MainMenuContainer/SpeedContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Current: Extreme"
+
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 2
@@ -112,3 +147,6 @@ alignment = 1
 [connection signal="pressed" from="MainMenuContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MainMenuContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="text_changed" from="MainMenuContainer/CharName" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="MainMenuContainer/SpeedContainer/SlowButton" to="." method="_on_slow_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/SpeedContainer/FastButton" to="." method="_on_fast_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/SpeedContainer/ExtremeButton" to="." method="_on_extreme_button_pressed"]

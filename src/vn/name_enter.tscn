@@ -29,7 +29,7 @@ offset_top = 900.0
 offset_right = 697.0
 offset_bottom = 968.0
 theme_override_font_sizes/font_size = 30
-text = "Mike Oxlong"
+text = "MikeOxlong"
 placeholder_text = "Enter Your Name"
 
 [node name="Label" type="Label" parent="."]
@@ -83,12 +83,15 @@ horizontal_alignment = 1
 [node name="Label5" type="Label" parent="."]
 layout_mode = 0
 offset_left = 67.0
-offset_top = 507.0
+offset_top = 484.0
 offset_right = 869.0
-offset_bottom = 678.0
+offset_bottom = 737.0
 theme_override_fonts/font = ExtResource("2_3ploc")
 theme_override_font_sizes/font_size = 24
 text = "Tap spacebar to progress dialogue
+
+CTRL to skip dialogue which has already been seen 
+(disabled in poker and dates)
 
 Press H to hide/unhide the UI
 
@@ -98,9 +101,9 @@ horizontal_alignment = 1
 [node name="Label6" type="Label" parent="."]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 772.0
+offset_top = 796.0
 offset_right = 892.0
-offset_bottom = 865.0
+offset_bottom = 889.0
 theme_override_fonts/font = ExtResource("2_3ploc")
 theme_override_font_sizes/font_size = 24
 text = "Ready to play? Enter your character's first name

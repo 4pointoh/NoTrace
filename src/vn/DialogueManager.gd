@@ -11,6 +11,7 @@ var you_dialog_sound = preload("res://data/assets/general/sounds/sound.wav")
 
 var uiVisible = true
 var muted = false
+var enableQuickSkip = false
 
 signal dialogue_signal(value: String)
 signal dialogue_ended
@@ -26,6 +27,18 @@ var dbox_position_max_lower = Vector2(55, 950)
 
 var currentBackground : Background
 var currentCharacterState : CharacterState
+
+var elapsedQuickSkipTime = 0.0
+func _process(delta):
+	
+	if enableQuickSkip and GlobalGameStage.hasCompletedCurrentStageGlobally() and !GlobalGameStage.currentStage.isPokerMatch and !GlobalGameStage.currentStage.isDate and !GlobalGameStage.currentStage.isPhoneScreen and !GlobalGameStage.currentStage.isPhoneMessageEvent:
+		elapsedQuickSkipTime += delta
+		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
+			clickNext()
+			elapsedQuickSkipTime = 0
+
+func clearCurrentBg():
+	currentBackground = null
 
 func setDialogueData(data : DialogueData):
 	$DialoguePlayer.set_data(data)
@@ -196,3 +209,12 @@ func _on_visibility_changed():
 
 func refocusDbox():
 	$DialoguePlayer.refocusOption()
+	
+func clickNext():
+	$DialoguePlayer.clickNext()
+
+func startQuickSkip():
+	enableQuickSkip = true
+	
+func stopQuickSkip():
+	enableQuickSkip = false

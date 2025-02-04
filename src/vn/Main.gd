@@ -43,6 +43,12 @@ func _input(event):
 	if inputDisabled:
 		pass
 
+	if event.is_action_pressed('quick_skip'):
+		$DialogueManager.startQuickSkip()
+	
+	if event.is_action_released('quick_skip'):
+		$DialogueManager.stopQuickSkip()
+	
 	if event.is_action_pressed("hide_ui"):
 		toggleUi()
 		$DialogueManager.refocusDbox()
@@ -75,6 +81,7 @@ func advanceGameStage():
 	
 func beginStage():
 	dontAutoAdvance = false
+	$DialogueManager.clearCurrentBg()
 	$DialogueManager.setDialogueData(GlobalGameStage.currentStage.dialogue)
 	
 	print('ENTERING STAGE: ' + GlobalGameStage.currentStage.name)
@@ -119,6 +126,7 @@ func startNewPoker():
 	currentPokerGame.gameLost.connect(_on_poker_game_five_game_lost)
 	currentPokerGame.setup()
 	add_child(currentPokerGame)
+	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
 
 func createPokerGame():
 	if(GlobalGameStage.currentStage.pokerType == PokerEnums.PokerType.TEXAS_HOLD_EM):
@@ -235,7 +243,7 @@ func _on_poker_game_five_game_paused():
 func _on_poker_game_five_game_lost():
 	remove_child(currentPokerGame)
 	currentPokerGame.queue_free()
-	#$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
 	startNewPoker()
 
 func _on_poker_game_five_game_won():
@@ -264,6 +272,8 @@ func _on_date_set_wallpaper(wallpaper):
 	$Background.setBackground(wallpaper)
 
 func _on_dialogue_manager_dialogue_proceeded():
+	#$DialogueManager.refocusDbox()
+	
 	if GlobalGameStage.currentStage.isDate:
 		return #we manage our own backgrounds in the date
 		
@@ -327,6 +337,7 @@ func _handle_save_loaded():
 	playBgMusic(load(GlobalGameStage.currentMusic))
 	$DialogueManager.stopDialogue()
 	$MainMenuContainer.visible = false
+	$DialogueManager.clearCurrentBg()
 	
 	if !$DialogueManager.uiVisible:
 		$DialogueManager.toggleUi()

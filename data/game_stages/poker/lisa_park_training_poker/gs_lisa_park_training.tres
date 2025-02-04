@@ -1,17 +1,25 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://bfawa4sl645nm"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://bfawa4sl645nm"]
 
 [ext_resource type="Resource" uid="uid://d2qlv2m37vh85" path="res://data/game_stages/poker/lisa_park_training_poker/d_lisa_park_training_poker.tres" id="1_7xaue"]
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_pwgoe"]
 [ext_resource type="Script" path="res://data/game_stages/poker/lisa_park_training_poker/scripts/lisa_park_training_poker_script.gd" id="2_1v7j0"]
-[ext_resource type="Resource" uid="uid://b7h73cw37mti4" path="res://data/game_stages/vn/lisa_park_training_after/gs_lisa_park_training_after.tres.tres" id="2_re2is"]
+[ext_resource type="Texture2D" uid="uid://bhrlkx45hufur" path="res://data/background_lists/lisa_park_training/lisa_park_training_18_poker.png" id="4_fv7vq"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_mc8v8"]
+[ext_resource type="AudioStream" uid="uid://d34g1ucb6wfi7" path="res://data/assets/general/sounds/bg_music/new/Untitled(12).mp3" id="6_kstor"]
+
+[sub_resource type="Resource" id="Resource_hwath"]
+script = ExtResource("5_mc8v8")
+name = "dd"
+images = ExtResource("4_fv7vq")
 
 [resource]
 script = ExtResource("1_pwgoe")
 name = "lisa_park_training_poker"
+displayName = "Lisa Park Training - Poker1"
 dialogue = ExtResource("1_7xaue")
 dialogueStartKey = "START"
-guaranteedNextGameStage = ExtResource("2_re2is")
 isCompletable = true
+startingBackground = SubResource("Resource_hwath")
 isPokerMatch = true
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -28,6 +36,7 @@ pokerScript = ExtResource("2_1v7j0")
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("6_kstor")
 stageButtonLabel = ""
 isDate = false
 dateWinMarkThisStageComplete = ""

@@ -124,38 +124,75 @@ func processNextActionOrGroup():
 	else:
 		allowLoveLocked = true
 
+	#$DateMinigameDisplay.showBackButton()
 	if nextType == DateAction.TYPES.TOPIC:
+		$DateMinigameDisplay.showBackButton()
 		displayChoices(currentResult.nextGroup, allowLoveLocked)
 	elif nextType == DateAction.TYPES.PLAYER_QUESTION:
+		$DateMinigameDisplay.showBackButton()
 		displayChoices(currentResult.nextGroup)
 	elif nextType == DateAction.TYPES.CHOICE:
 		displayChoices(currentResult.nextGroup)
 	elif nextType == DateAction.TYPES.PARTNER_QUESTION:
+		$DateMinigameDisplay.hideBackButton()
 		displayDialogueFirst(currentResult.nextGroup)
 	elif nextType == DateAction.TYPES.QUIZ:
+		$DateMinigameDisplay.hideBackButton()
 		displayDialogueFirst(currentResult.nextGroup)
 
 func filterActionsToSingleRandomType():
 	var allAvailableActions = currentResult.nextGroup
 	var type_map = {}
-	
+
+	# 1. Group all actions by their type without filtering them out.
 	for action in allAvailableActions:
 		if not type_map.has(action.type):
 			type_map[action.type] = []
 		type_map[action.type].append(action)
 	
-	var types = type_map.keys()
-	
-	# Select a random type
-	var random_type = types[randi() % types.size()]
-	
-	var out : Array[DateAction] = []
+	# 2. Determine which types still have *at least one* uncompleted action
+	var partially_completed_types = []
+	for t in type_map.keys():
+		var actions_for_type = type_map[t]
+		var has_uncompleted_action = false
+
+		for action in actions_for_type:
+			# Check if this action has never been completed before
+			if GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0:
+				has_uncompleted_action = true
+				break
+
+		# If there's at least one uncompleted action for this type,
+		# we mark it as "partially completed" (i.e., still selectable).
+		if has_uncompleted_action:
+			partially_completed_types.append(t)
+
+	# 3. Decide which set of types to pick from
+	var types_to_pick_from: Array
+	# If *no* type has uncompleted actions, all are "fully completed"
+	if partially_completed_types.size() == 0:
+		# → revert to selecting from all types again
+		types_to_pick_from = type_map.keys()
+	else:
+		# → otherwise, only select from partially-completed types
+		types_to_pick_from = partially_completed_types
+
+	# 4. Randomly choose one type from our final pool
+	var random_type = types_to_pick_from[randi() % types_to_pick_from.size()]
+
+	# 5. Build the "nextGroup" output array
+	var out: Array[DateAction] = []
 	out.assign(type_map[random_type])
-	
+
+	# (Optional) Keep logic for ensuring TOPIC type is included if needed.
+	# Just be aware that `out.assign(...)` overwrites the array, whereas
+	# `out.append_array(...)` will combine them.
 	if type_map.has(DateAction.TYPES.TOPIC):
+		# If you want to OVERWRITE out with topic actions:
 		out.assign(type_map[DateAction.TYPES.TOPIC])
-	
+
 	currentResult.nextGroup = out
+
 
 func displayDialogueFirst(actionList):
 	var randomAction = actionList[randi() % actionList.size()]

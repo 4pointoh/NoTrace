@@ -61,7 +61,7 @@ func setup():
 	var availableSaves = GlobalGameStage.getExistingSaves()
 		
 	var saveNum = 0
-	while saveNum < 10:
+	while saveNum < 11:
 		saveNum += 1
 		var saveName = "user://save" + str(saveNum) + ".dat"
 		
@@ -79,6 +79,8 @@ func setup():
 		
 		$SavesContainer.add_child(newSaveSelect)
 		newSaveSelect.clicked.connect(_handle_save_selected)
+	
+	setCurrentSpeedText()	
 
 func _handle_save_selected(saveName):
 	if saveMode:
@@ -104,3 +106,24 @@ func _on_main_menu_pressed():
 
 func _on_text_edit_text_changed():
 	GlobalGameStage.setName(%CharName.text)
+
+
+func _on_slow_button_pressed():
+	GlobalGameStage.setSkipSpeed(0.1)
+	setCurrentSpeedText()
+
+func _on_fast_button_pressed():
+	GlobalGameStage.setSkipSpeed(0.05)
+	setCurrentSpeedText()
+
+func _on_extreme_button_pressed():
+	GlobalGameStage.setSkipSpeed(0.02)
+	setCurrentSpeedText()
+
+func setCurrentSpeedText():
+	if GlobalGameStage.skip_speed == 0.1:
+		%CurrentSpeed.text = 'Current Speed: Slow'
+	elif GlobalGameStage.skip_speed == 0.05:
+		%CurrentSpeed.text = 'Current Speed: Fast'
+	elif GlobalGameStage.skip_speed == 0.02:
+		%CurrentSpeed.text = 'Current Speed: Extreme'

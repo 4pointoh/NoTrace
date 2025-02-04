@@ -29,3 +29,9 @@ func _on_choice_selected(choice):
 
 func _on_button_pressed():
 	back_button.emit()
+
+func hideBackButton():
+	$Button.hide()
+
+func showBackButton():
+	$Button.show()

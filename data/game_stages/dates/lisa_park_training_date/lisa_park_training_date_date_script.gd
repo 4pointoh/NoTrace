@@ -14,7 +14,7 @@ func start():
 
 func date_was_successful():
 	var completedKeyQuestions = mainQuestionIndex >= 5
-	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore >= 90
+	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore >= 80
 	return completedKeyQuestions && completedDate
 
 func get_alternate_loss_dialogue():
@@ -33,13 +33,13 @@ func getCurrentBackground():
 	elif scoreProgression <= 40:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_13_date.png")
 		newBackground.name = '3'
-	elif scoreProgression <= 60:
+	elif scoreProgression <= 50:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_14_date.png")
 		newBackground.name = '4'
-	elif scoreProgression <= 80:
+	elif scoreProgression <= 70:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_15_date.png")
 		newBackground.name = '5'
-	elif scoreProgression <= 100:
+	elif scoreProgression <= 90:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_16_date.png")
 		newBackground.name = '6'
 	else:
@@ -233,7 +233,7 @@ func group_ask_top1_q4():
 
 func group_ask_top1_q5():
 	var result = DateActionResult.new()
-	result.dialogueStartKey = 'dialogue_poker_training'
+	result.dialogueStartKey = 'dialogue_poker_training2'
 	result.success = true
 	
 	result.nextGroup.append(getChoiceAction("Never.", group_ask_top1_q5_c1))
