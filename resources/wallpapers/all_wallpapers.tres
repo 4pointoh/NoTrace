@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=43 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=61 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -22,6 +22,15 @@
 [ext_resource type="Texture2D" uid="uid://dxhv4626n88xj" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png" id="20_yxqy0"]
 [ext_resource type="Texture2D" uid="uid://cfq73hfyrlomt" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger.png" id="21_vn4i6"]
 [ext_resource type="Texture2D" uid="uid://cknmnxuvpbwdi" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger-altart.png" id="22_l4qir"]
+[ext_resource type="Texture2D" uid="uid://b3o3bhp5grl50" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward1.png" id="23_mmxrp"]
+[ext_resource type="Texture2D" uid="uid://cwd80875s7nxs" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward2.png" id="24_0vmbd"]
+[ext_resource type="Texture2D" uid="uid://btfknhvqnut4a" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward3.png" id="25_wkv0p"]
+[ext_resource type="Texture2D" uid="uid://c85l56t6ss65p" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward4.png" id="26_tgh7g"]
+[ext_resource type="Texture2D" uid="uid://rh1stktawcea" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward5.png" id="27_6asmi"]
+[ext_resource type="Texture2D" uid="uid://c2ouhg8lf1oj1" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward6.png" id="28_wudfs"]
+[ext_resource type="Texture2D" uid="uid://bx07tgxaqtgg4" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward7.png" id="29_dx0vj"]
+[ext_resource type="Texture2D" uid="uid://b634bt2htd3dw" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward8.png" id="30_5ybm3"]
+[ext_resource type="Texture2D" uid="uid://c8p64cjwle8xf" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward9.png" id="31_83mw7"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -143,6 +152,60 @@ wallpaperId = "middlefinger-alt-art"
 image = ExtResource("22_l4qir")
 hint = "Insist on more money - Alternate art"
 
+[sub_resource type="Resource" id="Resource_adreg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward1"
+image = ExtResource("23_mmxrp")
+hint = "Attempt to train Lisa the old-fashioned way (1)"
+
+[sub_resource type="Resource" id="Resource_qud3p"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward2"
+image = ExtResource("24_0vmbd")
+hint = "Attempt to train Lisa the old-fashioned way (2)"
+
+[sub_resource type="Resource" id="Resource_pkb4d"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward3"
+image = ExtResource("25_wkv0p")
+hint = "Attempt to train Lisa the old-fashioned way (3)"
+
+[sub_resource type="Resource" id="Resource_ehi18"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward4"
+image = ExtResource("26_tgh7g")
+hint = "Attempt to train Lisa the old-fashioned way (4)"
+
+[sub_resource type="Resource" id="Resource_q0qi1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward5"
+image = ExtResource("27_6asmi")
+hint = "Attempt to train Lisa the old-fashioned way (5)"
+
+[sub_resource type="Resource" id="Resource_ujgt3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward6"
+image = ExtResource("28_wudfs")
+hint = "Attempt to train Lisa the old-fashioned way (6)"
+
+[sub_resource type="Resource" id="Resource_onh7g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward7"
+image = ExtResource("29_dx0vj")
+hint = "Attempt to train Lisa the old-fashioned way (7)"
+
+[sub_resource type="Resource" id="Resource_afmye"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward8"
+image = ExtResource("30_5ybm3")
+hint = "Attempt to train Lisa the old-fashioned way (8)"
+
+[sub_resource type="Resource" id="Resource_in0k7"]
+script = ExtResource("3_wccuy")
+wallpaperId = "lisa_training_reward9"
+image = ExtResource("31_83mw7")
+hint = "Attempt to train Lisa the old-fashioned way (9)"
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p"), SubResource("Resource_87wbd"), SubResource("Resource_tt02v"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_482xq"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_q4c1p"), SubResource("Resource_87wbd"), SubResource("Resource_tt02v"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_482xq"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7")])

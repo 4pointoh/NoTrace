@@ -127,8 +127,8 @@ func getAvailableSelectableEvents():
 	if completedStages.has('lisa_after_unblock'):
 		addSelectableEvent(Flags.ANA_MARKET_INTRO)
 	
-	#if completedStages.has('ana_shop_meeting'):
-	#	addSelectableEvent(Flags.LISA_PARK_TRAINING)
+	if completedStages.has('ana_shop_meeting'):
+		addSelectableEvent(Flags.LISA_PARK_TRAINING)
 
 	
 	return availableSelectableEvents

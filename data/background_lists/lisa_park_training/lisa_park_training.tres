@@ -1,89 +1,453 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=23 format=3 uid="uid://c7tg4pp1kt145"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=151 format=3 uid="uid://mkk36ga80v0l"]
 
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_04nsk"]
+[ext_resource type="Texture2D" uid="uid://b6w2arutea5rb" path="res://data/background_lists/lisa_park_training/eadf2b26-29a9-4c0f-9d7c-cc06c6c77add.png" id="1_078ue"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_hv6io"]
+[ext_resource type="Texture2D" uid="uid://cjftjy56rmjwa" path="res://data/background_lists/lisa_park_training/lisa_park_training_0.png" id="3_k1v3o"]
+[ext_resource type="Texture2D" uid="uid://fgd1fwnbcs6d" path="res://data/background_lists/lisa_park_training/lisa_park_training_01_2.png" id="4_4as65"]
+[ext_resource type="Texture2D" uid="uid://xmt3rhn3p5fb" path="res://data/background_lists/lisa_park_training/lisa_park_training_1.png" id="5_78ig7"]
+[ext_resource type="Texture2D" uid="uid://8vfj8cdjyp1k" path="res://data/background_lists/lisa_park_training/lisa_park_training_10.png" id="6_y7a15"]
+[ext_resource type="Texture2D" uid="uid://44211l3r7xvo" path="res://data/background_lists/lisa_park_training/lisa_park_training_11.png" id="7_4q2qo"]
+[ext_resource type="Texture2D" uid="uid://duk63vfpnfwpe" path="res://data/background_lists/lisa_park_training/lisa_park_training_12_date.png" id="8_8njnr"]
+[ext_resource type="Texture2D" uid="uid://cjudhdkbeov4h" path="res://data/background_lists/lisa_park_training/lisa_park_training_13_date.png" id="9_y1oht"]
+[ext_resource type="Texture2D" uid="uid://dxfposttt784r" path="res://data/background_lists/lisa_park_training/lisa_park_training_14_date.png" id="10_8h0c0"]
+[ext_resource type="Texture2D" uid="uid://d3ix1bbgm878o" path="res://data/background_lists/lisa_park_training/lisa_park_training_15_date.png" id="11_ko2wa"]
+[ext_resource type="Texture2D" uid="uid://c6ggdl6t5rtow" path="res://data/background_lists/lisa_park_training/lisa_park_training_16_date.png" id="12_icvjm"]
+[ext_resource type="Texture2D" uid="uid://dbenmgsqjvc7v" path="res://data/background_lists/lisa_park_training/lisa_park_training_17_date.png" id="13_bakhy"]
+[ext_resource type="Texture2D" uid="uid://bhrlkx45hufur" path="res://data/background_lists/lisa_park_training/lisa_park_training_18_poker.png" id="14_g33vq"]
+[ext_resource type="Texture2D" uid="uid://f1h5jx4smv04" path="res://data/background_lists/lisa_park_training/lisa_park_training_19_poker.png" id="15_0n4me"]
+[ext_resource type="Texture2D" uid="uid://c6vjt4n3cjkha" path="res://data/background_lists/lisa_park_training/lisa_park_training_2.png" id="16_4mmrf"]
+[ext_resource type="Texture2D" uid="uid://d4e4gs5vea8fl" path="res://data/background_lists/lisa_park_training/lisa_park_training_20_poker.png" id="17_w4x2t"]
+[ext_resource type="Texture2D" uid="uid://8bk7dif1jy4v" path="res://data/background_lists/lisa_park_training/lisa_park_training_21_poker.png" id="18_6ekmc"]
+[ext_resource type="Texture2D" uid="uid://ceqnlqk6igim7" path="res://data/background_lists/lisa_park_training/lisa_park_training_22_poker.png" id="19_t4eiq"]
+[ext_resource type="Texture2D" uid="uid://w0ox75fabfnm" path="res://data/background_lists/lisa_park_training/lisa_park_training_23_poker.png" id="20_yd1u2"]
+[ext_resource type="Texture2D" uid="uid://doj2ah3h7w5i" path="res://data/background_lists/lisa_park_training/lisa_park_training_24_poker.png" id="21_t1gyc"]
+[ext_resource type="Texture2D" uid="uid://bj4u2ep44u84b" path="res://data/background_lists/lisa_park_training/lisa_park_training_25_poker.png" id="22_eq8hp"]
+[ext_resource type="Texture2D" uid="uid://tv6pc82cvfxo" path="res://data/background_lists/lisa_park_training/lisa_park_training_26_poker.png" id="23_afldy"]
+[ext_resource type="Texture2D" uid="uid://cse2fewaafo0a" path="res://data/background_lists/lisa_park_training/lisa_park_training_27_poker.png" id="24_od01w"]
+[ext_resource type="Texture2D" uid="uid://davye5fkcvdfv" path="res://data/background_lists/lisa_park_training/lisa_park_training_28_poker.png" id="25_iqsto"]
+[ext_resource type="Texture2D" uid="uid://dlp6jrum3nawt" path="res://data/background_lists/lisa_park_training/lisa_park_training_29_poker.png" id="26_qw74x"]
+[ext_resource type="Texture2D" uid="uid://cbo7rlo5uvt42" path="res://data/background_lists/lisa_park_training/lisa_park_training_3.png" id="27_rv7cv"]
+[ext_resource type="Texture2D" uid="uid://cs7tp8kbf68qq" path="res://data/background_lists/lisa_park_training/lisa_park_training_30_poker.png" id="28_xj6i3"]
+[ext_resource type="Texture2D" uid="uid://f7phei1hqht" path="res://data/background_lists/lisa_park_training/lisa_park_training_31_poker.png" id="29_r3d5h"]
+[ext_resource type="Texture2D" uid="uid://coomxudpx42xn" path="res://data/background_lists/lisa_park_training/lisa_park_training_32_poker.png" id="30_ul7cm"]
+[ext_resource type="Texture2D" uid="uid://d08cajpl0tkx8" path="res://data/background_lists/lisa_park_training/lisa_park_training_33_poker.png" id="31_5qsfj"]
+[ext_resource type="Texture2D" uid="uid://cf44icchf7rs8" path="res://data/background_lists/lisa_park_training/lisa_park_training_34_poker.png" id="32_x88mn"]
+[ext_resource type="Texture2D" uid="uid://crbydd18h5wn4" path="res://data/background_lists/lisa_park_training/lisa_park_training_35_poker.png" id="33_l6q75"]
+[ext_resource type="Texture2D" uid="uid://b1kaeqok13c6l" path="res://data/background_lists/lisa_park_training/lisa_park_training_36_poker.png" id="34_xin2o"]
+[ext_resource type="Texture2D" uid="uid://bkx6yar4nstb4" path="res://data/background_lists/lisa_park_training/lisa_park_training_37_poker.png" id="35_fxhul"]
+[ext_resource type="Texture2D" uid="uid://csqik67itytpb" path="res://data/background_lists/lisa_park_training/lisa_park_training_38_poker.png" id="36_o7ysu"]
+[ext_resource type="Texture2D" uid="uid://8fxyudl3vysc" path="res://data/background_lists/lisa_park_training/lisa_park_training_39_poker.png" id="37_h62fq"]
+[ext_resource type="Texture2D" uid="uid://bmjxqbjx36wky" path="res://data/background_lists/lisa_park_training/lisa_park_training_4.png" id="38_v375u"]
+[ext_resource type="Texture2D" uid="uid://xttfhs6atqov" path="res://data/background_lists/lisa_park_training/lisa_park_training_40_poker.png" id="39_mkvn4"]
+[ext_resource type="Texture2D" uid="uid://xejk7h7t3pqw" path="res://data/background_lists/lisa_park_training/lisa_park_training_41_poker.png" id="40_7elvj"]
+[ext_resource type="Texture2D" uid="uid://b2xquvqjre6w3" path="res://data/background_lists/lisa_park_training/lisa_park_training_42_poker.png" id="41_6o8x2"]
+[ext_resource type="Texture2D" uid="uid://dt8mvrpvbg3by" path="res://data/background_lists/lisa_park_training/lisa_park_training_43_poker.png" id="42_jrcf1"]
+[ext_resource type="Texture2D" uid="uid://clhyg7sta8n75" path="res://data/background_lists/lisa_park_training/lisa_park_training_44_poker.png" id="43_opo70"]
+[ext_resource type="Texture2D" uid="uid://cjp21bnpq1opv" path="res://data/background_lists/lisa_park_training/lisa_park_training_45_poker.png" id="44_m5p23"]
+[ext_resource type="Texture2D" uid="uid://bccgxk8n8sk2u" path="res://data/background_lists/lisa_park_training/lisa_park_training_46_poker.png" id="45_1r1fu"]
+[ext_resource type="Texture2D" uid="uid://bkk1pjcrpg3v1" path="res://data/background_lists/lisa_park_training/lisa_park_training_47_poker.png" id="46_jxfj0"]
+[ext_resource type="Texture2D" uid="uid://dpeuakifpp7hr" path="res://data/background_lists/lisa_park_training/lisa_park_training_48_poker.png" id="47_43w0c"]
+[ext_resource type="Texture2D" uid="uid://d2i2j4pefoels" path="res://data/background_lists/lisa_park_training/lisa_park_training_49_poker.png" id="48_8xrsj"]
+[ext_resource type="Texture2D" uid="uid://v78u4akvryd1" path="res://data/background_lists/lisa_park_training/lisa_park_training_5.png" id="49_rh7jd"]
+[ext_resource type="Texture2D" uid="uid://my5gqbmr7qr0" path="res://data/background_lists/lisa_park_training/lisa_park_training_50_poker.png" id="50_dlqgp"]
+[ext_resource type="Texture2D" uid="uid://b4gtl4osrq5rr" path="res://data/background_lists/lisa_park_training/lisa_park_training_51_poker.png" id="51_dkbjb"]
+[ext_resource type="Texture2D" uid="uid://clq62wfnw7av3" path="res://data/background_lists/lisa_park_training/lisa_park_training_52_poker.png" id="52_43x5y"]
+[ext_resource type="Texture2D" uid="uid://bfq12ot6ekgpq" path="res://data/background_lists/lisa_park_training/lisa_park_training_53_poker.png" id="53_kxfje"]
+[ext_resource type="Texture2D" uid="uid://dliofuctyf28i" path="res://data/background_lists/lisa_park_training/lisa_park_training_54_poker.png" id="54_aajff"]
+[ext_resource type="Texture2D" uid="uid://231mwh8vffps" path="res://data/background_lists/lisa_park_training/lisa_park_training_55_poker.png" id="55_ystyl"]
+[ext_resource type="Texture2D" uid="uid://dgmirw6u653qb" path="res://data/background_lists/lisa_park_training/lisa_park_training_57_poker.png" id="56_r0shm"]
+[ext_resource type="Texture2D" uid="uid://brao6jk2omkjo" path="res://data/background_lists/lisa_park_training/lisa_park_training_58_poker.png" id="57_mwngs"]
+[ext_resource type="Texture2D" uid="uid://daxhp3pqki2r7" path="res://data/background_lists/lisa_park_training/lisa_park_training_59.png" id="58_ema8u"]
+[ext_resource type="Texture2D" uid="uid://cc3tnag576jwo" path="res://data/background_lists/lisa_park_training/lisa_park_training_6.png" id="59_c30xg"]
+[ext_resource type="Texture2D" uid="uid://di7qf65ytiybo" path="res://data/background_lists/lisa_park_training/lisa_park_training_60.png" id="60_lee8o"]
+[ext_resource type="Texture2D" uid="uid://bhlijyxjt5e45" path="res://data/background_lists/lisa_park_training/lisa_park_training_61.png" id="61_bchw7"]
+[ext_resource type="Texture2D" uid="uid://ctg8rweeet4ag" path="res://data/background_lists/lisa_park_training/lisa_park_training_62.png" id="62_wslek"]
+[ext_resource type="Texture2D" uid="uid://bo8mip2p63ncc" path="res://data/background_lists/lisa_park_training/lisa_park_training_63.png" id="63_qd584"]
+[ext_resource type="Texture2D" uid="uid://lm3c7n7s7auv" path="res://data/background_lists/lisa_park_training/lisa_park_training_7.png" id="64_komj4"]
+[ext_resource type="Texture2D" uid="uid://cfx7s87at6y0" path="res://data/background_lists/lisa_park_training/lisa_park_training_8.png" id="65_6wimr"]
+[ext_resource type="Texture2D" uid="uid://ru4tj4wu187t" path="res://data/background_lists/lisa_park_training/lisa_park_training_9.png" id="66_ba6eo"]
+[ext_resource type="Texture2D" uid="uid://b3o3bhp5grl50" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward1.png" id="67_52nup"]
+[ext_resource type="Texture2D" uid="uid://cwd80875s7nxs" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward2.png" id="68_p45y4"]
+[ext_resource type="Texture2D" uid="uid://btfknhvqnut4a" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward3.png" id="69_gdkfb"]
+[ext_resource type="Texture2D" uid="uid://c85l56t6ss65p" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward4.png" id="70_i0007"]
+[ext_resource type="Texture2D" uid="uid://rh1stktawcea" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward5.png" id="71_uqept"]
+[ext_resource type="Texture2D" uid="uid://c2ouhg8lf1oj1" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward6.png" id="72_2b04k"]
+[ext_resource type="Texture2D" uid="uid://bx07tgxaqtgg4" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward7.png" id="73_3ixsd"]
+[ext_resource type="Texture2D" uid="uid://b634bt2htd3dw" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward8.png" id="74_sbs23"]
+[ext_resource type="Texture2D" uid="uid://c8p64cjwle8xf" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward9.png" id="75_315ky"]
 
-[sub_resource type="Resource" id="Resource_k8cya"]
+[sub_resource type="Resource" id="Resource_4x3xu"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "eadf2b26-29a9-4c0f-9d7c-cc06c6c77add.png"
+images = ExtResource("1_078ue")
 
-[sub_resource type="Resource" id="Resource_uy3nh"]
+[sub_resource type="Resource" id="Resource_sk23f"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_0.png"
+images = ExtResource("3_k1v3o")
 
-[sub_resource type="Resource" id="Resource_h4x0k"]
+[sub_resource type="Resource" id="Resource_ep6r4"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_01_2.png"
+images = ExtResource("4_4as65")
 
-[sub_resource type="Resource" id="Resource_6i6xb"]
+[sub_resource type="Resource" id="Resource_a4123"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_1.png"
+images = ExtResource("5_78ig7")
 
-[sub_resource type="Resource" id="Resource_j3puh"]
+[sub_resource type="Resource" id="Resource_rh4cy"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_10.png"
+images = ExtResource("6_y7a15")
 
-[sub_resource type="Resource" id="Resource_dl7ec"]
+[sub_resource type="Resource" id="Resource_vfby4"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_11.png"
+images = ExtResource("7_4q2qo")
 
-[sub_resource type="Resource" id="Resource_5raac"]
+[sub_resource type="Resource" id="Resource_ww6eg"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_12_date.png"
+images = ExtResource("8_8njnr")
 
-[sub_resource type="Resource" id="Resource_l4j0y"]
+[sub_resource type="Resource" id="Resource_5p2x6"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_13_date.png"
+images = ExtResource("9_y1oht")
 
-[sub_resource type="Resource" id="Resource_nf8qc"]
+[sub_resource type="Resource" id="Resource_wmn31"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_14_date.png"
+images = ExtResource("10_8h0c0")
 
-[sub_resource type="Resource" id="Resource_phsrh"]
+[sub_resource type="Resource" id="Resource_lgwyh"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_15_date.png"
+images = ExtResource("11_ko2wa")
 
-[sub_resource type="Resource" id="Resource_mtctf"]
+[sub_resource type="Resource" id="Resource_jcnbj"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_16_date.png"
+images = ExtResource("12_icvjm")
 
-[sub_resource type="Resource" id="Resource_sakbe"]
+[sub_resource type="Resource" id="Resource_w4mf0"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_17_date.png"
+images = ExtResource("13_bakhy")
 
-[sub_resource type="Resource" id="Resource_8ja62"]
+[sub_resource type="Resource" id="Resource_2utpc"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_18_poker.png"
+images = ExtResource("14_g33vq")
 
-[sub_resource type="Resource" id="Resource_j5s8q"]
+[sub_resource type="Resource" id="Resource_pg2yy"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_19_poker.png"
+images = ExtResource("15_0n4me")
 
-[sub_resource type="Resource" id="Resource_c4fjd"]
+[sub_resource type="Resource" id="Resource_7f8jd"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_2.png"
+images = ExtResource("16_4mmrf")
 
-[sub_resource type="Resource" id="Resource_0gqdh"]
+[sub_resource type="Resource" id="Resource_vtpks"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_20_poker.png"
+images = ExtResource("17_w4x2t")
 
-[sub_resource type="Resource" id="Resource_eyiug"]
+[sub_resource type="Resource" id="Resource_oym8o"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_21_poker.png"
+images = ExtResource("18_6ekmc")
 
-[sub_resource type="Resource" id="Resource_7yh68"]
+[sub_resource type="Resource" id="Resource_42i3e"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_22_poker.png"
+images = ExtResource("19_t4eiq")
 
-[sub_resource type="Resource" id="Resource_n1uvp"]
+[sub_resource type="Resource" id="Resource_kytxi"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_23_poker.png"
+images = ExtResource("20_yd1u2")
 
-[sub_resource type="Resource" id="Resource_rxxdq"]
+[sub_resource type="Resource" id="Resource_6h1ek"]
 script = ExtResource("1_hv6io")
-name = ""
+name = "lisa_park_training_24_poker.png"
+images = ExtResource("21_t1gyc")
+
+[sub_resource type="Resource" id="Resource_24bie"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_25_poker.png"
+images = ExtResource("22_eq8hp")
+
+[sub_resource type="Resource" id="Resource_5fs6m"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_26_poker.png"
+images = ExtResource("23_afldy")
+
+[sub_resource type="Resource" id="Resource_upu7l"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_27_poker.png"
+images = ExtResource("24_od01w")
+
+[sub_resource type="Resource" id="Resource_msmws"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_28_poker.png"
+images = ExtResource("25_iqsto")
+
+[sub_resource type="Resource" id="Resource_sj20r"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_29_poker.png"
+images = ExtResource("26_qw74x")
+
+[sub_resource type="Resource" id="Resource_ceuv7"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_3.png"
+images = ExtResource("27_rv7cv")
+
+[sub_resource type="Resource" id="Resource_yk12h"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_30_poker.png"
+images = ExtResource("28_xj6i3")
+
+[sub_resource type="Resource" id="Resource_kkmhq"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_31_poker.png"
+images = ExtResource("29_r3d5h")
+
+[sub_resource type="Resource" id="Resource_t4kxo"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_32_poker.png"
+images = ExtResource("30_ul7cm")
+
+[sub_resource type="Resource" id="Resource_wxofp"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_33_poker.png"
+images = ExtResource("31_5qsfj")
+
+[sub_resource type="Resource" id="Resource_e1rdg"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_34_poker.png"
+images = ExtResource("32_x88mn")
+
+[sub_resource type="Resource" id="Resource_77n5o"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_35_poker.png"
+images = ExtResource("33_l6q75")
+
+[sub_resource type="Resource" id="Resource_u2far"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_36_poker.png"
+images = ExtResource("34_xin2o")
+
+[sub_resource type="Resource" id="Resource_j3pb1"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_37_poker.png"
+images = ExtResource("35_fxhul")
+
+[sub_resource type="Resource" id="Resource_2mr2j"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_38_poker.png"
+images = ExtResource("36_o7ysu")
+
+[sub_resource type="Resource" id="Resource_c0jh2"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_39_poker.png"
+images = ExtResource("37_h62fq")
+
+[sub_resource type="Resource" id="Resource_woauw"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_4.png"
+images = ExtResource("38_v375u")
+
+[sub_resource type="Resource" id="Resource_rl3a3"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_40_poker.png"
+images = ExtResource("39_mkvn4")
+
+[sub_resource type="Resource" id="Resource_xcmak"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_41_poker.png"
+images = ExtResource("40_7elvj")
+
+[sub_resource type="Resource" id="Resource_bwxst"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_42_poker.png"
+images = ExtResource("41_6o8x2")
+
+[sub_resource type="Resource" id="Resource_bu285"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_43_poker.png"
+images = ExtResource("42_jrcf1")
+
+[sub_resource type="Resource" id="Resource_vvq24"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_44_poker.png"
+images = ExtResource("43_opo70")
+
+[sub_resource type="Resource" id="Resource_ws1fd"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_45_poker.png"
+images = ExtResource("44_m5p23")
+
+[sub_resource type="Resource" id="Resource_mm1t8"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_46_poker.png"
+images = ExtResource("45_1r1fu")
+
+[sub_resource type="Resource" id="Resource_yncmf"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_47_poker.png"
+images = ExtResource("46_jxfj0")
+
+[sub_resource type="Resource" id="Resource_gxr7b"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_48_poker.png"
+images = ExtResource("47_43w0c")
+
+[sub_resource type="Resource" id="Resource_oqgsh"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_49_poker.png"
+images = ExtResource("48_8xrsj")
+
+[sub_resource type="Resource" id="Resource_p7yob"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_5.png"
+images = ExtResource("49_rh7jd")
+
+[sub_resource type="Resource" id="Resource_in7be"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_50_poker.png"
+images = ExtResource("50_dlqgp")
+
+[sub_resource type="Resource" id="Resource_y7mf3"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_51_poker.png"
+images = ExtResource("51_dkbjb")
+
+[sub_resource type="Resource" id="Resource_grbly"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_52_poker.png"
+images = ExtResource("52_43x5y")
+
+[sub_resource type="Resource" id="Resource_jovu6"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_53_poker.png"
+images = ExtResource("53_kxfje")
+
+[sub_resource type="Resource" id="Resource_o6u81"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_54_poker.png"
+images = ExtResource("54_aajff")
+
+[sub_resource type="Resource" id="Resource_u6rbs"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_55_poker.png"
+images = ExtResource("55_ystyl")
+
+[sub_resource type="Resource" id="Resource_we83y"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_57_poker.png"
+images = ExtResource("56_r0shm")
+
+[sub_resource type="Resource" id="Resource_2002p"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_58_poker.png"
+images = ExtResource("57_mwngs")
+
+[sub_resource type="Resource" id="Resource_v7kvu"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_59.png"
+images = ExtResource("58_ema8u")
+
+[sub_resource type="Resource" id="Resource_5xa2q"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_6.png"
+images = ExtResource("59_c30xg")
+
+[sub_resource type="Resource" id="Resource_wdyqj"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_60.png"
+images = ExtResource("60_lee8o")
+
+[sub_resource type="Resource" id="Resource_tg6n7"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_61.png"
+images = ExtResource("61_bchw7")
+
+[sub_resource type="Resource" id="Resource_cv42l"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_62.png"
+images = ExtResource("62_wslek")
+
+[sub_resource type="Resource" id="Resource_12hj3"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_63.png"
+images = ExtResource("63_qd584")
+
+[sub_resource type="Resource" id="Resource_pwjb0"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_7.png"
+images = ExtResource("64_komj4")
+
+[sub_resource type="Resource" id="Resource_x08pw"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_8.png"
+images = ExtResource("65_6wimr")
+
+[sub_resource type="Resource" id="Resource_ag11f"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_9.png"
+images = ExtResource("66_ba6eo")
+
+[sub_resource type="Resource" id="Resource_n16f1"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward1.png"
+images = ExtResource("67_52nup")
+
+[sub_resource type="Resource" id="Resource_kpu3c"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward2.png"
+images = ExtResource("68_p45y4")
+
+[sub_resource type="Resource" id="Resource_2xs2r"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward3.png"
+images = ExtResource("69_gdkfb")
+
+[sub_resource type="Resource" id="Resource_5oca6"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward4.png"
+images = ExtResource("70_i0007")
+
+[sub_resource type="Resource" id="Resource_ksvrc"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward5.png"
+images = ExtResource("71_uqept")
+
+[sub_resource type="Resource" id="Resource_kt5ot"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward6.png"
+images = ExtResource("72_2b04k")
+
+[sub_resource type="Resource" id="Resource_707ce"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward7.png"
+images = ExtResource("73_3ixsd")
+
+[sub_resource type="Resource" id="Resource_a3eoj"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward8.png"
+images = ExtResource("74_sbs23")
+
+[sub_resource type="Resource" id="Resource_q6kdb"]
+script = ExtResource("1_hv6io")
+name = "lisa_park_training_reward9.png"
+images = ExtResource("75_315ky")
 
 [resource]
 script = ExtResource("1_04nsk")
-name = ""
-images = Array[ExtResource("1_hv6io")]([SubResource("Resource_k8cya"), SubResource("Resource_uy3nh"), SubResource("Resource_h4x0k"), SubResource("Resource_6i6xb"), SubResource("Resource_j3puh"), SubResource("Resource_dl7ec"), SubResource("Resource_5raac"), SubResource("Resource_l4j0y"), SubResource("Resource_nf8qc"), SubResource("Resource_phsrh"), SubResource("Resource_mtctf"), SubResource("Resource_sakbe"), SubResource("Resource_8ja62"), SubResource("Resource_j5s8q"), SubResource("Resource_c4fjd"), SubResource("Resource_0gqdh"), SubResource("Resource_eyiug"), SubResource("Resource_7yh68"), SubResource("Resource_n1uvp"), SubResource("Resource_rxxdq"), null])
+name = "lisa_park_training"
+images = Array[ExtResource("1_hv6io")]([SubResource("Resource_4x3xu"), SubResource("Resource_sk23f"), SubResource("Resource_ep6r4"), SubResource("Resource_a4123"), SubResource("Resource_rh4cy"), SubResource("Resource_vfby4"), SubResource("Resource_ww6eg"), SubResource("Resource_5p2x6"), SubResource("Resource_wmn31"), SubResource("Resource_lgwyh"), SubResource("Resource_jcnbj"), SubResource("Resource_w4mf0"), SubResource("Resource_2utpc"), SubResource("Resource_pg2yy"), SubResource("Resource_7f8jd"), SubResource("Resource_vtpks"), SubResource("Resource_oym8o"), SubResource("Resource_42i3e"), SubResource("Resource_kytxi"), SubResource("Resource_6h1ek"), SubResource("Resource_24bie"), SubResource("Resource_5fs6m"), SubResource("Resource_upu7l"), SubResource("Resource_msmws"), SubResource("Resource_sj20r"), SubResource("Resource_ceuv7"), SubResource("Resource_yk12h"), SubResource("Resource_kkmhq"), SubResource("Resource_t4kxo"), SubResource("Resource_wxofp"), SubResource("Resource_e1rdg"), SubResource("Resource_77n5o"), SubResource("Resource_u2far"), SubResource("Resource_j3pb1"), SubResource("Resource_2mr2j"), SubResource("Resource_c0jh2"), SubResource("Resource_woauw"), SubResource("Resource_rl3a3"), SubResource("Resource_xcmak"), SubResource("Resource_bwxst"), SubResource("Resource_bu285"), SubResource("Resource_vvq24"), SubResource("Resource_ws1fd"), SubResource("Resource_mm1t8"), SubResource("Resource_yncmf"), SubResource("Resource_gxr7b"), SubResource("Resource_oqgsh"), SubResource("Resource_p7yob"), SubResource("Resource_in7be"), SubResource("Resource_y7mf3"), SubResource("Resource_grbly"), SubResource("Resource_jovu6"), SubResource("Resource_o6u81"), SubResource("Resource_u6rbs"), SubResource("Resource_we83y"), SubResource("Resource_2002p"), SubResource("Resource_v7kvu"), SubResource("Resource_5xa2q"), SubResource("Resource_wdyqj"), SubResource("Resource_tg6n7"), SubResource("Resource_cv42l"), SubResource("Resource_12hj3"), SubResource("Resource_pwjb0"), SubResource("Resource_x08pw"), SubResource("Resource_ag11f"), SubResource("Resource_n16f1"), SubResource("Resource_kpu3c"), SubResource("Resource_2xs2r"), SubResource("Resource_5oca6"), SubResource("Resource_ksvrc"), SubResource("Resource_kt5ot"), SubResource("Resource_707ce"), SubResource("Resource_a3eoj"), SubResource("Resource_q6kdb")])

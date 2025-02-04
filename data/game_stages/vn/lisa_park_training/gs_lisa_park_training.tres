@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://dcmd073xcryic"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://dcmd073xcryic"]
 
 [ext_resource type="Resource" uid="uid://b415wylgyngbh" path="res://data/game_stages/vn/lisa_park_training/d_lisa_park_training.tres" id="1_1w56h"]
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_ukim7"]
-[ext_resource type="Resource" uid="uid://bfawa4sl645nm" path="res://data/game_stages/poker/lisa_park_training_poker/gs_lisa_park_training.tres" id="2_bsqwx"]
+[ext_resource type="Resource" uid="uid://df41cvr24y1xs" path="res://data/game_stages/dates/lisa_park_training_date/gs_lisa_park_training_date.tres" id="2_j4862"]
 [ext_resource type="Texture2D" uid="uid://dx7rjy5ql8yxf" path="res://data/assets/stage_art/park2_hover.png" id="4_i30y6"]
 [ext_resource type="Texture2D" uid="uid://xmt3rhn3p5fb" path="res://data/background_lists/lisa_park_training/lisa_park_training_1.png" id="4_jiri6"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_2td3p"]
 [ext_resource type="Texture2D" uid="uid://cj7b75fjllplr" path="res://data/assets/stage_art/park2.png" id="5_8rdx8"]
-[ext_resource type="AudioStream" uid="uid://b6vmlmq2tnwwo" path="res://data/assets/general/sounds/bg_music/Neon Lights and Endless Nights.mp3" id="6_33ygh"]
 
 [sub_resource type="Resource" id="Resource_5e8dw"]
 script = ExtResource("5_2td3p")
@@ -19,7 +18,7 @@ script = ExtResource("1_ukim7")
 name = "lisa_park_training"
 dialogue = ExtResource("1_1w56h")
 dialogueStartKey = "START"
-guaranteedNextGameStage = ExtResource("2_bsqwx")
+guaranteedNextGameStage = ExtResource("2_j4862")
 isCompletable = true
 startingBackground = SubResource("Resource_5e8dw")
 isPokerMatch = false
@@ -37,7 +36,6 @@ cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
-startingMusic = ExtResource("6_33ygh")
 stageButtonTexture = ExtResource("5_8rdx8")
 stageButtonHover = ExtResource("4_i30y6")
 stageButtonLabel = "Lisa Training At Park"

@@ -63,3 +63,10 @@ func _save_external_data():
 	if is_instance_valid(editor):
 		editor.files.save_all()
 
+func _handles(object) -> bool:
+	return object is DialogueData
+
+func _edit(object) -> void:
+	if object is DialogueData and is_instance_valid(editor):
+		editor.files.open_file(object.resource_path)
+

@@ -162,6 +162,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
+		"music_neon_lights": playMusicNeonLights()
 		"walk_on": $CharacterManager.walkOnNext()
 		"walk_off": $CharacterManager.characterWalkOff()
 		"zoom": $CharacterManager.zoomCharacter()
@@ -182,6 +183,9 @@ func playMusicHome():
 	
 func playMusicWhimsical():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/Whispers of the Night.mp3"))
+
+func playMusicNeonLights():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/Neon Lights and Endless Nights.mp3"))
 
 func fadeNext():
 	$Background.shouldFade = true

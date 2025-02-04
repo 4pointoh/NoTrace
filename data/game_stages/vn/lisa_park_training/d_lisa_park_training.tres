@@ -4,10 +4,1049 @@
 
 [resource]
 script = ExtResource("1_ujnc8")
-starts = {}
-nodes = {}
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"3_1",
+"offset": Vector2(-2020, -340),
+"start_id": "START"
+},
+"1_1": {
+"background": 0,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Alright time for me to get going. Lisa's training officially kicks off today. ",
+"offset": Vector2(-1220, -320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 643),
+"speaker": 0
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Families having picnics, dogs running free...",
+"offset": Vector2(1140, -240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "lovers just enjoying eachother's company. ",
+"offset": Vector2(1480, -220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I really should come here more often... ",
+"offset": Vector2(1800, -220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But just as you begin to really bask in it...",
+"offset": Vector2(2120, -220),
+"options": {
+0: {
+"condition": {},
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The orange athletic gear adorns a fit, short-haired female doing stretches against a tree. ",
+"offset": Vector2(4003.86, -189.88),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "From even 40 feet away, there's no doubt...",
+"offset": Vector2(4380, -160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Damn, it looks like she brought a whole setup. ",
+"offset": Vector2(5161.43, -143.88),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Picnic blanket, snacks, and she set up shop right next to a wooden table perfect for playing cards. ",
+"offset": Vector2(5581.43, -151.88),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... she certainly came prepared. ",
+"offset": Vector2(5960, -160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You meander closer... ",
+"offset": Vector2(6320, -160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_4",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She said we're meeting at the park. I should head out now.",
+"offset": Vector2(-900, -320),
+"options": {
+0: {
+"condition": {},
+"link": &"3_9",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_20": {
+"background": 14,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "You approach, but she's still clearly focused on her morning stretches. ",
+"offset": Vector2(7000, -140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(322, 641),
+"speaker": ""
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It seems rude to interrupt her right now... so you just kind of stand, awkwardly. ",
+"offset": Vector2(7400, -140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But if you could just hold on few a minutes... ",
+"offset": Vector2(9580, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_5",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "More time passes as she continues her stretches",
+"offset": Vector2(7780, -160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Now it's actually getting kind of weird, how you're standing here and she hasn't noticed...",
+"offset": Vector2(8100, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300.002, 621),
+"speaker": ""
+},
+"1_25": {
+"background": 25,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Careful, you watch too long and I'll have to charge you my hourly rate as a personal trainer!!",
+"offset": Vector2(8480, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(322, 643),
+"speaker": 1
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...Sorry I didn't want to interrupt",
+"offset": Vector2(8840, -100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(332.001, 623),
+"speaker": 0
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hahaha I'm joking [name]! ",
+"offset": Vector2(9220, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_28": {
+"background": 36,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "She shifts into another stretch, putting her leg high into the air. ",
+"offset": Vector2(10240, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(322.001, 641),
+"speaker": ""
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm just finishing up my stretches...",
+"offset": Vector2(10660, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_3": {
+"background": 3,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "After a short bus ride, you once again arrive at beautiful Cummington State Park. ",
+"offset": Vector2(-340, -280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(322, 636),
+"speaker": -1
+},
+"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...I did my run here just before this...",
+"offset": Vector2(11060, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...Not a long one, just 27 miles...",
+"offset": Vector2(11420, -120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_8",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_32": {
+"background": 47,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "She shifts again, putting her leg down and her arm up",
+"offset": Vector2(12000, -100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_33",
+"text": ""
+}
+},
+"size": Vector2(322.002, 641),
+"speaker": ""
+},
+"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... but even with short runs like that...",
+"offset": Vector2(12396.4, -53.88),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300.003, 623),
+"speaker": 1
+},
+"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... it's always very important to stretch afterwards...",
+"offset": Vector2(12760, -80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...especially if you're running competitively...",
+"offset": Vector2(13100, -60),
+"options": {
+0: {
+"condition": {},
+"link": &"3_7",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_36": {
+"background": 57,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Another shift, like she's extending every muscle in her body. ",
+"offset": Vector2(13760, -20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_37",
+"text": ""
+}
+},
+"size": Vector2(322, 641),
+"speaker": ""
+},
+"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...one day without stretching can spell disaster on the track...",
+"offset": Vector2(14179.7, 49.8306),
+"options": {
+0: {
+"condition": {},
+"link": &"1_38",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_38": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...not just in terms of winning and losing... ",
+"offset": Vector2(14580, -40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_39",
+"text": ""
+}
+},
+"size": Vector2(300.004, 623),
+"speaker": 1
+},
+"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... pushing that hard without stretching can cause serious injury!",
+"offset": Vector2(14952.1, 37.8306),
+"options": {
+0: {
+"condition": {},
+"link": &"1_40",
+"text": ""
+}
+},
+"size": Vector2(322.003, 623),
+"speaker": 1
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Damn this place is huge, I might have trouble finding her...",
+"offset": Vector2(40, -260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_40": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "In one final big stretch, like her body is made of taffy, she extends herself fully out. ",
+"offset": Vector2(15340, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300.001, 621),
+"speaker": ""
+},
+"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, as she opens her eyes and looks directly at you. ",
+"offset": Vector2(16262.8, 0.197327),
+"options": {
+0: {
+"condition": {},
+"link": &"3_10",
+"text": ""
+}
+},
+"size": Vector2(308, 621),
+"speaker": ""
+},
+"1_42": {
+"background": 62,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Done!",
+"offset": Vector2(15840, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(322.004, 643),
+"speaker": 1
+},
+"1_43": {
+"background": 63,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "She exits her stretching position and positions herself more comfortably. ",
+"offset": Vector2(16840, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_44",
+"text": ""
+}
+},
+"size": Vector2(322, 641),
+"speaker": ""
+},
+"1_44": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow!! It's such a gorgeous day out! ",
+"offset": Vector2(17200, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_45",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_45": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So did you bring the cards? Are we going to start??",
+"offset": Vector2(17560, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_46",
+"text": ""
+}
+},
+"size": Vector2(310, 623),
+"speaker": 1
+},
+"1_46": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You'd better hurry before I'm whisked away by this weather and fall asleep",
+"offset": Vector2(17940, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_47",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_47": {
+"background": 64,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "She says, teasingly closing her eyes",
+"offset": Vector2(18340, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_48",
+"text": ""
+}
+},
+"size": Vector2(322, 641),
+"speaker": ""
+},
+"1_48": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "zzzzz...",
+"offset": Vector2(18700.6, 115.339),
+"options": {
+0: {
+"condition": {},
+"link": &"1_49",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_49": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You take out the pack of cards you got from CumMart, and toss it down it front of her. ",
+"offset": Vector2(19060, 120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_50",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You could text her, but it's a damn fine morning. ",
+"offset": Vector2(438, -225.88),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_50": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "With absolutely zero hesitation, she excitedly awakes from her fake slumber",
+"offset": Vector2(19420, 140),
+"options": {
+0: {
+"condition": {},
+"link": &"3_11",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_51": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wooo! Finally we're gonna start! Day one! The origin story begins!!",
+"offset": Vector2(20500, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_52",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_52": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Woah woah woah calm down solider. ",
+"offset": Vector2(20880, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_54",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_53": {
+"background": 4,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Excitedly ripping the pack open and immediately starting to deal the cards",
+"offset": Vector2(20080, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_51",
+"text": ""
+}
+},
+"size": Vector2(334, 636),
+"speaker": -1
+},
+"1_54": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This is the old-fashioned training technique we're following today. ",
+"offset": Vector2(21240, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_55",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_55": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The ol' slow and steady. We don't even [i]touch[/i] the cards until step six.  We haven't even reached step one yet. ",
+"offset": Vector2(21600, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_56",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_56": {
+"background": 5,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Her excited smile and demeanor cross over into (playful) disappointment. ",
+"offset": Vector2(22060, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_57",
+"text": ""
+}
+},
+"size": Vector2(334, 641),
+"speaker": ""
+},
+"1_57": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Aww c'mon, I know the basics! Surely we can skip to at least... step three! No, four! Yeah, four sounds good!",
+"offset": Vector2(22480, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_58",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623),
+"speaker": 1
+},
+"1_58": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Skipping to step four? Absolutely not, that would be like skipping right past your post-run stretches",
+"offset": Vector2(22860, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_59",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_59": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And you just got through telling me how important those are. ",
+"offset": Vector2(23200, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_60",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You decide to just wander for a bit. ",
+"offset": Vector2(800, -240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300.002, 621),
+"speaker": ""
+},
+"1_60": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Now if you're ready, it's time to start step one. ",
+"offset": Vector2(23560, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_61",
+"text": ""
+}
+},
+"size": Vector2(300.002, 623),
+"speaker": 0
+},
+"1_61": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ok! Step one! Let's do it!",
+"offset": Vector2(23920, 200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 1
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You see the unmistakeable flare of bright orange, impossible to miss. ",
+"offset": Vector2(3560, -220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 621),
+"speaker": ""
+},
+"1_8": {
+"background": 2,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Oh wait... is that?",
+"offset": Vector2(3160, -240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(355, 643),
+"speaker": 0
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh yeah that's definitely her. ",
+"offset": Vector2(4780, -160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 623),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_1",
+"offset": Vector2(-1440, -320),
+"signalValue": "reposition_upper"
+},
+"3_10": {
+"link": &"1_43",
+"offset": Vector2(16592.8, 313.339),
+"signalValue": "fade_next"
+},
+"3_11": {
+"link": &"1_53",
+"offset": Vector2(19804.1, 371.339),
+"signalValue": "fade_next"
+},
+"3_2": {
+"link": &"1_3",
+"offset": Vector2(-560, -140),
+"signalValue": "fade_next"
+},
+"3_3": {
+"link": &"1_8",
+"offset": Vector2(2860, 60),
+"signalValue": "fade_next"
+},
+"3_4": {
+"link": &"1_20",
+"offset": Vector2(6710.89, 88.12),
+"signalValue": "fade_next"
+},
+"3_5": {
+"link": &"1_28",
+"offset": Vector2(9962.04, 104.12),
+"signalValue": "fade_next"
+},
+"3_6": {
+"link": &"1_32",
+"offset": Vector2(11760, 80),
+"signalValue": "fade_next"
+},
+"3_7": {
+"link": &"1_36",
+"offset": Vector2(13460, 180),
+"signalValue": "fade_next"
+},
+"3_8": {
+"link": &"3_6",
+"offset": Vector2(11449.1, 696.197),
+"signalValue": "reposition_top"
+},
+"3_9": {
+"link": &"3_2",
+"offset": Vector2(-709.415, 468.197),
+"signalValue": "music_neon_lights"
+}
+}
 variables = {}
 comments = Array[String]([])
 strays = Array[String]([])
-characters = ""
-backgroundList = ""
+characters = "res://data/game_stages/vn/lisa_park_training/characters.tres"
+backgroundList = "res://data/game_stages/vn/lisa_park_training/bgs.tres"

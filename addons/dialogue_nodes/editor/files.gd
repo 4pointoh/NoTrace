@@ -76,6 +76,7 @@ func create_file(file_name, file_dir, data : DialogueData):
 	var new_idx : int
 	var node_name = file_dir.split('/')[-1] + '>' + file_name.split('.')[0]
 	
+	print(node_name)
 	if _is_file_open(node_name):
 		# file already open
 		new_idx = _get_file_idx(node_name)
@@ -146,23 +147,30 @@ func new_file(path):
 
 func open_file(path, internal = false):
 	# open/read file
-	var data = ResourceLoader.load(path, '', ResourceLoader.CACHE_MODE_REPLACE)
-	
-	var file_name : String
-	var file_dir : String
-	
+	print(path)
+	var data = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+
+	var file_name: String = path.get_file()       # e.g. "d_ana_shop_meeting.tres"
+	var file_dir: String  = path.get_base_dir()   # e.g. "res://data/game_stages/vn/ana_shop_meeting"
+
 	if data is DialogueData:
-		file_name = openDialogue.current_file
-		file_dir = openDialogue.current_dir
+		print("file_dir: " + file_dir)
+		print("file_name: " + file_name)
+
+		if file_name == "" or file_name == null:
+			file_name = openDialogue.current_file
+		
+		if file_dir == "" or file_dir == null:
+			file_dir = openDialogue.current_dir
 	else:
-		printerr('File not supported!')
+		printerr("File not supported!")
 		return
-	
+
 	# create, setup file button
 	var file_idx = create_file(file_name, file_dir, data)
-	
+
 	if not internal:
-		opened.emit(get_item_metadata(file_idx)['data'])
+		opened.emit(get_item_metadata(file_idx)["data"])
 
 
 func save_file(idx = current):

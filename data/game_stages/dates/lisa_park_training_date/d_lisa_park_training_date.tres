@@ -1,0 +1,575 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://cjjnmea75bwsf"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_7y618"]
+
+[resource]
+script = ExtResource("1_7y618")
+starts = {
+"START": &"0_2",
+"ask_blocked": &"0_7",
+"ask_how_chad": &"0_8",
+"asked_too_many_times": &"0_4",
+"dialogue_sp_refusal": &"0_6",
+"dialogue_sp_refusal_common": &"0_5",
+"need_more_key_question_progress": &"0_1",
+"repeat_generic": &"0_3"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(144, 455.785),
+"start_id": "need_more_key_question_progress"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(10, 1321.45),
+"start_id": "START"
+},
+"0_3": {
+"link": &"1_7",
+"offset": Vector2(-212.578, 2000.5),
+"start_id": "repeat_generic"
+},
+"0_4": {
+"link": &"1_8",
+"offset": Vector2(493.422, 2040.5),
+"start_id": "asked_too_many_times"
+},
+"0_5": {
+"link": &"1_9",
+"offset": Vector2(-140, 2760),
+"start_id": "dialogue_sp_refusal_common"
+},
+"0_6": {
+"link": &"1_10",
+"offset": Vector2(400, 2740),
+"start_id": "dialogue_sp_refusal"
+},
+"0_7": {
+"link": &"1_11",
+"offset": Vector2(-110.578, 3674.51),
+"start_id": "ask_blocked"
+},
+"0_8": {
+"link": &"1_21",
+"offset": Vector2(-333.131, 4532.79),
+"start_id": "ask_how_chad"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I need to make sure I cover all of the basic training before it gets too late.",
+"offset": Vector2(680, 391.285),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(381.999, 735),
+"speaker": ""
+},
+"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sorry about blocking you, ha. ",
+"offset": Vector2(460, 2880),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You were so quick on that block button, you must use it often.",
+"offset": Vector2(420, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 0
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hahahaha unfortunately more true than you probably know!",
+"offset": Vector2(760, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "As a frequent Chad-party attender, you end up with a lot of... ",
+"offset": Vector2(1080, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...\"unpleasant\" contacts!",
+"offset": Vector2(1440, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Lots of desperate guys?",
+"offset": Vector2(1780, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh you wouldn't believe how many!",
+"offset": Vector2(2120, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They don't even give up when I tell them I swing for the other team, ha!",
+"offset": Vector2(2460, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So I get a lot of practice smashing that block button, hahaha",
+"offset": Vector2(2800, 3660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Unfortunately that means innocent guys like you sometimes get caught in the crossfire",
+"offset": Vector2(3160, 3640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So what is step one? ",
+"offset": Vector2(580, 1240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Won't happen again!",
+"offset": Vector2(3500, 3640),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So what exactly did Chad say to you that convinced you to unblock me?",
+"offset": Vector2(215.923, 4501.87),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(580, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Y'know I'm still not really sure. ",
+"offset": Vector2(920, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "He kept trying to show me photos of these girls at his party, it was weird!",
+"offset": Vector2(1300, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh, what kind of photos?",
+"offset": Vector2(1640, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well there was one of some girls on the swim team and they were...",
+"offset": Vector2(2000, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(312, 575),
+"speaker": 1
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... well they were doing things you shouldn't really do at a public party!",
+"offset": Vector2(2400, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But then what did he say that made you unblock me? ",
+"offset": Vector2(2740, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well actually all he said was \"[name] want unblock\"",
+"offset": Vector2(3080, 4500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Learning the poker hands? ",
+"offset": Vector2(940, 1240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And it wasnt that hard to figure out what he meant from there.",
+"offset": Vector2(3449.23, 4493.87),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And I guess I felt bad about blocking you so fast, so I decided to see what you had to say. ",
+"offset": Vector2(3800, 4480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_32",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And I'm glad I did!",
+"offset": Vector2(4123.23, 4479.87),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Learning when to raise and fold? ",
+"offset": Vector2(1300, 1260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No no, we'll cover that when we actually start playing. ",
+"offset": Vector2(1660, 1260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Step one just involves answering a few questions...",
+"offset": Vector2(2000, 1260),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm... you just asked that...",
+"offset": Vector2(303.422, 1964),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.001, 575),
+"speaker": 1
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm we already talked about that, remember?",
+"offset": Vector2(1031.42, 2060),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Who needs strip poker when you've got good ol' old-fashioned training? ",
+"offset": Vector2(-80, 2880),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/dates/lisa_park_training_date/characters.tres"
+backgroundList = "res://data/game_stages/dates/lisa_park_training_date/bgs.tres"
