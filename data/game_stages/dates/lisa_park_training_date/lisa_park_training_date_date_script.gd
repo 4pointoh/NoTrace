@@ -1,6 +1,7 @@
 extends DateScript
 
 const FLAG_ASK_UNBLOCKED = 'askedUnblocked'
+const FLAG_ASK_MOTIV = 'askedMotiv'
 
 func scriptId():
 	return 'lisa_park_training_date'
@@ -12,8 +13,8 @@ func start():
 	return result
 
 func date_was_successful():
-	var completedKeyQuestions = mainQuestionIndex >= 7
-	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore > 150
+	var completedKeyQuestions = mainQuestionIndex >= 5
+	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore >= 90
 	return completedKeyQuestions && completedDate
 
 func get_alternate_loss_dialogue():
@@ -26,19 +27,19 @@ func getCurrentBackground():
 	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
 	
 	var newBackground : Background = Background.new()
-	if scoreProgression <= 30:
+	if scoreProgression <= 20:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_12_date.png")
 		newBackground.name = '2'
-	elif scoreProgression <= 60:
+	elif scoreProgression <= 40:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_13_date.png")
 		newBackground.name = '3'
-	elif scoreProgression <= 90:
+	elif scoreProgression <= 60:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_14_date.png")
 		newBackground.name = '4'
-	elif scoreProgression <= 120:
+	elif scoreProgression <= 80:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_15_date.png")
 		newBackground.name = '5'
-	elif scoreProgression <= 150:
+	elif scoreProgression <= 100:
 		newBackground.images = load("res://data/background_lists/lisa_park_training/lisa_park_training_16_date.png")
 		newBackground.name = '6'
 	else:
@@ -158,7 +159,7 @@ func group_topic1():
 		result.dialogueStartKey = 'dialogue_sp_refusal'
 		
 	result.success = true
-	result.scoreProgression = 10
+	result.scoreProgression = 0
 	
 	result.nextGroup.append(getPlayerQuestionAction("Joke about how she blocked you",
 							DateAction.CATEGORIES.FRIENDLY,
@@ -236,7 +237,7 @@ func group_ask_top1_q5():
 	result.success = true
 	
 	result.nextGroup.append(getChoiceAction("Never.", group_ask_top1_q5_c1))
-	result.nextGroup.append(getChoiceAction("All the time.", group_ask_top1_q5_c2))
+	result.nextGroup.append(getChoiceAction("It's actually pretty rare for me to play with my clothes _on_.", group_ask_top1_q5_c2))
 	result.nextGroup.append(getChoiceAction("Yes, with Boa at Chad's party right before you talked to me.", group_ask_top1_q5_c3))
 	return result
 
@@ -245,7 +246,7 @@ func group_ask_top1_q5_c1():
 	result.success = true
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.HAPPY
-	result.dialogueStartKey = 'standard_questions'
+	result.dialogueStartKey = 'neverplaed'
 	return result
 
 func group_ask_top1_q5_c2():
@@ -253,7 +254,7 @@ func group_ask_top1_q5_c2():
 	result.success = true
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.SURPRISED
-	result.dialogueStartKey = 'key_indicators'
+	result.dialogueStartKey = 'prettyrare'
 	return result
 
 func group_ask_top1_q5_c3():
@@ -261,7 +262,7 @@ func group_ask_top1_q5_c3():
 	result.success = true
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.SURPRISED
-	result.dialogueStartKey = 'chad_party'
+	result.dialogueStartKey = 'yeswithboa'
 	return result
 
 
@@ -305,13 +306,13 @@ func group_topic2():
 	var result = DateActionResult.new()
 	
 	var id = GlobalGameStage.getCurrentAsk()
-	if (GlobalGameStage.getCurrentDateAskSuccessCount(id) > 2):
+	if (GlobalGameStage.getCurrentDateAskSuccessCount(id) > 3):
 		result.dialogueStartKey = 'poker_training_common'
 	else:
 		result.dialogueStartKey = 'poker_training'
 		
 	result.success = true
-	result.scoreProgression = 10
+	result.scoreProgression = 0
 	
 	if(mainQuestionIndex < 3):
 		result.nextGroup.append(getPlayerQuestionAction("When you walk into a room, do you first notice the corners or the center?",
@@ -331,7 +332,7 @@ func group_topic2():
 								'id_clouds'))
 							
 	elif(mainQuestionIndex < 5):
-		result.nextGroup.append(getPlayerQuestionAction('Do you utilize the Amsterdam method or the Brisbane technique for chip randomization?',
+		result.nextGroup.append(getPlayerQuestionAction('Do you utilize the Amsterdam or Brisbane technique for chip randomization?',
 								DateAction.CATEGORIES.FRIENDLY,
 								group_ask_top2_q2,
 								group_ask_top2_q2,
@@ -431,7 +432,7 @@ func group_topic3():
 	result.dialogueStartKey = 'motivation'
 		
 	result.success = true
-	result.scoreProgression = 10
+	result.scoreProgression = 0
 	
 	result.nextGroup.append(getPlayerQuestionAction("What's your real motivation for learning poker?",
 							DateAction.CATEGORIES.PERSONAL,
@@ -445,8 +446,9 @@ func group_topic3():
 							group_ask_top3_q2,
 							'id_earnmoney'))
 	
-	result.nextGroup.append(getPartnerQuestionAction("What was YOUR motivation for learning poker?",
-							group_ask_top3_q3, 'id_partnerask_motivation'))
+	if flags.has(FLAG_ASK_MOTIV):
+		result.nextGroup.append(getPartnerQuestionAction("What was YOUR motivation for learning poker?",
+								group_ask_top3_q3, 'id_partnerask_motivation'))
 	
 	return result
 
@@ -460,7 +462,6 @@ func group_ask_top3_q1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
-	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'realmotiv_success'
 	result.memoryUnlockId = 'lisa_training_reward6'
 	return result
@@ -469,8 +470,8 @@ func group_ask_top3_q2():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
-	result.addParticleRain = 'smile'
 	result.dialogueStartKey = 'earnmoney_success'
+	result.setFlagToTrue = FLAG_ASK_MOTIV
 	return result
 
 func group_ask_top3_q3():
@@ -497,7 +498,6 @@ func group_ask_top3_q3_c2():
 	result.success = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'motivation_fun'
-	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
 
 func group_ask_top3_q3_c3():
@@ -506,6 +506,7 @@ func group_ask_top3_q3_c3():
 	result.scoreProgression = -20
 	result.dialogueStartKey = 'motivation_strip'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
+	result.setBackground(load("res://data/background_lists/lisa_park_training/lisa_park_training_25_poker.png"), 'wtfpoker')
 	return result
 
 ################################################
@@ -517,7 +518,7 @@ func group_topic4():
 	result.dialogueStartKey = 'dialogue_flirt'
 		
 	result.success = true
-	result.scoreProgression = 10
+	result.scoreProgression = 0
 	
 	result.nextGroup.append(getPlayerQuestionAction('Did you say you ran 27 miles!?',
 							DateAction.CATEGORIES.FLIRTY,
@@ -531,7 +532,7 @@ func group_topic4():
 							group_ask_top4_q2,
 							'id_leggings'))
 	
-	result.nextGroup.append(getPlayerQuestionAction('Your boobs seem like they would be inconvenient when running.',
+	result.nextGroup.append(getPlayerQuestionAction('Are your boobs inconvenient when running?',
 							DateAction.CATEGORIES.DEEP,
 							group_ask_top4_q3,
 							group_ask_top4_q3,
@@ -555,10 +556,10 @@ func group_ask_top4_q1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.scoreProgression = 10
-	result.particleType = Heartsplosion.TYPES.SURPRISED
+	result.particleType = Heartsplosion.TYPES.BLUSH
 	result.dialogueStartKey = 'ask_twentyseven'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.progressQuantity = 50
 	return result
 
 func group_ask_top4_q4():
@@ -576,7 +577,8 @@ func group_ask_top4_q4_c1():
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'runner'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.particleType = Heartsplosion.TYPES.ANNOYED
+	result.progressQuantity = 0
 	return result
 
 func group_ask_top4_q4_c2():
@@ -586,7 +588,7 @@ func group_ask_top4_q4_c2():
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.LAUGH
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.progressQuantity = 50
 	return result
 
 func group_ask_top4_q4_c3():
@@ -603,7 +605,8 @@ func group_ask_top4_q2():
 	result.success = false
 	result.dialogueStartKey = 'leggings'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.progressQuantity = 50
+	result.setBackground(load("res://data/background_lists/lisa_park_training/lisa_park_training_reward3.png"), 'leggings2')
 	return result
 
 func group_ask_top4_q3():
@@ -611,5 +614,6 @@ func group_ask_top4_q3():
 	result.success = true
 	result.dialogueStartKey = 'boobs'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.progressQuantity = 10
+	result.particleType = Heartsplosion.TYPES.PISSED
 	return result

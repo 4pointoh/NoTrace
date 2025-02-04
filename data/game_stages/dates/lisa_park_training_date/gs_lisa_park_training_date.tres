@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://df41cvr24y1xs"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://df41cvr24y1xs"]
 
 [ext_resource type="Script" path="res://data/game_stages/dates/lisa_park_training_date/lisa_park_training_date_date_script.gd" id="1_x5flo"]
 [ext_resource type="Resource" uid="uid://cjjnmea75bwsf" path="res://data/game_stages/dates/lisa_park_training_date/d_lisa_park_training_date.tres" id="2_tpdu3"]
+[ext_resource type="Resource" uid="uid://b7h73cw37mti4" path="res://data/game_stages/vn/lisa_park_training_after/gs_lisa_park_training_after.tres.tres" id="3_34f8a"]
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_t4wkx"]
 [ext_resource type="Texture2D" uid="uid://duk63vfpnfwpe" path="res://data/background_lists/lisa_park_training/lisa_park_training_12_date.png" id="4_a603h"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_frpy5"]
@@ -16,6 +17,7 @@ script = ExtResource("3_t4wkx")
 name = "lisa_park_training_date"
 dialogue = ExtResource("2_tpdu3")
 dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("3_34f8a")
 isCompletable = true
 startingBackground = SubResource("Resource_17kbh")
 isPokerMatch = false
@@ -41,4 +43,4 @@ dateLossDialogueKey = "LOST"
 dateCharacter = "Lisa"
 dateTitle = "Lisa Training At The Park"
 dateBusinessButtonLabel = "Poker Training"
-maxProgress = 180
+maxProgress = 100
