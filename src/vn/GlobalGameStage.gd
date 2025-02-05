@@ -51,7 +51,7 @@ func loadConfig():
 	if err != OK:
 		config.set_value("Audio", "bg_volume", 100);
 		config.set_value("Text", "text_speed", 100)
-		config.set_value("Text", "skip_speed", 0.1)
+		config.set_value("Text", "skip_speed", 0.12)
 		config.save("user://settings.cfg");
 	
 	bg_volume = config.get_value("Audio", "bg_volume")

@@ -32,6 +32,7 @@ maxRaise = 40
 pokerType = 0
 playerLives = 3
 cpuLives = 4
+cpuRandomDiscardChance = 25
 playerLivesWithEvents = Array[int]([0])
 cpuLivesWithEvents = Array[int]([1, 2, 0])
 pokerScript = ExtResource("3_t5rkp")

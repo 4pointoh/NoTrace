@@ -2,7 +2,7 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'lisa_park_training_date'
+	var gamestageName = 'lisa_park_training_poker2'
 	
 	var backgroundLists: Array[String] = [
 		'res://data/background_lists/lisa_park_training/lisa_park_training.tres', 
@@ -14,7 +14,7 @@ func _run() -> void:
 		'res://data/characters/lisa/orange_tank_yoga/character.tres'
 	]
 	
-	var type = "date" #vn, poker, date, phonemessage, special
+	var type = "poker" #vn, poker, date, phonemessage, special
 	var output_path: String = "res://data/game_stages/"    
 	
 	if type == "vn":

@@ -135,7 +135,7 @@ func setCurrentSpeedText():
 		%CurrentSpeed.text = 'Current: Fast'
 	elif GlobalGameStage.skip_speed == 0.02:
 		%CurrentSpeed.text = 'Current: Extreme'
-	elif GlobalGameStage.skip_speed == 0.15:
+	elif GlobalGameStage.skip_speed == 0.12:
 		%CurrentSpeed.text = 'Current: Recommended'
 
 

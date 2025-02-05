@@ -238,7 +238,7 @@ func _on_poker_game_five_game_paused():
 		if nextAction.shouldHidePoker:
 			currentPokerGame.hide()
 			
-		$DialogueManager.setDialogueBoxUpper()
+		$DialogueManager.setDialogueBoxBottom()
 		$DialogueManager.startDialogue(nextAction.dialogueStartKey)
 
 func _on_poker_game_five_game_lost():

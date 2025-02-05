@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=20 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -10,11 +10,21 @@
 [ext_resource type="Texture2D" uid="uid://bxloxh8an15dx" path="res://data/assets/general/art/title3.png" id="5_i3bvk"]
 [ext_resource type="PackedScene" uid="uid://b5aupfniotrg8" path="res://src/vn/DialogueManager.tscn" id="5_m0pi8"]
 [ext_resource type="PackedScene" uid="uid://f3krgd2lh0al" path="res://src/vn/CharacterManager.tscn" id="6_qx8ua"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="8_by1x2"]
 [ext_resource type="PackedScene" uid="uid://cx4x2fdhktike" path="res://src/vn/Notification.tscn" id="8_i5hgj"]
 [ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
 [ext_resource type="AudioStream" uid="uid://dkosxg1xda685" path="res://data/assets/general/sounds/bg_music/title.mp3" id="11_1jasj"]
 [ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="13_sdhtv"]
 [ext_resource type="PackedScene" uid="uid://ooat0x0ooh2p" path="res://src/vn/name_enter.tscn" id="14_sr84d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
+bg_color = Color(0, 0, 0, 0.733333)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf5te"]
+bg_color = Color(0, 0, 0, 0.717647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fko3"]
+bg_color = Color(0, 0, 0, 0.721569)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ps8m3")
@@ -33,7 +43,11 @@ offset_left = 197.0
 offset_top = 618.0
 offset_right = 697.0
 offset_bottom = 699.0
-theme_override_font_sizes/font_size = 33
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_20bdf")
 text = "Start"
 metadata/_edit_lock_ = true
 
@@ -42,7 +56,11 @@ offset_left = 197.0
 offset_top = 730.0
 offset_right = 697.0
 offset_bottom = 811.0
-theme_override_font_sizes/font_size = 33
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_rf5te")
 text = "Load
 "
 metadata/_edit_lock_ = true
@@ -52,7 +70,11 @@ offset_left = 199.0
 offset_top = 842.0
 offset_right = 699.0
 offset_bottom = 923.0
-theme_override_font_sizes/font_size = 33
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_4fko3")
 text = "Options"
 metadata/_edit_lock_ = true
 

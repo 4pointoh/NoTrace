@@ -387,10 +387,28 @@ static func getProbabilitiesFromCardLists(playerCards, cpuCards, boardCards):
 	print('CPU Hand / Chance To Win: ' + str(cpuHandString) + ' / ' + str(probs[1]) + '%')
 	return probs
 
-static func calculate_cpu_discard_indexes(cpu_cards):
-	var cpu_hand_string = []
+static func calculate_cpu_discard_indexes(cpu_cards, random_chance_percentage: int) -> Array:
+	var cpu_indexes_to_discard = []
+
+	# -- STEP 0) Check random chance first -- #
+	# Generate a random integer 0..100, compare with random_chance_percentage
+	if randi() % 101 < random_chance_percentage:
+		# Completely random discard selection
+		# Decide how many cards to discard, e.g. from 0 to 5
+		var number_to_discard = randi() % 6
+		
+		# Collect random distinct indices up to 'number_to_discard'
+		while cpu_indexes_to_discard.size() < number_to_discard:
+			var random_index = randi() % 5
+			if not cpu_indexes_to_discard.has(random_index):
+				cpu_indexes_to_discard.append(random_index)
+		
+		# Sort in descending order for safe removal later
+		cpu_indexes_to_discard.sort_custom(func(a, b): return a > b)
+		return cpu_indexes_to_discard
 	
-	# 1) Convert NonUiCards -> Strings for PokerEval
+	# -- STEP 1) Convert NonUiCards -> Strings for PokerEval -- #
+	var cpu_hand_string = []
 	for c in cpu_cards:
 		var card_value = c.value
 		if card_value == "10":
@@ -398,26 +416,24 @@ static func calculate_cpu_discard_indexes(cpu_cards):
 		var suit_char = c.suit[0].capitalize()
 		cpu_hand_string.append(card_value + suit_char)
 	
-	# 2) Evaluate the hand with PokerEval
+	# -- STEP 2) Evaluate the hand with PokerEval -- #
 	var cpu_eval = PokerEval.evaluate_hand(cpu_hand_string)
-	var cpu_hand_rank = cpu_eval[0]                    # e.g. "Pair", "Two Pairs", etc.
-	var cpu_rank_values = cpu_eval[1]["rank_values"]   # Detailed ranks for that hand
+	var cpu_hand_rank = cpu_eval[0]                   # e.g. "Pair", "Two Pairs", etc.
+	var cpu_rank_values = cpu_eval[1]["rank_values"]  # Detailed ranks for that hand
 	
-	var cpu_indexes_to_discard = []
 	var cpu_indexes_to_keep = []
 	
-	# 3) Decide which cards to keep or discard based on the hand rank
+	# -- STEP 3) Decide which cards to keep/discard based on hand rank -- #
 	match cpu_hand_rank:
 		"Straight Flush", "Straight", "Flush", "Full House":
 			# Already a strong made hand -> keep all
 			cpu_indexes_to_discard = []
 		
 		"Four of a Kind":
-			var quad_rank = cpu_rank_values[0]  # The 4-of-a-kind rank
+			var quad_rank = cpu_rank_values[0]
 			for i in range(cpu_cards.size()):
 				if get_card_rank_int(cpu_cards[i]) == quad_rank:
 					cpu_indexes_to_keep.append(i)
-			# Discard anything not in the quads
 			for i in range(5):
 				if not cpu_indexes_to_keep.has(i):
 					cpu_indexes_to_discard.append(i)
@@ -427,7 +443,6 @@ static func calculate_cpu_discard_indexes(cpu_cards):
 			for i in range(cpu_cards.size()):
 				if get_card_rank_int(cpu_cards[i]) == triple_rank:
 					cpu_indexes_to_keep.append(i)
-			# Discard the other 2
 			for i in range(5):
 				if not cpu_indexes_to_keep.has(i):
 					cpu_indexes_to_discard.append(i)
@@ -435,29 +450,25 @@ static func calculate_cpu_discard_indexes(cpu_cards):
 		"Two Pairs":
 			var pair1 = cpu_rank_values[0]
 			var pair2 = cpu_rank_values[1]
-			# Keep cards that match the pair ranks
 			for i in range(cpu_cards.size()):
 				var rank_int = get_card_rank_int(cpu_cards[i])
 				if rank_int == pair1 or rank_int == pair2:
 					cpu_indexes_to_keep.append(i)
-			# Discard the 5th card
 			for i in range(5):
 				if not cpu_indexes_to_keep.has(i):
 					cpu_indexes_to_discard.append(i)
 		
 		"Pair":
 			var pair_rank = cpu_rank_values[0]
-			# Keep the pair
 			for i in range(cpu_cards.size()):
 				if get_card_rank_int(cpu_cards[i]) == pair_rank:
 					cpu_indexes_to_keep.append(i)
-			# Discard the other 3
 			for i in range(5):
 				if not cpu_indexes_to_keep.has(i):
 					cpu_indexes_to_discard.append(i)
 		
 		"High Card":
-			# Simple heuristic: keep the top one or two high cards (Q, K, A) and discard the rest
+			# Simple heuristic: keep the top 1 or 2 high cards (Q, K, A) and discard the rest
 			var sorted_indices = []
 			for i in range(cpu_cards.size()):
 				sorted_indices.append(i)
@@ -485,10 +496,11 @@ static func calculate_cpu_discard_indexes(cpu_cards):
 			# Fallback if something unexpected
 			cpu_indexes_to_discard = []
 	
-	# 4) Sort discard indices descending so removing them doesn't shift the next index
+	# -- STEP 4) Sort discard indices descending so removing them doesn't shift the next index -- #
 	cpu_indexes_to_discard.sort_custom(func(a, b): return a > b)
 	
 	return cpu_indexes_to_discard
+
 
 	# Small helper to convert NonUiCard -> integer rank
 static func get_card_rank_int(card: NonUiCard) -> int:

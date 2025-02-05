@@ -152,7 +152,7 @@ func processPostDeal():
 	%PokerDisplay.processPostDeal()
 
 func processDiscard():
-	cpuIndexesToDiscard = PokerEval.calculate_cpu_discard_indexes(cpuCards)
+	cpuIndexesToDiscard = PokerEval.calculate_cpu_discard_indexes(cpuCards, GlobalGameStage.currentStage.cpuRandomDiscardChance)
 	%PokerDisplay.processDiscard(cpuIndexesToDiscard)
 
 func processDiscardPressed(cardsToDiscard):
