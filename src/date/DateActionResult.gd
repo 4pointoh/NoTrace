@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 class_name DateActionResult
 
 var success : bool

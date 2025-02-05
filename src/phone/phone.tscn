@@ -22,12 +22,60 @@ shader_parameter/zoom_amount = 0.05
 shader_parameter/pan_speed = 0.5
 shader_parameter/pan_amount = 0.01
 
-[sub_resource type="Animation" id="Animation_vhe47"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_k1jmu"]
+resource_name = "wallpaper_up"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%MessagesApp/../WallpaperApp:position")
+tracks/0/path = NodePath("%WallpaperApp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-192, 1000), Vector2(-192, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_djrv5"]
+resource_name = "messages_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%MessagesApp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-192, 1000), Vector2(-192, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_isnuj"]
+resource_name = "continue_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ContinueApp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-192, 1000), Vector2(-192, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_qrow7"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%WallpaperApp:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,69 +87,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("%MessagesApp:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-188, 1000)]
+"values": [Vector2(-192, 1000)]
 }
-
-[sub_resource type="Animation" id="Animation_6j58w"]
-resource_name = "app_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%ContinueApp:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-192, 1000), Vector2(-192, -59)]
+"values": [Vector2(-192, 1000)]
 }
 
-[sub_resource type="Animation" id="Animation_g3qk5"]
-resource_name = "continue_app_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-188, 1000), Vector2(-188, -59)]
-}
-
-[sub_resource type="Animation" id="Animation_f18s5"]
-resource_name = "wallpaper_app_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%MessagesApp/../WallpaperApp:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-192, 1000), Vector2(-192, -59)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h36xh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4b01"]
 _data = {
-"RESET": SubResource("Animation_vhe47"),
-"app_up": SubResource("Animation_6j58w"),
-"continue_app_up": SubResource("Animation_g3qk5"),
-"wallpaper_app_up": SubResource("Animation_f18s5")
+"RESET": SubResource("Animation_qrow7"),
+"continue_up": SubResource("Animation_isnuj"),
+"messages_up": SubResource("Animation_djrv5"),
+"wallpaper_up": SubResource("Animation_k1jmu")
 }
 
 [sub_resource type="Animation" id="Animation_dn530"]
@@ -171,31 +184,15 @@ metadata/_edit_lock_ = true
 
 [node name="ContinueApp" parent="PhoneBox" instance=ExtResource("3_01dmb")]
 unique_name_in_owner = true
-position = Vector2(-188, 1000)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PhoneBox/ContinueApp"]
-libraries = {
-"": SubResource("AnimationLibrary_h36xh")
-}
+position = Vector2(-192, 1000)
 
 [node name="MessagesApp" parent="PhoneBox" instance=ExtResource("4_y1f3a")]
 unique_name_in_owner = true
-position = Vector2(-188, 1000)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PhoneBox/MessagesApp"]
-libraries = {
-"": SubResource("AnimationLibrary_h36xh")
-}
+position = Vector2(-192, 1000)
 
 [node name="WallpaperApp" parent="PhoneBox" instance=ExtResource("4_3pu3x")]
 unique_name_in_owner = true
 position = Vector2(-192, 1000)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PhoneBox/WallpaperApp"]
-root_node = NodePath("../../MessagesApp/AnimationPlayer")
-libraries = {
-"": SubResource("AnimationLibrary_h36xh")
-}
 
 [node name="Back" type="Button" parent="PhoneBox"]
 unique_name_in_owner = true
@@ -244,6 +241,12 @@ position = Vector2(507, 810)
 
 [node name="NotificationIconMessages" parent="PhoneBox" instance=ExtResource("12_1ripe")]
 position = Vector2(225, 84)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PhoneBox"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_f4b01")
+}
 
 [node name="PhoneOutline" type="TextureRect" parent="."]
 offset_left = 165.0

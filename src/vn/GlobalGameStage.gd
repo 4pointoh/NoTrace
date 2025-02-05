@@ -3,7 +3,7 @@ extends Node
 var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro_rework/gs_intro_rework.tres")
 #var FIRST_GAME_STAGE = preload("res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres")
 var PHONE_STAGE = preload("res://data/game_stages/special/phone/gs_phone.tres")
-var ALL_WALLPAPERS = preload("res://resources/wallpapers/all_wallpapers.tres")
+var ALL_WALLPAPERS = ResourceLoader.load("res://resources/wallpapers/all_wallpapers.tres",'',ResourceLoader.CACHE_MODE_REUSE)
 
 var currentStage : GameStage
 var previousStage : GameStage
@@ -16,7 +16,7 @@ var playerName : String
 
 var dateStorage : DateStorage
 
-const VERSION = 004
+const VERSION = 005
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -30,7 +30,7 @@ var bg_volume
 var text_speed
 var skip_speed
 
-var currentMusic = preload("res://data/assets/general/sounds/bg_music/title2.mp3")
+var currentMusic = load("res://data/assets/general/sounds/bg_music/title2.mp3")
 
 #Wallpaper
 var unlockedWallpapers : Array[String] = ["DEFAULT"]
@@ -238,7 +238,21 @@ func saveSaveData(saveName):
 		file.store_var(previousStage.resource_path)
 	
 	savePersistentData()
-	
+
+func getSaveDataInfo(saveName):
+	var file = FileAccess.open(saveName, FileAccess.READ)
+	if file:
+		var saveVersion = file.get_var()
+
+		var savedStage: GameStage
+		if(saveVersion > 001):
+			var completedStageTemp = file.get_var()
+			var currentMusicTemp = file.get_var()
+			savedStage = load(file.get_var())
+		
+		return savedStage
+	else:
+		return null
 	
 func loadSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.READ)
@@ -263,8 +277,6 @@ func loadSaveData(saveName):
 			previousStage = load(file.get_var())
 		else:
 			previousStage = currentStage
-
-		print(previousStage.resource_path)
 		
 		if(currentStage.guaranteedNextGameStage):
 			nextStage = currentStage.guaranteedNextGameStage

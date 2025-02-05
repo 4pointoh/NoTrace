@@ -1,12 +1,12 @@
 extends Control
 class_name Card
 
-var textureClub = preload("res://data/assets/poker/art/club.png")
-var textureHeart = preload("res://data/assets/poker/art/heart.png")
-var textureSpade = preload("res://data/assets/poker/art/spade.png")
-var textureDiamond = preload("res://data/assets/poker/art/diamond.png")
-var cardback = preload("res://data/assets/poker/art/cardfront.png")
-var cardfront = preload("res://data/assets/poker/art/cardback.png")
+var textureClub = load("res://data/assets/poker/art/club.png")
+var textureHeart = load("res://data/assets/poker/art/heart.png")
+var textureSpade = load("res://data/assets/poker/art/spade.png")
+var textureDiamond = load("res://data/assets/poker/art/diamond.png")
+var cardback = load("res://data/assets/poker/art/cardfront.png")
+var cardfront = load("res://data/assets/poker/art/cardback.png")
 
 var nonUiCard : NonUiCard
 var index : int

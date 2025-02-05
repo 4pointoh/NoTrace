@@ -9,8 +9,6 @@ var currentActionType : DateAction.TYPES
 @onready var dateProgress = $DateProgress
 @onready var overlayClipper = $OverlayClipper
 
-@onready var particleContainer = $ParticleContainer
-
 @onready var lisaBg = load("res://data/assets/date/art/datebg2.png")
 @onready var asheBg = load("res://data/assets/date/art/datebg3.png")
 @onready var amyBg = load("res://data/assets/date/art/datebg4png.png")
@@ -19,14 +17,14 @@ var currentActionType : DateAction.TYPES
 @onready var failSound = load("res://data/assets/date/sounds/fail.wav")
 @onready var arrowClick = load("res://data/assets/phone/sounds/back.wav")
 
-var blackbg = preload("res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png")
-var orangebg = preload("res://data/assets/date/art/transparent_orange_hard_rounded_rect_8px9patch.png")
-var bluebg = preload("res://data/assets/date/art/transparent_blue_hard_rounded_rect_8px9patch.png")
-var pinkbg = preload("res://data/assets/date/art/transparent_pink_hard_rounded_rect_8px9patch.png")
-var tealbg = preload("res://data/assets/date/art/transparent_teal_hard_rounded_rect_8px9patch.png")
-var greenbg = preload("res://data/assets/date/art/transparent_green_hard_rounded_rect_8px9patch.png")
-var purplebg = preload("res://data/assets/date/art/transparent_purple_hard_rounded_rect_8px9patch.png")
-var lightgreenbg = preload("res://data/assets/date/art/transparent_light_green_hard_rounded_rect_8px9patch.png")
+var blackbg = load("res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png")
+var orangebg = load("res://data/assets/date/art/transparent_orange_hard_rounded_rect_8px9patch.png")
+var bluebg = load("res://data/assets/date/art/transparent_blue_hard_rounded_rect_8px9patch.png")
+var pinkbg = load("res://data/assets/date/art/transparent_pink_hard_rounded_rect_8px9patch.png")
+var tealbg = load("res://data/assets/date/art/transparent_teal_hard_rounded_rect_8px9patch.png")
+var greenbg = load("res://data/assets/date/art/transparent_green_hard_rounded_rect_8px9patch.png")
+var purplebg = load("res://data/assets/date/art/transparent_purple_hard_rounded_rect_8px9patch.png")
+var lightgreenbg = load("res://data/assets/date/art/transparent_light_green_hard_rounded_rect_8px9patch.png")
 
 var allowLoveLocked = true
 
@@ -40,7 +38,6 @@ signal proceedFromComplete()
 var screen_width = 400  # Adjust this to your screen width
 
 func _ready():
-	particleContainer.start_rain()
 	resetAnnoyanceBar()
 
 func setActions(actions: Array[DateAction], allowLoveLockedP: bool):
@@ -209,12 +206,6 @@ func showSuccess(memories):
 	$DateCompleteDisplay.set_memories(memories)
 	$DateCompleteDisplay.show()
 	$AnimationPlayer2.play("date_success_in")
-
-func set_particle_count(amount):
-	particleContainer.set_particle_count(amount)
-	
-func add_particle(particleName):
-	particleContainer.addParticle(particleName)
 
 func setLoveProgress(progress):
 	loveBar.set_progress(progress)

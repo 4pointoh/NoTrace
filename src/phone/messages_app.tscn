@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3tjbs8klb0sh"]
+[gd_scene load_steps=21 format=3 uid="uid://d3tjbs8klb0sh"]
 
 [ext_resource type="Script" path="res://src/phone/messages_app.gd" id="1_nop6m"]
 [ext_resource type="PackedScene" uid="uid://3n8lkyrp2q07" path="res://src/phone/available_message.tscn" id="2_pvtiw"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://drkv4n8chck8g" path="res://src/phone/phone_choice.tscn" id="7_gcin8"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="7_w7den"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="10_juhdj"]
+[ext_resource type="Texture2D" uid="uid://cvx2by8m4vyvl" path="res://data/assets/phone/art/ff.png" id="14_q07u5"]
+[ext_resource type="Texture2D" uid="uid://c0rjsggtitt1p" path="res://data/assets/phone/art/ff_white.png" id="14_xm7d8"]
 
 [sub_resource type="Animation" id="Animation_pxicp"]
 length = 0.001
@@ -175,5 +177,30 @@ text = "Send Message"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
+[node name="SkipNoti" type="TextureButton" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 679.0
+offset_top = 77.0
+offset_right = 743.0
+offset_bottom = 141.0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("14_xm7d8")
+texture_pressed = ExtResource("14_q07u5")
+
+[node name="Label" type="Label" parent="SkipNoti"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 43.0
+offset_right = 75.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_w7den")
+text = "Speed Up"
+horizontal_alignment = 1
+
 [connection signal="choice" from="Choice" to="." method="_on_choice_choice"]
 [connection signal="pressed" from="Respond" to="." method="_on_respond_pressed"]
+[connection signal="toggled" from="SkipNoti" to="." method="_on_skip_noti_toggled"]

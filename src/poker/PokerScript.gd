@@ -1,4 +1,4 @@
-extends Object
+extends RefCounted
 class_name PokerScript
 
 static func evaluate_poker_game(_pokerInfo : PokerInfo):

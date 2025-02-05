@@ -50,7 +50,7 @@ func _on_messages_pressed():
 	%MessagesApp.setup()
 	%MessagesApp.visible = true
 	%Back.visible = true
-	%MessagesApp/AnimationPlayer.play("app_up")
+	%AnimationPlayer.play("messages_up")
 
 
 func _on_wallpaper_icon_pressed():
@@ -59,7 +59,7 @@ func _on_wallpaper_icon_pressed():
 	%WallpaperApp.setup()
 	%WallpaperApp.visible = true
 	%Back.visible = true
-	%WallpaperApp/AnimationPlayer.play("wallpaper_app_up")
+	%AnimationPlayer.play("wallpaper_up")
 
 func _on_back_pressed():
 	playBackSound()
@@ -80,7 +80,7 @@ func _on_continue_icon_pressed():
 	%ContinueApp.setup()
 	%ContinueApp.visible = true;
 	%Back.visible = true
-	%ContinueApp/AnimationPlayer.play("continue_app_up")
+	%AnimationPlayer.play("continue_up")
 
 func toggleAppIcons():
 	var apps = get_tree().get_nodes_in_group("App")

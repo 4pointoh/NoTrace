@@ -14,6 +14,7 @@ func reset():
 	
 	for ch in $SelectionContainer.get_children():
 		$SelectionContainer.remove_child(ch)
+		ch.queue_free()
 		
 	hide()
 
@@ -55,6 +56,7 @@ func setSelection(isNext):
 		await newSelection.scrollInLeft()
 		
 	$SelectionContainer.remove_child(currentSelection)
+	currentSelection.queue_free()
 	currentSelection = newSelection
 
 func _on_next_pressed():

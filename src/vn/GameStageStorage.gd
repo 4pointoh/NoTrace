@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 class_name GameStageStorage
 
 static var currentStages = []
@@ -9,6 +9,7 @@ static var images = []
 static var actualImages = []
 
 static func loadStages(gameStageListPath : String):
+	print("Loading Game Stages for: ", gameStageListPath)
 	var gsl : GameStageList = load(gameStageListPath) 
 	for gs in gsl.gameStages:
 		currentStages.append(ResourceLoader.load(gs.resource_path,'',ResourceLoader.CACHE_MODE_REUSE))

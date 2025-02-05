@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://caon3lynepjpm"]
+
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="6_7jufj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tl2m"]
+bg_color = Color(0.172857, 0.216678, 0.288605, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="DateSelectDisplay2" type="Node2D"]
+
+[node name="SmallTalkButton" type="Button" parent="."]
+offset_left = 629.0
+offset_top = 1102.0
+offset_right = 747.0
+offset_bottom = 1138.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_7jufj")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_3tl2m")
+text = "Small Talk"

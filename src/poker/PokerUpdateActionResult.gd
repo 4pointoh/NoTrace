@@ -1,4 +1,4 @@
-extends Object
+extends RefCounted
 class_name PokerUpdateActionResult
 
 enum ACTION_RESULTS {

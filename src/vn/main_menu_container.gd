@@ -61,7 +61,7 @@ func setup():
 	var availableSaves = GlobalGameStage.getExistingSaves()
 		
 	var saveNum = 0
-	while saveNum < 11:
+	while saveNum < 10:
 		saveNum += 1
 		var saveName = "user://save" + str(saveNum) + ".dat"
 		
@@ -69,9 +69,14 @@ func setup():
 		newSaveSelect.save_name = saveName
 			
 		if availableSaves.has(saveName):
+			var savedgs = GlobalGameStage.getSaveDataInfo(saveName)
 			var time = FileAccess.get_modified_time(saveName)
 			var ut = Time.get_datetime_string_from_unix_time(time)
-			newSaveSelect.text = "Save " + str(saveNum) + " - " + str(ut)
+			
+			if savedgs:
+				newSaveSelect.text = "Save " + str(saveNum) + " - " + savedgs.displayName + ' | ' + str(ut) 
+			else:
+				newSaveSelect.text = "Save " + str(saveNum) + " - " + str(ut)
 		else:
 			newSaveSelect.text = "New Save"
 			if loadMode:
@@ -79,8 +84,7 @@ func setup():
 		
 		$SavesContainer.add_child(newSaveSelect)
 		newSaveSelect.clicked.connect(_handle_save_selected)
-	
-	setCurrentSpeedText()	
+	setCurrentSpeedText()
 
 func _handle_save_selected(saveName):
 	if saveMode:
@@ -88,7 +92,7 @@ func _handle_save_selected(saveName):
 		setup()
 	elif loadMode:
 		GlobalGameStage.loadSaveData(saveName)
-
+	
 func _on_back_pressed():
 	if saveMode || loadMode:
 		$SavesContainer.hide()
@@ -109,21 +113,31 @@ func _on_text_edit_text_changed():
 
 
 func _on_slow_button_pressed():
-	GlobalGameStage.setSkipSpeed(0.1)
+	GlobalGameStage.setSkipSpeed(0.2)
 	setCurrentSpeedText()
 
 func _on_fast_button_pressed():
-	GlobalGameStage.setSkipSpeed(0.05)
+	GlobalGameStage.setSkipSpeed(0.1)
 	setCurrentSpeedText()
 
 func _on_extreme_button_pressed():
 	GlobalGameStage.setSkipSpeed(0.02)
 	setCurrentSpeedText()
 
+func _on_recommended_button_pressed():
+	GlobalGameStage.setSkipSpeed(0.15)
+	setCurrentSpeedText()
+
 func setCurrentSpeedText():
-	if GlobalGameStage.skip_speed == 0.1:
-		%CurrentSpeed.text = 'Current Speed: Slow'
-	elif GlobalGameStage.skip_speed == 0.05:
-		%CurrentSpeed.text = 'Current Speed: Fast'
+	if GlobalGameStage.skip_speed == 0.2:
+		%CurrentSpeed.text = 'Current: Slow'
+	elif GlobalGameStage.skip_speed == 0.1:
+		%CurrentSpeed.text = 'Current: Fast'
 	elif GlobalGameStage.skip_speed == 0.02:
-		%CurrentSpeed.text = 'Current Speed: Extreme'
+		%CurrentSpeed.text = 'Current: Extreme'
+	elif GlobalGameStage.skip_speed == 0.15:
+		%CurrentSpeed.text = 'Current: Recommended'
+
+
+func _on_save_loc_open_pressed():
+	OS.shell_open(OS.get_user_data_dir())

@@ -50,11 +50,12 @@ func _input(event):
 		$DialogueManager.stopQuickSkip()
 	
 	if event.is_action_pressed("hide_ui"):
+		Node2D.print_orphan_nodes()
 		toggleUi()
 		$DialogueManager.refocusDbox()
 	
 	if event.is_action_pressed("menu"):
-		toggleUi()
+		#toggleUi()
 		if $MainMenuContainer.visible:
 			$MainMenuContainer.hide()
 			$DialogueManager.refocusDbox()
@@ -72,8 +73,8 @@ func toggleUi():
 		currentPokerGame.visible = !currentPokerGame.visible
 	if GlobalGameStage.currentStage.isDate:
 		currentDate.visible = !currentDate.visible
-	else:
-		$DialogueManager.toggleUi()
+	
+	$DialogueManager.toggleUi()
 	
 func advanceGameStage():
 	GlobalGameStage.advanceGameStage()
@@ -366,3 +367,7 @@ func _on_options_pressed():
 
 func showEnterName():
 	%NameEnter.show()
+
+
+func _on_child_entered_tree(node):
+	move_child.call_deferred($MainMenuContainer, -1)

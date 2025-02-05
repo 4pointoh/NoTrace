@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d08hy8m7ysx30"]
+[gd_scene load_steps=26 format=3 uid="uid://d08hy8m7ysx30"]
 
 [ext_resource type="Script" path="res://src/date/DateMinigameDisplay.gd" id="1_kynup"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_4gai5"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bs2uwidb2e6jk" path="res://data/assets/date/art/prog_bw_small.png" id="8_m04k3"]
 [ext_resource type="Texture2D" uid="uid://p6047m5y4bi1" path="res://data/assets/date/art/prog_color_small.png" id="9_ptp1w"]
 [ext_resource type="Texture2D" uid="uid://cjkjnha4lmk6j" path="res://data/assets/date/art/shapes_overlay.png" id="11_11fku"]
-[ext_resource type="PackedScene" uid="uid://covwx0wx8e8t8" path="res://src/date/particle_container.tscn" id="12_1hvc1"]
 [ext_resource type="Texture2D" uid="uid://cnylctgjlemhw" path="res://data/assets/date/art/business_bar_small.png" id="14_me0q0"]
 [ext_resource type="Texture2D" uid="uid://cswkjttqs3smc" path="res://data/assets/date/art/love_bar_small.png" id="15_1ev88"]
 [ext_resource type="Texture2D" uid="uid://di0oxc8ycgfyr" path="res://data/assets/date/art/business_progress.png" id="15_oniku"]
@@ -264,12 +263,6 @@ corner_radius_bottom_left = 8
 
 [node name="DateMinigameDisplay" type="Node2D"]
 script = ExtResource("1_kynup")
-
-[node name="ParticleContainer" parent="." instance=ExtResource("12_1hvc1")]
-offset_left = 959.0
-offset_top = 859.0
-offset_right = 1456.0
-offset_bottom = 905.0
 
 [node name="DateProgress" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true

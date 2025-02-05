@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://p4kqdvjxxhnu"]
+[gd_scene load_steps=4 format=3 uid="uid://p4kqdvjxxhnu"]
 
 [ext_resource type="Script" path="res://src/vn/main_menu_container.gd" id="1_ysv18"]
 [ext_resource type="PackedScene" uid="uid://b5r83uq4swnhx" path="res://src/vn/save_select.tscn" id="2_pt0gs"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_dw5o3"]
 
 [node name="ColorRect" type="ColorRect"]
-offset_left = 164.0
-offset_top = 141.0
-offset_right = 785.0
-offset_bottom = 972.0
+offset_left = 81.0
+offset_top = 76.0
+offset_right = 836.0
+offset_bottom = 1023.0
 color = Color(0.986928, 0.426847, 0, 1)
 script = ExtResource("1_ysv18")
 saveItem = ExtResource("2_pt0gs")
@@ -15,38 +16,39 @@ saveItem = ExtResource("2_pt0gs")
 [node name="Back" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-offset_left = 201.0
-offset_top = 773.0
-offset_right = 423.0
-offset_bottom = 804.0
+offset_left = 247.0
+offset_top = 892.0
+offset_right = 469.0
+offset_bottom = 923.0
 text = "Back"
 
 [node name="MainMenuContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 47.0
-offset_top = -201.0
-offset_right = 579.0
-offset_bottom = 728.0
-alignment = 1
+offset_top = 21.0
+offset_right = 715.0
+offset_bottom = 884.0
 
 [node name="Save" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 28
 text = "Save"
 
 [node name="Load" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 28
 text = "Load"
 
-[node name="Space3" type="Control" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-
 [node name="Space4" type="Control" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="TextSpeedLabel" type="Label" parent="MainMenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 24
 text = "Text Speed"
 horizontal_alignment = 1
 
@@ -56,11 +58,13 @@ max_value = 2000.0
 step = 100.0
 
 [node name="Space2" type="Control" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="BgVolumeLabel" type="Label" parent="MainMenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 24
 text = "Background Music Volume"
 horizontal_alignment = 1
 
@@ -70,11 +74,13 @@ min_value = -100.0
 max_value = 20.0
 
 [node name="Space5" type="Control" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="CharNameLabel" type="Label" parent="MainMenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 24
 text = "Character Name"
 horizontal_alignment = 1
 
@@ -86,22 +92,36 @@ theme_override_font_sizes/font_size = 14
 context_menu_enabled = false
 
 [node name="Space6" type="Control" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainMenuContainer"]
+[node name="QuickSkipSpeedHeader" type="Label" parent="MainMenuContainer"]
 layout_mode = 2
-text = "Quick Skip Speed"
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 20
+text = "Quick Skip Speed (CTRL)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuickSkipSpeedHeader2" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Not available in poker, dates, and when using the phone 
+due to severe technical problems if skipping is enabled in those spots"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SpeedContainer" type="HBoxContainer" parent="MainMenuContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="SlowButton" type="Button" parent="MainMenuContainer/SpeedContainer"]
 layout_mode = 2
 text = "Slow"
+
+[node name="RecommendedButton" type="Button" parent="MainMenuContainer/SpeedContainer"]
+layout_mode = 2
+text = "Recommended"
 
 [node name="FastButton" type="Button" parent="MainMenuContainer/SpeedContainer"]
 layout_mode = 2
@@ -111,14 +131,45 @@ text = "Fast"
 layout_mode = 2
 text = "Extreme"
 
-[node name="Control" type="Control" parent="MainMenuContainer/SpeedContainer"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
 [node name="CurrentSpeed" type="Label" parent="MainMenuContainer/SpeedContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Current: Extreme"
+
+[node name="Space7" type="Control" parent="MainMenuContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 24
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenuContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "Spacebar - Progress dialogue
+CTRL - Quick Skip (works in completed scenes only)
+H - Hide/Unhide UI
+Right Click - Show Menu
+
+"
+
+[node name="Space8" type="Control" parent="MainMenuContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="SaveLocOpen" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Click To Open Saves Folder"
+
+[node name="Label4" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+text = "To fully restart the game (delete all persistent save data 
+such as wallpaper unlocks) go there ^ and delete persistent.dat"
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -135,8 +186,8 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_left = 47.0
 offset_top = 92.0
-offset_right = 579.0
-offset_bottom = 746.0
+offset_right = 699.0
+offset_bottom = 858.0
 theme_override_constants/separation = 20
 
 [node name="Actions" type="HBoxContainer" parent="SavesContainer"]
@@ -148,5 +199,7 @@ alignment = 1
 [connection signal="pressed" from="MainMenuContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="text_changed" from="MainMenuContainer/CharName" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="MainMenuContainer/SpeedContainer/SlowButton" to="." method="_on_slow_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/SpeedContainer/RecommendedButton" to="." method="_on_recommended_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/SpeedContainer/FastButton" to="." method="_on_fast_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/SpeedContainer/ExtremeButton" to="." method="_on_extreme_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/SaveLocOpen" to="." method="_on_save_loc_open_pressed"]

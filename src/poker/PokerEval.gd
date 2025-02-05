@@ -1,4 +1,4 @@
-extends Object
+extends RefCounted
 class_name PokerEval
 # Define dictionaries for card ranks and hand ranks as static variables
 static var card_ranks = {

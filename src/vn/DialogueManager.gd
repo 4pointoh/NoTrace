@@ -1,13 +1,13 @@
 extends Control
 
-var dialog_bg_you = preload("res://data/assets/general/art/you_dialogue_bg.png")
-var dialog_bg_lisa = preload("res://data/assets/general/art/lisa_dialogue_bg.png")
-var dialog_bg_ashely = preload("res://data/assets/general/art/ashely_dialogue_bg.png")
-var dialog_bg_amy = preload("res://data/assets/general/art/amy_dialogue_bg.png")
-var dialog_bg_anna = preload("res://data/assets/general/art/anna_dialogue_bg.png")
+var dialog_bg_you = load("res://data/assets/general/art/you_dialogue_bg.png")
+var dialog_bg_lisa = load("res://data/assets/general/art/lisa_dialogue_bg.png")
+var dialog_bg_ashely = load("res://data/assets/general/art/ashely_dialogue_bg.png")
+var dialog_bg_amy = load("res://data/assets/general/art/amy_dialogue_bg.png")
+var dialog_bg_anna = load("res://data/assets/general/art/anna_dialogue_bg.png")
 
-var lisa_dialog_sound = preload("res://data/assets/general/sounds/voice.ogg")
-var you_dialog_sound = preload("res://data/assets/general/sounds/sound.wav")
+var lisa_dialog_sound = load("res://data/assets/general/sounds/voice.ogg")
+var you_dialog_sound = load("res://data/assets/general/sounds/sound.wav")
 
 var uiVisible = true
 var muted = false
@@ -28,6 +28,8 @@ var dbox_position_max_lower = Vector2(55, 950)
 var currentBackground : Background
 var currentCharacterState : CharacterState
 
+var originalXPos
+
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
 	
@@ -44,7 +46,7 @@ func setDialogueData(data : DialogueData):
 	$DialoguePlayer.set_data(data)
 	
 func startDialogue(startKey = null):
-	
+	originalXPos = $DialoguePlayer.position.x
 	if startKey:
 		$DialoguePlayer.start(startKey)
 	else:
@@ -189,8 +191,9 @@ func toggleUi():
 	
 	var tween = get_tree().create_tween()
 	if uiVisible:
-		tween.tween_property($DialoguePlayer, "position", Vector2(120,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property($DialoguePlayer, "position", Vector2(originalXPos,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
 	else:
+		originalXPos = $DialoguePlayer.position.x
 		tween.tween_property($DialoguePlayer, "position", Vector2(1200,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
 
 func hideUiFast():

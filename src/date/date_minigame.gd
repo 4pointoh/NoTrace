@@ -139,6 +139,8 @@ func processNextActionOrGroup():
 	elif nextType == DateAction.TYPES.QUIZ:
 		$DateMinigameDisplay.hideBackButton()
 		displayDialogueFirst(currentResult.nextGroup)
+	
+	print('hi')
 
 func filterActionsToSingleRandomType():
 	var allAvailableActions = currentResult.nextGroup
@@ -241,10 +243,7 @@ func completeAction(action : DateAction):
 			GlobalGameStage.addDateAsk(action.id, false)
 		
 		businessProgress -= 30
-	
-	if(currentResult.particleType):
-		$DateMinigameDisplay.add_particle(currentResult.addParticleRain);
-	
+
 
 	if(action.loveLocked):
 		businessProgress = 10
@@ -265,7 +264,6 @@ func completeAction(action : DateAction):
 
 	$DateMinigameDisplay.setLoveProgress(loveProgress)
 	$DateMinigameDisplay.setBusinessProgress(businessProgress)
-	$DateMinigameDisplay.set_particle_count(min(20, round((GlobalGameStage.getDateStorage().currentDateProgressionScore / 10) * 1.2)))
 	setUnlockStatusBadges()
 
 	if(currentResult.particleType):
