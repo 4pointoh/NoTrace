@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://cc5sflnf4yduc"]
+
+[ext_resource type="Resource" uid="uid://bma3scjbtkggn" path="res://data/game_stages/poker/lisa_park_training_poker2/d_lisa_park_training_poker2.tres" id="1_kii32"]
+[ext_resource type="Script" path="res://data/game_stages/poker/lisa_park_training_poker2/lisa_park_training_poker2_poker_script.gd" id="2_jqrbf"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_8sucb"]
+[ext_resource type="Texture2D" uid="uid://cf44icchf7rs8" path="res://data/background_lists/lisa_park_training/lisa_park_training_34_poker.png" id="4_2lrvn"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_rtawp"]
+[ext_resource type="AudioStream" uid="uid://cg28u8uvw3ovk" path="res://data/assets/general/sounds/bg_music/new/Untitled(8).mp3" id="6_7v053"]
+
+[sub_resource type="Resource" id="Resource_oatt3"]
+script = ExtResource("5_rtawp")
+name = "asda"
+images = ExtResource("4_2lrvn")
+
+[resource]
+script = ExtResource("3_8sucb")
+name = "lisa_park_training_poker2"
+displayName = "Lisa Training At Poker 2"
+dialogue = ExtResource("1_kii32")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_oatt3")
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Lisa"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 0
+playerLives = 6
+cpuLives = 10
+cpuRandomDiscardChance = 70
+playerLivesWithEvents = Array[int]([5])
+cpuLivesWithEvents = Array[int]([1, 3, 5, 6, 9])
+pokerScript = ExtResource("2_jqrbf")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("6_7v053")
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

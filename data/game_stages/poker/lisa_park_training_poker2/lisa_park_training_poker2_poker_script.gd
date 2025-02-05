@@ -19,24 +19,18 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 		updateResult = getResultForDialogue('THIRD_LISA_LOSS')
 	elif _pokerInfo.cpuLives == 5:
 		updateResult = getResultForDialogue('INTERMISSION')
-	elif _pokerInfo.cpuLives == 4:
+	elif _pokerInfo.cpuLives == 3:
 		updateResult = getResultForDialogue('FOURTH_LISA_LOSS')
-	elif _pokerInfo.cpuLives == 2:
-		updateResult = getResultForDialogue('FIFTH_LISA_LOSS')
 	elif _pokerInfo.cpuLives == 0:
 		updateResult = getResultForDialogue('LAST_LISA_LOSS')
 	
 	if updateResult.dialogueStartKey:
 		return updateResult
 	
-	if _pokerInfo.playerLives == 3 and _pokerInfo.cpuLives >= 9:
-		updateResult = getResultForDialogue('PLAYER_LOST_QUICK', 'altkey_playerloss1')
-	elif _pokerInfo.playerLives == 3:
-		updateResult = getResultForDialogue('PLAYER_LOST_NOT_QUICK', 'altkey_playerloss1')
-	elif _pokerInfo.playerLives == 1  and _pokerInfo.cpuLives >= 6:
-		updateResult = getResultForDialogue('PLAYER_ABOUT_TO_LOSE_NOT_CLOSE', 'altkey_playerloss2')
-	elif _pokerInfo.playerLives == 1:
-		updateResult = getResultForDialogue('PLAYER_ABOUT_TO_LOSE_CLOSE', 'altkey_playerloss2')
+	if _pokerInfo.playerLives == 1:
+		updateResult = getResultForDialogue('PLAYER_LOST_ONE')
+	if _pokerInfo.playerLives == 0:
+		updateResult = getResultForDialogue('PLAYER_LOST_TWO')
 
 
 	return updateResult
