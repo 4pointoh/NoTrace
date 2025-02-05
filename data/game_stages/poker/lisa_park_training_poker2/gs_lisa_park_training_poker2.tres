@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://cc5sflnf4yduc"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://cc5sflnf4yduc"]
 
 [ext_resource type="Resource" uid="uid://bma3scjbtkggn" path="res://data/game_stages/poker/lisa_park_training_poker2/d_lisa_park_training_poker2.tres" id="1_kii32"]
+[ext_resource type="Resource" uid="uid://bv3fseumvrws5" path="res://data/game_stages/poker/lisa_park_training_poker3/gs_lisa_park_training_poker3.tres" id="2_ese66"]
 [ext_resource type="Script" path="res://data/game_stages/poker/lisa_park_training_poker2/lisa_park_training_poker2_poker_script.gd" id="2_jqrbf"]
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_8sucb"]
 [ext_resource type="Texture2D" uid="uid://cf44icchf7rs8" path="res://data/background_lists/lisa_park_training/lisa_park_training_34_poker.png" id="4_2lrvn"]
@@ -18,6 +19,7 @@ name = "lisa_park_training_poker2"
 displayName = "Lisa Training At Poker 2"
 dialogue = ExtResource("1_kii32")
 dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_ese66")
 isCompletable = true
 startingBackground = SubResource("Resource_oatt3")
 isPokerMatch = true

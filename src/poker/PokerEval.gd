@@ -508,4 +508,3 @@ static func get_card_rank_int(card: NonUiCard) -> int:
 		if val == "10":
 			val = "T"
 		return PokerEval.card_ranks[val]
-	

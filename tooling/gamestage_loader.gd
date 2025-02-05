@@ -2,7 +2,7 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'lisa_park_training_poker2'
+	var gamestageName = 'lisa_park_training_poker3'
 	
 	var backgroundLists: Array[String] = [
 		'res://data/background_lists/lisa_park_training/lisa_park_training.tres', 
@@ -94,7 +94,7 @@ func create_game_stage_data(output_path: String, gamestageName: String, backgrou
 		newGameStage.opponentName = 'REPLACE_ME'
 		newGameStage.maxRaise = 40
 	
-		var template_script_path = "res://data/game_stages/poker/intro_poker/scripts/intro_poker_script.gd"
+		var template_script_path = "res://data/game_stages/poker/lisa_park_training_poker/scripts/lisa_park_training_poker_script.gd"
 		var poker_script_output_path = output_path + "/" + gamestageName + "_poker_script.gd"
 		var template_file = FileAccess.open(template_script_path, FileAccess.READ)
 		if template_file == null:

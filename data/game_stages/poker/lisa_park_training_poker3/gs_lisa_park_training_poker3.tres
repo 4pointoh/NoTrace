@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://bv3fseumvrws5"]
+
+[ext_resource type="Resource" uid="uid://bnup87g4e60j4" path="res://data/game_stages/poker/lisa_park_training_poker3/d_lisa_park_training_poker3.tres" id="1_kdomj"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_8t3du"]
+[ext_resource type="Script" path="res://data/game_stages/poker/lisa_park_training_poker3/lisa_park_training_poker3_poker_script.gd" id="2_vb8s2"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_3n8cs"]
+[ext_resource type="Texture2D" uid="uid://my5gqbmr7qr0" path="res://data/background_lists/lisa_park_training/lisa_park_training_50_poker.png" id="5_385rd"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_iwowp"]
+[ext_resource type="AudioStream" uid="uid://b0wtc16sgkvld" path="res://data/assets/general/sounds/bg_music/new/Untitled(17).mp3" id="7_8r35q"]
+
+[sub_resource type="Resource" id="Resource_jcyrs"]
+script = ExtResource("6_iwowp")
+name = "dfdf"
+images = ExtResource("5_385rd")
+
+[resource]
+script = ExtResource("3_3n8cs")
+name = "lisa_park_training_poker3"
+displayName = "Lisa Park Training 3"
+dialogue = ExtResource("1_kdomj")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_8t3du")
+isCompletable = true
+startingBackground = SubResource("Resource_jcyrs")
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Lisa"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 0
+playerLives = 5
+cpuLives = 5
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([0, 4])
+cpuLivesWithEvents = Array[int]([0, 1, 2, 3, 4])
+pokerScript = ExtResource("2_vb8s2")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("7_8r35q")
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
