@@ -9,7 +9,7 @@ starts = {
 }
 nodes = {
 "0_1": {
-"link": &"3_1",
+"link": &"1_2",
 "offset": Vector2(-1120, 160),
 "start_id": "START"
 },
@@ -25,7 +25,7 @@ Nah fuck that, I'm out.
 "options": {
 0: {
 "condition": {},
-"link": &"3_2",
+"link": &"3_4",
 "text": ""
 }
 },
@@ -33,7 +33,7 @@ Nah fuck that, I'm out.
 "speaker": 0
 },
 "1_2": {
-"background": 9,
+"background": 28,
 "backgroundList": 0,
 "characterState": -1,
 "dialogue": "Several hours pass, you enjoy every minute of Chad's party. 
@@ -84,11 +84,6 @@ You sleep until 2pm the next day, waking to the afternoon sunshine in your bedro
 "size": Vector2(300, 623),
 "speaker": 0
 },
-"3_1": {
-"link": &"1_2",
-"offset": Vector2(-671.214, 162.759),
-"signalValue": "fade_next"
-},
 "3_2": {
 "link": &"3_3",
 "offset": Vector2(680, 200),
@@ -98,6 +93,11 @@ You sleep until 2pm the next day, waking to the afternoon sunshine in your bedro
 "link": &"1_3",
 "offset": Vector2(794.03, 614.818),
 "signalValue": "music_home"
+},
+"3_4": {
+"link": &"3_2",
+"offset": Vector2(6.448, 900.543),
+"signalValue": "fade_next"
 }
 }
 variables = {}

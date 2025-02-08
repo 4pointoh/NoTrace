@@ -600,7 +600,7 @@ func determineCpuActionAndRaiseAmount():
 			else:
 				# Check if CPU has better than high card before applying 50% call chance
 				var has_better_than_high_card = check_better_than_high_card()
-				if has_better_than_high_card and randomizer.randf() < 0.5:
+				if has_better_than_high_card:
 					cpuAction = "call"
 				else:
 					cpuAction = "fold"

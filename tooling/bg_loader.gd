@@ -2,13 +2,13 @@
 extends EditorScript
 
 func _run() -> void:
-	var input_directory: String = "res://data/background_lists/lisa_park_training/"         # Where .png files are located
-	var output_path: String = "res://data/background_lists/lisa_park_training/lisa_park_training.tres"     # Where to save generated .tres
+	var input_directory: String = "res://data/background_lists/lisa_market_new/"         # Where .png files are located
+	var output_path: String = "res://data/background_lists/lisa_market_new/lisa_market_new.tres"     # Where to save generated .tres
 	create_background_list_from_directory(input_directory, output_path)
 
 func create_background_list_from_directory(directory_path: String, output_path: String) -> void:
 	var background_list: BackgroundList = BackgroundList.new()
-	background_list.name = "lisa_park_training"
+	background_list.name = "lisa_market_new"
 	background_list.images = []
 
 	var dir: DirAccess = DirAccess.open(directory_path)

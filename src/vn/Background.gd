@@ -50,10 +50,11 @@ func resetVideoPlayer():
 	$VideoStreamPlayer.stream = null
 
 func checkForVideo():
+	pass
 	# literally just the name of the background in the resource
-	if background.name == 'intro10':
-		$VideoStreamPlayer.stream = load("res://data/background_lists/chads_party/video/intro_bg10_vid.ogv")
-		fadeVideo()
+	#if background.name == 'intro10':
+	#	$VideoStreamPlayer.stream = load("res://data/background_lists/chads_party/video/intro_bg10_vid.ogv")
+	#	fadeVideo()
 
 func _on_fade_timer_timeout():
 	if(!$BackgroundImage.texture == background.images):

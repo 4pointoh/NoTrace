@@ -198,6 +198,9 @@ func processEvaluateWinner():
 	var winningHand = str(winner[1])
 	var losingHand = str(winner[2])
 
+	var winningHandDescription = winner[3]
+	var losingHandDescription = winner[4]
+
 	if winner[0] == "Hand 1 wins":
 		playerWins = true
 		cpuLives -= 1
@@ -212,11 +215,11 @@ func processEvaluateWinner():
 	var playerHandResult
 	var cpuHandResult
 	if(playerWins):
-		playerHandResult = winningHand
-		cpuHandResult = losingHand
+		playerHandResult = winningHandDescription
+		cpuHandResult = losingHandDescription
 	else:
-		playerHandResult = losingHand
-		cpuHandResult = winningHand
+		playerHandResult = losingHandDescription
+		cpuHandResult = winningHandDescription
 
 	%PokerDisplay.processEvaluateWinner(playerWins, playerHandResult, cpuHandResult)
 

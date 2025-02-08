@@ -38,17 +38,17 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"3_18",
+"link": &"1_11",
 "text": ""
 }
 },
-"size": Vector2(521.994, 973),
+"size": Vector2(521.992, 973),
 "speaker": 1
 },
 "1_11": {
-"background": 1,
-"backgroundList": 0,
-"characterState": 17,
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
 "dialogue": "Yeah I guess you're right... and we're going to Cassidy's for coffee, that's not cheap either! ",
 "offset": Vector2(7660, 160),
 "options": {
@@ -59,12 +59,12 @@ nodes = {
 }
 },
 "size": Vector2(491.999, 983.001),
-"speaker": 0
+"speaker": 2
 },
 "1_12": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 17,
+"characterState": -1,
 "dialogue": "I guess we can get less greasy treats there... and forget about the delicious meat pie...",
 "offset": Vector2(8180, 180),
 "options": {
@@ -74,13 +74,13 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(481.996, 965),
-"speaker": 0
+"size": Vector2(481.994, 965),
+"speaker": 2
 },
 "1_13": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 3,
+"characterState": -1,
 "dialogue": "Speaking of... we should really head over, Cassidy's is super popular and we could get stuck in line!",
 "offset": Vector2(8720, 140),
 "options": {
@@ -90,12 +90,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(463.999, 1019),
-"speaker": 0
+"size": Vector2(464, 1019),
+"speaker": 2
 },
 "1_14": {
-"background": 3,
-"backgroundList": 0,
+"background": 11,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "It's this way, follow me!",
 "offset": Vector2(9500, 140),
@@ -106,8 +106,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(402, 1061),
-"speaker": 0
+"size": Vector2(401.999, 1061),
+"speaker": 2
 },
 "1_15": {
 "background": -1,
@@ -138,11 +138,11 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(490, 973),
+"size": Vector2(490.001, 973),
 "speaker": -1
 },
 "1_17": {
-"background": 2,
+"background": 0,
 "backgroundList": 0,
 "characterState": -1,
 "dialogue": "Soon the bustling crowds of the market part, and you can see Cassidy's coffee shop just ahead. ",
@@ -150,18 +150,18 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_18",
+"link": &"1_59",
 "text": ""
 }
 },
-"size": Vector2(435.996, 961.001),
+"size": Vector2(435.999, 961.001),
 "speaker": ""
 },
 "1_18": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 26,
-"dialogue": "Yay we made it and the line isn't too long! ",
+"characterState": 3,
+"dialogue": "Yay we made it and there aren't too many people here!",
 "offset": Vector2(11260, 220),
 "options": {
 0: {
@@ -170,14 +170,14 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(477.997, 949),
-"speaker": 0
+"size": Vector2(477.995, 949.001),
+"speaker": 2
 },
 "1_19": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Come on, let's run and see if we can get a table!",
+"dialogue": "Come on, let's run to the hostess and see if we can find a table!",
 "offset": Vector2(11780, 240),
 "options": {
 0: {
@@ -186,8 +186,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(424.002, 933),
-"speaker": 0
+"size": Vector2(424, 933.001),
+"speaker": 2
 },
 "1_2": {
 "background": 1,
@@ -218,12 +218,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_21": {
-"background": 5,
-"backgroundList": 0,
+"background": 18,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "You catch up to Lisa, she's already waiting to request a table from the hostess.",
 "offset": Vector2(12880, 480),
@@ -234,7 +234,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(419.998, 709),
+"size": Vector2(419.996, 709),
 "speaker": ""
 },
 "1_22": {
@@ -250,8 +250,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(459.997, 847),
-"speaker": 0
+"size": Vector2(459.994, 847),
+"speaker": 2
 },
 "1_23": {
 "background": -1,
@@ -266,12 +266,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(442.003, 875),
-"speaker": 0
+"size": Vector2(442.001, 875.001),
+"speaker": 2
 },
 "1_24": {
-"background": 7,
-"backgroundList": 0,
+"background": 19,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "The coffee shop has a few benches outside for waiting. Lisa rushes to one and  waits for you to join her. ",
 "offset": Vector2(14580, 320),
@@ -298,8 +298,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(497.996, 777),
-"speaker": 0
+"size": Vector2(497.994, 777),
+"speaker": 2
 },
 "1_26": {
 "background": -1,
@@ -314,8 +314,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(546, 891.001),
-"speaker": 0
+"size": Vector2(546.001, 891.002),
+"speaker": 2
 },
 "1_27": {
 "background": -1,
@@ -330,12 +330,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(532.004, 835),
-"speaker": 0
+"size": Vector2(532, 835),
+"speaker": 2
 },
 "1_28": {
-"background": 6,
-"backgroundList": 0,
+"background": -1,
+"backgroundList": -1,
 "characterState": -1,
 "dialogue": "Could it be like... doing random chores and tasks that seem totally unrelated to poker...",
 "offset": Vector2(16980, 300),
@@ -346,8 +346,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(472.002, 1003),
-"speaker": 0
+"size": Vector2(472.004, 1003),
+"speaker": 2
 },
 "1_29": {
 "background": -1,
@@ -362,8 +362,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(444.005, 965.002),
-"speaker": 0
+"size": Vector2(444.004, 965.003),
+"speaker": 2
 },
 "1_3": {
 "background": -1,
@@ -378,7 +378,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(622, 777),
+"size": Vector2(622.001, 777),
 "speaker": 1
 },
 "1_30": {
@@ -394,8 +394,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(468.001, 1103),
-"speaker": 0
+"size": Vector2(467.998, 1103),
+"speaker": 2
 },
 "1_31": {
 "background": -1,
@@ -410,7 +410,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_32": {
@@ -442,12 +442,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(417.997, 1041),
+"size": Vector2(417.999, 1041),
 "speaker": ""
 },
 "1_34": {
-"background": 8,
-"backgroundList": 0,
+"background": -1,
+"backgroundList": -1,
 "characterState": -1,
 "dialogue": "Oh that's my coffee, it's ready!",
 "offset": Vector2(19980, 260),
@@ -458,8 +458,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(399.999, 1039),
-"speaker": 0
+"size": Vector2(399.997, 1039),
+"speaker": 2
 },
 "1_35": {
 "background": -1,
@@ -470,12 +470,12 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_38",
+"link": &"3_21",
 "text": ""
 }
 },
 "size": Vector2(492.001, 1043),
-"speaker": 0
+"speaker": 2
 },
 "1_36": {
 "background": -1,
@@ -490,8 +490,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
-"speaker": 0
+"size": Vector2(305.001, 623),
+"speaker": 2
 },
 "1_37": {
 "background": -1,
@@ -506,12 +506,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300.005, 623),
 "speaker": 1
 },
 "1_38": {
-"background": 9,
-"backgroundList": 0,
+"background": 21,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "She promptly stands up to go get her drink.",
 "offset": Vector2(21040, 280),
@@ -522,14 +522,14 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.005, 641),
+"size": Vector2(300.003, 641),
 "speaker": ""
 },
 "1_39": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Oh, also I ordered a coffee while we wait =]",
+"dialogue": "Oh, also I ordered a coffee while we wait!",
 "offset": Vector2(13149.8, 1264.87),
 "options": {
 0: {
@@ -538,8 +538,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
-"speaker": 0
+"size": Vector2(305, 623.001),
+"speaker": 2
 },
 "1_4": {
 "background": -1,
@@ -554,12 +554,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(685.997, 801),
+"size": Vector2(685.996, 801),
 "speaker": 1
 },
 "1_40": {
-"background": 10,
-"backgroundList": 0,
+"background": -1,
+"backgroundList": -1,
 "characterState": -1,
 "dialogue": "Want to come with? I think our table might be ready too!",
 "offset": Vector2(21400, 300),
@@ -570,8 +570,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.011, 643),
-"speaker": 0
+"size": Vector2(305.002, 643),
+"speaker": 2
 },
 "1_41": {
 "background": -1,
@@ -582,16 +582,16 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"3_11",
+"link": &"1_42",
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_42": {
-"background": 11,
-"backgroundList": 0,
+"background": -1,
+"backgroundList": -1,
 "characterState": -1,
 "dialogue": "Sorry I didn't ask if you wanted anything! ",
 "offset": Vector2(22100, 360),
@@ -602,8 +602,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(398.013, 765),
-"speaker": 0
+"size": Vector2(398.008, 765),
+"speaker": 2
 },
 "1_43": {
 "background": -1,
@@ -618,44 +618,44 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(474.019, 801.001),
+"size": Vector2(474.015, 801.001),
 "speaker": 1
 },
 "1_44": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "She hands some cash to the barista, and asks whether the table is ready.",
+"dialogue": "She picks up her order from the barista, and asks whether the table is ready. ",
 "offset": Vector2(23080, 400),
 "options": {
 0: {
 "condition": {},
-"link": &"1_45",
+"link": &"3_11",
 "text": ""
 }
 },
-"size": Vector2(430.008, 763),
+"size": Vector2(430.006, 763),
 "speaker": ""
 },
 "1_45": {
-"background": 12,
-"backgroundList": 0,
+"background": 22,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "Dang, still no table yet, we still have to wait a bit longer!",
 "offset": Vector2(23560, 400),
 "options": {
 0: {
 "condition": {},
-"link": &"3_13",
+"link": &"1_46",
 "text": ""
 }
 },
-"size": Vector2(479.992, 915.002),
-"speaker": 0
+"size": Vector2(479.988, 915.003),
+"speaker": 2
 },
 "1_46": {
-"background": 13,
-"backgroundList": 0,
+"background": 22,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "The bench you were sitting on has been taken over by new inhabitants, so you're stuck standing for now.",
 "offset": Vector2(24140, 400),
@@ -666,7 +666,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(519.998, 889),
+"size": Vector2(519.988, 889.001),
 "speaker": ""
 },
 "1_47": {
@@ -682,12 +682,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(475.996, 909),
+"size": Vector2(475.992, 909.001),
 "speaker": ""
 },
 "1_48": {
-"background": 13,
-"backgroundList": 0,
+"background": 23,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "A short while later, you hear the barista call out the name \"Poker Pals\"",
 "offset": Vector2(25600, 400),
@@ -698,7 +698,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(450.002, 959),
+"size": Vector2(449.999, 959.001),
 "speaker": ""
 },
 "1_49": {
@@ -714,8 +714,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(458.003, 955),
-"speaker": 0
+"size": Vector2(457.999, 955.001),
+"speaker": 2
 },
 "1_5": {
 "background": -1,
@@ -730,12 +730,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(575.998, 847),
-"speaker": 0
+"size": Vector2(575.996, 847),
+"speaker": 2
 },
 "1_50": {
-"background": 14,
-"backgroundList": 0,
+"background": -1,
+"backgroundList": -1,
 "characterState": -1,
 "dialogue": "Let's go!",
 "offset": Vector2(26640, 380),
@@ -746,8 +746,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(486.003, 1055),
-"speaker": 0
+"size": Vector2(486, 1055),
+"speaker": 2
 },
 "1_51": {
 "background": -1,
@@ -762,12 +762,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(460.004, 971),
+"size": Vector2(460, 971.001),
 "speaker": ""
 },
 "1_52": {
-"background": 15,
-"backgroundList": 0,
+"background": 24,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "When you arrive, Lisa has already chosen her seat. ",
 "offset": Vector2(27780, 420),
@@ -778,7 +778,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(437.996, 971),
+"size": Vector2(437.992, 971.001),
 "speaker": ""
 },
 "1_53": {
@@ -794,7 +794,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(441.992, 975.001),
+"size": Vector2(441.992, 975.002),
 "speaker": 1
 },
 "1_54": {
@@ -810,15 +810,15 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
-"speaker": 0
+"size": Vector2(305, 623),
+"speaker": 2
 },
 "1_55": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "Lisa takes off running.",
-"offset": Vector2(12000.6, 1185.65),
+"offset": Vector2(12200, 1220),
 "options": {
 0: {
 "condition": {},
@@ -826,7 +826,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300, 621.001),
 "speaker": ""
 },
 "1_56": {
@@ -842,8 +842,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
-"speaker": 0
+"size": Vector2(305, 623),
+"speaker": 2
 },
 "1_57": {
 "background": 1,
@@ -862,8 +862,8 @@ nodes = {
 "speaker": ""
 },
 "1_58": {
-"background": 8,
-"backgroundList": 0,
+"background": 20,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "She sits up in excitement",
 "offset": Vector2(19820, 1400),
@@ -877,26 +877,42 @@ nodes = {
 "size": Vector2(300.001, 641),
 "speaker": ""
 },
+"1_59": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "you make your way inside",
+"offset": Vector2(10486.8, 1251.13),
+"options": {
+0: {
+"condition": {},
+"link": &"3_18",
+"text": ""
+}
+},
+"size": Vector2(300, 573.001),
+"speaker": ""
+},
 "1_6": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 15,
+"characterState": 3,
 "dialogue": "Oh I knew it was you! I guess we're on the way to the same place, ha!",
 "offset": Vector2(4660, 240),
 "options": {
 0: {
 "condition": {},
-"link": &"1_7",
+"link": &"3_22",
 "text": ""
 }
 },
-"size": Vector2(478, 845),
-"speaker": 0
+"size": Vector2(477.999, 845),
+"speaker": 2
 },
 "1_7": {
 "background": -1,
 "backgroundList": -1,
-"characterState": 4,
+"characterState": 0,
 "dialogue": "Were you looking at Chuck's meat pie cart? ",
 "offset": Vector2(5200, 240),
 "options": {
@@ -906,12 +922,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(474, 833),
-"speaker": 0
+"size": Vector2(473.997, 833),
+"speaker": 2
 },
 "1_8": {
-"background": 4,
-"backgroundList": 0,
+"background": 0,
+"backgroundList": 2,
 "characterState": -1,
 "dialogue": "These things used to be like $4, total rip off now!",
 "offset": Vector2(6000, 220),
@@ -923,7 +939,7 @@ nodes = {
 }
 },
 "size": Vector2(413.999, 875),
-"speaker": 0
+"speaker": 2
 },
 "1_9": {
 "background": -1,
@@ -938,8 +954,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(536.002, 885),
-"speaker": 0
+"size": Vector2(536.001, 885),
+"speaker": 2
 },
 "3_1": {
 "link": &"3_5",
@@ -952,8 +968,8 @@ nodes = {
 "signalValue": "fade_next"
 },
 "3_11": {
-"link": &"1_42",
-"offset": Vector2(21611.9, 1038.48),
+"link": &"1_45",
+"offset": Vector2(22851.3, 1597.94),
 "signalValue": "fade_next"
 },
 "3_12": {
@@ -962,8 +978,8 @@ nodes = {
 "signalValue": "fade_next"
 },
 "3_13": {
-"link": &"1_46",
-"offset": Vector2(23929.9, 1502.38),
+"link": &"1_21",
+"offset": Vector2(12527.7, 1288.53),
 "signalValue": "fade_next"
 },
 "3_14": {
@@ -987,12 +1003,12 @@ nodes = {
 "signalValue": "reposition_top"
 },
 "3_18": {
-"link": &"1_11",
-"offset": Vector2(7408.62, 1285.73),
+"link": &"1_18",
+"offset": Vector2(10771.5, 1501.91),
 "signalValue": "reposition_upper_mid"
 },
 "3_19": {
-"link": &"1_6",
+"link": &"3_23",
 "offset": Vector2(4257.77, 1216.62),
 "signalValue": "reposition_upper_mid"
 },
@@ -1005,6 +1021,21 @@ nodes = {
 "link": &"3_4",
 "offset": Vector2(9192.19, 1348.62),
 "signalValue": "reposition_top"
+},
+"3_21": {
+"link": &"1_38",
+"offset": Vector2(20876.4, 1390.67),
+"signalValue": "fade_next"
+},
+"3_22": {
+"link": &"1_7",
+"offset": Vector2(4817.08, 1255.45),
+"signalValue": "fade_next"
+},
+"3_23": {
+"link": &"1_6",
+"offset": Vector2(4242.52, 1349.99),
+"signalValue": "walk_on"
 },
 "3_3": {
 "link": &"3_12",
@@ -1029,7 +1060,7 @@ nodes = {
 "3_7": {
 "link": &"1_55",
 "offset": Vector2(12240, 600),
-"signalValue": "hide_char"
+"signalValue": "walk_off"
 },
 "3_8": {
 "link": &"1_24",
@@ -1037,7 +1068,7 @@ nodes = {
 "signalValue": "fade_next"
 },
 "3_9": {
-"link": &"1_21",
+"link": &"3_13",
 "offset": Vector2(12561.5, 1067.93),
 "signalValue": "reposition_bottom"
 }

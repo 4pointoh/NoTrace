@@ -51,12 +51,6 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 		updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 		updateResult.shouldPausePoker = true
 		updateResult.shouldHidePoker = true
-	elif _pokerInfo.playerLives == 1 && alreadyDisplayed3 && !alreadyDisplayed5:
-		alreadyDisplayed5 = true
-		updateResult.dialogueStartKey = 'COMEBACK'
-		updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
-		updateResult.shouldPausePoker = true
-		updateResult.shouldHidePoker = true
 
 	if _pokerInfo.cpuLives == 0:
 		GlobalGameStage.unlockWallpaper('BOA_POK3')

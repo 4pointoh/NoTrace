@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="Character" load_steps=20 format=3 uid="uid://87j2h8n6qpti"]
+
+[ext_resource type="Texture2D" uid="uid://bmr340bwpb5ck" path="res://data/characters/lisa/lisa_party_new_new/face.png" id="1_us3kn"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_joi7e"]
+[ext_resource type="Texture2D" uid="uid://bdpstn8tonnw3" path="res://data/characters/lisa/lisa_party_new_new/character_art/arms_crossed_sad.png" id="3_kmfwf"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_vhqko"]
+[ext_resource type="Texture2D" uid="uid://ctb78an634p3q" path="res://data/characters/lisa/lisa_party_new_new/character_art/hands_down_excited.png" id="5_kq8xt"]
+[ext_resource type="Texture2D" uid="uid://ijv8npknmgnu" path="res://data/characters/lisa/lisa_party_new_new/character_art/hands_on_hips_smile.png" id="6_84qby"]
+[ext_resource type="Texture2D" uid="uid://chgudrsa3v4nc" path="res://data/characters/lisa/lisa_party_new_new/character_art/hands_up_excited.png" id="7_ouj3n"]
+[ext_resource type="Texture2D" uid="uid://dxpmakq7ta163" path="res://data/characters/lisa/lisa_party_new_new/character_art/hand_on_neck.png" id="8_gfxfl"]
+[ext_resource type="Texture2D" uid="uid://b84giaqeboxc3" path="res://data/characters/lisa/lisa_party_new_new/character_art/shirt_pull_happy.png" id="9_l7qae"]
+[ext_resource type="Texture2D" uid="uid://bbe173gtpvoya" path="res://data/characters/lisa/lisa_party_new_new/character_art/smile.png" id="10_d0slh"]
+[ext_resource type="Texture2D" uid="uid://dmf8otokq55fp" path="res://data/characters/lisa/lisa_party_new_new/character_art/happy.png" id="11_kpjdw"]
+
+[sub_resource type="Resource" id="Resource_c14tt"]
+script = ExtResource("4_vhqko")
+name = "arms_crossed_sad.png"
+image = ExtResource("3_kmfwf")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_ctxqj"]
+script = ExtResource("4_vhqko")
+name = "hands_down_excited.png"
+image = ExtResource("5_kq8xt")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_ffq70"]
+script = ExtResource("4_vhqko")
+name = "hands_on_hips_smile.png"
+image = ExtResource("6_84qby")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_4l8yw"]
+script = ExtResource("4_vhqko")
+name = "hands_up_excited.png"
+image = ExtResource("7_ouj3n")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_4q5wg"]
+script = ExtResource("4_vhqko")
+name = "hand_on_neck.png"
+image = ExtResource("8_gfxfl")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_pvnow"]
+script = ExtResource("4_vhqko")
+name = "shirt_pull_happy.png"
+image = ExtResource("9_l7qae")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_475ft"]
+script = ExtResource("4_vhqko")
+name = "smile.png"
+image = ExtResource("10_d0slh")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_haydw"]
+script = ExtResource("4_vhqko")
+name = "happy"
+image = ExtResource("11_kpjdw")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("2_joi7e")
+name = "Lisa"
+editorName = "lisa_party_new_new"
+image = ExtResource("1_us3kn")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_vhqko")]([SubResource("Resource_c14tt"), SubResource("Resource_ctxqj"), SubResource("Resource_ffq70"), SubResource("Resource_4l8yw"), SubResource("Resource_4q5wg"), SubResource("Resource_pvnow"), SubResource("Resource_475ft"), SubResource("Resource_haydw")])

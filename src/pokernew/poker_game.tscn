@@ -164,7 +164,6 @@ patch_margin_bottom = 8
 
 [node name="IntroLabel" type="Label" parent="PokerDisplay"]
 unique_name_in_owner = true
-visible = false
 offset_top = 265.0
 offset_right = 896.004
 offset_bottom = 528.0
@@ -208,9 +207,9 @@ vertical_alignment = 1
 [node name="PlayerResultBg" type="NinePatchRect" parent="PokerDisplay"]
 unique_name_in_owner = true
 visible = false
-offset_left = 249.0
+offset_left = 177.0
 offset_top = 528.0
-offset_right = 661.0
+offset_right = 730.0
 offset_bottom = 591.0
 texture = ExtResource("3_i4s7q")
 patch_margin_left = 8
@@ -220,7 +219,7 @@ patch_margin_bottom = 8
 
 [node name="PlayerResult" type="Label" parent="PokerDisplay/PlayerResultBg"]
 layout_mode = 0
-offset_right = 412.0
+offset_right = 553.0
 offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("4_dai1u")
 theme_override_font_sizes/font_size = 32
@@ -231,9 +230,9 @@ vertical_alignment = 1
 [node name="CPUResultBg" type="NinePatchRect" parent="PokerDisplay"]
 unique_name_in_owner = true
 visible = false
-offset_left = 249.0
+offset_left = 177.0
 offset_top = 391.0
-offset_right = 661.0
+offset_right = 730.0
 offset_bottom = 454.0
 texture = ExtResource("3_i4s7q")
 patch_margin_left = 8
@@ -243,7 +242,7 @@ patch_margin_bottom = 8
 
 [node name="CPUResult" type="Label" parent="PokerDisplay/CPUResultBg"]
 layout_mode = 0
-offset_right = 412.0
+offset_right = 553.0
 offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("4_dai1u")
 theme_override_font_sizes/font_size = 32

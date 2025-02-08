@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="Character" load_steps=14 format=3 uid="uid://d2au7dkwfj5sm"]
+
+[ext_resource type="Texture2D" uid="uid://crbwock3ketc4" path="res://data/characters/lisa/orange_skirt_new/face.png" id="1_3lybx"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_6hxyx"]
+[ext_resource type="Texture2D" uid="uid://dnent3iy0lemn" path="res://data/characters/lisa/orange_skirt_new/character_art/arms_crossed_pout.png" id="3_q0jsx"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_l4omh"]
+[ext_resource type="Texture2D" uid="uid://bqfpsibylswma" path="res://data/characters/lisa/orange_skirt_new/character_art/arms_crossed_smile.png" id="5_6j8tf"]
+[ext_resource type="Texture2D" uid="uid://dop0xj4mrg30g" path="res://data/characters/lisa/orange_skirt_new/character_art/arms_crossed_smile2.png" id="6_2dmm3"]
+[ext_resource type="Texture2D" uid="uid://dy7v876gb2f5v" path="res://data/characters/lisa/orange_skirt_new/character_art/hands_down_excited.png" id="7_11cnp"]
+[ext_resource type="Texture2D" uid="uid://d3ysp37r2fv57" path="res://data/characters/lisa/orange_skirt_new/character_art/hand_on_neck_smile.png" id="8_6oafd"]
+
+[sub_resource type="Resource" id="Resource_ac01n"]
+script = ExtResource("4_l4omh")
+name = "arms_crossed_pout.png"
+image = ExtResource("3_q0jsx")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_pc2us"]
+script = ExtResource("4_l4omh")
+name = "arms_crossed_smile.png"
+image = ExtResource("5_6j8tf")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_b0jqe"]
+script = ExtResource("4_l4omh")
+name = "arms_crossed_smile2.png"
+image = ExtResource("6_2dmm3")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_q60g3"]
+script = ExtResource("4_l4omh")
+name = "hands_down_excited.png"
+image = ExtResource("7_11cnp")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_e7vjk"]
+script = ExtResource("4_l4omh")
+name = "hand_on_neck_smile.png"
+image = ExtResource("8_6oafd")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("2_6hxyx")
+name = "Lisa"
+editorName = "orange_skirt_new"
+image = ExtResource("1_3lybx")
+color = Color(1, 1, 1, 1)
+states = [SubResource("Resource_ac01n"), SubResource("Resource_pc2us"), SubResource("Resource_b0jqe"), SubResource("Resource_q60g3"), SubResource("Resource_e7vjk")]

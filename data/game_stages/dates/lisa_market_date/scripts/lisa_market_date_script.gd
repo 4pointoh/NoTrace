@@ -26,27 +26,27 @@ func getCurrentBackground():
 	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
 	
 	var newBackground : Background = Background.new()
-	if scoreProgression <= 40:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/1.png")
+	if scoreProgression <= 30:
+		newBackground.images = load("res://data/background_lists/lisa_market_new/10.png")
 		newBackground.name = '2'
 	elif scoreProgression <= 60:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/2.png")
+		newBackground.images = load("res://data/background_lists/lisa_market_new/11.png")
 		newBackground.name = '3'
-	elif scoreProgression <= 80:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/3.png")
+	elif scoreProgression <= 90:
+		newBackground.images = load("res://data/background_lists/lisa_market_new/12.png")
 		newBackground.name = '4'
-	elif scoreProgression <= 100:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/4.png")
-		newBackground.name = '5'
-	elif scoreProgression <= 120:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/5.png")
-		newBackground.name = '6'
 	elif scoreProgression <= 140:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/6.png")
+		newBackground.images = load("res://data/background_lists/lisa_market_new/13.png")
+		newBackground.name = '5'
+	elif scoreProgression <= 180:
+		newBackground.images = load("res://data/background_lists/lisa_market_new/14.png")
 		newBackground.name = '7'
+	elif scoreProgression <= 220:
+		newBackground.images = load("res://data/background_lists/lisa_market_new/15.png")
+		newBackground.name = '9'
 	else:
-		newBackground.images = load("res://data/background_lists/dates/lisa_market_date/date/7.png")
-		newBackground.name = '8'
+		newBackground.images = load("res://data/background_lists/lisa_market_new/17.png")
+		newBackground.name = '10'
 	
 	return newBackground
 
@@ -56,10 +56,10 @@ func get_possible_memory_unlocks():
 	var progressUnlocks = []
 	var questionUnlocks = []
 
-	progressUnlocks.append('FIRST_DATE1')
-	progressUnlocks.append('FIRST_DATE3')
+	progressUnlocks.append('LISA_MARKET_REW_2')
+	progressUnlocks.append('LISA_MARKET_REW_3')
 
-	questionUnlocks.append('FIRST_DATE2')
+	questionUnlocks.append('LISA_MARKET_REW_1')
 
 	possibleUnlocks['progressUnlocks'] = progressUnlocks
 	possibleUnlocks['questionUnlocks'] = questionUnlocks
@@ -551,7 +551,7 @@ func group_why_leaving_choice2():
 	result.dialogueStartKey = 'bitches'
 	result.addParticleRain = 'laugh'
 	result.particleType = Heartsplosion.TYPES.LAUGH
-	result.setBackground(load("res://data/background_lists/dates/lisa_market_date/date/D.png"), 'answerbitches')
+	result.setBackground(load("res://data/background_lists/lisa_market_new/18.png"), 'answerbitches')
 	return result
 
 func group_think_about_cummington_answer():
@@ -583,7 +583,7 @@ func group_favorite_meat_pie_answer():
 	var result = DateActionResult.new()
 	result.dialogueStartKey = 'dialogue_favorite_meat_pie'
 	result.success = true
-	result.setBackground(load("res://data/background_lists/dates/lisa_market_date/date/C.png"), 'milker')
+	result.setBackground(load("res://data/background_lists/lisa_market_new/16.png"), 'milker')
 	result.nextGroup.append(getChoiceAction("Chuck's Mega Milker Meat (Beef)", group_favorite_meat_pie_choice1))
 	result.nextGroup.append(getChoiceAction("Chicken Giggler Special", group_favorite_meat_pie_choice2))
 	result.nextGroup.append(getChoiceAction("I'm a vegan, meat is murder", group_favorite_meat_pie_choice3))
@@ -944,7 +944,7 @@ func group_relationships_ever_had():
 	result.dialogueStartKey = 'ever_had_success'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 30
-	result.memoryUnlockId = 'FIRST_DATE2'
+	result.memoryUnlockId = 'LISA_MARKET_REW_1'
 	return result
 
 func group_relationships_ever_had_fail():

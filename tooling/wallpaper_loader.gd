@@ -2,10 +2,9 @@
 extends EditorScript
 
 func _run() -> void:
-	var wallpaper_png_path = 'res://data/background_lists/lisa_park_training/lisa_park_training_reward9.png'
-	var wallpaper_hint = 'Attempt to train Lisa the old-fashioned way (9)'
-	var wallpaper_id = 'lisa_training_reward9' #used for unlocking it
-	
+	var wallpaper_png_path = 'res://data/background_lists/lisa_market_new/rew2.png'
+	var wallpaper_hint = 'Lisa market date (3)'
+	var wallpaper_id = 'LISA_MARKET_REW_3' #used for unlocking it
 	var all_wallpaper_path = "res://resources/wallpapers/all_wallpapers.tres"
 	var all_wallpapers_resource = load(all_wallpaper_path)
 	
