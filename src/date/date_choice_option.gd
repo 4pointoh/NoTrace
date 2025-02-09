@@ -8,9 +8,9 @@ signal choice_selected(choice : String)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(mainLabel.length() > 70):
-		$ChoiceButton/ChoiceLabel.set("theme_override_font_sizes/font_size",18)
+		$ChoiceButton/ChoiceLabel.set("theme_override_font_sizes/font_size",17)
 	elif(mainLabel.length() > 30):
-		$ChoiceButton/ChoiceLabel.set("theme_override_font_sizes/font_size",20)
+		$ChoiceButton/ChoiceLabel.set("theme_override_font_sizes/font_size",19)
 	elif(mainLabel.length() > 5):
 		$ChoiceButton/ChoiceLabel.set("theme_override_font_sizes/font_size",22)
 	else:

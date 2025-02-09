@@ -26,10 +26,7 @@ func getCurrentBackground():
 	var scoreProgression = GlobalGameStage.getDateStorage().currentDateProgressionScore
 	
 	var newBackground : Background = Background.new()
-	if scoreProgression <= 40:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/13.png")
-		newBackground.name = '2'
-	elif scoreProgression <= 60:
+	if scoreProgression <= 60:
 		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/9.png")
 		newBackground.name = '3'
 	elif scoreProgression <= 80:
@@ -37,9 +34,6 @@ func getCurrentBackground():
 		newBackground.name = '4'
 	elif scoreProgression <= 100:
 		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/11.png")
-		newBackground.name = '5'
-	elif scoreProgression <= 120:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/12.png")
 		newBackground.name = '6'
 	elif scoreProgression <= 140:
 		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/8.png")

@@ -170,7 +170,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_108": {
@@ -202,7 +202,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 623),
+"size": Vector2(300.006, 623),
 "speaker": 2
 },
 "1_11": {
@@ -270,7 +270,7 @@ nodes = {
 "speaker": 2
 },
 "1_113": {
-"background": 8,
+"background": 16,
 "backgroundList": 0,
 "characterState": 5,
 "dialogue": "You don't get to leave that easily.",
@@ -490,7 +490,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.006, 623),
 "speaker": 0
 },
 "1_126": {
@@ -602,7 +602,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 623),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_132": {
@@ -684,6 +684,22 @@ nodes = {
 },
 "size": Vector2(300.004, 621),
 "speaker": ""
+},
+"1_137": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(23779.5, 3180.17),
+"options": {
+0: {
+"condition": {},
+"link": &"1_66",
+"text": ""
+}
+},
+"size": Vector2(300, 575),
+"speaker": 0
 },
 "1_14": {
 "background": -1,
@@ -874,7 +890,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_25": {
@@ -1274,7 +1290,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.003, 621),
+"size": Vector2(300.004, 621),
 "speaker": ""
 },
 "1_48": {
@@ -1306,7 +1322,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(346.003, 643),
+"size": Vector2(346.004, 643),
 "speaker": 2
 },
 "1_5": {
@@ -1390,8 +1406,8 @@ nodes = {
 "speaker": ""
 },
 "1_54": {
-"background": -1,
-"backgroundList": -1,
+"background": 16,
+"backgroundList": 0,
 "characterState": 15,
 "dialogue": "...",
 "offset": Vector2(20020, 2380),
@@ -1590,7 +1606,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_66",
+"link": &"1_137",
 "text": ""
 }
 },
@@ -1790,7 +1806,7 @@ nodes = {
 "speaker": ""
 },
 "1_77": {
-"background": 8,
+"background": 16,
 "backgroundList": 0,
 "characterState": -1,
 "dialogue": "You walk back, hesitantly. ",
@@ -1802,7 +1818,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(346.002, 641),
+"size": Vector2(346.003, 641),
 "speaker": ""
 },
 "1_78": {
@@ -1914,7 +1930,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.001, 623),
 "speaker": 2
 },
 "1_84": {
@@ -1930,7 +1946,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.001, 623),
 "speaker": 2
 },
 "1_85": {

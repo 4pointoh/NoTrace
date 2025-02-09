@@ -79,7 +79,7 @@ func repeated_ask(action : DateAction):
 	
 	if(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskSuccessCount(id) > 0):
 		result.success = false
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.dialogueStartKey = 'repeat_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
 		result.annoyed = true
@@ -87,11 +87,11 @@ func repeated_ask(action : DateAction):
 		result.success = false
 		result.criticalFailure = true
 		result.annoyed = true
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.dialogueStartKey = 'asked_too_many_times'
 	elif(GlobalGameStage.getDateLastFailure() == id):
 		result.success = false
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.annoyed = true
 		result.dialogueStartKey = 'asked_twice_in_a_row_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
@@ -503,7 +503,7 @@ func group_ask_top3_q3_c2():
 func group_ask_top3_q3_c3():
 	var result = DateActionResult.new()
 	result.criticalFailure = true
-	result.scoreProgression = -20
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'motivation_strip'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	result.setBackground(load("res://data/background_lists/lisa_park_training/lisa_park_training_25_poker.png"), 'wtfpoker')
@@ -546,7 +546,7 @@ func group_topic4():
 func group_topic4_fail():
 	var result = DateActionResult.new()
 	result.success = false 
-	result.scoreProgression = -10
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'flirt_fail'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -574,6 +574,7 @@ func group_ask_top4_q4():
 func group_ask_top4_q4_c1():
 	var result = DateActionResult.new()
 	result.success = true
+	result.annoyed = true
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'runner'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
@@ -612,6 +613,7 @@ func group_ask_top4_q2():
 func group_ask_top4_q3():
 	var result = DateActionResult.new()
 	result.success = true
+	result.annoyed = true
 	result.dialogueStartKey = 'boobs'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 10
