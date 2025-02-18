@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://crnyqht4wwav1"]
+
+[ext_resource type="Resource" uid="uid://1q38baa1nm6b" path="res://data/game_stages/poker/boa_poker_new_poker/d_boa_poker_new_poker.tres" id="1_3iu1l"]
+[ext_resource type="Script" path="res://data/game_stages/poker/boa_poker_new_poker/scripts/boa_poker_new_script.gd" id="2_mjlr2"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_518h3"]
+[ext_resource type="AudioStream" uid="uid://ck8wqkmvk3m4t" path="res://data/assets/general/sounds/bg_music/poker.mp3" id="4_ohs6l"]
+[ext_resource type="Texture2D" uid="uid://dcq2xr6nhnkv" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/1.png" id="4_wxds7"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_21vsv"]
+
+[sub_resource type="Resource" id="Resource_j04sa"]
+script = ExtResource("5_21vsv")
+name = "ggg"
+images = ExtResource("4_wxds7")
+
+[resource]
+script = ExtResource("3_518h3")
+name = "boa_poker_new_poker"
+displayName = "Boa Poker - New"
+dialogue = ExtResource("1_3iu1l")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_j04sa")
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Boa"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+pokerScript = ExtResource("2_mjlr2")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("4_ohs6l")
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=25 format=3 uid="uid://bcihnc4c5bg7u"]
+
+[ext_resource type="Texture2D" uid="uid://bfn5qwhxdw4o0" path="res://data/background_lists/boa_poker_new/no_shirt/1.png" id="1_g6a3g"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_s8s8y"]
+[ext_resource type="Texture2D" uid="uid://cwjjvh5mspjhp" path="res://data/background_lists/boa_poker_new/no_shirt/10.png" id="3_xd0ss"]
+[ext_resource type="Texture2D" uid="uid://rewyhj8475ad" path="res://data/background_lists/boa_poker_new/no_shirt/11.png" id="4_jvovr"]
+[ext_resource type="Texture2D" uid="uid://0eb15thvkn38" path="res://data/background_lists/boa_poker_new/no_shirt/2.png" id="5_7ojsb"]
+[ext_resource type="Texture2D" uid="uid://cn3roh63kfhx0" path="res://data/background_lists/boa_poker_new/no_shirt/3.png" id="6_kywyh"]
+[ext_resource type="Texture2D" uid="uid://bd1ofq0gi7way" path="res://data/background_lists/boa_poker_new/no_shirt/4.png" id="7_oa05l"]
+[ext_resource type="Texture2D" uid="uid://dce8r62xl1uie" path="res://data/background_lists/boa_poker_new/no_shirt/5.png" id="8_8t74c"]
+[ext_resource type="Texture2D" uid="uid://cc5hidpgtr6af" path="res://data/background_lists/boa_poker_new/no_shirt/6.png" id="9_e8xig"]
+[ext_resource type="Texture2D" uid="uid://dvbrjudakp4jk" path="res://data/background_lists/boa_poker_new/no_shirt/7.png" id="10_luawm"]
+[ext_resource type="Texture2D" uid="uid://bc2eot5yh4gu7" path="res://data/background_lists/boa_poker_new/no_shirt/8.png" id="11_korfr"]
+[ext_resource type="Texture2D" uid="uid://c5csvf52hdu7a" path="res://data/background_lists/boa_poker_new/no_shirt/9.png" id="12_id6yr"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="13_1576k"]
+
+[sub_resource type="Resource" id="Resource_54ilw"]
+script = ExtResource("2_s8s8y")
+name = "1.png"
+images = ExtResource("1_g6a3g")
+
+[sub_resource type="Resource" id="Resource_u6ep1"]
+script = ExtResource("2_s8s8y")
+name = "10.png"
+images = ExtResource("3_xd0ss")
+
+[sub_resource type="Resource" id="Resource_00e8k"]
+script = ExtResource("2_s8s8y")
+name = "11.png"
+images = ExtResource("4_jvovr")
+
+[sub_resource type="Resource" id="Resource_ob3av"]
+script = ExtResource("2_s8s8y")
+name = "2.png"
+images = ExtResource("5_7ojsb")
+
+[sub_resource type="Resource" id="Resource_e522x"]
+script = ExtResource("2_s8s8y")
+name = "3.png"
+images = ExtResource("6_kywyh")
+
+[sub_resource type="Resource" id="Resource_7qgng"]
+script = ExtResource("2_s8s8y")
+name = "4.png"
+images = ExtResource("7_oa05l")
+
+[sub_resource type="Resource" id="Resource_lbp2c"]
+script = ExtResource("2_s8s8y")
+name = "5.png"
+images = ExtResource("8_8t74c")
+
+[sub_resource type="Resource" id="Resource_vqfys"]
+script = ExtResource("2_s8s8y")
+name = "6.png"
+images = ExtResource("9_e8xig")
+
+[sub_resource type="Resource" id="Resource_o0iku"]
+script = ExtResource("2_s8s8y")
+name = "7.png"
+images = ExtResource("10_luawm")
+
+[sub_resource type="Resource" id="Resource_ibhcv"]
+script = ExtResource("2_s8s8y")
+name = "8.png"
+images = ExtResource("11_korfr")
+
+[sub_resource type="Resource" id="Resource_852ik"]
+script = ExtResource("2_s8s8y")
+name = "9.png"
+images = ExtResource("12_id6yr")
+
+[resource]
+script = ExtResource("13_1576k")
+name = "no_shirt"
+images = Array[ExtResource("2_s8s8y")]([SubResource("Resource_54ilw"), SubResource("Resource_u6ep1"), SubResource("Resource_00e8k"), SubResource("Resource_ob3av"), SubResource("Resource_e522x"), SubResource("Resource_7qgng"), SubResource("Resource_lbp2c"), SubResource("Resource_vqfys"), SubResource("Resource_o0iku"), SubResource("Resource_ibhcv"), SubResource("Resource_852ik")])

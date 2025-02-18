@@ -198,7 +198,7 @@ func playMusicWhimsical():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/Whispers of the Night.mp3"))
 
 func playMusicNeonLights():
-	playBgMusic(load("res://data/assets/general/sounds/bg_music/Neon Lights and Endless Nights.mp3"))
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/new/Untitled(11).mp3"))
 
 func fadeNext():
 	$Background.shouldFade = true

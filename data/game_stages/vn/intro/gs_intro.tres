@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://6fwsbytmg2w6" path="res://data/game_stages/vn/intro/d_intro3.tres" id="1_vsx5k"]
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_68ses"]
-[ext_resource type="Resource" uid="uid://pexnumnao4y4" path="res://data/game_stages/poker/intro_poker/gs_intro_poker.tres" id="2_pxhgx"]
+[ext_resource type="Resource" uid="uid://crnyqht4wwav1" path="res://data/game_stages/poker/boa_poker_new_poker/gs_boa_poker_new_poker.tres" id="2_uogd1"]
 
 [resource]
 script = ExtResource("2_68ses")
@@ -10,7 +10,7 @@ name = "intro"
 displayName = "Intro"
 dialogue = ExtResource("1_vsx5k")
 dialogueStartKey = "START"
-guaranteedNextGameStage = ExtResource("2_pxhgx")
+guaranteedNextGameStage = ExtResource("2_uogd1")
 isCompletable = true
 isPokerMatch = false
 playerStartingMoney = 0
@@ -22,6 +22,7 @@ maxRaise = 0
 pokerType = 0
 playerLives = 0
 cpuLives = 0
+cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false

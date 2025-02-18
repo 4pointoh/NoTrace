@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=29 format=3 uid="uid://bflkrex04m6eb"]
+
+[ext_resource type="Texture2D" uid="uid://cq423t6sfan08" path="res://data/background_lists/boa_poker_new/with_shirt/0.png" id="1_jgsfm"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_g8yd1"]
+[ext_resource type="Texture2D" uid="uid://bxf1bvwx0f4vl" path="res://data/background_lists/boa_poker_new/with_shirt/1.png" id="3_564xr"]
+[ext_resource type="Texture2D" uid="uid://kcd70d7qxv0h" path="res://data/background_lists/boa_poker_new/with_shirt/10.png" id="4_auiqq"]
+[ext_resource type="Texture2D" uid="uid://cyq41msg44dhy" path="res://data/background_lists/boa_poker_new/with_shirt/11.png" id="5_4nmhi"]
+[ext_resource type="Texture2D" uid="uid://b0ni0aj0e8ea0" path="res://data/background_lists/boa_poker_new/with_shirt/12.png" id="6_byaf3"]
+[ext_resource type="Texture2D" uid="uid://bcskkyh4l1prc" path="res://data/background_lists/boa_poker_new/with_shirt/13.png" id="7_rv40j"]
+[ext_resource type="Texture2D" uid="uid://dtq147gli65w6" path="res://data/background_lists/boa_poker_new/with_shirt/2.png" id="8_4uvbc"]
+[ext_resource type="Texture2D" uid="uid://24rxjhb2d52n" path="res://data/background_lists/boa_poker_new/with_shirt/4.png" id="9_1tkg6"]
+[ext_resource type="Texture2D" uid="uid://2eir48vhva5m" path="res://data/background_lists/boa_poker_new/with_shirt/5.png" id="10_deiyg"]
+[ext_resource type="Texture2D" uid="uid://d3ksksxhjak0n" path="res://data/background_lists/boa_poker_new/with_shirt/6.png" id="11_oemck"]
+[ext_resource type="Texture2D" uid="uid://fo1hjellxb7m" path="res://data/background_lists/boa_poker_new/with_shirt/7.png" id="12_3q13y"]
+[ext_resource type="Texture2D" uid="uid://dp42jor1fl8n5" path="res://data/background_lists/boa_poker_new/with_shirt/8.png" id="13_pc4nt"]
+[ext_resource type="Texture2D" uid="uid://c1anyc1s0eb83" path="res://data/background_lists/boa_poker_new/with_shirt/9.png" id="14_mejti"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="15_4w2vi"]
+
+[sub_resource type="Resource" id="Resource_tv0jo"]
+script = ExtResource("2_g8yd1")
+name = "0.png"
+images = ExtResource("1_jgsfm")
+
+[sub_resource type="Resource" id="Resource_k4bx0"]
+script = ExtResource("2_g8yd1")
+name = "1.png"
+images = ExtResource("3_564xr")
+
+[sub_resource type="Resource" id="Resource_k1pf3"]
+script = ExtResource("2_g8yd1")
+name = "10.png"
+images = ExtResource("4_auiqq")
+
+[sub_resource type="Resource" id="Resource_lvkxn"]
+script = ExtResource("2_g8yd1")
+name = "11.png"
+images = ExtResource("5_4nmhi")
+
+[sub_resource type="Resource" id="Resource_yileh"]
+script = ExtResource("2_g8yd1")
+name = "12.png"
+images = ExtResource("6_byaf3")
+
+[sub_resource type="Resource" id="Resource_dviya"]
+script = ExtResource("2_g8yd1")
+name = "13.png"
+images = ExtResource("7_rv40j")
+
+[sub_resource type="Resource" id="Resource_2s6ab"]
+script = ExtResource("2_g8yd1")
+name = "2.png"
+images = ExtResource("8_4uvbc")
+
+[sub_resource type="Resource" id="Resource_7cw76"]
+script = ExtResource("2_g8yd1")
+name = "4.png"
+images = ExtResource("9_1tkg6")
+
+[sub_resource type="Resource" id="Resource_gojak"]
+script = ExtResource("2_g8yd1")
+name = "5.png"
+images = ExtResource("10_deiyg")
+
+[sub_resource type="Resource" id="Resource_pb5qe"]
+script = ExtResource("2_g8yd1")
+name = "6.png"
+images = ExtResource("11_oemck")
+
+[sub_resource type="Resource" id="Resource_mttkv"]
+script = ExtResource("2_g8yd1")
+name = "7.png"
+images = ExtResource("12_3q13y")
+
+[sub_resource type="Resource" id="Resource_peevh"]
+script = ExtResource("2_g8yd1")
+name = "8.png"
+images = ExtResource("13_pc4nt")
+
+[sub_resource type="Resource" id="Resource_8c6er"]
+script = ExtResource("2_g8yd1")
+name = "9.png"
+images = ExtResource("14_mejti")
+
+[resource]
+script = ExtResource("15_4w2vi")
+name = "with_shirt"
+images = Array[ExtResource("2_g8yd1")]([SubResource("Resource_tv0jo"), SubResource("Resource_k4bx0"), SubResource("Resource_k1pf3"), SubResource("Resource_lvkxn"), SubResource("Resource_yileh"), SubResource("Resource_dviya"), SubResource("Resource_2s6ab"), SubResource("Resource_7cw76"), SubResource("Resource_gojak"), SubResource("Resource_pb5qe"), SubResource("Resource_mttkv"), SubResource("Resource_peevh"), SubResource("Resource_8c6er")])

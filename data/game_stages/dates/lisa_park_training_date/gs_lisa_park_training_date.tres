@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://df41cvr24y1xs"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://df41cvr24y1xs"]
 
 [ext_resource type="Script" path="res://data/game_stages/dates/lisa_park_training_date/lisa_park_training_date_date_script.gd" id="1_x5flo"]
 [ext_resource type="Resource" uid="uid://cjjnmea75bwsf" path="res://data/game_stages/dates/lisa_park_training_date/d_lisa_park_training_date.tres" id="2_tpdu3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_t4wkx"]
 [ext_resource type="Texture2D" uid="uid://duk63vfpnfwpe" path="res://data/background_lists/lisa_park_training/lisa_park_training_12_date.png" id="4_a603h"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_frpy5"]
+[ext_resource type="AudioStream" uid="uid://ce6vaubpt35r6" path="res://data/assets/general/sounds/bg_music/new/Untitled(14).mp3" id="7_khhsv"]
 
 [sub_resource type="Resource" id="Resource_17kbh"]
 script = ExtResource("5_frpy5")
@@ -36,6 +37,7 @@ cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("7_khhsv")
 stageButtonLabel = ""
 isDate = true
 dateScript = ExtResource("1_x5flo")

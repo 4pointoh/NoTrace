@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://1q38baa1nm6b"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_884w7"]
+
+[resource]
+script = ExtResource("1_884w7")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-80, 200),
+"start_id": "START"
+},
+"1_1": {
+"background": 0,
+"backgroundList": 2,
+"characterState": -1,
+"dialogue": "Hi",
+"offset": Vector2(520, 200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 643),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/poker/boa_poker_new_poker/characters.tres"
+backgroundList = "res://data/game_stages/poker/boa_poker_new_poker/bgs.tres"

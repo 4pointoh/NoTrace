@@ -2,16 +2,18 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'lisa_park_training_poker3'
+	var gamestageName = 'boa_poker_new_poker'
 	
 	var backgroundLists: Array[String] = [
-		'res://data/background_lists/lisa_park_training/lisa_park_training.tres', 
+		'res://data/background_lists/boa_poker_new/no_shirt.tres', 
+		'res://data/background_lists/boa_poker_new/with_shirt.tres', 
+		'res://data/background_lists/boa_poker_new/shirt_irrelevant.tres', 
 		'res://data/background_lists/home/home_bgl.tres'
 	]
 	
 	var characters: Array[String] = [
 		'res://data/characters/you/you.tres',
-		'res://data/characters/lisa/orange_tank_yoga/character.tres'
+		'res://data/characters/boa/boa.tres'
 	]
 	
 	var type = "poker" #vn, poker, date, phonemessage, special
