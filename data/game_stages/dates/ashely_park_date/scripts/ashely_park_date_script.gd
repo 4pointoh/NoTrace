@@ -13,8 +13,7 @@ func start():
 
 func date_was_successful():
 	var completedKeyQuestions = mainQuestionIndex >= 7
-	var completedDate = GlobalGameStage.getDateStorage().currentDateProgressionScore > 150
-	return completedKeyQuestions && completedDate
+	return completedKeyQuestions
 
 func get_alternate_loss_dialogue():
 	if mainQuestionIndex < 5:
@@ -27,28 +26,28 @@ func getCurrentBackground():
 	
 	var newBackground : Background = Background.new()
 	if scoreProgression <= 60:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/9.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d1.png")
 		newBackground.name = '3'
 	elif scoreProgression <= 80:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/10.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d2.png")
 		newBackground.name = '4'
 	elif scoreProgression <= 100:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/11.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d3.png")
 		newBackground.name = '6'
 	elif scoreProgression <= 140:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/8.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d4.png")
 		newBackground.name = '7'
 	elif scoreProgression <= 160:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/14.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d5.png")
 		newBackground.name = '8'
 	elif scoreProgression <= 180:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/15.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d6.png")
 		newBackground.name = '9'
 	elif scoreProgression <= 200:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/16.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d7.png")
 		newBackground.name = '10'
 	else:
-		newBackground.images = load("res://data/background_lists/dates/ashe_park_date/date/17.png")
+		newBackground.images = load("res://data/background_lists/ashe_park_new/d8.png")
 		newBackground.name = '11'
 	
 	return newBackground
@@ -60,11 +59,10 @@ func get_possible_memory_unlocks():
 	var questionUnlocks = []
 
 	progressUnlocks.append('ASHEPARK1')
+	progressUnlocks.append('ASHEPARK3')
 	progressUnlocks.append('ASHEPARK5')
-	progressUnlocks.append('ASHEPARK4')
 
 	questionUnlocks.append('ASHEPARK2')
-	questionUnlocks.append('ASHEPARK3')
 
 	possibleUnlocks['progressUnlocks'] = progressUnlocks
 	possibleUnlocks['questionUnlocks'] = questionUnlocks
@@ -84,7 +82,7 @@ func repeated_ask(action : DateAction):
 	
 	if(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskSuccessCount(id) > 0):
 		result.success = false
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.dialogueStartKey = 'repeat_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
 		result.annoyed = true
@@ -92,11 +90,11 @@ func repeated_ask(action : DateAction):
 		result.success = false
 		result.criticalFailure = true
 		result.annoyed = true
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.dialogueStartKey = 'asked_too_many_times'
 	elif(GlobalGameStage.getDateLastFailure() == id):
 		result.success = false
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.annoyed = true
 		result.dialogueStartKey = 'asked_twice_in_a_row_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
@@ -535,7 +533,7 @@ func group_partnerask_neverseen_choice1():
 func group_partnerask_neverseen_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'looked_hard_enough'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
@@ -543,7 +541,7 @@ func group_partnerask_neverseen_choice2():
 func group_partnerask_neverseen_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'different_places'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
@@ -691,9 +689,9 @@ func group_chad_party_answer_choice1():
 func group_chad_party_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'chad_i_do_his_homework'
-	result.particleType = Heartsplosion.TYPES.CONCERNED
+	result.particleType = Heartsplosion.TYPES.LAUGH
 	return result
 
 ################################################
@@ -734,7 +732,7 @@ func group_topic4():
 func group_topic4_fail():
 	var result = DateActionResult.new()
 	result.success = false 
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'relationships_fail'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -748,13 +746,12 @@ func group_are_you_single():
 	result.dialogueStartKey = 'current_relationship_success'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 30
-	result.memoryUnlockId = 'ASHEPARK3'
 	return result
 
 func group_are_you_single_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	result.dialogueStartKey = 'current_relationship_fail'
@@ -781,10 +778,10 @@ func group_partnerask_why_ask_choice1():
 func group_partnerask_why_ask_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'have_a_shot_10'
 	result.addParticleRain = 'annoyed'
-	result.particleType = Heartsplosion.TYPES.CONCERNED
+	result.particleType = Heartsplosion.TYPES.LAUGH
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 30
 	return result
@@ -801,7 +798,7 @@ func group_partnerask_why_ask_choice3():
 func group_have_a_shot():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = -30
+	result.scoreProgression = 0
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'have_a_shot_success'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
@@ -812,7 +809,7 @@ func group_have_a_shot():
 func group_have_a_shot_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = -30
+	result.scoreProgression = 0
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'first_kiss_fail'
 	return result

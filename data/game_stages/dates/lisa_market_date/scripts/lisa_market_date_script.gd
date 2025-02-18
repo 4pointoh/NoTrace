@@ -80,19 +80,19 @@ func repeated_ask(action : DateAction):
 	
 	if(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskSuccessCount(id) > 0):
 		result.success = false
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.dialogueStartKey = 'repeat_generic'
 		result.annoyed = true
 		result.particleType = Heartsplosion.TYPES.ANNOYED
 	elif(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskFailureCount(id) > 1):
 		result.success = false
 		result.criticalFailure = true
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.annoyed = true
 		result.dialogueStartKey = 'asked_too_many_times'
 	elif(GlobalGameStage.getDateLastFailure() == id):
 		result.success = false
-		result.scoreProgression = -30
+		result.scoreProgression = 0
 		result.annoyed = true
 		result.dialogueStartKey = 'asked_twice_in_a_row_generic'
 		result.particleType = Heartsplosion.TYPES.ANNOYED
@@ -254,14 +254,15 @@ func group_why_interested_in_lisa_answer_choice1():
 func group_why_interested_in_lisa_answer_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'asking_for_no_reason'
 	return result
 	
 func group_why_interested_in_lisa_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.annoyed = true
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'think_youre_cute'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -532,7 +533,7 @@ func group_why_staying_choice1():
 func group_why_staying_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'attractive_women'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
@@ -610,7 +611,8 @@ func group_favorite_meat_pie_choice2():
 func group_favorite_meat_pie_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.annoyed = true
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'vegan'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -758,7 +760,7 @@ func group_chad_thoughts_answer_choice2():
 func group_chad_thoughts_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'chad_i_do_his_homework'
 	result.particleType = Heartsplosion.TYPES.CONFUSED
 	return result
@@ -866,7 +868,7 @@ func group_relationships():
 func group_relationships_fail():
 	var result = DateActionResult.new()
 	result.success = false 
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'relationships_fail'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -886,7 +888,7 @@ func group_relationships_current():
 func group_relationships_current_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	result.dialogueStartKey = 'current_relationship_fail'
@@ -912,7 +914,8 @@ func group_relationships_you_answer_choice1():
 func group_relationships_you_answer_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.annoyed = true
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'have_a_shot'
 	result.addParticleRain = 'annoyed'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
@@ -932,7 +935,7 @@ func group_relationships_kiss():
 func group_relationships_kiss_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = -30
+	result.scoreProgression = 0
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'first_kiss_fail'
 	return result
@@ -1130,7 +1133,8 @@ func group_poker_lost_answer():
 func group_poker_lost_answer_choice1():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.annoyed = true
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'never_lose_big'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	return result
@@ -1146,7 +1150,7 @@ func group_poker_lost_answer_choice2():
 func group_poker_lost_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'won_more_than_lost'
 	return result
 
@@ -1220,7 +1224,7 @@ func group_poker_stakes_answer_choice1():
 func group_poker_stakes_answer_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'gamble_entire_paycheck'
 	result.particleType = Heartsplosion.TYPES.CONFUSED
 	return result
@@ -1228,7 +1232,7 @@ func group_poker_stakes_answer_choice2():
 func group_poker_stakes_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'crippling_debt'
 	result.particleType = Heartsplosion.TYPES.CONCERNED
 	return result
@@ -1262,7 +1266,7 @@ func group_poker_how_long_answer_choice2():
 func group_poker_how_long_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'years_maybe_longer'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	return result
@@ -1280,7 +1284,7 @@ func group_poker_trained_other_answer():
 func group_poker_trained_other_answer_choice1():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = -20
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'nobody_trained'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	return result

@@ -162,8 +162,7 @@ func hasCompletedCurrentStage():
 	return completedStages.has(currentStage.name)
 
 func hasCompletedCurrentStageGlobally():
-	return completedStagesGLOBAL.has(currentStage.name)
-
+	return completedStagesGLOBAL.has(currentStage.name) or hasCompletedCurrentStage()
 
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here

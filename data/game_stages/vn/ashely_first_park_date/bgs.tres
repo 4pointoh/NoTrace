@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="BackgroundLists" load_steps=4 format=3 uid="uid://bt3xfr7bg5lgg"]
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=5 format=3 uid="uid://bt3xfr7bg5lgg"]
 
 [ext_resource type="Resource" uid="uid://cerlycs1vwuw7" path="res://data/background_lists/ashe_park/ashe_park_bgl.tres" id="1_o48ok"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_txq4c"]
 [ext_resource type="Resource" uid="uid://cht80hoqypt6q" path="res://data/background_lists/home/home_bgl.tres" id="2_34bv1"]
+[ext_resource type="Resource" uid="uid://dujjmkvhn8ep1" path="res://data/background_lists/ashe_park_new/ashe_park_new.tres" id="3_36w86"]
 
 [resource]
 script = ExtResource("1_txq4c")
-backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_o48ok"), ExtResource("2_34bv1")])
+backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_o48ok"), ExtResource("2_34bv1"), ExtResource("3_36w86")])

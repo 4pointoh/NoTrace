@@ -14,6 +14,8 @@ var currentStage : PokerEnums.PokerStageFiveCardDraw
 var nextPokerAction
 var dialoguePause = false
 
+var cheatsLeft = 1
+
 signal gamePaused
 signal gameWon
 signal gameLost
@@ -34,6 +36,7 @@ func _ready():
 	%PokerDisplay.discardPressed.connect(processDiscardPressed)
 	%PokerDisplay.startPressed.connect(processStartPressed)
 	%PokerDisplay.gameComplete.connect(endMatch)
+	%PokerDisplay.cheatPressed.connect(cheat)
 
 
 func setup():
@@ -44,6 +47,13 @@ func setup():
 	opponentNamePlural = GlobalGameStage.currentStage.opponentName
 	playerLives = GlobalGameStage.currentStage.playerLives
 	cpuLives = GlobalGameStage.currentStage.cpuLives
+
+	cheatsLeft = 1
+	
+	if GlobalGameStage.hasCompletedCurrentStageGlobally():
+		%Skip.show()
+	else:
+		%Skip.hide()
 
 func processStageComplete():
 	var shouldEnd = false
@@ -186,7 +196,7 @@ func processPostRedraw():
 	%PokerDisplay.processPostRedraw()
 
 func processReveal():
-	%PokerDisplay.processReveal()
+	%PokerDisplay.processReveal(cheatsLeft > 0, cheatsLeft)
 
 func processPostReveal():
 	%PokerDisplay.processPostReveal()
@@ -257,3 +267,46 @@ func startDialogue():
 func removeDialoguePause():
 	dialoguePause = false
 	processStageComplete()
+
+func _on_button_pressed():
+	gameWon.emit()
+
+func cheat():
+	cheatsLeft -= 1
+
+	#Remove any aces from the player hand
+	for i in range(playerCards.size()):
+		if playerCards[i].value == "A":
+			playerCards.remove_at(i)
+			break	
+
+	for i in range(4):
+		if i == 0:
+			var newAce = NonUiCard.new()
+			newAce.value = "A"
+			newAce.suit = "spades"
+			playerCards.append(newAce)
+		
+		if i == 1:
+			var newAce = NonUiCard.new()
+			newAce.value = "A"
+			newAce.suit = "hearts"
+			playerCards.append(newAce)
+		
+		if i == 2:
+			var newAce = NonUiCard.new()
+			newAce.value = "A"
+			newAce.suit = "clubs"
+			playerCards.append(newAce)
+		
+		if i == 3:
+			var newAce = NonUiCard.new()
+			newAce.value = "A"
+			newAce.suit = "diamonds"
+			playerCards.append(newAce)
+	
+	#Remove cards at the beginning of the player hand until they have 5 cards
+	while playerCards.size() > 5:
+		playerCards.remove_at(0)
+
+	%PokerDisplay.displayCheat(playerCards)

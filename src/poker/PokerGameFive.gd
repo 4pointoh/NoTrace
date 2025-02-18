@@ -78,6 +78,11 @@ func setup():
 	totalTableWorth = money + opponentMoney
 	clearCallAmount()
 	
+	if GlobalGameStage.hasCompletedCurrentStageGlobally():
+		%Skip.show()
+	else:
+		%Skip.hide()
+	
 	gameOver = false
 	win = false
 	handleMoneyMovement()
@@ -600,7 +605,7 @@ func determineCpuActionAndRaiseAmount():
 			else:
 				# Check if CPU has better than high card before applying 50% call chance
 				var has_better_than_high_card = check_better_than_high_card()
-				if has_better_than_high_card:
+				if has_better_than_high_card or randomizer.randf() < 0.7:
 					cpuAction = "call"
 				else:
 					cpuAction = "fold"
@@ -858,3 +863,7 @@ func calculate_pot_odds() -> float:
 	if pendingCallAmount == 0:
 		return 0
 	return float(pendingCallAmount) / (pot + pendingCallAmount)
+
+
+func _on_skip_pressed():
+	gameWon.emit()

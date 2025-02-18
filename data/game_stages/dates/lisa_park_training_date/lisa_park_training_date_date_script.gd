@@ -546,7 +546,7 @@ func group_topic4():
 func group_topic4_fail():
 	var result = DateActionResult.new()
 	result.success = false 
-	result.scoreProgression = 10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'flirt_fail'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -575,7 +575,7 @@ func group_ask_top4_q4_c1():
 	var result = DateActionResult.new()
 	result.success = true
 	result.annoyed = true
-	result.scoreProgression = 10
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'runner'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.particleType = Heartsplosion.TYPES.ANNOYED
@@ -614,6 +614,7 @@ func group_ask_top4_q3():
 	var result = DateActionResult.new()
 	result.success = true
 	result.annoyed = true
+	result.scoreProgression = 0
 	result.dialogueStartKey = 'boobs'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 10

@@ -4,3 +4,4 @@ class_name Wallpaper
 @export var wallpaperId : String
 @export var image: Texture
 @export var hint : String
+@export var video: String

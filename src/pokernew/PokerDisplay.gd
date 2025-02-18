@@ -3,6 +3,7 @@ extends Node2D
 signal stageComplete
 signal discardPressed(playerIndexes : Array[int])
 signal startPressed
+signal cheatPressed
 signal gameComplete
 
 @export var cardScene : PackedScene
@@ -264,10 +265,17 @@ func processRedraw(playerCards2, cpuCards2):
 func processPostRedraw():
 	stageComplete.emit()
 
-func processReveal():
+func processReveal(canCheat, cheatsLeft):
+	if canCheat:
+		%Cheat.show()
+		%CheatsLeft.text = str(cheatsLeft) + ' Cheats Left'
+	else:
+		%Cheat.hide()
+	
 	%Reveal.show()
 
 func processPostReveal():
+	%Cheat.hide()
 	stageComplete.emit()
 
 func processEvaluateWinner(playerWins : bool, playerHandResult : String, cpuHandResult : String):
@@ -328,6 +336,45 @@ func roundCompleteAnimationComplete():
 
 func gameCompleteAnimationComplete():
 	gameComplete.emit()
+	
+func displayCheat(playerCards2):
+	var PLAYER_CARD_Y_POS = 850
+	var PLAYER_CARD_X_START_POS = 1000
+	var FIRST_CARD_X_POS = 100
+	var CARD_SPACING = 167
+	var ANIMATION_DURATION = 0.3
+	var DELAY_BETWEEN_CARDS = 0.1
+
+	playerCards = playerCards2
+
+	# Create player cards
+	for i in range(playerCards.size()):
+		var nextCard = cardScene.instantiate()
+		nextCard.nonUiCard = playerCards[i]
+		nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		nextCard.index = i
+		add_child(nextCard)
+		playerUICards.append(nextCard)
+		
+		var tween = create_tween()
+		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
+		
+		# Chain the delay and movement
+		tween.tween_interval(i * DELAY_BETWEEN_CARDS)  # First add delay based on card position
+		tween.tween_property(nextCard, "position",
+			Vector2(final_x, PLAYER_CARD_Y_POS),
+			ANIMATION_DURATION)
+	
+	# Calculate total animation time and delay dealAnimationComplete
+	var total_animation_time = playerCards.size() * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
+	await get_tree().create_timer(total_animation_time).timeout
+
+	for playerUICard in playerUICards:
+		if(playerUICard.flipped):
+			playerUICard.flip()
+	
+	%Cheat.hide()
+
 
 func _on_discard_pressed():
 	%Discard.hide()
@@ -454,3 +501,6 @@ func _on_continue_pressed():
 	%Win.hide()
 	%Continue.hide()
 	stageComplete.emit()
+
+func _on_cheat_pressed():
+	cheatPressed.emit()

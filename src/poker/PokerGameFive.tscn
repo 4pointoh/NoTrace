@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cltlkgjbitqgp"]
+[gd_scene load_steps=13 format=3 uid="uid://cltlkgjbitqgp"]
 
 [ext_resource type="Script" path="res://src/poker/PokerGameFive.gd" id="1_7r5q5"]
 [ext_resource type="PackedScene" uid="uid://da4kpoevl51cg" path="res://src/poker/PokerAnimationController.tscn" id="2_x34y7"]
@@ -22,6 +22,13 @@ border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57l4p"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6i8v8"]
+bg_color = Color(0, 0.305056, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -88,6 +95,19 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_57l4p")
 text = "Check"
 
+[node name="Skip" type="Button" parent="."]
+visible = false
+offset_left = 703.0
+offset_top = 908.0
+offset_right = 884.0
+offset_bottom = 959.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("4_p3pr5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6i8v8")
+text = "Skip Poker"
+
 [node name="Raise" type="Button" parent="." groups=["buttons", "hide_on_pause", "poker_ui"]]
 offset_left = 703.0
 offset_top = 1054.0
@@ -123,6 +143,7 @@ patch_margin_bottom = 8
 
 [node name="YourMoney" type="Label" parent="ChipsBg" groups=["poker_ui"]]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 104.0
 offset_top = 25.0
 offset_right = 175.0
@@ -138,6 +159,7 @@ vertical_alignment = 2
 
 [node name="TheirMoney" type="Label" parent="ChipsBg" groups=["poker_ui"]]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 104.0
 offset_top = 61.0
 offset_right = 175.0
@@ -210,6 +232,7 @@ patch_margin_bottom = 8
 
 [node name="Ante" type="Label" parent="StatsBg" groups=["poker_ui"]]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 10.0
 offset_top = 33.0
 offset_right = 174.0
@@ -224,6 +247,7 @@ vertical_alignment = 2
 
 [node name="Pot" type="Label" parent="StatsBg" groups=["poker_ui"]]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 10.0
 offset_top = 6.0
 offset_right = 174.0
@@ -261,6 +285,7 @@ theme_override_font_sizes/font_size = 30
 text = "Ante"
 
 [node name="Divider" type="ColorRect" parent="StatsBg"]
+layout_mode = 0
 offset_left = 96.0
 offset_top = 4.0
 offset_right = 97.0
@@ -318,4 +343,5 @@ offset_bottom = 888.0
 [connection signal="pressed" from="Call" to="." method="_on_call_pressed"]
 [connection signal="pressed" from="Fold" to="." method="_on_fold_pressed"]
 [connection signal="pressed" from="Check" to="." method="_on_check_pressed"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
 [connection signal="pressed" from="Raise" to="." method="_on_raise_pressed"]

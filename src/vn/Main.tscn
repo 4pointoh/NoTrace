@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=23 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxloxh8an15dx" path="res://data/assets/general/art/title3.png" id="5_i3bvk"]
 [ext_resource type="PackedScene" uid="uid://b5aupfniotrg8" path="res://src/vn/DialogueManager.tscn" id="5_m0pi8"]
 [ext_resource type="PackedScene" uid="uid://f3krgd2lh0al" path="res://src/vn/CharacterManager.tscn" id="6_qx8ua"]
+[ext_resource type="PackedScene" uid="uid://da8r3nxuuv3bn" path="res://src/vn/SceneSelect.tscn" id="7_cgb2p"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="8_by1x2"]
 [ext_resource type="PackedScene" uid="uid://cx4x2fdhktike" path="res://src/vn/Notification.tscn" id="8_i5hgj"]
 [ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
@@ -26,6 +27,12 @@ bg_color = Color(0, 0, 0, 0.717647)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fko3"]
 bg_color = Color(0, 0, 0, 0.721569)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ex4uv"]
+bg_color = Color(0, 0, 0, 0.713726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b542n"]
+bg_color = Color(0, 0, 0, 0.435294)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ps8m3")
 pokerGameSceneTexasHoldEm = ExtResource("4_o43ys")
@@ -33,6 +40,7 @@ pokerGameSceneFiveCardDraw = ExtResource("2_reewf")
 phoneScene = ExtResource("3_doilg")
 dateMinigameScene = ExtResource("4_eoifi")
 heartsplosion = ExtResource("5_02o78")
+sceneSelector = ExtResource("7_cgb2p")
 metadata/_edit_lock_ = true
 
 [node name="Background" parent="." instance=ExtResource("2_boj0x")]
@@ -76,6 +84,32 @@ theme_override_fonts/font = ExtResource("8_by1x2")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_4fko3")
 text = "Options"
+metadata/_edit_lock_ = true
+
+[node name="SceneSelect" type="Button" parent="."]
+offset_left = 198.0
+offset_top = 947.0
+offset_right = 697.0
+offset_bottom = 1028.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ex4uv")
+text = "Scene Select"
+metadata/_edit_lock_ = true
+
+[node name="Gallery" type="Button" parent="."]
+offset_left = 199.0
+offset_top = 1048.0
+offset_right = 697.0
+offset_bottom = 1129.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_b542n")
+text = "Gallery"
 metadata/_edit_lock_ = true
 
 [node name="Continue" type="Button" parent="."]
@@ -141,6 +175,8 @@ visible = false
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="SceneSelect" to="." method="_on_scene_select_pressed"]
+[connection signal="pressed" from="Gallery" to="." method="_on_gallery_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="dialogue_ended" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_ended"]
 [connection signal="dialogue_proceeded" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_proceeded"]

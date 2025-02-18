@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Character" load_steps=16 format=3 uid="uid://drfijm7yhyrs1"]
+
+[ext_resource type="Texture2D" uid="uid://b4u7ejj7np6kn" path="res://data/characters/ashely/ashely_tshirt_new/face.png" id="1_xnimc"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_oihkq"]
+[ext_resource type="Texture2D" uid="uid://dakoflog1v64g" path="res://data/characters/ashely/ashely_tshirt_new/character_art/arms_crossed_scowl.png" id="3_03x4e"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_h2iha"]
+[ext_resource type="Texture2D" uid="uid://m1ommpxjdp0k" path="res://data/characters/ashely/ashely_tshirt_new/character_art/hand_in_hair_scowl.png" id="5_sfb5t"]
+[ext_resource type="Texture2D" uid="uid://b1wqe7rt2mk5y" path="res://data/characters/ashely/ashely_tshirt_new/character_art/hand_on_back_scowl.png" id="6_62bgb"]
+[ext_resource type="Texture2D" uid="uid://bo58kgigyt1fn" path="res://data/characters/ashely/ashely_tshirt_new/character_art/middle_finger_smile.png" id="7_6iimm"]
+[ext_resource type="Texture2D" uid="uid://bt7k07takhk8q" path="res://data/characters/ashely/ashely_tshirt_new/character_art/eye_roll.png" id="8_5linq"]
+[ext_resource type="Texture2D" uid="uid://cqkd8ojujnp4b" path="res://data/characters/ashely/ashely_tshirt_new/character_art/hand_on_hip.png" id="9_mbm11"]
+
+[sub_resource type="Resource" id="Resource_yeiwt"]
+script = ExtResource("4_h2iha")
+name = "arms_crossed_scowl.png"
+image = ExtResource("3_03x4e")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_kwiqw"]
+script = ExtResource("4_h2iha")
+name = "hand_in_hair_scowl.png"
+image = ExtResource("5_sfb5t")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_du3y3"]
+script = ExtResource("4_h2iha")
+name = "hand_on_back_scowl.png"
+image = ExtResource("6_62bgb")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_rgp6s"]
+script = ExtResource("4_h2iha")
+name = "middle_finger_smile.png"
+image = ExtResource("7_6iimm")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_3fh8j"]
+script = ExtResource("4_h2iha")
+name = "eye_roll"
+image = ExtResource("8_5linq")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_qeqxa"]
+script = ExtResource("4_h2iha")
+name = "hand_on_hip"
+image = ExtResource("9_mbm11")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("2_oihkq")
+name = "Ashely"
+editorName = "ashely_tshirt_new"
+image = ExtResource("1_xnimc")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_h2iha")]([SubResource("Resource_yeiwt"), SubResource("Resource_kwiqw"), SubResource("Resource_du3y3"), SubResource("Resource_rgp6s"), SubResource("Resource_3fh8j"), SubResource("Resource_qeqxa")])

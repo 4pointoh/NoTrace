@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnd677crdakvo"]
+[gd_scene load_steps=15 format=3 uid="uid://dnd677crdakvo"]
 
 [ext_resource type="Script" path="res://src/pokernew/poker_game.gd" id="1_haorf"]
 [ext_resource type="Script" path="res://src/pokernew/PokerDisplay.gd" id="2_n8c77"]
@@ -29,6 +29,20 @@ border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c8i3"]
 bg_color = Color(0.000227998, 0.00181574, 0.00170113, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csb1k"]
+bg_color = Color(0, 0.313734, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08tmw"]
+bg_color = Color(1.54018e-06, 0.321103, 0.419747, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -148,6 +162,46 @@ theme_override_fonts/font = ExtResource("4_dai1u")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_2c8i3")
 text = "Start"
+
+[node name="Skip" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 26.0
+offset_top = 1029.0
+offset_right = 177.0
+offset_bottom = 1102.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_csb1k")
+text = "Skip Poker"
+
+[node name="Cheat" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 639.0
+offset_top = 1029.0
+offset_right = 832.0
+offset_bottom = 1102.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_08tmw")
+text = "Cheat"
+
+[node name="CheatsLeft" type="Label" parent="PokerDisplay/Cheat"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -35.0
+offset_right = 193.0
+offset_bottom = -6.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 24
+text = "1 Cheat Left"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="IntroBg" type="NinePatchRect" parent="PokerDisplay"]
 unique_name_in_owner = true
@@ -362,4 +416,6 @@ volume_db = 10.757
 [connection signal="pressed" from="PokerDisplay/Discard" to="PokerDisplay" method="_on_discard_pressed"]
 [connection signal="pressed" from="PokerDisplay/Reveal" to="PokerDisplay" method="_on_reveal_pressed"]
 [connection signal="pressed" from="PokerDisplay/Start" to="PokerDisplay" method="_on_start_pressed"]
+[connection signal="pressed" from="PokerDisplay/Skip" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PokerDisplay/Cheat" to="PokerDisplay" method="_on_cheat_pressed"]
 [connection signal="animation_finished" from="PokerDisplay/AnimationPlayer" to="PokerDisplay" method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=61 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=59 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -7,10 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://brdsu1blrr44u" path="res://data/wallpapers/phone_proof.png" id="5_w01my"]
 [ext_resource type="Texture2D" uid="uid://bpsyr4aihlpco" path="res://data/wallpapers/lisa_garbage.png" id="6_qlfik"]
 [ext_resource type="Texture2D" uid="uid://dnry46ekvsul5" path="res://data/wallpapers/ashe_selfie.png" id="7_m1d5n"]
-[ext_resource type="Texture2D" uid="uid://bt1rnoyyktgp" path="res://data/wallpapers/ashepark_reward1.png" id="11_bgwnc"]
-[ext_resource type="Texture2D" uid="uid://dxd2fj7sn4x2x" path="res://data/wallpapers/ashepark_reward2.png" id="12_o0uqg"]
-[ext_resource type="Texture2D" uid="uid://bw2j7xnqm7n6i" path="res://data/wallpapers/ashepark_reward3.png" id="13_kc57h"]
-[ext_resource type="Texture2D" uid="uid://cj48bktyghgcc" path="res://data/wallpapers/ashepark_reward4.png" id="14_nl6vy"]
+[ext_resource type="Texture2D" uid="uid://dmx3cxtb56ost" path="res://data/background_lists/ashe_park_new/rew2.png" id="8_1yf3e"]
+[ext_resource type="Texture2D" uid="uid://fsy0y4hdm6t2" path="res://data/background_lists/ashe_park_new/rew1.png" id="9_gutbg"]
+[ext_resource type="Texture2D" uid="uid://dhdpdt8p5ate4" path="res://data/background_lists/ashe_park_new/rew3.png" id="10_dospk"]
 [ext_resource type="Texture2D" uid="uid://bvgh844jvm4nn" path="res://data/wallpapers/ashepark_reward5.png" id="15_i6byd"]
 [ext_resource type="Texture2D" uid="uid://emhyfmn6ynmc" path="res://data/background_lists/chads_party/backgrounds/pok1.png" id="16_wop4j"]
 [ext_resource type="Texture2D" uid="uid://cqp6oeta0t8r" path="res://data/background_lists/chads_party/backgrounds/pok7.png" id="17_ipnv7"]
@@ -37,175 +36,197 @@ script = ExtResource("3_wccuy")
 wallpaperId = "DEFAULT"
 image = ExtResource("2_tnhn8")
 hint = "The default wallpaper. Always unlocked."
+video = ""
 
 [sub_resource type="Resource" id="Resource_6bfou"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_LEAVING"
 image = ExtResource("4_dipm0")
 hint = "Lisa leaving Chad's party"
+video = ""
 
 [sub_resource type="Resource" id="Resource_367e1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_PROOF"
 image = ExtResource("5_w01my")
 hint = "A photo sent by Lisa as proof of her identity. Unlocked in the intro phone conversation."
+video = ""
 
 [sub_resource type="Resource" id="Resource_jgui8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_GARBAGE"
 image = ExtResource("6_qlfik")
 hint = "A photo sent by Lisa to make you feel less garbage. Unlocked in the intro phone conversation."
+video = ""
 
 [sub_resource type="Resource" id="Resource_3ay0b"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHE_SELFIE"
 image = ExtResource("7_m1d5n")
 hint = "A reminder for you, unlocked in the unknown number intro phone conversation."
+video = ""
 
 [sub_resource type="Resource" id="Resource_ocj37"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK1"
-image = ExtResource("11_bgwnc")
+image = ExtResource("8_1yf3e")
 hint = "Ashely Park (1)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_p7fpl"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK2"
-image = ExtResource("12_o0uqg")
+image = ExtResource("9_gutbg")
 hint = "Ashely Park (2)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_6tmel"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK3"
-image = ExtResource("13_kc57h")
+image = ExtResource("10_dospk")
 hint = "Ashely Park (3)"
-
-[sub_resource type="Resource" id="Resource_482xq"]
-script = ExtResource("3_wccuy")
-wallpaperId = "ASHEPARK4"
-image = ExtResource("14_nl6vy")
-hint = "Ashely Park (4) - Alternate Artwork"
+video = ""
 
 [sub_resource type="Resource" id="Resource_xuy0b"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK5"
 image = ExtResource("15_i6byd")
 hint = "Ashely Park (5)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_t5hq4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK1"
 image = ExtResource("16_wop4j")
 hint = "Beat Boa In Poker (1)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_10do2"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK2"
 image = ExtResource("17_ipnv7")
 hint = "Beat Boa In Poker (2)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_ey563"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK3"
 image = ExtResource("18_68i32")
 hint = "Beat Boa In Poker (3)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_mt54f"]
 script = ExtResource("3_wccuy")
 wallpaperId = "chad_pool_img1"
 image = ExtResource("19_v5ci5")
 hint = "Chat with chad about lisa (1)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_yd80y"]
 script = ExtResource("3_wccuy")
 wallpaperId = "chad_pool_img2"
 image = ExtResource("20_yxqy0")
 hint = "Chat with chad about lisa (2)"
+video = "res://data/game_stages/phone_message/chad_unblock_lisa/videos/pool.ogv"
 
 [sub_resource type="Resource" id="Resource_b4gnm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ashe_middlefinger"
 image = ExtResource("21_vn4i6")
 hint = "Insist on more money"
+video = ""
 
 [sub_resource type="Resource" id="Resource_rej7w"]
 script = ExtResource("3_wccuy")
 wallpaperId = "middlefinger-alt-art"
 image = ExtResource("22_l4qir")
 hint = "Insist on more money - Alternate art"
+video = ""
 
 [sub_resource type="Resource" id="Resource_adreg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward1"
 image = ExtResource("23_mmxrp")
 hint = "Attempt to train Lisa the old-fashioned way (1)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_qud3p"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward2"
 image = ExtResource("24_0vmbd")
 hint = "Attempt to train Lisa the old-fashioned way (2)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_pkb4d"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward3"
 image = ExtResource("25_wkv0p")
 hint = "Attempt to train Lisa the old-fashioned way (3)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_ehi18"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward4"
 image = ExtResource("26_tgh7g")
 hint = "Attempt to train Lisa the old-fashioned way (4)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_q0qi1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward5"
 image = ExtResource("27_6asmi")
 hint = "Attempt to train Lisa the old-fashioned way (5)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_ujgt3"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward6"
 image = ExtResource("28_wudfs")
 hint = "Attempt to train Lisa the old-fashioned way (6)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_onh7g"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward7"
 image = ExtResource("29_dx0vj")
 hint = "Attempt to train Lisa the old-fashioned way (7)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_afmye"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward8"
 image = ExtResource("30_5ybm3")
 hint = "Attempt to train Lisa the old-fashioned way (8)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_in0k7"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward9"
 image = ExtResource("31_83mw7")
 hint = "Attempt to train Lisa the old-fashioned way (9)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_f01mg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_MARKET_REW_1"
 image = ExtResource("32_5qpvs")
 hint = "Lisa market date (1)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_a8155"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_MARKET_REW_2"
 image = ExtResource("33_mx83n")
 hint = "Lisa market date (2)"
+video = ""
 
 [sub_resource type="Resource" id="Resource_fegc8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_MARKET_REW_3"
 image = ExtResource("34_bwfcr")
 hint = "Lisa market date (3)"
+video = ""
 
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_482xq"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8")])

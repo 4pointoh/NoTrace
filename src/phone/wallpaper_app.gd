@@ -35,6 +35,11 @@ func setSelection(isNext):
 	var newSelection = wallpaperSelection.instantiate()
 	var curPaper = wallpapers.wallpapers[wallpaperIndex]
 	
+	if curPaper.video:
+		%Video.show()
+	else:
+		%Video.hide()
+	
 	var unlocked = GlobalGameStage.unlockedWallpapers.has(curPaper.wallpaperId)
 	if unlocked:
 		newSelection.setup(curPaper.hint, curPaper.image)
@@ -65,6 +70,8 @@ func _on_next_pressed():
 		
 	wallpaperIndex += 1
 	
+	$VideoStreamPlayer.hide()
+	
 	if wallpaperIndex == wallpapers.wallpapers.size() - 1:
 		$Next.disabled = true
 	
@@ -79,6 +86,8 @@ func _on_previous_pressed():
 		
 	wallpaperIndex -= 1
 	
+	$VideoStreamPlayer.hide()
+	
 	if wallpaperIndex == 0:
 		$Previous.disabled = true
 	
@@ -89,3 +98,11 @@ func _on_previous_pressed():
 
 func _on_set_pressed():
 	GlobalGameStage.setCurrentWallpaper(wallpapers.wallpapers[wallpaperIndex])
+
+
+func _on_video_pressed():
+	var curPaper = wallpapers.wallpapers[wallpaperIndex]
+	
+	$VideoStreamPlayer.visible = !$VideoStreamPlayer.visible
+	$VideoStreamPlayer.stream = load(curPaper.video)
+	$VideoStreamPlayer.play()

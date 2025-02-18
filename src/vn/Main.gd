@@ -13,10 +13,12 @@ var forcePhoneStage = false
 @export var phoneScene : PackedScene
 @export var dateMinigameScene : PackedScene
 @export var heartsplosion : PackedScene
+@export var sceneSelector : PackedScene
 
 var currentPokerGame
 var currentPhone
 var currentDate
+var currentSceneSelector
 
 var firstSceneMusic = load("res://data/assets/general/sounds/bg_music/title2.mp3")
 
@@ -159,6 +161,8 @@ func hideTitleStuff():
 	$Options.visible = false
 	$Load.visible = false
 	$Title.visible = false
+	$SceneSelect.visible = false
+	$Gallery.visible = false
 
 func setDontAutoAdvance():
 	dontAutoAdvance = true
@@ -371,3 +375,21 @@ func showEnterName():
 
 func _on_child_entered_tree(node):
 	move_child.call_deferred($MainMenuContainer, -1)
+
+func _on_scene_select_pressed():
+	currentSceneSelector = sceneSelector.instantiate()
+	currentSceneSelector.sceneSelectStageSelected.connect(_on_scene_select_stage_selected)
+	currentSceneSelector.closeSceneSelect.connect(_on_scene_select_close)
+	add_child(currentSceneSelector)
+
+func _on_gallery_pressed():
+	print('hi2')
+
+func _on_scene_select_stage_selected(stage):
+	currentSceneSelector.queue_free()
+	hideTitleStuff()
+	GlobalGameStage.setNextGameStage(stage)
+	advanceGameStage()
+
+func _on_scene_select_close():
+	currentSceneSelector.queue_free()
