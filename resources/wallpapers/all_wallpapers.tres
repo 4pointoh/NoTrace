@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=59 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=67 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -10,10 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://dmx3cxtb56ost" path="res://data/background_lists/ashe_park_new/rew2.png" id="8_1yf3e"]
 [ext_resource type="Texture2D" uid="uid://fsy0y4hdm6t2" path="res://data/background_lists/ashe_park_new/rew1.png" id="9_gutbg"]
 [ext_resource type="Texture2D" uid="uid://dhdpdt8p5ate4" path="res://data/background_lists/ashe_park_new/rew3.png" id="10_dospk"]
+[ext_resource type="Texture2D" uid="uid://bl3qxac68dimg" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special2.png" id="12_yefge"]
+[ext_resource type="Texture2D" uid="uid://b1dkmrtjxcgmw" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special3.png" id="13_cm23t"]
+[ext_resource type="Texture2D" uid="uid://dto8ugykv4oof" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special5.png" id="14_yjpjy"]
 [ext_resource type="Texture2D" uid="uid://bvgh844jvm4nn" path="res://data/wallpapers/ashepark_reward5.png" id="15_i6byd"]
-[ext_resource type="Texture2D" uid="uid://emhyfmn6ynmc" path="res://data/background_lists/chads_party/backgrounds/pok1.png" id="16_wop4j"]
-[ext_resource type="Texture2D" uid="uid://cqp6oeta0t8r" path="res://data/background_lists/chads_party/backgrounds/pok7.png" id="17_ipnv7"]
-[ext_resource type="Texture2D" uid="uid://br7haorbmhfn6" path="res://data/background_lists/chads_party/backgrounds/pok8.png" id="18_68i32"]
+[ext_resource type="Texture2D" uid="uid://ckgavu0ytc0ud" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/9.png" id="15_sr0ot"]
+[ext_resource type="Texture2D" uid="uid://cyq41msg44dhy" path="res://data/background_lists/boa_poker_new/with_shirt/11.png" id="16_y2g20"]
+[ext_resource type="Texture2D" uid="uid://bftvjg34dljwn" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/4.png" id="17_dq1fp"]
+[ext_resource type="Texture2D" uid="uid://dwm22fj7elvme" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/rew1.png" id="18_dlrwp"]
 [ext_resource type="Texture2D" uid="uid://dtdkgf6ruvaoh" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool1.png" id="19_v5ci5"]
 [ext_resource type="Texture2D" uid="uid://dxhv4626n88xj" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png" id="20_yxqy0"]
 [ext_resource type="Texture2D" uid="uid://cfq73hfyrlomt" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger.png" id="21_vn4i6"]
@@ -97,22 +101,50 @@ video = ""
 [sub_resource type="Resource" id="Resource_t5hq4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK1"
-image = ExtResource("16_wop4j")
-hint = "Beat Boa In Poker (1)"
+image = ExtResource("12_yefge")
+hint = "Lose To Boa In Poker (1)"
 video = ""
 
 [sub_resource type="Resource" id="Resource_10do2"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK2"
-image = ExtResource("17_ipnv7")
-hint = "Beat Boa In Poker (2)"
+image = ExtResource("13_cm23t")
+hint = "Lose To Boa In Poker (2)"
 video = ""
 
 [sub_resource type="Resource" id="Resource_ey563"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK3"
-image = ExtResource("18_68i32")
+image = ExtResource("14_yjpjy")
+hint = "Beat Boa In Poker (1)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_vowtd"]
+script = ExtResource("3_wccuy")
+wallpaperId = "BOA_POK4"
+image = ExtResource("15_sr0ot")
+hint = "Beat Boa In Poker (2)"
+video = "res://data/background_lists/boa_poker_new/video/boa2.ogv"
+
+[sub_resource type="Resource" id="Resource_obf38"]
+script = ExtResource("3_wccuy")
+wallpaperId = "BOA_POK5"
+image = ExtResource("16_y2g20")
 hint = "Beat Boa In Poker (3)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_ukekf"]
+script = ExtResource("3_wccuy")
+wallpaperId = "BOA_POK6"
+image = ExtResource("17_dq1fp")
+hint = "Beat Boa In Poker (4)"
+video = "res://data/background_lists/boa_poker_new/video/boa1.ogv"
+
+[sub_resource type="Resource" id="Resource_muuf5"]
+script = ExtResource("3_wccuy")
+wallpaperId = "BOA_POK7"
+image = ExtResource("18_dlrwp")
+hint = "Beat Boa In Poker (5)"
 video = ""
 
 [sub_resource type="Resource" id="Resource_mt54f"]
@@ -229,4 +261,4 @@ video = ""
 
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8")])

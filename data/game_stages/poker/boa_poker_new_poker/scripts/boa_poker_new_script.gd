@@ -20,6 +20,11 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 	elif _pokerInfo.cpuLives == 3:
 		updateResult = getResultForDialogue('BOA_SECOND_STRIP')
 	elif _pokerInfo.cpuLives == 0:
+		GlobalGameStage.unlockWallpaper('BOA_POK3')
+		GlobalGameStage.unlockWallpaper('BOA_POK7')
+		GlobalGameStage.unlockWallpaper('BOA_POK6')
+		GlobalGameStage.unlockWallpaper('BOA_POK5')
+		GlobalGameStage.unlockWallpaper('BOA_POK4')
 		updateResult = getResultForDialogue('BOA_FINAL_STRIP')
 	
 	if updateResult.dialogueStartKey:
@@ -37,6 +42,8 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 		else:
 			updateResult = getResultForDialogue('PLAYER_STRIP1', 'altkey_playerstrip')
 	elif _pokerInfo.playerLives == 0:
+		GlobalGameStage.unlockWallpaper('BOA_POK2')
+		GlobalGameStage.unlockWallpaper('BOA_POK1')
 		updateResult = getResultForDialogue('PLAYER_LOST')
 
 	return updateResult
