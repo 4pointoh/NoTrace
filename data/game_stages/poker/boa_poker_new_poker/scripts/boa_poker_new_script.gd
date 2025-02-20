@@ -11,33 +11,39 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 	# 9 = play after losing first life
 	# 0 = play right before the exit dialogue
 
-	if _pokerInfo.cpuLives == 9:
-		updateResult = getResultForDialogue('FIRST_LISA_LOSS')
-	elif _pokerInfo.cpuLives == 8:
-		updateResult = getResultForDialogue('SECOND_LISA_LOSS')
+	if _pokerInfo.cpuLives == 9 and _pokerInfo.playerLives >= 7:
+		updateResult = getResultForDialogue('FIRST_BOA_LOSS_QUICK', 'altkey_firstboaloss1')
+	elif _pokerInfo.cpuLives == 9:
+		updateResult = getResultForDialogue('FIRST_BOA_LOSS_SLOW', 'altkey_firstboaloss1')
 	elif _pokerInfo.cpuLives == 6:
-		updateResult = getResultForDialogue('THIRD_LISA_LOSS')
-	elif _pokerInfo.cpuLives == 5:
-		updateResult = getResultForDialogue('INTERMISSION')
-	elif _pokerInfo.cpuLives == 4:
-		updateResult = getResultForDialogue('FOURTH_LISA_LOSS')
-	elif _pokerInfo.cpuLives == 2:
-		updateResult = getResultForDialogue('FIFTH_LISA_LOSS')
+		updateResult = getResultForDialogue('BOA_FIRST_STRIP')
+	elif _pokerInfo.cpuLives == 3:
+		updateResult = getResultForDialogue('BOA_SECOND_STRIP')
 	elif _pokerInfo.cpuLives == 0:
-		updateResult = getResultForDialogue('LAST_LISA_LOSS')
+		updateResult = getResultForDialogue('BOA_FINAL_STRIP')
+	
+	if alreadyActivatedDialogues.has('altkey_playerstrip'):
+		updateResult.dialogueStartKey += '_WITH_SHIRT'
 	
 	if updateResult.dialogueStartKey:
 		return updateResult
 	
-	if _pokerInfo.playerLives == 3 and _pokerInfo.cpuLives >= 9:
+	if _pokerInfo.playerLives == 9 and _pokerInfo.cpuLives >= 9:
 		updateResult = getResultForDialogue('PLAYER_LOST_QUICK', 'altkey_playerloss1')
-	elif _pokerInfo.playerLives == 3:
+	elif _pokerInfo.playerLives == 9:
 		updateResult = getResultForDialogue('PLAYER_LOST_NOT_QUICK', 'altkey_playerloss1')
-	elif _pokerInfo.playerLives == 1  and _pokerInfo.cpuLives >= 6:
-		updateResult = getResultForDialogue('PLAYER_ABOUT_TO_LOSE_NOT_CLOSE', 'altkey_playerloss2')
-	elif _pokerInfo.playerLives == 1:
-		updateResult = getResultForDialogue('PLAYER_ABOUT_TO_LOSE_CLOSE', 'altkey_playerloss2')
+	elif _pokerInfo.playerLives == 6:
+		if alreadyActivatedDialogues.has('BOA_SECOND_STRIP'):
+			updateResult = getResultForDialogue('PLAYER_STRIP3', 'altkey_playerstrip')
+		elif alreadyActivatedDialogues.has('BOA_FIRST_STRIP'):
+			updateResult = getResultForDialogue('PLAYER_STRIP2', 'altkey_playerstrip')
+		else:
+			updateResult = getResultForDialogue('PLAYER_STRIP1', 'altkey_playerstrip')
+	elif _pokerInfo.playerLives == 0:
+		updateResult = getResultForDialogue('PLAYER_LOST')
 
+	if alreadyActivatedDialogues.has('altkey_playerstrip'):
+		updateResult.dialogueStartKey += '_WITH_SHIRT'
 
 	return updateResult
 

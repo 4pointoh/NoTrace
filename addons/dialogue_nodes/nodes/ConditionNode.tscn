@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/conditionNode.gd" id="1"]
 
 [node name="ConditionNode" type="GraphNode"]
+custom_minimum_size = Vector2(200, 0)
 offset_right = 300.0
 offset_bottom = 159.0
 title = "ConditionNode"

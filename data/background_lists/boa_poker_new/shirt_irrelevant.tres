@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=35 format=3 uid="uid://uvvx2g44kd8n"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=45 format=3 uid="uid://uvvx2g44kd8n"]
 
 [ext_resource type="Texture2D" uid="uid://dm0cv5bt5dehr" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/0.png" id="1_d8x6e"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_dsdn1"]
@@ -17,7 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://de8kk0jbmpov1" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/8.png" id="15_fr75v"]
 [ext_resource type="Texture2D" uid="uid://ckgavu0ytc0ud" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/9.png" id="16_cndxv"]
 [ext_resource type="Texture2D" uid="uid://dwm22fj7elvme" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/rew1.png" id="17_8wmed"]
+[ext_resource type="Texture2D" uid="uid://spy08telbcsm" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special1.png" id="18_7hyf4"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="18_8gxqp"]
+[ext_resource type="Texture2D" uid="uid://bl3qxac68dimg" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special2.png" id="19_js1p7"]
+[ext_resource type="Texture2D" uid="uid://b1dkmrtjxcgmw" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special3.png" id="20_ji5kw"]
+[ext_resource type="Texture2D" uid="uid://cscxg8m0let3d" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special4.png" id="21_2ta52"]
+[ext_resource type="Texture2D" uid="uid://dto8ugykv4oof" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special5.png" id="22_wmudh"]
 
 [sub_resource type="Resource" id="Resource_drnqo"]
 script = ExtResource("2_dsdn1")
@@ -99,7 +104,32 @@ script = ExtResource("2_dsdn1")
 name = "rew1.png"
 images = ExtResource("17_8wmed")
 
+[sub_resource type="Resource" id="Resource_j4ul4"]
+script = ExtResource("2_dsdn1")
+name = "special1"
+images = ExtResource("18_7hyf4")
+
+[sub_resource type="Resource" id="Resource_k1hcc"]
+script = ExtResource("2_dsdn1")
+name = "special2"
+images = ExtResource("19_js1p7")
+
+[sub_resource type="Resource" id="Resource_sm7vf"]
+script = ExtResource("2_dsdn1")
+name = "special3"
+images = ExtResource("20_ji5kw")
+
+[sub_resource type="Resource" id="Resource_c17cr"]
+script = ExtResource("2_dsdn1")
+name = "special4"
+images = ExtResource("21_2ta52")
+
+[sub_resource type="Resource" id="Resource_8io86"]
+script = ExtResource("2_dsdn1")
+name = "special5"
+images = ExtResource("22_wmudh")
+
 [resource]
 script = ExtResource("18_8gxqp")
 name = "shirt_irrelevant"
-images = Array[ExtResource("2_dsdn1")]([SubResource("Resource_drnqo"), SubResource("Resource_mh7qr"), SubResource("Resource_iho2v"), SubResource("Resource_3uqao"), SubResource("Resource_ur5ja"), SubResource("Resource_isy1d"), SubResource("Resource_4ibmu"), SubResource("Resource_u1dus"), SubResource("Resource_anjgr"), SubResource("Resource_8wk4t"), SubResource("Resource_1pqby"), SubResource("Resource_5sesa"), SubResource("Resource_nd37l"), SubResource("Resource_y0qej"), SubResource("Resource_3tay5"), SubResource("Resource_tkcxm")])
+images = Array[ExtResource("2_dsdn1")]([SubResource("Resource_drnqo"), SubResource("Resource_mh7qr"), SubResource("Resource_iho2v"), SubResource("Resource_3uqao"), SubResource("Resource_ur5ja"), SubResource("Resource_isy1d"), SubResource("Resource_4ibmu"), SubResource("Resource_u1dus"), SubResource("Resource_anjgr"), SubResource("Resource_8wk4t"), SubResource("Resource_1pqby"), SubResource("Resource_5sesa"), SubResource("Resource_nd37l"), SubResource("Resource_y0qej"), SubResource("Resource_3tay5"), SubResource("Resource_tkcxm"), SubResource("Resource_j4ul4"), SubResource("Resource_k1hcc"), SubResource("Resource_sm7vf"), SubResource("Resource_c17cr"), SubResource("Resource_8io86")])

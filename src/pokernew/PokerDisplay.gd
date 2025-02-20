@@ -173,8 +173,8 @@ func processDeal(playerCards2, cpuCards2):
 	var total_animation_time = (playerCards.size() + cpuCards.size()) * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
 	await get_tree().create_timer(total_animation_time).timeout
 
-	for playerUICards in playerUICards:
-		playerUICards.flip()
+	for playerUICard in playerUICards:
+		playerUICard.flip()
 
 	dealAnimationComplete()
 

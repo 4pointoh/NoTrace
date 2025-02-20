@@ -14,7 +14,7 @@ var currentStage : PokerEnums.PokerStageFiveCardDraw
 var nextPokerAction
 var dialoguePause = false
 
-var cheatsLeft = 1
+var cheatsLeft = GlobalGameStage.currentStage.cheatCount
 
 signal gamePaused
 signal gameWon
@@ -48,7 +48,7 @@ func setup():
 	playerLives = GlobalGameStage.currentStage.playerLives
 	cpuLives = GlobalGameStage.currentStage.cpuLives
 
-	cheatsLeft = 1
+	cheatsLeft = GlobalGameStage.currentStage.cheatCount
 	
 	if GlobalGameStage.hasCompletedCurrentStageGlobally():
 		%Skip.show()
