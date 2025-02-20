@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/setNode.gd" id="1"]
 
 [node name="SetNode" type="GraphNode"]
-offset_right = 300.0
-offset_bottom = 85.0
+offset_right = 365.0
+offset_bottom = 86.0
 title = "SetNode"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -21,6 +21,7 @@ script = ExtResource("1")
 layout_mode = 2
 
 [node name="Variable" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "The property to set the value of."

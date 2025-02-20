@@ -222,6 +222,7 @@ func _on_dialogue_manager_dialogue_ended():
 		GlobalGameStage.setPhoneGameStage()
 		beginStage()
 	elif validPokerGameRunning():
+		$Background.enableZoomPan()
 		currentPokerGame.show()
 		currentPokerGame.removeDialoguePause()
 	elif dontAutoAdvance: # We want to pause at the end, usually for cgs
@@ -239,6 +240,8 @@ func validPokerGameRunning():
 func _on_poker_game_five_game_paused():
 	var nextAction = currentPokerGame.nextPokerAction
 	if nextAction.actionResult == PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE:
+		$Background.disableZoomPan()
+
 		if nextAction.shouldHidePoker:
 			currentPokerGame.hide()
 			

@@ -55,6 +55,12 @@ func checkForVideo():
 	#if background.name == 'intro10':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/chads_party/video/intro_bg10_vid.ogv")
 	#	fadeVideo()
+	if background.name == 'boa_strip_vid2':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa2.ogv")
+		fadeVideo()
+	if background.name == 'boa_strip_vid1':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa1.ogv")
+		fadeVideo()
 
 func _on_fade_timer_timeout():
 	if(!$BackgroundImage.texture == background.images):
