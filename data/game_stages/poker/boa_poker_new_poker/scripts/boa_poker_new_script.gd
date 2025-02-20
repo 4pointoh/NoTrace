@@ -22,9 +22,6 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 	elif _pokerInfo.cpuLives == 0:
 		updateResult = getResultForDialogue('BOA_FINAL_STRIP')
 	
-	if alreadyActivatedDialogues.has('altkey_playerstrip'):
-		updateResult.dialogueStartKey += '_WITH_SHIRT'
-	
 	if updateResult.dialogueStartKey:
 		return updateResult
 	
@@ -42,9 +39,6 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 	elif _pokerInfo.playerLives == 0:
 		updateResult = getResultForDialogue('PLAYER_LOST')
 
-	if alreadyActivatedDialogues.has('altkey_playerstrip'):
-		updateResult.dialogueStartKey += '_WITH_SHIRT'
-
 	return updateResult
 
 # altKey is used for dialogues that have multiple paths
@@ -58,6 +52,9 @@ static func getResultForDialogue(dialogueKey : String, altKey : String = ''):
 	updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 	updateResult.shouldPausePoker = true
 	updateResult.shouldHidePoker = true
+
+	if alreadyActivatedDialogues.has('altkey_playerstrip'):
+		updateResult.dialogueStartKey += '_WITH_SHIRT'
 
 	alreadyActivatedDialogues.append(dialogueKey)
 	

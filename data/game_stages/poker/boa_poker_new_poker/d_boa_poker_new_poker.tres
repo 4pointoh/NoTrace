@@ -19,7 +19,7 @@ starts = {
 "PLAYER_LOST_NOT_QUICK": &"0_7",
 "PLAYER_LOST_QUICK": &"0_6",
 "PLAYER_LOST_WITH_SHIRT": &"0_14",
-"PLAYER_STRIP1_WITH_SHIRT": &"0_18",
+"PLAYER_STRIP1": &"0_18",
 "PLAYER_STRIP2_WITH_SHIRT": &"0_17",
 "PLAYER_STRIP3_WITH_SHIRT": &"0_8",
 "START": &"0_1"
@@ -73,7 +73,7 @@ nodes = {
 "0_18": {
 "link": &"3_3",
 "offset": Vector2(-700, 7020),
-"start_id": "PLAYER_STRIP1_WITH_SHIRT"
+"start_id": "PLAYER_STRIP1"
 },
 "0_2": {
 "link": &"1_15",
@@ -160,7 +160,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_101": {
@@ -176,7 +176,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641),
 "speaker": ""
 },
 "1_102": {
@@ -192,7 +192,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_103": {
@@ -208,7 +208,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_104": {
@@ -224,7 +224,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300.001, 643),
 "speaker": 1
 },
 "1_105": {
@@ -240,7 +240,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_106": {
@@ -256,7 +256,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_107": {
@@ -272,7 +272,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_108": {
@@ -288,7 +288,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_109": {
@@ -304,7 +304,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_11": {
@@ -336,7 +336,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_111": {
@@ -352,7 +352,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 593),
+"size": Vector2(300.002, 641),
 "speaker": ""
 },
 "1_112": {
@@ -368,7 +368,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.003, 575),
+"size": Vector2(300.003, 623),
 "speaker": 1
 },
 "1_113": {
@@ -384,7 +384,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 595),
+"size": Vector2(300, 641),
 "speaker": ""
 },
 "1_114": {
@@ -400,7 +400,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_115": {
@@ -416,7 +416,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_116": {
@@ -432,7 +432,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_117": {
@@ -448,7 +448,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_118": {
@@ -464,7 +464,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641),
 "speaker": ""
 },
 "1_119": {
@@ -480,7 +480,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_12": {
@@ -512,7 +512,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_121": {
@@ -528,7 +528,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_122": {
@@ -544,7 +544,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 593),
+"size": Vector2(300.002, 641),
 "speaker": ""
 },
 "1_123": {
@@ -560,7 +560,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300, 621),
 "speaker": "Chad (From another room)"
 },
 "1_124": {
@@ -576,7 +576,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300.002, 621),
 "speaker": "Chad (From another room)"
 },
 "1_125": {
@@ -592,7 +592,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300.001, 621),
 "speaker": "Chad (From another room)"
 },
 "1_126": {
@@ -608,7 +608,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_127": {
@@ -624,7 +624,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_128": {
@@ -640,7 +640,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 595),
+"size": Vector2(300.001, 643),
 "speaker": 1
 },
 "1_129": {
@@ -656,7 +656,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_13": {
@@ -672,7 +672,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_130": {
@@ -688,7 +688,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_131": {
@@ -704,7 +704,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_132": {
@@ -720,7 +720,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_133": {
@@ -736,7 +736,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_134": {
@@ -752,7 +752,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.003, 573),
+"size": Vector2(300.007, 621),
 "speaker": ""
 },
 "1_135": {
@@ -768,7 +768,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.005, 575),
+"size": Vector2(300.007, 623),
 "speaker": 1
 },
 "1_136": {
@@ -784,7 +784,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 575),
+"size": Vector2(300.007, 623),
 "speaker": 1
 },
 "1_137": {
@@ -800,7 +800,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_138": {
@@ -816,7 +816,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 593),
+"size": Vector2(300.005, 641),
 "speaker": ""
 },
 "1_139": {
@@ -832,7 +832,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.003, 573),
+"size": Vector2(300.006, 621.001),
 "speaker": ""
 },
 "1_14": {
@@ -864,7 +864,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 595),
+"size": Vector2(300.001, 643),
 "speaker": 1
 },
 "1_141": {
@@ -880,7 +880,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 573),
+"size": Vector2(300.005, 621.001),
 "speaker": ""
 },
 "1_142": {
@@ -896,7 +896,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 588),
+"size": Vector2(300.003, 636),
 "speaker": -1
 },
 "1_143": {
@@ -912,7 +912,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.005, 623.001),
 "speaker": 0
 },
 "1_144": {
@@ -928,7 +928,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 573),
+"size": Vector2(300.005, 621.001),
 "speaker": ""
 },
 "1_145": {
@@ -944,7 +944,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300.005, 621.001),
 "speaker": ""
 },
 "1_146": {
@@ -960,7 +960,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_147": {
@@ -976,7 +976,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300, 623),
 "speaker": 0
 },
 "1_148": {
@@ -992,7 +992,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 593),
+"size": Vector2(300, 641),
 "speaker": ""
 },
 "1_149": {
@@ -1008,7 +1008,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_15": {
@@ -1040,7 +1040,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300.002, 643),
 "speaker": 0
 },
 "1_151": {
@@ -1056,7 +1056,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.008, 623),
 "speaker": 0
 },
 "1_152": {
@@ -1072,7 +1072,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_153": {
@@ -1088,7 +1088,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_154": {
@@ -1104,7 +1104,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_155": {
@@ -1120,7 +1120,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_156": {
@@ -1136,7 +1136,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_157": {
@@ -1152,7 +1152,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_158": {
@@ -1168,7 +1168,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_159": {
@@ -1184,7 +1184,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300.001, 643.001),
 "speaker": 1
 },
 "1_16": {
@@ -1216,7 +1216,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_161": {
@@ -1232,7 +1232,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641.001),
 "speaker": ""
 },
 "1_162": {
@@ -1248,7 +1248,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_163": {
@@ -1264,7 +1264,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_164": {
@@ -1280,7 +1280,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_165": {
@@ -1296,7 +1296,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_166": {
@@ -1312,7 +1312,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_167": {
@@ -1328,7 +1328,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 0
 },
 "1_168": {
@@ -1344,7 +1344,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 0
 },
 "1_169": {
@@ -1360,7 +1360,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 0
 },
 "1_17": {
@@ -1392,7 +1392,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 0
 },
 "1_171": {
@@ -1408,7 +1408,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 0
 },
 "1_172": {
@@ -1424,7 +1424,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_173": {
@@ -1440,7 +1440,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641.001),
 "speaker": ""
 },
 "1_174": {
@@ -1456,7 +1456,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_175": {
@@ -1472,7 +1472,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641.001),
 "speaker": ""
 },
 "1_176": {
@@ -1488,7 +1488,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_177": {
@@ -1504,7 +1504,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_178": {
@@ -1520,7 +1520,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_179": {
@@ -1536,7 +1536,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_18": {
@@ -1568,7 +1568,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641.001),
 "speaker": ""
 },
 "1_181": {
@@ -1584,7 +1584,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_182": {
@@ -1600,7 +1600,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.002, 623.001),
 "speaker": 1
 },
 "1_183": {
@@ -1616,7 +1616,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_184": {
@@ -1632,7 +1632,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300.001, 641.001),
 "speaker": ""
 },
 "1_185": {
@@ -1648,7 +1648,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621.001),
 "speaker": "Chad (From another room)"
 },
 "1_186": {
@@ -1664,7 +1664,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300, 621.001),
 "speaker": "Chad (From another room)"
 },
 "1_187": {
@@ -1680,7 +1680,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300.001, 621.001),
 "speaker": "Chad (From another room)"
 },
 "1_188": {
@@ -1696,7 +1696,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.002, 623.001),
 "speaker": 1
 },
 "1_189": {
@@ -1712,14 +1712,14 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_19": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "You might've have a chance. ",
+"dialogue": "You might've had a chance. ",
 "offset": Vector2(1640, 1060),
 "options": {
 0: {
@@ -1744,7 +1744,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 595),
+"size": Vector2(300.002, 643.001),
 "speaker": 1
 },
 "1_191": {
@@ -1760,7 +1760,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300, 623.001),
 "speaker": 0
 },
 "1_192": {
@@ -1776,7 +1776,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_193": {
@@ -1792,7 +1792,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_194": {
@@ -1808,7 +1808,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_195": {
@@ -1824,7 +1824,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 575),
+"size": Vector2(300.004, 623.001),
 "speaker": 1
 },
 "1_196": {
@@ -1840,7 +1840,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 573),
+"size": Vector2(300.003, 621),
 "speaker": ""
 },
 "1_197": {
@@ -1856,7 +1856,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.003, 623),
 "speaker": 1
 },
 "1_198": {
@@ -1872,7 +1872,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_199": {
@@ -1888,7 +1888,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_2": {
@@ -1936,7 +1936,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300.001, 641),
 "speaker": ""
 },
 "1_201": {
@@ -1952,7 +1952,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_202": {
@@ -1968,7 +1968,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 573),
+"size": Vector2(300.001, 616),
 "speaker": -1
 },
 "1_21": {
@@ -1984,7 +1984,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 641),
+"size": Vector2(300.001, 641),
 "speaker": ""
 },
 "1_22": {
@@ -2064,7 +2064,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 641),
+"size": Vector2(300.005, 641),
 "speaker": ""
 },
 "1_27": {
@@ -2080,7 +2080,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623.001),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_28": {
@@ -2096,7 +2096,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623.001),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_29": {
@@ -2104,15 +2104,15 @@ nodes = {
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "With some effort and some adjusting of her skirt, she slowly slides the belt out from its loops. ",
-"offset": Vector2(5000, 2140),
+"offset": Vector2(5120, 2200),
 "options": {
 0: {
 "condition": {},
-"link": &"3_14",
+"link": &"1_30",
 "text": ""
 }
 },
-"size": Vector2(300.001, 621),
+"size": Vector2(300, 621),
 "speaker": ""
 },
 "1_3": {
@@ -2160,7 +2160,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_32": {
@@ -2192,7 +2192,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_34": {
@@ -2208,7 +2208,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 621),
+"size": Vector2(300.003, 621),
 "speaker": ""
 },
 "1_35": {
@@ -2224,7 +2224,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 643),
+"size": Vector2(300.001, 643),
 "speaker": 1
 },
 "1_36": {
@@ -2240,7 +2240,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 643),
+"size": Vector2(300.001, 643),
 "speaker": 1
 },
 "1_37": {
@@ -2256,7 +2256,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.006, 623),
+"size": Vector2(300.004, 623),
 "speaker": 0
 },
 "1_38": {
@@ -2320,7 +2320,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_41": {
@@ -2336,7 +2336,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623.001),
+"size": Vector2(300, 623.002),
 "speaker": 1
 },
 "1_42": {
@@ -2352,7 +2352,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.002, 623.001),
 "speaker": 1
 },
 "1_43": {
@@ -2368,7 +2368,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.002, 623.001),
 "speaker": 1
 },
 "1_44": {
@@ -2384,7 +2384,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.003, 623.001),
 "speaker": 1
 },
 "1_45": {
@@ -2400,7 +2400,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 643.001),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_46": {
@@ -2416,7 +2416,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 622.999),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_47": {
@@ -2432,7 +2432,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 622.999),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_48": {
@@ -2448,7 +2448,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 642.999),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_49": {
@@ -2480,7 +2480,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_50": {
@@ -2512,7 +2512,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 622.999),
+"size": Vector2(300.005, 623),
 "speaker": 0
 },
 "1_52": {
@@ -2528,7 +2528,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 622.999),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_53": {
@@ -2544,7 +2544,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 622.999),
+"size": Vector2(300.002, 623),
 "speaker": 0
 },
 "1_54": {
@@ -2560,7 +2560,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 615.999),
+"size": Vector2(300, 616),
 "speaker": -1
 },
 "1_55": {
@@ -2576,7 +2576,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 620.999),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_56": {
@@ -2592,7 +2592,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 622.999),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_57": {
@@ -2608,7 +2608,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 622.999),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_58": {
@@ -2624,7 +2624,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 643.001),
+"size": Vector2(300.001, 643.002),
 "speaker": 0
 },
 "1_59": {
@@ -2640,7 +2640,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 642.999),
+"size": Vector2(300, 643),
 "speaker": 0
 },
 "1_6": {
@@ -2672,7 +2672,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 643),
+"size": Vector2(300, 643),
 "speaker": 0
 },
 "1_61": {
@@ -2704,7 +2704,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 621),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_63": {
@@ -2784,7 +2784,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_68": {
@@ -2832,7 +2832,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.002, 623.001),
 "speaker": 1
 },
 "1_70": {
@@ -2864,7 +2864,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_72": {
@@ -2880,7 +2880,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 641),
+"size": Vector2(300.003, 641),
 "speaker": ""
 },
 "1_73": {
@@ -2896,7 +2896,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 0
 },
 "1_74": {
@@ -2928,7 +2928,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_76": {
@@ -2960,7 +2960,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_78": {
@@ -2976,7 +2976,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_79": {
@@ -2992,7 +2992,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623.001),
 "speaker": 1
 },
 "1_8": {
@@ -3024,7 +3024,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 641),
+"size": Vector2(300.001, 641.001),
 "speaker": ""
 },
 "1_81": {
@@ -3040,7 +3040,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.002, 623),
+"size": Vector2(300.002, 623.001),
 "speaker": 1
 },
 "1_82": {
@@ -3056,7 +3056,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 641),
+"size": Vector2(300, 641.001),
 "speaker": ""
 },
 "1_83": {
@@ -3072,7 +3072,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300, 623.001),
 "speaker": 1
 },
 "1_84": {
@@ -3088,7 +3088,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_85": {
@@ -3104,7 +3104,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 621),
+"size": Vector2(300.001, 621),
 "speaker": ""
 },
 "1_86": {
@@ -3152,7 +3152,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 621),
+"size": Vector2(300, 641.001),
 "speaker": ""
 },
 "1_89": {
@@ -3168,14 +3168,14 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 593),
+"size": Vector2(300, 641),
 "speaker": ""
 },
 "1_9": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Your shirt is gone. Now what? ",
+"dialogue": "Looks like you're going home early tonight.  ",
 "offset": Vector2(800, 8500),
 "options": {
 0: {
@@ -3200,7 +3200,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_91": {
@@ -3216,7 +3216,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_92": {
@@ -3232,7 +3232,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.005, 575),
+"size": Vector2(300.005, 623),
 "speaker": 1
 },
 "1_93": {
@@ -3248,7 +3248,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 583),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_94": {
@@ -3264,7 +3264,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.001, 575),
+"size": Vector2(300.002, 623),
 "speaker": 1
 },
 "1_95": {
@@ -3280,7 +3280,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_96": {
@@ -3296,7 +3296,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300, 623),
 "speaker": 1
 },
 "1_97": {
@@ -3312,7 +3312,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "1_98": {
@@ -3328,7 +3328,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 575),
+"size": Vector2(300.001, 623),
 "speaker": 1
 },
 "1_99": {
@@ -3344,7 +3344,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 595),
+"size": Vector2(300, 643),
 "speaker": 1
 },
 "3_1": {
@@ -3371,16 +3371,6 @@ nodes = {
 "link": &"3_11",
 "offset": Vector2(2252.57, 4391.24),
 "signalValue": "fade_next"
-},
-"3_14": {
-"link": &"3_15",
-"offset": Vector2(5099.48, 2804.29),
-"signalValue": "fade_next"
-},
-"3_15": {
-"link": &"1_30",
-"offset": Vector2(5340, 2460),
-"signalValue": "video_pause"
 },
 "3_16": {
 "link": &"5_4",
