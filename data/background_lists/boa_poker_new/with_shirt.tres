@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=29 format=3 uid="uid://bflkrex04m6eb"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=31 format=3 uid="uid://bflkrex04m6eb"]
 
 [ext_resource type="Texture2D" uid="uid://cq423t6sfan08" path="res://data/background_lists/boa_poker_new/with_shirt/0.png" id="1_jgsfm"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_g8yd1"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dp42jor1fl8n5" path="res://data/background_lists/boa_poker_new/with_shirt/8.png" id="13_pc4nt"]
 [ext_resource type="Texture2D" uid="uid://c1anyc1s0eb83" path="res://data/background_lists/boa_poker_new/with_shirt/9.png" id="14_mejti"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="15_4w2vi"]
+[ext_resource type="Texture2D" uid="uid://tvp8y1un8oap" path="res://data/background_lists/boa_poker_new/with_shirt/00new.png" id="15_m4joo"]
 
 [sub_resource type="Resource" id="Resource_tv0jo"]
 script = ExtResource("2_g8yd1")
@@ -81,7 +82,12 @@ script = ExtResource("2_g8yd1")
 name = "9.png"
 images = ExtResource("14_mejti")
 
+[sub_resource type="Resource" id="Resource_0wi7x"]
+script = ExtResource("2_g8yd1")
+name = "00new"
+images = ExtResource("15_m4joo")
+
 [resource]
 script = ExtResource("15_4w2vi")
 name = "with_shirt"
-images = Array[ExtResource("2_g8yd1")]([SubResource("Resource_tv0jo"), SubResource("Resource_k4bx0"), SubResource("Resource_k1pf3"), SubResource("Resource_lvkxn"), SubResource("Resource_yileh"), SubResource("Resource_dviya"), SubResource("Resource_2s6ab"), SubResource("Resource_7cw76"), SubResource("Resource_gojak"), SubResource("Resource_pb5qe"), SubResource("Resource_mttkv"), SubResource("Resource_peevh"), SubResource("Resource_8c6er")])
+images = Array[ExtResource("2_g8yd1")]([SubResource("Resource_tv0jo"), SubResource("Resource_k4bx0"), SubResource("Resource_k1pf3"), SubResource("Resource_lvkxn"), SubResource("Resource_yileh"), SubResource("Resource_dviya"), SubResource("Resource_2s6ab"), SubResource("Resource_7cw76"), SubResource("Resource_gojak"), SubResource("Resource_pb5qe"), SubResource("Resource_mttkv"), SubResource("Resource_peevh"), SubResource("Resource_8c6er"), SubResource("Resource_0wi7x")])

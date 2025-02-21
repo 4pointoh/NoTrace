@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=25 format=3 uid="uid://bcihnc4c5bg7u"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=27 format=3 uid="uid://bcihnc4c5bg7u"]
 
 [ext_resource type="Texture2D" uid="uid://bfn5qwhxdw4o0" path="res://data/background_lists/boa_poker_new/no_shirt/1.png" id="1_g6a3g"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_s8s8y"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bc2eot5yh4gu7" path="res://data/background_lists/boa_poker_new/no_shirt/8.png" id="11_korfr"]
 [ext_resource type="Texture2D" uid="uid://c5csvf52hdu7a" path="res://data/background_lists/boa_poker_new/no_shirt/9.png" id="12_id6yr"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="13_1576k"]
+[ext_resource type="Texture2D" uid="uid://cb336sl01wpfg" path="res://data/background_lists/boa_poker_new/no_shirt/00new.png" id="13_yj5rn"]
 
 [sub_resource type="Resource" id="Resource_54ilw"]
 script = ExtResource("2_s8s8y")
@@ -69,7 +70,12 @@ script = ExtResource("2_s8s8y")
 name = "9.png"
 images = ExtResource("12_id6yr")
 
+[sub_resource type="Resource" id="Resource_gloyv"]
+script = ExtResource("2_s8s8y")
+name = "00new"
+images = ExtResource("13_yj5rn")
+
 [resource]
 script = ExtResource("13_1576k")
 name = "no_shirt"
-images = Array[ExtResource("2_s8s8y")]([SubResource("Resource_54ilw"), SubResource("Resource_u6ep1"), SubResource("Resource_00e8k"), SubResource("Resource_ob3av"), SubResource("Resource_e522x"), SubResource("Resource_7qgng"), SubResource("Resource_lbp2c"), SubResource("Resource_vqfys"), SubResource("Resource_o0iku"), SubResource("Resource_ibhcv"), SubResource("Resource_852ik")])
+images = Array[ExtResource("2_s8s8y")]([SubResource("Resource_54ilw"), SubResource("Resource_u6ep1"), SubResource("Resource_00e8k"), SubResource("Resource_ob3av"), SubResource("Resource_e522x"), SubResource("Resource_7qgng"), SubResource("Resource_lbp2c"), SubResource("Resource_vqfys"), SubResource("Resource_o0iku"), SubResource("Resource_ibhcv"), SubResource("Resource_852ik"), SubResource("Resource_gloyv")])

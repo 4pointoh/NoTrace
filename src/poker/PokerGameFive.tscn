@@ -96,6 +96,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_57l4p")
 text = "Check"
 
 [node name="Skip" type="Button" parent="."]
+unique_name_in_owner = true
 visible = false
 offset_left = 703.0
 offset_top = 908.0
