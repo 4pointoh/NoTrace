@@ -14,6 +14,9 @@ class_name GameStage
 @export var endTransition: Transition.TransitionType
 @export var middleTransitionText : String
 @export var middleTransition: Transition.TransitionType
+@export var markStagesCompleteOnDateWin : Array[String]
+@export var markStagesCompleteOnSceneEnd : Array[String]
+@export var unlockWallpapersOnSceneEnd: Array[String]
 
 # Poker
 @export var isPokerMatch : bool

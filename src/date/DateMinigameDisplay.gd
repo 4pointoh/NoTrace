@@ -34,6 +34,7 @@ var spawn_position: Vector2
 signal optionSelected(index : int)
 signal goBack()
 signal proceedFromComplete()
+signal dateSkipSelected()
 
 var screen_width = 400  # Adjust this to your screen width
 
@@ -295,3 +296,6 @@ func hideBackButton():
 
 func showBackButton():
 	%DateChoiceDisplay.showBackButton()
+
+func _on_date_select_display_skip_date_selected():
+	dateSkipSelected.emit()

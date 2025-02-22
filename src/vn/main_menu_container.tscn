@@ -90,6 +90,10 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 
 [node name="Space6" type="Control" parent="MainMenuContainer"]
 custom_minimum_size = Vector2(0, 10)

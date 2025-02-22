@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh8m4ecp5otgq"]
+[gd_scene load_steps=14 format=3 uid="uid://bh8m4ecp5otgq"]
 
 [ext_resource type="Script" path="res://src/date/date_select_display.gd" id="1_aol0b"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_ii56w"]
@@ -8,6 +8,13 @@
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_etjtp"]
 [ext_resource type="Texture2D" uid="uid://syc8t3prwbt3" path="res://data/assets/date/art/transparent_hotpink_transparent_rounded_rect_8px9patch.png" id="6_diraq"]
 [ext_resource type="AudioStream" uid="uid://cq5h4p3gci24m" path="res://data/assets/phone/sounds/click.wav" id="8_if36n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76eq0"]
+bg_color = Color(0.089862, 0.235029, 0.0272074, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdt76"]
 bg_color = Color(0.172857, 0.216678, 0.288605, 1)
@@ -61,6 +68,19 @@ position = Vector2(371, 970)
 texture = ExtResource("6_diraq")
 mainLabel = "Poker Training"
 
+[node name="SkipButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 629.0
+offset_top = 1060.0
+offset_right = 747.0
+offset_bottom = 1096.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_etjtp")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_76eq0")
+text = "Skip Date"
+
 [node name="SmallTalkButton" type="Button" parent="."]
 offset_left = 629.0
 offset_top = 1102.0
@@ -86,4 +106,5 @@ stream = ExtResource("8_if36n")
 [connection signal="clicked" from="TalkButton" to="." method="_on_talk_button_clicked"]
 [connection signal="clicked" from="FlirtButton" to="." method="_on_flirt_button_clicked"]
 [connection signal="clicked" from="BusinessButton" to="." method="_on_business_button_clicked"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="pressed" from="SmallTalkButton" to="." method="_on_small_talk_button_pressed"]

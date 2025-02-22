@@ -97,6 +97,15 @@ func advanceGameStage():
 
 		if(!completedStagesGLOBAL.has(currentStage.name)):
 			completedStagesGLOBAL.append(currentStage.name)
+
+		if(currentStage.markStagesCompleteOnSceneEnd.size() > 0):
+			for stage in currentStage.markStagesCompleteOnSceneEnd:
+				completedStages.append(stage)
+				completedStagesGLOBAL.append(stage)
+		
+		if(currentStage.unlockWallpapersOnSceneEnd.size() > 0):
+			for wallpaper in currentStage.unlockWallpapersOnSceneEnd:
+				unlockWallpaper(wallpaper)
 	
 	previousStage = currentStage
 	currentStage = nextStage
@@ -361,8 +370,10 @@ func modifyDateScore(progression):
 func setDateComplete():
 	completedStages.append(currentStage.name)
 
-	if(currentStage.dateWinMarkThisStageComplete):
-		completedStages.append(currentStage.dateWinMarkThisStageComplete)
+	if(currentStage.markStagesCompleteOnDateWin.size() > 0):
+		for stage in currentStage.markStagesCompleteOnDateWin:
+			completedStages.append(stage)
+			completedStagesGLOBAL.append(stage)
 
 func playParticleEffect(type : Heartsplosion.TYPES, animType : Heartsplosion.ANIM_TYPE):
 	playParticle.emit(type, animType)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=67 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=81 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -34,6 +34,13 @@
 [ext_resource type="Texture2D" uid="uid://chpjhrdiuhuwq" path="res://data/background_lists/lisa_market_new/rew3.png" id="32_5qpvs"]
 [ext_resource type="Texture2D" uid="uid://bmdxkemprtvoh" path="res://data/background_lists/lisa_market_new/rew1.png" id="33_mx83n"]
 [ext_resource type="Texture2D" uid="uid://duwngfm701ykp" path="res://data/background_lists/lisa_market_new/rew2.png" id="34_bwfcr"]
+[ext_resource type="Texture2D" uid="uid://daxhp3pqki2r7" path="res://data/background_lists/lisa_park_training/lisa_park_training_59.png" id="35_slt3q"]
+[ext_resource type="Texture2D" uid="uid://bhlijyxjt5e45" path="res://data/background_lists/lisa_park_training/lisa_park_training_61.png" id="36_epf1q"]
+[ext_resource type="Texture2D" uid="uid://bo8mip2p63ncc" path="res://data/background_lists/lisa_park_training/lisa_park_training_63.png" id="37_6elky"]
+[ext_resource type="Texture2D" uid="uid://c0v5xuynlx2c" path="res://data/background_lists/ana_shop_meeting/undress_8.png" id="38_0i5lc"]
+[ext_resource type="Texture2D" uid="uid://climqdw53i22x" path="res://data/background_lists/ana_shop_meeting/undress_9.png" id="39_uemvh"]
+[ext_resource type="Texture2D" uid="uid://c7cnac1l06hdg" path="res://data/background_lists/ana_shop_meeting/undress_10.png" id="40_ao66a"]
+[ext_resource type="Texture2D" uid="uid://cw30gst8s06v8" path="res://data/background_lists/ana_shop_meeting/undress_11.png" id="41_m4fkv"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -68,34 +75,6 @@ script = ExtResource("3_wccuy")
 wallpaperId = "ASHE_SELFIE"
 image = ExtResource("7_m1d5n")
 hint = "A reminder for you, unlocked in the unknown number intro phone conversation."
-video = ""
-
-[sub_resource type="Resource" id="Resource_ocj37"]
-script = ExtResource("3_wccuy")
-wallpaperId = "ASHEPARK1"
-image = ExtResource("8_1yf3e")
-hint = "Ashely Park (1)"
-video = ""
-
-[sub_resource type="Resource" id="Resource_p7fpl"]
-script = ExtResource("3_wccuy")
-wallpaperId = "ASHEPARK2"
-image = ExtResource("9_gutbg")
-hint = "Ashely Park (2)"
-video = ""
-
-[sub_resource type="Resource" id="Resource_6tmel"]
-script = ExtResource("3_wccuy")
-wallpaperId = "ASHEPARK3"
-image = ExtResource("10_dospk")
-hint = "Ashely Park (3)"
-video = ""
-
-[sub_resource type="Resource" id="Resource_xuy0b"]
-script = ExtResource("3_wccuy")
-wallpaperId = "ASHEPARK5"
-image = ExtResource("15_i6byd")
-hint = "Ashely Park (5)"
 video = ""
 
 [sub_resource type="Resource" id="Resource_t5hq4"]
@@ -147,6 +126,34 @@ image = ExtResource("18_dlrwp")
 hint = "Beat Boa In Poker (5)"
 video = ""
 
+[sub_resource type="Resource" id="Resource_ocj37"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHEPARK1"
+image = ExtResource("8_1yf3e")
+hint = "Ashely Park (1)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_p7fpl"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHEPARK2"
+image = ExtResource("9_gutbg")
+hint = "Ashely Park (2)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_6tmel"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHEPARK3"
+image = ExtResource("10_dospk")
+hint = "Ashely Park (3)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_xuy0b"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHEPARK5"
+image = ExtResource("15_i6byd")
+hint = "Ashely Park (5)"
+video = ""
+
 [sub_resource type="Resource" id="Resource_mt54f"]
 script = ExtResource("3_wccuy")
 wallpaperId = "chad_pool_img1"
@@ -160,6 +167,34 @@ wallpaperId = "chad_pool_img2"
 image = ExtResource("20_yxqy0")
 hint = "Chat with chad about lisa (2)"
 video = "res://data/game_stages/phone_message/chad_unblock_lisa/videos/pool.ogv"
+
+[sub_resource type="Resource" id="Resource_8265s"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_SHOP_1"
+image = ExtResource("38_0i5lc")
+hint = "Ana Shop (1)"
+video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+
+[sub_resource type="Resource" id="Resource_xvhwn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_SHOP_2"
+image = ExtResource("39_uemvh")
+hint = "Ana Shop (2)"
+video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+
+[sub_resource type="Resource" id="Resource_kcxj0"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_SHOP_3"
+image = ExtResource("40_ao66a")
+hint = "Ana Shop (3)"
+video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+
+[sub_resource type="Resource" id="Resource_7rwqr"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_SHOP_4"
+image = ExtResource("41_m4fkv")
+hint = "Ana Shop (4)"
+video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
 
 [sub_resource type="Resource" id="Resource_b4gnm"]
 script = ExtResource("3_wccuy")
@@ -259,6 +294,27 @@ image = ExtResource("34_bwfcr")
 hint = "Lisa market date (3)"
 video = ""
 
+[sub_resource type="Resource" id="Resource_iisrb"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_PARK_1"
+image = ExtResource("35_slt3q")
+hint = "Lisa Poker At Park (1)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_gbs4u"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_PARK_2"
+image = ExtResource("36_epf1q")
+hint = "Lisa Poker At Park (2)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_ly74e"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_PARK_3"
+image = ExtResource("37_6elky")
+hint = "Lisa Poker At Park (3)"
+video = ""
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e")])

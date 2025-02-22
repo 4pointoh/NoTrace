@@ -4,14 +4,14 @@
 [ext_resource type="Resource" uid="uid://dfbuugnd5gh8f" path="res://data/game_stages/dates/lisa_market_date/d_lisa_market_date.tres" id="1_d143a"]
 [ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_vhwmg"]
 [ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="2_xcix3"]
-[ext_resource type="Texture2D" uid="uid://db7qcmws0kic4" path="res://data/background_lists/dates/lisa_market_date/date/0.png" id="3_eduou"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_82l6w"]
+[ext_resource type="Texture2D" uid="uid://cp4a30nb7sl4k" path="res://data/background_lists/lisa_market_new/10.png" id="5_dtu7a"]
 [ext_resource type="AudioStream" uid="uid://brhyu14of4pna" path="res://data/assets/general/sounds/bg_music/Cafe Serenade ext v1.2.mp3" id="7_aaoc3"]
 
 [sub_resource type="Resource" id="Resource_gc2m4"]
 script = ExtResource("4_82l6w")
 name = "start"
-images = ExtResource("3_eduou")
+images = ExtResource("5_dtu7a")
 
 [resource]
 script = ExtResource("1_vhwmg")
@@ -27,6 +27,8 @@ endTransitionText = ""
 endTransition = 0
 middleTransitionText = ""
 middleTransition = 0
+markStagesCompleteOnDateWin = Array[String](["lisa_first_market_date"])
+markStagesCompleteOnSceneEnd = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -49,7 +51,7 @@ stageButtonLabel = ""
 isDate = true
 dateScript = ExtResource("1_4hr0x")
 dateWinGameStage = ExtResource("2_xcix3")
-dateWinMarkThisStageComplete = "lisa_first_market_date"
+dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = "LOST"
 dateCharacter = "LISA"
 dateTitle = "Coffee With Lisa"

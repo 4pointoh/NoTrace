@@ -1,6 +1,13 @@
 extends Node2D
 
 signal choice_selected(index : int)
+signal skip_date_selected()
+
+func _ready():
+	if GlobalGameStage.hasCompletedCurrentStageGlobally():
+		%SkipButton.show()
+	else:
+		%SkipButton.hide()
 
 func showWithAnimation():
 	show()
@@ -42,3 +49,6 @@ func _on_business_button_clicked():
 func _on_small_talk_button_pressed():
 	choice_selected.emit(3)
 	%AudioStreamPlayer.play()
+
+func _on_skip_button_pressed():
+	skip_date_selected.emit()

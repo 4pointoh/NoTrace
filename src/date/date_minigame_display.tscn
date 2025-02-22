@@ -433,3 +433,4 @@ vertical_alignment = 1
 [connection signal="back_button" from="DateChoiceDisplay" to="." method="_on_date_choice_display_back_button"]
 [connection signal="choice_selected" from="DateChoiceDisplay" to="." method="_on_date_choice_display_choice_selected"]
 [connection signal="choice_selected" from="DateSelectDisplay" to="." method="_on_date_select_display_choice_selected"]
+[connection signal="skip_date_selected" from="DateSelectDisplay" to="." method="_on_date_select_display_skip_date_selected"]

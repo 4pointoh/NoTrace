@@ -375,3 +375,6 @@ func goBack():
 
 func _on_date_minigame_display_go_back():
 	goBack()
+
+func _on_date_minigame_display_date_skip_selected():
+	dateComplete.emit(true, null)
