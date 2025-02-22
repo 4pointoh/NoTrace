@@ -25,6 +25,7 @@ signal bgVolumeChanged
 signal loadSave
 signal playParticle(type: String)
 signal showTopImage(image: Texture2D)
+signal playTransition(transitionType: Transition.TransitionType, text: String)
 
 var bg_volume
 var text_speed

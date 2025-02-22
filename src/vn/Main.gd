@@ -7,6 +7,8 @@ var isVideoPause = false
 var isFullscreenImage = false
 var currentStageIsLoaded = false
 var forcePhoneStage = false
+var isSkipping = false
+var inTransition = false
 
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
@@ -31,7 +33,7 @@ func _ready():
 	GlobalGameStage.loadSave.connect(_handle_save_loaded)
 	GlobalGameStage.playParticle.connect(_handle_play_particle)
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/title.mp3"))
-	
+
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
 	
@@ -46,9 +48,12 @@ func _input(event):
 		pass
 
 	if event.is_action_pressed('quick_skip'):
-		$DialogueManager.startQuickSkip()
+		if !inTransition:
+			isSkipping = true
+			$DialogueManager.startQuickSkip()
 	
 	if event.is_action_released('quick_skip'):
+		isSkipping = false
 		$DialogueManager.stopQuickSkip()
 	
 	if event.is_action_pressed("hide_ui"):
@@ -77,12 +82,42 @@ func toggleUi():
 		currentDate.visible = !currentDate.visible
 	
 	$DialogueManager.toggleUi()
+
+func beginMidSceneTransition():
+	disableInput()
+	$DialogueManager.disableDialogueProgression()
+	if !isSkipping and GlobalGameStage.currentStage.middleTransition:
+		inTransition = true
+		playTransition(GlobalGameStage.currentStage.middleTransition, GlobalGameStage.currentStage.middleTransitionText)
+		await get_tree().create_timer(5.0).timeout
+	
+	$DialogueManager.enableDialogueProgression()
+	%Transition.move_out()
+	enableInput()
+	inTransition = false
 	
 func advanceGameStage():
+	if !isSkipping and GlobalGameStage.currentStage.endTransition:
+		disableInput()
+		inTransition = true
+		playTransition(GlobalGameStage.currentStage.endTransition, GlobalGameStage.currentStage.endTransitionText)
+		await get_tree().create_timer(5.0).timeout
+	
 	GlobalGameStage.advanceGameStage()
+
+	if !isSkipping and GlobalGameStage.currentStage.startTransition:
+		disableInput()
+		inTransition = true
+		playTransition(GlobalGameStage.currentStage.startTransition, GlobalGameStage.currentStage.startTransitionText)
+		await get_tree().create_timer(5.0).timeout
+
+	inTransition = false
+	enableInput()
+	%Transition.move_out()
 	beginStage()
 	
 func beginStage():
+
 	dontAutoAdvance = false
 	$DialogueManager.clearCurrentBg()
 	$DialogueManager.setDialogueData(GlobalGameStage.currentStage.dialogue)
@@ -179,6 +214,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"walk_on": $CharacterManager.walkOnNext()
 		"walk_off": $CharacterManager.characterWalkOff()
 		"zoom": $CharacterManager.zoomCharacter()
+		"transition": beginMidSceneTransition()
 
 func videoPause():
 	isVideoPause = true
@@ -396,3 +432,6 @@ func _on_scene_select_stage_selected(stage):
 
 func _on_scene_select_close():
 	currentSceneSelector.queue_free()
+
+func playTransition(transitionType, text):
+	%Transition.playTransition(transitionType, text)

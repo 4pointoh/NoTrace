@@ -8,6 +8,12 @@ class_name GameStage
 @export var guaranteedNextGameStage: GameStage
 @export var isCompletable : bool
 @export var startingBackground : Background
+@export var startTransitionText : String
+@export var startTransition: Transition.TransitionType
+@export var endTransitionText : String
+@export var endTransition: Transition.TransitionType
+@export var middleTransitionText : String
+@export var middleTransition: Transition.TransitionType
 
 # Poker
 @export var isPokerMatch : bool

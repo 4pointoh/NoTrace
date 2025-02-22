@@ -83,6 +83,9 @@ var dont_focus = false
 
 var force_option_timer : Timer
 
+var disable_next = false
+var disable_next_allow_one_box = false
+
 func _enter_tree():
 	if get_child_count() > 0:
 		for child in get_children():
@@ -245,6 +248,9 @@ func proceed(idx: String):
 	if idx == 'END' or not running:
 		stop()
 		return
+	
+	if disable_next:
+		return
 
 	var type = idx.split('_')[0]
 
@@ -287,7 +293,12 @@ func proceed(idx: String):
 				proceed(dialogue_data.nodes[idx]['link'])
 			else:
 				stop()
+	
 	dialogue_proceeded.emit(type)
+
+	if disable_next_allow_one_box:
+		disable_next = true
+		disable_next_allow_one_box = false
 
 
 ## Stops the running dialogue.
@@ -308,8 +319,15 @@ func reset():
 func refocusOption():
 	if options && options.get_child_count() > 0:
 		options.get_child(0).grab_focus()
+	
+func unfocusOption():
+	if options && options.get_child_count() > 0:
+		options.get_child(0).release_focus()
 
 func clickNext():
+	if disable_next:
+		return
+
 	if options && options.get_child_count() > 0:
 		options.get_child(0).emit_signal('pressed')
 
@@ -694,3 +712,14 @@ func _set_portrait_visibility(value):
 
 func _on_option_pressed(idx: int):
 	option_selected.emit(idx)
+
+func set_disable_next():
+	disable_next_allow_one_box = true
+	if options && options.get_child_count() > 0:
+		options.get_child(0).disabled = true
+
+func set_enable_next():
+	disable_next = false
+	disable_next_allow_one_box = false
+	if options && options.get_child_count() > 0:
+		options.get_child(0).disabled = false

@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0ronq3xhd3ic"]
+
+[ext_resource type="Script" path="res://src/vn/transition.gd" id="1_lhdhk"]
+[ext_resource type="Texture2D" uid="uid://c6nu8at3nsm2w" path="res://data/assets/general/art/nightcar1.png" id="1_pk2hq"]
+[ext_resource type="Texture2D" uid="uid://cd216lgilw3u1" path="res://data/assets/general/art/nightcar2.png" id="2_ryfbb"]
+[ext_resource type="Texture2D" uid="uid://d3qhxlvpp06hq" path="res://data/assets/general/art/recar2.png" id="3_hd3ij"]
+[ext_resource type="Texture2D" uid="uid://0wkp811tg7nj" path="res://data/assets/general/art/redcar1.png" id="4_pi5h1"]
+[ext_resource type="Texture2D" uid="uid://ddyyu215kb7tv" path="res://data/assets/general/art/sleep1.png" id="5_ow4tm"]
+[ext_resource type="Texture2D" uid="uid://u7hylr6r4q0a" path="res://data/assets/general/art/sleep2.png" id="6_wgtps"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="7_n2262"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4tvdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pk2hq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ryfbb")
+}],
+"loop": true,
+"name": &"nightcar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hd3ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pi5h1")
+}],
+"loop": true,
+"name": &"redcar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ow4tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wgtps")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_mrldq"]
+resource_name = "slide_in"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1000, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_18ld1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hjqyj"]
+resource_name = "slide_out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1200)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfslg"]
+_data = {
+"RESET": SubResource("Animation_18ld1"),
+"slide_in": SubResource("Animation_mrldq"),
+"slide_out": SubResource("Animation_hjqyj")
+}
+
+[node name="Transition" type="ColorRect"]
+offset_right = 896.999
+offset_bottom = 1152.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_lhdhk")
+
+[node name="TransitionSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(470, 699)
+scale = Vector2(0.589355, 0.589355)
+sprite_frames = SubResource("SpriteFrames_4tvdu")
+animation = &"nightcar"
+frame_progress = 0.272884
+
+[node name="TransitionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_top = 15.0
+offset_right = 863.0
+offset_bottom = 342.0
+theme_override_fonts/font = ExtResource("7_n2262")
+theme_override_font_sizes/font_size = 100
+text = "Hours Pass..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_qfslg")
+}

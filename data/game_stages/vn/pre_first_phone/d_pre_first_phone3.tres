@@ -29,7 +29,7 @@ Nah fuck that, I'm out.
 "text": ""
 }
 },
-"size": Vector2(538.018, 770.207),
+"size": Vector2(538.019, 770.207),
 "speaker": 0
 },
 "1_2": {
@@ -51,17 +51,15 @@ Eventually the other guests begin to trickle home in their assorted drunken stat
 "speaker": ""
 },
 "1_3": {
-"background": 0,
+"background": 1,
 "backgroundList": 1,
 "characterState": -1,
-"dialogue": "You make your way home, exhausted, and fall asleep. 
-
-You sleep until 2pm the next day, waking to the afternoon sunshine in your bedroom.",
+"dialogue": "You make your way home, exhausted, and fall asleep. ",
 "offset": Vector2(1020, -180),
 "options": {
 0: {
 "condition": {},
-"link": &"1_4",
+"link": &"3_1",
 "text": ""
 }
 },
@@ -72,8 +70,8 @@ You sleep until 2pm the next day, waking to the afternoon sunshine in your bedro
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "[i]I slept kind of late... I told that Lisa chick that I'd text her today... I should probably do that now.[/i]",
-"offset": Vector2(1460, -200),
+"dialogue": "[i]I told that Lisa chick that I'd text her today... I should probably do that now.[/i]",
+"offset": Vector2(1780, -160),
 "options": {
 0: {
 "condition": {},
@@ -81,12 +79,49 @@ You sleep until 2pm the next day, waking to the afternoon sunshine in your bedro
 "text": ""
 }
 },
-"size": Vector2(300, 623),
+"size": Vector2(300.001, 623),
 "speaker": 0
+},
+"1_5": {
+"background": 0,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You sleep until 2pm the next day, waking to the afternoon sunshine in your bedroom.",
+"offset": Vector2(1420, -200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300.001, 621),
+"speaker": ""
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow... I slept way too long.",
+"offset": Vector2(1579.58, 690.293),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300.001, 623.001),
+"speaker": 0
+},
+"3_1": {
+"link": &"1_5",
+"offset": Vector2(1240, 620),
+"signalValue": "transition"
 },
 "3_2": {
 "link": &"3_3",
-"offset": Vector2(680, 200),
+"offset": Vector2(560, 900),
 "signalValue": "unlock_wp_lisa_leaving"
 },
 "3_3": {

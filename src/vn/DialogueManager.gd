@@ -212,6 +212,9 @@ func _on_visibility_changed():
 
 func refocusDbox():
 	$DialoguePlayer.refocusOption()
+
+func unfocusDbox():
+	$DialoguePlayer.unfocusOption()
 	
 func clickNext():
 	$DialoguePlayer.clickNext()
@@ -221,3 +224,9 @@ func startQuickSkip():
 	
 func stopQuickSkip():
 	enableQuickSkip = false
+
+func disableDialogueProgression():
+	$DialoguePlayer.set_disable_next()
+
+func enableDialogueProgression():
+	$DialoguePlayer.set_enable_next()
