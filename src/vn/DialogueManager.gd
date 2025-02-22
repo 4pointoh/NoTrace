@@ -230,3 +230,13 @@ func disableDialogueProgression():
 
 func enableDialogueProgression():
 	$DialoguePlayer.set_enable_next()
+
+func _on_dialogue_player_item_rect_changed():
+	%SkipLabel.position = $DialoguePlayer.position
+	%SkipLabel.position.y += ($DialoguePlayer.size.y - %SkipLabel.size.y)
+	
+func _on_dialogue_player_visibility_changed():
+	%SkipLabel.visible = $DialoguePlayer.visible
+	
+	if !GlobalGameStage.hasCompletedCurrentStageGlobally() or GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
+		%SkipLabel.visible = false

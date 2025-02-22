@@ -30,9 +30,20 @@ offset_bottom = 75.0
 theme_override_font_sizes/font_size = 30
 text = "Select Scene"
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 151.0
+offset_top = 87.0
+offset_right = 781.0
+offset_bottom = 171.0
+text = "The Scene Selector is a beta feature for replaying specific scenes.
+Do NOT use it as a way to kickstart a new save, as there is a high likelihood it will glitch your save. Certain scenes in this list may crash the game or be buggy."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 151.0
-offset_top = 92.0
+offset_top = 215.0
 offset_right = 781.0
 offset_bottom = 997.0
 horizontal_scroll_mode = 0

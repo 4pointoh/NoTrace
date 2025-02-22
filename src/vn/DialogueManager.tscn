@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5aupfniotrg8"]
+[gd_scene load_steps=11 format=3 uid="uid://b5aupfniotrg8"]
 
 [ext_resource type="Script" path="res://src/vn/DialogueManager.gd" id="1_74qok"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_f3hio"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_u7s3f"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_llgkf"]
 [ext_resource type="AudioStream" uid="uid://cu5y7ae0pqsdg" path="res://data/assets/general/sounds/sound.wav" id="5_75cai"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_xqga4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6l33"]
 bg_color = Color(0, 0, 0, 0.913725)
@@ -14,6 +15,13 @@ script = ExtResource("2_u7s3f")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_07j7y"]
 script = ExtResource("3_llgkf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh3rb"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="DialogueManager" type="Control"]
 layout_mode = 3
@@ -38,6 +46,23 @@ start_id = "START"
 skip_input_action = "dialogue_skip"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_hviyc"), SubResource("RichTextEffect_07j7y")])
 
+[node name="SkipLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 1103.0
+offset_right = 219.0
+offset_bottom = 1134.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_xqga4")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_nh3rb")
+text = "Skip Available (ctrl)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_75cai")
 
@@ -45,3 +70,5 @@ stream = ExtResource("5_75cai")
 [connection signal="dialogue_ended" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_ended"]
 [connection signal="dialogue_proceeded" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_proceeded"]
 [connection signal="dialogue_signal" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_signal"]
+[connection signal="item_rect_changed" from="DialoguePlayer" to="." method="_on_dialogue_player_item_rect_changed"]
+[connection signal="visibility_changed" from="DialoguePlayer" to="." method="_on_dialogue_player_visibility_changed"]

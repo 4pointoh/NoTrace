@@ -126,6 +126,27 @@ image = ExtResource("18_dlrwp")
 hint = "Beat Boa In Poker (5)"
 video = ""
 
+[sub_resource type="Resource" id="Resource_f01mg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_MARKET_REW_1"
+image = ExtResource("32_5qpvs")
+hint = "Lisa market date (1)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_a8155"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_MARKET_REW_2"
+image = ExtResource("33_mx83n")
+hint = "Lisa market date (2)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_fegc8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_MARKET_REW_3"
+image = ExtResource("34_bwfcr")
+hint = "Lisa market date (3)"
+video = ""
+
 [sub_resource type="Resource" id="Resource_ocj37"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK1"
@@ -273,27 +294,6 @@ image = ExtResource("31_83mw7")
 hint = "Attempt to train Lisa the old-fashioned way (9)"
 video = ""
 
-[sub_resource type="Resource" id="Resource_f01mg"]
-script = ExtResource("3_wccuy")
-wallpaperId = "LISA_MARKET_REW_1"
-image = ExtResource("32_5qpvs")
-hint = "Lisa market date (1)"
-video = ""
-
-[sub_resource type="Resource" id="Resource_a8155"]
-script = ExtResource("3_wccuy")
-wallpaperId = "LISA_MARKET_REW_2"
-image = ExtResource("33_mx83n")
-hint = "Lisa market date (2)"
-video = ""
-
-[sub_resource type="Resource" id="Resource_fegc8"]
-script = ExtResource("3_wccuy")
-wallpaperId = "LISA_MARKET_REW_3"
-image = ExtResource("34_bwfcr")
-hint = "Lisa market date (3)"
-video = ""
-
 [sub_resource type="Resource" id="Resource_iisrb"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_POK_PARK_1"
@@ -317,4 +317,4 @@ video = ""
 
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e")])
