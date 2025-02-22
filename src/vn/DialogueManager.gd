@@ -33,7 +33,7 @@ var originalXPos
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
 	
-	if enableQuickSkip and GlobalGameStage.hasCompletedCurrentStageGlobally() and !GlobalGameStage.currentStage.isPokerMatch and !GlobalGameStage.currentStage.isDate and !GlobalGameStage.currentStage.isPhoneScreen and !GlobalGameStage.currentStage.isPhoneMessageEvent:
+	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch and !GlobalGameStage.currentStage.isDate and !GlobalGameStage.currentStage.isPhoneScreen and !GlobalGameStage.currentStage.isPhoneMessageEvent:
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()
@@ -238,5 +238,5 @@ func _on_dialogue_player_item_rect_changed():
 func _on_dialogue_player_visibility_changed():
 	%SkipLabel.visible = $DialoguePlayer.visible
 	
-	if !GlobalGameStage.hasCompletedCurrentStageGlobally() or GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
+	if !GlobalGameStage.hasCompletedStageGloballySoft() or GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
 		%SkipLabel.visible = false

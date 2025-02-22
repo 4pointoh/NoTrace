@@ -305,6 +305,7 @@ func _on_date_complete(success, dialogueKey = null):
 		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.dateWinGameStage)
 		advanceGameStage()
 	else:
+		GlobalGameStage.softCompleteCurrentStage()
 		fadeNext()
 		forcePhoneStage = true
 

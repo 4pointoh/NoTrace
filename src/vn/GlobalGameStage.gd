@@ -10,13 +10,14 @@ var previousStage : GameStage
 var nextStage : GameStage
 var completedStages : Array[String]
 var completedStagesGLOBAL : Array[String]
+var completedStagesSOFT : Array[String]
 var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
 
 var dateStorage : DateStorage
 
-const VERSION = 005
+const VERSION = 006
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -107,6 +108,10 @@ func advanceGameStage():
 			for wallpaper in currentStage.unlockWallpapersOnSceneEnd:
 				unlockWallpaper(wallpaper)
 	
+	#Soft stages are always completed no matter what, but unlock fewer features
+	if(!completedStagesSOFT.has(currentStage.name)):
+		completedStagesSOFT.append(currentStage.name)
+	
 	previousStage = currentStage
 	currentStage = nextStage
 	
@@ -173,6 +178,13 @@ func hasCompletedCurrentStage():
 
 func hasCompletedCurrentStageGlobally():
 	return completedStagesGLOBAL.has(currentStage.name) or hasCompletedCurrentStage()
+
+func hasCompletedStageGloballySoft():
+	return hasCompletedCurrentStageGlobally() or completedStagesSOFT.has(currentStage.name)
+
+func softCompleteCurrentStage():
+	if(!completedStagesSOFT.has(currentStage.name)):
+		completedStagesSOFT.append(currentStage.name)
 
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here
@@ -246,6 +258,8 @@ func saveSaveData(saveName):
 	else:
 		file.store_var(previousStage.resource_path)
 	
+	file.store_var(completedStagesSOFT)
+	
 	savePersistentData()
 
 func getSaveDataInfo(saveName):
@@ -291,6 +305,11 @@ func loadSaveData(saveName):
 			nextStage = currentStage.guaranteedNextGameStage
 		else:
 			nextStage = null
+		
+		if(saveVersion > 005):
+			completedStagesSOFT.assign(file.get_var())
+		else:
+			completedStagesSOFT = []
 		
 		dateStorage.clearCurrentDate()
 		print('file version is ' + str(saveVersion))
@@ -368,12 +387,17 @@ func modifyDateScore(progression):
 	dateStorage.currentDateProgressionScore += progression
 
 func setDateComplete():
-	completedStages.append(currentStage.name)
+	if !completedStages.has(currentStage.name):
+		completedStages.append(currentStage.name)
+	
+	if(!completedStagesGLOBAL.has(currentStage.name)):
+		completedStagesGLOBAL.append(currentStage.name)
 
 	if(currentStage.markStagesCompleteOnDateWin.size() > 0):
 		for stage in currentStage.markStagesCompleteOnDateWin:
-			completedStages.append(stage)
-			completedStagesGLOBAL.append(stage)
+			if !completedStages.has(stage):
+				completedStages.append(stage)
+				completedStagesGLOBAL.append(stage)
 
 func playParticleEffect(type : Heartsplosion.TYPES, animType : Heartsplosion.ANIM_TYPE):
 	playParticle.emit(type, animType)
