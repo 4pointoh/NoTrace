@@ -111,9 +111,10 @@ func advanceGameStage():
 		playTransition(GlobalGameStage.currentStage.startTransition, GlobalGameStage.currentStage.startTransitionText)
 		await get_tree().create_timer(5.0).timeout
 
-	inTransition = false
-	enableInput()
-	%Transition.move_out()
+	if(inTransition):
+		inTransition = false
+		enableInput()
+		%Transition.move_out()
 	beginStage()
 	
 func beginStage():
