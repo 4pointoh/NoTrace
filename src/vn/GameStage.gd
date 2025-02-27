@@ -42,6 +42,7 @@ class_name GameStage
 @export var contactName: String
 @export var contactImage: Texture
 @export var startingMusic : AudioStream
+@export var delayMusicToTransition : bool = false
 
 # SelectableGameStage
 @export var stageButtonTexture : Texture

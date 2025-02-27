@@ -3,10 +3,11 @@ extends Control
 signal is_fading
 @export var background : Background
 var shouldFade = false
+var shouldFadeQuick = false
 @onready var zoompan = load("res://src/phone/zoompan.gdshader")
 
 func setBackground(newBackground):
-	if background && (newBackground.name == background.name) && !shouldFade:
+	if background && (newBackground.name == background.name) && (!shouldFade || !shouldFadeQuick):
 		return 
 	
 	background = newBackground
@@ -16,6 +17,10 @@ func setBackground(newBackground):
 		shouldFade = false
 		fadeTransition()
 		$FadeTimer.start(.4)
+	elif shouldFadeQuick:
+		shouldFadeQuick = false
+		fadeTransitionQuick2()
+		$FadeTimer.start(.25)
 	else:
 		$BackgroundImage.texture = background.images
 
@@ -72,6 +77,9 @@ func fadeTransition():
 
 func fadeTransitionQuick():
 	$AnimationPlayer.play('fade_quick')
+
+func fadeTransitionQuick2():
+	$AnimationPlayer.play('fade_quick_2')
 
 func clearBackground():
 	background = null

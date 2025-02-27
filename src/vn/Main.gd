@@ -3,6 +3,7 @@ extends Node2D
 var dontAutoAdvance = false
 var inputDisabled = false
 var shouldFade = false
+var shouldFadeQuick = false
 var isVideoPause = false
 var isFullscreenImage = false
 var currentStageIsLoaded = false
@@ -86,6 +87,10 @@ func toggleUi():
 func beginMidSceneTransition():
 	disableInput()
 	$DialogueManager.disableDialogueProgression()
+
+	if GlobalGameStage.currentStage.delayMusicToTransition:
+		playBgMusic(GlobalGameStage.currentStage.startingMusic)
+
 	if !isSkipping and GlobalGameStage.currentStage.middleTransition:
 		inTransition = true
 		playTransition(GlobalGameStage.currentStage.middleTransition, GlobalGameStage.currentStage.middleTransitionText)
@@ -143,7 +148,7 @@ func beginStage():
 		if !$DialogueManager.uiVisible:
 			$DialogueManager.toggleUi()
 	
-	if GlobalGameStage.currentStage.startingMusic:
+	if GlobalGameStage.currentStage.startingMusic and not GlobalGameStage.currentStage.delayMusicToTransition:
 		playBgMusic(GlobalGameStage.currentStage.startingMusic)
 
 func inPhoneScene():
@@ -209,6 +214,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"hide_char": $CharacterManager.hideCharacter()
 		"video_pause": videoPause()
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
+		"fade_next_quick": fadeNextQuick()
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
 		"music_neon_lights": playMusicNeonLights()
@@ -239,6 +245,9 @@ func playMusicNeonLights():
 
 func fadeNext():
 	$Background.shouldFade = true
+
+func fadeNextQuick():
+	$Background.shouldFadeQuick = true
 
 func disableInput():
 	inputDisabled = true
@@ -338,7 +347,7 @@ func _on_background_is_fading():
 	$DialogueManager.unhideUiFast()
 	$Background.z_index = 0
 	enableInput()
-	
+
 
 func _on_continue_pressed():
 	$Continue.visible = false

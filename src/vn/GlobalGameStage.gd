@@ -161,6 +161,9 @@ func getAvailableSelectableEvents():
 	
 	if completedStages.has('ana_shop_meeting'):
 		addSelectableEvent(Flags.LISA_PARK_TRAINING)
+	
+	if completedStages.has('amy_poker_hall_intro_after'):
+		addSelectableEvent(Flags.ASHELY_THEATER)
 
 	
 	return availableSelectableEvents

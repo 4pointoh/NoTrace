@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://g7msjycdvhlc"]
+
+[ext_resource type="Resource" uid="uid://cvbw4xpx3a2km" path="res://data/game_stages/vn/ashely_theater/d_ashely_theater.tres" id="1_52dkx"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_81set"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_wlaqf"]
+[ext_resource type="Texture2D" uid="uid://dm0jnfxlgx3cs" path="res://data/assets/stage_art/theater_hover.png" id="4_2ifwo"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_xh5ob"]
+[ext_resource type="Texture2D" uid="uid://bho1mfj27xud3" path="res://data/assets/stage_art/theater.png" id="5_5atl6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_620it"]
+[ext_resource type="AudioStream" uid="uid://c84jhbjdu257y" path="res://data/assets/general/sounds/bg_music/new/Untitled(15).mp3" id="8_mhxb0"]
+
+[sub_resource type="Resource" id="Resource_817t3"]
+script = ExtResource("5_620it")
+name = "fdd"
+images = ExtResource("4_xh5ob")
+
+[resource]
+script = ExtResource("2_81set")
+name = "ashely_theater"
+displayName = "Ashely Theater"
+dialogue = ExtResource("1_52dkx")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_wlaqf")
+isCompletable = true
+startingBackground = SubResource("Resource_817t3")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = "An Evening Ride Back Home"
+endTransition = 2
+middleTransitionText = "Heading To Cummington Theater"
+middleTransition = 2
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("8_mhxb0")
+delayMusicToTransition = true
+stageButtonTexture = ExtResource("5_5atl6")
+stageButtonHover = ExtResource("4_2ifwo")
+stageButtonLabel = "Inform Ashey"
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
