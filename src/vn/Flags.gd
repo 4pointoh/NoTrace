@@ -6,7 +6,7 @@ var ASHELY_INTRODUCE_AMY = load("res://data/game_stages/phone_message/ashely_int
 var CHAD_UNBLOCK_LISA = load("res://data/game_stages/phone_message/chad_unblock_lisa/gs_chad_unblock_lisa.tres")
 var LISA_BLOCKED = load("res://data/game_stages/phone_message/lisa_blocked/gs_lisa_blocked.tres")
 var LISA_AFTER_UNBLOCK = load("res://data/game_stages/phone_message/lisa_after_unblock/gs_lisa_after_unblock.tres")
-
+var ASHELY_THEATER_PHONE = load("res://data/game_stages/phone_message/ashely_theater_phone/gs_ashely_theater_phone.tres")
 
 #selectable events
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")

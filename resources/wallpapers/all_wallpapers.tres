@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=81 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=105 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -41,6 +41,18 @@
 [ext_resource type="Texture2D" uid="uid://climqdw53i22x" path="res://data/background_lists/ana_shop_meeting/undress_9.png" id="39_uemvh"]
 [ext_resource type="Texture2D" uid="uid://c7cnac1l06hdg" path="res://data/background_lists/ana_shop_meeting/undress_10.png" id="40_ao66a"]
 [ext_resource type="Texture2D" uid="uid://cw30gst8s06v8" path="res://data/background_lists/ana_shop_meeting/undress_11.png" id="41_m4fkv"]
+[ext_resource type="Texture2D" uid="uid://xwd7lxewvnq7" path="res://data/background_lists/ashely_theater/5.1.png" id="42_hsrdh"]
+[ext_resource type="Texture2D" uid="uid://bkwh8sx7n87fi" path="res://data/background_lists/ashely_theater/11.png" id="43_ckjru"]
+[ext_resource type="Texture2D" uid="uid://b5u5uhfy1ygv8" path="res://data/background_lists/ashely_theater/12.png" id="44_i2bfr"]
+[ext_resource type="Texture2D" uid="uid://c3bc7p7nai80j" path="res://data/background_lists/ashely_theater/24.png" id="45_ou3xw"]
+[ext_resource type="Texture2D" uid="uid://ds5wp0v8gxtrx" path="res://data/background_lists/ashely_theater/27.png" id="46_2d1qw"]
+[ext_resource type="Texture2D" uid="uid://dev61x8hu6pm5" path="res://data/background_lists/ashely_theater/31.png" id="47_mcnna"]
+[ext_resource type="Texture2D" uid="uid://dlrrq0g06ksje" path="res://data/background_lists/ashely_theater/36.png" id="48_qtf6q"]
+[ext_resource type="Texture2D" uid="uid://lcrw6h8hokcn" path="res://data/background_lists/ashely_theater/39.png" id="49_xs5aa"]
+[ext_resource type="Texture2D" uid="uid://csh6dmith6g7g" path="res://data/background_lists/ashely_theater/43.png" id="50_6qe2x"]
+[ext_resource type="Texture2D" uid="uid://hfwgy0tj8cg" path="res://data/background_lists/ashely_theater/48.png" id="51_o7prm"]
+[ext_resource type="Texture2D" uid="uid://drd75h6qsj6e5" path="res://data/background_lists/ashely_theater/49.png" id="52_ab3h0"]
+[ext_resource type="Texture2D" uid="uid://dqjxuebxtcpy4" path="res://data/background_lists/ashely_theater/53.png" id="53_32fyo"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -315,6 +327,90 @@ image = ExtResource("37_6elky")
 hint = "Lisa Poker At Park (3)"
 video = ""
 
+[sub_resource type="Resource" id="Resource_2p44g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_1"
+image = ExtResource("42_hsrdh")
+hint = "Ashely Theater (1)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_n7u40"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_2"
+image = ExtResource("43_ckjru")
+hint = "Ashely Theater (2)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_kcr3r"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_3"
+image = ExtResource("44_i2bfr")
+hint = "Ashely Theater (3)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_yf5vf"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_4"
+image = ExtResource("45_ou3xw")
+hint = "Ashely Theater (4)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_d61as"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_5"
+image = ExtResource("46_2d1qw")
+hint = "Ashely Theater (5)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_ni0pm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_6"
+image = ExtResource("47_mcnna")
+hint = "Ashely Theater (6)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_7sf0i"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_7"
+image = ExtResource("48_qtf6q")
+hint = "Ashely Theater (7)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_fw6s1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_8"
+image = ExtResource("49_xs5aa")
+hint = "Ashely Theater (8)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_8g046"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_9"
+image = ExtResource("50_6qe2x")
+hint = "Ashely Theater (9)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_upc6u"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_10"
+image = ExtResource("51_o7prm")
+hint = "Ashely Theater (10)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_5g4f1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_11"
+image = ExtResource("52_ab3h0")
+hint = "Ashely Theater (11)"
+video = ""
+
+[sub_resource type="Resource" id="Resource_yfylc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_THEATER_12"
+image = ExtResource("53_32fyo")
+hint = "Ashely Theater (12)"
+video = ""
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc")])

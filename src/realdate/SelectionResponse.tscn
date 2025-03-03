@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1exfswvnw0ee"]
+
+[ext_resource type="Script" path="res://src/realdate/SelectionResponse.gd" id="1_4xb3n"]
+[ext_resource type="Texture2D" uid="uid://d4cqin4r3qcio" path="res://data/assets/realdate/topicselectbg.png" id="1_g6frc"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_ry1qb"]
+[ext_resource type="Texture2D" uid="uid://fcjp1pgsqg40" path="res://data/assets/realdate/blue_icon.png" id="4_y5g2y"]
+
+[node name="SelectionResponse" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xb3n")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 448.0
+offset_bottom = 51.0
+texture = ExtResource("1_g6frc")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="PrefersVariant" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PrefersVariant"]
+layout_mode = 0
+offset_left = 9.0
+offset_right = 144.0
+offset_bottom = 51.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ry1qb")
+theme_override_font_sizes/font_size = 20
+text = "She prefers"
+vertical_alignment = 1
+
+[node name="PreferredContainer" type="HBoxContainer" parent="PrefersVariant"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 230.0
+offset_top = 5.0
+offset_right = 396.0
+offset_bottom = 44.0
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="PrefersVariant"]
+layout_mode = 0
+offset_left = 176.0
+offset_right = 230.0
+offset_bottom = 51.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ry1qb")
+theme_override_font_sizes/font_size = 20
+text = "over"
+vertical_alignment = 1
+
+[node name="Preferred" type="TextureRect" parent="PrefersVariant"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 123.0
+offset_top = 5.0
+offset_right = 168.0
+offset_bottom = 44.0
+texture = ExtResource("4_y5g2y")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NoneVariant" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 51.0
+
+[node name="Label" type="Label" parent="NoneVariant"]
+layout_mode = 0
+offset_left = 9.0
+offset_right = 255.0
+offset_bottom = 51.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ry1qb")
+theme_override_font_sizes/font_size = 20
+text = "She doesn't want to talk about"
+vertical_alignment = 1
+
+[node name="NotPreferredContainer" type="HBoxContainer" parent="NoneVariant"]
+unique_name_in_owner = true
+offset_left = 299.0
+offset_top = 5.0
+offset_right = 436.0
+offset_bottom = 44.0
+theme_override_constants/separation = 0

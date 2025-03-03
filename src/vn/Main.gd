@@ -23,6 +23,8 @@ var currentPhone
 var currentDate
 var currentSceneSelector
 
+var testToggle = false
+
 var firstSceneMusic = load("res://data/assets/general/sounds/bg_music/title2.mp3")
 
 func _ready():
@@ -44,9 +46,15 @@ func _handle_fullscreenImage(image):
 	$FullscreenImageBg.show()
 	$FullscreenImageBg/FullscreenImage.show()
 
+func testFunction():
+	print('testing')
+
 func _input(event):
 	if inputDisabled:
 		pass
+
+	if event.is_action_pressed('DebuButton'):
+		testFunction()
 
 	if event.is_action_pressed('quick_skip'):
 		if !inTransition:

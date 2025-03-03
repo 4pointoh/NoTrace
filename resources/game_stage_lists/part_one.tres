@@ -1,28 +1,23 @@
-[gd_resource type="Resource" script_class="GameStageList" load_steps=23 format=3 uid="uid://b2u1350o40y1c"]
+[gd_resource type="Resource" script_class="GameStageList" load_steps=18 format=3 uid="uid://b2u1350o40y1c"]
 
 [ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="1_je6vd"]
 [ext_resource type="Script" path="res://src/vn/GameStageList.gd" id="1_jtgnc"]
 [ext_resource type="Resource" uid="uid://dojlfqurdseox" path="res://data/game_stages/vn/pre_first_phone/gs_pre_first_phone.tres" id="2_ahj72"]
 [ext_resource type="Resource" uid="uid://c4vicjmmdrtmf" path="res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres" id="3_xwqg7"]
 [ext_resource type="Resource" uid="uid://w54iw46mgqvf" path="res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres" id="4_6d3ei"]
-[ext_resource type="Resource" uid="uid://ecnuj6pddpsj" path="res://data/game_stages/vn/intro/gs_intro.tres" id="5_j2f0v"]
+[ext_resource type="Resource" uid="uid://bcjgx576sc7m4" path="res://data/game_stages/dates/lisa_market_date/gs_lisa_market_date.tres" id="5_egrgh"]
 [ext_resource type="Resource" uid="uid://budob75qkmq5q" path="res://data/game_stages/vn/ashely_first_park_date/gs_ashely_first_park_date.tres" id="6_lg514"]
-[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="7_l1ex3"]
-[ext_resource type="Resource" uid="uid://pexnumnao4y4" path="res://data/game_stages/poker/intro_poker/gs_intro_poker.tres" id="8_irgtk"]
-[ext_resource type="Resource" uid="uid://cwntg664xwvo8" path="res://data/game_stages/phone_message/poker_girls_first_phone/gs_poker_girls_first_phone.tres" id="9_q0jv7"]
-[ext_resource type="Resource" uid="uid://dikd2kaqlhena" path="res://data/game_stages/phone_message/lisa_first_phone/gs_lisa_first_phone.tres" id="10_8dfj8"]
-[ext_resource type="Resource" uid="uid://dtba14boawfr2" path="res://data/game_stages/dates/test_date_one/test_date_one.tres" id="11_1kuxd"]
 [ext_resource type="Resource" uid="uid://cow1ul70kxhmm" path="res://data/game_stages/dates/ashely_park_date/gs_ashely_park_date.tres" id="12_nl0sf"]
 [ext_resource type="Resource" uid="uid://dd34ecbgq64q6" path="res://data/game_stages/vn/ashely_first_park_date_after/gs_ashely_first_park_date.tres" id="13_6e3me"]
+[ext_resource type="Resource" uid="uid://df41cvr24y1xs" path="res://data/game_stages/dates/lisa_park_training_date/gs_lisa_park_training_date.tres" id="14_mc5km"]
 [ext_resource type="Resource" uid="uid://bfvjblluekexm" path="res://data/game_stages/vn/intro_rework/gs_intro_rework.tres" id="14_vlc4n"]
 [ext_resource type="Resource" uid="uid://b7h73cw37mti4" path="res://data/game_stages/vn/lisa_park_training_after/gs_lisa_park_training_after.tres.tres" id="15_m6jy3"]
+[ext_resource type="Resource" uid="uid://g7msjycdvhlc" path="res://data/game_stages/vn/ashely_theater/gs_ashely_theater.tres" id="16_d0n7r"]
 [ext_resource type="Resource" uid="uid://dcmd073xcryic" path="res://data/game_stages/vn/lisa_park_training/gs_lisa_park_training.tres" id="16_k7x25"]
 [ext_resource type="Resource" uid="uid://decl88ymi2qlj" path="res://data/game_stages/vn/ana_shop_meeting/gs_ana_shop_meeting.tres" id="17_0iwvh"]
 [ext_resource type="Resource" uid="uid://o02dk2ikese4" path="res://data/game_stages/vn/amy_poker_hall_intro_after/gs_amy_poker_hall_intro_after.tres" id="18_2t30l"]
 [ext_resource type="Resource" uid="uid://btvbgys8khmck" path="res://data/game_stages/vn/amy_poker_hall_intro/gs_amy_poker_hall_intro.tres" id="19_64gdd"]
-[ext_resource type="Resource" uid="uid://bfawa4sl645nm" path="res://data/game_stages/poker/lisa_park_training_poker/gs_lisa_park_training.tres" id="20_r5ld2"]
-[ext_resource type="Resource" uid="uid://csnaegkeae5xf" path="res://data/game_stages/poker/amy_poker_hall_intro_poker/gs_amy_poker_hall_intro.tres" id="21_b0x7y"]
 
 [resource]
 script = ExtResource("1_jtgnc")
-gameStages = Array[Resource("res://src/vn/GameStage.gd")]([ExtResource("1_je6vd"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("4_6d3ei"), ExtResource("5_j2f0v"), ExtResource("6_lg514"), ExtResource("7_l1ex3"), ExtResource("8_irgtk"), ExtResource("9_q0jv7"), ExtResource("10_8dfj8"), ExtResource("11_1kuxd"), ExtResource("3_xwqg7"), ExtResource("12_nl0sf"), ExtResource("6_lg514"), ExtResource("13_6e3me"), ExtResource("14_vlc4n"), ExtResource("15_m6jy3"), ExtResource("16_k7x25"), ExtResource("17_0iwvh"), ExtResource("18_2t30l"), ExtResource("19_64gdd"), ExtResource("20_r5ld2"), ExtResource("21_b0x7y")])
+gameStages = Array[Resource("res://src/vn/GameStage.gd")]([ExtResource("14_vlc4n"), ExtResource("4_6d3ei"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("5_egrgh"), ExtResource("1_je6vd"), ExtResource("6_lg514"), ExtResource("12_nl0sf"), ExtResource("13_6e3me"), ExtResource("19_64gdd"), ExtResource("18_2t30l"), ExtResource("17_0iwvh"), ExtResource("16_k7x25"), ExtResource("14_mc5km"), ExtResource("15_m6jy3"), ExtResource("16_d0n7r")])

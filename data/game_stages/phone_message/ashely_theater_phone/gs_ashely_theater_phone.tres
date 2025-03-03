@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://me56yl1klku3"]
+
+[ext_resource type="Texture2D" uid="uid://c3rl67kfnx64c" path="res://data/characters/ashely/phone_icons/default.png" id="1_edq0c"]
+[ext_resource type="Resource" uid="uid://w3g4hddpdfus" path="res://data/game_stages/phone_message/ashely_theater_phone/d_ashely_theater_phone.tres" id="1_fvutj"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_pr1je"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="3_hscnj"]
+[ext_resource type="Script" path="res://data/game_stages/phone_message/ashely_theater_phone/scripts/ashely_theater_phone.gd" id="4_vg8ix"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="6_y4ybi"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_l7u3a"]
+
+[sub_resource type="Resource" id="Resource_vuj1d"]
+script = ExtResource("7_l7u3a")
+name = "hbjh"
+images = ExtResource("6_y4ybi")
+
+[resource]
+script = ExtResource("2_pr1je")
+name = "ashely_theater_phone"
+displayName = "Ashely Theater Phone"
+dialogue = ExtResource("1_fvutj")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("3_hscnj")
+isCompletable = true
+startingBackground = SubResource("Resource_vuj1d")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("4_vg8ix")
+contactName = "Ashely"
+contactImage = ExtResource("1_edq0c")
+delayMusicToTransition = false
+stageButtonLabel = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
