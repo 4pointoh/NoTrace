@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://bve4ubl6ta28n"]
+
+[ext_resource type="Texture2D" uid="uid://b2rqlodvc88hv" path="res://data/assets/realdate/green_icon.png" id="1_0hlww"]
+[ext_resource type="PackedScene" uid="uid://nhwfho6ftlbw" path="res://src/realdate/TrackingIcon.tscn" id="1_4isig"]
+[ext_resource type="Script" path="res://src/realdate/ColorTracker.gd" id="1_md6tp"]
+[ext_resource type="Texture2D" uid="uid://xfgsbn2qbo1" path="res://data/assets/realdate/red_icon.png" id="3_blppb"]
+[ext_resource type="Texture2D" uid="uid://fcjp1pgsqg40" path="res://data/assets/realdate/blue_icon.png" id="4_v1kdd"]
+[ext_resource type="Texture2D" uid="uid://mqqq1db8xmbe" path="res://data/assets/realdate/yellow_icon.png" id="5_2isjm"]
+[ext_resource type="Texture2D" uid="uid://bnjlnee7yt8vy" path="res://data/assets/realdate/purple_icon.png" id="6_ph3tq"]
+[ext_resource type="Texture2D" uid="uid://bqhcj7vbfof2a" path="res://data/assets/realdate/pink_icon.png" id="7_2s331"]
+[ext_resource type="Texture2D" uid="uid://cw2ivxyc7ngie" path="res://data/assets/realdate/teal_icon.png" id="8_jwr2w"]
+[ext_resource type="Texture2D" uid="uid://ceg3kdxf170w0" path="res://data/assets/realdate/orange_icon.png" id="9_r2r28"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 540.0
+offset_bottom = 40.0
+script = ExtResource("1_md6tp")
+
+[node name="Row1" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 40.0
+theme_override_constants/separation = 70
+
+[node name="TrackingIcon" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("1_0hlww")
+color = 1
+
+[node name="TrackingIcon2" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("3_blppb")
+
+[node name="TrackingIcon3" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("4_v1kdd")
+color = 2
+
+[node name="TrackingIcon4" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("5_2isjm")
+color = 3
+
+[node name="TrackingIcon5" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("6_ph3tq")
+color = 4
+
+[node name="TrackingIcon6" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("7_2s331")
+color = 6
+
+[node name="TrackingIcon7" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("8_jwr2w")
+color = 7
+
+[node name="TrackingIcon8" parent="Row1" instance=ExtResource("1_4isig")]
+unique_name_in_owner = true
+layout_mode = 2
+iconTexture = ExtResource("9_r2r28")
+color = 5
+
+[connection signal="hoveringTacker" from="Row1/TrackingIcon" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon2" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon2" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon3" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon3" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon4" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon4" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon5" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon5" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon6" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon6" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon7" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon7" to="." method="_on_tracking_icon_not_hovering_tracker"]
+[connection signal="hoveringTacker" from="Row1/TrackingIcon8" to="." method="_on_tracking_icon_hovering_tacker"]
+[connection signal="notHoveringTracker" from="Row1/TrackingIcon8" to="." method="_on_tracking_icon_not_hovering_tracker"]

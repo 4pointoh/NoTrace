@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://nhwfho6ftlbw"]
+
+[ext_resource type="Script" path="res://src/realdate/TrackingIcon.gd" id="1_qryaf"]
+[ext_resource type="Texture2D" uid="uid://b2rqlodvc88hv" path="res://data/assets/realdate/green_icon.png" id="2_73xsj"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_oydan"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6duv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k45uu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sfav"]
+
+[node name="TrackingIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -840.0
+offset_bottom = -1096.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qryaf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_73xsj")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 16.0
+offset_right = 67.0
+offset_bottom = 68.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_oydan")
+theme_override_font_sizes/font_size = 28
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c6duv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k45uu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1sfav")
+
+[node name="Disabled" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 56.0
+color = Color(0, 0, 0, 0.745098)
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

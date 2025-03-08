@@ -30,14 +30,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 83.0
+offset_right = 65.0
 offset_bottom = 107.0
 texture = ExtResource("1_xhaat")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 83.0
+offset_right = 65.0
 offset_bottom = 107.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_g0jc2")
@@ -48,7 +48,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_36vr7")
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 53.0
-offset_right = 83.0
+offset_right = 65.0
 offset_bottom = 107.0
 mouse_filter = 2
 texture = ExtResource("3_jjwl6")
@@ -57,7 +57,7 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 83.0
+offset_right = 65.0
 offset_bottom = 54.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12

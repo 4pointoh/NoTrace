@@ -16,7 +16,7 @@ script = ExtResource("1_4xb3n")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 448.0
+offset_right = 379.0
 offset_bottom = 51.0
 texture = ExtResource("1_g6frc")
 patch_margin_left = 8
@@ -26,6 +26,7 @@ patch_margin_bottom = 8
 
 [node name="PrefersVariant" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -47,7 +48,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 230.0
 offset_top = 5.0
-offset_right = 396.0
+offset_right = 372.0
 offset_bottom = 44.0
 theme_override_constants/separation = 0
 
@@ -89,14 +90,15 @@ offset_bottom = 51.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_ry1qb")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "She doesn't want to talk about"
 vertical_alignment = 1
 
 [node name="NotPreferredContainer" type="HBoxContainer" parent="NoneVariant"]
 unique_name_in_owner = true
-offset_left = 299.0
+layout_mode = 0
+offset_left = 242.0
 offset_top = 5.0
-offset_right = 436.0
+offset_right = 379.0
 offset_bottom = 44.0
 theme_override_constants/separation = 0

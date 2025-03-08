@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dq6wlnwk0sf8r"]
+[gd_scene load_steps=20 format=3 uid="uid://dq6wlnwk0sf8r"]
 
 [ext_resource type="Script" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
 [ext_resource type="PackedScene" uid="uid://btbl15a2lxka3" path="res://src/realdate/TopicChoice.tscn" id="1_x6s22"]
@@ -12,8 +12,6 @@
 [ext_resource type="Shader" path="res://src/date/ember.gdshader" id="5_slf51"]
 [ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="5_xrx2g"]
 [ext_resource type="PackedScene" uid="uid://btqikqeqa6yqp" path="res://src/realdate/TopicToggle.tscn" id="7_2lbra"]
-[ext_resource type="PackedScene" uid="uid://bve4ubl6ta28n" path="res://src/realdate/ColorTracker.tscn" id="13_wq1hb"]
-[ext_resource type="Texture2D" uid="uid://cwr0nhsp2sfrq" path="res://data/assets/realdate/speech.png" id="14_8iw8f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_up8o5"]
 shader = ExtResource("3_1jvsg")
@@ -41,6 +39,22 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="Animation" id="Animation_huv6v"]
+resource_name = "choices_fall_in"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipper/ChoiceContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -500), Vector2(9, 20), Vector2(9, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_36dix"]
 length = 0.001
 tracks/0/type = "value"
@@ -56,57 +70,11 @@ tracks/0/keys = {
 "values": [Vector2(17, -500)]
 }
 
-[sub_resource type="Animation" id="Animation_huv6v"]
-resource_name = "choices_fall_in"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Clipper/ChoiceContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(9, -500), Vector2(9, 20), Vector2(9, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_q5p8b"]
-resource_name = "choices_fall_out"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Clipper/ChoiceContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(9, 0), Vector2(9, 500)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ssdxh"]
 _data = {
 "RESET": SubResource("Animation_36dix"),
-"choices_fall_in": SubResource("Animation_huv6v"),
-"choices_fall_out": SubResource("Animation_q5p8b")
+"choices_fall_in": SubResource("Animation_huv6v")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pse04"]
-bg_color = Color(0, 0.694118, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.225146, 0.923156, 0, 0.486275)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [node name="RealDate" type="Node2D"]
 script = ExtResource("1_lqyw3")
@@ -131,7 +99,7 @@ texture = ExtResource("4_jpju5")
 [node name="SubmitBgOne" type="NinePatchRect" parent="."]
 offset_left = 1.0
 offset_top = 961.0
-offset_right = 532.0
+offset_right = 485.0
 offset_bottom = 1144.0
 texture = ExtResource("3_cvtb6")
 patch_margin_left = 8
@@ -142,7 +110,7 @@ patch_margin_bottom = 8
 [node name="SubmitBgTwo" type="NinePatchRect" parent="."]
 offset_left = 1.0
 offset_top = 961.0
-offset_right = 532.0
+offset_right = 485.0
 offset_bottom = 1144.0
 texture = ExtResource("3_cvtb6")
 patch_margin_left = 8
@@ -200,19 +168,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TopicsText" type="Label" parent="."]
-offset_left = 322.0
+offset_left = 323.0
 offset_top = 123.0
-offset_right = 395.0
+offset_right = 394.0
 offset_bottom = 190.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_surd0")
 theme_override_font_sizes/font_size = 20
-text = "Choices"
+text = "Topics"
 horizontal_alignment = 1
 
 [node name="TriesLeft" type="Label" parent="."]
-unique_name_in_owner = true
 offset_left = 310.0
 offset_top = 142.0
 offset_right = 403.0
@@ -275,34 +242,16 @@ size_flags_vertical = 3
 theme_override_constants/separation = 57
 
 [node name="PreferenceText" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 3.0
-offset_top = 966.0
-offset_right = 186.0
-offset_bottom = 1073.0
+offset_left = 8.0
+offset_top = 961.0
+offset_right = 191.0
+offset_bottom = 1068.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_surd0")
 theme_override_font_sizes/font_size = 24
 text = "What are her 
-#1, #2, #3, #4 Preferences?"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="PreferenceText2" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = 3.0
-offset_top = 966.0
-offset_right = 194.0
-offset_bottom = 1073.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("4_surd0")
-theme_override_font_sizes/font_size = 22
-text = "What are her 
-#1, #2, #3, #4, #5 Preferences?"
+#1, #2, and #3 Preferences?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -313,10 +262,10 @@ anchor_left = 0.927928
 anchor_top = -0.0752688
 anchor_right = 1.34685
 anchor_bottom = 1.29032
-offset_left = 194.0
-offset_top = 966.0
-offset_right = 194.0
-offset_bottom = 966.0
+offset_left = 219.0
+offset_top = 969.0
+offset_right = 219.0
+offset_bottom = 969.0
 id = 1
 
 [node name="TopicToggle2" parent="." instance=ExtResource("7_2lbra")]
@@ -325,10 +274,10 @@ anchor_left = 0.927928
 anchor_top = -0.0752688
 anchor_right = 1.34685
 anchor_bottom = 1.29032
-offset_left = 260.0
-offset_top = 966.0
-offset_right = 260.0
-offset_bottom = 966.0
+offset_left = 301.0
+offset_top = 969.0
+offset_right = 301.0
+offset_bottom = 969.0
 id = 2
 
 [node name="TopicToggle3" parent="." instance=ExtResource("7_2lbra")]
@@ -337,42 +286,18 @@ anchor_left = 1.34685
 anchor_top = -0.0752688
 anchor_right = 1.76577
 anchor_bottom = 1.29032
-offset_left = 326.0
-offset_top = 966.0
-offset_right = 326.0
-offset_bottom = 966.0
+offset_left = 384.0
+offset_top = 969.0
+offset_right = 384.0
+offset_bottom = 969.0
 id = 3
-
-[node name="TopicToggle4" parent="." instance=ExtResource("7_2lbra")]
-anchor_left = 1.34685
-anchor_top = -0.0752688
-anchor_right = 1.76577
-anchor_bottom = 1.29032
-offset_left = 392.0
-offset_top = 966.0
-offset_right = 392.0
-offset_bottom = 966.0
-id = 4
-
-[node name="TopicToggle5" parent="." instance=ExtResource("7_2lbra")]
-unique_name_in_owner = true
-anchor_left = 1.34685
-anchor_top = -0.0752688
-anchor_right = 1.76577
-anchor_bottom = 1.29032
-offset_left = 458.0
-offset_top = 966.0
-offset_right = 458.0
-offset_bottom = 966.0
-id = 5
 
 [node name="Submit" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 47.0
+offset_left = 27.0
 offset_top = 1089.0
-offset_right = 486.0
+offset_right = 466.0
 offset_bottom = 1130.0
-focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("4_surd0")
@@ -413,95 +338,3 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_ssdxh")
 }
-
-[node name="TrackerBg1" type="NinePatchRect" parent="."]
-offset_left = 1.0
-offset_top = 9.0
-offset_right = 902.0
-offset_bottom = 104.0
-texture = ExtResource("3_cvtb6")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-
-[node name="TrackerBg2" type="NinePatchRect" parent="."]
-offset_left = -56.0
-offset_top = 9.0
-offset_right = 925.0
-offset_bottom = 104.0
-texture = ExtResource("3_cvtb6")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-
-[node name="ColorTracker" parent="." instance=ExtResource("13_wq1hb")]
-unique_name_in_owner = true
-offset_left = 126.0
-offset_top = 34.0
-offset_right = 675.0
-offset_bottom = 84.0
-
-[node name="LockInLabel" type="Label" parent="."]
-offset_left = 675.0
-offset_top = 21.0
-offset_right = 887.0
-offset_bottom = 98.0
-theme_override_fonts/font = ExtResource("4_surd0")
-theme_override_font_sizes/font_size = 19
-text = "Mark Icons As Either ❌ or 🤔
-Then, Lock In!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="LockIn" type="Button" parent="."]
-unique_name_in_owner = true
-offset_left = 17.0
-offset_top = 21.0
-offset_right = 112.0
-offset_bottom = 98.0
-focus_mode = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("4_surd0")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_pse04")
-text = "Lock In!
-+3 Turns"
-
-[node name="SpeechBubble" type="TextureRect" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = 437.0
-offset_top = 123.0
-offset_right = 880.0
-offset_bottom = 377.0
-texture = ExtResource("14_8iw8f")
-
-[node name="SpeechBubbleText" type="Label" parent="SpeechBubble"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 25.0
-offset_top = 19.0
-offset_right = 416.0
-offset_bottom = 162.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("4_surd0")
-theme_override_font_sizes/font_size = 37
-text = "Morning Routine?
-Boring."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="SpeechBubbleTimer" type="Timer" parent="SpeechBubble"]
-unique_name_in_owner = true
-wait_time = 4.0
-
-[connection signal="hoveringColor" from="ColorTracker" to="." method="_on_color_tracker_hovering_color"]
-[connection signal="notHoveringTracker" from="ColorTracker" to="." method="_on_color_tracker_not_hovering_tracker"]
-[connection signal="pressed" from="LockIn" to="." method="_on_lock_in_pressed"]
-[connection signal="timeout" from="SpeechBubble/SpeechBubbleTimer" to="." method="_on_speech_bubble_timer_timeout"]
