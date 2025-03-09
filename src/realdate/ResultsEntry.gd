@@ -8,6 +8,9 @@ var resultNumber
 
 var particles
 
+var matchSound = load("res://data/assets/realdate/sounds/ding5.mp3")
+var mismatchSound = load("res://data/assets/realdate/sounds/clunk4.mp3")
+
 func setup(playerColor2: RealDateColorHelper.TopicColors, cpuColor2 : RealDateColorHelper.TopicColors, resultNumber2 : int):
 	%PlayerChoice.show()
 	%CPUChoice.hide()
@@ -39,6 +42,8 @@ func playAnimation():
 	
 	# If choices match, show particle effect and star
 	if playerColor == cpuColor:
+		%AudioStreamPlayer.stream = matchSound
+		%AudioStreamPlayer.play()
 		%Star.show()
 		
 		# Create particles dynamically
@@ -66,6 +71,9 @@ func playAnimation():
 		
 		# Start emitting
 		particles.emitting = true
+	else:
+		%AudioStreamPlayer.stream = mismatchSound
+		%AudioStreamPlayer.play()
 
 	# Emit finished signal to notify parent
 	finished.emit()

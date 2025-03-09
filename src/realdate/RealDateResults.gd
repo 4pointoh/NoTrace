@@ -12,6 +12,9 @@ var currentLevel = 1
 var newRelationshipPoints = 0
 var newLevel = 1
 var perfect = false
+
+var barIncreaseSound = load("res://data/assets/realdate/sounds/win.mp3")
+var perfectSound = load("res://data/assets/realdate/sounds/ding.mp3")
 	
 func displayResults(playerChoices2 : Array, cpuChoices2 : Array, currentRelPoints : int, newRelPoints : int, currentLev : int, newLev : int, perfect2 : bool):
 	playerChoices = playerChoices2
@@ -61,9 +64,14 @@ func allAnimsComplete():
 		var tween2 = get_tree().create_tween()
 		tween2.tween_property(%PerfectDate, "scale", Vector2(1.2,1.2), .1)
 		tween2.tween_property(%PerfectDate, "scale", Vector2(1,1), .1)
+		%AudioStreamPlayer.stream = perfectSound
+		%AudioStreamPlayer.play()
 	else:
 		%PerfectDate.hide()
 
+	if currentRelationshipPoints < newRelationshipPoints:
+		%AudioStreamPlayer.stream = barIncreaseSound
+		%AudioStreamPlayer.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(%RelBar, "value", GlobalGameStage.getRelationshipXpPercent(newRelationshipPoints, currentLevel), .3)
 

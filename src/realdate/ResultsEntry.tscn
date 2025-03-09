@@ -75,3 +75,6 @@ offset_bottom = 113.0
 texture = ExtResource("5_t27jg")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true

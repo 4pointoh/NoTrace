@@ -16,6 +16,14 @@ var excludedColors = []
 
 signal dateComplete(success: bool)
 
+var blockClickSound = load("res://data/assets/realdate/sounds/clunk3.mp3")
+var yesSound = load("res://data/assets/realdate/sounds/ooo.mp3")
+var woopSound = load("res://data/assets/realdate/sounds/woop.mp3")
+var woop2Sound = load("res://data/assets/realdate/sounds/woop2.mp3")
+var woop3Sound = load("res://data/assets/realdate/sounds/woop3.mp3")
+var slideSound = load("res://data/assets/realdate/sounds/slide.mp3")
+
+
 func setup():
 	GlobalGameStage.setCurrentCharacter(GlobalGameStage.currentStage.character)
 	
@@ -23,6 +31,10 @@ func setup():
 	turns = GlobalGameStage.currentStage.firstRoundGuesses
 	selections = GlobalGameStage.currentStage.numberOfSelections
 	lockInBonus = GlobalGameStage.currentStage.secondRoundGuesses
+
+	%Character.texture = GlobalGameStage.currentStage.characterArt
+	%Character.scale = GlobalGameStage.currentStage.characterArtScale
+	%Character.position = GlobalGameStage.currentStage.characterArtPosition
 
 	%LockIn.text = 'Lock In!\n+' + str(lockInBonus) + ' Turns'
 
@@ -77,6 +89,9 @@ func addToHistory():
 	pass
 
 func _handle_topic_choice_clicked(id: int):
+	%AudioStreamPlayer2.stream = woop3Sound
+	%AudioStreamPlayer2.play()
+
 	var selected = currentAvailableCombos[id]
 	var newSelectionResponse = selectionResponse.instantiate()
 	
@@ -158,6 +173,9 @@ func determinePreferredColor(colors: Array):
 
 
 func _on_lock_in_pressed():
+	%AudioStreamPlayer2.stream = woop2Sound
+	%AudioStreamPlayer2.play()
+
 	excludedColors.clear()
 	clearChoices()
 	var states = %ColorTracker.getStates()
@@ -198,6 +216,8 @@ func _on_submit_pressed():
 
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(results, "position", startingPos, .8)
+	%AudioStreamPlayer.stream = slideSound
+	%AudioStreamPlayer.play()
 
 	var curRelXp = GlobalGameStage.getRelationshipXp()
 	var curLevel = GlobalGameStage.getRelationshipLevel()
@@ -260,3 +280,26 @@ func _on_continue_pressed():
 
 func isSpicyQuestionAvailable():
 	return false
+
+func showStart():
+	%SubmitSection.hide()
+	%SelectionBg.hide()
+	%TrackerBg2.hide()
+	%Continue.hide()
+	%AnimationPlayer.play("start_in")
+	%Start.show()
+	%TitleText.text = GlobalGameStage.currentStage.stageButtonLabel
+	%Title.show()
+
+func _on_start_pressed():
+	%SubmitSection.show()
+	%SelectionBg.show()
+	%TrackerBg2.show()
+	%AnimationPlayer.play("main_ui_in")
+	%Start.hide()
+	%Title.hide()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == 'main_ui_in':
+		setup()

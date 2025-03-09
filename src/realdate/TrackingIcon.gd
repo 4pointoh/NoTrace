@@ -8,12 +8,16 @@ var currentSymbol = 0
 signal hoveringTacker(currentColor: RealDateColorHelper.TopicColors)
 signal notHoveringTracker
 
+var clickSound = load("res://data/assets/realdate/sounds/click.mp3")
+
 func _ready():
 	$TextureRect.texture = iconTexture
 
-
 func _on_button_pressed():
 	currentSymbol = (currentSymbol + 1) % 3
+	
+	%AudioStreamPlayer.stream = clickSound
+	%AudioStreamPlayer.play()
 	
 	if currentSymbol == 0:
 		$Label.text = '?'

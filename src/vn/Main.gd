@@ -190,7 +190,7 @@ func startNewRealDate():
 	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
 	currentRealDate = realDateScene.instantiate()
 	currentRealDate.dateComplete.connect(_on_realdate_complete)
-	currentRealDate.setup()
+	currentRealDate.showStart()
 	add_child(currentRealDate)
 	move_child(currentRealDate, $DialogueManager.get_index() - 1)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dq6wlnwk0sf8r"]
+[gd_scene load_steps=29 format=3 uid="uid://dq6wlnwk0sf8r"]
 
 [ext_resource type="Script" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
 [ext_resource type="PackedScene" uid="uid://btbl15a2lxka3" path="res://src/realdate/TopicChoice.tscn" id="1_x6s22"]
@@ -11,6 +11,8 @@
 [ext_resource type="Shader" path="res://src/date/ember.gdshader" id="5_slf51"]
 [ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="5_xrx2g"]
 [ext_resource type="PackedScene" uid="uid://btqikqeqa6yqp" path="res://src/realdate/TopicToggle.tscn" id="7_2lbra"]
+[ext_resource type="AudioStream" uid="uid://xkmw5kkmmyrq" path="res://data/assets/realdate/sounds/clunk2.mp3" id="12_inwe3"]
+[ext_resource type="AudioStream" uid="uid://b38axagawio2q" path="res://data/assets/realdate/sounds/slide.mp3" id="13_f13se"]
 [ext_resource type="PackedScene" uid="uid://bve4ubl6ta28n" path="res://src/realdate/ColorTracker.tscn" id="13_wq1hb"]
 [ext_resource type="Texture2D" uid="uid://cwr0nhsp2sfrq" path="res://data/assets/realdate/speech.png" id="14_8iw8f"]
 
@@ -111,6 +113,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(25, 1020)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, 340)]
+}
 
 [sub_resource type="Animation" id="Animation_huv6v"]
 resource_name = "choices_fall_in"
@@ -127,6 +141,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(9, -500), Vector2(9, 20), Vector2(9, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_inwe3")
+}],
+"times": PackedFloat32Array(0.15)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_q5p8b"]
 resource_name = "choices_fall_out"
@@ -196,13 +225,86 @@ tracks/3/keys = {
 "values": [Vector2(25, 1169), Vector2(25, 1169), Vector2(25, 1020)]
 }
 
+[sub_resource type="Animation" id="Animation_mm7rv"]
+resource_name = "main_ui_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubmitSection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-545, 961), Vector2(1, 961)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SelectionBg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-431, 104), Vector2(1, 104)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrackerBg2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-56, -112), Vector2(-56, 9)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_f13se")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_1o4lj"]
+resource_name = "start_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 1200), Vector2(25, 340)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ssdxh"]
 _data = {
 "Continue_Up": SubResource("Animation_so7cb"),
 "RESET": SubResource("Animation_36dix"),
 "choices_fall_in": SubResource("Animation_huv6v"),
 "choices_fall_out": SubResource("Animation_q5p8b"),
-"main_ui_out": SubResource("Animation_vkg6o")
+"main_ui_in": SubResource("Animation_mm7rv"),
+"main_ui_out": SubResource("Animation_vkg6o"),
+"start_in": SubResource("Animation_1o4lj")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pse04"]
@@ -218,6 +320,17 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qts6"]
+bg_color = Color(0, 0.151127, 0.800306, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="RealDate" type="Node2D"]
 script = ExtResource("1_lqyw3")
 topicChoiceScene = ExtResource("1_x6s22")
@@ -227,11 +340,12 @@ resultsScreen = ExtResource("4_ym5pd")
 [node name="Character" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ryhvq")
-position = Vector2(754.25, 694.961)
-scale = Vector2(0.792668, 0.792668)
+position = Vector2(750, 720)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_jpju5")
 
 [node name="SubmitSection" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 offset_left = 1.0
 offset_top = 961.0
 offset_right = 532.0
@@ -536,6 +650,7 @@ libraries = {
 }
 
 [node name="TrackerBg2" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 offset_left = -56.0
 offset_top = 9.0
 offset_right = 925.0
@@ -639,9 +754,68 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb5xy")
 text = "Continue"
 
+[node name="Title" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_left = 25.0
+offset_top = 340.0
+offset_right = 526.0
+offset_bottom = 658.0
+texture = ExtResource("3_cvtb6")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Title" type="NinePatchRect" parent="Title"]
+layout_mode = 0
+offset_right = 501.0
+offset_bottom = 318.0
+texture = ExtResource("3_cvtb6")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TitleText" type="Label" parent="Title"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 37.0
+offset_right = 498.0
+offset_bottom = 166.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_surd0")
+theme_override_font_sizes/font_size = 48
+text = "Spa Day With Anna"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="Title"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 87.0
+offset_top = 188.0
+offset_right = 426.0
+offset_bottom = 283.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_surd0")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_7qts6")
+text = "Start!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -15.856
+
 [connection signal="pressed" from="SubmitSection/Submit" to="." method="_on_submit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="hoveringColor" from="TrackerBg2/ColorTracker" to="." method="_on_color_tracker_hovering_color"]
 [connection signal="notHoveringTracker" from="TrackerBg2/ColorTracker" to="." method="_on_color_tracker_not_hovering_tracker"]
 [connection signal="pressed" from="TrackerBg2/LockIn" to="." method="_on_lock_in_pressed"]
 [connection signal="timeout" from="SpeechBubble/SpeechBubbleTimer" to="." method="_on_speech_bubble_timer_timeout"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
