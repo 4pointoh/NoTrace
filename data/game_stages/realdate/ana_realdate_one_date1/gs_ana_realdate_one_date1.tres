@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://4m2ib0rukcb2"]
+
+[ext_resource type="Resource" uid="uid://c8kpr66qyhg0s" path="res://data/game_stages/realdate/ana_realdate_one_date1/d_ana_realdate_one_date1.tres" id="1_a0udu"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_6bdok"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_xeye4"]
+[ext_resource type="Texture2D" uid="uid://b4lk4wulp7fav" path="res://data/background_lists/ana_shop_meeting/shop2.png" id="3_c43jw"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_rd420"]
+
+[sub_resource type="Resource" id="Resource_nh5c1"]
+script = ExtResource("4_rd420")
+name = "ghghg"
+images = ExtResource("3_c43jw")
+
+[resource]
+script = ExtResource("2_6bdok")
+name = "ana_realdate_one_date1"
+displayName = ""
+dialogue = ExtResource("1_a0udu")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_xeye4")
+isCompletable = false
+startingBackground = SubResource("Resource_nh5c1")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+delayMusicToTransition = false
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = true
+numberOfSelections = 4
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 4
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

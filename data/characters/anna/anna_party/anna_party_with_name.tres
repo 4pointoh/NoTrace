@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="Character" load_steps=28 format=3 uid="uid://cvabphpx7pw6t"]
+
+[ext_resource type="Texture2D" uid="uid://b1ns1rrofc26" path="res://data/characters/anna/anna_party/face.png" id="1_bqdpd"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_skswb"]
+[ext_resource type="Texture2D" uid="uid://cxvwf2pkrtoah" path="res://data/characters/anna/anna_party/character_art/anna_anon.png" id="3_tksi6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_qshxx"]
+[ext_resource type="Texture2D" uid="uid://xh61jtb6m7mo" path="res://data/characters/anna/anna_party/character_art/anna_anon_happy.png" id="5_nxf7l"]
+[ext_resource type="Texture2D" uid="uid://xx3ngln74ebl" path="res://data/characters/anna/anna_party/character_art/anna_anon_think.png" id="6_w3ly0"]
+[ext_resource type="Texture2D" uid="uid://gansk001bmaa" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_angry.png" id="7_3pi7j"]
+[ext_resource type="Texture2D" uid="uid://kmnssme7d85a" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_shocked.png" id="8_yr1qb"]
+[ext_resource type="Texture2D" uid="uid://b8vv75dedhtb0" path="res://data/characters/anna/anna_party/character_art/ana_pointing.png" id="9_kwkyd"]
+[ext_resource type="Texture2D" uid="uid://dyte36gjcbvw5" path="res://data/characters/anna/anna_party/character_art/ana_shirt_arms_out.png" id="10_j2m5r"]
+[ext_resource type="Texture2D" uid="uid://bnipg4y6veqpv" path="res://data/characters/anna/anna_party/character_art/ana_shirt_confused2.png" id="11_v1mro"]
+[ext_resource type="Texture2D" uid="uid://m51fdyw4rpa8" path="res://data/characters/anna/anna_party/character_art/ana_shirt_confused.png" id="12_qhokl"]
+[ext_resource type="Texture2D" uid="uid://bj0pyediydit5" path="res://data/characters/anna/anna_party/character_art/ana_shirt_hands_on_hips.png" id="13_x5fc0"]
+[ext_resource type="Texture2D" uid="uid://ctyeiq43x4lgp" path="res://data/characters/anna/anna_party/character_art/ana_shirt_smirk.png" id="14_8nv3m"]
+[ext_resource type="Texture2D" uid="uid://d2gufe287pdn1" path="res://data/characters/anna/anna_party/character_art/ana_shirt_worried.png" id="15_cmyao"]
+
+[sub_resource type="Resource" id="Resource_6cifq"]
+script = ExtResource("4_qshxx")
+name = "anon"
+image = ExtResource("3_tksi6")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_ndhcd"]
+script = ExtResource("4_qshxx")
+name = "anon_happy"
+image = ExtResource("5_nxf7l")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_sb6ji"]
+script = ExtResource("4_qshxx")
+name = "anna_think"
+image = ExtResource("6_w3ly0")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_03qyo"]
+script = ExtResource("4_qshxx")
+name = "hoodie_hands_on_hips_angry"
+image = ExtResource("7_3pi7j")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_5vbuj"]
+script = ExtResource("4_qshxx")
+name = "ana_hands_on_hips_shocked"
+image = ExtResource("8_yr1qb")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_23v8h"]
+script = ExtResource("4_qshxx")
+name = "ana_pointing"
+image = ExtResource("9_kwkyd")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_g70ix"]
+script = ExtResource("4_qshxx")
+name = "ana_shirt_arms_out"
+image = ExtResource("10_j2m5r")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_fqu80"]
+script = ExtResource("4_qshxx")
+name = "ana_shirt_confused2"
+image = ExtResource("11_v1mro")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_d5xa0"]
+script = ExtResource("4_qshxx")
+name = "ana_shirt_confused"
+image = ExtResource("12_qhokl")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_duald"]
+script = ExtResource("4_qshxx")
+name = "ana_shirt_hands_on_hips"
+image = ExtResource("13_x5fc0")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_pk36n"]
+script = ExtResource("4_qshxx")
+name = "ana_shirt_smirk"
+image = ExtResource("14_8nv3m")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_hrb56"]
+script = ExtResource("4_qshxx")
+name = "ana_shirt_worried"
+image = ExtResource("15_cmyao")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("2_skswb")
+name = "Anna"
+editorName = "anna_party"
+image = ExtResource("1_bqdpd")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_qshxx")]([SubResource("Resource_6cifq"), SubResource("Resource_ndhcd"), SubResource("Resource_sb6ji"), SubResource("Resource_03qyo"), SubResource("Resource_5vbuj"), SubResource("Resource_23v8h"), SubResource("Resource_g70ix"), SubResource("Resource_fqu80"), SubResource("Resource_d5xa0"), SubResource("Resource_duald"), SubResource("Resource_pk36n"), SubResource("Resource_hrb56")])

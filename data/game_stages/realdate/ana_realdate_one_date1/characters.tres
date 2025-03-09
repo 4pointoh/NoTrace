@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterList" load_steps=4 format=3 uid="uid://carqq0d4n6pjd"]
+
+[ext_resource type="Resource" uid="uid://ce8silww1ttnp" path="res://data/characters/you/you.tres" id="1_tso6k"]
+[ext_resource type="Resource" uid="uid://cvabphpx7pw6t" path="res://data/characters/anna/anna_party/anna_party_with_name.tres" id="2_cqcl2"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="3_qapny"]
+
+[resource]
+script = ExtResource("3_qapny")
+characters = Array[Resource("res://addons/dialogue_nodes/objects/Character.gd")]([ExtResource("1_tso6k"), ExtResource("2_cqcl2")])

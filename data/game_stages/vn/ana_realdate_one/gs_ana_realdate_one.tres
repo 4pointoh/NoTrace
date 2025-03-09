@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://bqemdy036f1ca"]
+
+[ext_resource type="Resource" uid="uid://cjhtxpj5kar26" path="res://data/game_stages/vn/ana_realdate_one/d_ana_realdate_one.tres" id="1_qgmot"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_0av7o"]
+[ext_resource type="Resource" uid="uid://4m2ib0rukcb2" path="res://data/game_stages/realdate/ana_realdate_one_date1/gs_ana_realdate_one_date1.tres" id="2_1xovr"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="3_ljxnj"]
+[ext_resource type="Texture2D" uid="uid://48h5ddgni0al" path="res://data/assets/realdate/stage_art/spa.png" id="4_4rv1u"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_l53rq"]
+
+[sub_resource type="Resource" id="Resource_vhf34"]
+script = ExtResource("4_l53rq")
+name = "ggg"
+images = ExtResource("3_ljxnj")
+
+[resource]
+script = ExtResource("2_0av7o")
+name = "ana_realdate_one"
+displayName = "Ana DateConnect One "
+dialogue = ExtResource("1_qgmot")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_1xovr")
+isCompletable = true
+startingBackground = SubResource("Resource_vhf34")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+delayMusicToTransition = false
+stageButtonTexture = ExtResource("4_4rv1u")
+stageButtonLabel = "Spa Day With Anna"
+heartLevel = 1
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

@@ -15,9 +15,37 @@ var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
 
+var dateGirlsUnlocked : Array[CHARACTERS]
+
+var characterRelationshipLevels = {
+	CHARACTERS.ASHLEY: 0,
+	CHARACTERS.LISA: 0,
+	CHARACTERS.AMY: 0,
+	CHARACTERS.ANA: 1
+}
+
+var characterRelationshipXp = {
+	CHARACTERS.ASHLEY: 0,
+	CHARACTERS.LISA: 0,
+	CHARACTERS.AMY: 0,
+	CHARACTERS.ANA: 0
+}
+
+var perfectDates = 0
+
+enum CHARACTERS {
+	UNKNOWN,
+	ASHLEY,
+	LISA,
+	AMY,
+	ANA
+}
+
+var currentCharacter
+
 var dateStorage : DateStorage
 
-const VERSION = 006
+const VERSION = 007
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -27,6 +55,7 @@ signal loadSave
 signal playParticle(type: String)
 signal showTopImage(image: Texture2D)
 signal playTransition(transitionType: Transition.TransitionType, text: String)
+signal startMusicSignal(music: String)
 
 var bg_volume
 var text_speed
@@ -265,6 +294,11 @@ func saveSaveData(saveName):
 		file.store_var(previousStage.resource_path)
 	
 	file.store_var(completedStagesSOFT)
+
+	file.store_var(characterRelationshipLevels)
+	file.store_var(characterRelationshipXp)
+	file.store_var(perfectDates)
+	file.store_var(dateGirlsUnlocked)
 	
 	savePersistentData()
 
@@ -316,6 +350,35 @@ func loadSaveData(saveName):
 			completedStagesSOFT.assign(file.get_var())
 		else:
 			completedStagesSOFT = []
+		
+		if(saveVersion > 006):
+			var loadedLevels = file.get_var()
+			var loadedXp = file.get_var()
+			var loadedPerfectDates = file.get_var()
+			
+			# Only assign if data exists to prevent errors
+			if loadedLevels and loadedXp and loadedPerfectDates:
+				characterRelationshipLevels = loadedLevels
+				characterRelationshipXp = loadedXp
+				perfectDates = loadedPerfectDates
+			
+			dateGirlsUnlocked.assign(file.get_var())
+		else:
+			characterRelationshipLevels = {
+				CHARACTERS.ASHLEY: 1,
+				CHARACTERS.LISA: 1,
+				CHARACTERS.AMY: 1,
+				CHARACTERS.ANA: 1
+			}
+			characterRelationshipXp = {
+				CHARACTERS.ASHLEY: 0,
+				CHARACTERS.LISA: 0,
+				CHARACTERS.AMY: 0,
+				CHARACTERS.ANA: 0
+			}
+			perfectDates = 0
+
+			dateGirlsUnlocked = []
 		
 		dateStorage.clearCurrentDate()
 		print('file version is ' + str(saveVersion))
@@ -413,3 +476,78 @@ func showTopImg(texture : Texture2D):
 
 func setName(name2 : String):
 	playerName = name2
+
+func setCurrentCharacter(character : CHARACTERS):
+	currentCharacter = character
+
+func increaseRelationshipXp(amount):
+	if currentCharacter == null:
+		return
+		
+	characterRelationshipXp[currentCharacter] += amount
+	
+	# Check for level up
+	if characterRelationshipXp[currentCharacter] >= (100 * characterRelationshipLevels[currentCharacter]):
+		characterRelationshipXp[currentCharacter] = 0
+		characterRelationshipLevels[currentCharacter] += 1
+
+func getRelationshipXpPercent(points, level):
+	return (points / (100.0 * level)) * 100.0
+
+func getRelationshipLevel(character = null):
+	if character == null:
+		character = currentCharacter
+	if character == null:
+		return 1
+		
+	return characterRelationshipLevels[character]
+
+func getRelationshipXp(character = null):
+	if character == null:
+		character = currentCharacter
+	if character == null:
+		return 0
+		
+	return characterRelationshipXp[character]
+
+func addPerfectDate(character = null):
+	perfectDates += 1
+
+func getPerfectDates(character = null):
+	return perfectDates
+
+func unlockDateGirl(character):
+	if !dateGirlsUnlocked.has(character):
+		dateGirlsUnlocked.append(character)
+
+func getRealDatesForGirl(character):
+	var level = characterRelationshipLevels[character]
+
+	var availableStages = []
+
+	if character == CHARACTERS.ANA and level > 0:
+		availableStages.append('res://data/game_stages/vn/ana_realdate_one/gs_ana_realdate_one.tres')
+	
+	return availableStages
+
+func hasUnlockedDateGirl(character):
+	return true
+	return dateGirlsUnlocked.has(character)
+
+func getCharNameForGirl(character):
+	if character == CHARACTERS.ASHLEY:
+		return "Ashley"
+	elif character == CHARACTERS.LISA:
+		return "Lisa"
+	elif character == CHARACTERS.AMY:
+		return "Amy"
+	elif character == CHARACTERS.ANA:
+		return "Anna"
+	else:
+		return "Unknown"
+
+func startMusic(music : String):
+	startMusicSignal.emit(music)
+
+func startDefaultPhoneMusic():
+	startMusicSignal.emit("res://data/assets/general/sounds/bg_music/home2.mp3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=25 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://f3krgd2lh0al" path="res://src/vn/CharacterManager.tscn" id="6_qx8ua"]
 [ext_resource type="PackedScene" uid="uid://da8r3nxuuv3bn" path="res://src/vn/SceneSelect.tscn" id="7_cgb2p"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="8_by1x2"]
+[ext_resource type="PackedScene" uid="uid://dq6wlnwk0sf8r" path="res://src/realdate/RealDate.tscn" id="8_dqkor"]
 [ext_resource type="PackedScene" uid="uid://cx4x2fdhktike" path="res://src/vn/Notification.tscn" id="8_i5hgj"]
 [ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
 [ext_resource type="AudioStream" uid="uid://dkosxg1xda685" path="res://data/assets/general/sounds/bg_music/title.mp3" id="11_1jasj"]
@@ -42,6 +43,7 @@ phoneScene = ExtResource("3_doilg")
 dateMinigameScene = ExtResource("4_eoifi")
 heartsplosion = ExtResource("5_02o78")
 sceneSelector = ExtResource("7_cgb2p")
+realDateScene = ExtResource("8_dqkor")
 metadata/_edit_lock_ = true
 
 [node name="Background" parent="." instance=ExtResource("2_boj0x")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwy36oubalf26"]
+[gd_scene load_steps=29 format=3 uid="uid://dwy36oubalf26"]
 
 [ext_resource type="Script" path="res://src/phone/Phone.gd" id="1_q1yen"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_6ld0i"]
@@ -8,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://d3tjbs8klb0sh" path="res://src/phone/messages_app.tscn" id="4_y1f3a"]
 [ext_resource type="Texture2D" uid="uid://dvx3qeunqppxd" path="res://data/assets/phone/art/wallpaper_app.png" id="5_6jmsr"]
 [ext_resource type="Texture2D" uid="uid://bt4f3f3yxfiwx" path="res://data/assets/phone/art/wallpaper_app_hover.png" id="6_vx31v"]
+[ext_resource type="PackedScene" uid="uid://bkpsqjmkwswtl" path="res://src/phone/RealDateApp.tscn" id="7_jpqjr"]
 [ext_resource type="Texture2D" uid="uid://c00u2udwt85op" path="res://data/assets/phone/art/messages_app.png" id="7_v460n"]
 [ext_resource type="Texture2D" uid="uid://wmudb2we7nh6" path="res://data/assets/phone/art/messages_app_hover.png" id="8_mpbrn"]
 [ext_resource type="Texture2D" uid="uid://brbi5qeh3ul3v" path="res://data/assets/phone/art/continue_app_icon.png" id="9_n3gnc"]
 [ext_resource type="Texture2D" uid="uid://cpcgxcx2qjflp" path="res://data/assets/phone/art/phone.png" id="9_ncvfr"]
 [ext_resource type="Texture2D" uid="uid://ddf40plr2xwff" path="res://data/assets/phone/art/continue_app_icon_hover.png" id="10_3qafq"]
 [ext_resource type="PackedScene" uid="uid://cqa2q3mwhscc2" path="res://src/phone/notification_icon.tscn" id="12_1ripe"]
+[ext_resource type="Texture2D" uid="uid://bgdilt3xg8un0" path="res://data/assets/phone/art/realdate_icon.webp" id="14_7ay1n"]
+[ext_resource type="Texture2D" uid="uid://77ulvh0rtc5h" path="res://data/assets/phone/art/realdate_icon_hover.webp" id="15_nwp6v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bugkw"]
 shader = ExtResource("2_48j3f")
@@ -55,6 +58,18 @@ tracks/2/path = NodePath("%ContinueApp:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-192, 1000)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%RealDateApp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -109,11 +124,28 @@ tracks/0/keys = {
 "values": [Vector2(-192, 1000), Vector2(-192, -59)]
 }
 
+[sub_resource type="Animation" id="Animation_hqlyv"]
+resource_name = "realdate_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%RealDateApp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-192, 1000), Vector2(-192, -59)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f4b01"]
 _data = {
 "RESET": SubResource("Animation_qrow7"),
 "continue_up": SubResource("Animation_isnuj"),
 "messages_up": SubResource("Animation_djrv5"),
+"realdate_up": SubResource("Animation_hqlyv"),
 "wallpaper_up": SubResource("Animation_k1jmu")
 }
 
@@ -194,6 +226,10 @@ position = Vector2(-192, 1000)
 unique_name_in_owner = true
 position = Vector2(-192, 1000)
 
+[node name="RealDateApp" parent="PhoneBox" instance=ExtResource("7_jpqjr")]
+unique_name_in_owner = true
+position = Vector2(-192, 1000)
+
 [node name="Back" type="Button" parent="PhoneBox"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -236,6 +272,16 @@ texture_hover = ExtResource("10_3qafq")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="RealDateIcon" type="TextureButton" parent="PhoneBox" groups=["App"]]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 332.0
+offset_right = 780.0
+offset_bottom = 1056.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("14_7ay1n")
+texture_hover = ExtResource("15_nwp6v")
+
 [node name="NotificationIconEvents" parent="PhoneBox" instance=ExtResource("12_1ripe")]
 position = Vector2(507, 810)
 
@@ -268,7 +314,9 @@ libraries = {
 [connection signal="beginDialogue" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_begin_dialogue"]
 [connection signal="conversationComplete" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_conversation_complete"]
 [connection signal="newMessageSelect" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_new_message_select"]
+[connection signal="selected" from="PhoneBox/RealDateApp" to="." method="_on_realdate_app_selected"]
 [connection signal="pressed" from="PhoneBox/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="PhoneBox/WallpaperIcon" to="." method="_on_wallpaper_icon_pressed"]
 [connection signal="pressed" from="PhoneBox/MessagesIcon" to="." method="_on_messages_pressed"]
 [connection signal="pressed" from="PhoneBox/ContinueIcon" to="." method="_on_continue_icon_pressed"]
+[connection signal="pressed" from="PhoneBox/RealDateIcon" to="." method="_on_real_date_icon_pressed"]

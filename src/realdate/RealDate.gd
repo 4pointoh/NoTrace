@@ -3,21 +3,29 @@ class_name RealDate
 
 @export var topicChoiceScene : PackedScene
 @export var selectionResponse : PackedScene
+@export var resultsScreen : PackedScene
 
 var currentAvailableCombos : Array = []
 var cpuSelections : Array = []
 const DEFAULT_TURNS = 6
-var turns : int = DEFAULT_TURNS #TODO - Take From Gamestage?
-var selections : int = 4 #TODO - Take From Gamestage?
+var turns : int = DEFAULT_TURNS
+var selections : int = 4
+var lockInBonus : int = 3
 
 var excludedColors = []
 
-func _ready():
-	setup()
+signal dateComplete(success: bool)
 
 func setup():
+	GlobalGameStage.setCurrentCharacter(GlobalGameStage.currentStage.character)
+	
 	clearEverything()
-	turns = DEFAULT_TURNS
+	turns = GlobalGameStage.currentStage.firstRoundGuesses
+	selections = GlobalGameStage.currentStage.numberOfSelections
+	lockInBonus = GlobalGameStage.currentStage.secondRoundGuesses
+
+	%LockIn.text = 'Lock In!\n+' + str(lockInBonus) + ' Turns'
+
 	cpuSelections = RealDateColorHelper.getRandomColorsForCPU(selections)
 
 	for i in range(cpuSelections.size()):
@@ -157,7 +165,7 @@ func _on_lock_in_pressed():
 		if states[color] == 1:
 			excludedColors.append(color)
 
-	turns += 3
+	turns += lockInBonus
 	%TriesLeft.text = str(turns)
 	%LockIn.hide()
 	%ColorTracker.disableIcons()
@@ -179,3 +187,76 @@ func _on_color_tracker_not_hovering_tracker():
 	for child in %ChoiceContainer.get_children():
 		if child is TopicChoice:
 			child.modulate = Color(1,1,1,1)
+
+
+func _on_submit_pressed():
+	%AnimationPlayer.play("main_ui_out")
+	var results = resultsScreen.instantiate()
+	var startingPos = results.position
+	results.position = Vector2(startingPos.x - 1000, startingPos.y)
+	add_child(results)
+
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(results, "position", startingPos, .8)
+
+	var curRelXp = GlobalGameStage.getRelationshipXp()
+	var curLevel = GlobalGameStage.getRelationshipLevel()
+
+	var newRelXp = curRelXp + getRelationshipBonus()
+	var newLevel = getNewRelationshipLevel(newRelXp)
+
+	if isPerfectDate():
+		GlobalGameStage.addPerfectDate()
+	
+	GlobalGameStage.increaseRelationshipXp(getRelationshipBonus())
+
+	results.displayResults(getPlayerChoices(), cpuSelections, curRelXp, newRelXp, curLevel, newLevel, isPerfectDate())
+	
+	%Continue.show()
+
+func getPlayerChoices():
+	var pc = []
+	pc.append(%TopicToggle.currentColor)
+	pc.append(%TopicToggle2.currentColor)
+	pc.append(%TopicToggle3.currentColor)
+	
+	if(selections > 3):
+		pc.append(%TopicToggle4.currentColor)
+	
+	if(selections > 4):
+		pc.append(%TopicToggle5.currentColor)
+	
+	return pc
+
+func getRelationshipBonus():
+	var bonus = 0
+	for i in range(selections):
+		if cpuSelections[i] == getPlayerChoices()[i]:
+			bonus += 20
+
+	return bonus
+
+func getNewRelationshipLevel(newRelXp):
+	var curLevel = GlobalGameStage.getRelationshipLevel()
+
+	if (curLevel * 100) <= newRelXp:
+		return curLevel + 1
+	else:
+		return curLevel
+
+func isPerfectDate():
+	for i in range(selections):
+		if cpuSelections[i] != getPlayerChoices()[i]:
+			return false
+
+	return true
+
+func _on_continue_pressed():
+	if isSpicyQuestionAvailable():
+		pass #TODO - Implement Spicy Question
+	else:
+		#TODO - implement failure mode
+		dateComplete.emit(true)
+
+func isSpicyQuestionAvailable():
+	return false

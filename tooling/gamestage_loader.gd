@@ -2,7 +2,7 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'ashely_theater_phone'
+	var gamestageName = 'ana_realdate_one_date1'
 	
 	var backgroundLists: Array[String] = [
 		'res://data/background_lists/home/home_bgl.tres'
@@ -10,10 +10,10 @@ func _run() -> void:
 	
 	var characters: Array[String] = [
 		'res://data/characters/you/you.tres',
-		'res://data/characters/ashely/ashely_tshirt_new/ashely_tshirt_new.tres'
+		'res://data/characters/anna/anna_party/anna_party_with_name.tres'
 	]
 	
-	var type = "phonemessage" #vn, poker, date, phonemessage, special
+	var type = "realdate" #vn, poker, date, phonemessage, special
 	var output_path: String = "res://data/game_stages/"    
 	
 	if type == "vn":
@@ -26,6 +26,8 @@ func _run() -> void:
 		output_path += "phone_message"
 	elif type == "date":
 		output_path += "dates"
+	elif type == "realdate":
+		output_path += "realdate"
 	else:
 		assert(false)
 
@@ -154,8 +156,12 @@ func create_game_stage_data(output_path: String, gamestageName: String, backgrou
 	elif type == 'phonemessage':
 		newGameStage.isPhoneMessageEvent = true
 		newGameStage.contactName = 'REPLACEME'
+	elif type == 'realdate':
+		newGameStage.isRealDate = true
+		newGameStage.numberOfSelections = 4
+		newGameStage.firstRoundGuesses = 6
+		newGameStage.secondRoundGuesses = 4
 
-	
 	save_result = ResourceSaver.save(newGameStage, gs_output)
 	if save_result != OK:
 		push_error("Failed to save game stage to: %s" % gs_output)

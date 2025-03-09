@@ -17,10 +17,12 @@ var inTransition = false
 @export var dateMinigameScene : PackedScene
 @export var heartsplosion : PackedScene
 @export var sceneSelector : PackedScene
+@export var realDateScene : PackedScene
 
 var currentPokerGame
 var currentPhone
 var currentDate
+var currentRealDate
 var currentSceneSelector
 
 var testToggle = false
@@ -35,7 +37,8 @@ func _ready():
 	GlobalGameStage.bgVolumeChanged.connect(_handle_bg_volume_change)
 	GlobalGameStage.loadSave.connect(_handle_save_loaded)
 	GlobalGameStage.playParticle.connect(_handle_play_particle)
-	playBgMusic(load("res://data/assets/general/sounds/bg_music/title.mp3"))
+	GlobalGameStage.startMusicSignal.connect(_handle_play_music)
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/title.mp3"), true)
 
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
@@ -150,6 +153,9 @@ func beginStage():
 	elif GlobalGameStage.currentStage.isDate:
 		$Background.enableZoomPan()
 		startNewDate()
+	elif GlobalGameStage.currentStage.isRealDate:
+		$Background.enableZoomPan()
+		startNewRealDate()
 	else:
 		$Background.disableZoomPan()
 		$DialogueManager.startDialogue()
@@ -179,6 +185,14 @@ func startNewPoker():
 	currentPokerGame.setup()
 	add_child(currentPokerGame)
 	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+
+func startNewRealDate():
+	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+	currentRealDate = realDateScene.instantiate()
+	currentRealDate.dateComplete.connect(_on_realdate_complete)
+	currentRealDate.setup()
+	add_child(currentRealDate)
+	move_child(currentRealDate, $DialogueManager.get_index() - 1)
 
 func createPokerGame():
 	if(GlobalGameStage.currentStage.pokerType == PokerEnums.PokerType.TEXAS_HOLD_EM):
@@ -212,6 +226,9 @@ func hideTitleStuff():
 	$Title.visible = false
 	$SceneSelect.visible = false
 	$Gallery.visible = false
+
+func _handle_play_music(music):
+	playBgMusic(load(music))
 
 func setDontAutoAdvance():
 	dontAutoAdvance = true
@@ -376,7 +393,10 @@ func _on_phone_begin_dialogue(key):
 func _on_phone_conversation_complete():
 	GlobalGameStage.setPhoneGameStage()
 
-func playBgMusic(stream):
+func playBgMusic(stream, skipCheck = false):
+	if $AudioStreamPlayer2D.stream == stream && !skipCheck:
+		return
+
 	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 	$AudioStreamPlayer2D.stream = stream
 	$AudioStreamPlayer2D.play()
@@ -454,3 +474,7 @@ func _on_scene_select_close():
 
 func playTransition(transitionType, text):
 	%Transition.playTransition(transitionType, text)
+
+func _on_realdate_complete(success):
+	advanceGameStage()
+	currentRealDate.queue_free()

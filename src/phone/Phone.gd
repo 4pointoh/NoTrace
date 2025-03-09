@@ -70,9 +70,11 @@ func _on_back_pressed():
 	%ContinueApp.closeApp()
 	%WallpaperApp.reset()
 	%ContinueApp.reset()
+	%RealDateApp.reset()
 	%Back.visible = false
 	toggleAppIcons()
 	setNotificationIcons()
+	GlobalGameStage.startDefaultPhoneMusic()
 
 func _on_continue_icon_pressed():
 	playAppOpenSound()
@@ -119,3 +121,15 @@ func playBackSound():
 func _on_continue_app_selected(stage):
 	playAppOpenSound()
 	newStageSelect.emit(stage)
+
+func _on_realdate_app_selected(stage):
+	playAppOpenSound()
+	newStageSelect.emit(stage)
+
+func _on_real_date_icon_pressed():
+	playAppOpenSound()
+	toggleAppIcons()
+	%RealDateApp.setup()
+	%RealDateApp.visible = true
+	%Back.visible = true
+	%AnimationPlayer.play("realdate_up")

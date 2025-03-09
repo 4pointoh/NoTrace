@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://mrwljxs7g0h8"]
+
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_h3qg1"]
+[ext_resource type="Script" path="res://src/realdate/ResultsEntry.gd" id="1_oalvg"]
+[ext_resource type="Texture2D" uid="uid://mqqq1db8xmbe" path="res://data/assets/realdate/yellow_icon.png" id="2_4lqkn"]
+[ext_resource type="Texture2D" uid="uid://fcjp1pgsqg40" path="res://data/assets/realdate/blue_icon.png" id="3_yu7lx"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_j7y44"]
+[ext_resource type="Texture2D" uid="uid://ce1obowsbctjt" path="res://data/assets/realdate/star_result.png" id="5_t27jg"]
+
+[node name="ResultsEntry" type="Control"]
+custom_minimum_size = Vector2(0, 113)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -505.0
+offset_bottom = -1039.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oalvg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 391.0
+offset_bottom = 113.0
+texture = ExtResource("1_h3qg1")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="PlayerChoice" type="TextureRect" parent="NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 90.0
+offset_top = 11.0
+offset_right = 175.0
+offset_bottom = 102.0
+texture = ExtResource("2_4lqkn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CPUChoice" type="TextureRect" parent="NinePatchRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 216.0
+offset_top = 11.0
+offset_right = 301.0
+offset_bottom = 102.0
+texture = ExtResource("3_yu7lx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 53.0
+offset_bottom = 92.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_j7y44")
+theme_override_font_sizes/font_size = 64
+text = "1"
+
+[node name="Star" type="TextureRect" parent="NinePatchRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 317.0
+offset_right = 381.0
+offset_bottom = 113.0
+texture = ExtResource("5_t27jg")
+expand_mode = 1
+stretch_mode = 5

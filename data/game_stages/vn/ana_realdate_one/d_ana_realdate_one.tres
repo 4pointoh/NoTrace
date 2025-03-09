@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://cjhtxpj5kar26"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_c520p"]
+
+[resource]
+script = ExtResource("1_c520p")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(160, 260),
+"start_id": "START"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "hey",
+"offset": Vector2(260, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 493.5),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hi",
+"offset": Vector2(660, 440),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 493.5),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ana_realdate_one/characters.tres"
+backgroundList = "res://data/game_stages/vn/ana_realdate_one/bgs.tres"

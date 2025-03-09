@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://7eknwjt6ga8k"]
+
+[ext_resource type="Script" path="res://src/realdate/RealDateResults.gd" id="1_sxh2v"]
+[ext_resource type="Shader" path="res://src/date/ember.gdshader" id="1_ujxat"]
+[ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="2_wgpen"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="3_g173o"]
+[ext_resource type="PackedScene" uid="uid://mrwljxs7g0h8" path="res://src/realdate/ResultsEntry.tscn" id="4_634ag"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_sws7f"]
+[ext_resource type="Texture2D" uid="uid://bcwtmkvtvjjje" path="res://data/assets/realdate/gradient.png" id="5_knl3g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwotg"]
+shader = ExtResource("1_ujxat")
+shader_parameter/glow_strength = 0.2
+shader_parameter/glow_speed = 2.0
+shader_parameter/noise_scale = 100.0
+
+[node name="RealDateResults" type="Node2D"]
+script = ExtResource("1_sxh2v")
+resultEntry = ExtResource("4_634ag")
+
+[node name="SelectionBg" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vwotg")
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 434.0
+offset_bottom = 988.0
+texture = ExtResource("2_wgpen")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="CurLevelBg2" type="NinePatchRect" parent="."]
+offset_left = 169.0
+offset_top = 877.0
+offset_right = 411.0
+offset_bottom = 933.0
+texture = ExtResource("3_g173o")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="CurLevelBg" type="NinePatchRect" parent="."]
+offset_left = 30.0
+offset_top = 712.0
+offset_right = 430.0
+offset_bottom = 983.0
+texture = ExtResource("3_g173o")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ResultsContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 35.0
+offset_top = 69.0
+offset_right = 425.0
+offset_bottom = 535.0
+
+[node name="YouLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 198.0
+offset_bottom = 69.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_sws7f")
+theme_override_font_sizes/font_size = 32
+text = "You"
+horizontal_alignment = 2
+
+[node name="HerLabel" type="Label" parent="."]
+offset_left = 273.0
+offset_top = 30.0
+offset_right = 433.0
+offset_bottom = 69.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_sws7f")
+theme_override_font_sizes/font_size = 32
+text = "Her"
+
+[node name="RelLevelLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 712.0
+offset_right = 430.0
+offset_bottom = 751.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_sws7f")
+theme_override_font_sizes/font_size = 32
+text = "Relationship Level"
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 751.0
+offset_right = 430.0
+offset_bottom = 847.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_sws7f")
+theme_override_font_sizes/font_size = 80
+text = "+60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RelBar" type="TextureProgressBar" parent="."]
+offset_left = 175.0
+offset_top = 881.0
+offset_right = 406.0
+offset_bottom = 930.0
+value = 50.0
+texture_progress = ExtResource("5_knl3g")
+
+[node name="RelLevelLabel2" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 858.0
+offset_right = 170.0
+offset_bottom = 897.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_sws7f")
+theme_override_font_sizes/font_size = 32
+text = "Level"
+horizontal_alignment = 1
+
+[node name="CurrentLevelLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 897.0
+offset_right = 170.0
+offset_bottom = 936.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_sws7f")
+theme_override_font_sizes/font_size = 32
+text = "1
+"
+horizontal_alignment = 1

@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://br02jckpvwrfq"]
+
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_7m23s"]
+[ext_resource type="Script" path="res://src/phone/DateConnectChoice.gd" id="1_r53dv"]
+[ext_resource type="Texture2D" uid="uid://qk3xf1xkcfoc" path="res://data/assets/realdate/stage_art/beach.webp" id="3_asrh7"]
+[ext_resource type="Texture2D" uid="uid://dkrubvyqxn7hi" path="res://data/assets/realdate/photo.webp" id="3_mt5dy"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_rnysh"]
+[ext_resource type="Texture2D" uid="uid://yvjjpit5x7q" path="res://data/assets/realdate/heart.png" id="6_pa75b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nei3d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifv66"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 24
+border_width_top = 24
+border_width_right = 24
+border_width_bottom = 24
+border_color = Color(1, 0.266453, 0.696291, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="DateConnectChoice" type="Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -496.0
+offset_bottom = -752.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r53dv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 25.0
+offset_right = 369.0
+offset_bottom = 374.0
+texture = ExtResource("3_asrh7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 55.0
+offset_top = 295.0
+offset_right = 328.0
+offset_bottom = 346.0
+texture = ExtResource("1_7m23s")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 295.0
+offset_right = 328.0
+offset_bottom = 346.0
+texture = ExtResource("1_7m23s")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Subtext" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 55.0
+offset_top = 301.0
+offset_right = 328.0
+offset_bottom = 345.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_rnysh")
+theme_override_font_sizes/font_size = 30
+text = "Ashely"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 389.0
+offset_bottom = 385.0
+texture = ExtResource("3_mt5dy")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 8.00001
+offset_right = 400.0
+offset_bottom = 48.0
+rotation = 0.722672
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = ExtResource("6_pa75b")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = ExtResource("6_pa75b")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = ExtResource("6_pa75b")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 376.0
+offset_bottom = 377.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nei3d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ifv66")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

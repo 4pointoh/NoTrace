@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkpsqjmkwswtl"]
+
+[ext_resource type="Script" path="res://src/phone/RealDateApp.gd" id="1_fjasx"]
+[ext_resource type="Texture2D" uid="uid://kpf6idqel3k6" path="res://data/assets/phone/art/realdate_app.webp" id="2_2qk7i"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_l8tlk"]
+[ext_resource type="PackedScene" uid="uid://8drybvkixar1" path="res://src/phone/RealDateAppFace.tscn" id="2_ryhyp"]
+[ext_resource type="PackedScene" uid="uid://br02jckpvwrfq" path="res://src/phone/DateConnectChoice.tscn" id="3_xfgeu"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="4_3ddbn"]
+[ext_resource type="Texture2D" uid="uid://bcwtmkvtvjjje" path="res://data/assets/realdate/gradient.png" id="5_brf2c"]
+
+[node name="RealDateApp" type="Node2D"]
+script = ExtResource("1_fjasx")
+realDateFace = ExtResource("2_ryhyp")
+realDateChoice = ExtResource("3_xfgeu")
+
+[node name="ContinueBackground" type="TextureRect" parent="."]
+offset_left = 188.0
+offset_top = 59.0
+offset_right = 762.0
+offset_bottom = 1086.0
+texture = ExtResource("2_2qk7i")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="ContinueBackground"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 574.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.773426, 0.163355, 0.830384, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_l8tlk")
+theme_override_font_sizes/font_size = 50
+text = "DateConnect"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 280.0
+offset_top = 435.0
+offset_right = 680.0
+offset_bottom = 1049.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/v_separation = 10
+
+[node name="GirlInfo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 188.0
+offset_top = 254.0
+offset_right = 762.0
+offset_bottom = 392.0
+color = Color(0, 0.0784314, 0.25098, 0.592157)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GirlInfo"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 72.0
+offset_right = 408.0
+offset_bottom = 121.0
+value = 100.0
+texture_progress = ExtResource("5_brf2c")
+
+[node name="Label2" type="Label" parent="GirlInfo/TextureProgressBar"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -11.0
+offset_right = 209.0
+offset_bottom = 34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_l8tlk")
+theme_override_font_sizes/font_size = 20
+text = "Relationship Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="RelLevel" type="Label" parent="GirlInfo/TextureProgressBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 49.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_l8tlk")
+theme_override_font_sizes/font_size = 20
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="CharName" type="Label" parent="GirlInfo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 11.0
+offset_right = 574.0
+offset_bottom = 72.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_l8tlk")
+theme_override_font_sizes/font_size = 42
+text = "Ashely"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 188.0
+offset_top = 152.0
+offset_right = 762.0
+offset_bottom = 254.0
+color = Color(0.910529, 0.343488, 1, 0.74902)
+
+[node name="HelpText" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_left = 268.0
+offset_top = 417.0
+offset_right = 680.0
+offset_bottom = 717.0
+texture = ExtResource("4_3ddbn")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HelpText"]
+layout_mode = 0
+offset_right = 412.0
+offset_bottom = 300.0
+texture = ExtResource("4_3ddbn")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="HelpText"]
+layout_mode = 0
+offset_right = 412.0
+offset_bottom = 249.0
+theme_override_colors/font_color = Color(0.73118, 0.147921, 0.740597, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_l8tlk")
+theme_override_font_sizes/font_size = 64
+text = "☝️
+Select Your Date!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FaceContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 268.0
+offset_top = 152.0
+offset_right = 680.0
+offset_bottom = 257.0
+theme_override_constants/separation = 30

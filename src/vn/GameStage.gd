@@ -48,6 +48,20 @@ class_name GameStage
 @export var stageButtonTexture : Texture
 @export var stageButtonHover : Texture
 @export var stageButtonLabel : String
+@export var heartLevel : int
+
+# RealDate
+@export var isRealDate : bool
+@export var numberOfSelections : int
+@export var firstRoundGuesses : int = 6
+@export var secondRoundGuesses : int = 4
+@export var characterArt : Texture2D
+@export var characterArtScale : Vector2
+@export var characterArtPosition : Vector2
+@export var character : GlobalGameStage.CHARACTERS
+@export var perfectDateStartKey : String
+@export var midDateStartKey : String
+@export var lostDateStartKey : String
 
 # Date stuff
 @export var isDate : bool
