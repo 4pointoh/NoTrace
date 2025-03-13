@@ -83,3 +83,16 @@ func fadeTransitionQuick2():
 
 func clearBackground():
 	background = null
+
+func playFullscreenAnim(spritesheetPath : String):
+	%FullscreenAnim.modulate.a = 0 
+	%FullscreenAnim.sprite_frames = ResourceLoader.load_threaded_get(spritesheetPath)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(%FullscreenAnim, "modulate:a", 1, 1)
+	
+	%FullscreenAnim.play()
+	
+func stopFullscreenAnim():
+	%FullscreenAnim.stop()
+	%FullscreenAnim.sprite_frames = null

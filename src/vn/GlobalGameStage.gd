@@ -149,6 +149,10 @@ func advanceGameStage():
 	else:
 		nextStage = null
 
+	if currentStage.cacheItems.size() > 0:
+		for item in currentStage.cacheItems:
+			ResourceLoader.load_threaded_request(item)
+
 func setNextGameStage(stage):
 	nextStage = stage
 	
@@ -176,6 +180,9 @@ func getAvailableMessages():
 	if completedStages.has('amy_poker_hall_intro_after'):
 		addMessage(Flags.ASHELY_THEATER_PHONE)
 	
+	if completedStages.has('lisa_park_training_poker3'):
+			addMessage(Flags.ANA_PHONE_INTRO)
+
 	return availableMessages
 
 func getAvailableSelectableEvents():
@@ -519,6 +526,9 @@ func getPerfectDates(character = null):
 func unlockDateGirl(character):
 	if !dateGirlsUnlocked.has(character):
 		dateGirlsUnlocked.append(character)
+	
+	if getRelationshipLevel(character) == 0:
+		characterRelationshipLevels[character] = 1
 
 func getRealDatesForGirl(character):
 	var level = characterRelationshipLevels[character]

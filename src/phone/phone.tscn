@@ -108,13 +108,13 @@ tracks/0/keys = {
 "values": [Vector2(-192, 1000), Vector2(-192, -59)]
 }
 
-[sub_resource type="Animation" id="Animation_k1jmu"]
-resource_name = "wallpaper_up"
+[sub_resource type="Animation" id="Animation_hqlyv"]
+resource_name = "realdate_up"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%WallpaperApp:position")
+tracks/0/path = NodePath("%RealDateApp:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -124,13 +124,13 @@ tracks/0/keys = {
 "values": [Vector2(-192, 1000), Vector2(-192, -59)]
 }
 
-[sub_resource type="Animation" id="Animation_hqlyv"]
-resource_name = "realdate_up"
+[sub_resource type="Animation" id="Animation_k1jmu"]
+resource_name = "wallpaper_up"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%RealDateApp:position")
+tracks/0/path = NodePath("%WallpaperApp:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {

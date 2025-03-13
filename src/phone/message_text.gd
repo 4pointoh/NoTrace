@@ -9,6 +9,8 @@ func setMessage(isPlayerMessage, text, contactName = ""):
 		texture = load("res://data/assets/phone/art/message_text_bg5_shadow.png")
 	elif contactName == "Amy":
 		texture = load("res://data/assets/phone/art/message_text_bg6_shadow.png")
+	elif contactName == "Anna":
+		texture = load("res://data/assets/phone/art/message_text_bg7_shadow.png")
 	else:
 		texture = load("res://data/assets/phone/art/message_text_bg1_shadow.png")
 		

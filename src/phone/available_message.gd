@@ -21,7 +21,7 @@ func setMessageName(newStage):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_outline.png")
 	elif newStage.contactName == 'Amy':
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_shadow.png")
-	elif newStage.contactName == 'Ana':
+	elif newStage.contactName == 'Ana' or newStage.contactName == 'Anna':
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg7_outline.png")
 
 

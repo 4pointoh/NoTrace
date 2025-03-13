@@ -18,6 +18,7 @@ var inTransition = false
 @export var heartsplosion : PackedScene
 @export var sceneSelector : PackedScene
 @export var realDateScene : PackedScene
+@export var characterUnlockPanel : PackedScene
 
 var currentPokerGame
 var currentPhone
@@ -25,12 +26,14 @@ var currentDate
 var currentRealDate
 var currentSceneSelector
 
+var currentUnlockPanel
+
 var testToggle = false
 
 var firstSceneMusic = load("res://data/assets/general/sounds/bg_music/title2.mp3")
 
 func _ready():
-	GameStageStorage.loadStages("res://resources/game_stage_lists/part_one.tres")
+	#GameStageStorage.loadStages("res://resources/game_stage_lists/part_one.tres")
 	$DialogueManager.setDialogueData(GlobalGameStage.currentStage.dialogue)
 	GlobalGameStage.notify.connect(_handle_notify)
 	GlobalGameStage.fullscreenImage.connect(_handle_fullscreenImage)
@@ -51,6 +54,32 @@ func _handle_fullscreenImage(image):
 
 func testFunction():
 	print('testing')
+
+func unlockChar(character : GlobalGameStage.CHARACTERS):
+	GlobalGameStage.unlockDateGirl(character)
+
+	if !isSkipping:
+		currentUnlockPanel = characterUnlockPanel.instantiate()
+		currentUnlockPanel.setup(character)
+		currentUnlockPanel.continued.connect(_on_unlock_button_pressed)
+		currentUnlockPanel.position = Vector2(200,850)
+		add_child(currentUnlockPanel)
+		currentUnlockPanel.animate()
+		inTransition = true
+		disableInput()
+		$DialogueManager.disableDialogueProgression()
+		$DialogueManager.hideUiFast()
+		$Background.playFullscreenAnim("res://data/assets/fullscreen_anim/ashely_theater/ashely_theater_frames.tres")
+
+func _on_unlock_button_pressed():
+	currentUnlockPanel.queue_free()
+	inTransition = false
+	enableInput()
+	$DialogueManager.enableDialogueProgression()
+	$DialogueManager.unhideUiFast()
+
+func endUnlockSequence():
+	$Background.stopFullscreenAnim()
 
 func _input(event):
 	if inputDisabled:
@@ -247,6 +276,11 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"walk_off": $CharacterManager.characterWalkOff()
 		"zoom": $CharacterManager.zoomCharacter()
 		"transition": beginMidSceneTransition()
+		"unlock_char_ashely": unlockChar(GlobalGameStage.CHARACTERS.ASHLEY)
+		"unlock_char_amy": unlockChar(GlobalGameStage.CHARACTERS.AMY)
+		"unlock_char_lisa": unlockChar(GlobalGameStage.CHARACTERS.LISA)
+		"unlock_char_anna": unlockChar(GlobalGameStage.CHARACTERS.ANA)
+		"end_unlock_sequence": endUnlockSequence()
 
 func videoPause():
 	isVideoPause = true
@@ -478,3 +512,4 @@ func playTransition(transitionType, text):
 func _on_realdate_complete(success):
 	advanceGameStage()
 	currentRealDate.queue_free()
+	

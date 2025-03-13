@@ -17,6 +17,7 @@ class_name GameStage
 @export var markStagesCompleteOnDateWin : Array[String]
 @export var markStagesCompleteOnSceneEnd : Array[String]
 @export var unlockWallpapersOnSceneEnd: Array[String]
+@export var cacheItems : Array[String]
 
 # Poker
 @export var isPokerMatch : bool

@@ -2,9 +2,9 @@
 extends EditorScript
 
 func _run() -> void:
-	var wallpaper_png_path = 'res://data/background_lists/ashely_theater/53.png'
-	var wallpaper_hint = 'Ashely Theater (12)'
-	var wallpaper_id = 'ASHELY_THEATER_12' #used for unlocking it
+	var wallpaper_png_path = 'res://data/wallpapers/ana_phone_intro_selfie_angry2.png'
+	var wallpaper_hint = 'Remember Anna - 2'
+	var wallpaper_id = 'ANA_PHONE_INTRO_SELFIE_ANGRY2' #used for unlocking it
 	var all_wallpaper_path = "res://resources/wallpapers/all_wallpapers.tres"
 	var all_wallpapers_resource = load(all_wallpaper_path)
 	

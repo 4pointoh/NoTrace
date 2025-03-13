@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://gnukw0gl57by"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_fv5k1"]
+
+[resource]
+script = ExtResource("1_fv5k1")
+starts = {
+"START1": &"0_1",
+"START2": &"0_2"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-180, 420),
+"start_id": "START1"
+},
+"0_2": {
+"link": &"1_3",
+"offset": Vector2(-221.134, 1527),
+"start_id": "START2"
+},
+"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh I missed a text from Anna a few hours ago...",
+"offset": Vector2(-26.8763, 548),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 493.5),
+"speaker": 0
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh wait, it looks like she's texting again right now",
+"offset": Vector2(860, 660),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 493.5),
+"speaker": 0
+},
+"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...Driver? ",
+"offset": Vector2(430.866, 1370.5),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 493.5),
+"speaker": 0
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I should text her back...",
+"offset": Vector2(360, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 493.5),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/phone_message/ana_phone_intro/characters.tres"
+backgroundList = "res://data/game_stages/phone_message/ana_phone_intro/bgs.tres"

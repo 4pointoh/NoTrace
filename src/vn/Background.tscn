@@ -89,6 +89,10 @@ texture = ExtResource("2_sbf2l")
 expand_mode = 4
 stretch_mode = 4
 
+[node name="FullscreenAnim" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(447, 576)
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
 offset_left = -2.0

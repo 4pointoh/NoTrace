@@ -15,3 +15,4 @@ var ANA_MARKET_INTRO = load("res://data/game_stages/vn/ana_shop_meeting/gs_ana_s
 var AMY_POKER_HALL_INTRO = load("res://data/game_stages/vn/amy_poker_hall_intro/gs_amy_poker_hall_intro.tres")
 var LISA_PARK_TRAINING = load("res://data/game_stages/vn/lisa_park_training/gs_lisa_park_training.tres")
 var ASHELY_THEATER = load("res://data/game_stages/vn/ashely_theater/gs_ashely_theater.tres")
+var ANA_PHONE_INTRO = load("res://data/game_stages/phone_message/ana_phone_intro/gs_ana_phone_intro.tres")

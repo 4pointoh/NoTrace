@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://co13mdurlhx6j"]
+
+[ext_resource type="Resource" uid="uid://gnukw0gl57by" path="res://data/game_stages/phone_message/ana_phone_intro/d_ana_phone_intro.tres" id="1_5klni"]
+[ext_resource type="Texture2D" uid="uid://buvcu733sur8r" path="res://data/characters/anna/phone_icons/default.png" id="1_tevms"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_uepuj"]
+[ext_resource type="Script" path="res://data/game_stages/phone_message/ana_phone_intro/ana_phone_intro.gd" id="3_gbgnc"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="5_hg0yf"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_j46de"]
+
+[sub_resource type="Resource" id="Resource_hlnd1"]
+script = ExtResource("6_j46de")
+name = "dsd"
+images = ExtResource("5_hg0yf")
+
+[resource]
+script = ExtResource("2_uepuj")
+name = "ana_phone_intro"
+displayName = "Anna Phone Intro"
+dialogue = ExtResource("1_5klni")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_hlnd1")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_gbgnc")
+contactName = "Anna"
+contactImage = ExtResource("1_tevms")
+delayMusicToTransition = false
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 4
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

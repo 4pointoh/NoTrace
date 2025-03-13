@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=26 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="13_sdhtv"]
 [ext_resource type="PackedScene" uid="uid://ooat0x0ooh2p" path="res://src/vn/name_enter.tscn" id="14_sr84d"]
 [ext_resource type="PackedScene" uid="uid://c0ronq3xhd3ic" path="res://src/vn/transition.tscn" id="18_hxheb"]
+[ext_resource type="PackedScene" uid="uid://m0y24r0kwcx3" path="res://src/vn/CharacterUnlockPanel.tscn" id="20_0bbbc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -44,6 +45,7 @@ dateMinigameScene = ExtResource("4_eoifi")
 heartsplosion = ExtResource("5_02o78")
 sceneSelector = ExtResource("7_cgb2p")
 realDateScene = ExtResource("8_dqkor")
+characterUnlockPanel = ExtResource("20_0bbbc")
 metadata/_edit_lock_ = true
 
 [node name="Background" parent="." instance=ExtResource("2_boj0x")]

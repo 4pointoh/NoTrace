@@ -41,8 +41,8 @@ func setColors(colorsNew: Array, labelText: String, newId: int):
 		icon.texture = RealDateColorHelper.getIconTexture(color)
 		icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		icon.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 		icon.size.y = 38
+		icon.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 		icon.position.y = -41
 		trect.add_child(icon)
 		%Colors.add_child(trect)

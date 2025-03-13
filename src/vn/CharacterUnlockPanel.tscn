@@ -1,0 +1,395 @@
+[gd_scene load_steps=11 format=3 uid="uid://m0y24r0kwcx3"]
+
+[ext_resource type="Script" path="res://src/vn/CharacterUnlockPanel.gd" id="1_2bkw8"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_6iyyx"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_et2i3"]
+[ext_resource type="Texture2D" uid="uid://dbljakfpthshc" path="res://data/assets/date/art/transparent_pink_rounded_rect_8px9patch.png" id="2_xsqw1"]
+[ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="3_eyos0"]
+[ext_resource type="AudioStream" uid="uid://cqod6t7ttej1m" path="res://data/assets/realdate/sounds/win.mp3" id="6_aawsv"]
+[ext_resource type="AudioStream" uid="uid://ie0eoc7k8pqe" path="res://data/assets/realdate/sounds/woop3.mp3" id="6_nee4w"]
+
+[sub_resource type="Animation" id="Animation_uapa7"]
+resource_name = "animate"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipper:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(565, 0), Vector2(565, 0), Vector2(565, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipper:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Clipper2/Message:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-200, 22), Vector2(-200, 22), Vector2(22, 22)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clipper2/CharName:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(580, 13), Vector2(580, 13), Vector2(368, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Clipper2/UnlockButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 250), Vector2(9, 250), Vector2(9, 174)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Clipper2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Clipper:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_nee4w")
+}],
+"times": PackedFloat32Array(0.9)
+}
+tracks/8/use_blend = true
+
+[sub_resource type="Animation" id="Animation_gewnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipper:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(565, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipper:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Clipper2/Message:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 22)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clipper2/CharName:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(368, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Clipper2/UnlockButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 174)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0k8ri"]
+_data = {
+"RESET": SubResource("Animation_gewnk"),
+"animate": SubResource("Animation_uapa7")
+}
+
+[node name="CharacterUnlockPanel" type="Node2D"]
+position = Vector2(0, 55)
+script = ExtResource("1_2bkw8")
+
+[node name="Clipper" type="Control" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_top = -39.0
+offset_right = 565.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Clipper"]
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Clipper/Sprite2D"]
+offset_top = 3.0
+offset_right = 565.0
+offset_bottom = 43.0
+texture = ExtResource("2_xsqw1")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Clipper/Sprite2D"]
+offset_top = 3.0
+offset_right = 565.0
+offset_bottom = 43.0
+texture = ExtResource("2_xsqw1")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="Clipper/Sprite2D/NinePatchRect"]
+offset_right = 565.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.806946, 0.00224501, 0.989235, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_et2i3")
+theme_override_font_sizes/font_size = 25
+text = "Relationship Level Increased!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unlock" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_right = 565.0
+offset_bottom = 217.0
+texture = ExtResource("1_6iyyx")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Unlock" type="NinePatchRect" parent="Unlock"]
+offset_right = 565.0
+offset_bottom = 217.0
+texture = ExtResource("1_6iyyx")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Unlock" type="NinePatchRect" parent="Unlock/Unlock"]
+offset_right = 565.0
+offset_bottom = 217.0
+texture = ExtResource("1_6iyyx")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="CharName2" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 209.0
+offset_top = 162.0
+offset_right = 353.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0.48183, 0.00272343, 0.8145, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_et2i3")
+theme_override_font_sizes/font_size = 42
+text = "Lisa"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Face" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_left = 204.0
+offset_top = 4.0
+offset_right = 357.0
+offset_bottom = 162.0
+pivot_offset = Vector2(75, 75)
+texture = ExtResource("3_eyos0")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_0k8ri")
+}
+
+[node name="Clipper2" type="Control" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 565.0
+offset_bottom = 213.0
+
+[node name="Message" type="Label" parent="Clipper2"]
+unique_name_in_owner = true
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 186.0
+offset_bottom = 152.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_et2i3")
+theme_override_font_sizes/font_size = 20
+text = "That crazy orange girl kinda likes you!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CharName" type="Label" parent="Clipper2"]
+unique_name_in_owner = true
+offset_left = 368.0
+offset_top = 13.0
+offset_right = 554.002
+offset_bottom = 172.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_et2i3")
+theme_override_font_sizes/font_size = 20
+text = "Unlocked
+Casual Meet-Ups
+on"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UnlockedLabel" type="Label" parent="Clipper2/CharName"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.207373
+anchor_bottom = -0.207373
+offset_top = 154.972
+offset_right = 186.0
+offset_bottom = 178.972
+theme_override_colors/font_color = Color(0.802542, 0.000213508, 0.721606, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_et2i3")
+theme_override_font_sizes/font_size = 20
+text = "DateConnect"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UnlockButton" type="Button" parent="Clipper2"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 174.0
+offset_right = 178.0
+offset_bottom = 205.001
+theme_override_fonts/font = ExtResource("2_et2i3")
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -7.401
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_aawsv")
+volume_db = -14.412
+
+[connection signal="pressed" from="Clipper2/UnlockButton" to="." method="_on_unlock_button_pressed"]
