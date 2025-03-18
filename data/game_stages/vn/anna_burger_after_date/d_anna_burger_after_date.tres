@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dgrvqaswwdook"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_tdukw"]
+
+[resource]
+script = ExtResource("1_tdukw")
+starts = {}
+nodes = {}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/anna_burger_after_date/characters.tres"
+backgroundList = "res://data/game_stages/vn/anna_burger_after_date/bgs.tres"

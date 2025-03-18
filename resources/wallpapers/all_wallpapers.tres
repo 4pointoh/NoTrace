@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=111 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=123 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -56,6 +56,12 @@
 [ext_resource type="Texture2D" uid="uid://dmmxmhxa7yhqm" path="res://data/wallpapers/ana_phone_intro_selfie.png" id="54_2mfvm"]
 [ext_resource type="Texture2D" uid="uid://duhr3mbghl8og" path="res://data/wallpapers/ana_phone_intro_selfie_angry.png" id="55_scl6i"]
 [ext_resource type="Texture2D" uid="uid://da7rok32u5p1x" path="res://data/wallpapers/ana_phone_intro_selfie_angry2.png" id="56_gg6uf"]
+[ext_resource type="Texture2D" uid="uid://7rts4bn7ha2d" path="res://data/background_lists/anna_burger/rew1.webp" id="57_en8fl"]
+[ext_resource type="Texture2D" uid="uid://bact3o5teel8" path="res://data/background_lists/anna_burger/rew2.webp" id="58_7l0vy"]
+[ext_resource type="Texture2D" uid="uid://dxswaeyy2o65e" path="res://data/background_lists/anna_burger/rew3.webp" id="59_nrw2d"]
+[ext_resource type="Texture2D" uid="uid://c5epn44xgruar" path="res://data/background_lists/anna_burger/rew4.webp" id="60_o3vsx"]
+[ext_resource type="Texture2D" uid="uid://dcf7m75jffkie" path="res://data/background_lists/anna_burger/rew5.webp" id="61_bg2q2"]
+[ext_resource type="Texture2D" uid="uid://dea1sqtpa48uw" path="res://data/background_lists/anna_burger/rew6.webp" id="62_b6t61"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -435,6 +441,48 @@ image = ExtResource("56_gg6uf")
 hint = "Remember Anna - 2"
 video = ""
 
+[sub_resource type="Resource" id="Resource_8yd2g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_REST1"
+image = ExtResource("57_en8fl")
+hint = "Anna Restaraunt - 1"
+video = ""
+
+[sub_resource type="Resource" id="Resource_87fm1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_REST2"
+image = ExtResource("58_7l0vy")
+hint = "Anna Restaraunt - 2"
+video = ""
+
+[sub_resource type="Resource" id="Resource_8nq41"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_REST3"
+image = ExtResource("59_nrw2d")
+hint = "Anna Restaraunt - 3"
+video = ""
+
+[sub_resource type="Resource" id="Resource_q4st3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_REST4"
+image = ExtResource("60_o3vsx")
+hint = "Anna Restaraunt - 4"
+video = ""
+
+[sub_resource type="Resource" id="Resource_ioju6"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_REST5"
+image = ExtResource("61_bg2q2")
+hint = "Anna Restaraunt - 5"
+video = ""
+
+[sub_resource type="Resource" id="Resource_m87j4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_REST6"
+image = ExtResource("62_b6t61")
+hint = "Anna Restaraunt - 6"
+video = ""
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4")])

@@ -8,6 +8,81 @@
 [ext_resource type="AudioStream" uid="uid://cqod6t7ttej1m" path="res://data/assets/realdate/sounds/win.mp3" id="6_aawsv"]
 [ext_resource type="AudioStream" uid="uid://ie0eoc7k8pqe" path="res://data/assets/realdate/sounds/woop3.mp3" id="6_nee4w"]
 
+[sub_resource type="Animation" id="Animation_gewnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipper:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(565, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipper:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Clipper2/Message:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 22)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clipper2/CharName:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(368, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Clipper2/UnlockButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 174)]
+}
+
 [sub_resource type="Animation" id="Animation_uapa7"]
 resource_name = "animate"
 length = 3.0
@@ -123,81 +198,6 @@ tracks/8/keys = {
 }
 tracks/8/use_blend = true
 
-[sub_resource type="Animation" id="Animation_gewnk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Clipper:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(565, 39)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Clipper:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -39)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Face:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Clipper2/Message:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(22, 22)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Clipper2/CharName:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(368, 13)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Clipper2/UnlockButton:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(9, 174)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0k8ri"]
 _data = {
 "RESET": SubResource("Animation_gewnk"),
@@ -239,6 +239,7 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="Label" type="Label" parent="Clipper/Sprite2D/NinePatchRect"]
+layout_mode = 0
 offset_right = 565.0
 offset_bottom = 39.0
 theme_override_colors/font_color = Color(0.806946, 0.00224501, 0.989235, 1)
@@ -261,6 +262,7 @@ patch_margin_bottom = 8
 metadata/_edit_use_anchors_ = true
 
 [node name="Unlock" type="NinePatchRect" parent="Unlock"]
+layout_mode = 0
 offset_right = 565.0
 offset_bottom = 217.0
 texture = ExtResource("1_6iyyx")
@@ -271,6 +273,7 @@ patch_margin_bottom = 8
 metadata/_edit_use_anchors_ = true
 
 [node name="Unlock" type="NinePatchRect" parent="Unlock/Unlock"]
+layout_mode = 0
 offset_right = 565.0
 offset_bottom = 217.0
 texture = ExtResource("1_6iyyx")
@@ -324,6 +327,7 @@ offset_bottom = 213.0
 
 [node name="Message" type="Label" parent="Clipper2"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 22.0
 offset_top = 22.0
 offset_right = 186.0
@@ -340,6 +344,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CharName" type="Label" parent="Clipper2"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 368.0
 offset_top = 13.0
 offset_right = 554.002

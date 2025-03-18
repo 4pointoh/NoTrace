@@ -69,6 +69,14 @@ var actionsOne = [
 		"content": "And like... shake my fist and stuff"
 	},
 	{
+		"type": "player_text",
+		"content": "Sounds menacing, I'm lucky I didn't have to experience that"
+	},
+	{
+		"type": "partner_text",
+		"content": "Very lucky. You would have been so scared"
+	},
+	{
 		"type": "partner_delay"
 	},
 	{
@@ -199,9 +207,77 @@ var actionsTwo = [
 	},
 	{
 		"type": "partner_text",
-		"content": "Fair enough 😅",
-		"advanceActionGroup": 3
+		"content": "Fair enough 😅"
 	},
+	{
+		"type": "partner_text",
+		"content": "Sorry I'm still in my pj's haha. I always wanted to do this"
+	},
+	{
+		"type": "partner_text",
+		"content": "Usually I can't send pictures like this, my publicist would kill me!"
+	},
+	{
+		"type": "partner_text",
+		"content": "I haven't gone through makeup and this is totally NOT wardrobe approved!"
+	},
+	{
+		"type": "player_text",
+		"content": "What? You have a publicist?"
+	},
+	{
+		"type": "partner_text",
+		"content": "OH!"
+	},
+	{
+		"type": "partner_text",
+		"content": "Oops I mean uh..."
+	},
+	{
+		"type": "partner_text",
+		"content": "My..."
+	},
+	{
+		"type": "partner_text",
+		"content": "puppy"
+	},
+	{
+		"type": "partner_text",
+		"content": "Yeah! My puppy would kill me!"
+	},
+	{
+		"type": "partner_text",
+		"content": "Of course I don't have a publicist. Normal people have puppies, not publicists!"
+	},
+	{
+		"type": "partner_delay",
+		"content": "Partner shifts nervously"
+	},
+	{
+		"type": "partner_text",
+		"content": "Right?"
+	},
+	{
+		"type": "player_text",
+		"content": "You're one weird puppy"
+	},
+	{
+		"type": "partner_text",
+		"content": "🐶"
+	},
+	{
+		"type": "player_text",
+		"content": "This might be the weirdest interaction I've ever had"
+	},
+	{
+		"type": "player_text",
+		"content": "I'm going to pretend that everything you just said is totally normal and move on"
+	},
+	{
+		"type": "player_text",
+		"content": "So I was wondering... what was that whole thing the other day about?",
+		"advanceActionGroup": 3
+	}
 ]
 
 var actionsThree = [
@@ -388,7 +464,7 @@ var actionsThree = [
 	},
 	{
 		"type": "player_text",
-		"content": "Am I really explaining burgers to you right now?"
+		"content": "Am I really explaining burgers to you right now??!"
 	},
 	{
 		"type": "player_text",

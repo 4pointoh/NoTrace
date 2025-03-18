@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://2erwqyspt80a"]
+
+[ext_resource type="Resource" uid="uid://b46m3phxcmj23" path="res://data/game_stages/vn/anna_burger_before_date/d_anna_burger_before_date.tres" id="1_iafoi"]
+[ext_resource type="Resource" uid="uid://d3kekrqiohmea" path="res://data/game_stages/dates/anna_burger_date/gs_anna_burger_date.tres" id="2_5hn10"]
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_a73qk"]
+[ext_resource type="Texture2D" uid="uid://8wv028wiy85b" path="res://data/assets/stage_art/burgers_hover.png" id="4_1pgkd"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_6n6ry"]
+[ext_resource type="Texture2D" uid="uid://bnfjhu651u5t" path="res://data/assets/stage_art/burgers.png" id="5_e8frq"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="6_c1m4q"]
+[ext_resource type="AudioStream" uid="uid://bd725vtbynaql" path="res://data/assets/general/sounds/bg_music/new/Drive & Date.mp3" id="8_wp6xw"]
+
+[sub_resource type="Resource" id="Resource_gw3ys"]
+script = ExtResource("5_6n6ry")
+name = "asdasd"
+images = ExtResource("6_c1m4q")
+
+[resource]
+script = ExtResource("2_a73qk")
+name = "anna_burger_before_date"
+displayName = "Anna Restaraunt Before Date"
+dialogue = ExtResource("1_iafoi")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_5hn10")
+isCompletable = false
+startingBackground = SubResource("Resource_gw3ys")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = "Heading Downtown"
+middleTransition = 1
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("8_wp6xw")
+delayMusicToTransition = true
+stageButtonTexture = ExtResource("5_e8frq")
+stageButtonHover = ExtResource("4_1pgkd")
+stageButtonLabel = "Burgers With Anna"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

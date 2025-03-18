@@ -5,6 +5,7 @@ var dialog_bg_lisa = load("res://data/assets/general/art/lisa_dialogue_bg.png")
 var dialog_bg_ashely = load("res://data/assets/general/art/ashely_dialogue_bg.png")
 var dialog_bg_amy = load("res://data/assets/general/art/amy_dialogue_bg.png")
 var dialog_bg_anna = load("res://data/assets/general/art/anna_dialogue_bg.png")
+var dialog_other = load("res://data/assets/general/art/dialogue_other.png")
 
 var lisa_dialog_sound = load("res://data/assets/general/sounds/voice.ogg")
 var you_dialog_sound = load("res://data/assets/general/sounds/sound.wav")
@@ -81,6 +82,14 @@ func setYouBg():
 	style.texture = dialog_bg_you
 	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
 
+func setOtherBg():
+	$AudioStreamPlayer.stream = you_dialog_sound
+	if !muted:
+		$AudioStreamPlayer.play()
+	var style : StyleBoxTexture = StyleBoxTexture.new()
+	style.texture = dialog_other
+	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
+
 func setAshelyBg():
 	$AudioStreamPlayer.stream = lisa_dialog_sound
 	if !muted:
@@ -105,13 +114,18 @@ func setAnnaBg():
 	style.texture = dialog_bg_anna
 	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
 
-func setDefaultBg():
+func setDefaultBg(charName : String):
 	$AudioStreamPlayer.stream = you_dialog_sound
 	if !muted:
 		$AudioStreamPlayer.play()
 	
-	var style : StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0, 0, 0, 0.7) # Black with 50% alpha
+	var style
+	if(charName.length() > 0):
+		style = StyleBoxTexture.new()
+		style.texture = dialog_other
+	else:
+		style = StyleBoxFlat.new()
+		style.bg_color = Color(0, 0, 0, 0.7) # Black with 50% alpha
 	$DialoguePlayer.add_theme_stylebox_override ("panel", style)
 
 func muteDialogueBox():
@@ -161,7 +175,7 @@ func _on_dialogue_player_dialogue_proceeded(node_type):
 		"Amy": setAmyBg()
 		"Anna": setAnnaBg()
 		"Random Party Girl": setAnnaBg()
-		_: setDefaultBg()
+		_: setDefaultBg($DialoguePlayer.speaker.text)
 	
 	getCurrentNodeInfo()
 	dialogue_proceeded.emit()

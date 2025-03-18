@@ -281,6 +281,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"unlock_char_lisa": unlockChar(GlobalGameStage.CHARACTERS.LISA)
 		"unlock_char_anna": unlockChar(GlobalGameStage.CHARACTERS.ANA)
 		"end_unlock_sequence": endUnlockSequence()
+		"unlock_lisa_cat_convo": unlockLisaCatConvo()
 
 func videoPause():
 	isVideoPause = true
@@ -513,3 +514,5 @@ func _on_realdate_complete(success):
 	advanceGameStage()
 	currentRealDate.queue_free()
 	
+func unlockLisaCatConvo():
+	print('TBD UNLOCK HERE')

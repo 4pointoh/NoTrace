@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://brsgs16dqbhg1"]
+
+[ext_resource type="Texture2D" uid="uid://8eto43fcv625" path="res://data/characters/anna/anna_sweater/face.png" id="1_i4cn1"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_jibhr"]
+[ext_resource type="Texture2D" uid="uid://djcy6dh2i2ip6" path="res://data/characters/anna/anna_sweater/character_art/hands_on_hips_smile.png" id="3_bhxgw"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_184k6"]
+[ext_resource type="Texture2D" uid="uid://chlhp0h0xlhbi" path="res://data/characters/anna/anna_sweater/character_art/hands_together_excited.png" id="5_6gpyd"]
+[ext_resource type="Texture2D" uid="uid://c8a52vd3q788" path="res://data/characters/anna/anna_sweater/character_art/wave_smile.png" id="6_eewu8"]
+
+[sub_resource type="Resource" id="Resource_p8oph"]
+script = ExtResource("4_184k6")
+name = "hands_on_hips_smile.png"
+image = ExtResource("3_bhxgw")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_bfbiu"]
+script = ExtResource("4_184k6")
+name = "hands_together_excited.png"
+image = ExtResource("5_6gpyd")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_bl5tt"]
+script = ExtResource("4_184k6")
+name = "wave_smile.png"
+image = ExtResource("6_eewu8")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("2_jibhr")
+name = "Anna"
+editorName = "anna_sweater"
+image = ExtResource("1_i4cn1")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_184k6")]([SubResource("Resource_p8oph"), SubResource("Resource_bfbiu"), SubResource("Resource_bl5tt")])

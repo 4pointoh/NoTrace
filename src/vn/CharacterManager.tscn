@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://f3krgd2lh0al"]
+[gd_scene load_steps=8 format=3 uid="uid://f3krgd2lh0al"]
 
 [ext_resource type="Script" path="res://src/vn/CharacterManager.gd" id="1_ha0dp"]
 [ext_resource type="AudioStream" uid="uid://cvqjmta0e3fcj" path="res://data/assets/general/sounds/char_turn.wav" id="2_d6yg1"]
+[ext_resource type="Shader" path="res://src/realdate/Breathing.gdshader" id="2_pda6j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0tlw"]
+shader = ExtResource("2_pda6j")
+shader_parameter/speed = 1.1
+shader_parameter/amplitude = 0.008
+shader_parameter/pivot = Vector2(256, 512)
 
 [sub_resource type="Animation" id="Animation_dxbou"]
 length = 0.001
@@ -61,6 +68,7 @@ _data = {
 script = ExtResource("1_ha0dp")
 
 [node name="MainCharacter" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_g0tlw")
 position = Vector2(596, 582)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
