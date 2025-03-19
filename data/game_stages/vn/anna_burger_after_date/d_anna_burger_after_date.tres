@@ -4,8 +4,2471 @@
 
 [resource]
 script = ExtResource("1_tdukw")
-starts = {}
-nodes = {}
+starts = {
+"START": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-2614, -128.393),
+"start_id": "START"
+},
+"1_1": {
+"background": 5,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You okay over there? You're looking a little down. ",
+"offset": Vector2(-2280, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(309.078, 545.5),
+"speaker": 0
+},
+"1_10": {
+"background": 7,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Without any warning, Anna begins to remove her sweater. ",
+"offset": Vector2(1420, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_100": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You give one last look, directly into the eyes of each offender. ",
+"offset": Vector2(37240, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_101",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_101": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The restaurant now half as loud as it was before. ",
+"offset": Vector2(37580, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_102",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_102": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then you return to your seat. ",
+"offset": Vector2(37920, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"3_20",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_103": {
+"background": 28,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(38600, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_104",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_104": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "thank you",
+"offset": Vector2(38940, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_105",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_105": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She stares at you, tears still trickling down her face. ",
+"offset": Vector2(39260, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_106",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_106": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Though not exclusively tears of sadness anymore. ",
+"offset": Vector2(39580, 520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_107",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_107": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You would do that for me without even knowing...",
+"offset": Vector2(39920, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_108",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_108": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So, anyway, is there any flavor of ice cream you've always wanted to try? ",
+"offset": Vector2(40280, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_109",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_109": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She continues to look at you. ",
+"offset": Vector2(40620, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_110",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Woahh again? I'm starting to think you're getting off on this! ",
+"offset": Vector2(1760, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_110": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "In total realization that you're completely willing to drop everything that just happened. ",
+"offset": Vector2(40940, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_111",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_111": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Completely willing to let her continue having her secret. ",
+"offset": Vector2(41260, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"3_21",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_112": {
+"background": 29,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "thank you, [name]",
+"offset": Vector2(41920, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"3_22",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_113": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And umm... yeah... I always wanted to try mint chocolate ice cream. ",
+"offset": Vector2(42260, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_114",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_114": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, her voice a cute little whisper under the sniffles of her nose. ",
+"offset": Vector2(42620, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_115",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_115": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That shit tastes like toothpaste, but sure, mint chocolate it is. ",
+"offset": Vector2(42960, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_116",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_116": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She laughs. ",
+"offset": Vector2(43300, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"3_23",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_117": {
+"background": 31,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "The day continues on, Anna returns to her peppy, happy self. ",
+"offset": Vector2(43940, 620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_118",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_118": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The occasional whisper making itself known from about the restaurant",
+"offset": Vector2(44260, 620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_119",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_119": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Murmurs) Dude is that Anna Blake over there? ",
+"offset": Vector2(44600, 640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_120",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Restaurant Guest (Across The Room)"
+},
+"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ha Ha, very funny. You're the one who always makes this weird!!",
+"offset": Vector2(2100, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_120": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Murmurs) Dude, don't even think about it. She's with her security or something. ",
+"offset": Vector2(44940, 640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_121",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Other Guest"
+},
+"1_121": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Murmurs) That dude will beat your ass if you go over there. ",
+"offset": Vector2(45280, 640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_122",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Other Guest"
+},
+"1_122": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The day continues on, you talk about various things. Mostly food. ",
+"offset": Vector2(45640, 640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_123",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_123": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So maybe we could head out and get the ice cream now? ",
+"offset": Vector2(46000, 660),
+"options": {
+0: {
+"condition": {},
+"link": &"3_24",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_124": {
+"background": 32,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "As if on queue, her phone buzzes on the table. ",
+"offset": Vector2(46660, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_125",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_125": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks down at it, and frowns. ",
+"offset": Vector2(47000, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_126",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_126": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Bzzzzzzzz",
+"offset": Vector2(47340, 720),
+"options": {
+0: {
+"condition": {},
+"link": &"1_128",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_127": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Bzzzzzzzzzzz",
+"offset": Vector2(46392, 1201.01),
+"options": {
+0: {
+"condition": {},
+"link": &"1_124",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_128": {
+"background": 33,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Damn.",
+"offset": Vector2(47700, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_129",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_129": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I knew this was coming eventually.",
+"offset": Vector2(48060, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_130",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says playfully. While finally removing her sweater, her glasses, and putting her hat back on. ",
+"offset": Vector2(2420, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_130": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I won't be able to get out of this one... I'm going to need to go. ",
+"offset": Vector2(48400, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_131",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_131": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But I had so much fun!!!",
+"offset": Vector2(48740, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_132",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_132": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You had fun too, right?? We can do this again?? Or something else??",
+"offset": Vector2(49060, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_133",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_133": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Sure, I don't see why not. ",
+"offset": Vector2(49380, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_134",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_134": {
+"background": 31,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She brightens up again at your affirmation. ",
+"offset": Vector2(49720, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_135",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_135": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ok... I have to go. ",
+"offset": Vector2(50060, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_136",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_136": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... I think I'm going to walk out without putting my sweater on. ",
+"offset": Vector2(50400, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_137",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_137": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I don't think anybody is going to give me trouble. ",
+"offset": Vector2(50720, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_138",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_138": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She locks eyes with you briefly, with a smile. ",
+"offset": Vector2(51040, 780),
+"options": {
+0: {
+"condition": {},
+"link": &"3_25",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_139": {
+"background": 34,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And then she stands ",
+"offset": Vector2(51720, 840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_140",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_14": {
+"background": 8,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "I should keep my hat on, no reason to risk it! ",
+"offset": Vector2(3040, 240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_140": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She gives a glance back at you. ",
+"offset": Vector2(52060, 840),
+"options": {
+0: {
+"condition": {},
+"link": &"3_26",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_141": {
+"background": 35,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And then heads to the door. ",
+"offset": Vector2(52680, 820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_142",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_142": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "After one final glance...",
+"offset": Vector2(53020, 820),
+"options": {
+0: {
+"condition": {},
+"link": &"3_27",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_143": {
+"background": 37,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She's out the door, and you're alone in a booth at McBurgerBomb. ",
+"offset": Vector2(53640, 820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_144",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_144": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah... I'm not gonna stay here any longer than necessary. ",
+"offset": Vector2(53980, 820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_145",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_145": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You start to make your way home",
+"offset": Vector2(54320, 840),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'll just stay a little bit hidden, and I should be fine! ",
+"offset": Vector2(3380, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I still don't know what you're hiding from, but whatever makes you feel better.",
+"offset": Vector2(3740, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She smiles. ",
+"offset": Vector2(4060, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And at the moment, a waitress, who clearly could not care less about her job, brings food to your table. ",
+"offset": Vector2(4380, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...order for table 7 have a mcburgershit day, bye ",
+"offset": Vector2(4720, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"3_4",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Waitress"
+},
+"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah sorry, it's just...",
+"offset": Vector2(-1920, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_20": {
+"background": 9,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And with that passionate delivery, she plops some cheeseburgers, fries, and drinks on to your table. ",
+"offset": Vector2(5380, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300, 540.5),
+"speaker": -1
+},
+"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh my gosh...",
+"offset": Vector2(5760, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "These things are huge!!",
+"offset": Vector2(6120, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, a little bit of nervousness in her voice. ",
+"offset": Vector2(6440, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"3_5",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_24": {
+"background": 10,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She picks up the burger, and begins poking it, prodding it, inspecting it. ",
+"offset": Vector2(7080, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So what is it like? ",
+"offset": Vector2(7420, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It smells really good!",
+"offset": Vector2(7760, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How do you eat it??",
+"offset": Vector2(8080, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well, you just... pick it up. And then eat it. ",
+"offset": Vector2(8420, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oooh",
+"offset": Vector2(8760, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"3_6",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_3": {
+"background": 6,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "I'm getting really warm over here. ",
+"offset": Vector2(-1260, 140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_30": {
+"background": 11,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "At your direction, she picks the burger up properly. ",
+"offset": Vector2(9400, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She gives it a squeeze. Weighs it. ",
+"offset": Vector2(9760, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_32",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wow this thing is like a full pound! ",
+"offset": Vector2(10100, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_33",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You seem... really nervous about eating this burger. ",
+"offset": Vector2(10460, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You know, you don't have to if you don't want to. ",
+"offset": Vector2(10800, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think they have like... apple slices or something on the kid's menu. ",
+"offset": Vector2(11140, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_36",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_36": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Noo!!! Absolutely Not!! I'm going to eat a burger! ",
+"offset": Vector2(11500, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_37",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And after a moment gaining some final resolve, she holds the burger to her mouth, and takes a modest bite. ",
+"offset": Vector2(11860, 280),
+"options": {
+0: {
+"condition": {},
+"link": &"3_7",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_38": {
+"background": 15,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Oh.",
+"offset": Vector2(12540, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_39",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "My.",
+"offset": Vector2(12900, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_40",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks carefully around the restaraunt, checking whether any eyes are on her. ",
+"offset": Vector2(-920, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_40": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Gosh. ",
+"offset": Vector2(13240, 300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What... how...",
+"offset": Vector2(13600, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_42": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This is INCREDIBLE!!",
+"offset": Vector2(13960, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_43",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_43": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She squeals, but just a little bit too loud, drawing some eyes from neighboring tables. ",
+"offset": Vector2(14280, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_44",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_44": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But she is unphased. ",
+"offset": Vector2(14600, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_45",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_45": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She takes another bite. ",
+"offset": Vector2(14940, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_46",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_46": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And another. ",
+"offset": Vector2(15260, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_47",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_47": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Until the novelty begins to quell, at least a little bit, and the afternoon turns into a simple lunch between friends. ",
+"offset": Vector2(15580, 320),
+"options": {
+0: {
+"condition": {},
+"link": &"3_8",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_48": {
+"background": 13,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "I'm sorry, I'm <chew> ... I'm not being very good company <chew> ",
+"offset": Vector2(16240, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"1_49",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_49": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She tries to pick up conversation between chews. But it's a fool's errand. ",
+"offset": Vector2(16600, 360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_50",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(-580, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_50": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You give her some time to enjoy her meal. ",
+"offset": Vector2(16980, 360),
+"options": {
+0: {
+"condition": {},
+"link": &"3_9",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_51": {
+"background": 14,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "After some time, she's finally beginning to slow down. ",
+"offset": Vector2(17600, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_52",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_52": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I can't believe it, it's everything I could have imagined. ",
+"offset": Vector2(17940, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_53",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_53": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You get to eat this kind of thing all the time?? Whenever you want??",
+"offset": Vector2(18280, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_54",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_54": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well... sort of.",
+"offset": Vector2(18620, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_55",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_55": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "If you aren't careful, eating too much garbage like this can make you look like...",
+"offset": Vector2(18960, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_56",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_56": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You glance around the restaurant",
+"offset": Vector2(19300, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_57",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_57": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well, it can make you look like most of the people here. ",
+"offset": Vector2(19640, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"3_10",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_58": {
+"background": 16,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Hahaha I guess that's true. ",
+"offset": Vector2(20340, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_59",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_59": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But as an occasional treat... you're so lucky. ",
+"offset": Vector2(20680, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"3_11",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I guess maybe I don't need to be completely covered up... ",
+"offset": Vector2(-260, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_60": {
+"background": 17,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(21340, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_61",
+"text": ""
+}
+},
+"size": Vector2(300, 545.5),
+"speaker": 1
+},
+"1_61": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She gets a distinct look in her eyes. ",
+"offset": Vector2(21680, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_62",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_62": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do you think maybe we could get... ice cream? Afterwards? ",
+"offset": Vector2(22020, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_63",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_63": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says 'ice cream' in a hushed tone, like she's a 2nd grader saying a new swear word. ",
+"offset": Vector2(22360, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_64",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_64": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ice cream? Sure, why not. ",
+"offset": Vector2(22700, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_65",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_65": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And I can take you to a real ice cream place. Not this fast food garbage \"ice cream\" they sell here. ",
+"offset": Vector2(23040, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"3_12",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_66": {
+"background": 18,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Her demeanor changes, she's no longer focused on the food or the restaurant. ",
+"offset": Vector2(23660, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_67",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_67": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She's focused on you. Looking directly at you. Into your soul. Not speaking. ",
+"offset": Vector2(23980, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_68",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_68": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's not clear what's on her mind, or why she just stopped talking, but one thing is clear. ",
+"offset": Vector2(24300, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_69",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_69": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She hasn't felt this happy in a long time. ",
+"offset": Vector2(24640, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_70",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We're in a little booth over here... I don't think anybody will notice me. ",
+"offset": Vector2(60, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_70": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Whispers) Do you think that's really her? ",
+"offset": Vector2(25000, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_71",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Restaraunt Guest (Across The Room)"
+},
+"1_71": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Whispers) Dude that's definitely her!",
+"offset": Vector2(25320, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"3_13",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Restaraunt Guest (Across The Room)"
+},
+"1_72": {
+"background": 19,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Anna's head jerks up. ",
+"offset": Vector2(25960, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_73",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_73": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Her ears well trained for this type of conversation... well aware of what's about to happen. ",
+"offset": Vector2(26300, 380),
+"options": {
+0: {
+"condition": {},
+"link": &"3_14",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_74": {
+"background": 20,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Her expression completely shifts. ",
+"offset": Vector2(26920, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_75",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_75": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Devastation. Realization. This moment is going to come to an end. ",
+"offset": Vector2(27240, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_76",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_76": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Being pulled out of her brief experience of normalcy, back into the life she was trying to escape for a moment. ",
+"offset": Vector2(27580, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"3_15",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_77": {
+"background": 21,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "(Murmurs) Dude, seriously, that's Anna Blake over there!",
+"offset": Vector2(28220, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_78",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": "Restaraunt Guest (Across The Room)"
+},
+"1_78": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Murmurs) Who is that guy she's with?",
+"offset": Vector2(28540, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_79",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Restaraunt Guest (Across The Room)"
+},
+"1_79": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Murmurs) Do you think she'll give me her autograph? ",
+"offset": Vector2(28860, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_80",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Restaraunt Guest (Across The Room)"
+},
+"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(400, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_80": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks back. Her eyes filled with resignation. ",
+"offset": Vector2(29180, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_81",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_81": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That last hope that maybe she had misheard... maybe she could stay a little longer... slowly fading. ",
+"offset": Vector2(29560, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_82",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_82": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm going to go over there!! Are you coming with??",
+"offset": Vector2(29900, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"3_16",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": "Restaraunt Guest (Across The Room)"
+},
+"1_83": {
+"background": 22,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She hunkers down, pulling her hat, trying to conceal herself. ",
+"offset": Vector2(30500, 460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_84",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_84": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But well aware it is already too late. ",
+"offset": Vector2(30840, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"3_17",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_85": {
+"background": 23,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Tears begin to well in her eyes.",
+"offset": Vector2(31420, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_86",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_86": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[name], I'm sorry... I'm going to have to go now...",
+"offset": Vector2(31740, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_87",
+"text": ""
+}
+},
+"size": Vector2(410.234, 533.5),
+"speaker": 1
+},
+"1_87": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I really really wish I could stay.",
+"offset": Vector2(32180, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_88",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_88": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She sniffles. Tears flowing. ",
+"offset": Vector2(32520, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_89",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_89": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But I don't think I can. I'm sorry. ",
+"offset": Vector2(32840, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_90",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay! I'm going to take the risk! ",
+"offset": Vector2(740, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 1
+},
+"1_90": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Stop.",
+"offset": Vector2(33300, 500),
+"options": {
+0: {
+"condition": {},
+"link": &"3_18",
+"text": ""
+}
+},
+"size": Vector2(300, 533.5),
+"speaker": 0
+},
+"1_91": {
+"background": 26,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You stand from the booth. Pissed off. ",
+"offset": Vector2(33920, 520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_92",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_92": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You make your way to the people making their way to your table, seeking Anna. ",
+"offset": Vector2(34260, 520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_93",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_93": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And you stand in their way. ",
+"offset": Vector2(34600, 520),
+"options": {
+0: {
+"condition": {},
+"link": &"3_19",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_94": {
+"background": 27,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Back at the table, Anna  looks on in shock. ",
+"offset": Vector2(35240, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_95",
+"text": ""
+}
+},
+"size": Vector2(300, 544.5),
+"speaker": ""
+},
+"1_95": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "In your anger, you aren't sure exactly what you said. ",
+"offset": Vector2(35580, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_96",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_96": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Or exactly which actions you took. ",
+"offset": Vector2(35900, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_97",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_97": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "All you know was that you saw red, and then the crowd dispersed. ",
+"offset": Vector2(36220, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_98",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_98": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Returning to their tables, sheepishly putting their heads down. ",
+"offset": Vector2(36560, 540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_99",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"1_99": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hoping you don't single them out. ",
+"offset": Vector2(36900, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_100",
+"text": ""
+}
+},
+"size": Vector2(300, 532.5),
+"speaker": ""
+},
+"3_1": {
+"link": &"1_3",
+"offset": Vector2(-1560, 340),
+"signalValue": "fade_next"
+},
+"3_10": {
+"link": &"1_58",
+"offset": Vector2(20000, 640),
+"signalValue": "fade_next"
+},
+"3_11": {
+"link": &"1_60",
+"offset": Vector2(21040, 600),
+"signalValue": "fade_next"
+},
+"3_12": {
+"link": &"1_66",
+"offset": Vector2(23360, 640),
+"signalValue": "fade_next"
+},
+"3_13": {
+"link": &"1_72",
+"offset": Vector2(25680, 580),
+"signalValue": "fade_next"
+},
+"3_14": {
+"link": &"1_74",
+"offset": Vector2(26619, 638.008),
+"signalValue": "fade_next"
+},
+"3_15": {
+"link": &"1_77",
+"offset": Vector2(27940, 620),
+"signalValue": "fade_next"
+},
+"3_16": {
+"link": &"1_83",
+"offset": Vector2(30240, 680),
+"signalValue": "fade_next"
+},
+"3_17": {
+"link": &"1_85",
+"offset": Vector2(31160, 760),
+"signalValue": "fade_next"
+},
+"3_18": {
+"link": &"1_91",
+"offset": Vector2(33640, 720),
+"signalValue": "fade_next"
+},
+"3_19": {
+"link": &"1_94",
+"offset": Vector2(34960, 680),
+"signalValue": "fade_next"
+},
+"3_2": {
+"link": &"1_10",
+"offset": Vector2(1114.47, 330.55),
+"signalValue": "fade_next"
+},
+"3_20": {
+"link": &"1_103",
+"offset": Vector2(38280, 720),
+"signalValue": "fade_next"
+},
+"3_21": {
+"link": &"1_112",
+"offset": Vector2(41600, 740),
+"signalValue": "fade_next"
+},
+"3_22": {
+"link": &"1_113",
+"offset": Vector2(41800, 320),
+"signalValue": "unlock_char_anna"
+},
+"3_23": {
+"link": &"1_117",
+"offset": Vector2(43660, 820),
+"signalValue": "fade_next"
+},
+"3_24": {
+"link": &"1_127",
+"offset": Vector2(46360, 860),
+"signalValue": "fade_next"
+},
+"3_25": {
+"link": &"1_139",
+"offset": Vector2(51426.4, 945.812),
+"signalValue": "fade_next"
+},
+"3_26": {
+"link": &"1_141",
+"offset": Vector2(52380, 1040),
+"signalValue": "fade_next"
+},
+"3_27": {
+"link": &"1_143",
+"offset": Vector2(53380, 1040),
+"signalValue": "fade_next"
+},
+"3_3": {
+"link": &"1_14",
+"offset": Vector2(2740, 420),
+"signalValue": "fade_next"
+},
+"3_4": {
+"link": &"1_20",
+"offset": Vector2(5080, 440),
+"signalValue": "fade_next"
+},
+"3_5": {
+"link": &"1_24",
+"offset": Vector2(6780.85, 536.753),
+"signalValue": "fade_next"
+},
+"3_6": {
+"link": &"1_30",
+"offset": Vector2(9100, 480),
+"signalValue": "fade_next"
+},
+"3_7": {
+"link": &"1_38",
+"offset": Vector2(12220, 540),
+"signalValue": "fade_next"
+},
+"3_8": {
+"link": &"1_48",
+"offset": Vector2(15920, 540),
+"signalValue": "fade_next"
+},
+"3_9": {
+"link": &"1_51",
+"offset": Vector2(17320, 560),
+"signalValue": "fade_next"
+}
+}
 variables = {}
 comments = Array[String]([])
 strays = Array[String]([])

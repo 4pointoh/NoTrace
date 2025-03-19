@@ -230,6 +230,7 @@ func group_ask_top1_q1():
 	result.dialogueStartKey = 'ask_free_time'
 	result.setFlagToTrue = FLAG_ASK_HOBBIES
 	result.particleType = Heartsplosion.TYPES.HAPPY
+	result.memoryUnlockId = 'ANNA_REST6'
 	return result
 	
 func group_ask_top1_q2():
@@ -255,7 +256,6 @@ func group_ask_top1_q4():
 	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.HAPPY
 	result.dialogueStartKey = 'ask_sing'
-	result.memoryUnlockId = 'ANNA_REST6'
 	return result
 
 func group_ask_top1_q5():
@@ -627,7 +627,7 @@ func group_ask_top4_q1():
 	result.dialogueStartKey = 'ask_covered'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.particleType = Heartsplosion.TYPES.HAPPY
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top4_q2():
@@ -637,7 +637,7 @@ func group_ask_top4_q2():
 	result.dialogueStartKey = 'ask_pink'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.particleType = Heartsplosion.TYPES.HAPPY
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top4_q3():
@@ -700,7 +700,7 @@ func group_ask_top5_q1():
 	result.particleType = Heartsplosion.TYPES.BLUSH
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.setBackground(load("res://data/background_lists/anna_burger/special1.webp"), 'sdfsfd')
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top5_q2():
@@ -709,6 +709,8 @@ func group_ask_top5_q2():
 	result.scoreProgression = 10
 	result.dialogueStartKey = 'ask_ever_boyfriend'
 	result.particleType = Heartsplosion.TYPES.BLUSH
+	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top5_q4():
@@ -728,7 +730,7 @@ func group_ask_top5_q4_c1():
 	result.dialogueStartKey = 'single_mingle'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.particleType = Heartsplosion.TYPES.BLUSH
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top5_q4_c2():
@@ -736,7 +738,7 @@ func group_ask_top5_q4_c2():
 	result.success = true
 	result.dialogueStartKey = 'committed'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top5_q5():
@@ -756,7 +758,7 @@ func group_ask_top5_q5_c1():
 	result.dialogueStartKey = 'talented'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.particleType = Heartsplosion.TYPES.SURPRISED
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top5_q5_c2():
@@ -766,7 +768,7 @@ func group_ask_top5_q5_c2():
 	result.scoreProgression = 10
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.particleType = Heartsplosion.TYPES.LAUGH
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 func group_ask_top5_q5_c3():
@@ -775,7 +777,7 @@ func group_ask_top5_q5_c3():
 	result.dialogueStartKey = 'bad_girls'
 	result.scoreProgression = 10
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
-	result.progressQuantity = 30
+	result.progressQuantity = 34
 	return result
 
 ################################################

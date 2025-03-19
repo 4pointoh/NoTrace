@@ -69,7 +69,9 @@ func unlockChar(character : GlobalGameStage.CHARACTERS):
 		disableInput()
 		$DialogueManager.disableDialogueProgression()
 		$DialogueManager.hideUiFast()
-		$Background.playFullscreenAnim("res://data/assets/fullscreen_anim/ashely_theater/ashely_theater_frames.tres")
+
+		if(character == GlobalGameStage.CHARACTERS.ASHLEY):
+			$Background.playFullscreenAnim("res://data/assets/fullscreen_anim/ashely_theater/ashely_theater_frames.tres")
 
 func _on_unlock_button_pressed():
 	currentUnlockPanel.queue_free()
