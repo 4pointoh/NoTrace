@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://dd34ecbgq64q6"]
 
 [ext_resource type="Resource" uid="uid://bu4rf22by16yn" path="res://data/game_stages/vn/ashely_first_park_date_after/d_ashely_first_park_date_after.tres" id="1_tbprk"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_atdvl"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_atdvl"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_hv18h"]
 [ext_resource type="Texture2D" uid="uid://c34m61fujvffw" path="res://data/background_lists/ashe_park/18.png" id="3_xkwgc"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_hfxi7"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_hfxi7"]
 [ext_resource type="AudioStream" uid="uid://w2tujw5fbas5" path="res://data/assets/general/sounds/bg_music/date1.mp3" id="7_6w55l"]
 
 [sub_resource type="Resource" id="Resource_osef0"]
@@ -30,6 +30,7 @@ middleTransition = 2
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -50,6 +51,17 @@ contactName = ""
 startingMusic = ExtResource("7_6w55l")
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

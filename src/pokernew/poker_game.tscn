@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dnd677crdakvo"]
 
-[ext_resource type="Script" path="res://src/pokernew/poker_game.gd" id="1_haorf"]
-[ext_resource type="Script" path="res://src/pokernew/PokerDisplay.gd" id="2_n8c77"]
+[ext_resource type="Script" uid="uid://qxdo2crqyu5e" path="res://src/pokernew/poker_game.gd" id="1_haorf"]
+[ext_resource type="Script" uid="uid://dslhhjk1qq2d3" path="res://src/pokernew/PokerDisplay.gd" id="2_n8c77"]
 [ext_resource type="PackedScene" uid="uid://copd06cjr1uf1" path="res://src/poker/Card.tscn" id="3_clw8w"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="3_i4s7q"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_dai1u"]
@@ -104,8 +104,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1uoea"]
 _data = {
-"RESET": SubResource("Animation_jfv6j"),
-"intro_label_in": SubResource("Animation_jmulo")
+&"RESET": SubResource("Animation_jfv6j"),
+&"intro_label_in": SubResource("Animation_jmulo")
 }
 
 [node name="PokerGame" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkpsqjmkwswtl"]
 
-[ext_resource type="Script" path="res://src/phone/RealDateApp.gd" id="1_fjasx"]
+[ext_resource type="Script" uid="uid://c0n1s1mrnd7bn" path="res://src/phone/RealDateApp.gd" id="1_fjasx"]
 [ext_resource type="Texture2D" uid="uid://kpf6idqel3k6" path="res://data/assets/phone/art/realdate_app.webp" id="2_2qk7i"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_l8tlk"]
 [ext_resource type="PackedScene" uid="uid://8drybvkixar1" path="res://src/phone/RealDateAppFace.tscn" id="2_ryhyp"]
@@ -155,6 +155,26 @@ text = "☝️
 Select Your Date!"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Beta" type="NinePatchRect" parent="."]
+offset_left = 240.0
+offset_top = 1001.0
+offset_right = 720.0
+offset_bottom = 1063.0
+texture = ExtResource("4_3ddbn")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="Beta"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 2.0
+offset_right = 457.0
+offset_bottom = 64.0
+text = "This Update Contains Only One Beta Date. Future dates will contain full stories, artwork, and a special reward. "
 autowrap_mode = 3
 
 [node name="FaceContainer" type="HBoxContainer" parent="."]

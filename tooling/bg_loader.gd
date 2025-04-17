@@ -2,7 +2,7 @@
 extends EditorScript
 
 func _run() -> void:
-	var input_dir_name : String = "anna_burger"
+	var input_dir_name : String = "ashely_bar_poker"
 	var input_directory: String = "res://data/background_lists/" + input_dir_name + "/"         # Where .png files are located
 	var output_path: String = "res://data/background_lists/" + input_dir_name + "/" + input_dir_name + ".tres"     # Where to save generated .tres
 	create_background_list_from_directory(input_directory, output_path, input_dir_name)

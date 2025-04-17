@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://cthkdx2ums5qh"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_bu5vc"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_bu5vc"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_dlncq"]
 [ext_resource type="Resource" uid="uid://bev8wd5b13jhu" path="res://data/game_stages/phone_message/lisa_after_unblock/d_lisa_after_unblock.tres" id="2_n30nd"]
-[ext_resource type="Script" path="res://data/game_stages/phone_message/lisa_after_unblock/scripts/lisa_after_unblock.gd" id="3_uliwg"]
+[ext_resource type="Script" uid="uid://dpkutf7ub16gj" path="res://data/game_stages/phone_message/lisa_after_unblock/scripts/lisa_after_unblock.gd" id="3_uliwg"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="5_wjt8o"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_x7am4"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_x7am4"]
 
 [sub_resource type="Resource" id="Resource_sk7na"]
 script = ExtResource("6_x7am4")
@@ -20,6 +20,16 @@ dialogue = ExtResource("2_n30nd")
 dialogueStartKey = "START"
 isCompletable = true
 startingBackground = SubResource("Resource_sk7na")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -28,8 +38,10 @@ opponentName = ""
 opponentNamePlural = false
 maxRaise = 0
 pokerType = 0
+cheatCount = 0
 playerLives = 0
 cpuLives = 0
+cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
@@ -37,7 +49,19 @@ isPhoneMessageEvent = true
 phoneScript = ExtResource("3_uliwg")
 contactName = "Lisa"
 contactImage = ExtResource("1_dlncq")
+delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://d08hy8m7ysx30"]
 
-[ext_resource type="Script" path="res://src/date/DateMinigameDisplay.gd" id="1_kynup"]
+[ext_resource type="Script" uid="uid://c2evceb03giun" path="res://src/date/DateMinigameDisplay.gd" id="1_kynup"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_4gai5"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_j5wfl"]
 [ext_resource type="Texture2D" uid="uid://bs2uwidb2e6jk" path="res://data/assets/date/art/prog_bw_small.png" id="8_m04k3"]
@@ -80,9 +80,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25uq3"]
 _data = {
-"RESET": SubResource("Animation_omclh"),
-"date_success_in": SubResource("Animation_n5i6b"),
-"overlay_move": SubResource("Animation_ory2i")
+&"RESET": SubResource("Animation_omclh"),
+&"date_success_in": SubResource("Animation_n5i6b"),
+&"overlay_move": SubResource("Animation_ory2i")
 }
 
 [sub_resource type="Animation" id="Animation_mnoo1"]
@@ -250,8 +250,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g24rx"]
 _data = {
-"RESET": SubResource("Animation_mnoo1"),
-"intro_in": SubResource("Animation_f2b8l")
+&"RESET": SubResource("Animation_mnoo1"),
+&"intro_in": SubResource("Animation_f2b8l")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4etdm"]

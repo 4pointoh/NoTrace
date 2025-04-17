@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://c3dwqs6tljwbf"]
 
 [ext_resource type="Resource" uid="uid://dgrvqaswwdook" path="res://data/game_stages/vn/anna_burger_after_date/d_anna_burger_after_date.tres" id="1_4qylf"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_gygix"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_gygix"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_n537t"]
 [ext_resource type="Texture2D" uid="uid://cfxgw25atgdqq" path="res://data/background_lists/anna_burger/13.webp" id="4_868kn"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_v1nla"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_v1nla"]
 [ext_resource type="AudioStream" uid="uid://bd725vtbynaql" path="res://data/assets/general/sounds/bg_music/new/Drive & Date.mp3" id="6_rhq0r"]
 
 [sub_resource type="Resource" id="Resource_w7vfb"]
@@ -23,8 +23,8 @@ isCompletable = true
 startingBackground = SubResource("Resource_w7vfb")
 startTransitionText = ""
 startTransition = 0
-endTransitionText = ""
-endTransition = 0
+endTransitionText = "A Ride Home With Much To Think About"
+endTransition = 1
 middleTransitionText = ""
 middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])

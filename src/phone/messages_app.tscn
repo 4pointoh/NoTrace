@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://d3tjbs8klb0sh"]
 
-[ext_resource type="Script" path="res://src/phone/messages_app.gd" id="1_nop6m"]
+[ext_resource type="Script" uid="uid://crun72pdkotsa" path="res://src/phone/messages_app.gd" id="1_nop6m"]
 [ext_resource type="PackedScene" uid="uid://3n8lkyrp2q07" path="res://src/phone/available_message.tscn" id="2_pvtiw"]
 [ext_resource type="PackedScene" uid="uid://bu8pn0siowaf1" path="res://src/phone/message_image.tscn" id="4_74deq"]
 [ext_resource type="PackedScene" uid="uid://mqiy0ctslexr" path="res://src/phone/BlockedMessage.tscn" id="4_fqf6p"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bo16w2qyom2i4" path="res://src/phone/partner_status_message.tscn" id="6_7x5po"]
 [ext_resource type="PackedScene" uid="uid://bv7mv8sfe22i4" path="res://src/phone/message_text.tscn" id="6_os5er"]
 [ext_resource type="Texture2D" uid="uid://budgmygas074q" path="res://data/assets/phone/art/messages_background.png" id="6_qklb5"]
-[ext_resource type="Script" path="res://src/phone/MessageScreen.gd" id="6_us3ry"]
+[ext_resource type="Script" uid="uid://cbrldi5en371m" path="res://src/phone/MessageScreen.gd" id="6_us3ry"]
 [ext_resource type="PackedScene" uid="uid://drkv4n8chck8g" path="res://src/phone/phone_choice.tscn" id="7_gcin8"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="7_w7den"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="10_juhdj"]
@@ -80,10 +80,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tiln1"]
 _data = {
-"RESET": SubResource("Animation_pxicp"),
-"pop_down": SubResource("Animation_22lni"),
-"pop_up": SubResource("Animation_oi1ls"),
-"slide_in": SubResource("Animation_pfipv")
+&"RESET": SubResource("Animation_pxicp"),
+&"pop_down": SubResource("Animation_22lni"),
+&"pop_up": SubResource("Animation_oi1ls"),
+&"slide_in": SubResource("Animation_pfipv")
 }
 
 [node name="MessagesApp" type="Node2D"]
@@ -164,7 +164,7 @@ offset_bottom = 1609.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Choice"]
 libraries = {
-"": SubResource("AnimationLibrary_tiln1")
+&"": SubResource("AnimationLibrary_tiln1")
 }
 
 [node name="Respond" type="Button" parent="."]

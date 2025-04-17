@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterList" load_steps=7 format=3 uid="uid://dgmyww5jedldk"]
+[gd_resource type="Resource" script_class="CharacterList" load_steps=8 format=3 uid="uid://dgmyww5jedldk"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_35bq8"]
+[ext_resource type="Script" uid="uid://bqps2npunixed" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_35bq8"]
 [ext_resource type="Texture2D" uid="uid://ciibhty1crj25" path="res://data/characters/lisa/lisa_party/lisa_char.png" id="1_tqikm"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_ug7r1"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_ug7r1"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_6pryk"]
 [ext_resource type="Texture2D" uid="uid://dqy4uxchtstge" path="res://data/characters/you/protag_face.png" id="3_fukxu"]
 
 [sub_resource type="Resource" id="Resource_4ou3c"]
@@ -11,7 +12,7 @@ name = "Lisa"
 editorName = "Lisa"
 image = ExtResource("1_tqikm")
 color = Color(1, 1, 1, 1)
-states = Array[Resource("res://addons/dialogue_nodes/objects/CharacterState.gd")]([])
+states = Array[ExtResource("3_6pryk")]([])
 
 [sub_resource type="Resource" id="Resource_w2jic"]
 script = ExtResource("2_ug7r1")
@@ -19,7 +20,7 @@ name = "You"
 editorName = "You"
 image = ExtResource("3_fukxu")
 color = Color(1, 1, 1, 1)
-states = Array[Resource("res://addons/dialogue_nodes/objects/CharacterState.gd")]([])
+states = Array[ExtResource("3_6pryk")]([])
 
 [resource]
 script = ExtResource("1_35bq8")

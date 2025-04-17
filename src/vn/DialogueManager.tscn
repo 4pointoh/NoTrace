@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://b5aupfniotrg8"]
 
-[ext_resource type="Script" path="res://src/vn/DialogueManager.gd" id="1_74qok"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_f3hio"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_u7s3f"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_llgkf"]
+[ext_resource type="Script" uid="uid://bmg3p0ewr4rlh" path="res://src/vn/DialogueManager.gd" id="1_74qok"]
+[ext_resource type="Script" uid="uid://d27cs3spyfv8l" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_f3hio"]
+[ext_resource type="Script" uid="uid://ct0xl56vyl1c3" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_u7s3f"]
+[ext_resource type="Script" uid="uid://bm1gn7c1xnqhy" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_llgkf"]
 [ext_resource type="AudioStream" uid="uid://cu5y7ae0pqsdg" path="res://data/assets/general/sounds/sound.wav" id="5_75cai"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_xqga4"]
 

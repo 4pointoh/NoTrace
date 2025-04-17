@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://b7h73cw37mti4"]
 
 [ext_resource type="Resource" uid="uid://cuu34gp4641dt" path="res://data/game_stages/vn/lisa_park_training_after/d_lisa_park_training_after.tres" id="1_gyn60"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_x8jcv"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_x8jcv"]
 [ext_resource type="Resource" uid="uid://bfawa4sl645nm" path="res://data/game_stages/poker/lisa_park_training_poker/gs_lisa_park_training.tres" id="2_a2ysc"]
 [ext_resource type="Texture2D" uid="uid://dxfposttt784r" path="res://data/background_lists/lisa_park_training/lisa_park_training_14_date.png" id="4_u1bg8"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_ekryy"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_ekryy"]
 
 [sub_resource type="Resource" id="Resource_s34sf"]
 script = ExtResource("5_ekryy")

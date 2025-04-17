@@ -1,14 +1,14 @@
 [gd_scene load_steps=29 format=3 uid="uid://dq6wlnwk0sf8r"]
 
-[ext_resource type="Script" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
+[ext_resource type="Script" uid="uid://cc63lfak2dpt5" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
 [ext_resource type="PackedScene" uid="uid://btbl15a2lxka3" path="res://src/realdate/TopicChoice.tscn" id="1_x6s22"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="3_cvtb6"]
 [ext_resource type="Texture2D" uid="uid://gansk001bmaa" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_angry.png" id="4_jpju5"]
 [ext_resource type="PackedScene" uid="uid://c1exfswvnw0ee" path="res://src/realdate/SelectionResponse.tscn" id="4_rbodi"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_surd0"]
 [ext_resource type="PackedScene" uid="uid://7eknwjt6ga8k" path="res://src/realdate/RealDateResults.tscn" id="4_ym5pd"]
-[ext_resource type="Shader" path="res://src/realdate/Breathing.gdshader" id="5_esl2f"]
-[ext_resource type="Shader" path="res://src/date/ember.gdshader" id="5_slf51"]
+[ext_resource type="Shader" uid="uid://c7wpo02sf5ujk" path="res://src/realdate/Breathing.gdshader" id="5_esl2f"]
+[ext_resource type="Shader" uid="uid://c002r6r3x0rql" path="res://src/date/ember.gdshader" id="5_slf51"]
 [ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="5_xrx2g"]
 [ext_resource type="PackedScene" uid="uid://btqikqeqa6yqp" path="res://src/realdate/TopicToggle.tscn" id="7_2lbra"]
 [ext_resource type="AudioStream" uid="uid://xkmw5kkmmyrq" path="res://data/assets/realdate/sounds/clunk2.mp3" id="12_inwe3"]
@@ -298,13 +298,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ssdxh"]
 _data = {
-"Continue_Up": SubResource("Animation_so7cb"),
-"RESET": SubResource("Animation_36dix"),
-"choices_fall_in": SubResource("Animation_huv6v"),
-"choices_fall_out": SubResource("Animation_q5p8b"),
-"main_ui_in": SubResource("Animation_mm7rv"),
-"main_ui_out": SubResource("Animation_vkg6o"),
-"start_in": SubResource("Animation_1o4lj")
+&"Continue_Up": SubResource("Animation_so7cb"),
+&"RESET": SubResource("Animation_36dix"),
+&"choices_fall_in": SubResource("Animation_huv6v"),
+&"choices_fall_out": SubResource("Animation_q5p8b"),
+&"main_ui_in": SubResource("Animation_mm7rv"),
+&"main_ui_out": SubResource("Animation_vkg6o"),
+&"start_in": SubResource("Animation_1o4lj")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pse04"]
@@ -646,7 +646,7 @@ color = Color(1, 1, 1, 0.584314)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_ssdxh")
+&"": SubResource("AnimationLibrary_ssdxh")
 }
 
 [node name="TrackerBg2" type="NinePatchRect" parent="."]

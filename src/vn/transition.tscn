@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c0ronq3xhd3ic"]
 
-[ext_resource type="Script" path="res://src/vn/transition.gd" id="1_lhdhk"]
+[ext_resource type="Script" uid="uid://ch4newx48q3ub" path="res://src/vn/transition.gd" id="1_lhdhk"]
 [ext_resource type="Texture2D" uid="uid://c6nu8at3nsm2w" path="res://data/assets/general/art/nightcar1.png" id="1_pk2hq"]
 [ext_resource type="Texture2D" uid="uid://cd216lgilw3u1" path="res://data/assets/general/art/nightcar2.png" id="2_ryfbb"]
 [ext_resource type="Texture2D" uid="uid://d3qhxlvpp06hq" path="res://data/assets/general/art/recar2.png" id="3_hd3ij"]
@@ -108,9 +108,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qfslg"]
 _data = {
-"RESET": SubResource("Animation_18ld1"),
-"slide_in": SubResource("Animation_mrldq"),
-"slide_out": SubResource("Animation_hjqyj")
+&"RESET": SubResource("Animation_18ld1"),
+&"slide_in": SubResource("Animation_mrldq"),
+&"slide_out": SubResource("Animation_hjqyj")
 }
 
 [node name="Transition" type="ColorRect"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://iavytdq8vj5e"]
 
-[ext_resource type="Script" path="res://src/phone/wallpaper_selection.gd" id="1_4qr8k"]
+[ext_resource type="Script" uid="uid://bdw3bdqalnean" path="res://src/phone/wallpaper_selection.gd" id="1_4qr8k"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_inijm"]
 [ext_resource type="PackedScene" uid="uid://bu8pn0siowaf1" path="res://src/phone/message_image.tscn" id="3_ltwj1"]
 
@@ -53,9 +53,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hrack"]
 _data = {
-"RESET": SubResource("Animation_wxhw3"),
-"scroll_in_left": SubResource("Animation_qtchs"),
-"scroll_in_right": SubResource("Animation_kipwo")
+&"RESET": SubResource("Animation_wxhw3"),
+&"scroll_in_left": SubResource("Animation_qtchs"),
+&"scroll_in_right": SubResource("Animation_kipwo")
 }
 
 [node name="Wallpaper Selection" type="Control"]

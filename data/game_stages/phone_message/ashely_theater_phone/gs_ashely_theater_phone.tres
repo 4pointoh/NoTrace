@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c3rl67kfnx64c" path="res://data/characters/ashely/phone_icons/default.png" id="1_edq0c"]
 [ext_resource type="Resource" uid="uid://w3g4hddpdfus" path="res://data/game_stages/phone_message/ashely_theater_phone/d_ashely_theater_phone.tres" id="1_fvutj"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_pr1je"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_pr1je"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="3_hscnj"]
-[ext_resource type="Script" path="res://data/game_stages/phone_message/ashely_theater_phone/scripts/ashely_theater_phone.gd" id="4_vg8ix"]
+[ext_resource type="Script" uid="uid://buy86x8fagcpu" path="res://data/game_stages/phone_message/ashely_theater_phone/scripts/ashely_theater_phone.gd" id="4_vg8ix"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="6_y4ybi"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_l7u3a"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_l7u3a"]
 
 [sub_resource type="Resource" id="Resource_vuj1d"]
 script = ExtResource("7_l7u3a")
@@ -31,6 +31,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -52,6 +53,17 @@ contactName = "Ashely"
 contactImage = ExtResource("1_edq0c")
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

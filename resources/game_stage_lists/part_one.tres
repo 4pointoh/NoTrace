@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="GameStageList" load_steps=18 format=3 uid="uid://b2u1350o40y1c"]
+[gd_resource type="Resource" script_class="GameStageList" load_steps=19 format=3 uid="uid://b2u1350o40y1c"]
 
 [ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="1_je6vd"]
-[ext_resource type="Script" path="res://src/vn/GameStageList.gd" id="1_jtgnc"]
+[ext_resource type="Script" uid="uid://cs8427sxarr6r" path="res://src/vn/GameStageList.gd" id="1_jtgnc"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_k3gob"]
 [ext_resource type="Resource" uid="uid://dojlfqurdseox" path="res://data/game_stages/vn/pre_first_phone/gs_pre_first_phone.tres" id="2_ahj72"]
 [ext_resource type="Resource" uid="uid://c4vicjmmdrtmf" path="res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres" id="3_xwqg7"]
 [ext_resource type="Resource" uid="uid://w54iw46mgqvf" path="res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres" id="4_6d3ei"]
@@ -20,4 +21,4 @@
 
 [resource]
 script = ExtResource("1_jtgnc")
-gameStages = Array[Resource("res://src/vn/GameStage.gd")]([ExtResource("14_vlc4n"), ExtResource("4_6d3ei"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("5_egrgh"), ExtResource("1_je6vd"), ExtResource("6_lg514"), ExtResource("12_nl0sf"), ExtResource("13_6e3me"), ExtResource("19_64gdd"), ExtResource("18_2t30l"), ExtResource("17_0iwvh"), ExtResource("16_k7x25"), ExtResource("14_mc5km"), ExtResource("15_m6jy3"), ExtResource("16_d0n7r")])
+gameStages = Array[ExtResource("1_k3gob")]([ExtResource("14_vlc4n"), ExtResource("4_6d3ei"), ExtResource("2_ahj72"), ExtResource("3_xwqg7"), ExtResource("5_egrgh"), ExtResource("1_je6vd"), ExtResource("6_lg514"), ExtResource("12_nl0sf"), ExtResource("13_6e3me"), ExtResource("19_64gdd"), ExtResource("18_2t30l"), ExtResource("17_0iwvh"), ExtResource("16_k7x25"), ExtResource("14_mc5km"), ExtResource("15_m6jy3"), ExtResource("16_d0n7r")])

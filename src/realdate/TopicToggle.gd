@@ -26,5 +26,3 @@ func _on_button_pressed():
 	currentColor = color
 	$TextureRect.texture = RealDateColorHelper.getColorTexture(color)
 	%Icon.texture = RealDateColorHelper.getIconTexture(currentColor)
-
-

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://cg0cj1dkhtebm"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_o1uon"]
+
+[resource]
+script = ExtResource("1_o1uon")
+starts = {}
+nodes = {}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/poker/ashely_bar_poker/characters.tres"
+backgroundList = "res://data/game_stages/poker/ashely_bar_poker/bgs.tres"

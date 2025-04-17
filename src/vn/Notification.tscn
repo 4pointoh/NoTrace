@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cx4x2fdhktike"]
 
-[ext_resource type="Script" path="res://src/vn/Notification.gd" id="1_yatcg"]
+[ext_resource type="Script" uid="uid://v433fbpe57lq" path="res://src/vn/Notification.gd" id="1_yatcg"]
 [ext_resource type="Texture2D" uid="uid://m2h7k6nv1b2t" path="res://data/assets/phone/art/message_text_bg3_outline.png" id="2_rviwp"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_4bkkd"]
 
@@ -87,8 +87,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_06xtj"]
 _data = {
-"RESET": SubResource("Animation_acvm8"),
-"open": SubResource("Animation_av3iu")
+&"RESET": SubResource("Animation_acvm8"),
+&"open": SubResource("Animation_av3iu")
 }
 
 [node name="Container" type="Panel"]

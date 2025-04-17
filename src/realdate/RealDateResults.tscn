@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://7eknwjt6ga8k"]
 
-[ext_resource type="Script" path="res://src/realdate/RealDateResults.gd" id="1_sxh2v"]
-[ext_resource type="Shader" path="res://src/date/ember.gdshader" id="1_ujxat"]
+[ext_resource type="Script" uid="uid://ceg6we4ekd06v" path="res://src/realdate/RealDateResults.gd" id="1_sxh2v"]
+[ext_resource type="Shader" uid="uid://c002r6r3x0rql" path="res://src/date/ember.gdshader" id="1_ujxat"]
 [ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="2_wgpen"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="3_g173o"]
 [ext_resource type="PackedScene" uid="uid://mrwljxs7g0h8" path="res://src/realdate/ResultsEntry.tscn" id="4_634ag"]

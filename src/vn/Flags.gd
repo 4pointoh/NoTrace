@@ -17,3 +17,4 @@ var AMY_POKER_HALL_INTRO = load("res://data/game_stages/vn/amy_poker_hall_intro/
 var LISA_PARK_TRAINING = load("res://data/game_stages/vn/lisa_park_training/gs_lisa_park_training.tres")
 var ASHELY_THEATER = load("res://data/game_stages/vn/ashely_theater/gs_ashely_theater.tres")
 var ANNA_BURGER = load("res://data/game_stages/vn/anna_burger_before_date/gs_anna_burger_before_date.tres")
+var ASHELY_POKER = load("res://data/game_stages/vn/ashely_bar_before_poker/gs_ashely_bar_before_poker.tres")

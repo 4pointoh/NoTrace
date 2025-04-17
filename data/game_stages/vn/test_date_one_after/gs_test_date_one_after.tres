@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://6nyw1cl2ijhq"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_3wdxp"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_3wdxp"]
 [ext_resource type="Resource" uid="uid://fsiefncxnbel" path="res://data/game_stages/vn/test_date_one_after/d_test_date_one_after.tres" id="1_70edq"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_sk71i"]
 [ext_resource type="Texture2D" uid="uid://cp1rrkfmq7pir" path="res://data/background_lists/lisa_market/14.png" id="4_1hiex"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_l4qtg"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_l4qtg"]
 
 [sub_resource type="Resource" id="Resource_8wcai"]
 script = ExtResource("5_l4qtg")
@@ -29,6 +29,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -48,6 +49,7 @@ isPhoneMessageEvent = false
 contactName = ""
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
 isRealDate = false
 numberOfSelections = 0
 firstRoundGuesses = 6

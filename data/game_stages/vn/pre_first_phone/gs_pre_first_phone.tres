@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://dojlfqurdseox"]
 
 [ext_resource type="Resource" uid="uid://bblqs2uscxmaf" path="res://data/game_stages/vn/pre_first_phone/d_pre_first_phone3.tres" id="1_awppp"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_n3twa"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_n3twa"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_ao0i1"]
 [ext_resource type="Texture2D" uid="uid://dnamx31mwj3es" path="res://data/background_lists/chads_party/backgrounds/intro_bg10.png" id="4_4g627"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_ob0p6"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_ob0p6"]
 
 [sub_resource type="Resource" id="Resource_ufswm"]
 script = ExtResource("5_ob0p6")

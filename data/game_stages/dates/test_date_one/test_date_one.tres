@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://dtba14boawfr2"]
 
-[ext_resource type="Script" path="res://data/game_stages/dates/test_date_one/scripts/test_date_one_script.gd" id="1_74k46"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_l2u0r"]
+[ext_resource type="Script" uid="uid://yah2rusn16d0" path="res://data/game_stages/dates/test_date_one/scripts/test_date_one_script.gd" id="1_74k46"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_l2u0r"]
 [ext_resource type="Texture2D" uid="uid://30mo4432qtmc" path="res://data/background_lists/dates/test_date_one/1.png" id="2_km7xt"]
 [ext_resource type="Resource" uid="uid://b6lucidx2xlit" path="res://data/game_stages/dates/test_date_one/d_test_date_one.tres" id="2_qbbgj"]
 [ext_resource type="Resource" uid="uid://6nyw1cl2ijhq" path="res://data/game_stages/vn/test_date_one_after/gs_test_date_one_after.tres" id="2_v3nar"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="3_4q7tw"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="3_4q7tw"]
 [ext_resource type="AudioStream" uid="uid://brhyu14of4pna" path="res://data/assets/general/sounds/bg_music/Cafe Serenade ext v1.2.mp3" id="7_upwt0"]
 
 [sub_resource type="Resource" id="Resource_nbvoo"]
@@ -30,6 +30,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -50,6 +51,17 @@ contactName = ""
 startingMusic = ExtResource("7_upwt0")
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = true
 dateScript = ExtResource("1_74k46")
 dateWinGameStage = ExtResource("2_v3nar")

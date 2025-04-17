@@ -207,6 +207,7 @@ func getAvailableSelectableEvents():
 	if completedStages.has('ana_phone_intro'):
 		addSelectableEvent(Flags.ANNA_BURGER)
 
+	addSelectableEvent(Flags.ASHELY_POKER)
 	
 	return availableSelectableEvents
 

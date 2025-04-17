@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://da4kpoevl51cg"]
 
-[ext_resource type="Script" path="res://src/poker/PokerAnimationController.gd" id="1_7vgsb"]
+[ext_resource type="Script" uid="uid://dkatc3p4assj4" path="res://src/poker/PokerAnimationController.gd" id="1_7vgsb"]
 
 [sub_resource type="Theme" id="Theme_6im35"]
 default_font_size = 50
@@ -62,8 +62,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7sirc"]
 _data = {
-"RESET": SubResource("Animation_jmumj"),
-"show": SubResource("Animation_stswv")
+&"RESET": SubResource("Animation_jmumj"),
+&"show": SubResource("Animation_stswv")
 }
 
 [node name="PokerAnimationController" type="Control"]

@@ -2,10 +2,10 @@
 
 [ext_resource type="Resource" uid="uid://b08ffmkixtdxk" path="res://data/game_stages/poker/intro_poker/d_intro_poker2.tres" id="1_j7swu"]
 [ext_resource type="Resource" uid="uid://w54iw46mgqvf" path="res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres" id="2_5p35v"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_7o570"]
-[ext_resource type="Script" path="res://data/game_stages/poker/intro_poker/scripts/intro_poker_script.gd" id="3_t5rkp"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_7o570"]
+[ext_resource type="Script" uid="uid://b0jgwumural7m" path="res://data/game_stages/poker/intro_poker/scripts/intro_poker_script.gd" id="3_t5rkp"]
 [ext_resource type="Texture2D" uid="uid://emhyfmn6ynmc" path="res://data/background_lists/chads_party/backgrounds/pok1.png" id="5_ml0wf"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_5hfir"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_5hfir"]
 [ext_resource type="AudioStream" uid="uid://ck8wqkmvk3m4t" path="res://data/assets/general/sounds/bg_music/poker.mp3" id="7_yvd5w"]
 
 [sub_resource type="Resource" id="Resource_n3qja"]
@@ -31,6 +31,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = true
 playerStartingMoney = 200
 cpuStartingMoney = 200
@@ -52,6 +53,17 @@ contactName = ""
 startingMusic = ExtResource("7_yvd5w")
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

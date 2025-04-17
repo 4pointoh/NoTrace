@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://m0y24r0kwcx3"]
 
-[ext_resource type="Script" path="res://src/vn/CharacterUnlockPanel.gd" id="1_2bkw8"]
+[ext_resource type="Script" uid="uid://cfpm0iqpurryq" path="res://src/vn/CharacterUnlockPanel.gd" id="1_2bkw8"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_6iyyx"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_et2i3"]
 [ext_resource type="Texture2D" uid="uid://dbljakfpthshc" path="res://data/assets/date/art/transparent_pink_rounded_rect_8px9patch.png" id="2_xsqw1"]
@@ -200,8 +200,8 @@ tracks/8/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0k8ri"]
 _data = {
-"RESET": SubResource("Animation_gewnk"),
-"animate": SubResource("Animation_uapa7")
+&"RESET": SubResource("Animation_gewnk"),
+&"animate": SubResource("Animation_uapa7")
 }
 
 [node name="CharacterUnlockPanel" type="Node2D"]
@@ -314,7 +314,7 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_0k8ri")
+&"": SubResource("AnimationLibrary_0k8ri")
 }
 
 [node name="Clipper2" type="Control" parent="."]

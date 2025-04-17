@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://vdc3u66kp7o5"]
+
+[ext_resource type="Resource" uid="uid://cg0cj1dkhtebm" path="res://data/game_stages/poker/ashely_bar_poker/d_ashely_bar_poker.tres" id="1_hb136"]
+[ext_resource type="Script" uid="uid://bkbewv5e3qvgs" path="res://data/game_stages/poker/ashely_bar_poker/ashely_bar_poker_poker_script.gd" id="2_o74ht"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_t8ek0"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_g3yo7"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="5_7k1rf"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_tk7ji"]
+
+[sub_resource type="Resource" id="Resource_c2knn"]
+script = ExtResource("6_tk7ji")
+name = "daed"
+images = ExtResource("5_7k1rf")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("3_g3yo7")
+name = "ashely_bar_poker"
+displayName = "Ashely Bar - Poker"
+dialogue = ExtResource("1_hb136")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_t8ek0")
+isCompletable = true
+startingBackground = SubResource("Resource_c2knn")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Ashely"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 0
+cheatCount = 1
+playerLives = 10
+cpuLives = 10
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+pokerScript = ExtResource("2_o74ht")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+delayMusicToTransition = false
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

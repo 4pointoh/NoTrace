@@ -1,14 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://br02jckpvwrfq"]
 
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_7m23s"]
-[ext_resource type="Script" path="res://src/phone/DateConnectChoice.gd" id="1_r53dv"]
+[ext_resource type="Script" uid="uid://dqjrp6yq4yu86" path="res://src/phone/DateConnectChoice.gd" id="1_r53dv"]
 [ext_resource type="Texture2D" uid="uid://qk3xf1xkcfoc" path="res://data/assets/realdate/stage_art/beach.webp" id="3_asrh7"]
 [ext_resource type="Texture2D" uid="uid://dkrubvyqxn7hi" path="res://data/assets/realdate/photo.webp" id="3_mt5dy"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_rnysh"]
 [ext_resource type="Texture2D" uid="uid://yvjjpit5x7q" path="res://data/assets/realdate/heart.png" id="6_pa75b"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nei3d"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifv66"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -22,6 +19,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nei3d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="DateConnectChoice" type="Control"]
 custom_minimum_size = Vector2(400, 400)
@@ -138,7 +138,7 @@ offset_left = 9.0
 offset_top = 9.0
 offset_right = 376.0
 offset_bottom = 377.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_nei3d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ifv66")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nei3d")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

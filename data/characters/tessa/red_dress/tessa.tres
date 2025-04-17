@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://dc011kstn88ot"]
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://dc011kstn88ot"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_o4lnn"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_o4lnn"]
 [ext_resource type="Texture2D" uid="uid://di1gvryfm34dy" path="res://data/characters/tessa/red_dress/face.png" id="1_tgg0h"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_6pq6u"]
 
 [resource]
 script = ExtResource("1_o4lnn")
@@ -9,4 +10,4 @@ name = "Tessa"
 editorName = "Tessa_dress"
 image = ExtResource("1_tgg0h")
 color = Color(1, 1, 1, 1)
-states = Array[Resource("res://addons/dialogue_nodes/objects/CharacterState.gd")]([])
+states = Array[ExtResource("3_6pq6u")]([])

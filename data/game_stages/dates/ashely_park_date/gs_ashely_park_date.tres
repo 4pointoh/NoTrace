@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://cow1ul70kxhmm"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_82hcq"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_82hcq"]
 [ext_resource type="Resource" uid="uid://drycrb7uvh7fj" path="res://data/game_stages/dates/ashely_park_date/d_ashely_park_date.tres" id="1_amqn4"]
-[ext_resource type="Script" path="res://data/game_stages/dates/ashely_park_date/scripts/ashely_park_date_script.gd" id="1_d8fdh"]
+[ext_resource type="Script" uid="uid://36r55tablkkp" path="res://data/game_stages/dates/ashely_park_date/scripts/ashely_park_date_script.gd" id="1_d8fdh"]
 [ext_resource type="Resource" uid="uid://dd34ecbgq64q6" path="res://data/game_stages/vn/ashely_first_park_date_after/gs_ashely_first_park_date.tres" id="2_sdj2d"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_bknb3"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_bknb3"]
 [ext_resource type="Texture2D" uid="uid://bf55oyrmblf41" path="res://data/background_lists/dates/ashe_park_date/date/13.png" id="5_rysrt"]
 [ext_resource type="AudioStream" uid="uid://cwx5b51tjejid" path="res://data/assets/general/sounds/bg_music/Echoes of Serenity remix v2 ext v1.1.mp3" id="6_lbyhg"]
 
@@ -30,6 +30,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String](["ashely_first_park_date"])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -50,6 +51,17 @@ contactName = ""
 startingMusic = ExtResource("6_lbyhg")
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = true
 dateScript = ExtResource("1_d8fdh")
 dateWinGameStage = ExtResource("2_sdj2d")

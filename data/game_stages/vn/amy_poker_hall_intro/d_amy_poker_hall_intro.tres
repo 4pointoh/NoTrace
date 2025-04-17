@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bq1p27kolfv6s"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_2vrgf"]
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_2vrgf"]
 
 [resource]
 script = ExtResource("1_2vrgf")
@@ -241,7 +241,7 @@ nodes = {
 "background": 0,
 "backgroundList": 0,
 "characterState": -1,
-"dialogue": "A distinctly purple woman walks up the bar. ",
+"dialogue": "An obviously very rich woman walks up the bar. ",
 "offset": Vector2(9160, 180),
 "options": {
 0: {

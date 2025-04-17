@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmhnmn0imk4df"]
 
-[ext_resource type="Script" path="res://src/vn/Background.gd" id="1_jg27e"]
+[ext_resource type="Script" uid="uid://bwxf10dwhsliq" path="res://src/vn/Background.gd" id="1_jg27e"]
 [ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="2_sbf2l"]
 
 [sub_resource type="Animation" id="Animation_xy1k7"]
@@ -66,10 +66,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53abx"]
 _data = {
-"RESET": SubResource("Animation_xy1k7"),
-"fade": SubResource("Animation_rjx5v"),
-"fade_quick": SubResource("Animation_eohq3"),
-"fade_quick_2": SubResource("Animation_y765q")
+&"RESET": SubResource("Animation_xy1k7"),
+&"fade": SubResource("Animation_rjx5v"),
+&"fade_quick": SubResource("Animation_eohq3"),
+&"fade_quick_2": SubResource("Animation_y765q")
 }
 
 [node name="Background" type="Control"]
@@ -111,7 +111,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_53abx")
+&"": SubResource("AnimationLibrary_53abx")
 }
 
 [node name="FadeTimer" type="Timer" parent="."]

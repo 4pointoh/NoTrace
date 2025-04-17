@@ -2,19 +2,19 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'anna_burger_date'
+	var gamestageName = 'ashely_bar_poker'
 	
 	var backgroundLists: Array[String] = [
 		'res://data/background_lists/home/home_bgl.tres',
-		'res://data/background_lists/anna_burger/anna_burger.tres'
+		'res://data/background_lists/ashely_bar_poker/ashely_bar_poker.tres'
 	]
 	
 	var characters: Array[String] = [
 		'res://data/characters/you/you.tres',
-		"res://data/characters/anna/anna_sweater/anna_sweater.tres"
+		"res://data/characters/ashely/ashely_tshirt_new/ashely_tshirt_new.tres"
 	]
 	
-	var type = "date" #vn, poker, date, phonemessage, special
+	var type = "poker" #vn, poker, date, phonemessage, special
 	var output_path: String = "res://data/game_stages/"    
 	
 	if type == "vn":
