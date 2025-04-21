@@ -11,3 +11,4 @@ enum ACTION_RESULTS {
 @export var shouldHidePoker : bool
 @export var shouldPausePoker : bool
 @export var dialogueStartKey : String
+@export var restoreImageOnCompletion : bool

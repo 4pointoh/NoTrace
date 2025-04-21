@@ -140,6 +140,7 @@ func processCurrentStage():
 		processGameComplete();
 
 func processStartPressed():
+	%Skip.hide()
 	processCurrentStage()
 
 func processPreGameStart():

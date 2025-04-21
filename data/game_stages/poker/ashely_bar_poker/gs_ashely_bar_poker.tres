@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://vdc3u66kp7o5"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://vdc3u66kp7o5"]
 
 [ext_resource type="Resource" uid="uid://cg0cj1dkhtebm" path="res://data/game_stages/poker/ashely_bar_poker/d_ashely_bar_poker.tres" id="1_hb136"]
 [ext_resource type="Script" uid="uid://bkbewv5e3qvgs" path="res://data/game_stages/poker/ashely_bar_poker/ashely_bar_poker_poker_script.gd" id="2_o74ht"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_t8ek0"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_g3yo7"]
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="5_7k1rf"]
+[ext_resource type="Texture2D" uid="uid://bgaoeucampjo8" path="res://data/background_lists/ashely_bar_poker/100.webp" id="5_7k1rf"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_tk7ji"]
+[ext_resource type="AudioStream" uid="uid://c00guweaypf78" path="res://data/assets/general/sounds/bg_music/Untitled(2).mp3" id="7_7k1rf"]
 
 [sub_resource type="Resource" id="Resource_c2knn"]
 script = ExtResource("6_tk7ji")
@@ -32,6 +33,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 1
 isPokerMatch = true
 playerStartingMoney = 200
 cpuStartingMoney = 200
@@ -40,16 +42,17 @@ opponentName = "Ashely"
 opponentNamePlural = false
 maxRaise = 40
 pokerType = 0
-cheatCount = 1
-playerLives = 10
-cpuLives = 10
+cheatCount = 20
+playerLives = 20
+cpuLives = 20
 cpuRandomDiscardChance = 0
-playerLivesWithEvents = Array[int]([])
-cpuLivesWithEvents = Array[int]([])
+playerLivesWithEvents = Array[int]([5, 10, 15, 19])
+cpuLivesWithEvents = Array[int]([3, 6, 9, 12, 15, 19])
 pokerScript = ExtResource("2_o74ht")
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("7_7k1rf")
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0

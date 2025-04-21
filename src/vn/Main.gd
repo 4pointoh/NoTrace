@@ -10,6 +10,7 @@ var currentStageIsLoaded = false
 var forcePhoneStage = false
 var isSkipping = false
 var inTransition = false
+var imageToRestoreOnDialogueEnd : Background = null
 
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
@@ -169,6 +170,9 @@ func beginStage():
 	dontAutoAdvance = false
 	$DialogueManager.clearCurrentBg()
 	$DialogueManager.setDialogueData(GlobalGameStage.currentStage.dialogue)
+
+	if GlobalGameStage.currentStage.repositionDialogueBoxTo != DialogueManager.DboxPosition.NO_CHANGE:
+		$DialogueManager.setDialogueBoxPosition(GlobalGameStage.currentStage.repositionDialogueBoxTo)
 	
 	print('ENTERING STAGE: ' + GlobalGameStage.currentStage.name)
 	if GlobalGameStage.currentStage.isPokerMatch:
@@ -330,6 +334,10 @@ func _on_dialogue_manager_dialogue_ended():
 		GlobalGameStage.setPhoneGameStage()
 		beginStage()
 	elif validPokerGameRunning():
+		if imageToRestoreOnDialogueEnd:
+			$Background.setBackground(imageToRestoreOnDialogueEnd)
+			imageToRestoreOnDialogueEnd = null
+
 		$Background.enableZoomPan()
 		currentPokerGame.show()
 		currentPokerGame.removeDialoguePause()
@@ -347,13 +355,18 @@ func validPokerGameRunning():
 
 func _on_poker_game_five_game_paused():
 	var nextAction = currentPokerGame.nextPokerAction
+
+	if nextAction.restoreImageOnCompletion:
+		imageToRestoreOnDialogueEnd = $Background.background
+	else:
+		imageToRestoreOnDialogueEnd = null
+
 	if nextAction.actionResult == PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE:
 		$Background.disableZoomPan()
 
 		if nextAction.shouldHidePoker:
 			currentPokerGame.hide()
-			
-		$DialogueManager.setDialogueBoxBottom()
+
 		$DialogueManager.startDialogue(nextAction.dialogueStartKey)
 
 func _on_poker_game_five_game_lost():

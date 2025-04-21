@@ -18,6 +18,7 @@ class_name GameStage
 @export var markStagesCompleteOnSceneEnd : Array[String]
 @export var unlockWallpapersOnSceneEnd: Array[String]
 @export var cacheItems : Array[String]
+@export var repositionDialogueBoxTo : DialogueManager.DboxPosition = DialogueManager.DboxPosition.NO_CHANGE
 
 # Poker
 @export var isPokerMatch : bool

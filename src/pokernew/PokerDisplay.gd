@@ -116,12 +116,12 @@ func processClearBoard():
 	clearBoardAnimationComplete()
 
 func processDeal(playerCards2, cpuCards2):
-	var PLAYER_CARD_Y_POS = 850
+	var PLAYER_CARD_Y_POS = 900
 	var PLAYER_CARD_X_START_POS = 1000
-	var CPU_CARD_Y_POS = 200
+	var CPU_CARD_Y_POS = 125
 	var CPU_CARD_X_START_POS = -100
 	var FIRST_CARD_X_POS = 100
-	var CARD_SPACING = 167  # Space between each card
+	var CARD_SPACING = 175  # Space between each card
 	var ANIMATION_DURATION = 0.3  # Duration for each card movement
 	var DELAY_BETWEEN_CARDS = 0.1  # Delay before next card starts moving
 	
@@ -193,12 +193,13 @@ func processPostDiscard(playerCards2, cpuCards2):
 	stageComplete.emit()
 
 func processRedraw(playerCards2, cpuCards2):
-	var PLAYER_CARD_Y_POS = 850
+	var PLAYER_CARD_Y_POS = 900
 	var PLAYER_CARD_X_START_POS = 1000
-	var CPU_CARD_Y_POS = 200
+	var CPU_CARD_Y_POS = 125
 	var CPU_CARD_X_START_POS = -100
 	var FIRST_CARD_X_POS = 100
-	var CARD_SPACING = 167
+
+	var CARD_SPACING = 175
 	var ANIMATION_DURATION = 0.3
 	var DELAY_BETWEEN_CARDS = 0.1
 	
@@ -338,10 +339,10 @@ func gameCompleteAnimationComplete():
 	gameComplete.emit()
 	
 func displayCheat(playerCards2):
-	var PLAYER_CARD_Y_POS = 850
+	var PLAYER_CARD_Y_POS = 900
 	var PLAYER_CARD_X_START_POS = 1000
 	var FIRST_CARD_X_POS = 100
-	var CARD_SPACING = 167
+	var CARD_SPACING = 175
 	var ANIMATION_DURATION = 0.3
 	var DELAY_BETWEEN_CARDS = 0.1
 
@@ -385,7 +386,7 @@ func _on_discard_pressed():
 	var PLAYER_MOVE_OFF_POSITION = Vector2(1200, 850)  # Right side
 	var CPU_MOVE_OFF_POSITION = Vector2(1200, 100)     # Right side but at CPU height
 	var FIRST_CARD_X_POS = 100
-	var CARD_SPACING = 167
+	var CARD_SPACING = 175
 
 	%AudioStreamPlayer2D.stream = load("res://data/assets/poker/sounds/discard_sound.mp3")
 	%AudioStreamPlayer2D.play()
