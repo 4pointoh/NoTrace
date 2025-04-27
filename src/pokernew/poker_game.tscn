@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnd677crdakvo"]
+[gd_scene load_steps=18 format=3 uid="uid://dnd677crdakvo"]
 
 [ext_resource type="Script" uid="uid://qxdo2crqyu5e" path="res://src/pokernew/poker_game.gd" id="1_haorf"]
 [ext_resource type="Script" uid="uid://dslhhjk1qq2d3" path="res://src/pokernew/PokerDisplay.gd" id="2_n8c77"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="3_i4s7q"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_dai1u"]
 [ext_resource type="PackedScene" uid="uid://cxjkkyt53huvr" path="res://src/pokernew/life_tracker.tscn" id="6_akmyq"]
+[ext_resource type="PackedScene" uid="uid://dqgpk6g0igcli" path="res://src/pokernew/Hints.tscn" id="7_m6qfe"]
+[ext_resource type="PackedScene" uid="uid://cci6mujrkijn" path="res://src/pokernew/PokerModeSelect.tscn" id="8_jfo4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y20me"]
 bg_color = Color(0, 0, 0, 1)
@@ -419,6 +421,14 @@ offset_top = 330.0
 offset_right = 106.0
 offset_bottom = 579.0
 
+[node name="Hints" parent="PokerDisplay" instance=ExtResource("7_m6qfe")]
+unique_name_in_owner = true
+position = Vector2(26, 579)
+
+[node name="PokerModeSelect" parent="PokerDisplay" instance=ExtResource("8_jfo4i")]
+unique_name_in_owner = true
+position = Vector2(511, 578)
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PokerDisplay"]
 unique_name_in_owner = true
 volume_db = 10.757
@@ -430,3 +440,4 @@ volume_db = 10.757
 [connection signal="pressed" from="PokerDisplay/Skip" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PokerDisplay/Cheat" to="PokerDisplay" method="_on_cheat_pressed"]
 [connection signal="animation_finished" from="PokerDisplay/AnimationPlayer" to="PokerDisplay" method="_on_animation_player_animation_finished"]
+[connection signal="selectedMode" from="PokerDisplay/PokerModeSelect" to="." method="_on_poker_mode_select_selected_mode"]

@@ -29,6 +29,11 @@ func _ready():
 	%AnimationPlayer.play("intro_label_in")
 	%IntroBg.show()
 	%IntroLabel.show()
+	%PokerModeSelect.show()
+	if GlobalGameStage.stageHasHints():
+		%Hints.show()
+	else:
+		%Hints.hide()
 
 func _on_animation_player_animation_finished(anim_name):
 	pass # Replace with function body.
@@ -82,6 +87,7 @@ func processPreRoundStart():
 	%TheirLivesNew.show()
 	%YourLives.show()
 	%TheirLives.show()
+
 	preRoundStartAnimationComplete()
 
 func processClearBoard():
@@ -492,6 +498,8 @@ func _on_start_pressed():
 	%Start.hide()
 	%IntroBg.hide()
 	%IntroLabel.hide()
+	%Hints.hide()
+	%PokerModeSelect.hide ()
 	startPressed.emit()
 
 func cardSelected(index, selected):

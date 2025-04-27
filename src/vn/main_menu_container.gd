@@ -117,7 +117,7 @@ func _on_slow_button_pressed():
 	setCurrentSpeedText()
 
 func _on_fast_button_pressed():
-	GlobalGameStage.setSkipSpeed(0.1)
+	GlobalGameStage.setSkipSpeed(0.07)
 	setCurrentSpeedText()
 
 func _on_extreme_button_pressed():
@@ -125,17 +125,17 @@ func _on_extreme_button_pressed():
 	setCurrentSpeedText()
 
 func _on_recommended_button_pressed():
-	GlobalGameStage.setSkipSpeed(0.15)
+	GlobalGameStage.setSkipSpeed(0.1)
 	setCurrentSpeedText()
 
 func setCurrentSpeedText():
 	if GlobalGameStage.skip_speed == 0.2:
 		%CurrentSpeed.text = 'Current: Slow'
-	elif GlobalGameStage.skip_speed == 0.1:
+	elif GlobalGameStage.skip_speed == 0.07:
 		%CurrentSpeed.text = 'Current: Fast'
 	elif GlobalGameStage.skip_speed == 0.02:
 		%CurrentSpeed.text = 'Current: Extreme'
-	elif GlobalGameStage.skip_speed == 0.12:
+	elif GlobalGameStage.skip_speed == 0.1:
 		%CurrentSpeed.text = 'Current: Recommended'
 
 

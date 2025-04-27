@@ -131,7 +131,7 @@ nodes = {
 },
 &"0_27": {
 "link": &"1_782",
-"offset": Vector2(-9360, 21040),
+"offset": Vector2(-9640, 20920),
 "start_id": "ASHE_STRIP_ALL"
 },
 &"0_3": {
@@ -8582,7 +8582,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300, 586),
 "speaker": 1
 },
 &"1_573": {
@@ -12374,7 +12374,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_787": {
@@ -12390,7 +12390,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_79": {
@@ -13026,6 +13026,11 @@ nodes = {
 "offset": Vector2(-3701.97, 19935.4),
 "signalValue": "reposition_top"
 },
+&"3_148": {
+"link": &"1_492",
+"offset": Vector2(776.319, 16857.8),
+"signalValue": "music_passion"
+},
 &"3_15": {
 "link": &"1_77",
 "offset": Vector2(2560, 3240),
@@ -13352,7 +13357,7 @@ nodes = {
 "signalValue": "fade_next"
 },
 &"3_74": {
-"link": &"1_492",
+"link": &"3_148",
 "offset": Vector2(325.642, 16865.9),
 "signalValue": "fade_next"
 },

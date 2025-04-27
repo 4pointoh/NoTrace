@@ -249,7 +249,7 @@ func addImage(image):
 
 func startDialogue(key):
 	if(!skipping):
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1.5).timeout
 	beginDialogue.emit(key)
 
 func setDialogueEnded():

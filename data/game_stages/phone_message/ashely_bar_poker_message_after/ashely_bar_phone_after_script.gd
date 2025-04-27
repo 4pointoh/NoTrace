@@ -3,15 +3,15 @@ extends PhoneScript
 var actions = [
 	{
 		"type": "partner_text",
-		"content": "Text me when you're home."
+		"content": "Text me when you're home from the bar."
 	},
 	{
 		"type": "player_text",
-		"content": "What's up? Did you just get home from the bar? Safe and sound?"
+		"content": "I'm home. Did you get back safe and sound?"
 	},
 	{
 		"type": "partner_text",
-		"content": "I wouldn't be texting you if I wasn't."
+		"content": "I wouldn't be texting you if I didn't."
 	},
 	{
 		"type": "player_text",
@@ -19,7 +19,10 @@ var actions = [
 	},
 	{
 		"type": "player_text",
-		"content": "So why are you texting me? It's 3am. You stil have energy after all that we did at the bar?"
+		"content": "So why are you texting me? It's 3am. You stil have energy after the night we had?"
+	},
+	{
+		"type": "partner_delay"
 	},
 	{
 		"type": "partner_delay"
@@ -30,7 +33,7 @@ var actions = [
 	},
 	{
 		"type": "partner_text",
-		"content": "That was fun. At the bar."
+		"content": "Tonight was fun."
 	},
 	{
 		"type": "player_text",
@@ -49,8 +52,11 @@ var actions = [
 		"content": "... you are actually clueless. I wasn't talking about the scheme."
 	},
 	{
+		"type": "partner_delay"
+	},
+	{
 		"type": "partner_text",
-		"content": "Listen up. It's 3am. I'm going to regret this when I wake up."
+		"content": "Ugh... I'm going to regret this when I wake up."
 	},
 	{
 		"type": "partner_text",
@@ -60,6 +66,10 @@ var actions = [
 		"type": "partner_delay"
 	},
 	{
+		"type": "partner_text",
+		"content": "Just look."
+	},
+	{
 		"type": "image",
 		"path": "res://data/wallpapers/ashely_selfie1.png",
 		"wallpaperUnlock": ["ASHELY_SELFIE1"]
@@ -67,10 +77,6 @@ var actions = [
 	{
 		"type": "player_text",
 		"content": "Holy. Shit."
-	},
-	{
-		"type": "partner_text",
-		"content": "Couldn't sleep after..."
 	},
 	{
 		"type": "partner_delay"
@@ -97,7 +103,11 @@ var actions = [
 	},
 	{ 
 		"type": "partner_text",
-		"content": "Goodnight."
+		"content": "And I'm still going to crush you in our rematch."
+	},
+	{ 
+		"type": "partner_text",
+		"content": "I'll text you soon."
 	},
 	{
 		"type": "complete"

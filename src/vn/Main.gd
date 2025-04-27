@@ -44,6 +44,10 @@ func _ready():
 	GlobalGameStage.startMusicSignal.connect(_handle_play_music)
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/title.mp3"), true)
 
+	if DisplayServer.screen_get_size().y <= 1152:
+		DisplayServer.window_set_size(Vector2i(448, 576))
+		%SmallResolution.show()
+
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
 	
@@ -127,12 +131,26 @@ func toggleUi():
 	
 	$DialogueManager.toggleUi()
 
+func playSceneMusic():
+	if GlobalGameStage.currentStage.randomMusic.size() > 0:
+		var randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
+
+		var newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
+
+		while $AudioStreamPlayer2D.stream == newStream:
+			randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
+			newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
+
+		playBgMusic(GlobalGameStage.currentStage.randomMusic[randomIndex])
+	elif GlobalGameStage.currentStage.startingMusic:
+		playBgMusic(GlobalGameStage.currentStage.startingMusic)
+
 func beginMidSceneTransition():
 	disableInput()
 	$DialogueManager.disableDialogueProgression()
 
 	if GlobalGameStage.currentStage.delayMusicToTransition:
-		playBgMusic(GlobalGameStage.currentStage.startingMusic)
+		playSceneMusic()
 
 	if !isSkipping and GlobalGameStage.currentStage.middleTransition:
 		inTransition = true
@@ -198,7 +216,7 @@ func beginStage():
 			$DialogueManager.toggleUi()
 	
 	if GlobalGameStage.currentStage.startingMusic and not GlobalGameStage.currentStage.delayMusicToTransition:
-		playBgMusic(GlobalGameStage.currentStage.startingMusic)
+		playSceneMusic()
 
 func inPhoneScene():
 	return is_instance_valid(currentPhone) && currentPhone
@@ -261,6 +279,7 @@ func hideTitleStuff():
 	$Title.visible = false
 	$SceneSelect.visible = false
 	$Gallery.visible = false
+	%SmallResolution.visible = false
 
 func _handle_play_music(music):
 	playBgMusic(load(music))
@@ -288,6 +307,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"unlock_char_anna": unlockChar(GlobalGameStage.CHARACTERS.ANA)
 		"end_unlock_sequence": endUnlockSequence()
 		"unlock_lisa_cat_convo": unlockLisaCatConvo()
+		"music_passion": playMusicPassion()
 
 func videoPause():
 	isVideoPause = true
@@ -308,6 +328,9 @@ func playMusicWhimsical():
 
 func playMusicNeonLights():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/new/Untitled(11).mp3"))
+
+func playMusicPassion():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/passion.mp3"))
 
 func fadeNext():
 	$Background.shouldFade = true
@@ -375,6 +398,7 @@ func _on_poker_game_five_game_lost():
 	remove_child(currentPokerGame)
 	currentPokerGame.queue_free()
 	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+	playSceneMusic()
 	startNewPoker()
 
 func _on_poker_game_five_game_won():
@@ -384,9 +408,12 @@ func _on_poker_game_five_game_won():
 func _on_date_dialogue_start(key):
 	$DialogueManager.startDialogue(key)
 
-func _on_date_complete(success, dialogueKey = null):
+func _on_date_complete(success, dialogueKey = null, retry = false):
 	currentDate.queue_free()
-	if(success):
+	if(retry):
+		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage)
+		advanceGameStage()
+	elif(success):
 		GlobalGameStage.setDateComplete()
 		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.dateWinGameStage)
 		advanceGameStage()

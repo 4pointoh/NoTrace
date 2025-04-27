@@ -15,6 +15,10 @@ var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
 
+# Poker stages by wins and losses
+var pokerStageHistory = {}
+
+
 # State Variables
 var askedAboutLyric = false
 
@@ -48,7 +52,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 008
+const VERSION = 010
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -290,6 +294,7 @@ func savePersistentData():
 	file.store_var(VERSION)
 	file.store_var(unlockedWallpapers)
 	file.store_var(completedStagesGLOBAL)
+	file.store_var(pokerStageHistory)
 
 func loadPersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.READ)
@@ -297,6 +302,11 @@ func loadPersistentData():
 		var saveVersion = file.get_var()
 		unlockedWallpapers.assign(file.get_var())
 		completedStagesGLOBAL.assign(file.get_var())
+		
+		if (saveVersion > 009):
+			pokerStageHistory = file.get_var()
+		else:
+			pokerStageHistory = {}
 
 func saveSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.WRITE)
@@ -409,8 +419,9 @@ func loadSaveData(saveName):
 			askedAboutLyric = file.get_var()
 		else:
 			askedAboutLyric = false
-		
+
 		dateStorage.clearCurrentDate()
+
 		print('file version is ' + str(saveVersion))
 
 	loadSave.emit()
@@ -584,3 +595,36 @@ func startMusic(music : String):
 
 func startDefaultPhoneMusic():
 	startMusicSignal.emit("res://data/assets/general/sounds/bg_music/home2.mp3")
+
+func stageHasHints():
+	return currentStage.oneStarHints.size() > 0 or currentStage.twoStarHints.size() > 0 or currentStage.threeStarHints.size() > 0
+
+func addWinToPokerStageHistory():
+	var stageName = currentStage.name
+	if !pokerStageHistory.has(stageName):
+		pokerStageHistory[stageName] = { "wins": 0, "losses": 0 }
+	
+	pokerStageHistory[stageName]["wins"] += 1
+
+	savePersistentData()
+
+func addLossToPokerStageHistory():
+	var stageName = currentStage.name
+	if !pokerStageHistory.has(stageName):
+		pokerStageHistory[stageName] = { "wins": 0, "losses": 0 }
+	
+	pokerStageHistory[stageName]["losses"] += 1
+
+	savePersistentData()
+
+func getCurrentStagePokerWins():
+	if pokerStageHistory.has(currentStage.name):
+		return pokerStageHistory[currentStage.name]["wins"]
+	else:
+		return 0
+
+func getCurrentStagePokerLosses():
+	if pokerStageHistory.has(currentStage.name):
+		return pokerStageHistory[currentStage.name]["losses"]
+	else:
+		return 0
