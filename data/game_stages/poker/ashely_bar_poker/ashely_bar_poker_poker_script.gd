@@ -16,6 +16,8 @@ static var CPU_LOST_PANTS = false
 static var CPU_LOST_BRA = false
 static var CPU_LOST_EVERYTHING = false
 
+static var PANTS_OFF_ALT = false
+
 # Num of losses in a row
 static var playerLossesInARow = 0
 static var cpuLossesInARow = 0
@@ -245,10 +247,13 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 		if CPU_LOST_BRA:
 			# player is far ahead
 			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_NO_BRA', 'player_strip_pants')
+			PANTS_OFF_ALT = true
 		elif CPU_LOST_PANTS:
 			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_BRA', 'player_strip_pants')
+			PANTS_OFF_ALT = true
 		elif CPU_LOST_SHIRT:
 			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_PANTS', 'player_strip_pants')
+			PANTS_OFF_ALT = true
 		else:
 			# player slips when sitting
 			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_SLIP', 'player_strip_pants')
@@ -290,8 +295,8 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 
 	var ambientDialogue = getAmbientDialogue(_pokerInfo)
 
-	#if ambientDialogue.size() > 0:
-		#updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
+	if ambientDialogue.size() > 0:
+		updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
 
 	return updateResult
 
@@ -299,17 +304,33 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 	var ambient_talks = []
 
 	# NEED SOME DIALOGUES EARLY GAME THAT CAN trigger without too much long-form criteria
+	if !hasSeen('player_losing_early'):
+		if totalRounds < 5 and cpuLifeAdvantage > 2:
+			# Player: I guess I'm losing early
+			ambient_talks.append(['PLAYER_LOSING_EARLY', 'player_losing_early'])
+	
+	if !hasSeen('player_lost_first_hand'):
+		if playerTotalWins == 0 and cpuTotalWins == 1:
+			# Player: I guess I lost the first hand
+			ambient_talks.append(['PLAYER_LOST_FIRST_HAND', 'player_lost_first_hand'])
+	
+	if !hasSeen('cpu_early_streak'):
+		if cpuCurrentWinStreak > 3 and totalRounds < 8 and cpuLifeAdvantage > 2 and cpuTotalLosses < 3:
+			# Ashe: I guess I'm on a winning streak
+			ambient_talks.append(['CPU_EARLY_STREAK', 'cpu_early_streak'])
+
+	if !hasSeen('early_close_game') and !hasSeen('player_losing_early') and !hasSeen('cpu_early_streak'):
+		if totalRounds < 10 and totalRounds > 4 and playerLifeAdvantage < 2 and cpuLifeAdvantage < 2:
+			# Player: This is a close game
+			ambient_talks.append(['EARLY_CLOSE_GAME', 'early_close_game'])
 
 	if !hasSeen('where_is_guy') and !CPU_LOST_SHIRT:
-		if totalRounds > 10 and cpuLifeAdvantage > 5 :
+		if totalRounds > 10 and cpuLifeAdvantage > 3 :
 			# Player: Nervously -- is that guy going to come back or what?
 			ambient_talks.append(['WHERE_IS_GUY_NERVOUS', 'where_is_guy'])
-		elif totalRounds > 10:
-			# Player: Is that guy going to come back or what?
-			ambient_talks.append(['WHERE_IS_GUY', 'where_is_guy'])
 
 	if !hasSeen('you_seem_cold'):
-		if PLAYER_LOST_SHIRT and randf() < 0.2:
+		if PLAYER_LOST_SHIRT and not CPU_LOST_SHIRT and randf() < 0.2:
 			# Ashe: You seem cold
 			ambient_talks.append(['ASHE_SAYS_YOU_SEEM_COLD', 'you_seem_cold'])
 
@@ -319,64 +340,23 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 			ambient_talks.append(['YOU_SAY_YOU_SEEM_COLD_BACK', 'you_seem_cold_back'])
 
 	if !hasSeen('both_players_in_underwear'):
-		if PLAYER_LOST_PANTS and CPU_LOST_PANTS:
+		if PLAYER_LOST_PANTS and CPU_LOST_PANTS and not CPU_LOST_BRA:
 			# Player: I guess we are both in our underwear now
 			# Ashe: Don't act like your underpants are an equal sight to mine
 			ambient_talks.append(['BOTH_PLAYERS_IN_UNDERWEAR', 'both_players_in_underwear'])
-
-	if !hasSeen('player_strong_recovery'):
-		if highestCpuLifeAdvantage > 10 and playerCurrentWinStreak > 7:
-			if PLAYER_LOST_UNDERWEAR:
-				# Player: I play best when im naked
-				ambient_talks.append(['PLAYER_STRONG_RECOVERY_NAKED', 'player_strong_recovery'])
-			else:
-				# Player: You thought you had me, huh? 
-				ambient_talks.append(['PLAYER_STRONG_RECOVERY', 'player_strong_recovery'])
 	
-	if !hasSeen('cpu_strong_recovery'):
-		if highestPlayerLifeAdvantage > 10 and cpuCurrentWinStreak > 7 and cpuLifeAdvantage > 0:
-			# Ashe: You were ahead before... what happened?
-			ambient_talks.append(['CPU_STRONG_RECOVERY', 'cpu_strong_recovery'])
-
-	if !hasSeen('player_recovery_shut_down') and hasSeen('player_strong_recovery'):
-		if cpuCurrentWinStreak > 5:
-			# that comeback you were bragging about earlier? sorry, but it was a fluke.
-			ambient_talks.append(['PLAYER_RECOVERY_SHUT_DOWN', 'player_recovery_shut_down'])
-	
-	if !hasSeen('cpu_compliment'):
-		if PLAYER_LOST_SHIRT and randf() < 0.5:
+	if !hasSeen('cpu_compliment') and !hasSeen('cpu_compliment_naked'):
+		if PLAYER_LOST_SHIRT and randf() < 0.2:
 			# Ashe: I have to admit, you don't look half bad without a shirt
 			ambient_talks.append(['CPU_COMPLIMENT', 'cpu_compliment'])
 
-	if !hasSeen('cpu_compliment_naked'):
-		if PLAYER_LOST_UNDERWEAR and randf() < 0.5:
-			# Ashe: I have to admit, you don't look half bad naked
-			ambient_talks.append(['CPU_COMPLIMENT_NAKED', 'cpu_compliment_naked'])
-
 	if !hasSeen('player_compliment'):
-		if CPU_LOST_SHIRT and randf() < 0.5:
+		if CPU_LOST_PANTS and randf() < 0.1:
 			# Player: that's some fancy underwear... were you planning to show it off tonight?
 			ambient_talks.append(['PLAYER_COMPLIMENT', 'player_compliment'])
 	
-	if !hasSeen('cpu_compliment'):
-		if PLAYER_LOST_PANTS and randf() < 0.5:
-			# Ashe: Where'd you get those? I need a pair.
-			# or: Ashe: Did your mom pick those out or were they on clearance?"
-			ambient_talks.append(['CPU_COMPLIMENT_BRA', 'cpu_compliment_bra'])
-	
-	if !hasSeen('player_compliment_braless'):
-		if CPU_LOST_BRA and randf() < 0.5:
-			# Player: you're looking a little underdressed there, Ashe
-			# or: Player: You don't have to cover up, I promise I wont look
-			ambient_talks.append(['PLAYER_COMPLIMENT_BRALESS', 'player_compliment_braless'])
-
-	if !hasSeen('big_player_advantage'):
-		if playerLifeAdvantage > 12:
-			# Player: You sure you dont want to quit? I'll barely have lost anything at this rate
-			ambient_talks.append(['BIG_PLAYER_ADVANTAGE', 'big_player_advantage'])
-	
 	if !hasSeen('big_cpu_advantage'):
-		if cpuLifeAdvantage > 12:
+		if cpuLifeAdvantage > 9:
 			# Ashe: You sure you dont want to quit? I'll barely have lost anything at this rate
 			ambient_talks.append(['BIG_CPU_ADVANTAGE', 'big_cpu_advantage'])
 	
@@ -386,53 +366,14 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 			ambient_talks.append(['BOTH_PLAYERS_LAST_LIFE', 'both_players_last_life'])
 
 	if !hasSeen('player_staring'):
-		if CPU_LOST_SHIRT and randf() < 0.5:
-			# Player: I can't help but stare at your underwear
-			ambient_talks.append(['PLAYER_STARING', 'player_staring'])
-		elif CPU_LOST_BRA and randf() < 0.5:
+		if CPU_LOST_BRA and randf() < 0.2:
 			# Player: I can't help but stare at your bra
 			ambient_talks.append(['PLAYER_STARING_BRA', 'player_staring'])
-
-
-	if !hasSeen('player_catching_up'):
-		if highestCpuLifeAdvantage > 7 and cpuLifeAdvantage < 1:
-			# Player: I think I'm catching up to you
-			ambient_talks.append(['PLAYER_CATCHING_UP', 'player_catching_up'])
-
-	if !hasSeen('cpu_catching_up'):
-		if highestPlayerLifeAdvantage > 7 and playerLifeAdvantage < 1:
-			# Ashe: I think I'm catching up to you
-			ambient_talks.append(['CPU_CATCHING_UP', 'cpu_catching_up'])
-
-	if !hasSeen('cpu_winning_streak'):
-		if cpuCurrentWinStreak > 10:
-			# Ashe: I think I'm on a winning streak
-			ambient_talks.append(['CPU_WINNING_STREAK', 'cpu_winning_streak'])
-	
-	if !hasSeen('player_winning_streak'):
-		if playerCurrentWinStreak > 10:
-			# Player: I think I'm on a winning streak
-			ambient_talks.append(['PLAYER_WINNING_STREAK', 'player_winning_streak'])
-
-	if !hasSeen('player_streak_ends'):
-		if playerCurrentWinStreak == 0 and playerHighestWinStreak > 7:
-			# Player: I think my streak just ended
-			ambient_talks.append(['PLAYER_STREAK_ENDS', 'player_streak_ends'])
-
-	if !hasSeen('cpu_streak_ends'):
-		if cpuCurrentWinStreak == 0 and cpuHighestWinStreak > 7:
-			# Ashe: I think my streak just ended
-			ambient_talks.append(['CPU_STREAK_ENDS', 'cpu_streak_ends'])
 
 	if !hasSeen('player_final_life') and !hasSeen('cpu_final_life') and !hasSeen('both_players_last_life'):
 		if _pokerInfo.playerLives == 1:
 			# Player: I guess this is my last life
 			ambient_talks.append(['PLAYER_FINAL_LIFE', 'player_final_life'])
-	
-	if !hasSeen('cpu_final_life') and !hasSeen('player_final_life') and !hasSeen('both_players_last_life'):
-		if _pokerInfo.cpuLives == 1:
-			# Ashe: I guess this is my last life
-			ambient_talks.append(['CPU_FINAL_LIFE', 'cpu_final_life'])
 
 	if !hasSeen('long_match'):
 		if totalRounds > 30 and playerLifeAdvantage < 2 and cpuLifeAdvantage < 2:
@@ -440,7 +381,7 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 			ambient_talks.append(['LONG_MATCH', 'long_match'])
 	
 	if !hasSeen('guy_knocks'):
-		if totalRounds > 20:
+		if totalRounds > 20 and CPU_LOST_SHIRT:
 			# Player: is that guy knocking on the door?
 			ambient_talks.append(['GUY_KNOCKS', 'guy_knocks'])
 
@@ -449,15 +390,10 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 			# Ashe: You know, I think you're letting me win because you think you'll get some action when you're naked
 			ambient_talks.append(['CPU_ACCUSE_LETTING_WIN', 'cpu_accuses_player_of_letting_win'])
 
-	if !hasSeen('blush_comment'):
-		if CPU_LOST_BRA and randf() < 0.5:
-			# Player: You don't seem to be blushing
-			ambient_talks.append(['BLUSH_COMMENT', 'blush_comment'])
-
 	if !hasSeen('player_excuses'):
-		if PLAYER_LOST_UNDERWEAR and randf() < 0.2:
-			# Player: I think the cold is affecting certain... dimensions
-			ambient_talks.append(['PLAYER_EXCUSES', 'player_excuses'])
+		if PANTS_OFF_ALT and PLAYER_LOST_PANTS and randf() < 0.2:
+			# Ashely: So you really werent hard?
+			ambient_talks.append(['REALLY_WERENT_HARD', 'player_excuses'])
 
 	if !hasSeen('player_poker_strategy'):
 		if cpuCurrentWinStreak > 5 and cpuLifeAdvantage > 5:
