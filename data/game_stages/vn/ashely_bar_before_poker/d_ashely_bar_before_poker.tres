@@ -2109,6 +2109,54 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 1
 },
+&"1_217": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": ".",
+"offset": Vector2(23311, 837.24),
+"options": {
+0: {
+"condition": {},
+"link": &"1_218",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": 0
+},
+&"1_218": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "..",
+"offset": Vector2(23660, 960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_219",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": 0
+},
+&"1_219": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(24020, 980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_68",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": 0
+},
 &"1_22": {
 "background": -1,
 "backgroundList": -1,
@@ -2902,7 +2950,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_68",
+"link": &"1_217",
 "text": ""
 }
 },
@@ -3265,7 +3313,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Okay darling that sound fine. But just the two of us? ",
+"dialogue": "Okay darling that sounds fine. But just the two of us? ",
 "offset": Vector2(31020, 260),
 "options": {
 0: {

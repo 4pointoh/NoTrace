@@ -212,15 +212,7 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 			updateResult = getResultForDialogue('ASHE_STRIP_BRA_VERY_FAR_BEHIND', 'strip_bra')
 		
 	elif _pokerInfo.cpuLives == 0:
-		if PLAYER_LOST_UNDERWEAR:
-			# She barely lost
-			updateResult = getResultForDialogue('ASHE_STRIP_ALL_EVEN', 'strip_all')
-		elif PLAYER_LOST_SHIRT :
-			# She lost by a lot
-			updateResult = getResultForDialogue('ASHE_STRIP_ALL_BEHIND', 'strip_all')
-		else:
-			# Player didnt remove a single thing
-			updateResult = getResultForDialogue('ASHE_STRIP_ALL_VERY_FAR_BEHIND', 'strip_all')
+			updateResult = getResultForDialogue('ASHE_STRIP_ALL', 'strip_all')
 
 	
 	if updateResult.dialogueStartKey:

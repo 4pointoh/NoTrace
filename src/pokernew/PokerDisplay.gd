@@ -68,6 +68,9 @@ func processPreGameStart():
 
 		%TheirLivesContainer.add_child(textureRect)
 
+	%YourLivesNew.setLives(playerLives, playerLivesWithEvents, playerLives)
+	%TheirLivesNew.setLives(cpuLives, cpuLivesWithEvents, cpuLives)
+
 	preGameStartAnimationComplete()
 
 func processPreRoundStart():
@@ -75,12 +78,10 @@ func processPreRoundStart():
 	%PlayerResultBg.hide()
 	%CPUResultBg.hide()
 	%VsLabel.hide()
+	%YourLivesNew.show()
+	%TheirLivesNew.show()
 	%YourLives.show()
 	%TheirLives.show()
-	%YourLivesBg.show()
-	%TheirLivesBg.show()
-	%YourLivesContainer.show()
-	%TheirLivesContainer.show()
 	preRoundStartAnimationComplete()
 
 func processClearBoard():
@@ -295,6 +296,9 @@ func processEvaluateWinner(playerWins : bool, playerHandResult : String, cpuHand
 		currentPlayerLifeIndex += 1
 		%AudioStreamPlayer2D.stream = load("res://data/assets/poker/sounds/loss_sound,_cute,_pi.mp3")
 		%AudioStreamPlayer2D.play()
+	
+	%YourLivesNew.setLives(playerLives, playerLivesWithEvents, playerLives - currentPlayerLifeIndex)
+	%TheirLivesNew.setLives(cpuLives, cpuLivesWithEvents, cpuLives - currentCPULifeIndex)
 	
 	%Win.show()
 	%PlayerResultBg.show()

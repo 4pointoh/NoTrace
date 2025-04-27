@@ -25,6 +25,7 @@ var dbox_position_max_upper = Vector2(120,10)
 var dbox_position_mid = Vector2(120, 680)
 var dbox_position_bottom = Vector2(120, 900)
 var dbox_position_bottom_left = Vector2(55, 890)
+var dbox_position_bottom_right = Vector2(200, 950)
 var dbox_position_max_lower = Vector2(55, 950)
 
 var currentBackground : Background
@@ -171,6 +172,10 @@ func setDialogueBoxBottomLeft():
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_left, .6).set_trans(Tween.TRANS_QUAD)
 
+func setDialogueBoxBottomRight():
+	var tween = get_tree().create_tween()
+	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_right, .6).set_trans(Tween.TRANS_QUAD)
+
 func setDialogueBoxMaxLower():
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", dbox_position_max_lower, .6).set_trans(Tween.TRANS_QUAD)
@@ -207,6 +212,7 @@ func _on_dialogue_player_dialogue_signal(value):
 		"reposition_mid": setDialogueBoxMid()
 		"reposition_bottom": setDialogueBoxBottom()
 		"reposition_bottom_left": setDialogueBoxBottomLeft()
+		"reposition_bottom_right": setDialogueBoxBottomRight()
 		"reposition_max_lower": setDialogueBoxMaxLower()
 		"unlock_wp_lisa_leaving": GlobalGameStage.unlockWallpaper("LISA_LEAVING")
 	

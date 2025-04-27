@@ -335,6 +335,7 @@ func _on_dialogue_manager_dialogue_ended():
 		beginStage()
 	elif validPokerGameRunning():
 		if imageToRestoreOnDialogueEnd:
+			$Background.shouldFade = true
 			$Background.setBackground(imageToRestoreOnDialogueEnd)
 			imageToRestoreOnDialogueEnd = null
 
@@ -363,6 +364,7 @@ func _on_poker_game_five_game_paused():
 
 	if nextAction.actionResult == PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE:
 		$Background.disableZoomPan()
+		$Background.shouldFade = true
 
 		if nextAction.shouldHidePoker:
 			currentPokerGame.hide()
@@ -530,4 +532,4 @@ func _on_realdate_complete(success):
 	currentRealDate.queue_free()
 	
 func unlockLisaCatConvo():
-	print('TBD UNLOCK HERE')
+	GlobalGameStage.askedAboutLyric = true

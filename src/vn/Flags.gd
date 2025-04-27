@@ -8,8 +8,11 @@ var LISA_BLOCKED = load("res://data/game_stages/phone_message/lisa_blocked/gs_li
 var LISA_AFTER_UNBLOCK = load("res://data/game_stages/phone_message/lisa_after_unblock/gs_lisa_after_unblock.tres")
 var ASHELY_THEATER_PHONE = load("res://data/game_stages/phone_message/ashely_theater_phone/gs_ashely_theater_phone.tres")
 var ANA_PHONE_INTRO = load("res://data/game_stages/phone_message/ana_phone_intro/gs_ana_phone_intro.tres")
+var ASHELY_BAR_POKER_AFTER = load("res://data/game_stages/phone_message/ashely_bar_poker_message_after/gs_ashely_bar_poker_message_after.tres")
+var ASHELY_BAR_POKER_BEFORE = load("res://data/game_stages/phone_message/ashely_bar_poker_message/gs_ashely_bar_poker_message.tres")
+var ANNA_PHONE_MESSAGE_LYRIC = load("res://data/game_stages/phone_message/anna_phone_message_lyric/gs_anna_phone_message_lyric.tres")
 
-#selectable events
+#selectable events 
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")
 var ASHELY_FIRST_PARK_DATE = load("res://data/game_stages/vn/ashely_first_park_date/gs_ashely_first_park_date.tres")
 var ANA_MARKET_INTRO = load("res://data/game_stages/vn/ana_shop_meeting/gs_ana_shop_meeting.tres")

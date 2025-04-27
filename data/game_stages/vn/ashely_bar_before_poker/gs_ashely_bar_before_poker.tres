@@ -4,9 +4,9 @@
 [ext_resource type="Resource" uid="uid://vdc3u66kp7o5" path="res://data/game_stages/poker/ashely_bar_poker/gs_ashely_bar_poker.tres" id="2_aga3w"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_ni1ft"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_24hn2"]
-[ext_resource type="Texture2D" uid="uid://dm0jnfxlgx3cs" path="res://data/assets/stage_art/theater_hover.png" id="4_lqlwk"]
-[ext_resource type="Texture2D" uid="uid://bho1mfj27xud3" path="res://data/assets/stage_art/theater.png" id="5_epq6r"]
+[ext_resource type="Texture2D" uid="uid://clmuiejto1t2g" path="res://data/assets/stage_art/bar_poker_hover.png" id="4_epq6r"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_gbeb0"]
+[ext_resource type="Texture2D" uid="uid://bphwk143g63x1" path="res://data/assets/stage_art/bar_poker.png" id="5_uinhm"]
 [ext_resource type="AudioStream" uid="uid://boblo53njtun0" path="res://data/assets/general/sounds/bg_music/new/Untitled(3).mp3" id="8_epq6r"]
 
 [sub_resource type="Resource" id="Resource_lqlwk"]
@@ -34,6 +34,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -53,9 +54,9 @@ isPhoneMessageEvent = false
 contactName = ""
 startingMusic = ExtResource("8_epq6r")
 delayMusicToTransition = true
-stageButtonTexture = ExtResource("5_epq6r")
-stageButtonHover = ExtResource("4_lqlwk")
-stageButtonLabel = "Meet Up With Ashely"
+stageButtonTexture = ExtResource("5_uinhm")
+stageButtonHover = ExtResource("4_epq6r")
+stageButtonLabel = "Ashely - First Target"
 heartLevel = 0
 isRealDate = false
 numberOfSelections = 0

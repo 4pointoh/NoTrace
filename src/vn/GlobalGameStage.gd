@@ -15,6 +15,9 @@ var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
 
+# State Variables
+var askedAboutLyric = false
+
 var dateGirlsUnlocked : Array[CHARACTERS]
 
 var characterRelationshipLevels = {
@@ -45,7 +48,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 007
+const VERSION = 008
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -181,7 +184,16 @@ func getAvailableMessages():
 		addMessage(Flags.ASHELY_THEATER_PHONE)
 	
 	if completedStages.has('lisa_park_training_poker3'):
-			addMessage(Flags.ANA_PHONE_INTRO)
+		addMessage(Flags.ANA_PHONE_INTRO)
+	
+	if completedStages.has('ashely_bar_poker'):
+		addMessage(Flags.ASHELY_BAR_POKER_AFTER)
+	
+	if completedStages.has('anna_burger_after_date') and completedStages.has('ashely_theater'):
+		addMessage(Flags.ASHELY_BAR_POKER_BEFORE)
+	
+	if completedStages.has('anna_burger_after_date') and askedAboutLyric:
+		addMessage(Flags.ANNA_PHONE_MESSAGE_LYRIC)
 
 	return availableMessages
 
@@ -206,8 +218,9 @@ func getAvailableSelectableEvents():
 		
 	if completedStages.has('ana_phone_intro'):
 		addSelectableEvent(Flags.ANNA_BURGER)
-
-	addSelectableEvent(Flags.ASHELY_POKER)
+	
+	if completedStages.has('ashely_bar_poker_message'):
+		addSelectableEvent(Flags.ASHELY_POKER)
 	
 	return availableSelectableEvents
 
@@ -310,6 +323,7 @@ func saveSaveData(saveName):
 	file.store_var(characterRelationshipXp)
 	file.store_var(perfectDates)
 	file.store_var(dateGirlsUnlocked)
+	file.store_var(askedAboutLyric)
 	
 	savePersistentData()
 
@@ -390,6 +404,11 @@ func loadSaveData(saveName):
 			perfectDates = 0
 
 			dateGirlsUnlocked = []
+		
+		if (saveVersion > 007):
+			askedAboutLyric = file.get_var()
+		else:
+			askedAboutLyric = false
 		
 		dateStorage.clearCurrentDate()
 		print('file version is ' + str(saveVersion))
