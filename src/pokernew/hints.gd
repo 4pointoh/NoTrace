@@ -7,6 +7,16 @@ func _ready():
 	var twoStarHints = GlobalGameStage.currentStage.twoStarHints
 	var threeStarHints = GlobalGameStage.currentStage.threeStarHints
 	
+	if !GlobalGameStage.currentStage.isPokerMatch:
+		%HintsLocked.hide()
+		%HintContainer.show()
+	elif GlobalGameStage.getCurrentStagePokerWins() > 0:
+		%HintsLocked.hide()
+		%HintContainer.show()
+	else:
+		%HintsLocked.show()
+		%HintContainer.hide()
+	
 	for i in range(threeStarHints.size()):
 		var hint = singleHint.instantiate()
 		hint.setup(3, threeStarHints[i])

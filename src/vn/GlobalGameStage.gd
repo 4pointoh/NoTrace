@@ -226,6 +226,10 @@ func getAvailableSelectableEvents():
 	if completedStages.has('ashely_bar_poker_message'):
 		addSelectableEvent(Flags.ASHELY_POKER)
 	
+	# DEBUG - FORCE THIS EVENT IN
+	if completedStages.has('ashely_bar_poker'):
+		availableSelectableEvents.append(Flags.ASHELY_POKER)
+	
 	return availableSelectableEvents
 
 func addSelectableEvent(event):
@@ -252,7 +256,7 @@ func softCompleteCurrentStage():
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here
 # Wallpapers in Dialogue scenes can be unlocked by emitting a signal & subscribing in DialogueManager
-func unlockWallpaper(wallpaperResourceId, customMessage = ''):
+func unlockWallpaper(wallpaperResourceId, customMessage = '', skipNotify = false):
 	unlockedWallpapers.append(wallpaperResourceId)
 	
 	var selectedWallpaper
@@ -260,6 +264,10 @@ func unlockWallpaper(wallpaperResourceId, customMessage = ''):
 		if wallpaper.wallpaperId == wallpaperResourceId:
 			selectedWallpaper = wallpaper
 	
+	if skipNotify:
+		savePersistentData()
+		return
+
 	if selectedWallpaper:
 		if(customMessage == ''):
 			notify.emit("Wallpaper Unlocked", selectedWallpaper.image)
