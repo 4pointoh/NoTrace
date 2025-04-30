@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=11 format=3 uid="uid://vdc3u66kp7o5"]
+
+[ext_resource type="Resource" uid="uid://cg0cj1dkhtebm" path="res://data/game_stages/poker/ashely_bar_poker/d_ashely_bar_poker.tres" id="1_hb136"]
+[ext_resource type="Script" uid="uid://bkbewv5e3qvgs" path="res://data/game_stages/poker/ashely_bar_poker/ashely_bar_poker_poker_script.gd" id="2_o74ht"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_t8ek0"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_g3yo7"]
+[ext_resource type="Texture2D" uid="uid://bgaoeucampjo8" path="res://data/background_lists/ashely_bar_poker/100.webp" id="5_7k1rf"]
+[ext_resource type="AudioStream" uid="uid://dup4mulssonau" path="res://data/assets/general/sounds/bg_music/new_new/Neon Lights and Endless Nights (Remastered).mp3" id="5_c2knn"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_tk7ji"]
+[ext_resource type="AudioStream" uid="uid://s22ba2uiu11j" path="res://data/assets/general/sounds/bg_music/new_new/Untitled.mp3" id="6_w1hqy"]
+[ext_resource type="AudioStream" uid="uid://c00guweaypf78" path="res://data/assets/general/sounds/bg_music/Untitled(2).mp3" id="7_7k1rf"]
+
+[sub_resource type="Resource" id="Resource_c2knn"]
+script = ExtResource("6_tk7ji")
+name = "daed"
+images = ExtResource("5_7k1rf")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("3_g3yo7")
+name = "ashely_bar_poker"
+displayName = "Ashely Bar - Poker"
+dialogue = ExtResource("1_hb136")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_t8ek0")
+isCompletable = true
+startingBackground = SubResource("Resource_c2knn")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = "Heading Home"
+endTransition = 2
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 1
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Ashely"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 0
+cheatCount = 2
+playerLives = 20
+cpuLives = 20
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([1, 5, 10, 15])
+cpuLivesWithEvents = Array[int]([17, 14, 11, 8, 5, 1])
+allowProPlus = true
+allowProPlusMax = false
+proPlusCheats = 5
+proPlusMaxCheats = 10
+pokerScript = ExtResource("2_o74ht")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("7_7k1rf")
+randomMusic = Array[AudioStream]([ExtResource("7_7k1rf"), ExtResource("5_c2knn"), ExtResource("6_w1hqy")])
+delayMusicToTransition = false
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String](["Lose somewhat badly.", "Lose very badly."])
+twoStarHints = Array[String](["Ashely loses her shirt, and you haven't lost yours.", "Ashely loses her bra, and you haven't lost much at all.", "You lose your pants, and she has already lost her shirt.", "You lose your pants, and she hasn't lost much"])
+threeStarHints = Array[String](["Lost, but it's close a game."])

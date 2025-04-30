@@ -2,10 +2,10 @@
 
 [ext_resource type="Resource" uid="uid://c8kpr66qyhg0s" path="res://data/game_stages/realdate/ana_realdate_one_date1/d_ana_realdate_one_date1.tres" id="1_a0udu"]
 [ext_resource type="Texture2D" uid="uid://gansk001bmaa" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_angry.png" id="1_tr3by"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_6bdok"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_6bdok"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_xeye4"]
 [ext_resource type="Texture2D" uid="uid://b4lk4wulp7fav" path="res://data/background_lists/ana_shop_meeting/shop2.png" id="3_c43jw"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_rd420"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_rd420"]
 
 [sub_resource type="Resource" id="Resource_nh5c1"]
 script = ExtResource("4_rd420")
@@ -30,6 +30,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0

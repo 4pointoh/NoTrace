@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://coso3dbmucp0f"]
 
-[ext_resource type="Script" path="res://src/vn/Main.gd" id="1_ps8m3"]
+[ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
 [ext_resource type="PackedScene" uid="uid://dnd677crdakvo" path="res://src/pokernew/poker_game.tscn" id="2_reewf"]
 [ext_resource type="PackedScene" uid="uid://dwy36oubalf26" path="res://src/phone/phone.tscn" id="3_doilg"]
@@ -179,6 +179,22 @@ visible = false
 [node name="Transition" parent="." instance=ExtResource("18_hxheb")]
 unique_name_in_owner = true
 visible = false
+
+[node name="SmallResolution" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -2.0
+offset_top = 1048.0
+offset_right = 894.0
+offset_bottom = 1127.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 28
+text = "Small Resolution Detected
+Change The Resolution By Dragging The Corners Of The Window"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="is_fading" from="Background" to="." method="_on_background_is_fading"]

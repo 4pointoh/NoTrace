@@ -378,3 +378,6 @@ func _on_date_minigame_display_go_back():
 
 func _on_date_minigame_display_date_skip_selected():
 	dateComplete.emit(true, null)
+
+func _on_date_minigame_display_play_again() -> void:
+	dateComplete.emit(true, null, true)

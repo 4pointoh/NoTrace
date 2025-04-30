@@ -18,6 +18,7 @@ class_name GameStage
 @export var markStagesCompleteOnSceneEnd : Array[String]
 @export var unlockWallpapersOnSceneEnd: Array[String]
 @export var cacheItems : Array[String]
+@export var repositionDialogueBoxTo : DialogueManager.DboxPosition = DialogueManager.DboxPosition.NO_CHANGE
 
 # Poker
 @export var isPokerMatch : bool
@@ -34,6 +35,10 @@ class_name GameStage
 @export var cpuRandomDiscardChance: int
 @export var playerLivesWithEvents : Array[int]
 @export var cpuLivesWithEvents : Array[int]
+@export var allowProPlus: bool
+@export var allowProPlusMax: bool
+@export var proPlusCheats: int
+@export var proPlusMaxCheats: int
 @export var pokerScript : Script
 
 # Phone
@@ -43,6 +48,7 @@ class_name GameStage
 @export var contactName: String
 @export var contactImage: Texture
 @export var startingMusic : AudioStream
+@export var randomMusic: Array[AudioStream]
 @export var delayMusicToTransition : bool = false
 
 # SelectableGameStage
@@ -76,3 +82,8 @@ class_name GameStage
 @export var dateTitle: String
 @export var dateBusinessButtonLabel: String
 @export var maxProgress : int
+
+#Hints
+@export var oneStarHints : Array[String]
+@export var twoStarHints : Array[String]
+@export var threeStarHints : Array[String]

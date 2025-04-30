@@ -1,4 +1,5 @@
 extends Control
+class_name DialogueManager
 
 var dialog_bg_you = load("res://data/assets/general/art/you_dialogue_bg.png")
 var dialog_bg_lisa = load("res://data/assets/general/art/lisa_dialogue_bg.png")
@@ -24,12 +25,25 @@ var dbox_position_max_upper = Vector2(120,10)
 var dbox_position_mid = Vector2(120, 680)
 var dbox_position_bottom = Vector2(120, 900)
 var dbox_position_bottom_left = Vector2(55, 890)
+var dbox_position_bottom_right = Vector2(200, 950)
 var dbox_position_max_lower = Vector2(55, 950)
 
 var currentBackground : Background
 var currentCharacterState : CharacterState
 
 var originalXPos
+
+enum DboxPosition{
+	NO_CHANGE,
+	MAX_UPPER,
+	UPPER,
+	UPPER_MID,
+	MID,
+	BOTTOM,
+	BOTTOM_LEFT,
+	MAX_LOWER
+}
+
 
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
@@ -158,6 +172,10 @@ func setDialogueBoxBottomLeft():
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_left, .6).set_trans(Tween.TRANS_QUAD)
 
+func setDialogueBoxBottomRight():
+	var tween = get_tree().create_tween()
+	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_right, .6).set_trans(Tween.TRANS_QUAD)
+
 func setDialogueBoxMaxLower():
 	var tween = get_tree().create_tween()
 	tween.tween_property($DialoguePlayer, "position", dbox_position_max_lower, .6).set_trans(Tween.TRANS_QUAD)
@@ -194,6 +212,7 @@ func _on_dialogue_player_dialogue_signal(value):
 		"reposition_mid": setDialogueBoxMid()
 		"reposition_bottom": setDialogueBoxBottom()
 		"reposition_bottom_left": setDialogueBoxBottomLeft()
+		"reposition_bottom_right": setDialogueBoxBottomRight()
 		"reposition_max_lower": setDialogueBoxMaxLower()
 		"unlock_wp_lisa_leaving": GlobalGameStage.unlockWallpaper("LISA_LEAVING")
 	
@@ -254,3 +273,14 @@ func _on_dialogue_player_visibility_changed():
 	
 	if !GlobalGameStage.hasCompletedStageGloballySoft() or GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
 		%SkipLabel.visible = false
+
+func setDialogueBoxPosition(position: DboxPosition):
+	match position:
+		DboxPosition.NO_CHANGE: pass
+		DboxPosition.MAX_UPPER: setDialogueBoxMaxUpper()
+		DboxPosition.UPPER: setDialogueBoxUpper()
+		DboxPosition.UPPER_MID: setDialogueBoxUpperMid()
+		DboxPosition.MID: setDialogueBoxMid()
+		DboxPosition.BOTTOM: setDialogueBoxBottom()
+		DboxPosition.BOTTOM_LEFT: setDialogueBoxBottomLeft()
+		DboxPosition.MAX_LOWER: setDialogueBoxMaxLower()

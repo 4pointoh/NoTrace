@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duykmdise4245"]
 
-[ext_resource type="Script" path="res://src/date/date_minigame.gd" id="1_k0i1m"]
+[ext_resource type="Script" uid="uid://ct6rlpqbe2hqr" path="res://src/date/date_minigame.gd" id="1_k0i1m"]
 [ext_resource type="PackedScene" uid="uid://d08hy8m7ysx30" path="res://src/date/date_minigame_display.tscn" id="2_te5tq"]
 
 [node name="DateMinigame" type="Node2D"]
@@ -15,4 +15,5 @@ offset_bottom = 1158.0
 [connection signal="dateSkipSelected" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_date_skip_selected"]
 [connection signal="goBack" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_go_back"]
 [connection signal="optionSelected" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_option_selected"]
+[connection signal="playAgain" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_play_again"]
 [connection signal="proceedFromComplete" from="DateMinigameDisplay" to="." method="_on_date_minigame_display_proceed_from_complete"]

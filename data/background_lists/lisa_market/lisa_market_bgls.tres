@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BackgroundLists" load_steps=3 format=3 uid="uid://c1l0pue7camcv"]
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=4 format=3 uid="uid://c1l0pue7camcv"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_u44l8"]
+[ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_u44l8"]
 [ext_resource type="Resource" uid="uid://ioq1xjb3uhw0" path="res://data/background_lists/lisa_market/lisa_market_bgl.tres" id="1_vcnoj"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_xfl45"]
 
 [resource]
 script = ExtResource("1_u44l8")
-backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_vcnoj")])
+backgroundLists = Array[ExtResource("1_xfl45")]([ExtResource("1_vcnoj")])

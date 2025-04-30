@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bvoxktla05xr6"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_re36u"]
+
+[resource]
+script = ExtResource("1_re36u")
+starts = {
+"START1": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-3049.86, 18513.1),
+"start_id": "START1"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Maybe I should send her a dick pic",
+"offset": Vector2(-2460, 18380),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/phone_message/ashely_bar_poker_message_after/characters.tres"
+backgroundList = "res://data/game_stages/phone_message/ashely_bar_poker_message_after/bgs.tres"

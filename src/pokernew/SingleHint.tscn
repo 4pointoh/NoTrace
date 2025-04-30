@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://gucvo4p4cfbc"]
+
+[ext_resource type="Script" uid="uid://d13xllxnc05sr" path="res://src/pokernew/single_hint.gd" id="1_r08i3"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_r08i3"]
+
+[node name="SingleHint" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r08i3")
+
+[node name="StarContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+offset_left = 5.0
+offset_top = -4.0
+offset_right = 85.0
+offset_bottom = 28.0
+
+[node name="HintText" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(255, 0)
+layout_mode = 2
+offset_left = 86.0
+offset_right = 341.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("2_r08i3")
+theme_override_font_sizes/font_size = 16
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+autowrap_mode = 2

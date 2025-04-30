@@ -2,10 +2,10 @@
 
 [ext_resource type="Resource" uid="uid://cq8icwxvxh6bo" path="res://data/game_stages/phone_message/chad_unblock_lisa/d_chad_unblock_lisa.tres" id="1_3ni5j"]
 [ext_resource type="Texture2D" uid="uid://uywnlu8oot4r" path="res://data/characters/chad/phone_icons/default.png" id="1_awchp"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_xk4jg"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_xk4jg"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="3_826oj"]
-[ext_resource type="Script" path="res://data/game_stages/phone_message/chad_unblock_lisa/scripts/chad_unblock_lisa.gd" id="3_kas7g"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_mep8p"]
+[ext_resource type="Script" uid="uid://bsyprr7icabt8" path="res://data/game_stages/phone_message/chad_unblock_lisa/scripts/chad_unblock_lisa.gd" id="3_kas7g"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_mep8p"]
 
 [sub_resource type="Resource" id="Resource_3o28l"]
 script = ExtResource("4_mep8p")
@@ -20,6 +20,17 @@ dialogue = ExtResource("1_3ni5j")
 dialogueStartKey = ""
 isCompletable = true
 startingBackground = SubResource("Resource_3o28l")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -28,8 +39,10 @@ opponentName = ""
 opponentNamePlural = false
 maxRaise = 0
 pokerType = 0
+cheatCount = 0
 playerLives = 0
 cpuLives = 0
+cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
@@ -37,7 +50,19 @@ isPhoneMessageEvent = true
 phoneScript = ExtResource("3_kas7g")
 contactName = "Chad"
 contactImage = ExtResource("1_awchp")
+delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://b5o4g3w002ehp"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_us2eu"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_us2eu"]
 [ext_resource type="Texture2D" uid="uid://2j3ulm3ywasj" path="res://data/characters/ashely/ashely_default/character_art/glaring.png" id="2_8rd72"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_66qrj"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_66qrj"]
 
 [sub_resource type="Resource" id="Resource_s1yvy"]
 script = ExtResource("3_66qrj")

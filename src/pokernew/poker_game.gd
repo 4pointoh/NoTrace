@@ -14,7 +14,7 @@ var currentStage : PokerEnums.PokerStageFiveCardDraw
 var nextPokerAction
 var dialoguePause = false
 
-var cheatsLeft = GlobalGameStage.currentStage.cheatCount
+var cheatsLeft
 
 signal gamePaused
 signal gameWon
@@ -48,7 +48,7 @@ func setup():
 	playerLives = GlobalGameStage.currentStage.playerLives
 	cpuLives = GlobalGameStage.currentStage.cpuLives
 
-	cheatsLeft = GlobalGameStage.currentStage.cheatCount
+	setCheats(0)
 	
 	if GlobalGameStage.hasCompletedCurrentStageGlobally():
 		%Skip.show()
@@ -140,6 +140,7 @@ func processCurrentStage():
 		processGameComplete();
 
 func processStartPressed():
+	%Skip.hide()
 	processCurrentStage()
 
 func processPreGameStart():
@@ -241,9 +242,13 @@ func processGameComplete():
 
 func endMatch():
 	if(playerLives <= 0):
+		GlobalGameStage.addLossToPokerStageHistory()
 		gameLost.emit()
 	else:
+		GlobalGameStage.addWinToPokerStageHistory()
 		gameWon.emit()
+	
+	print(GlobalGameStage.pokerStageHistory)
 
 func eventIsStartDialogue(actionResult):
 	if(actionResult.actionResult == PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE):
@@ -310,3 +315,15 @@ func cheat():
 		playerCards.remove_at(0)
 
 	%PokerDisplay.displayCheat(playerCards)
+
+
+func _on_poker_mode_select_selected_mode(mode: int) -> void:
+	setCheats(mode)
+
+func setCheats(mode: int):
+	if mode == 0:
+		cheatsLeft = GlobalGameStage.currentStage.cheatCount
+	elif mode == 1:
+		cheatsLeft = GlobalGameStage.currentStage.proPlusCheats
+	elif mode == 2:
+		cheatsLeft == GlobalGameStage.currentStage.proPlusMaxCheats

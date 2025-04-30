@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://bdshr8mdhj5tf"]
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://bdshr8mdhj5tf"]
 
 [ext_resource type="Texture2D" uid="uid://ctl3t23s5odjo" path="res://data/characters/chad/chad_char.png" id="1_gk1ts"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_p5g0p"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_p5g0p"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_dmr84"]
 
 [resource]
 script = ExtResource("1_p5g0p")
@@ -9,4 +10,4 @@ name = "Chad"
 editorName = "Chad"
 image = ExtResource("1_gk1ts")
 color = Color(1, 1, 1, 1)
-states = Array[Resource("res://addons/dialogue_nodes/objects/CharacterState.gd")]([])
+states = Array[ExtResource("3_dmr84")]([])

@@ -2,11 +2,11 @@
 
 [ext_resource type="Resource" uid="uid://1q38baa1nm6b" path="res://data/game_stages/poker/boa_poker_new_poker/d_boa_poker_new_poker.tres" id="1_3iu1l"]
 [ext_resource type="Resource" uid="uid://w54iw46mgqvf" path="res://data/game_stages/vn/intro_after_poker/gs_intro_after_poker.tres" id="2_2bneq"]
-[ext_resource type="Script" path="res://data/game_stages/poker/boa_poker_new_poker/scripts/boa_poker_new_script.gd" id="2_mjlr2"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_518h3"]
+[ext_resource type="Script" uid="uid://dw0oa856nlq1a" path="res://data/game_stages/poker/boa_poker_new_poker/scripts/boa_poker_new_script.gd" id="2_mjlr2"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_518h3"]
 [ext_resource type="AudioStream" uid="uid://ck8wqkmvk3m4t" path="res://data/assets/general/sounds/bg_music/poker.mp3" id="4_ohs6l"]
 [ext_resource type="Texture2D" uid="uid://dcq2xr6nhnkv" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/1.png" id="4_wxds7"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_21vsv"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_21vsv"]
 
 [sub_resource type="Resource" id="Resource_j04sa"]
 script = ExtResource("5_21vsv")
@@ -32,6 +32,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 3
 isPokerMatch = true
 playerStartingMoney = 200
 cpuStartingMoney = 200
@@ -44,13 +45,18 @@ cheatCount = 1
 playerLives = 10
 cpuLives = 10
 cpuRandomDiscardChance = 0
-playerLivesWithEvents = Array[int]([3, 9])
-cpuLivesWithEvents = Array[int]([3, 6, 9])
+playerLivesWithEvents = Array[int]([7, 1])
+cpuLivesWithEvents = Array[int]([7, 4, 1])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 pokerScript = ExtResource("2_mjlr2")
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
 startingMusic = ExtResource("4_ohs6l")
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0
@@ -71,3 +77,6 @@ dateCharacter = ""
 dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
+oneStarHints = Array[String](["Lose the first hand"])
+twoStarHints = Array[String](["Lose to Boa"])
+threeStarHints = Array[String]([])

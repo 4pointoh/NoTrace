@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=123 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=209 format=3 uid="uid://ben8w4alkj2ss"]
 
-[ext_resource type="Script" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
+[ext_resource type="Script" uid="uid://cqw1gkn14oics" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
-[ext_resource type="Script" path="res://resources/wallpapers/Wallpaper.gd" id="3_wccuy"]
+[ext_resource type="Script" uid="uid://ch5xf2lfvgdoy" path="res://resources/wallpapers/Wallpaper.gd" id="3_wccuy"]
 [ext_resource type="Texture2D" uid="uid://bntivd5r3cvac" path="res://data/wallpapers/lisa_leaving.png" id="4_dipm0"]
 [ext_resource type="Texture2D" uid="uid://brdsu1blrr44u" path="res://data/wallpapers/phone_proof.png" id="5_w01my"]
 [ext_resource type="Texture2D" uid="uid://bpsyr4aihlpco" path="res://data/wallpapers/lisa_garbage.png" id="6_qlfik"]
@@ -62,6 +62,49 @@
 [ext_resource type="Texture2D" uid="uid://c5epn44xgruar" path="res://data/background_lists/anna_burger/rew4.webp" id="60_o3vsx"]
 [ext_resource type="Texture2D" uid="uid://dcf7m75jffkie" path="res://data/background_lists/anna_burger/rew5.webp" id="61_bg2q2"]
 [ext_resource type="Texture2D" uid="uid://dea1sqtpa48uw" path="res://data/background_lists/anna_burger/rew6.webp" id="62_b6t61"]
+[ext_resource type="Texture2D" uid="uid://df1nbv1h6quaw" path="res://data/wallpapers/ana_lyric.png" id="63_wjeyn"]
+[ext_resource type="Texture2D" uid="uid://dajtbpv8scrhg" path="res://data/wallpapers/ana_lyric2.png" id="64_xtbqc"]
+[ext_resource type="Texture2D" uid="uid://tbuajjsxc8sp" path="res://data/wallpapers/ana_lyric3.png" id="65_rbg3e"]
+[ext_resource type="Texture2D" uid="uid://bkkvkhj5t8o3n" path="res://data/wallpapers/ashely_selfie1.png" id="66_uhg8y"]
+[ext_resource type="Texture2D" uid="uid://4kywwss6pihl" path="res://data/background_lists/ashely_bar_poker/002.webp" id="67_ohb7o"]
+[ext_resource type="Texture2D" uid="uid://4rjjlwsaty06" path="res://data/background_lists/ashely_bar_poker/007.webp" id="68_ra4yy"]
+[ext_resource type="Texture2D" uid="uid://c25stkjx780rn" path="res://data/background_lists/ashely_bar_poker/101.webp" id="69_52v4g"]
+[ext_resource type="Texture2D" uid="uid://dl5ruw2hcu7bv" path="res://data/background_lists/ashely_bar_poker/121.webp" id="70_awamq"]
+[ext_resource type="Texture2D" uid="uid://dctk41l1tht05" path="res://data/background_lists/ashely_bar_poker/128.webp" id="71_dcuae"]
+[ext_resource type="Texture2D" uid="uid://dlyp0xc832yw5" path="res://data/background_lists/ashely_bar_poker/203.webp" id="72_0a0r8"]
+[ext_resource type="Texture2D" uid="uid://ro8necll2nji" path="res://data/background_lists/ashely_bar_poker/309_1.webp" id="73_hdlif"]
+[ext_resource type="Texture2D" uid="uid://d2d0wbmopv3t4" path="res://data/background_lists/ashely_bar_poker/312.webp" id="74_7cecp"]
+[ext_resource type="Texture2D" uid="uid://b4geignguypdx" path="res://data/background_lists/ashely_bar_poker/314.webp" id="75_pb515"]
+[ext_resource type="Texture2D" uid="uid://d4gku8chjmhhn" path="res://data/background_lists/ashely_bar_poker/315.webp" id="76_0rt81"]
+[ext_resource type="Texture2D" uid="uid://dgbya22rnlhnr" path="res://data/background_lists/ashely_bar_poker/318.webp" id="77_7m82i"]
+[ext_resource type="Texture2D" uid="uid://cau1gj3e8w6kw" path="res://data/background_lists/ashely_bar_poker/405_1.webp" id="78_0omye"]
+[ext_resource type="Texture2D" uid="uid://b1n205pqm21td" path="res://data/background_lists/ashely_bar_poker/500.webp" id="79_r6xvj"]
+[ext_resource type="Texture2D" uid="uid://8kbgv78u8v6x" path="res://data/background_lists/ashely_bar_poker/500_1.webp" id="80_28l3e"]
+[ext_resource type="Texture2D" uid="uid://cj4hxrwq5v3iv" path="res://data/background_lists/ashely_bar_poker/500_2.webp" id="81_uqf1j"]
+[ext_resource type="Texture2D" uid="uid://c532ycm27il7u" path="res://data/background_lists/ashely_bar_poker/504.webp" id="82_0rt81"]
+[ext_resource type="Texture2D" uid="uid://oeskujxveuhw" path="res://data/background_lists/ashely_bar_poker/505.webp" id="83_7m82i"]
+[ext_resource type="Texture2D" uid="uid://dmc1exwnorf2" path="res://data/background_lists/ashely_bar_poker/511.webp" id="84_r6xvj"]
+[ext_resource type="Texture2D" uid="uid://bewp5hqvesb0y" path="res://data/background_lists/ashely_bar_poker/512.webp" id="85_28l3e"]
+[ext_resource type="Texture2D" uid="uid://bfsrnk5xue7gi" path="res://data/background_lists/ashely_bar_poker/516.webp" id="86_uqf1j"]
+[ext_resource type="Texture2D" uid="uid://cggi4f4epboki" path="res://data/background_lists/ashely_bar_poker/518.webp" id="87_uqf1j"]
+[ext_resource type="Texture2D" uid="uid://cgy4lepyrv8ut" path="res://data/background_lists/ashely_bar_poker/519.webp" id="88_n7ryt"]
+[ext_resource type="Texture2D" uid="uid://dt0pgki0mhof4" path="res://data/background_lists/ashely_bar_poker/606.webp" id="89_sb8ak"]
+[ext_resource type="Texture2D" uid="uid://dk8feovscss4t" path="res://data/background_lists/ashely_bar_poker/607.webp" id="90_oj0ec"]
+[ext_resource type="Texture2D" uid="uid://dvw8cott6w37u" path="res://data/background_lists/ashely_bar_poker/608.webp" id="91_htvw4"]
+[ext_resource type="Texture2D" uid="uid://cey7fl3srkt5t" path="res://data/background_lists/ashely_bar_poker/612.webp" id="92_6bv1m"]
+[ext_resource type="Texture2D" uid="uid://bdmisj2gt87o8" path="res://data/background_lists/ashely_bar_poker/613.webp" id="93_tn5ie"]
+[ext_resource type="Texture2D" uid="uid://dcqadf5tskvnq" path="res://data/background_lists/ashely_bar_poker/l_0.webp" id="94_2l4i8"]
+[ext_resource type="Texture2D" uid="uid://efd7ofrlfvsi" path="res://data/background_lists/ashely_bar_poker/l_7.webp" id="95_h1i8o"]
+[ext_resource type="Texture2D" uid="uid://cwpx8gioepluf" path="res://data/background_lists/ashely_bar_poker/l_8.webp" id="96_nfupu"]
+[ext_resource type="Texture2D" uid="uid://nf8yw2eheqn4" path="res://data/background_lists/ashely_bar_poker/l12_v1_2.webp" id="97_htvw4"]
+[ext_resource type="Texture2D" uid="uid://c2vpo3anawm57" path="res://data/background_lists/ashely_bar_poker/l12_v1_4.webp" id="98_6bv1m"]
+[ext_resource type="Texture2D" uid="uid://dhee0rv6nooq1" path="res://data/background_lists/ashely_bar_poker/l13_2.webp" id="99_pob4n"]
+[ext_resource type="Texture2D" uid="uid://p8dv84ignw8u" path="res://data/background_lists/ashely_bar_poker/l13_3.webp" id="100_4ads7"]
+[ext_resource type="Texture2D" uid="uid://mxxck3ija4dl" path="res://data/background_lists/ashely_bar_poker/l16.webp" id="101_yfefg"]
+[ext_resource type="Texture2D" uid="uid://dn46pu4wv0cy" path="res://data/background_lists/ashely_bar_poker/l17_1.webp" id="102_xj6uu"]
+[ext_resource type="Texture2D" uid="uid://1bb7vvaog6tv" path="res://data/background_lists/ashely_bar_poker/l17_2.webp" id="103_guorf"]
+[ext_resource type="Texture2D" uid="uid://brvn518hoft2w" path="res://data/background_lists/ashely_bar_poker/l17_3.webp" id="104_hfumm"]
+[ext_resource type="Texture2D" uid="uid://btnwu2ocmcfu" path="res://data/background_lists/ashely_bar_poker/l17_4.webp" id="105_hoyv7"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
@@ -483,6 +526,346 @@ image = ExtResource("62_b6t61")
 hint = "Anna Restaraunt - 6"
 video = ""
 
+[sub_resource type="Resource" id="Resource_xtbqc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_LYRIC"
+image = ExtResource("63_wjeyn")
+hint = "Ask Ana About Her Cats"
+video = ""
+
+[sub_resource type="Resource" id="Resource_rbg3e"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_LYRIC2"
+image = ExtResource("64_xtbqc")
+hint = "Ask Ana About Her Cats"
+video = ""
+
+[sub_resource type="Resource" id="Resource_uhg8y"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANA_LYRIC3"
+image = ExtResource("65_rbg3e")
+hint = "Ask Ana About Her Cats"
+video = ""
+
+[sub_resource type="Resource" id="Resource_2y4tb"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_SELFIE1"
+image = ExtResource("66_uhg8y")
+hint = "Beat Ashely In Poker"
+video = ""
+
+[sub_resource type="Resource" id="Resource_83f3t"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER1"
+image = ExtResource("67_ohb7o")
+hint = "Ashely Bar (1)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_4n05t"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER2"
+image = ExtResource("68_ra4yy")
+hint = "Ashely Bar (2)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_n0wjw"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER3"
+image = ExtResource("69_52v4g")
+hint = "Ashely Poker (1)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_52v4g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER4"
+image = ExtResource("70_awamq")
+hint = ""
+video = "Ashely Poker (2)"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_awamq"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER5"
+image = ExtResource("71_dcuae")
+hint = "Ashely Poker (3)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_dcuae"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER6"
+image = ExtResource("72_0a0r8")
+hint = "Ashely Poker (4)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_0a0r8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER7"
+image = ExtResource("73_hdlif")
+hint = "Ashely Poker (5)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hdlif"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER8"
+image = ExtResource("74_7cecp")
+hint = "Ashely Poker (6)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_4f550"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER9"
+image = ExtResource("75_pb515")
+hint = "Ashely Poker (7)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_knobw"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER10"
+image = ExtResource("76_0rt81")
+hint = "Ashely Poker (8)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_m2101"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER11"
+image = ExtResource("77_7m82i")
+hint = "Ashely Poker (9)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_7cecp"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER12"
+image = ExtResource("78_0omye")
+hint = "Ashely Poker (10)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_pb515"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER13"
+image = ExtResource("79_r6xvj")
+hint = "Ashely Poker (11)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_0rt81"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER14"
+image = ExtResource("80_28l3e")
+hint = "Ashely Poker (12)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_n7ryt"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER15"
+image = ExtResource("81_uqf1j")
+hint = "Ashely Poker (13)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_0omye"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER16"
+image = ExtResource("82_0rt81")
+hint = "Ashely Poker (14)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_r6xvj"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER17"
+image = ExtResource("83_7m82i")
+hint = "Ashely Poker (15)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_fgyo1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER18"
+image = ExtResource("84_r6xvj")
+hint = "Ashely Poker (16)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_exlo8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER19"
+image = ExtResource("85_28l3e")
+hint = "Ashely Poker (17)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_o20yg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER20"
+image = ExtResource("86_uqf1j")
+hint = "Ashely Poker (18)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ydr00"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER21"
+image = ExtResource("87_uqf1j")
+hint = "Ashely Poker (19)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_cjv6e"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER22"
+image = ExtResource("88_n7ryt")
+hint = "Ashely Poker (20)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_uqf1j"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER23"
+image = ExtResource("89_sb8ak")
+hint = "Ashely Poker (21)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ebdyc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER24"
+image = ExtResource("90_oj0ec")
+hint = "Ashely Poker (22)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_sb8ak"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER25"
+image = ExtResource("91_htvw4")
+hint = "Ashely Poker (23)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_oj0ec"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER26"
+image = ExtResource("92_6bv1m")
+hint = "Ashely Poker (24)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_htvw4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER27"
+image = ExtResource("93_tn5ie")
+hint = "Ashely Poker (25)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_6bv1m"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER28"
+image = ExtResource("94_2l4i8")
+hint = "Ashely Poker (26)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_tn5ie"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER29"
+image = ExtResource("95_h1i8o")
+hint = "Ashely Poker (27)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_2l4i8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER30"
+image = ExtResource("96_nfupu")
+hint = "Ashely Poker (28)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_h1i8o"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER31"
+image = ExtResource("97_htvw4")
+hint = "Ashely Poker (29)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_nfupu"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER32"
+image = ExtResource("98_6bv1m")
+hint = "Ashely Poker (30)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_7q6mc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER33"
+image = ExtResource("99_pob4n")
+hint = "Ashely Poker (31)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_xf6lt"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER34"
+image = ExtResource("100_4ads7")
+hint = "Ashely Poker (32)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_arjys"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER35"
+image = ExtResource("101_yfefg")
+hint = "Ashely Poker (33)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_8jsgg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER36"
+image = ExtResource("102_xj6uu")
+hint = "Ashely Poker (34)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jh3f8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER37"
+image = ExtResource("103_guorf")
+hint = "Ashely Poker (35)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_eh5vm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER38"
+image = ExtResource("104_hfumm")
+hint = "Ashely Poker (36)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_deyor"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER39"
+image = ExtResource("105_hoyv7")
+hint = "Ashely Poker (37)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4"), SubResource("Resource_xtbqc"), SubResource("Resource_rbg3e"), SubResource("Resource_uhg8y"), SubResource("Resource_2y4tb"), SubResource("Resource_83f3t"), SubResource("Resource_4n05t"), SubResource("Resource_n0wjw"), SubResource("Resource_52v4g"), SubResource("Resource_awamq"), SubResource("Resource_dcuae"), SubResource("Resource_0a0r8"), SubResource("Resource_hdlif"), SubResource("Resource_4f550"), SubResource("Resource_knobw"), SubResource("Resource_m2101"), SubResource("Resource_7cecp"), SubResource("Resource_pb515"), SubResource("Resource_0rt81"), SubResource("Resource_n7ryt"), SubResource("Resource_0omye"), SubResource("Resource_r6xvj"), SubResource("Resource_fgyo1"), SubResource("Resource_exlo8"), SubResource("Resource_o20yg"), SubResource("Resource_ydr00"), SubResource("Resource_cjv6e"), SubResource("Resource_uqf1j"), SubResource("Resource_ebdyc"), SubResource("Resource_sb8ak"), SubResource("Resource_oj0ec"), SubResource("Resource_htvw4"), SubResource("Resource_6bv1m"), SubResource("Resource_tn5ie"), SubResource("Resource_2l4i8"), SubResource("Resource_h1i8o"), SubResource("Resource_nfupu"), SubResource("Resource_7q6mc"), SubResource("Resource_xf6lt"), SubResource("Resource_arjys"), SubResource("Resource_8jsgg"), SubResource("Resource_jh3f8"), SubResource("Resource_eh5vm"), SubResource("Resource_deyor")])

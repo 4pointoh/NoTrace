@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CharacterList" load_steps=10 format=3 uid="uid://d202hjkm4o2gv"]
+[gd_resource type="Resource" script_class="CharacterList" load_steps=11 format=3 uid="uid://d202hjkm4o2gv"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_fx4ku"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_122mq"]
+[ext_resource type="Script" uid="uid://bqps2npunixed" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_fx4ku"]
 [ext_resource type="Resource" uid="uid://ce8silww1ttnp" path="res://data/characters/you/you.tres" id="1_yoa1j"]
 [ext_resource type="Resource" uid="uid://c0477mwwdpscr" path="res://data/characters/lisa/lisa_party/lisa_party.tres" id="2_wfwcw"]
 [ext_resource type="Resource" uid="uid://b5o4g3w002ehp" path="res://data/characters/ashely/ashely_default/ashely_default.tres" id="3_wyaxj"]
@@ -12,4 +13,4 @@
 
 [resource]
 script = ExtResource("1_fx4ku")
-characters = Array[Resource("res://addons/dialogue_nodes/objects/Character.gd")]([ExtResource("1_yoa1j"), ExtResource("2_wfwcw"), ExtResource("3_wyaxj"), ExtResource("4_0gb2p"), ExtResource("5_1gf2e"), ExtResource("6_w2tmd"), ExtResource("7_hkofx"), ExtResource("8_qt1g1")])
+characters = Array[ExtResource("1_122mq")]([ExtResource("1_yoa1j"), ExtResource("2_wfwcw"), ExtResource("3_wyaxj"), ExtResource("4_0gb2p"), ExtResource("5_1gf2e"), ExtResource("6_w2tmd"), ExtResource("7_hkofx"), ExtResource("8_qt1g1")])

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BackgroundList" load_steps=119 format=3 uid="uid://b5xrp605m63rt"]
 
 [ext_resource type="Texture2D" uid="uid://bvqqyscdmltpe" path="res://data/background_lists/ashely_theater/0.png" id="1_2au5c"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_kavmo"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_kavmo"]
 [ext_resource type="Texture2D" uid="uid://c3kow3dqsommy" path="res://data/background_lists/ashely_theater/1.png" id="3_an4ab"]
 [ext_resource type="Texture2D" uid="uid://cr3348ljafx8r" path="res://data/background_lists/ashely_theater/10.png" id="4_x0w7f"]
 [ext_resource type="Texture2D" uid="uid://bkwh8sx7n87fi" path="res://data/background_lists/ashely_theater/11.png" id="5_5plvk"]
@@ -59,7 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://oyqctmf345u1" path="res://data/background_lists/ashely_theater/in_theater.png" id="57_hol3r"]
 [ext_resource type="Texture2D" uid="uid://nt0s0yq13mir" path="res://data/background_lists/ashely_theater/theater_inside.png" id="58_hopui"]
 [ext_resource type="Texture2D" uid="uid://bcpna58sscdj6" path="res://data/background_lists/ashely_theater/theatre.png" id="59_v02fd"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="60_x4php"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="60_x4php"]
 
 [sub_resource type="Resource" id="Resource_2c0b0"]
 script = ExtResource("2_kavmo")

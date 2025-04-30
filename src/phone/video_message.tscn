@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbl2yyqp48ltq"]
 
-[ext_resource type="Script" path="res://src/phone/video_message.gd" id="1_uwt6d"]
-[ext_resource type="VideoStream" path="res://data/background_lists/ana_shop_meeting/video/out.ogv" id="2_ki76c"]
+[ext_resource type="Script" uid="uid://cun6rjav486am" path="res://src/phone/video_message.gd" id="1_uwt6d"]
+[ext_resource type="VideoStream" uid="uid://de4uf2f7ng0yu" path="res://data/background_lists/ana_shop_meeting/video/out.ogv" id="2_ki76c"]
 
 [node name="MarginContainer" type="MarginContainer"]
 offset_left = 21.0

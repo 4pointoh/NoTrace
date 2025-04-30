@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://3n8lkyrp2q07"]
 
-[ext_resource type="Script" path="res://src/phone/available_message.gd" id="1_fgkv2"]
+[ext_resource type="Script" uid="uid://ca3p8j7ee4tu3" path="res://src/phone/available_message.gd" id="1_fgkv2"]
 [ext_resource type="Texture2D" uid="uid://m2h7k6nv1b2t" path="res://data/assets/phone/art/message_text_bg3_outline.png" id="2_2e44a"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_7r7jh"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="3_b5v1y"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t73bm"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v44fm"]
 bg_color = Color(1, 1, 1, 0.192157)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t73bm"]
 
 [node name="AvailableMessage" type="Control"]
 layout_mode = 3
@@ -50,8 +50,8 @@ layout_mode = 0
 offset_right = 467.0
 offset_bottom = 85.0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_t73bm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v44fm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t73bm")
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

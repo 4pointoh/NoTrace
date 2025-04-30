@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Character" load_steps=14 format=3 uid="uid://de4753vbk6aph"]
 
 [ext_resource type="Texture2D" uid="uid://ciibhty1crj25" path="res://data/characters/lisa/lisa_party/lisa_char.png" id="1_krak5"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_rmfn3"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_rmfn3"]
 [ext_resource type="Texture2D" uid="uid://iodtuswor51b" path="res://data/characters/lisa/lisa_dress/character_art/lisa_dress_nervous.png" id="3_44tbu"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_cn8qa"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_cn8qa"]
 [ext_resource type="Texture2D" uid="uid://cx1rsmbyarso0" path="res://data/characters/lisa/lisa_dress/character_art/lisa_dress_surprised.png" id="5_132mh"]
 [ext_resource type="Texture2D" uid="uid://dsowakkbevf05" path="res://data/characters/lisa/lisa_dress/character_art/lisa_dress_scowl_turn.png" id="6_xhm0c"]
 [ext_resource type="Texture2D" uid="uid://cnx7tsyiyr0os" path="res://data/characters/lisa/lisa_dress/character_art/lisa_dress_scowl_front.png" id="7_h4voh"]
@@ -14,30 +14,35 @@ script = ExtResource("4_cn8qa")
 name = "nervous"
 image = ExtResource("3_44tbu")
 scale = Vector2(0.7, 0.7)
+animateTransition = false
 
 [sub_resource type="Resource" id="Resource_5efs8"]
 script = ExtResource("4_cn8qa")
 name = "surprised"
 image = ExtResource("5_132mh")
 scale = Vector2(0.7, 0.7)
+animateTransition = false
 
 [sub_resource type="Resource" id="Resource_nr3ob"]
 script = ExtResource("4_cn8qa")
 name = "scowl_turn"
 image = ExtResource("6_xhm0c")
 scale = Vector2(0.7, 0.7)
+animateTransition = false
 
 [sub_resource type="Resource" id="Resource_xuajw"]
 script = ExtResource("4_cn8qa")
 name = "scowl_front"
 image = ExtResource("7_h4voh")
 scale = Vector2(0.7, 0.7)
+animateTransition = false
 
 [sub_resource type="Resource" id="Resource_o2cd8"]
 script = ExtResource("4_cn8qa")
 name = "unimpressed"
 image = ExtResource("8_t11wh")
 scale = Vector2(0.7, 0.7)
+animateTransition = false
 
 [resource]
 script = ExtResource("1_rmfn3")

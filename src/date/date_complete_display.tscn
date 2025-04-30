@@ -1,27 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://blrodu2nk43sr"]
+[gd_scene load_steps=6 format=3 uid="uid://blrodu2nk43sr"]
 
-[ext_resource type="Script" path="res://src/date/date_complete_display.gd" id="1_w7qiv"]
+[ext_resource type="Script" uid="uid://qbh7finagxuu" path="res://src/date/date_complete_display.gd" id="1_w7qiv"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_o7ru0"]
+[ext_resource type="PackedScene" uid="uid://dqgpk6g0igcli" path="res://src/pokernew/Hints.tscn" id="3_hg0sy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nxf8"]
-bg_color = Color(0.28485, 0.28485, 0.28485, 1)
+bg_color = Color(0.52252, 0.245018, 0.708416, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg0sy"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+
 [node name="DateCompleteDisplay" type="Node2D"]
 script = ExtResource("1_w7qiv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 548.0
-offset_bottom = 623.0
+offset_right = 875.0
+offset_bottom = 683.0
 color = Color(0, 0, 0, 0.92549)
 
 [node name="Title" type="Label" parent="."]
 offset_top = 14.0
-offset_right = 554.0
-offset_bottom = 79.0
+offset_right = 875.0
+offset_bottom = 91.0
 theme_override_colors/font_color = Color(0.776877, 0.361391, 0.644407, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o7ru0")
@@ -31,27 +35,38 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Continue" type="Button" parent="."]
-offset_left = 175.0
-offset_top = 568.0
-offset_right = 405.0
-offset_bottom = 602.0
+offset_left = 332.0
+offset_top = 595.0
+offset_right = 562.0
+offset_bottom = 629.0
 theme_override_fonts/font = ExtResource("2_o7ru0")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_1nxf8")
 text = "Continue"
 
+[node name="PlayAgain" type="Button" parent="."]
+offset_left = 608.0
+offset_top = 595.0
+offset_right = 838.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("2_o7ru0")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_hg0sy")
+text = "Play Again
+"
+
 [node name="ImageGrid" type="GridContainer" parent="."]
 offset_left = 9.0
 offset_top = 158.0
-offset_right = 538.0
+offset_right = 507.0
 offset_bottom = 550.0
-theme_override_constants/h_separation = -30
+theme_override_constants/h_separation = -40
 theme_override_constants/v_separation = 12
 columns = 3
 
 [node name="MemoryCountLabel" type="Label" parent="."]
 offset_top = 107.0
-offset_right = 554.0
+offset_right = 507.0
 offset_bottom = 139.0
 theme_override_fonts/font = ExtResource("2_o7ru0")
 theme_override_font_sizes/font_size = 26
@@ -59,4 +74,15 @@ text = "3/3 Memories Unlocked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Hints" parent="." instance=ExtResource("3_hg0sy")]
+position = Vector2(507, 107)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 166.0
+offset_top = 649.0
+offset_right = 769.0
+offset_bottom = 672.0
+text = "All unlocked memories have been saved to your phone, even if you play again."
+
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

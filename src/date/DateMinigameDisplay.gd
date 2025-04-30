@@ -35,6 +35,7 @@ signal optionSelected(index : int)
 signal goBack()
 signal proceedFromComplete()
 signal dateSkipSelected()
+signal playAgain()
 
 var screen_width = 400  # Adjust this to your screen width
 
@@ -234,6 +235,9 @@ func displayEmoji(emoji : Heartsplosion.TYPES):
 func _on_date_complete_display_clicked_continue():
 	proceedFromComplete.emit()
 
+func _on_date_complete_display_clicked_play_again() -> void:
+	playAgain.emit()
+
 func _on_date_choice_display_choice_selected(text):
 	#find the index of the action which matche the text
 	var index = 0
@@ -298,4 +302,11 @@ func showBackButton():
 	%DateChoiceDisplay.showBackButton()
 
 func _on_date_select_display_skip_date_selected():
+	%SkipConfirmBg.show()
+
+func _on_yes_pressed() -> void:
 	dateSkipSelected.emit()
+	%SkipConfirmBg.hide()
+
+func _on_no_pressed() -> void:
+	%SkipConfirmBg.hide()

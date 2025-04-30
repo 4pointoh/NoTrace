@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CharacterList" load_steps=5 format=3 uid="uid://dk3a1qmfwwfuu"]
+[gd_resource type="Resource" script_class="CharacterList" load_steps=6 format=3 uid="uid://dk3a1qmfwwfuu"]
 
 [ext_resource type="Resource" uid="uid://ce8silww1ttnp" path="res://data/characters/you/you.tres" id="1_7m7al"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_rc3sb"]
+[ext_resource type="Script" uid="uid://bqps2npunixed" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_rc3sb"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_yjwpo"]
 [ext_resource type="Resource" uid="uid://dgynpn5u4jq0k" path="res://data/characters/ashely/ashely_tshirt/ashely_tshirt.tres" id="2_25srm"]
 [ext_resource type="Resource" uid="uid://drfijm7yhyrs1" path="res://data/characters/ashely/ashely_tshirt_new/ashely_tshirt_new.tres" id="3_w5ely"]
 
 [resource]
 script = ExtResource("1_rc3sb")
-characters = Array[Resource("res://addons/dialogue_nodes/objects/Character.gd")]([ExtResource("1_7m7al"), ExtResource("2_25srm"), ExtResource("3_w5ely")])
+characters = Array[ExtResource("1_yjwpo")]([ExtResource("1_7m7al"), ExtResource("2_25srm"), ExtResource("3_w5ely")])

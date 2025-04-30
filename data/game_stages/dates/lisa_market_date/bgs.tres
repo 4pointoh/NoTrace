@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=2 format=3 uid="uid://dh571hy0ndnu2"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=3 format=3 uid="uid://dh571hy0ndnu2"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_h48j2"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_h48j2"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_up882"]
 
 [resource]
 script = ExtResource("1_h48j2")
 name = ""
-images = Array[Resource("res://addons/dialogue_nodes/objects/Background.gd")]([])
+images = Array[ExtResource("1_up882")]([])

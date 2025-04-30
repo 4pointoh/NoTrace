@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dgrvqaswwdook"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_tdukw"]
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_tdukw"]
 
 [resource]
 script = ExtResource("1_tdukw")
@@ -1745,7 +1745,7 @@ nodes = {
 "background": 18,
 "backgroundList": 1,
 "characterState": -1,
-"dialogue": "Her demeanor changes, she's no longer focused on the food or the restaurant. ",
+"dialogue": "You both enjoy the food and casual conversation for a while. Soon she's no longer focused on the food or the restaurant. ",
 "offset": Vector2(23660, 400),
 "options": {
 0: {

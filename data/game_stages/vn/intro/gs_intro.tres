@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=4 format=3 uid="uid://ecnuj6pddpsj"]
 
 [ext_resource type="Resource" uid="uid://6fwsbytmg2w6" path="res://data/game_stages/vn/intro/d_intro3.tres" id="1_vsx5k"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_68ses"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_68ses"]
 [ext_resource type="Resource" uid="uid://crnyqht4wwav1" path="res://data/game_stages/poker/boa_poker_new_poker/gs_boa_poker_new_poker.tres" id="2_uogd1"]
 
 [resource]
@@ -12,6 +12,16 @@ dialogue = ExtResource("1_vsx5k")
 dialogueStartKey = "START"
 guaranteedNextGameStage = ExtResource("2_uogd1")
 isCompletable = true
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -20,6 +30,7 @@ opponentName = ""
 opponentNamePlural = false
 maxRaise = 0
 pokerType = 0
+cheatCount = 0
 playerLives = 0
 cpuLives = 0
 cpuRandomDiscardChance = 0
@@ -28,7 +39,19 @@ cpuLivesWithEvents = Array[int]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

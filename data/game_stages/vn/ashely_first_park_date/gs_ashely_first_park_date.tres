@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://budob75qkmq5q"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_8xbut"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_8xbut"]
 [ext_resource type="Resource" uid="uid://c6ghauu4riya7" path="res://data/game_stages/vn/ashely_first_park_date/d_ashely_first_park_date.tres" id="1_ysm1a"]
 [ext_resource type="Resource" uid="uid://cow1ul70kxhmm" path="res://data/game_stages/dates/ashely_park_date/gs_ashely_park_date.tres" id="2_ljmy8"]
 [ext_resource type="Texture2D" uid="uid://wg0yovvy27c5" path="res://data/assets/stage_art/park.png" id="3_gikk0"]
 [ext_resource type="Texture2D" uid="uid://chg07uf16qlc3" path="res://data/assets/stage_art/park_hover.png" id="3_o3rlv"]
 [ext_resource type="Texture2D" uid="uid://b67w2t18yrf27" path="res://data/background_lists/ashe_park/park4.png" id="5_act8t"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_org00"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_org00"]
 [ext_resource type="AudioStream" uid="uid://w2tujw5fbas5" path="res://data/assets/general/sounds/bg_music/date1.mp3" id="7_c8xdt"]
 
 [sub_resource type="Resource" id="Resource_osef0"]
@@ -32,6 +32,8 @@ middleTransition = 1
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -54,6 +56,17 @@ delayMusicToTransition = false
 stageButtonTexture = ExtResource("3_gikk0")
 stageButtonHover = ExtResource("3_o3rlv")
 stageButtonLabel = "Meet Ashely At Park"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

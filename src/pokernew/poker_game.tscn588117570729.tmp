@@ -1,0 +1,442 @@
+[gd_scene load_steps=18 format=3 uid="uid://dnd677crdakvo"]
+
+[ext_resource type="Script" uid="uid://qxdo2crqyu5e" path="res://src/pokernew/poker_game.gd" id="1_haorf"]
+[ext_resource type="Script" uid="uid://dslhhjk1qq2d3" path="res://src/pokernew/PokerDisplay.gd" id="2_n8c77"]
+[ext_resource type="PackedScene" uid="uid://copd06cjr1uf1" path="res://src/poker/Card.tscn" id="3_clw8w"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="3_i4s7q"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_dai1u"]
+[ext_resource type="PackedScene" uid="uid://cxjkkyt53huvr" path="res://src/pokernew/life_tracker.tscn" id="6_akmyq"]
+[ext_resource type="PackedScene" uid="uid://dqgpk6g0igcli" path="res://src/pokernew/Hints.tscn" id="7_m6qfe"]
+[ext_resource type="PackedScene" uid="uid://cci6mujrkijn" path="res://src/pokernew/PokerModeSelect.tscn" id="8_jfo4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y20me"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_630ny"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fb05"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c8i3"]
+bg_color = Color(0.000227998, 0.00181574, 0.00170113, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csb1k"]
+bg_color = Color(0, 0.313734, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08tmw"]
+bg_color = Color(1.54018e-06, 0.321103, 0.419747, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Animation" id="Animation_jfv6j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroBg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-213, 265)]
+}
+
+[sub_resource type="Animation" id="Animation_jmulo"]
+resource_name = "intro_label_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(916, 265), Vector2(0, 265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroBg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1329, 265), Vector2(-213, 265)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1uoea"]
+_data = {
+&"RESET": SubResource("Animation_jfv6j"),
+&"intro_label_in": SubResource("Animation_jmulo")
+}
+
+[node name="PokerGame" type="Node2D"]
+script = ExtResource("1_haorf")
+
+[node name="PokerDisplay" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_n8c77")
+cardScene = ExtResource("3_clw8w")
+
+[node name="Continue" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 310.0
+offset_top = 1060.0
+offset_right = 605.0
+offset_bottom = 1133.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_y20me")
+text = "Continue"
+
+[node name="Discard" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 310.0
+offset_top = 1060.0
+offset_right = 605.0
+offset_bottom = 1133.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_630ny")
+text = "Redraw 0 Cards"
+
+[node name="Reveal" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 310.0
+offset_top = 1060.0
+offset_right = 605.0
+offset_bottom = 1133.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3fb05")
+text = "Reveal"
+
+[node name="Start" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+offset_left = 310.0
+offset_top = 1060.0
+offset_right = 605.0
+offset_bottom = 1133.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_2c8i3")
+text = "Start"
+
+[node name="Skip" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 26.0
+offset_top = 1060.0
+offset_right = 177.0
+offset_bottom = 1133.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_csb1k")
+text = "Skip Poker"
+
+[node name="Cheat" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 639.0
+offset_top = 1060.0
+offset_right = 832.0
+offset_bottom = 1133.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_08tmw")
+text = "Cheat"
+
+[node name="CheatsLeft" type="Label" parent="PokerDisplay/Cheat"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -35.0
+offset_right = 193.0
+offset_bottom = -6.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 24
+text = "1 Cheat Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntroBg" type="NinePatchRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = -213.0
+offset_top = 265.0
+offset_right = 1089.0
+offset_bottom = 528.0
+texture = ExtResource("3_i4s7q")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="IntroLabel" type="Label" parent="PokerDisplay"]
+unique_name_in_owner = true
+offset_top = 265.0
+offset_right = 896.004
+offset_bottom = 528.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 80
+text = "Poker With Boa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PokerDisplay"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_1uoea")
+}
+
+[node name="InfoTextBg" type="NinePatchRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 62.0
+offset_top = 709.0
+offset_right = 815.0
+offset_bottom = 782.0
+texture = ExtResource("3_i4s7q")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="InfoText" type="Label" parent="PokerDisplay/InfoTextBg"]
+layout_mode = 0
+offset_right = 753.0
+offset_bottom = 73.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+text = "Select Up To 5 Cards To Redraw"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerResultBg" type="NinePatchRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 177.0
+offset_top = 528.0
+offset_right = 730.0
+offset_bottom = 591.0
+texture = ExtResource("3_i4s7q")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="PlayerResult" type="Label" parent="PokerDisplay/PlayerResultBg"]
+layout_mode = 0
+offset_right = 553.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 32
+text = "Player Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUResultBg" type="NinePatchRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 177.0
+offset_top = 391.0
+offset_right = 730.0
+offset_bottom = 454.0
+texture = ExtResource("3_i4s7q")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="CPUResult" type="Label" parent="PokerDisplay/CPUResultBg"]
+layout_mode = 0
+offset_right = 553.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 32
+text = "CPU Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VsLabel" type="Label" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 347.0
+offset_top = 447.0
+offset_right = 553.0
+offset_bottom = 517.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 52
+text = "vs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win" type="Label" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_top = 630.0
+offset_right = 895.0
+offset_bottom = 721.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 64
+text = "You Win"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YourLivesNew" parent="PokerDisplay" instance=ExtResource("6_akmyq")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(9, 251)
+
+[node name="TheirLivesNew" parent="PokerDisplay" instance=ExtResource("6_akmyq")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(778, 251)
+
+[node name="TheirLivesBg" type="NinePatchRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 770.0
+offset_top = 251.0
+offset_right = 880.0
+offset_bottom = 586.0
+texture = ExtResource("3_i4s7q")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="YourLivesBg" type="NinePatchRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 11.0
+offset_top = 251.0
+offset_right = 121.0
+offset_bottom = 586.0
+texture = ExtResource("3_i4s7q")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="YourLives" type="Label" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 26.0
+offset_top = 251.0
+offset_right = 99.0
+offset_bottom = 322.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 28
+text = "Lives
+(You)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TheirLives" type="Label" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 785.0
+offset_top = 251.0
+offset_right = 881.0
+offset_bottom = 322.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 28
+text = "Lives
+(Them)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TheirLivesContainer" type="GridContainer" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 785.0
+offset_top = 329.0
+offset_right = 865.0
+offset_bottom = 578.0
+theme_override_constants/h_separation = 4
+
+[node name="YourLivesContainer" type="GridContainer" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 26.0
+offset_top = 330.0
+offset_right = 106.0
+offset_bottom = 579.0
+
+[node name="Hints" parent="PokerDisplay" instance=ExtResource("7_m6qfe")]
+unique_name_in_owner = true
+position = Vector2(26, 579)
+
+[node name="PokerModeSelect" parent="PokerDisplay" instance=ExtResource("8_jfo4i")]
+unique_name_in_owner = true
+position = Vector2(511, 578)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PokerDisplay"]
+unique_name_in_owner = true
+volume_db = 10.757
+
+[connection signal="pressed" from="PokerDisplay/Continue" to="PokerDisplay" method="_on_continue_pressed"]
+[connection signal="pressed" from="PokerDisplay/Discard" to="PokerDisplay" method="_on_discard_pressed"]
+[connection signal="pressed" from="PokerDisplay/Reveal" to="PokerDisplay" method="_on_reveal_pressed"]
+[connection signal="pressed" from="PokerDisplay/Start" to="PokerDisplay" method="_on_start_pressed"]
+[connection signal="pressed" from="PokerDisplay/Skip" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PokerDisplay/Cheat" to="PokerDisplay" method="_on_cheat_pressed"]
+[connection signal="animation_finished" from="PokerDisplay/AnimationPlayer" to="PokerDisplay" method="_on_animation_player_animation_finished"]

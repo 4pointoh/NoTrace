@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://ba44jtm247lwj"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_wwoi6"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_wwoi6"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="2_bk8k6"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="3_3rio4"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="3_3rio4"]
 [ext_resource type="AudioStream" uid="uid://dpyabqafcwdxe" path="res://data/assets/general/sounds/bg_music/home2.mp3" id="4_hcuow"]
 
 [sub_resource type="Resource" id="Resource_cuuv2"]
@@ -27,6 +27,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -41,10 +42,15 @@ cpuLives = 0
 cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 isPhoneScreen = true
 isPhoneMessageEvent = false
 contactName = ""
 startingMusic = ExtResource("4_hcuow")
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0
@@ -65,3 +71,6 @@ dateCharacter = ""
 dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

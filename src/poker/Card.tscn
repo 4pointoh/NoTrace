@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://copd06cjr1uf1"]
 
-[ext_resource type="Script" path="res://src/poker/Card.gd" id="1_ynah6"]
+[ext_resource type="Script" uid="uid://cc4p8wxy6klb0" path="res://src/poker/Card.gd" id="1_ynah6"]
 [ext_resource type="Texture2D" uid="uid://dnyb5oy3jxxvf" path="res://data/assets/poker/art/cardfront.png" id="2_xqinl"]
 [ext_resource type="Texture2D" uid="uid://bvxnjaqgkrde0" path="res://data/assets/poker/art/club.png" id="3_64300"]
 [ext_resource type="AudioStream" uid="uid://maak8nhac1fa" path="res://data/assets/poker/sounds/flip2.wav" id="4_ip25x"]
@@ -78,8 +78,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a4us6"]
 _data = {
-"RESET": SubResource("Animation_vp44y"),
-"flip": SubResource("Animation_ecnv5")
+&"RESET": SubResource("Animation_vp44y"),
+&"flip": SubResource("Animation_ecnv5")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6m0x"]

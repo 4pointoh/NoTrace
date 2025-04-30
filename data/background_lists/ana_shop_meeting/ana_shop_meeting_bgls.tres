@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BackgroundLists" load_steps=3 format=3 uid="uid://bqorohi27tjjp"]
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=4 format=3 uid="uid://bqorohi27tjjp"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_sal71"]
+[ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_sal71"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_xpu0h"]
 [ext_resource type="Resource" uid="uid://br1jc87g52mop" path="res://data/background_lists/ana_shop_meeting/ana_shop_meeting.tres" id="1_yxpb2"]
 
 [resource]
 script = ExtResource("1_sal71")
-backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_yxpb2")])
+backgroundLists = Array[ExtResource("1_xpu0h")]([ExtResource("1_yxpb2")])

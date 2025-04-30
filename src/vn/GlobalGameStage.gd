@@ -15,6 +15,13 @@ var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
 
+# Poker stages by wins and losses
+var pokerStageHistory = {}
+
+
+# State Variables
+var askedAboutLyric = false
+
 var dateGirlsUnlocked : Array[CHARACTERS]
 
 var characterRelationshipLevels = {
@@ -45,7 +52,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 007
+const VERSION = 010
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -181,7 +188,16 @@ func getAvailableMessages():
 		addMessage(Flags.ASHELY_THEATER_PHONE)
 	
 	if completedStages.has('lisa_park_training_poker3'):
-			addMessage(Flags.ANA_PHONE_INTRO)
+		addMessage(Flags.ANA_PHONE_INTRO)
+	
+	if completedStages.has('ashely_bar_poker'):
+		addMessage(Flags.ASHELY_BAR_POKER_AFTER)
+	
+	if completedStages.has('anna_burger_after_date') and completedStages.has('ashely_theater'):
+		addMessage(Flags.ASHELY_BAR_POKER_BEFORE)
+	
+	if completedStages.has('anna_burger_after_date') and askedAboutLyric:
+		addMessage(Flags.ANNA_PHONE_MESSAGE_LYRIC)
 
 	return availableMessages
 
@@ -206,7 +222,13 @@ func getAvailableSelectableEvents():
 		
 	if completedStages.has('ana_phone_intro'):
 		addSelectableEvent(Flags.ANNA_BURGER)
-
+	
+	if completedStages.has('ashely_bar_poker_message'):
+		addSelectableEvent(Flags.ASHELY_POKER)
+	
+	# DEBUG - FORCE THIS EVENT IN
+	if completedStages.has('ashely_bar_poker'):
+		availableSelectableEvents.append(Flags.ASHELY_POKER)
 	
 	return availableSelectableEvents
 
@@ -234,7 +256,7 @@ func softCompleteCurrentStage():
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here
 # Wallpapers in Dialogue scenes can be unlocked by emitting a signal & subscribing in DialogueManager
-func unlockWallpaper(wallpaperResourceId, customMessage = ''):
+func unlockWallpaper(wallpaperResourceId, customMessage = '', skipNotify = false):
 	unlockedWallpapers.append(wallpaperResourceId)
 	
 	var selectedWallpaper
@@ -242,6 +264,10 @@ func unlockWallpaper(wallpaperResourceId, customMessage = ''):
 		if wallpaper.wallpaperId == wallpaperResourceId:
 			selectedWallpaper = wallpaper
 	
+	if skipNotify:
+		savePersistentData()
+		return
+
 	if selectedWallpaper:
 		if(customMessage == ''):
 			notify.emit("Wallpaper Unlocked", selectedWallpaper.image)
@@ -276,6 +302,7 @@ func savePersistentData():
 	file.store_var(VERSION)
 	file.store_var(unlockedWallpapers)
 	file.store_var(completedStagesGLOBAL)
+	file.store_var(pokerStageHistory)
 
 func loadPersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.READ)
@@ -283,6 +310,11 @@ func loadPersistentData():
 		var saveVersion = file.get_var()
 		unlockedWallpapers.assign(file.get_var())
 		completedStagesGLOBAL.assign(file.get_var())
+		
+		if (saveVersion > 009):
+			pokerStageHistory = file.get_var()
+		else:
+			pokerStageHistory = {}
 
 func saveSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.WRITE)
@@ -309,6 +341,7 @@ func saveSaveData(saveName):
 	file.store_var(characterRelationshipXp)
 	file.store_var(perfectDates)
 	file.store_var(dateGirlsUnlocked)
+	file.store_var(askedAboutLyric)
 	
 	savePersistentData()
 
@@ -390,7 +423,13 @@ func loadSaveData(saveName):
 
 			dateGirlsUnlocked = []
 		
+		if (saveVersion > 007):
+			askedAboutLyric = file.get_var()
+		else:
+			askedAboutLyric = false
+
 		dateStorage.clearCurrentDate()
+
 		print('file version is ' + str(saveVersion))
 
 	loadSave.emit()
@@ -564,3 +603,36 @@ func startMusic(music : String):
 
 func startDefaultPhoneMusic():
 	startMusicSignal.emit("res://data/assets/general/sounds/bg_music/home2.mp3")
+
+func stageHasHints():
+	return currentStage.oneStarHints.size() > 0 or currentStage.twoStarHints.size() > 0 or currentStage.threeStarHints.size() > 0
+
+func addWinToPokerStageHistory():
+	var stageName = currentStage.name
+	if !pokerStageHistory.has(stageName):
+		pokerStageHistory[stageName] = { "wins": 0, "losses": 0 }
+	
+	pokerStageHistory[stageName]["wins"] += 1
+
+	savePersistentData()
+
+func addLossToPokerStageHistory():
+	var stageName = currentStage.name
+	if !pokerStageHistory.has(stageName):
+		pokerStageHistory[stageName] = { "wins": 0, "losses": 0 }
+	
+	pokerStageHistory[stageName]["losses"] += 1
+
+	savePersistentData()
+
+func getCurrentStagePokerWins():
+	if pokerStageHistory.has(currentStage.name):
+		return pokerStageHistory[currentStage.name]["wins"]
+	else:
+		return 0
+
+func getCurrentStagePokerLosses():
+	if pokerStageHistory.has(currentStage.name):
+		return pokerStageHistory[currentStage.name]["losses"]
+	else:
+		return 0

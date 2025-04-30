@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://d3kekrqiohmea"]
 
-[ext_resource type="Script" path="res://data/game_stages/dates/anna_burger_date/anna_burger_date_date_script.gd" id="1_3f05l"]
+[ext_resource type="Script" uid="uid://bg34do3sdhf04" path="res://data/game_stages/dates/anna_burger_date/anna_burger_date_date_script.gd" id="1_3f05l"]
 [ext_resource type="Resource" uid="uid://badxtjoacx76k" path="res://data/game_stages/dates/anna_burger_date/d_anna_burger_date.tres" id="2_hkrhc"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_1jvmn"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_1jvmn"]
 [ext_resource type="Resource" uid="uid://c3dwqs6tljwbf" path="res://data/game_stages/vn/anna_burger_after_date/gs_anna_burger_after_date.tres" id="3_o8ick"]
 [ext_resource type="Texture2D" uid="uid://dkywah11b157" path="res://data/background_lists/anna_burger/6_d.webp" id="5_jii8v"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_fyy44"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_fyy44"]
 [ext_resource type="AudioStream" uid="uid://bh8noxx28p17u" path="res://data/assets/general/sounds/bg_music/new/Untitled(22).mp3" id="7_7mnr5"]
 
 [sub_resource type="Resource" id="Resource_xx04f"]
@@ -28,9 +28,10 @@ endTransition = 0
 middleTransitionText = ""
 middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
-markStagesCompleteOnSceneEnd = Array[String](["ana_burger_before_date"])
+markStagesCompleteOnSceneEnd = Array[String](["anna_burger_before_date"])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -45,10 +46,15 @@ cpuLives = 0
 cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
 startingMusic = ExtResource("7_7mnr5")
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0
@@ -71,3 +77,6 @@ dateCharacter = "Anna"
 dateTitle = "Burgers With Anna"
 dateBusinessButtonLabel = "About Her"
 maxProgress = 180
+oneStarHints = Array[String]([])
+twoStarHints = Array[String](["Fill The Love Meter Completely", "Ask About Her Free Time"])
+threeStarHints = Array[String](["Ask Anna About Her Cats"])

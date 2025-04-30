@@ -2,10 +2,10 @@
 
 [ext_resource type="Resource" uid="uid://bnup87g4e60j4" path="res://data/game_stages/poker/lisa_park_training_poker3/d_lisa_park_training_poker3.tres" id="1_kdomj"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_8t3du"]
-[ext_resource type="Script" path="res://data/game_stages/poker/lisa_park_training_poker3/lisa_park_training_poker3_poker_script.gd" id="2_vb8s2"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="3_3n8cs"]
+[ext_resource type="Script" uid="uid://lous3s0o5fbw" path="res://data/game_stages/poker/lisa_park_training_poker3/lisa_park_training_poker3_poker_script.gd" id="2_vb8s2"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_3n8cs"]
 [ext_resource type="Texture2D" uid="uid://my5gqbmr7qr0" path="res://data/background_lists/lisa_park_training/lisa_park_training_50_poker.png" id="5_385rd"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_iwowp"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_iwowp"]
 [ext_resource type="AudioStream" uid="uid://b0wtc16sgkvld" path="res://data/assets/general/sounds/bg_music/new/Untitled(17).mp3" id="7_8r35q"]
 
 [sub_resource type="Resource" id="Resource_jcyrs"]
@@ -32,6 +32,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String](["lisa_park_training"])
 unlockWallpapersOnSceneEnd = Array[String](["LISA_POK_PARK_1", "LISA_POK_PARK_2", "LISA_POK_PARK_3", "lisa_training_reward4", "lisa_training_reward5", "lisa_training_reward9", "lisa_training_reward8"])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = true
 playerStartingMoney = 200
 cpuStartingMoney = 200
@@ -44,13 +45,18 @@ cheatCount = 0
 playerLives = 5
 cpuLives = 5
 cpuRandomDiscardChance = 0
-playerLivesWithEvents = Array[int]([0, 4])
-cpuLivesWithEvents = Array[int]([0, 1, 2, 3, 4])
+playerLivesWithEvents = Array[int]([5, 1])
+cpuLivesWithEvents = Array[int]([5, 1, 2, 3, 4])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 pokerScript = ExtResource("2_vb8s2")
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
 startingMusic = ExtResource("7_8r35q")
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0
@@ -71,3 +77,6 @@ dateCharacter = ""
 dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

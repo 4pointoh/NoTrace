@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://ctgcch1j3ffq6"]
+
+[ext_resource type="Texture2D" uid="uid://c3rl67kfnx64c" path="res://data/characters/ashely/phone_icons/default.png" id="1_5y8hd"]
+[ext_resource type="Resource" uid="uid://bvoxktla05xr6" path="res://data/game_stages/phone_message/ashely_bar_poker_message_after/d_ashely_bar_poker_message_after.tres" id="1_kcjox"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_hbulm"]
+[ext_resource type="Script" uid="uid://ci3vjn1x22xmb" path="res://data/game_stages/phone_message/ashely_bar_poker_message_after/ashely_bar_phone_after_script.gd" id="3_v8qkc"]
+[ext_resource type="Texture2D" uid="uid://dijfb1r67p8kc" path="res://data/background_lists/home/backgrounds/intro_bg11_night.png" id="5_5y8hd"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_i431i"]
+
+[sub_resource type="Resource" id="Resource_1410c"]
+script = ExtResource("6_i431i")
+name = "sd"
+images = ExtResource("5_5y8hd")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_hbulm")
+name = "ashely_bar_poker_message_after"
+displayName = ""
+dialogue = ExtResource("1_kcjox")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_1410c")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_v8qkc")
+contactName = "Ashely"
+contactImage = ExtResource("1_5y8hd")
+delayMusicToTransition = false
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0

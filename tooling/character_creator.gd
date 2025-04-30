@@ -31,4 +31,3 @@ func _run() -> void:
 		push_error("Failed to save character to: %s" % output_resource)
 	else:
 		print("Successfully saved character to: %s" % output_resource)
-

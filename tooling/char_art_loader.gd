@@ -52,4 +52,3 @@ func _run() -> void:
 		push_error("Failed to save character states to: %s" % character_resource)
 	else:
 		print("Successfully saved character states to: %s" % character_resource)
-

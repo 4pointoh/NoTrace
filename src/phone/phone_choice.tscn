@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drkv4n8chck8g"]
 
 [ext_resource type="Texture2D" uid="uid://pgshfjr1oku8" path="res://data/assets/phone/art/message_text_bg4.png" id="1_6eser"]
-[ext_resource type="Script" path="res://src/phone/phone_choice.gd" id="2_6db6m"]
+[ext_resource type="Script" uid="uid://t4eafeiefub7" path="res://src/phone/phone_choice.gd" id="2_6db6m"]
 [ext_resource type="PackedScene" uid="uid://jler8xaj7k0k" path="res://src/phone/expandable_button.tscn" id="3_ygcm0"]
 
 [node name="Background" type="NinePatchRect"]

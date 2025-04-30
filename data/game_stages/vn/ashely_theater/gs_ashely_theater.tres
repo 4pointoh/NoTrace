@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://g7msjycdvhlc"]
 
 [ext_resource type="Resource" uid="uid://cvbw4xpx3a2km" path="res://data/game_stages/vn/ashely_theater/d_ashely_theater.tres" id="1_52dkx"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="2_81set"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_81set"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_wlaqf"]
 [ext_resource type="Texture2D" uid="uid://dm0jnfxlgx3cs" path="res://data/assets/stage_art/theater_hover.png" id="4_2ifwo"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_xh5ob"]
 [ext_resource type="Texture2D" uid="uid://bho1mfj27xud3" path="res://data/assets/stage_art/theater.png" id="5_5atl6"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_620it"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_620it"]
 [ext_resource type="AudioStream" uid="uid://c84jhbjdu257y" path="res://data/assets/general/sounds/bg_music/new/Untitled(15).mp3" id="8_mhxb0"]
 
 [sub_resource type="Resource" id="Resource_817t3"]
@@ -33,6 +33,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String](["ASHELY_THEATER_1", "ASHELY_THEATER_2", "ASHELY_THEATER_3", "ASHELY_THEATER_4", "ASHELY_THEATER_5", "ASHELY_THEATER_6", "ASHELY_THEATER_7", "ASHELY_THEATER_8", "ASHELY_THEATER_9", "ASHELY_THEATER_10", "ASHELY_THEATER_11", "ASHELY_THEATER_12"])
 cacheItems = Array[String](["res://data/assets/fullscreen_anim/ashely_theater/ashely_theater_frames.tres"])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="BackgroundLists" load_steps=4 format=3 uid="uid://bu5kx1443ho28"]
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=5 format=3 uid="uid://bu5kx1443ho28"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_i7qun"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_b257o"]
+[ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_i7qun"]
 [ext_resource type="Resource" uid="uid://ioq1xjb3uhw0" path="res://data/background_lists/lisa_market/lisa_market_bgl.tres" id="1_wgad1"]
 [ext_resource type="Resource" uid="uid://yci1t3cjiurj" path="res://data/background_lists/lisa_market_new/lisa_market_new.tres" id="2_svgwr"]
 
 [resource]
 script = ExtResource("1_i7qun")
-backgroundLists = Array[Resource("res://addons/dialogue_nodes/objects/BackgroundList.gd")]([ExtResource("1_wgad1"), ExtResource("2_svgwr")])
+backgroundLists = Array[ExtResource("1_b257o")]([ExtResource("1_wgad1"), ExtResource("2_svgwr")])

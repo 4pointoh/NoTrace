@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://bfvjblluekexm"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_4f5fx"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_4f5fx"]
 [ext_resource type="Resource" uid="uid://cevfuwbwc2d8y" path="res://data/game_stages/vn/intro_rework/d_intro_rework.tres" id="1_n36e6"]
 [ext_resource type="Resource" uid="uid://crnyqht4wwav1" path="res://data/game_stages/poker/boa_poker_new_poker/gs_boa_poker_new_poker.tres" id="2_weeta"]
 [ext_resource type="Texture2D" uid="uid://fa6b663hdx3y" path="res://data/background_lists/chads_party/backgrounds/intro_bg3.png" id="4_xdnr5"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_xlftm"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_xlftm"]
 
 [sub_resource type="Resource" id="Resource_rt0tt"]
 script = ExtResource("5_xlftm")
@@ -30,6 +30,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -44,9 +45,14 @@ cpuLives = 0
 cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0
@@ -67,3 +73,6 @@ dateCharacter = ""
 dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

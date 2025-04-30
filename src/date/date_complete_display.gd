@@ -6,6 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 signal clicked_continue()
+signal clicked_play_again()
 
 func set_memories(memories : Dictionary):
 
@@ -46,3 +47,6 @@ func setLabel(totalMemoryCount, unlockedMemoryCount):
 
 func _on_continue_pressed():
 	clicked_continue.emit()
+
+func _on_play_again_pressed() -> void:
+	clicked_play_again.emit()

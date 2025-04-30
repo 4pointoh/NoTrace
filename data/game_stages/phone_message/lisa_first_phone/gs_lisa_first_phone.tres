@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_2efnc"]
 [ext_resource type="Resource" uid="uid://b3gac2uwcwbow" path="res://data/game_stages/phone_message/lisa_first_phone/d_lisa_first_phone2.tres" id="1_dnl27"]
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_hpw7r"]
-[ext_resource type="Script" path="res://data/game_stages/phone_message/lisa_first_phone/scripts/lisa_intro_phone.gd" id="2_wkbwn"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_hpw7r"]
+[ext_resource type="Script" uid="uid://d1so26k2nipgx" path="res://data/game_stages/phone_message/lisa_first_phone/scripts/lisa_intro_phone.gd" id="2_wkbwn"]
 [ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_slyn0"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_j3gse"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_j3gse"]
 
 [sub_resource type="Resource" id="Resource_h8fc4"]
 script = ExtResource("5_j3gse")
@@ -29,6 +29,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -50,6 +51,17 @@ contactName = "Lisa"
 contactImage = ExtResource("1_2efnc")
 delayMusicToTransition = false
 stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+perfectDateStartKey = ""
+midDateStartKey = ""
+lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = ""

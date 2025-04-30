@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bh8m4ecp5otgq"]
 
-[ext_resource type="Script" path="res://src/date/date_select_display.gd" id="1_aol0b"]
+[ext_resource type="Script" uid="uid://mw651c2h52ef" path="res://src/date/date_select_display.gd" id="1_aol0b"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_ii56w"]
 [ext_resource type="PackedScene" uid="uid://cllt6yprt8qlm" path="res://src/date/date_select_display_choice.tscn" id="2_dh26r"]
 [ext_resource type="Texture2D" uid="uid://cv4ndespm5yx1" path="res://data/assets/date/art/transparent_blurple_transparent_rounded_rect_8px9patch.png" id="4_6fnap"]
@@ -32,8 +32,8 @@ length = 0.9
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lw1tx"]
 _data = {
-"RESET": SubResource("Animation_j3xrb"),
-"pop_up": SubResource("Animation_fg43o")
+&"RESET": SubResource("Animation_j3xrb"),
+&"pop_up": SubResource("Animation_fg43o")
 }
 
 [node name="DateSelectDisplay" type="Node2D"]

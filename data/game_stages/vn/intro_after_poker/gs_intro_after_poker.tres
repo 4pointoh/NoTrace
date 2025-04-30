@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://w54iw46mgqvf"]
 
-[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="1_c7f2a"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_c7f2a"]
 [ext_resource type="Resource" uid="uid://m43djeiuybsq" path="res://data/game_stages/vn/intro_after_poker/d_intro_after_poker2.tres" id="1_ufa2a"]
 [ext_resource type="Resource" uid="uid://dojlfqurdseox" path="res://data/game_stages/vn/pre_first_phone/gs_pre_first_phone.tres" id="2_vsi7a"]
 [ext_resource type="Texture2D" uid="uid://dhftfigudy4wb" path="res://data/background_lists/chads_party/backgrounds/intro_1_8.png" id="4_nbxta"]
 [ext_resource type="AudioStream" uid="uid://d00qeaaslpb0r" path="res://data/assets/general/sounds/bg_music/after_poker.mp3" id="4_ydogh"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_vt0ss"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_vt0ss"]
 
 [sub_resource type="Resource" id="Resource_taxkm"]
 script = ExtResource("5_vt0ss")
@@ -31,6 +31,7 @@ markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -45,10 +46,15 @@ cpuLives = 0
 cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
 startingMusic = ExtResource("4_ydogh")
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = ""
 heartLevel = 0
@@ -69,3 +75,6 @@ dateCharacter = ""
 dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

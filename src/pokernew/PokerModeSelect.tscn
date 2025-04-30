@@ -1,0 +1,196 @@
+[gd_scene load_steps=14 format=3 uid="uid://cci6mujrkijn"]
+
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_w13rt"]
+[ext_resource type="Script" uid="uid://csugpqjd7djhg" path="res://src/pokernew/poker_mode_select.gd" id="1_wbqyi"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_wbqyi"]
+[ext_resource type="Texture2D" uid="uid://uwcqdvqqu7n4" path="res://data/assets/date/art/locked.png" id="3_teate"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbqyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teate"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4nfn1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3g1i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdm1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myjwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrex2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntaym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14nic"]
+
+[node name="PokerModeSelect" type="Node2D"]
+script = ExtResource("1_wbqyi")
+
+[node name="RegularMode" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_right = 370.0
+offset_bottom = 149.0
+texture = ExtResource("1_w13rt")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NormalPokerLabel" type="Label" parent="RegularMode"]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+theme_override_font_sizes/font_size = 22
+text = "Normal Poker"
+horizontal_alignment = 1
+
+[node name="NormalModeDescription" type="Label" parent="RegularMode"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 42.0
+offset_right = 370.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+text = "2 Cheats"
+horizontal_alignment = 1
+
+[node name="NormalModeButton" type="Button" parent="RegularMode"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 149.0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wbqyi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_teate")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4nfn1")
+
+[node name="PokerProPlus" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_top = 156.0
+offset_right = 370.0
+offset_bottom = 305.0
+texture = ExtResource("1_w13rt")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ProPlusLocked" type="TextureRect" parent="PokerProPlus"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 136.0
+offset_top = 36.0
+offset_right = 223.0
+offset_bottom = 113.0
+texture = ExtResource("3_teate")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProPlusPokerLabel" type="Label" parent="PokerProPlus"]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+theme_override_font_sizes/font_size = 22
+text = "Poker Pro Plus ™"
+horizontal_alignment = 1
+
+[node name="ProPlusUnlockLabel" type="Label" parent="PokerProPlus"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 121.0
+offset_right = 370.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+text = "Lose Once To Unlock"
+horizontal_alignment = 1
+
+[node name="ProPlusDescription" type="Label" parent="PokerProPlus"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 42.0
+offset_right = 370.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+text = "5 Cheats"
+horizontal_alignment = 1
+
+[node name="ProPlusButton" type="Button" parent="PokerProPlus"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 149.0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b3g1i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdm1e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_myjwj")
+
+[node name="PokerProPlusMax" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_top = 311.0
+offset_right = 370.0
+offset_bottom = 460.0
+texture = ExtResource("1_w13rt")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ProPlusMaxLocked" type="TextureRect" parent="PokerProPlusMax"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 136.0
+offset_top = 40.0
+offset_right = 223.0
+offset_bottom = 117.0
+texture = ExtResource("3_teate")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProPlusMaxPokerLabel" type="Label" parent="PokerProPlusMax"]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+theme_override_font_sizes/font_size = 22
+text = "Poker Pro Plus MAX ™©®"
+horizontal_alignment = 1
+
+[node name="ProPlusMaxUnlockLabel" type="Label" parent="PokerProPlusMax"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 121.0
+offset_right = 370.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+text = "Win Once To Unlock"
+horizontal_alignment = 1
+
+[node name="ProPlusMaxDescription" type="Label" parent="PokerProPlusMax"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 42.0
+offset_right = 370.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("2_wbqyi")
+text = "10 Cheats
+Unlucky Mode"
+horizontal_alignment = 1
+
+[node name="ProPlusMaxButton" type="Button" parent="PokerProPlusMax"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 149.0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qrex2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ntaym")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_14nic")
+
+[connection signal="pressed" from="RegularMode/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]
+[connection signal="pressed" from="PokerProPlus/ProPlusButton" to="." method="_on_pro_plus_button_pressed"]
+[connection signal="pressed" from="PokerProPlusMax/ProPlusMaxButton" to="." method="_on_pro_plus_max_button_pressed"]
