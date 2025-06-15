@@ -18,14 +18,19 @@ texture = ExtResource("2_4xyho")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="AvailableMessagesContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 227.0
 offset_top = 188.0
 offset_right = 730.0
 offset_bottom = 950.0
-theme_override_constants/separation = 40
 
-[node name="SelectableStage" parent="AvailableMessagesContainer" instance=ExtResource("3_hlown")]
+[node name="AvailableMessagesContainer" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="SelectableStage" parent="ScrollContainer/AvailableMessagesContainer" instance=ExtResource("3_hlown")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
@@ -39,3 +44,17 @@ theme_override_font_sizes/font_size = 50
 text = "Activities"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="PastEventsButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 227.0
+offset_top = 999.0
+offset_right = 730.0
+offset_bottom = 1058.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 26
+text = "Replay Past Activities"
+
+[connection signal="pressed" from="PastEventsButton" to="." method="_on_past_events_button_pressed"]

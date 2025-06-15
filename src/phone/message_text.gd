@@ -27,6 +27,8 @@ func replaceEmoji(text):
 	text = text.replace("😉", "[font_size=23]😉[/font_size]")
 	text = text.replace("😅", "[font_size=23]😅[/font_size]")
 	text = text.replace("🐶", "[font_size=23]🐶[/font_size]")
+	text = text.replace("🙈", "[font_size=23]🙈[/font_size]")
+	text = text.replace("😠", "[font_size=23]😠[/font_size]")
 
 	return text
 

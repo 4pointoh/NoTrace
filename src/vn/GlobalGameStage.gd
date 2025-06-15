@@ -25,9 +25,9 @@ var askedAboutLyric = false
 var dateGirlsUnlocked : Array[CHARACTERS]
 
 var characterRelationshipLevels = {
-	CHARACTERS.ASHLEY: 0,
-	CHARACTERS.LISA: 0,
-	CHARACTERS.AMY: 0,
+	CHARACTERS.ASHLEY: 1,
+	CHARACTERS.LISA: 1,
+	CHARACTERS.AMY: 1,
 	CHARACTERS.ANA: 1
 }
 
@@ -199,6 +199,9 @@ func getAvailableMessages():
 	if completedStages.has('anna_burger_after_date') and askedAboutLyric:
 		addMessage(Flags.ANNA_PHONE_MESSAGE_LYRIC)
 
+	if completedStages.has('ashely_bar_poker_message_after'):
+		addMessage(Flags.LISA_BEACH_BEFORE_MESSAGE)
+
 	return availableMessages
 
 func getAvailableSelectableEvents():
@@ -225,12 +228,35 @@ func getAvailableSelectableEvents():
 	
 	if completedStages.has('ashely_bar_poker_message'):
 		addSelectableEvent(Flags.ASHELY_POKER)
-	
-	# DEBUG - FORCE THIS EVENT IN
-	if completedStages.has('ashely_bar_poker'):
-		availableSelectableEvents.append(Flags.ASHELY_POKER)
+
+	if completedStages.has('lisa_beach_message'):
+		addSelectableEvent(Flags.LISA_BEACH_BEFORE)
 	
 	return availableSelectableEvents
+
+func getCompletedSelectableEvents():
+	var completedSelectableEvents = []
+	
+	if completedStages.has(Flags.LISA_FIRST_MARKET_DATE.name):
+		completedSelectableEvents.append(Flags.LISA_FIRST_MARKET_DATE)
+	if completedStages.has(Flags.ASHELY_FIRST_PARK_DATE.name):
+		completedSelectableEvents.append(Flags.ASHELY_FIRST_PARK_DATE)
+	if completedStages.has(Flags.AMY_POKER_HALL_INTRO.name):
+		completedSelectableEvents.append(Flags.AMY_POKER_HALL_INTRO)
+	if completedStages.has(Flags.ANA_MARKET_INTRO.name):
+		completedSelectableEvents.append(Flags.ANA_MARKET_INTRO)
+	if completedStages.has(Flags.LISA_PARK_TRAINING.name):
+		completedSelectableEvents.append(Flags.LISA_PARK_TRAINING)
+	if completedStages.has(Flags.ASHELY_THEATER.name):
+		completedSelectableEvents.append(Flags.ASHELY_THEATER)
+	if completedStages.has(Flags.ANNA_BURGER.name):
+		completedSelectableEvents.append(Flags.ANNA_BURGER)
+	if completedStages.has(Flags.ASHELY_POKER.name):
+		completedSelectableEvents.append(Flags.ASHELY_POKER)
+	if completedStages.has(Flags.LISA_BEACH_BEFORE.name):
+		completedSelectableEvents.append(Flags.LISA_BEACH_BEFORE)
+	
+	return completedSelectableEvents
 
 func addSelectableEvent(event):
 	if !completedStages.has(event.name):
@@ -294,8 +320,8 @@ func setCurrentWallpaper(wallpaper):
 	currentWallpaper = wallpaper
 	wallpaperChange.emit(currentWallpaper)
 	
-func setImageFullscreen(image):
-	fullscreenImage.emit(image)
+func setImageFullscreen(image, index):
+	fullscreenImage.emit(image, index)
 
 func savePersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.WRITE)
@@ -516,6 +542,14 @@ func setDateComplete():
 			if !completedStages.has(stage):
 				completedStages.append(stage)
 				completedStagesGLOBAL.append(stage)
+
+func markStageComplete(stageName):
+	if !completedStages.has(stageName):
+		completedStages.append(stageName)
+	
+	if !completedStagesGLOBAL.has(stageName):
+		completedStagesGLOBAL.append(stageName)
+
 
 func playParticleEffect(type : Heartsplosion.TYPES, animType : Heartsplosion.ANIM_TYPE):
 	playParticle.emit(type, animType)

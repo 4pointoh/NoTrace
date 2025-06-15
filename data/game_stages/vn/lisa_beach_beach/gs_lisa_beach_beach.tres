@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://b6g7w1segax6q"]
+
+[ext_resource type="Resource" uid="uid://buogcheqqsrvr" path="res://data/game_stages/vn/lisa_beach_beach/d_lisa_beach_beach.tres" id="1_c4w5n"]
+[ext_resource type="Resource" uid="uid://ccitkxfg0jjuj" path="res://data/game_stages/realdate/lisa_beach_realdate2/gs_lisa_beach_realdate2.tres" id="2_dgygb"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_uhhpe"]
+[ext_resource type="Texture2D" uid="uid://cp3q674i1jc2j" path="res://data/background_lists/lisa_beach_beach/009.webp" id="4_w8qve"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_3xriy"]
+
+[sub_resource type="Resource" id="Resource_1iqmt"]
+script = ExtResource("5_3xriy")
+name = "ggg"
+images = ExtResource("4_w8qve")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_uhhpe")
+name = "lisa_beach_beach"
+displayName = "Lisa - On The Beach"
+dialogue = ExtResource("1_c4w5n")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_dgygb")
+isCompletable = true
+startingBackground = SubResource("Resource_1iqmt")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = false
+stageButtonLabel = "Hit the beach!"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=29 format=3 uid="uid://ba70guoq7eeu6"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_um0f7"]
+[ext_resource type="Texture2D" uid="uid://1cb3wgtaauct" path="res://data/background_lists/lisa_beach_night/500.webp" id="2_2x60u"]
+[ext_resource type="Texture2D" uid="uid://dcrda2ctageoi" path="res://data/background_lists/lisa_beach_night/501.webp" id="3_6tf1v"]
+[ext_resource type="Texture2D" uid="uid://bmvr3lwp7ak7b" path="res://data/background_lists/lisa_beach_night/502.webp" id="4_3d2b3"]
+[ext_resource type="Texture2D" uid="uid://cmj2ux8haaqvd" path="res://data/background_lists/lisa_beach_night/503.webp" id="5_7nnbn"]
+[ext_resource type="Texture2D" uid="uid://crhdwqbdqrr07" path="res://data/background_lists/lisa_beach_night/504.webp" id="6_lhxro"]
+[ext_resource type="Texture2D" uid="uid://brmn48uxfx56q" path="res://data/background_lists/lisa_beach_night/505.webp" id="7_qah03"]
+[ext_resource type="Texture2D" uid="uid://dn3ajt6jldwc3" path="res://data/background_lists/lisa_beach_night/506.webp" id="8_nj3fj"]
+[ext_resource type="Texture2D" uid="uid://ix1op75c3s3o" path="res://data/background_lists/lisa_beach_night/507.png" id="9_66yxn"]
+[ext_resource type="Texture2D" uid="uid://dj7awvq31pumk" path="res://data/background_lists/lisa_beach_night/508.png" id="10_aaq2u"]
+[ext_resource type="Texture2D" uid="uid://doqwkjaytbiyf" path="res://data/background_lists/lisa_beach_night/509.webp" id="11_2vopd"]
+[ext_resource type="Texture2D" uid="uid://bhmloaisvowbh" path="res://data/background_lists/lisa_beach_night/510.webp" id="12_56bev"]
+[ext_resource type="Texture2D" uid="uid://dau45hxismlfe" path="res://data/background_lists/lisa_beach_night/511.webp" id="13_ap7xp"]
+[ext_resource type="Texture2D" uid="uid://dhq4a1623g4su" path="res://data/background_lists/lisa_beach_night/512.webp" id="14_hxndp"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="15_rwdfb"]
+
+[sub_resource type="Resource" id="Resource_cl74g"]
+script = ExtResource("1_um0f7")
+name = "500.webp"
+images = ExtResource("2_2x60u")
+
+[sub_resource type="Resource" id="Resource_rsxa2"]
+script = ExtResource("1_um0f7")
+name = "501.webp"
+images = ExtResource("3_6tf1v")
+
+[sub_resource type="Resource" id="Resource_6j34w"]
+script = ExtResource("1_um0f7")
+name = "502.webp"
+images = ExtResource("4_3d2b3")
+
+[sub_resource type="Resource" id="Resource_s3fnw"]
+script = ExtResource("1_um0f7")
+name = "503.webp"
+images = ExtResource("5_7nnbn")
+
+[sub_resource type="Resource" id="Resource_kol7p"]
+script = ExtResource("1_um0f7")
+name = "504.webp"
+images = ExtResource("6_lhxro")
+
+[sub_resource type="Resource" id="Resource_svt4e"]
+script = ExtResource("1_um0f7")
+name = "505.webp"
+images = ExtResource("7_qah03")
+
+[sub_resource type="Resource" id="Resource_t5vnw"]
+script = ExtResource("1_um0f7")
+name = "506.webp"
+images = ExtResource("8_nj3fj")
+
+[sub_resource type="Resource" id="Resource_vkv8o"]
+script = ExtResource("1_um0f7")
+name = "507.png"
+images = ExtResource("9_66yxn")
+
+[sub_resource type="Resource" id="Resource_uhqps"]
+script = ExtResource("1_um0f7")
+name = "508.png"
+images = ExtResource("10_aaq2u")
+
+[sub_resource type="Resource" id="Resource_l8tx6"]
+script = ExtResource("1_um0f7")
+name = "509.webp"
+images = ExtResource("11_2vopd")
+
+[sub_resource type="Resource" id="Resource_dif8k"]
+script = ExtResource("1_um0f7")
+name = "510.webp"
+images = ExtResource("12_56bev")
+
+[sub_resource type="Resource" id="Resource_5xgj7"]
+script = ExtResource("1_um0f7")
+name = "511.webp"
+images = ExtResource("13_ap7xp")
+
+[sub_resource type="Resource" id="Resource_04b66"]
+script = ExtResource("1_um0f7")
+name = "512.webp"
+images = ExtResource("14_hxndp")
+
+[resource]
+script = ExtResource("15_rwdfb")
+name = "lisa_beach_night"
+images = Array[ExtResource("1_um0f7")]([SubResource("Resource_cl74g"), SubResource("Resource_rsxa2"), SubResource("Resource_6j34w"), SubResource("Resource_s3fnw"), SubResource("Resource_kol7p"), SubResource("Resource_svt4e"), SubResource("Resource_t5vnw"), SubResource("Resource_vkv8o"), SubResource("Resource_uhqps"), SubResource("Resource_l8tx6"), SubResource("Resource_dif8k"), SubResource("Resource_5xgj7"), SubResource("Resource_04b66")])

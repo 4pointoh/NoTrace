@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://tub72po8buxr"]
+
+[ext_resource type="Resource" uid="uid://dyhk8rt6aa7cw" path="res://data/game_stages/vn/lisa_beach_boardwalk/d_lisa_beach_boardwalk.tres" id="1_bqgh5"]
+[ext_resource type="Resource" uid="uid://hxrtoblns0ou" path="res://data/game_stages/vn/lisa_beach_early_departure/gs_lisa_beach_early_departure.tres" id="2_4u8e0"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_i8g8p"]
+[ext_resource type="Texture2D" uid="uid://cp3q674i1jc2j" path="res://data/background_lists/lisa_beach_beach/009.webp" id="4_2q3ly"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_8nurw"]
+
+[sub_resource type="Resource" id="Resource_cs1us"]
+script = ExtResource("5_8nurw")
+name = "rrr"
+images = ExtResource("4_2q3ly")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_i8g8p")
+name = "lisa_beach_boardwalk"
+displayName = "Lisa Beach - Boardwalk"
+dialogue = ExtResource("1_bqgh5")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_4u8e0")
+isCompletable = true
+startingBackground = SubResource("Resource_cs1us")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 2
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = false
+stageButtonLabel = "Shop the boardwalk!"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

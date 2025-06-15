@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://bqb24msxcfis5"]
+
+[ext_resource type="Resource" uid="uid://b71h4bthy5eke" path="res://data/game_stages/vn/lisa_beach_intro/d_lisa_beach_intro.tres" id="1_kdqby"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_3vjkl"]
+[ext_resource type="Resource" uid="uid://blhj2wgni6ug6" path="res://data/game_stages/realdate/lisa_beach_realdate1/gs_lisa_beach_realdate1.tres" id="2_8uobj"]
+[ext_resource type="Texture2D" uid="uid://b4iigffvknq22" path="res://data/assets/stage_art/beach_hover.png" id="4_r7ssg"]
+[ext_resource type="Texture2D" uid="uid://dijfb1r67p8kc" path="res://data/background_lists/home/backgrounds/intro_bg11_night.png" id="4_tnuck"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_r7ssg"]
+[ext_resource type="Texture2D" uid="uid://l1nfhivon4k7" path="res://data/assets/stage_art/beach.png" id="5_x5btu"]
+[ext_resource type="AudioStream" uid="uid://dlxkn2todoexw" path="res://data/assets/general/sounds/bg_music/new/Untitled(1).mp3" id="8_x5btu"]
+
+[sub_resource type="Resource" id="Resource_x5btu"]
+script = ExtResource("5_r7ssg")
+name = "fff"
+images = ExtResource("4_tnuck")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_3vjkl")
+name = "lisa_beach_intro"
+displayName = "Lisa Beach - Intro"
+dialogue = ExtResource("1_kdqby")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_8uobj")
+isCompletable = true
+startingBackground = SubResource("Resource_x5btu")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = "Sleeping..."
+middleTransition = 3
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 2
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("8_x5btu")
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = true
+stageButtonTexture = ExtResource("5_x5btu")
+stageButtonHover = ExtResource("4_r7ssg")
+stageButtonLabel = "Lisa - Beach Day"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

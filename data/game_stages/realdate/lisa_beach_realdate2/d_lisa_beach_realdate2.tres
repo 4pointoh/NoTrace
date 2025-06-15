@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://b7kj8vuhi2fun"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_lx2ki"]
+
+[resource]
+script = ExtResource("1_lx2ki")
+starts = {}
+nodes = {}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/realdate/lisa_beach_realdate2/characters.tres"
+backgroundList = "res://data/game_stages/realdate/lisa_beach_realdate2/bgs.tres"

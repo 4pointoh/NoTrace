@@ -10,7 +10,7 @@ func _ready():
 	if !GlobalGameStage.currentStage.isPokerMatch:
 		%HintsLocked.hide()
 		%HintContainer.show()
-	elif GlobalGameStage.getCurrentStagePokerWins() > 0:
+	elif GlobalGameStage.getCurrentStagePokerWins() > 0 or  GlobalGameStage.getCurrentStagePokerLosses() > 0:
 		%HintsLocked.hide()
 		%HintContainer.show()
 	else:

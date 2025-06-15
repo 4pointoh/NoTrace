@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmqoicdod3no4"]
+
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="1_7egyc"]
+[ext_resource type="Script" uid="uid://cre1jg6824e1h" path="res://src/realdate/next_scene_select_choice.gd" id="1_naa5n"]
+[ext_resource type="Texture2D" uid="uid://uwcqdvqqu7n4" path="res://data/assets/date/art/locked.png" id="2_naa5n"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_78qls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kkrt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cdd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1up03"]
+
+[node name="NextSceneSelectChoice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_naa5n")
+
+[node name="PokerProPlus" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 1.0
+offset_right = 370.0
+offset_bottom = 150.0
+texture = ExtResource("1_7egyc")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ProPlusLocked" type="TextureRect" parent="PokerProPlus"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 136.0
+offset_top = 36.0
+offset_right = 223.0
+offset_bottom = 113.0
+texture = ExtResource("2_naa5n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProPlusPokerLabel" type="Label" parent="PokerProPlus"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("3_78qls")
+theme_override_font_sizes/font_size = 22
+text = "Hit The Beach!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProPlusUnlockLabel" type="Label" parent="PokerProPlus"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 121.0
+offset_right = 370.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_78qls")
+text = "Score High In The Minigame To Unlock"
+horizontal_alignment = 1
+
+[node name="ProPlusDescription" type="Label" parent="PokerProPlus"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 42.0
+offset_right = 370.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("3_78qls")
+text = "5 Cheats"
+horizontal_alignment = 1
+
+[node name="ProPlusButton" type="Button" parent="PokerProPlus"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 149.0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7kkrt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8cdd1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1up03")
+
+[connection signal="pressed" from="PokerProPlus/ProPlusButton" to="." method="_on_pro_plus_button_pressed"]

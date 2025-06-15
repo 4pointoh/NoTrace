@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://hxrtoblns0ou"]
+
+[ext_resource type="Resource" uid="uid://ccwsvg53gjr34" path="res://data/game_stages/vn/lisa_beach_early_departure/d_lisa_beach_early_departure.tres" id="1_y7s1y"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_1b134"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_bx76d"]
+[ext_resource type="Texture2D" uid="uid://nn8xgvfvfk0b" path="res://data/background_lists/lisa_beach_early_departure/400.webp" id="4_0onjx"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_d0trm"]
+
+[sub_resource type="Resource" id="Resource_j2y6o"]
+script = ExtResource("5_d0trm")
+name = "r"
+images = ExtResource("4_0onjx")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_bx76d")
+name = "lisa_beach_early_departure"
+displayName = "Lisa Beach - Early Departure"
+dialogue = ExtResource("1_y7s1y")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_1b134")
+isCompletable = true
+startingBackground = SubResource("Resource_j2y6o")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 5
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = false
+stageButtonLabel = "It's Getting Late"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

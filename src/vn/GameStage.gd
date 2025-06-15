@@ -16,6 +16,7 @@ class_name GameStage
 @export var middleTransition: Transition.TransitionType
 @export var markStagesCompleteOnDateWin : Array[String]
 @export var markStagesCompleteOnSceneEnd : Array[String]
+@export var markStagesCompleteOnPokerWin : Array[String]
 @export var unlockWallpapersOnSceneEnd: Array[String]
 @export var cacheItems : Array[String]
 @export var repositionDialogueBoxTo : DialogueManager.DboxPosition = DialogueManager.DboxPosition.NO_CHANGE
@@ -66,8 +67,8 @@ class_name GameStage
 @export var characterArtScale : Vector2
 @export var characterArtPosition : Vector2
 @export var character : GlobalGameStage.CHARACTERS
-@export var perfectDateStartKey : String
-@export var midDateStartKey : String
+@export var perfectDateGameStage : GameStage
+@export var midDateGameStage : GameStage
 @export var lostDateStartKey : String
 
 # Date stuff

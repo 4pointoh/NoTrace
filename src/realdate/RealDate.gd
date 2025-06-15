@@ -4,6 +4,7 @@ class_name RealDate
 @export var topicChoiceScene : PackedScene
 @export var selectionResponse : PackedScene
 @export var resultsScreen : PackedScene
+@export var nextSceneSelect : PackedScene
 
 var currentAvailableCombos : Array = []
 var cpuSelections : Array = []
@@ -11,10 +12,12 @@ const DEFAULT_TURNS = 6
 var turns : int = DEFAULT_TURNS
 var selections : int = 4
 var lockInBonus : int = 3
+var matchingChoices: int = 0
 
 var excludedColors = []
+var results
 
-signal dateComplete(success: bool)
+signal dateComplete(nextSceneIndex: int)
 
 var blockClickSound = load("res://data/assets/realdate/sounds/clunk3.mp3")
 var yesSound = load("res://data/assets/realdate/sounds/ooo.mp3")
@@ -98,7 +101,7 @@ func _handle_topic_choice_clicked(id: int):
 	var preferred = determinePreferredColor(selected.colors)
 	if preferred == -1:
 		newSelectionResponse.setNoneVariant(selected.colors)
-		%SpeechBubble.show()
+		#%SpeechBubble.show()
 		%SpeechBubbleText.text = selected.topicText + '?\n' + getRandomNegativeResponse()
 	else:
 		var pref = selected.colors[preferred]
@@ -106,7 +109,7 @@ func _handle_topic_choice_clicked(id: int):
 		for color in selected.colors:
 			if color != pref:
 				notPref.append(color)
-		%SpeechBubble.show()
+		#%SpeechBubble.show()
 		%SpeechBubbleText.text = selected.topicText + '?\n' + getRandomPositiveResponse()
 		newSelectionResponse.setPrefersVariant(pref, notPref)
 
@@ -209,7 +212,8 @@ func _on_color_tracker_not_hovering_tracker():
 
 func _on_submit_pressed():
 	%AnimationPlayer.play("main_ui_out")
-	var results = resultsScreen.instantiate()
+	%Help.hide()
+	results = resultsScreen.instantiate()
 	var startingPos = results.position
 	results.position = Vector2(startingPos.x - 1000, startingPos.y)
 	add_child(results)
@@ -224,6 +228,8 @@ func _on_submit_pressed():
 
 	var newRelXp = curRelXp + getRelationshipBonus()
 	var newLevel = getNewRelationshipLevel(newRelXp)
+
+	matchingChoices = getNumberMatchingChoices()
 
 	if isPerfectDate():
 		GlobalGameStage.addPerfectDate()
@@ -264,6 +270,14 @@ func getNewRelationshipLevel(newRelXp):
 	else:
 		return curLevel
 
+func getNumberMatchingChoices():
+	var numMatches = 0
+	for i in range(selections):
+		if cpuSelections[i] == getPlayerChoices()[i]:
+			numMatches += 1
+
+	return numMatches
+
 func isPerfectDate():
 	for i in range(selections):
 		if cpuSelections[i] != getPlayerChoices()[i]:
@@ -272,14 +286,18 @@ func isPerfectDate():
 	return true
 
 func _on_continue_pressed():
-	if isSpicyQuestionAvailable():
-		pass #TODO - Implement Spicy Question
-	else:
-		#TODO - implement failure mode
-		dateComplete.emit(true)
+	results.queue_free()
+	var nextSceneSelect = nextSceneSelect.instantiate()
+	nextSceneSelect.selectedMode.connect(_on_next_scene_selected)
 
-func isSpicyQuestionAvailable():
-	return false
+	if matchingChoices > 2:
+		nextSceneSelect.unlockedPerfectDate = true
+
+	add_child(nextSceneSelect)
+	%Continue.hide()
+
+func _on_next_scene_selected(mode: int):
+	dateComplete.emit(mode)
 
 func showStart():
 	%SubmitSection.hide()
@@ -290,6 +308,9 @@ func showStart():
 	%Start.show()
 	%TitleText.text = GlobalGameStage.currentStage.stageButtonLabel
 	%Title.show()
+	%Character.texture = GlobalGameStage.currentStage.characterArt
+	%Character.scale = GlobalGameStage.currentStage.characterArtScale
+	%Character.position = GlobalGameStage.currentStage.characterArtPosition
 
 func _on_start_pressed():
 	%SubmitSection.show()
@@ -303,3 +324,6 @@ func _on_start_pressed():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == 'main_ui_in':
 		setup()
+
+func _on_button_pressed() -> void:
+	%HelpScreen.visible = !%HelpScreen.visible

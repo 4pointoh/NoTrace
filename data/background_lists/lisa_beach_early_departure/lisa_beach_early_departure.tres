@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=28 format=3 uid="uid://bkkkitm0u6t0b"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_k7ufg"]
+[ext_resource type="Texture2D" uid="uid://nn8xgvfvfk0b" path="res://data/background_lists/lisa_beach_early_departure/400.webp" id="2_36v55"]
+[ext_resource type="Texture2D" uid="uid://uarwciiqr2jc" path="res://data/background_lists/lisa_beach_early_departure/401.webp" id="3_51ekh"]
+[ext_resource type="Texture2D" uid="uid://dngdmf00w2ekq" path="res://data/background_lists/lisa_beach_early_departure/402.webp" id="4_4svf0"]
+[ext_resource type="Texture2D" uid="uid://csgyb08reoci4" path="res://data/background_lists/lisa_beach_early_departure/403.webp" id="5_c45e0"]
+[ext_resource type="Texture2D" uid="uid://bb3vt82a8dxlj" path="res://data/background_lists/lisa_beach_early_departure/404.webp" id="6_7dk36"]
+[ext_resource type="Texture2D" uid="uid://b6pq4853jvuhq" path="res://data/background_lists/lisa_beach_early_departure/405.webp" id="7_g0pop"]
+[ext_resource type="Texture2D" uid="uid://drgjx6ktn0gab" path="res://data/background_lists/lisa_beach_early_departure/406.webp" id="8_gc6xr"]
+[ext_resource type="Texture2D" uid="uid://1shi2xssg4i5" path="res://data/background_lists/lisa_beach_early_departure/407.webp" id="9_p02bb"]
+[ext_resource type="Texture2D" uid="uid://byemfh1uak45g" path="res://data/background_lists/lisa_beach_early_departure/408.webp" id="10_ik4cp"]
+[ext_resource type="Texture2D" uid="uid://dtxolxgdc0ean" path="res://data/background_lists/lisa_beach_early_departure/409.webp" id="11_dm7a8"]
+[ext_resource type="Texture2D" uid="uid://c1nvq5q41bt3f" path="res://data/background_lists/lisa_beach_early_departure/410.webp" id="12_338cr"]
+[ext_resource type="Texture2D" uid="uid://ix1op75c3s3o" path="res://data/background_lists/lisa_beach_night/507.png" id="13_36v55"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="13_s0ab1"]
+
+[sub_resource type="Resource" id="Resource_bj367"]
+script = ExtResource("1_k7ufg")
+name = "400.webp"
+images = ExtResource("2_36v55")
+
+[sub_resource type="Resource" id="Resource_orlxs"]
+script = ExtResource("1_k7ufg")
+name = "401.webp"
+images = ExtResource("3_51ekh")
+
+[sub_resource type="Resource" id="Resource_e3erd"]
+script = ExtResource("1_k7ufg")
+name = "402.webp"
+images = ExtResource("4_4svf0")
+
+[sub_resource type="Resource" id="Resource_p2m0n"]
+script = ExtResource("1_k7ufg")
+name = "403.webp"
+images = ExtResource("5_c45e0")
+
+[sub_resource type="Resource" id="Resource_eccct"]
+script = ExtResource("1_k7ufg")
+name = "404.webp"
+images = ExtResource("6_7dk36")
+
+[sub_resource type="Resource" id="Resource_tvm2s"]
+script = ExtResource("1_k7ufg")
+name = "405.webp"
+images = ExtResource("7_g0pop")
+
+[sub_resource type="Resource" id="Resource_lmpok"]
+script = ExtResource("1_k7ufg")
+name = "406.webp"
+images = ExtResource("8_gc6xr")
+
+[sub_resource type="Resource" id="Resource_u42qc"]
+script = ExtResource("1_k7ufg")
+name = "407.webp"
+images = ExtResource("9_p02bb")
+
+[sub_resource type="Resource" id="Resource_yd31y"]
+script = ExtResource("1_k7ufg")
+name = "408.webp"
+images = ExtResource("10_ik4cp")
+
+[sub_resource type="Resource" id="Resource_fiwx6"]
+script = ExtResource("1_k7ufg")
+name = "409.webp"
+images = ExtResource("11_dm7a8")
+
+[sub_resource type="Resource" id="Resource_wvfgt"]
+script = ExtResource("1_k7ufg")
+name = "410.webp"
+images = ExtResource("12_338cr")
+
+[sub_resource type="Resource" id="Resource_k7ufg"]
+script = ExtResource("1_k7ufg")
+name = "402_vid"
+images = ExtResource("4_4svf0")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_51ekh"]
+script = ExtResource("1_k7ufg")
+name = "black"
+images = ExtResource("13_36v55")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("13_s0ab1")
+name = "lisa_beach_early_departure"
+images = Array[ExtResource("1_k7ufg")]([SubResource("Resource_bj367"), SubResource("Resource_orlxs"), SubResource("Resource_e3erd"), SubResource("Resource_p2m0n"), SubResource("Resource_eccct"), SubResource("Resource_tvm2s"), SubResource("Resource_lmpok"), SubResource("Resource_u42qc"), SubResource("Resource_yd31y"), SubResource("Resource_fiwx6"), SubResource("Resource_wvfgt"), SubResource("Resource_k7ufg"), SubResource("Resource_51ekh")])

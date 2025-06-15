@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://deitxgkwufv7k"]
+
+[ext_resource type="Texture2D" uid="uid://bqfur3ehn16hw" path="res://data/background_lists/lisa_market/10.png" id="1_hjjdm"]
+[ext_resource type="Script" uid="uid://niwn7t5pl4u8" path="res://src/phone/new_wallpaper.gd" id="2_fxffc"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_j23j7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxffc"]
+bg_color = Color(0.572196, 6.772e-05, 0.48814, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j23j7"]
+bg_color = Color(4.81308e-08, 0.346368, 0.526927, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7uxl"]
+bg_color = Color(0.887741, 0.477551, 0, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="NewWallpaper" type="TextureRect"]
+custom_minimum_size = Vector2(180, 230)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -716.0
+offset_bottom = -922.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hjjdm")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_fxffc")
+
+[node name="Set" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 97.0
+offset_top = 195.0
+offset_right = 167.0
+offset_bottom = 226.0
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_j23j7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fxffc")
+text = "Set"
+
+[node name="View" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 195.0
+offset_right = 86.0
+offset_bottom = 226.0
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_j23j7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j23j7")
+text = "View"
+
+[node name="Video" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 97.0
+offset_top = 158.0
+offset_right = 167.0
+offset_bottom = 189.0
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_j23j7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x7uxl")
+text = "Video"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Set" to="." method="_on_set_pressed"]
+[connection signal="pressed" from="View" to="." method="_on_view_pressed"]
+[connection signal="pressed" from="Video" to="." method="_on_video_pressed"]

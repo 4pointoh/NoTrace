@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://4m2ib0rukcb2"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://4m2ib0rukcb2"]
 
 [ext_resource type="Resource" uid="uid://c8kpr66qyhg0s" path="res://data/game_stages/realdate/ana_realdate_one_date1/d_ana_realdate_one_date1.tres" id="1_a0udu"]
 [ext_resource type="Texture2D" uid="uid://gansk001bmaa" path="res://data/characters/anna/anna_party/character_art/ana_hands_on_hips_angry.png" id="1_tr3by"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_6bdok"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_xeye4"]
 [ext_resource type="Texture2D" uid="uid://b4lk4wulp7fav" path="res://data/background_lists/ana_shop_meeting/shop2.png" id="3_c43jw"]
+[ext_resource type="Resource" uid="uid://d3k7uncf1tlxv" path="res://data/game_stages/vn/lisa_beach_boardwalk_old/gs_lisa_beach_boardwalk.tres" id="4_4tl4n"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_rd420"]
+[ext_resource type="Resource" uid="uid://j6l3aea5nvrt" path="res://data/game_stages/vn/lisa_beach_on_beach/gs_lisa_beach_on_beach.tres" id="5_m2k1h"]
 
 [sub_resource type="Resource" id="Resource_nh5c1"]
 script = ExtResource("4_rd420")
@@ -29,8 +31,10 @@ middleTransitionText = ""
 middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
 unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -45,9 +49,14 @@ cpuLives = 0
 cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
 cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+randomMusic = Array[AudioStream]([])
 delayMusicToTransition = false
 stageButtonLabel = "Spa Day With Anna"
 heartLevel = 0
@@ -59,8 +68,8 @@ characterArt = ExtResource("1_tr3by")
 characterArtScale = Vector2(0.75, 0.75)
 characterArtPosition = Vector2(750, 720)
 character = 4
-perfectDateStartKey = ""
-midDateStartKey = ""
+perfectDateGameStage = ExtResource("5_m2k1h")
+midDateGameStage = ExtResource("4_4tl4n")
 lostDateStartKey = ""
 isDate = false
 dateWinMarkThisStageComplete = ""
@@ -69,3 +78,6 @@ dateCharacter = ""
 dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dq6wlnwk0sf8r"]
+[gd_scene load_steps=31 format=3 uid="uid://dq6wlnwk0sf8r"]
 
 [ext_resource type="Script" uid="uid://cc63lfak2dpt5" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
 [ext_resource type="PackedScene" uid="uid://btbl15a2lxka3" path="res://src/realdate/TopicChoice.tscn" id="1_x6s22"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1exfswvnw0ee" path="res://src/realdate/SelectionResponse.tscn" id="4_rbodi"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_surd0"]
 [ext_resource type="PackedScene" uid="uid://7eknwjt6ga8k" path="res://src/realdate/RealDateResults.tscn" id="4_ym5pd"]
+[ext_resource type="PackedScene" uid="uid://2tnjxu18d7n4" path="res://src/realdate/NextSceneSelect.tscn" id="5_8khig"]
 [ext_resource type="Shader" uid="uid://c7wpo02sf5ujk" path="res://src/realdate/Breathing.gdshader" id="5_esl2f"]
 [ext_resource type="Shader" uid="uid://c002r6r3x0rql" path="res://src/date/ember.gdshader" id="5_slf51"]
 [ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="5_xrx2g"]
@@ -15,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b38axagawio2q" path="res://data/assets/realdate/sounds/slide.mp3" id="13_f13se"]
 [ext_resource type="PackedScene" uid="uid://bve4ubl6ta28n" path="res://src/realdate/ColorTracker.tscn" id="13_wq1hb"]
 [ext_resource type="Texture2D" uid="uid://cwr0nhsp2sfrq" path="res://data/assets/realdate/speech.png" id="14_8iw8f"]
+[ext_resource type="PackedScene" uid="uid://dvmf6yw3jayaq" path="res://src/realdate/HelpScreen.tscn" id="17_1gek6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryhvq"]
 shader = ExtResource("5_esl2f")
@@ -336,6 +338,7 @@ script = ExtResource("1_lqyw3")
 topicChoiceScene = ExtResource("1_x6s22")
 selectionResponse = ExtResource("4_rbodi")
 resultsScreen = ExtResource("4_ym5pd")
+nextSceneSelect = ExtResource("5_8khig")
 
 [node name="Character" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -811,6 +814,20 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.856
 
+[node name="HelpScreen" parent="." instance=ExtResource("17_1gek6")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(176, 96)
+
+[node name="Help" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 798.0
+offset_top = 108.0
+offset_right = 892.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("4_surd0")
+text = "Help"
+
 [connection signal="pressed" from="SubmitSection/Submit" to="." method="_on_submit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="hoveringColor" from="TrackerBg2/ColorTracker" to="." method="_on_color_tracker_hovering_color"]
@@ -819,3 +836,4 @@ volume_db = -15.856
 [connection signal="timeout" from="SpeechBubble/SpeechBubbleTimer" to="." method="_on_speech_bubble_timer_timeout"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_button_pressed"]

@@ -1,0 +1,228 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=75 format=3 uid="uid://b2h8hc0uf4ru7"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_ek2nb"]
+[ext_resource type="Texture2D" uid="uid://blpxe2bd73fj0" path="res://data/background_lists/lisa_beach_boardwalk/009.webp" id="2_0b75g"]
+[ext_resource type="Texture2D" uid="uid://c3gunnsuatsbt" path="res://data/background_lists/lisa_beach_boardwalk/100.webp" id="3_alaut"]
+[ext_resource type="Texture2D" uid="uid://c4oftvyjfftjx" path="res://data/background_lists/lisa_beach_boardwalk/101.webp" id="4_utg5a"]
+[ext_resource type="Texture2D" uid="uid://byvmxy51nnpkk" path="res://data/background_lists/lisa_beach_boardwalk/102.webp" id="5_dhud3"]
+[ext_resource type="Texture2D" uid="uid://b52ptnpyus3pw" path="res://data/background_lists/lisa_beach_boardwalk/103.webp" id="6_ollfs"]
+[ext_resource type="Texture2D" uid="uid://bdkxkhtpd2cwr" path="res://data/background_lists/lisa_beach_boardwalk/104.webp" id="7_1j6x4"]
+[ext_resource type="Texture2D" uid="uid://ctuc5wnu5ma8u" path="res://data/background_lists/lisa_beach_boardwalk/105.webp" id="8_5rce0"]
+[ext_resource type="Texture2D" uid="uid://c871n7v0u8y7a" path="res://data/background_lists/lisa_beach_boardwalk/106.webp" id="9_je6y2"]
+[ext_resource type="Texture2D" uid="uid://cl6ad21e324bc" path="res://data/background_lists/lisa_beach_boardwalk/107.webp" id="10_4s56r"]
+[ext_resource type="Texture2D" uid="uid://b2h5tsymf03ic" path="res://data/background_lists/lisa_beach_boardwalk/108.webp" id="11_e7sm1"]
+[ext_resource type="Texture2D" uid="uid://be77o6x3yvo6" path="res://data/background_lists/lisa_beach_boardwalk/109.webp" id="12_y0odh"]
+[ext_resource type="Texture2D" uid="uid://be7mjhia7246h" path="res://data/background_lists/lisa_beach_boardwalk/110.webp" id="13_1n7tw"]
+[ext_resource type="Texture2D" uid="uid://c0wxsyg3r8jr2" path="res://data/background_lists/lisa_beach_boardwalk/111.webp" id="14_xg0pa"]
+[ext_resource type="Texture2D" uid="uid://yu8kbcwcyy7h" path="res://data/background_lists/lisa_beach_boardwalk/112.webp" id="15_cbmj7"]
+[ext_resource type="Texture2D" uid="uid://ccbe2u0o0qlx" path="res://data/background_lists/lisa_beach_boardwalk/113.webp" id="16_6f74l"]
+[ext_resource type="Texture2D" uid="uid://dkoonobafcyiu" path="res://data/background_lists/lisa_beach_boardwalk/114.webp" id="17_k3jro"]
+[ext_resource type="Texture2D" uid="uid://biwv0syetknqe" path="res://data/background_lists/lisa_beach_boardwalk/115.webp" id="18_wqdyo"]
+[ext_resource type="Texture2D" uid="uid://dp2m2524pr3bv" path="res://data/background_lists/lisa_beach_boardwalk/116.webp" id="19_0j5nr"]
+[ext_resource type="Texture2D" uid="uid://dg8uthd842fsy" path="res://data/background_lists/lisa_beach_boardwalk/117.webp" id="20_ahi0f"]
+[ext_resource type="Texture2D" uid="uid://cjs8n0w2wbmiy" path="res://data/background_lists/lisa_beach_boardwalk/118.webp" id="21_vm4bw"]
+[ext_resource type="Texture2D" uid="uid://da57v1hkja7tj" path="res://data/background_lists/lisa_beach_boardwalk/119.webp" id="22_73vpj"]
+[ext_resource type="Texture2D" uid="uid://vo3r7ohk7bht" path="res://data/background_lists/lisa_beach_boardwalk/120.webp" id="23_4idel"]
+[ext_resource type="Texture2D" uid="uid://6jrrj0le2uo8" path="res://data/background_lists/lisa_beach_boardwalk/121.webp" id="24_elehm"]
+[ext_resource type="Texture2D" uid="uid://pm0b3c86ba5c" path="res://data/background_lists/lisa_beach_boardwalk/122.webp" id="25_hfx5v"]
+[ext_resource type="Texture2D" uid="uid://bhlelb57br0cl" path="res://data/background_lists/lisa_beach_boardwalk/123.webp" id="26_lvdhx"]
+[ext_resource type="Texture2D" uid="uid://dm8hf6ixc12ht" path="res://data/background_lists/lisa_beach_boardwalk/124.webp" id="27_dh44t"]
+[ext_resource type="Texture2D" uid="uid://o0bysnlrqo0h" path="res://data/background_lists/lisa_beach_boardwalk/125.webp" id="28_js2v6"]
+[ext_resource type="Texture2D" uid="uid://mqf02jckg7oa" path="res://data/background_lists/lisa_beach_boardwalk/126.webp" id="29_gyoea"]
+[ext_resource type="Texture2D" uid="uid://cqt146cpqvx3k" path="res://data/background_lists/lisa_beach_boardwalk/127.webp" id="30_eq0ub"]
+[ext_resource type="Texture2D" uid="uid://bxb4emrqihww0" path="res://data/background_lists/lisa_beach_boardwalk/128.webp" id="31_nai7q"]
+[ext_resource type="Texture2D" uid="uid://c8ktis5lokm8d" path="res://data/background_lists/lisa_beach_boardwalk/129.webp" id="32_wqlce"]
+[ext_resource type="Texture2D" uid="uid://lymk8yt8uaxo" path="res://data/background_lists/lisa_beach_boardwalk/130.webp" id="33_nl56g"]
+[ext_resource type="Texture2D" uid="uid://dnvfd8dqrc0f2" path="res://data/background_lists/lisa_beach_boardwalk/131.webp" id="34_heuhk"]
+[ext_resource type="Texture2D" uid="uid://gwu66dn7y87p" path="res://data/background_lists/lisa_beach_boardwalk/116_3.webp" id="35_alaut"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="35_r14l6"]
+[ext_resource type="Texture2D" uid="uid://gqyub5eholmp" path="res://data/background_lists/lisa_beach_boardwalk/116_4.webp" id="36_utg5a"]
+[ext_resource type="Texture2D" uid="uid://cbemdwdks5iad" path="res://data/background_lists/lisa_beach_boardwalk/120_1.webp" id="37_utg5a"]
+
+[sub_resource type="Resource" id="Resource_g1xan"]
+script = ExtResource("1_ek2nb")
+name = "009.webp"
+images = ExtResource("2_0b75g")
+
+[sub_resource type="Resource" id="Resource_cjog0"]
+script = ExtResource("1_ek2nb")
+name = "100.webp"
+images = ExtResource("3_alaut")
+
+[sub_resource type="Resource" id="Resource_fbwgl"]
+script = ExtResource("1_ek2nb")
+name = "101.webp"
+images = ExtResource("4_utg5a")
+
+[sub_resource type="Resource" id="Resource_k1dkv"]
+script = ExtResource("1_ek2nb")
+name = "102.webp"
+images = ExtResource("5_dhud3")
+
+[sub_resource type="Resource" id="Resource_snsj0"]
+script = ExtResource("1_ek2nb")
+name = "103.webp"
+images = ExtResource("6_ollfs")
+
+[sub_resource type="Resource" id="Resource_n50jo"]
+script = ExtResource("1_ek2nb")
+name = "104.webp"
+images = ExtResource("7_1j6x4")
+
+[sub_resource type="Resource" id="Resource_dicf6"]
+script = ExtResource("1_ek2nb")
+name = "105.webp"
+images = ExtResource("8_5rce0")
+
+[sub_resource type="Resource" id="Resource_ten1s"]
+script = ExtResource("1_ek2nb")
+name = "106.webp"
+images = ExtResource("9_je6y2")
+
+[sub_resource type="Resource" id="Resource_vj81g"]
+script = ExtResource("1_ek2nb")
+name = "107.webp"
+images = ExtResource("10_4s56r")
+
+[sub_resource type="Resource" id="Resource_7xu1g"]
+script = ExtResource("1_ek2nb")
+name = "108.webp"
+images = ExtResource("11_e7sm1")
+
+[sub_resource type="Resource" id="Resource_ympjs"]
+script = ExtResource("1_ek2nb")
+name = "109.webp"
+images = ExtResource("12_y0odh")
+
+[sub_resource type="Resource" id="Resource_yien1"]
+script = ExtResource("1_ek2nb")
+name = "110.webp"
+images = ExtResource("13_1n7tw")
+
+[sub_resource type="Resource" id="Resource_b0ego"]
+script = ExtResource("1_ek2nb")
+name = "111.webp"
+images = ExtResource("14_xg0pa")
+
+[sub_resource type="Resource" id="Resource_25hwg"]
+script = ExtResource("1_ek2nb")
+name = "112.webp"
+images = ExtResource("15_cbmj7")
+
+[sub_resource type="Resource" id="Resource_nglph"]
+script = ExtResource("1_ek2nb")
+name = "113.webp"
+images = ExtResource("16_6f74l")
+
+[sub_resource type="Resource" id="Resource_xsh1m"]
+script = ExtResource("1_ek2nb")
+name = "114.webp"
+images = ExtResource("17_k3jro")
+
+[sub_resource type="Resource" id="Resource_lci1k"]
+script = ExtResource("1_ek2nb")
+name = "115.webp"
+images = ExtResource("18_wqdyo")
+
+[sub_resource type="Resource" id="Resource_pl71a"]
+script = ExtResource("1_ek2nb")
+name = "116.webp"
+images = ExtResource("19_0j5nr")
+
+[sub_resource type="Resource" id="Resource_oewc1"]
+script = ExtResource("1_ek2nb")
+name = "117.webp"
+images = ExtResource("20_ahi0f")
+
+[sub_resource type="Resource" id="Resource_shglj"]
+script = ExtResource("1_ek2nb")
+name = "118.webp"
+images = ExtResource("21_vm4bw")
+
+[sub_resource type="Resource" id="Resource_ia7uv"]
+script = ExtResource("1_ek2nb")
+name = "119.webp"
+images = ExtResource("22_73vpj")
+
+[sub_resource type="Resource" id="Resource_j14to"]
+script = ExtResource("1_ek2nb")
+name = "120.webp"
+images = ExtResource("23_4idel")
+
+[sub_resource type="Resource" id="Resource_ppg17"]
+script = ExtResource("1_ek2nb")
+name = "121.webp"
+images = ExtResource("24_elehm")
+
+[sub_resource type="Resource" id="Resource_jdb2m"]
+script = ExtResource("1_ek2nb")
+name = "122.webp"
+images = ExtResource("25_hfx5v")
+
+[sub_resource type="Resource" id="Resource_7g282"]
+script = ExtResource("1_ek2nb")
+name = "123.webp"
+images = ExtResource("26_lvdhx")
+
+[sub_resource type="Resource" id="Resource_nl34g"]
+script = ExtResource("1_ek2nb")
+name = "124.webp"
+images = ExtResource("27_dh44t")
+
+[sub_resource type="Resource" id="Resource_hmlog"]
+script = ExtResource("1_ek2nb")
+name = "125.webp"
+images = ExtResource("28_js2v6")
+
+[sub_resource type="Resource" id="Resource_e4wyd"]
+script = ExtResource("1_ek2nb")
+name = "126.webp"
+images = ExtResource("29_gyoea")
+
+[sub_resource type="Resource" id="Resource_26pwr"]
+script = ExtResource("1_ek2nb")
+name = "127.webp"
+images = ExtResource("30_eq0ub")
+
+[sub_resource type="Resource" id="Resource_bn612"]
+script = ExtResource("1_ek2nb")
+name = "128.webp"
+images = ExtResource("31_nai7q")
+
+[sub_resource type="Resource" id="Resource_8xmrd"]
+script = ExtResource("1_ek2nb")
+name = "129.webp"
+images = ExtResource("32_wqlce")
+
+[sub_resource type="Resource" id="Resource_terwf"]
+script = ExtResource("1_ek2nb")
+name = "130.webp"
+images = ExtResource("33_nl56g")
+
+[sub_resource type="Resource" id="Resource_2qcy0"]
+script = ExtResource("1_ek2nb")
+name = "131.webp"
+images = ExtResource("34_heuhk")
+
+[sub_resource type="Resource" id="Resource_dhud3"]
+script = ExtResource("1_ek2nb")
+name = "116_3"
+images = ExtResource("35_alaut")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_ollfs"]
+script = ExtResource("1_ek2nb")
+name = "116_4"
+images = ExtResource("36_utg5a")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_1j6x4"]
+script = ExtResource("1_ek2nb")
+name = "120_1"
+images = ExtResource("37_utg5a")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("35_r14l6")
+name = "lisa_beach_boardwalk"
+images = Array[ExtResource("1_ek2nb")]([SubResource("Resource_g1xan"), SubResource("Resource_cjog0"), SubResource("Resource_fbwgl"), SubResource("Resource_k1dkv"), SubResource("Resource_snsj0"), SubResource("Resource_n50jo"), SubResource("Resource_dicf6"), SubResource("Resource_ten1s"), SubResource("Resource_vj81g"), SubResource("Resource_7xu1g"), SubResource("Resource_ympjs"), SubResource("Resource_yien1"), SubResource("Resource_b0ego"), SubResource("Resource_25hwg"), SubResource("Resource_nglph"), SubResource("Resource_xsh1m"), SubResource("Resource_lci1k"), SubResource("Resource_pl71a"), SubResource("Resource_oewc1"), SubResource("Resource_shglj"), SubResource("Resource_ia7uv"), SubResource("Resource_j14to"), SubResource("Resource_ppg17"), SubResource("Resource_jdb2m"), SubResource("Resource_7g282"), SubResource("Resource_nl34g"), SubResource("Resource_hmlog"), SubResource("Resource_e4wyd"), SubResource("Resource_26pwr"), SubResource("Resource_bn612"), SubResource("Resource_8xmrd"), SubResource("Resource_terwf"), SubResource("Resource_2qcy0"), SubResource("Resource_dhud3"), SubResource("Resource_ollfs"), SubResource("Resource_1j6x4")])

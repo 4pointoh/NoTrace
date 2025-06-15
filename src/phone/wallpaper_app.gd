@@ -1,8 +1,10 @@
 extends Node2D
 
-@export var wallpaperSelection : PackedScene
+@export var newWallpaper : PackedScene
+
 var wallpapers : WallpaperList
-var wallpaperIndex = 0
+var pageIndex = 0
+var maxPages = 0
 
 var currentSelection
 var wallpaperNotUnlockedImage
@@ -10,7 +12,6 @@ var wallpaperNotUnlockedImage
 func reset():
 	currentSelection = null
 	wallpapers = null
-	wallpaperIndex = 0
 	
 	for ch in $SelectionContainer.get_children():
 		$SelectionContainer.remove_child(ch)
@@ -20,89 +21,119 @@ func reset():
 
 func setup():
 	wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
-	wallpaperNotUnlockedImage = load("res://data/assets/phone/art/wallpaper_not_unlocked.png")
+	wallpaperNotUnlockedImage = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 	$Previous.disabled = true
 	$Next.disabled = false
-	
-	var newSelection = wallpaperSelection.instantiate()
-	var curPaper = wallpapers.wallpapers[0]
-	newSelection.setup(curPaper.hint, curPaper.image)
-	newSelection.position = Vector2(0,0)
-	currentSelection = newSelection
-	$SelectionContainer.add_child(newSelection)
 
-func setSelection(isNext):
-	var newSelection = wallpaperSelection.instantiate()
-	var curPaper = wallpapers.wallpapers[wallpaperIndex]
+	# Calculate the number of pages
+	maxPages = int(wallpapers.wallpapers.size() / 9)
+
+	# Set the current page to 0
+	pageIndex = 0
+
+	setupWallpaperPage(pageIndex)
+
+func setupWallpaperPage(pageNumber: int):
+	# Clear the current grid container
+	for ch in %GridContainer.get_children():
+		%GridContainer.remove_child(ch)
+		ch.queue_free()
+
+	var totalWallpapers = wallpapers.wallpapers.size()
+
+	# Max per page
+	var maxPerPage = 9
+
+	# Calculate the start and end index for the current page
+	var startIndex = pageNumber * maxPerPage
+	var endIndex = startIndex + maxPerPage
+	if endIndex > totalWallpapers:
+		endIndex = totalWallpapers
+
+	# Ensure the start index is within bounds
+	if startIndex < 0:
+		startIndex = 0
 	
-	if curPaper.video:
-		%Video.show()
-	else:
-		%Video.hide()
+	# Ensure the end index is within bounds
+	if endIndex > totalWallpapers:
+		endIndex = totalWallpapers
 	
-	var unlocked = GlobalGameStage.unlockedWallpapers.has(curPaper.wallpaperId)
-	if unlocked:
-		newSelection.setup(curPaper.hint, curPaper.image)
-	else:
-		newSelection.setup(curPaper.hint, wallpaperNotUnlockedImage, true)
+	# Create a new wallpaper selection for each wallpaper in the current page
+	for i in range(startIndex, endIndex):
+		var newSelection = newWallpaper.instantiate()
+		newSelection.index = i
+		newSelection.hasVideo = wallpapers.wallpapers[i].video != null and wallpapers.wallpapers[i].video != ""
+
+		newSelection.hovered.connect(_on_wallpaper_hovered)
+		newSelection.selected.connect(_on_wallpaper_selected)
+		newSelection.view.connect(_on_wallpaper_viewed)
+		newSelection.video.connect(_on_video_pressed)
 		
-	$SelectionContainer.add_child(newSelection)
-	
-	if unlocked:
-		$Set.disabled = false
-	else:
-		$Set.disabled = true
-	
-	if isNext:
-		currentSelection.scrollOutLeft()
-		await newSelection.scrollInRight()
-	else:
-		currentSelection.scrollOutRight()
-		await newSelection.scrollInLeft()
-		
-	$SelectionContainer.remove_child(currentSelection)
-	currentSelection.queue_free()
-	currentSelection = newSelection
+		var curPaper = wallpapers.wallpapers[i]
+
+		var unlocked = GlobalGameStage.unlockedWallpapers.has(curPaper.wallpaperId)
+		if unlocked:
+			newSelection.texture = curPaper.image
+			newSelection.unlocked = true
+		else:
+			newSelection.texture = wallpaperNotUnlockedImage
+			newSelection.unlocked = false
+
+		%GridContainer.add_child(newSelection)
 
 func _on_next_pressed():
-	if wallpaperIndex > wallpapers.wallpapers.size() - 1:
+	if pageIndex > maxPages - 1:
 		return
-		
-	wallpaperIndex += 1
+
+	pageIndex += 1
 	
 	$VideoStreamPlayer.hide()
 	
-	if wallpaperIndex == wallpapers.wallpapers.size() - 1:
+	if pageIndex == maxPages:
 		$Next.disabled = true
 	
-	if wallpaperIndex > 0:
+	if pageIndex != 0:
 		$Previous.disabled = false
 		
-	setSelection(true)
+	setupWallpaperPage(pageIndex)
 
 func _on_previous_pressed():
-	if wallpaperIndex == 0:
-		return
-		
-	wallpaperIndex -= 1
-	
+	pageIndex -= 1
+
 	$VideoStreamPlayer.hide()
 	
-	if wallpaperIndex == 0:
+	if pageIndex == 0:
 		$Previous.disabled = true
 	
-	if wallpaperIndex < wallpapers.wallpapers.size() - 1:
+	if pageIndex < maxPages - 1:
 		$Next.disabled = false
 		
-	setSelection(false)
+	setupWallpaperPage(pageIndex)
 
-func _on_set_pressed():
-	GlobalGameStage.setCurrentWallpaper(wallpapers.wallpapers[wallpaperIndex])
-
-
-func _on_video_pressed():
-	var curPaper = wallpapers.wallpapers[wallpaperIndex]
-	
-	$VideoStreamPlayer.visible = !$VideoStreamPlayer.visible
-	$VideoStreamPlayer.stream = load(curPaper.video)
+func _on_video_pressed(index: int):	
+	$VideoStreamPlayer.show()
+	$VideoStreamPlayer.stream = load(wallpapers.wallpapers[index].video)
 	$VideoStreamPlayer.play()
+	%HideVideo.show()
+	$Previous.hide()
+	$Next.hide()
+	%HintContainer.hide()
+
+func _on_wallpaper_hovered(index: int):
+	%Hint.text = wallpapers.wallpapers[index].hint
+	%Hint.show()
+
+func _on_wallpaper_selected(index: int):
+	GlobalGameStage.setCurrentWallpaper(wallpapers.wallpapers[index])
+
+func _on_wallpaper_viewed(index: int):
+	GlobalGameStage.setImageFullscreen(wallpapers.wallpapers[index].image, index)
+
+func _on_hide_video_pressed() -> void:
+	$VideoStreamPlayer.stop()
+	$VideoStreamPlayer.hide()
+	$VideoStreamPlayer.stream = null
+	%HideVideo.hide()
+	$Previous.show()
+	$Next.show()
+	%HintContainer.show()

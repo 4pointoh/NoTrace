@@ -17,4 +17,4 @@ func _on_button_pressed():
 	if noFullscreen:
 		return
 		
-	GlobalGameStage.setImageFullscreen($MessageImage.texture)
+	GlobalGameStage.setImageFullscreen($MessageImage.texture, null)

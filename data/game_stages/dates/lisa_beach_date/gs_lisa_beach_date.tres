@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://cl3gu626f4fyo"]
+
+[ext_resource type="Script" uid="uid://cf85w7ou5wq3n" path="res://data/game_stages/dates/lisa_beach_date/lisa_beach_date_date_script.gd" id="1_twdgi"]
+[ext_resource type="Resource" uid="uid://b74h8dghn846d" path="res://data/game_stages/dates/lisa_beach_date/d_lisa_beach_date.tres" id="2_7ihc2"]
+[ext_resource type="Resource" uid="uid://cveje5ubkq7e4" path="res://data/game_stages/vn/lisa_beach_night/gs_lisa_beach_night.tres" id="2_loqn2"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_loqn2"]
+
+[resource]
+script = ExtResource("3_loqn2")
+name = "lisa_beach_date"
+displayName = "Lisa Beach - Date"
+dialogue = ExtResource("2_7ihc2")
+dialogueStartKey = "START"
+isCompletable = true
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = false
+stageButtonLabel = "Get Dinner!"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+isDate = true
+dateScript = ExtResource("1_twdgi")
+dateWinGameStage = ExtResource("2_loqn2")
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = "LOST"
+dateCharacter = "Lisa"
+dateTitle = "Dinner With Lisa"
+dateBusinessButtonLabel = "Her Progress"
+maxProgress = 180
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=3 uid="uid://2tnjxu18d7n4"]
+
+[ext_resource type="Script" uid="uid://bvwx8gra8hkn5" path="res://src/realdate/next_scene_select.gd" id="1_64suf"]
+[ext_resource type="PackedScene" uid="uid://bmqoicdod3no4" path="res://src/realdate/NextSceneSelectChoice.tscn" id="1_i8c8o"]
+[ext_resource type="Shader" uid="uid://c002r6r3x0rql" path="res://src/date/ember.gdshader" id="3_qtheu"]
+[ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="4_hmj4y"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_se82y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5b47"]
+shader = ExtResource("3_qtheu")
+shader_parameter/glow_strength = 0.2
+shader_parameter/glow_speed = 2.0
+shader_parameter/noise_scale = 100.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nldp5"]
+bg_color = Color(0.105788, 0.66517, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id="Animation_hmj4y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_se82y"]
+resource_name = "slide_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_qtheu"]
+resource_name = "slide_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 1400), Vector2(50, 200), Vector2(50, 300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_se82y"]
+_data = {
+&"RESET": SubResource("Animation_hmj4y"),
+&"slide_out": SubResource("Animation_se82y"),
+&"slide_up": SubResource("Animation_qtheu")
+}
+
+[node name="NextSceneSelect" type="Node2D"]
+script = ExtResource("1_64suf")
+dateChoiceSelect = ExtResource("1_i8c8o")
+
+[node name="SelectionBg" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_c5b47")
+offset_top = -58.0
+offset_right = 410.0
+offset_bottom = 412.0
+texture = ExtResource("4_hmj4y")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="SelectionContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 389.0
+offset_bottom = 326.0
+theme_override_constants/separation = 160
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 19.0
+offset_top = 353.0
+offset_right = 389.0
+offset_bottom = 392.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_se82y")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nldp5")
+text = "Go!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_se82y")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_top = -47.0
+offset_right = 410.0
+offset_bottom = 11.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_se82y")
+theme_override_font_sizes/font_size = 42
+text = "Where To Next?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

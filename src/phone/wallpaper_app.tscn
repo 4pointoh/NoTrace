@@ -1,23 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8xq18q7uj5j2"]
+[gd_scene load_steps=10 format=3 uid="uid://c8xq18q7uj5j2"]
 
 [ext_resource type="Script" uid="uid://btwrk8dxo5ls1" path="res://src/phone/wallpaper_app.gd" id="1_ia2dx"]
-[ext_resource type="Texture2D" uid="uid://bra7m0mgk4o61" path="res://data/assets/phone/art/wallpapers_background.png" id="3_fu0o7"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_b03ht"]
-[ext_resource type="PackedScene" uid="uid://iavytdq8vj5e" path="res://src/phone/wallpaper_selection.tscn" id="4_seqyg"]
+[ext_resource type="Texture2D" uid="uid://kpf6idqel3k6" path="res://data/assets/phone/art/realdate_app.webp" id="4_ojxim"]
+[ext_resource type="PackedScene" uid="uid://deitxgkwufv7k" path="res://src/phone/NewWallpaper.tscn" id="5_ojxim"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="6_lusa7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojxim"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lusa7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee880"]
 bg_color = Color(0, 0.453924, 0.65822, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhwwc"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="WallpaperApp" type="Node2D"]
 script = ExtResource("1_ia2dx")
-wallpaperSelection = ExtResource("4_seqyg")
+newWallpaper = ExtResource("5_ojxim")
 
 [node name="WallpaperBackground" type="TextureRect" parent="."]
 offset_left = 188.0
 offset_top = 59.0
 offset_right = 762.0
 offset_bottom = 1086.0
-texture = ExtResource("3_fu0o7")
+texture = ExtResource("4_ojxim")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
@@ -26,6 +48,10 @@ offset_left = 637.0
 offset_top = 1008.0
 offset_right = 747.0
 offset_bottom = 1058.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_b03ht")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ojxim")
 text = "Next"
 
 [node name="Previous" type="Button" parent="."]
@@ -33,9 +59,14 @@ offset_left = 204.0
 offset_top = 1008.0
 offset_right = 314.0
 offset_bottom = 1058.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_b03ht")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_lusa7")
 text = "Previous"
 
 [node name="Set" type="Button" parent="."]
+visible = false
 offset_left = 434.0
 offset_top = 1008.0
 offset_right = 629.0
@@ -63,15 +94,6 @@ offset_top = 169.0
 offset_right = 746.0
 offset_bottom = 980.0
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-visible = false
-offset_left = 204.0
-offset_top = 169.0
-offset_right = 746.0
-offset_bottom = 941.0
-expand = true
-loop = true
-
 [node name="Video" type="Button" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -82,7 +104,85 @@ offset_bottom = 1058.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ee880")
 text = "Video"
 
+[node name="GridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 202.0
+offset_top = 169.0
+offset_right = 750.0
+offset_bottom = 870.0
+columns = 3
+
+[node name="NewWallpaper" parent="GridContainer" instance=ExtResource("5_ojxim")]
+layout_mode = 2
+
+[node name="NewWallpaper2" parent="GridContainer" instance=ExtResource("5_ojxim")]
+layout_mode = 2
+
+[node name="NewWallpaper3" parent="GridContainer" instance=ExtResource("5_ojxim")]
+layout_mode = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_left = 204.0
+offset_top = 169.0
+offset_right = 746.0
+offset_bottom = 941.0
+expand = true
+loop = true
+
+[node name="HideVideo" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 328.0
+offset_top = 1008.0
+offset_right = 629.0
+offset_bottom = 1058.0
+theme_override_fonts/font = ExtResource("4_b03ht")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhwwc")
+text = "Stop Video"
+
+[node name="HintContainer" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+offset_left = 204.0
+offset_top = 881.0
+offset_right = 750.0
+offset_bottom = 1000.0
+texture = ExtResource("6_lusa7")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="HintContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 546.0
+offset_bottom = 119.0
+texture = ExtResource("6_lusa7")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Hint" type="Label" parent="HintContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 11.0
+offset_right = 533.0
+offset_bottom = 101.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_b03ht")
+theme_override_font_sizes/font_size = 26
+text = "Ashely (27)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
-[connection signal="pressed" from="Set" to="." method="_on_set_pressed"]
 [connection signal="pressed" from="Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="HideVideo" to="." method="_on_hide_video_pressed"]

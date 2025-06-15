@@ -16,11 +16,30 @@ saveItem = ExtResource("2_pt0gs")
 [node name="Back" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-offset_left = 247.0
+offset_left = 47.0
 offset_top = 892.0
-offset_right = 469.0
+offset_right = 269.0
 offset_bottom = 923.0
 text = "Back"
+
+[node name="Quit" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 487.0
+offset_top = 892.0
+offset_right = 596.0
+offset_bottom = 923.0
+text = "Quit Game"
+
+[node name="ReallyQuit" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 608.0
+offset_top = 892.0
+offset_right = 717.0
+offset_bottom = 923.0
+text = "Confirm Quit"
 
 [node name="MainMenuContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -153,17 +172,39 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Spacebar - Progress dialogue
 CTRL - Quick Skip (works in completed scenes only)
 H - Hide/Unhide UI
-Right Click - Show Menu
+Right Click - Show Menu"
 
-"
+[node name="DisplayType" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dw5o3")
+theme_override_font_sizes/font_size = 24
+text = "Display Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScreenTypeContainer" type="HBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Fullscreen" type="Button" parent="MainMenuContainer/ScreenTypeContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Windowed" type="Button" parent="MainMenuContainer/ScreenTypeContainer"]
+layout_mode = 2
+text = "Windowed"
+
+[node name="Borderless Windowed" type="Button" parent="MainMenuContainer/ScreenTypeContainer"]
+layout_mode = 2
+text = "Borderless Windowed"
 
 [node name="Space8" type="Control" parent="MainMenuContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
 [node name="SaveLocOpen" type="Button" parent="MainMenuContainer"]
@@ -199,6 +240,8 @@ layout_mode = 2
 alignment = 1
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ReallyQuit" to="." method="_on_really_quit_pressed"]
 [connection signal="pressed" from="MainMenuContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MainMenuContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="text_changed" from="MainMenuContainer/CharName" to="." method="_on_text_edit_text_changed"]
@@ -206,4 +249,7 @@ alignment = 1
 [connection signal="pressed" from="MainMenuContainer/SpeedContainer/RecommendedButton" to="." method="_on_recommended_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/SpeedContainer/FastButton" to="." method="_on_fast_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/SpeedContainer/ExtremeButton" to="." method="_on_extreme_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/ScreenTypeContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="MainMenuContainer/ScreenTypeContainer/Windowed" to="." method="_on_windowed_pressed"]
+[connection signal="pressed" from="MainMenuContainer/ScreenTypeContainer/Borderless Windowed" to="." method="_on_borderless_windowed_pressed"]
 [connection signal="pressed" from="MainMenuContainer/SaveLocOpen" to="." method="_on_save_loc_open_pressed"]

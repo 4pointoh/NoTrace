@@ -17,7 +17,8 @@ func showMenu(show_back = false):
 	$MainMenuContainer.show()
 	$SavesContainer.hide()
 	$Label.hide()
-	$Back.visible = show_back
+	%Quit.show()
+	%ReallyQuit.hide()
 	%CharName.text = GlobalGameStage.playerName
 	showBack = show_back 
 		
@@ -50,7 +51,6 @@ func _on_load_pressed():
 	$MainMenuContainer.hide()
 	$Label.visible = true
 	$Label.text = 'LOAD'
-	$Back.visible = true
 	
 
 func setup():
@@ -92,6 +92,8 @@ func _handle_save_selected(saveName):
 		setup()
 	elif loadMode:
 		GlobalGameStage.loadSaveData(saveName)
+		saveMode = false
+		loadMode = false
 	
 func _on_back_pressed():
 	if saveMode || loadMode:
@@ -100,7 +102,6 @@ func _on_back_pressed():
 		$Label.visible = false
 		saveMode = false
 		loadMode = false
-		$Back.visible = showBack
 	else:
 		visible = false
 
@@ -141,3 +142,20 @@ func setCurrentSpeedText():
 
 func _on_save_loc_open_pressed():
 	OS.shell_open(OS.get_user_data_dir())
+
+
+func _on_fullscreen_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN) 
+
+func _on_windowed_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_borderless_windowed_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
+
+
+func _on_quit_pressed() -> void:
+	%ReallyQuit.show()
+
+func _on_really_quit_pressed() -> void:
+	get_tree().quit()

@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://ccitkxfg0jjuj"]
+
+[ext_resource type="Resource" uid="uid://b7kj8vuhi2fun" path="res://data/game_stages/realdate/lisa_beach_realdate2/d_lisa_beach_realdate2.tres" id="1_2y8eb"]
+[ext_resource type="Texture2D" uid="uid://c5ojsba67ug7k" path="res://data/characters/lisa/lisa_beach/character_art/excited.png" id="1_essnw"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_rb4nk"]
+[ext_resource type="Resource" uid="uid://hxrtoblns0ou" path="res://data/game_stages/vn/lisa_beach_early_departure/gs_lisa_beach_early_departure.tres" id="3_i5xpo"]
+[ext_resource type="Resource" uid="uid://cl3gu626f4fyo" path="res://data/game_stages/dates/lisa_beach_date/gs_lisa_beach_date.tres" id="4_essnw"]
+[ext_resource type="Texture2D" uid="uid://vsmaijc4x6oa" path="res://data/background_lists/lisa_beach_intro/009.webp" id="6_apeb2"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_yq6x6"]
+
+[sub_resource type="Resource" id="Resource_f8p5e"]
+script = ExtResource("7_yq6x6")
+name = "er"
+images = ExtResource("6_apeb2")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_rb4nk")
+name = "lisa_beach_realdate2"
+displayName = "Lisa Beach - Minigame 2"
+dialogue = ExtResource("1_2y8eb")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_f8p5e")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 2
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = false
+stageButtonLabel = "Beach With Lisa (2)"
+heartLevel = 0
+isRealDate = true
+numberOfSelections = 4
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArt = ExtResource("1_essnw")
+characterArtScale = Vector2(0.8, 0.8)
+characterArtPosition = Vector2(750, 720)
+character = 2
+perfectDateGameStage = ExtResource("4_essnw")
+midDateGameStage = ExtResource("3_i5xpo")
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

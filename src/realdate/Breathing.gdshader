@@ -16,7 +16,7 @@ void vertex()
 {
     // A value that oscillates between (1 - amplitude) and (1 + amplitude).
     float scale = 1.0 + amplitude * sin(TIME * speed);
-    
+
     // Shift VERTEX so pivot is at origin (0,0), scale, then shift back.
     VERTEX -= pivot;
     VERTEX *= scale;

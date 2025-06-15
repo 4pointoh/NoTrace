@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=9 format=3 uid="uid://cnv51x2yeeuyr"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_ekww4"]
+[ext_resource type="Texture2D" uid="uid://dyb1w3thx610n" path="res://data/background_lists/lisa_beach/test0.png" id="2_guou5"]
+[ext_resource type="Texture2D" uid="uid://blad5wusuvjn3" path="res://data/background_lists/lisa_beach/test1.png" id="3_kso6k"]
+[ext_resource type="Texture2D" uid="uid://dknrpnje1o12w" path="res://data/background_lists/lisa_beach/test2.png" id="4_4nen0"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="5_n5d3n"]
+
+[sub_resource type="Resource" id="Resource_ypi4e"]
+script = ExtResource("1_ekww4")
+name = "test0.png"
+images = ExtResource("2_guou5")
+
+[sub_resource type="Resource" id="Resource_ug3v0"]
+script = ExtResource("1_ekww4")
+name = "test1.png"
+images = ExtResource("3_kso6k")
+
+[sub_resource type="Resource" id="Resource_x26yk"]
+script = ExtResource("1_ekww4")
+name = "test2.png"
+images = ExtResource("4_4nen0")
+
+[resource]
+script = ExtResource("5_n5d3n")
+name = "lisa_beach"
+images = Array[ExtResource("1_ekww4")]([SubResource("Resource_ypi4e"), SubResource("Resource_ug3v0"), SubResource("Resource_x26yk")])

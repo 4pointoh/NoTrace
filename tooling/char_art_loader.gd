@@ -2,9 +2,9 @@
 extends EditorScript
 
 func _run() -> void:
-	var character_variant: String = 'anna_sweater'
-	var character_resource: String = 'res://data/characters/anna/anna_sweater/anna_sweater.tres'
-	var char_art_directory: String = "res://data/characters/anna/anna_sweater/character_art/"         # Where .png files are located
+	var character_variant: String = 'lisa_beach'
+	var character_resource: String = 'res://data/characters/lisa/lisa_beach/lisa_beach.tres'
+	var char_art_directory: String = "res://data/characters/lisa/lisa_beach/character_art/"         # Where .png files are located
 	
 	var existingchar = load(character_resource)
 	

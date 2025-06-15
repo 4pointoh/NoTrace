@@ -11,6 +11,7 @@ var ANA_PHONE_INTRO = load("res://data/game_stages/phone_message/ana_phone_intro
 var ASHELY_BAR_POKER_AFTER = load("res://data/game_stages/phone_message/ashely_bar_poker_message_after/gs_ashely_bar_poker_message_after.tres")
 var ASHELY_BAR_POKER_BEFORE = load("res://data/game_stages/phone_message/ashely_bar_poker_message/gs_ashely_bar_poker_message.tres")
 var ANNA_PHONE_MESSAGE_LYRIC = load("res://data/game_stages/phone_message/anna_phone_message_lyric/gs_anna_phone_message_lyric.tres")
+var LISA_BEACH_BEFORE_MESSAGE = load("res://data/game_stages/phone_message/lisa_beach_message/gs_lisa_beach_message.tres")
 
 #selectable events 
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")
@@ -21,3 +22,4 @@ var LISA_PARK_TRAINING = load("res://data/game_stages/vn/lisa_park_training/gs_l
 var ASHELY_THEATER = load("res://data/game_stages/vn/ashely_theater/gs_ashely_theater.tres")
 var ANNA_BURGER = load("res://data/game_stages/vn/anna_burger_before_date/gs_anna_burger_before_date.tres")
 var ASHELY_POKER = load("res://data/game_stages/vn/ashely_bar_before_poker/gs_ashely_bar_before_poker.tres")
+var LISA_BEACH_BEFORE = load("res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres")

@@ -7,13 +7,13 @@ uniform float time_multiplier = 5.0; // Speed of the wave animation
 
 void fragment() {
     vec2 uv = UV;
-    
+
     // Calculate the dynamic wave effect
     float wave = sin((uv.x * wave_frequency + TIME * time_multiplier)) * wave_amplitude;
-    
+
     // Determine the fill cutoff line with the wave effect
     float fill_line = 1.0 - fill_amount + wave;
-    
+
     // Render pixels below the fill line
     if (uv.y >= fill_line) {
         COLOR = texture(TEXTURE, uv);

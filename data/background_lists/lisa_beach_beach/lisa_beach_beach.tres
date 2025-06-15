@@ -1,0 +1,331 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=109 format=3 uid="uid://c3s5jj4ubm8s0"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_qa8lj"]
+[ext_resource type="Texture2D" uid="uid://cp3q674i1jc2j" path="res://data/background_lists/lisa_beach_beach/009.webp" id="2_62jhe"]
+[ext_resource type="Texture2D" uid="uid://cvrk50h7fcsge" path="res://data/background_lists/lisa_beach_beach/200.webp" id="3_8eobc"]
+[ext_resource type="Texture2D" uid="uid://bw6j86kt4j313" path="res://data/background_lists/lisa_beach_beach/201.webp" id="4_ybyvg"]
+[ext_resource type="Texture2D" uid="uid://dvr44ixdtdmc5" path="res://data/background_lists/lisa_beach_beach/202.webp" id="5_lh1lq"]
+[ext_resource type="Texture2D" uid="uid://c41lbfgcwcl70" path="res://data/background_lists/lisa_beach_beach/203.webp" id="6_wdixk"]
+[ext_resource type="Texture2D" uid="uid://crsf47qc6uanh" path="res://data/background_lists/lisa_beach_beach/204.webp" id="7_g7j7b"]
+[ext_resource type="Texture2D" uid="uid://dy866c2ybrgt7" path="res://data/background_lists/lisa_beach_beach/205.webp" id="8_npak5"]
+[ext_resource type="Texture2D" uid="uid://bfgftf6pc07ur" path="res://data/background_lists/lisa_beach_beach/206.webp" id="9_8i3vo"]
+[ext_resource type="Texture2D" uid="uid://xjvlaq4j2oh4" path="res://data/background_lists/lisa_beach_beach/207.webp" id="10_p72ph"]
+[ext_resource type="Texture2D" uid="uid://ctbpku3q0hxld" path="res://data/background_lists/lisa_beach_beach/208.webp" id="11_u6ncs"]
+[ext_resource type="Texture2D" uid="uid://bi4ma6v2fwmch" path="res://data/background_lists/lisa_beach_beach/209.webp" id="12_6jefs"]
+[ext_resource type="Texture2D" uid="uid://b0yq1u3esidis" path="res://data/background_lists/lisa_beach_beach/210.webp" id="13_yspna"]
+[ext_resource type="Texture2D" uid="uid://d1ht8kecblvg0" path="res://data/background_lists/lisa_beach_beach/211.webp" id="14_m57fn"]
+[ext_resource type="Texture2D" uid="uid://dtb64rmefp4ar" path="res://data/background_lists/lisa_beach_beach/212.webp" id="15_xb4e7"]
+[ext_resource type="Texture2D" uid="uid://cnx7ubm7u2wjx" path="res://data/background_lists/lisa_beach_beach/213.webp" id="16_kpii2"]
+[ext_resource type="Texture2D" uid="uid://b5k7bhijgoehg" path="res://data/background_lists/lisa_beach_beach/214.webp" id="17_l5h3g"]
+[ext_resource type="Texture2D" uid="uid://lbrlpeykn1sk" path="res://data/background_lists/lisa_beach_beach/215.webp" id="18_yei71"]
+[ext_resource type="Texture2D" uid="uid://c07p2ns51uk7v" path="res://data/background_lists/lisa_beach_beach/216.webp" id="19_mmkt0"]
+[ext_resource type="Texture2D" uid="uid://7lvg4iby7ccl" path="res://data/background_lists/lisa_beach_beach/217.webp" id="20_jyyca"]
+[ext_resource type="Texture2D" uid="uid://byb7e3yacdhnb" path="res://data/background_lists/lisa_beach_beach/218.webp" id="21_g02oi"]
+[ext_resource type="Texture2D" uid="uid://bkuvba0jguj3e" path="res://data/background_lists/lisa_beach_beach/219.webp" id="22_qdqec"]
+[ext_resource type="Texture2D" uid="uid://btmvfj24ylyiv" path="res://data/background_lists/lisa_beach_beach/220.webp" id="23_obt2d"]
+[ext_resource type="Texture2D" uid="uid://cv5clx254oxg7" path="res://data/background_lists/lisa_beach_beach/221.webp" id="24_ky6dy"]
+[ext_resource type="Texture2D" uid="uid://4yxbuhpk4a88" path="res://data/background_lists/lisa_beach_beach/222.webp" id="25_84dqn"]
+[ext_resource type="Texture2D" uid="uid://d1jb6b5e8ij13" path="res://data/background_lists/lisa_beach_beach/223.webp" id="26_gq2rj"]
+[ext_resource type="Texture2D" uid="uid://b68jr81imat55" path="res://data/background_lists/lisa_beach_beach/224.webp" id="27_s86ji"]
+[ext_resource type="Texture2D" uid="uid://bt6i80d33wa5w" path="res://data/background_lists/lisa_beach_beach/225.webp" id="28_3vjio"]
+[ext_resource type="Texture2D" uid="uid://e27jto3qoeqi" path="res://data/background_lists/lisa_beach_beach/226.webp" id="29_p8504"]
+[ext_resource type="Texture2D" uid="uid://bmuqskqj7fhq7" path="res://data/background_lists/lisa_beach_beach/227.webp" id="30_77ben"]
+[ext_resource type="Texture2D" uid="uid://b00q5ki4162u8" path="res://data/background_lists/lisa_beach_beach/228.webp" id="31_1tcu4"]
+[ext_resource type="Texture2D" uid="uid://bbq65vth2b5aa" path="res://data/background_lists/lisa_beach_beach/229.webp" id="32_6qhl2"]
+[ext_resource type="Texture2D" uid="uid://mca2pbyo3cdv" path="res://data/background_lists/lisa_beach_beach/230.webp" id="33_1wbd0"]
+[ext_resource type="Texture2D" uid="uid://bwpe6m3gybm5q" path="res://data/background_lists/lisa_beach_beach/240.webp" id="34_jtenp"]
+[ext_resource type="Texture2D" uid="uid://cf35g0eye1ijy" path="res://data/background_lists/lisa_beach_beach/241.webp" id="35_gvpsf"]
+[ext_resource type="Texture2D" uid="uid://bxwpsfk2c7nug" path="res://data/background_lists/lisa_beach_beach/242.webp" id="36_bldlm"]
+[ext_resource type="Texture2D" uid="uid://bx70i6r2jsa1e" path="res://data/background_lists/lisa_beach_beach/243.webp" id="37_guk1t"]
+[ext_resource type="Texture2D" uid="uid://brloyrfhlo1d2" path="res://data/background_lists/lisa_beach_beach/244.webp" id="38_wpee5"]
+[ext_resource type="Texture2D" uid="uid://q2oxssl3wbx4" path="res://data/background_lists/lisa_beach_beach/245.webp" id="39_wjaji"]
+[ext_resource type="Texture2D" uid="uid://bqx0e7fd4lh08" path="res://data/background_lists/lisa_beach_beach/246.webp" id="40_w4h1k"]
+[ext_resource type="Texture2D" uid="uid://bakp0nw7neycj" path="res://data/background_lists/lisa_beach_beach/247.webp" id="41_lpaig"]
+[ext_resource type="Texture2D" uid="uid://lnivrj3vrcfh" path="res://data/background_lists/lisa_beach_beach/248.webp" id="42_spwf6"]
+[ext_resource type="Texture2D" uid="uid://bet2l4kgi03sh" path="res://data/background_lists/lisa_beach_beach/249.webp" id="43_3e8wm"]
+[ext_resource type="Texture2D" uid="uid://nviyxe2qwq6n" path="res://data/background_lists/lisa_beach_beach/250.webp" id="44_bx4he"]
+[ext_resource type="Texture2D" uid="uid://bukl82n0nacvd" path="res://data/background_lists/lisa_beach_beach/251.webp" id="45_obr4m"]
+[ext_resource type="Texture2D" uid="uid://cpxctyl51frsn" path="res://data/background_lists/lisa_beach_beach/252.webp" id="46_hhdaf"]
+[ext_resource type="Texture2D" uid="uid://ss5h4hapc5pq" path="res://data/background_lists/lisa_beach_beach/253.webp" id="47_ghvoe"]
+[ext_resource type="Texture2D" uid="uid://dbt7gs3jebfli" path="res://data/background_lists/lisa_beach_beach/254.webp" id="48_bigv8"]
+[ext_resource type="Texture2D" uid="uid://c5fupevct05yj" path="res://data/background_lists/lisa_beach_beach/255.webp" id="49_8bhh2"]
+[ext_resource type="Texture2D" uid="uid://co6vq8iv3m4pm" path="res://data/background_lists/lisa_beach_beach/256.webp" id="50_oeobf"]
+[ext_resource type="Texture2D" uid="uid://deg1v8rmc6c02" path="res://data/background_lists/lisa_beach_beach/shirt.webp" id="51_62jhe"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="51_e435y"]
+[ext_resource type="Texture2D" uid="uid://c60sbwbvy5s8p" path="res://data/background_lists/lisa_beach_beach/new1.webp" id="52_lh1lq"]
+[ext_resource type="Texture2D" uid="uid://c3xuofht48roj" path="res://data/background_lists/lisa_beach_beach/new2.webp" id="53_wdixk"]
+[ext_resource type="Texture2D" uid="uid://ddjkbjafch5ne" path="res://data/background_lists/lisa_beach_beach/new3.webp" id="54_g7j7b"]
+
+[sub_resource type="Resource" id="Resource_10jol"]
+script = ExtResource("1_qa8lj")
+name = "009.webp"
+images = ExtResource("2_62jhe")
+
+[sub_resource type="Resource" id="Resource_8l6wd"]
+script = ExtResource("1_qa8lj")
+name = "200.webp"
+images = ExtResource("3_8eobc")
+
+[sub_resource type="Resource" id="Resource_52se1"]
+script = ExtResource("1_qa8lj")
+name = "201.webp"
+images = ExtResource("4_ybyvg")
+
+[sub_resource type="Resource" id="Resource_u3jby"]
+script = ExtResource("1_qa8lj")
+name = "202.webp"
+images = ExtResource("5_lh1lq")
+
+[sub_resource type="Resource" id="Resource_2w7vy"]
+script = ExtResource("1_qa8lj")
+name = "203.webp"
+images = ExtResource("6_wdixk")
+
+[sub_resource type="Resource" id="Resource_cyepq"]
+script = ExtResource("1_qa8lj")
+name = "204.webp"
+images = ExtResource("7_g7j7b")
+
+[sub_resource type="Resource" id="Resource_el6yb"]
+script = ExtResource("1_qa8lj")
+name = "205.webp"
+images = ExtResource("8_npak5")
+
+[sub_resource type="Resource" id="Resource_us428"]
+script = ExtResource("1_qa8lj")
+name = "206.webp"
+images = ExtResource("9_8i3vo")
+
+[sub_resource type="Resource" id="Resource_1pjbx"]
+script = ExtResource("1_qa8lj")
+name = "207.webp"
+images = ExtResource("10_p72ph")
+
+[sub_resource type="Resource" id="Resource_dtehi"]
+script = ExtResource("1_qa8lj")
+name = "208.webp"
+images = ExtResource("11_u6ncs")
+
+[sub_resource type="Resource" id="Resource_ibej4"]
+script = ExtResource("1_qa8lj")
+name = "209.webp"
+images = ExtResource("12_6jefs")
+
+[sub_resource type="Resource" id="Resource_s8pon"]
+script = ExtResource("1_qa8lj")
+name = "210.webp"
+images = ExtResource("13_yspna")
+
+[sub_resource type="Resource" id="Resource_t7v8a"]
+script = ExtResource("1_qa8lj")
+name = "211.webp"
+images = ExtResource("14_m57fn")
+
+[sub_resource type="Resource" id="Resource_30r6m"]
+script = ExtResource("1_qa8lj")
+name = "212.webp"
+images = ExtResource("15_xb4e7")
+
+[sub_resource type="Resource" id="Resource_frnrn"]
+script = ExtResource("1_qa8lj")
+name = "213.webp"
+images = ExtResource("16_kpii2")
+
+[sub_resource type="Resource" id="Resource_xmrha"]
+script = ExtResource("1_qa8lj")
+name = "214.webp"
+images = ExtResource("17_l5h3g")
+
+[sub_resource type="Resource" id="Resource_u11b0"]
+script = ExtResource("1_qa8lj")
+name = "215.webp"
+images = ExtResource("18_yei71")
+
+[sub_resource type="Resource" id="Resource_6qpot"]
+script = ExtResource("1_qa8lj")
+name = "216.webp"
+images = ExtResource("19_mmkt0")
+
+[sub_resource type="Resource" id="Resource_qasae"]
+script = ExtResource("1_qa8lj")
+name = "217.webp"
+images = ExtResource("20_jyyca")
+
+[sub_resource type="Resource" id="Resource_u5h2s"]
+script = ExtResource("1_qa8lj")
+name = "218.webp"
+images = ExtResource("21_g02oi")
+
+[sub_resource type="Resource" id="Resource_nxiji"]
+script = ExtResource("1_qa8lj")
+name = "219.webp"
+images = ExtResource("22_qdqec")
+
+[sub_resource type="Resource" id="Resource_l131e"]
+script = ExtResource("1_qa8lj")
+name = "220.webp"
+images = ExtResource("23_obt2d")
+
+[sub_resource type="Resource" id="Resource_blche"]
+script = ExtResource("1_qa8lj")
+name = "221.webp"
+images = ExtResource("24_ky6dy")
+
+[sub_resource type="Resource" id="Resource_umf45"]
+script = ExtResource("1_qa8lj")
+name = "222.webp"
+images = ExtResource("25_84dqn")
+
+[sub_resource type="Resource" id="Resource_sbmao"]
+script = ExtResource("1_qa8lj")
+name = "223.webp"
+images = ExtResource("26_gq2rj")
+
+[sub_resource type="Resource" id="Resource_l32lk"]
+script = ExtResource("1_qa8lj")
+name = "224.webp"
+images = ExtResource("27_s86ji")
+
+[sub_resource type="Resource" id="Resource_m4a46"]
+script = ExtResource("1_qa8lj")
+name = "225.webp"
+images = ExtResource("28_3vjio")
+
+[sub_resource type="Resource" id="Resource_hy3l1"]
+script = ExtResource("1_qa8lj")
+name = "226.webp"
+images = ExtResource("29_p8504")
+
+[sub_resource type="Resource" id="Resource_nl2dx"]
+script = ExtResource("1_qa8lj")
+name = "227.webp"
+images = ExtResource("30_77ben")
+
+[sub_resource type="Resource" id="Resource_u860l"]
+script = ExtResource("1_qa8lj")
+name = "228.webp"
+images = ExtResource("31_1tcu4")
+
+[sub_resource type="Resource" id="Resource_4guku"]
+script = ExtResource("1_qa8lj")
+name = "229.webp"
+images = ExtResource("32_6qhl2")
+
+[sub_resource type="Resource" id="Resource_0j2fh"]
+script = ExtResource("1_qa8lj")
+name = "230.webp"
+images = ExtResource("33_1wbd0")
+
+[sub_resource type="Resource" id="Resource_ilt75"]
+script = ExtResource("1_qa8lj")
+name = "240.webp"
+images = ExtResource("34_jtenp")
+
+[sub_resource type="Resource" id="Resource_0qm3v"]
+script = ExtResource("1_qa8lj")
+name = "241.webp"
+images = ExtResource("35_gvpsf")
+
+[sub_resource type="Resource" id="Resource_jgtvt"]
+script = ExtResource("1_qa8lj")
+name = "242.webp"
+images = ExtResource("36_bldlm")
+
+[sub_resource type="Resource" id="Resource_b6hwm"]
+script = ExtResource("1_qa8lj")
+name = "243.webp"
+images = ExtResource("37_guk1t")
+
+[sub_resource type="Resource" id="Resource_jdv78"]
+script = ExtResource("1_qa8lj")
+name = "244.webp"
+images = ExtResource("38_wpee5")
+
+[sub_resource type="Resource" id="Resource_7loch"]
+script = ExtResource("1_qa8lj")
+name = "245.webp"
+images = ExtResource("39_wjaji")
+
+[sub_resource type="Resource" id="Resource_aqdbo"]
+script = ExtResource("1_qa8lj")
+name = "246.webp"
+images = ExtResource("40_w4h1k")
+
+[sub_resource type="Resource" id="Resource_6vdj8"]
+script = ExtResource("1_qa8lj")
+name = "247.webp"
+images = ExtResource("41_lpaig")
+
+[sub_resource type="Resource" id="Resource_yievy"]
+script = ExtResource("1_qa8lj")
+name = "248.webp"
+images = ExtResource("42_spwf6")
+
+[sub_resource type="Resource" id="Resource_04ivf"]
+script = ExtResource("1_qa8lj")
+name = "249.webp"
+images = ExtResource("43_3e8wm")
+
+[sub_resource type="Resource" id="Resource_7gvkm"]
+script = ExtResource("1_qa8lj")
+name = "250.webp"
+images = ExtResource("44_bx4he")
+
+[sub_resource type="Resource" id="Resource_rtieb"]
+script = ExtResource("1_qa8lj")
+name = "251.webp"
+images = ExtResource("45_obr4m")
+
+[sub_resource type="Resource" id="Resource_b3ppo"]
+script = ExtResource("1_qa8lj")
+name = "252.webp"
+images = ExtResource("46_hhdaf")
+
+[sub_resource type="Resource" id="Resource_owhgv"]
+script = ExtResource("1_qa8lj")
+name = "253.webp"
+images = ExtResource("47_ghvoe")
+
+[sub_resource type="Resource" id="Resource_eqbgn"]
+script = ExtResource("1_qa8lj")
+name = "254.webp"
+images = ExtResource("48_bigv8")
+
+[sub_resource type="Resource" id="Resource_0pgat"]
+script = ExtResource("1_qa8lj")
+name = "255.webp"
+images = ExtResource("49_8bhh2")
+
+[sub_resource type="Resource" id="Resource_07cjt"]
+script = ExtResource("1_qa8lj")
+name = "256.webp"
+images = ExtResource("50_oeobf")
+
+[sub_resource type="Resource" id="Resource_8eobc"]
+script = ExtResource("1_qa8lj")
+name = "shirt"
+images = ExtResource("51_62jhe")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_npak5"]
+script = ExtResource("1_qa8lj")
+name = "new1"
+images = ExtResource("52_lh1lq")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_8i3vo"]
+script = ExtResource("1_qa8lj")
+name = "new2"
+images = ExtResource("53_wdixk")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_p72ph"]
+script = ExtResource("1_qa8lj")
+name = "new3"
+images = ExtResource("54_g7j7b")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("51_e435y")
+name = "lisa_beach_beach"
+images = Array[ExtResource("1_qa8lj")]([SubResource("Resource_10jol"), SubResource("Resource_8l6wd"), SubResource("Resource_52se1"), SubResource("Resource_u3jby"), SubResource("Resource_2w7vy"), SubResource("Resource_cyepq"), SubResource("Resource_el6yb"), SubResource("Resource_us428"), SubResource("Resource_1pjbx"), SubResource("Resource_dtehi"), SubResource("Resource_ibej4"), SubResource("Resource_s8pon"), SubResource("Resource_t7v8a"), SubResource("Resource_30r6m"), SubResource("Resource_frnrn"), SubResource("Resource_xmrha"), SubResource("Resource_u11b0"), SubResource("Resource_6qpot"), SubResource("Resource_qasae"), SubResource("Resource_u5h2s"), SubResource("Resource_nxiji"), SubResource("Resource_l131e"), SubResource("Resource_blche"), SubResource("Resource_umf45"), SubResource("Resource_sbmao"), SubResource("Resource_l32lk"), SubResource("Resource_m4a46"), SubResource("Resource_hy3l1"), SubResource("Resource_nl2dx"), SubResource("Resource_u860l"), SubResource("Resource_4guku"), SubResource("Resource_0j2fh"), SubResource("Resource_ilt75"), SubResource("Resource_0qm3v"), SubResource("Resource_jgtvt"), SubResource("Resource_b6hwm"), SubResource("Resource_jdv78"), SubResource("Resource_7loch"), SubResource("Resource_aqdbo"), SubResource("Resource_6vdj8"), SubResource("Resource_yievy"), SubResource("Resource_04ivf"), SubResource("Resource_7gvkm"), SubResource("Resource_rtieb"), SubResource("Resource_b3ppo"), SubResource("Resource_owhgv"), SubResource("Resource_eqbgn"), SubResource("Resource_0pgat"), SubResource("Resource_07cjt"), SubResource("Resource_8eobc"), SubResource("Resource_npak5"), SubResource("Resource_8i3vo"), SubResource("Resource_p72ph")])

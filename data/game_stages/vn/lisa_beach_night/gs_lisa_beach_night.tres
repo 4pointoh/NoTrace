@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://cveje5ubkq7e4"]
+
+[ext_resource type="Resource" uid="uid://kdb517rxid54" path="res://data/game_stages/vn/lisa_beach_night/d_lisa_beach_night.tres" id="1_jrc23"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_0hwwl"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_qv7th"]
+[ext_resource type="Texture2D" uid="uid://ch37red6huc1l" path="res://data/background_lists/lisa_beach_date/304.webp" id="4_h781e"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_kaw4l"]
+
+[sub_resource type="Resource" id="Resource_30big"]
+script = ExtResource("5_kaw4l")
+name = "fg"
+images = ExtResource("4_h781e")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_qv7th")
+name = "lisa_beach_night"
+displayName = "Lisa Beach - After Date"
+dialogue = ExtResource("1_jrc23")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_0hwwl")
+isCompletable = true
+startingBackground = SubResource("Resource_30big")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 1
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+delayMusicToTransition = false
+stageButtonLabel = "Get Dinner!"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+isDate = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

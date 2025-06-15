@@ -11,6 +11,7 @@ var forcePhoneStage = false
 var isSkipping = false
 var inTransition = false
 var imageToRestoreOnDialogueEnd : Background = null
+var fullscreenImageIndex
 
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
@@ -51,7 +52,16 @@ func _ready():
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
 	
-func _handle_fullscreenImage(image):
+func _handle_fullscreenImage(image, index):
+	if index == null:
+		%NextImage.hide()
+		%PrevImage.hide()
+	else:
+		%NextImage.show()
+		%PrevImage.show()
+	
+	fullscreenImageIndex = index
+
 	isFullscreenImage = true
 	$FullscreenImageBg/FullscreenImage.texture = image
 	$FullscreenImageBg.show()
@@ -117,11 +127,6 @@ func _input(event):
 		else:
 			$MainMenuContainer.showMenu()
 			$MainMenuContainer.show()
-	
-	if isFullscreenImage && event.is_action_released("disable_fullscreen_image"):
-		isFullscreenImage = false
-		$FullscreenImageBg.hide()
-		$FullscreenImageBg/FullscreenImage.hide()
 
 func toggleUi():
 	if GlobalGameStage.currentStage.isPokerMatch && !currentPokerGame.dialoguePause:
@@ -402,6 +407,10 @@ func _on_poker_game_five_game_lost():
 	startNewPoker()
 
 func _on_poker_game_five_game_won():
+	if GlobalGameStage.currentStage.markStagesCompleteOnPokerWin.size() > 0:
+		for stage in GlobalGameStage.currentStage.markStagesCompleteOnPokerWin:
+			GlobalGameStage.markStageComplete(stage)
+
 	currentPokerGame.queue_free()
 	advanceGameStage()
 
@@ -554,9 +563,45 @@ func _on_scene_select_close():
 func playTransition(transitionType, text):
 	%Transition.playTransition(transitionType, text)
 
-func _on_realdate_complete(success):
+func _on_realdate_complete(mode):
+	if mode == 0:
+		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.perfectDateGameStage)
+	elif mode == 1:
+		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.midDateGameStage)
+		
 	advanceGameStage()
 	currentRealDate.queue_free()
 	
 func unlockLisaCatConvo():
 	GlobalGameStage.askedAboutLyric = true
+
+func _on_close_image_pressed() -> void:
+	isFullscreenImage = false
+	$FullscreenImageBg.hide()
+	$FullscreenImageBg/FullscreenImage.hide()
+
+func _on_prev_image_pressed() -> void:
+	if fullscreenImageIndex - 1 < 0:
+		return
+
+	fullscreenImageIndex = fullscreenImageIndex - 1
+
+	var wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
+
+	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
+		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
+	else:
+		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
+
+func _on_next_image_pressed() -> void:
+	var wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
+
+	if fullscreenImageIndex + 1 >= wallpapers.wallpapers.size():
+		return
+
+	fullscreenImageIndex = fullscreenImageIndex + 1
+
+	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
+		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
+	else:
+		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")

@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="Character" load_steps=16 format=3 uid="uid://b76n8jvfnh0ra"]
+
+[ext_resource type="Texture2D" uid="uid://33coecm8fxo8" path="res://data/characters/lisa/lisa_beach/face.png" id="1_t254k"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_ea4pk"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_7byh3"]
+[ext_resource type="Texture2D" uid="uid://dyrf57et117fm" path="res://data/characters/lisa/lisa_beach/character_art/casual.png" id="4_88xm5"]
+[ext_resource type="Texture2D" uid="uid://c5ojsba67ug7k" path="res://data/characters/lisa/lisa_beach/character_art/excited.png" id="5_snk4n"]
+[ext_resource type="Texture2D" uid="uid://qtw17jslttgg" path="res://data/characters/lisa/lisa_beach/character_art/excited2.png" id="6_xqoq0"]
+[ext_resource type="Texture2D" uid="uid://dd6iluincm34m" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_cold.png" id="7_wb14u"]
+[ext_resource type="Texture2D" uid="uid://bktxdx521isvs" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_hand_on_head.png" id="8_4hf41"]
+[ext_resource type="Texture2D" uid="uid://cop81iptyptf4" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_excited.png" id="9_snk4n"]
+
+[sub_resource type="Resource" id="Resource_ymqrl"]
+script = ExtResource("3_7byh3")
+name = "casual.png"
+image = ExtResource("4_88xm5")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_42bdq"]
+script = ExtResource("3_7byh3")
+name = "excited.png"
+image = ExtResource("5_snk4n")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_2kngt"]
+script = ExtResource("3_7byh3")
+name = "excited2.png"
+image = ExtResource("6_xqoq0")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_a6sdx"]
+script = ExtResource("3_7byh3")
+name = "hoodie_cold.png"
+image = ExtResource("7_wb14u")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_ngmlf"]
+script = ExtResource("3_7byh3")
+name = "hoodie_hand_on_head.png"
+image = ExtResource("8_4hf41")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_xqoq0"]
+script = ExtResource("3_7byh3")
+name = "hoodie excited"
+image = ExtResource("9_snk4n")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+metadata/_custom_type_script = "uid://c31wkx7ce3y74"
+
+[resource]
+script = ExtResource("2_ea4pk")
+name = "Lisa"
+editorName = "lisa_beach"
+image = ExtResource("1_t254k")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("3_7byh3")]([SubResource("Resource_ymqrl"), SubResource("Resource_42bdq"), SubResource("Resource_2kngt"), SubResource("Resource_a6sdx"), SubResource("Resource_ngmlf"), SubResource("Resource_xqoq0")])

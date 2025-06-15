@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=5 format=3 uid="uid://b8jiwc8j8idcj"]
+
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_mkh0l"]
+[ext_resource type="Resource" uid="uid://cht80hoqypt6q" path="res://data/background_lists/home/home_bgl.tres" id="2_tiq0t"]
+[ext_resource type="Resource" uid="uid://dr28q57ps5hvn" path="res://data/background_lists/lisa_beach_intro/lisa_beach_intro.tres" id="3_ssljv"]
+[ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="4_npa80"]
+
+[resource]
+script = ExtResource("4_npa80")
+backgroundLists = Array[ExtResource("1_mkh0l")]([ExtResource("2_tiq0t"), ExtResource("3_ssljv")])
