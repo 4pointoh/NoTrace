@@ -77,7 +77,6 @@ func repeated_ask(action : DateAction):
 		result.success = false
 		result.scoreProgression = 0
 		result.dialogueStartKey = 'repeat_generic'
-		result.particleType = Heartsplosion.TYPES.ANNOYED
 		result.annoyed = true
 	elif(!action.type == DateAction.TYPES.TOPIC && GlobalGameStage.getCurrentDateAskFailureCount(id) > 1):
 		result.success = false
@@ -90,7 +89,6 @@ func repeated_ask(action : DateAction):
 		result.scoreProgression = 0
 		result.annoyed = true
 		result.dialogueStartKey = 'asked_twice_in_a_row_generic'
-		result.particleType = Heartsplosion.TYPES.ANNOYED
 	else:
 		result = null
 	

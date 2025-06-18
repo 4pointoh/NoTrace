@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://ccitkxfg0jjuj"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://ccitkxfg0jjuj"]
 
 [ext_resource type="Resource" uid="uid://b7kj8vuhi2fun" path="res://data/game_stages/realdate/lisa_beach_realdate2/d_lisa_beach_realdate2.tres" id="1_2y8eb"]
 [ext_resource type="Texture2D" uid="uid://c5ojsba67ug7k" path="res://data/characters/lisa/lisa_beach/character_art/excited.png" id="1_essnw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dq3rkhp3h4jwv" path="res://data/game_stages/vn/lisa_beach_before_date/gs_lisa_beach_before_date.tres" id="4_essnw"]
 [ext_resource type="Texture2D" uid="uid://vsmaijc4x6oa" path="res://data/background_lists/lisa_beach_intro/009.webp" id="6_apeb2"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_yq6x6"]
+[ext_resource type="AudioStream" uid="uid://c2yftof4mss0b" path="res://data/assets/general/sounds/bg_music/new/Untitled(9).mp3" id="8_i5xpo"]
 
 [sub_resource type="Resource" id="Resource_f8p5e"]
 script = ExtResource("7_yq6x6")
@@ -55,8 +56,11 @@ proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("8_i5xpo")
 randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
 delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
 stageButtonLabel = "Beach With Lisa (2)"
 heartLevel = 0
 isRealDate = true

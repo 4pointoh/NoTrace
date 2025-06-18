@@ -390,7 +390,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_13",
+"link": &"3_15",
 "text": ""
 }
 },
@@ -509,6 +509,54 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_127": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[font_size=14]Fuck it, I'm just turning the whole system off[/font_size]",
+"offset": Vector2(30907.9, 615.973),
+"options": {
+0: {
+"condition": {},
+"link": &"1_129",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": "Drive-Thru Speaker"
+},
+&"1_128": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[font_size=14]Ugh it's doing a whole thing on feet now... why does it always default to feet? It's not even a good fetish... [/font_size]",
+"offset": Vector2(30548.8, 646.573),
+"options": {
+0: {
+"condition": {},
+"link": &"1_127",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": "Drive-Thru Speaker"
+},
+&"1_129": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There's another brief silence on the speaker. ",
+"offset": Vector2(31271.9, 764.14),
+"options": {
+0: {
+"condition": {},
+"link": &"1_90",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": ""
+},
 &"1_13": {
 "background": -1,
 "backgroundList": -1,
@@ -524,6 +572,22 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": ""
+},
+&"1_130": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": " Just pull ahead... ",
+"offset": Vector2(33073.1, 571.429),
+"options": {
+0: {
+"condition": {},
+"link": &"1_95",
+"text": ""
+}
+},
+"size": Vector2(300, 570),
+"speaker": "Drive-Thru Speaker"
 },
 &"1_14": {
 "background": -1,
@@ -598,7 +662,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_19",
+"link": &"3_16",
 "text": ""
 }
 },
@@ -1798,7 +1862,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_87",
+"link": &"1_128",
 "text": ""
 }
 },
@@ -1814,7 +1878,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_88",
+"link": "END",
 "text": ""
 }
 },
@@ -1830,7 +1894,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_89",
+"link": "END",
 "text": ""
 }
 },
@@ -1846,7 +1910,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_90",
+"link": "END",
 "text": ""
 }
 },
@@ -1862,7 +1926,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_1",
+"link": &"3_14",
 "text": ""
 }
 },
@@ -1889,7 +1953,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Oh uh... two coffee please. ",
+"dialogue": "Oh uh... two coffees please. ",
 "offset": Vector2(32060, -20),
 "options": {
 0: {
@@ -1905,7 +1969,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "All that shit you caused and all you're ordering is two plain coffees? ",
+"dialogue": "... you cause all of these problems at 5am and all you're ordering is two plain coffees? ",
 "offset": Vector2(32400, -20),
 "options": {
 0: {
@@ -1937,12 +2001,12 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "[i]sigh[/i] Just pull ahead... ",
+"dialogue": "[i]sigh[/i]",
 "offset": Vector2(33080, -20),
 "options": {
 0: {
 "condition": {},
-"link": &"1_95",
+"link": &"1_130",
 "text": ""
 }
 },
@@ -2030,7 +2094,7 @@ nodes = {
 "speaker": ""
 },
 &"3_1": {
-"link": &"1_8",
+"link": &"3_13",
 "offset": Vector2(520, 1180),
 "signalValue": "transition"
 },
@@ -2048,6 +2112,31 @@ nodes = {
 "link": &"1_120",
 "offset": Vector2(42840, 580),
 "signalValue": "walk_on"
+},
+&"3_13": {
+"link": &"1_8",
+"offset": Vector2(839.644, 1177.16),
+"signalValue": "next_music_track"
+},
+&"3_14": {
+"link": &"1_1",
+"offset": Vector2(1185.6, 831.852),
+"signalValue": "next_sound"
+},
+&"3_15": {
+"link": &"1_13",
+"offset": Vector2(3227.39, 847.957),
+"signalValue": "next_sound"
+},
+&"3_16": {
+"link": &"1_19",
+"offset": Vector2(5340.73, 806.083),
+"signalValue": "next_sound"
+},
+&"3_17": {
+"link": &"1_52",
+"offset": Vector2(17947.8, 781.926),
+"signalValue": "next_music_track"
 },
 &"3_2": {
 "link": &"1_23",
@@ -2075,7 +2164,7 @@ nodes = {
 "signalValue": "reposition_top"
 },
 &"3_7": {
-"link": &"1_52",
+"link": &"3_17",
 "offset": Vector2(18068.2, 473.262),
 "signalValue": "fade_next"
 },
@@ -2092,6 +2181,6 @@ nodes = {
 }
 variables = {}
 comments = Array[String]([])
-strays = Array[String]([])
+strays = Array[String](["1_87", "1_88", "1_89"])
 characters = "res://data/game_stages/vn/lisa_beach_intro/characters.tres"
 backgroundList = "res://data/game_stages/vn/lisa_beach_intro/bgs.tres"

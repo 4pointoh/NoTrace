@@ -670,3 +670,17 @@ func getCurrentStagePokerLosses():
 		return pokerStageHistory[currentStage.name]["losses"]
 	else:
 		return 0
+
+func incrementAndGetNextMusic():
+	currentStage.musicIndex = (currentStage.musicIndex + 1) % currentStage.musicList.size()
+	if currentStage.musicList.size() > 0:
+		return currentStage.musicList[currentStage.musicIndex]
+	else:
+		return null
+
+func incrementAndGetNextSoundEffect():
+	currentStage.soundEffectIndex = (currentStage.soundEffectIndex + 1) % currentStage.soundEffectList.size()
+	if currentStage.soundEffectList.size() > 0:
+		return currentStage.soundEffectList[currentStage.soundEffectIndex]
+	else:
+		return null

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://bqb24msxcfis5"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=12 format=3 uid="uid://bqb24msxcfis5"]
 
 [ext_resource type="Resource" uid="uid://b71h4bthy5eke" path="res://data/game_stages/vn/lisa_beach_intro/d_lisa_beach_intro.tres" id="1_kdqby"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_3vjkl"]
 [ext_resource type="Resource" uid="uid://blhj2wgni6ug6" path="res://data/game_stages/realdate/lisa_beach_realdate1/gs_lisa_beach_realdate1.tres" id="2_8uobj"]
+[ext_resource type="AudioStream" uid="uid://b2drveh2mb1r3" path="res://data/assets/general/sounds/bg_music/new/Untitled(21).mp3" id="3_eo38n"]
 [ext_resource type="Texture2D" uid="uid://b4iigffvknq22" path="res://data/assets/stage_art/beach_hover.png" id="4_r7ssg"]
 [ext_resource type="Texture2D" uid="uid://dijfb1r67p8kc" path="res://data/background_lists/home/backgrounds/intro_bg11_night.png" id="4_tnuck"]
+[ext_resource type="AudioStream" uid="uid://k271pygfy4cy" path="res://data/assets/general/sound_effects/car_honk.mp3" id="5_42ben"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_r7ssg"]
 [ext_resource type="Texture2D" uid="uid://l1nfhivon4k7" path="res://data/assets/stage_art/beach.png" id="5_x5btu"]
 [ext_resource type="AudioStream" uid="uid://dlxkn2todoexw" path="res://data/assets/general/sounds/bg_music/new/Untitled(1).mp3" id="8_x5btu"]
@@ -57,9 +59,10 @@ proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
-startingMusic = ExtResource("8_x5btu")
 randomMusic = Array[AudioStream]([])
-delayMusicToTransition = true
+musicList = Array[AudioStream]([ExtResource("3_eo38n"), ExtResource("8_x5btu")])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([ExtResource("5_42ben"), ExtResource("5_42ben"), ExtResource("5_42ben")])
 stageButtonTexture = ExtResource("5_x5btu")
 stageButtonHover = ExtResource("4_r7ssg")
 stageButtonLabel = "Lisa - Beach Day"

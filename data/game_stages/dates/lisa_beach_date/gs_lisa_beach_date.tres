@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://cl3gu626f4fyo"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://cl3gu626f4fyo"]
 
 [ext_resource type="Script" uid="uid://cf85w7ou5wq3n" path="res://data/game_stages/dates/lisa_beach_date/lisa_beach_date_date_script.gd" id="1_twdgi"]
 [ext_resource type="Resource" uid="uid://b74h8dghn846d" path="res://data/game_stages/dates/lisa_beach_date/d_lisa_beach_date.tres" id="2_7ihc2"]
 [ext_resource type="Resource" uid="uid://cveje5ubkq7e4" path="res://data/game_stages/vn/lisa_beach_night/gs_lisa_beach_night.tres" id="2_loqn2"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_loqn2"]
+[ext_resource type="AudioStream" uid="uid://ce6vaubpt35r6" path="res://data/assets/general/sounds/bg_music/new/Untitled(14).mp3" id="5_loqn2"]
 
 [resource]
 script = ExtResource("3_loqn2")
@@ -45,8 +46,11 @@ proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("5_loqn2")
 randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
 delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
 stageButtonLabel = "Get Dinner!"
 heartLevel = 0
 isRealDate = false
@@ -60,6 +64,7 @@ lostDateStartKey = ""
 isDate = true
 dateScript = ExtResource("1_twdgi")
 dateWinGameStage = ExtResource("2_loqn2")
+cantLose = true
 dateWinMarkThisStageComplete = ""
 dateLossDialogueKey = "LOST"
 dateCharacter = "Lisa"

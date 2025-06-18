@@ -48,7 +48,7 @@ enum DboxPosition{
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
 	
-	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch and !GlobalGameStage.currentStage.isDate and !GlobalGameStage.currentStage.isPhoneScreen and !GlobalGameStage.currentStage.isPhoneMessageEvent:
+	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch and !GlobalGameStage.currentStage.isDate and !GlobalGameStage.currentStage.isPhoneScreen and !GlobalGameStage.currentStage.isPhoneMessageEvent and !GlobalGameStage.currentStage.isRealDate:
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()

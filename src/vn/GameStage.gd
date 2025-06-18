@@ -51,7 +51,10 @@ class_name GameStage
 @export var startingMusic : AudioStream
 @export var randomMusic: Array[AudioStream]
 @export var musicList: Array[AudioStream]
+var musicIndex : int = -1
 @export var delayMusicToTransition : bool = false
+@export var soundEffectList: Array[AudioStream]
+var soundEffectIndex: int = -1
 
 # SelectableGameStage
 @export var stageButtonTexture : Texture
@@ -76,6 +79,7 @@ class_name GameStage
 @export var isDate : bool
 @export var dateScript : Script
 @export var dateWinGameStage: GameStage
+@export var cantLose: bool = false # If true, the date cannot be lost. The player can only win or skip.
 
 ## When the date is completed, you must mark the 'selectable event' phone stage complete. This is the stage that triggers when the event is selected in the phone. 
 @export var dateWinMarkThisStageComplete: String

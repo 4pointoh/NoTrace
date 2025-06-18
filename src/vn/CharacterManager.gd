@@ -67,7 +67,12 @@ func zoomCharacter():
 	tween.set_parallel()
 	tween.tween_property($MainCharacter, "position", Vector2($MainCharacter.position.x, $MainCharacter.position.y + 200), .5)
 
-func characterWalkOff():
+func characterWalkOff(isSkipping):
+	if isSkipping:
+		$MainCharacter.visible = false
+		currentCharacterState = null
+		return
+
 	var tween = get_tree().create_tween()
 	tween.tween_property($MainCharacter, "position", Vector2($MainCharacter.position.x + 1000, $MainCharacter.position.y), .65)
 

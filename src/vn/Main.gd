@@ -302,8 +302,11 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
 		"music_neon_lights": playMusicNeonLights()
+		"stop_music": $AudioStreamPlayer2D.stop()
+		"next_music_track": playNextMusicTrack()
+		"next_sound": playNextSoundEffect()
 		"walk_on": $CharacterManager.walkOnNext()
-		"walk_off": $CharacterManager.characterWalkOff()
+		"walk_off": $CharacterManager.characterWalkOff(isSkipping)
 		"zoom": $CharacterManager.zoomCharacter()
 		"transition": beginMidSceneTransition()
 		"unlock_char_ashely": unlockChar(GlobalGameStage.CHARACTERS.ASHLEY)
@@ -336,6 +339,21 @@ func playMusicNeonLights():
 
 func playMusicPassion():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/passion.mp3"))
+
+func playNextMusicTrack():
+	var nextMusic = GlobalGameStage.incrementAndGetNextMusic()
+	if nextMusic == null:
+		return
+
+	playBgMusic(nextMusic)
+
+func playNextSoundEffect():
+	var nextSound = GlobalGameStage.incrementAndGetNextSoundEffect()
+	if nextSound == null:
+		return
+
+	$SoundEffectPlayer.stream = nextSound
+	$SoundEffectPlayer.play()
 
 func fadeNext():
 	$Background.shouldFade = true

@@ -266,6 +266,10 @@ func getAllActionTexts():
 	return actionText
 
 func reduceAnnoyanceBar():
+	if GlobalGameStage.currentStage.cantLose:
+		%AnnoyanceLabel.text = 'Happy 🔒'
+		return
+		
 	%AnnoyanceBar.value = %AnnoyanceBar.value - 34
 
 	if(%AnnoyanceBar.value < 0):
@@ -281,6 +285,12 @@ func reduceAnnoyanceBar():
 		%AnnoyanceLabel.text = 'Content'
 	
 func resetAnnoyanceBar():
+	if GlobalGameStage.currentStage.cantLose:
+		%AnnoyanceLabel.text = 'Happy 🔒'
+		%AnnoyanceBar.value = 100
+		%AnnoyanceBar.hide()
+		return
+	
 	%AnnoyanceBar.value = 100
 	%AnnoyanceLabel.text = 'Content'
 

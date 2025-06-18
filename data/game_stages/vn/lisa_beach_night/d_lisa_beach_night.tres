@@ -1786,7 +1786,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(322, 578),
+"size": Vector2(322.004, 578),
 "speaker": 1
 },
 &"1_2": {
@@ -2154,7 +2154,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.012, 570),
 "speaker": 1
 },
 &"1_22": {
@@ -3678,7 +3678,7 @@ nodes = {
 "speaker": 0
 },
 &"3_1": {
-"link": &"1_6",
+"link": &"3_28",
 "offset": Vector2(311.369, 399.012),
 "signalValue": "fade_next_quick"
 },
@@ -3720,7 +3720,7 @@ nodes = {
 &"3_17": {
 "link": &"1_176",
 "offset": Vector2(64372.9, 275.02),
-"signalValue": "fade_next"
+"signalValue": "fade_next_quick"
 },
 &"3_18": {
 "link": &"1_182",
@@ -3758,7 +3758,7 @@ nodes = {
 "signalValue": "walk_off"
 },
 &"3_24": {
-"link": &"1_15",
+"link": &"3_30",
 "offset": Vector2(3958.37, 426.741),
 "signalValue": "reposition_upper_mid"
 },
@@ -3777,10 +3777,25 @@ nodes = {
 "offset": Vector2(73300, 532.133),
 "signalValue": "reposition_upper_mid"
 },
+&"3_28": {
+"link": &"3_29",
+"offset": Vector2(409.035, 605.45),
+"signalValue": "stop_music"
+},
+&"3_29": {
+"link": &"1_6",
+"offset": Vector2(673.896, 580.035),
+"signalValue": "next_sound"
+},
 &"3_3": {
 "link": &"3_25",
 "offset": Vector2(13560.5, 452.823),
 "signalValue": "fade_next"
+},
+&"3_30": {
+"link": &"1_15",
+"offset": Vector2(4101.06, 590.028),
+"signalValue": "next_music_track"
 },
 &"3_4": {
 "link": &"1_39",
