@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=29 format=3 uid="uid://ba70guoq7eeu6"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=37 format=3 uid="uid://ba70guoq7eeu6"]
 
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_um0f7"]
 [ext_resource type="Texture2D" uid="uid://1cb3wgtaauct" path="res://data/background_lists/lisa_beach_night/500.webp" id="2_2x60u"]
@@ -14,7 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bhmloaisvowbh" path="res://data/background_lists/lisa_beach_night/510.webp" id="12_56bev"]
 [ext_resource type="Texture2D" uid="uid://dau45hxismlfe" path="res://data/background_lists/lisa_beach_night/511.webp" id="13_ap7xp"]
 [ext_resource type="Texture2D" uid="uid://dhq4a1623g4su" path="res://data/background_lists/lisa_beach_night/512.webp" id="14_hxndp"]
+[ext_resource type="Texture2D" uid="uid://b2pphm62rpcr3" path="res://data/background_lists/lisa_beach_night/d06.webp" id="15_6tf1v"]
 [ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="15_rwdfb"]
+[ext_resource type="Texture2D" uid="uid://ddya3axyw4k5p" path="res://data/background_lists/lisa_beach_night/304.webp" id="16_3d2b3"]
+[ext_resource type="Texture2D" uid="uid://el7xopu8dy6b" path="res://data/background_lists/lisa_beach_date/walk.webp" id="17_3d2b3"]
+[ext_resource type="Texture2D" uid="uid://d3nf7k2ql4d20" path="res://data/background_lists/lisa_beach_night/drive.webp" id="18_7nnbn"]
 
 [sub_resource type="Resource" id="Resource_cl74g"]
 script = ExtResource("1_um0f7")
@@ -81,7 +85,31 @@ script = ExtResource("1_um0f7")
 name = "512.webp"
 images = ExtResource("14_hxndp")
 
+[sub_resource type="Resource" id="Resource_7nnbn"]
+script = ExtResource("1_um0f7")
+name = "resstaurant1"
+images = ExtResource("15_6tf1v")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_lhxro"]
+script = ExtResource("1_um0f7")
+name = "resstaurant2"
+images = ExtResource("16_3d2b3")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_qah03"]
+script = ExtResource("1_um0f7")
+name = "walk"
+images = ExtResource("17_3d2b3")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_nj3fj"]
+script = ExtResource("1_um0f7")
+name = "drive"
+images = ExtResource("18_7nnbn")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
 [resource]
 script = ExtResource("15_rwdfb")
 name = "lisa_beach_night"
-images = Array[ExtResource("1_um0f7")]([SubResource("Resource_cl74g"), SubResource("Resource_rsxa2"), SubResource("Resource_6j34w"), SubResource("Resource_s3fnw"), SubResource("Resource_kol7p"), SubResource("Resource_svt4e"), SubResource("Resource_t5vnw"), SubResource("Resource_vkv8o"), SubResource("Resource_uhqps"), SubResource("Resource_l8tx6"), SubResource("Resource_dif8k"), SubResource("Resource_5xgj7"), SubResource("Resource_04b66")])
+images = Array[ExtResource("1_um0f7")]([SubResource("Resource_cl74g"), SubResource("Resource_rsxa2"), SubResource("Resource_6j34w"), SubResource("Resource_s3fnw"), SubResource("Resource_kol7p"), SubResource("Resource_svt4e"), SubResource("Resource_t5vnw"), SubResource("Resource_vkv8o"), SubResource("Resource_uhqps"), SubResource("Resource_l8tx6"), SubResource("Resource_dif8k"), SubResource("Resource_5xgj7"), SubResource("Resource_04b66"), SubResource("Resource_7nnbn"), SubResource("Resource_lhxro"), SubResource("Resource_qah03"), SubResource("Resource_nj3fj")])

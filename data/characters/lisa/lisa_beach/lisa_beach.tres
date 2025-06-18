@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=16 format=3 uid="uid://b76n8jvfnh0ra"]
+[gd_resource type="Resource" script_class="Character" load_steps=24 format=3 uid="uid://b76n8jvfnh0ra"]
 
 [ext_resource type="Texture2D" uid="uid://33coecm8fxo8" path="res://data/characters/lisa/lisa_beach/face.png" id="1_t254k"]
 [ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_ea4pk"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dd6iluincm34m" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_cold.png" id="7_wb14u"]
 [ext_resource type="Texture2D" uid="uid://bktxdx521isvs" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_hand_on_head.png" id="8_4hf41"]
 [ext_resource type="Texture2D" uid="uid://cop81iptyptf4" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_excited.png" id="9_snk4n"]
+[ext_resource type="Texture2D" uid="uid://qd1lxcxhd0my" path="res://data/characters/lisa/lisa_beach/character_art/thin.png" id="10_4hf41"]
+[ext_resource type="Texture2D" uid="uid://c7rbf8jwmk65l" path="res://data/characters/lisa/lisa_beach/character_art/hand_on_hip.png" id="11_ymqrl"]
+[ext_resource type="Texture2D" uid="uid://b2c28ifcetmxu" path="res://data/characters/lisa/lisa_beach/character_art/point.png" id="12_42bdq"]
+[ext_resource type="Texture2D" uid="uid://c2kflelec34mf" path="res://data/characters/lisa/lisa_beach/character_art/arms_crossed.png" id="13_ymqrl"]
 
 [sub_resource type="Resource" id="Resource_ymqrl"]
 script = ExtResource("3_7byh3")
@@ -53,10 +57,42 @@ scale = Vector2(0.7, 0.7)
 animateTransition = true
 metadata/_custom_type_script = "uid://c31wkx7ce3y74"
 
+[sub_resource type="Resource" id="Resource_gc7vo"]
+script = ExtResource("3_7byh3")
+name = "think"
+image = ExtResource("10_4hf41")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+metadata/_custom_type_script = "uid://c31wkx7ce3y74"
+
+[sub_resource type="Resource" id="Resource_es4on"]
+script = ExtResource("3_7byh3")
+name = "hand_on_hip"
+image = ExtResource("11_ymqrl")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+metadata/_custom_type_script = "uid://c31wkx7ce3y74"
+
+[sub_resource type="Resource" id="Resource_ars5d"]
+script = ExtResource("3_7byh3")
+name = "point"
+image = ExtResource("12_42bdq")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+metadata/_custom_type_script = "uid://c31wkx7ce3y74"
+
+[sub_resource type="Resource" id="Resource_biiii"]
+script = ExtResource("3_7byh3")
+name = "arms_crossed"
+image = ExtResource("13_ymqrl")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+metadata/_custom_type_script = "uid://c31wkx7ce3y74"
+
 [resource]
 script = ExtResource("2_ea4pk")
 name = "Lisa"
 editorName = "lisa_beach"
 image = ExtResource("1_t254k")
 color = Color(1, 1, 1, 1)
-states = Array[ExtResource("3_7byh3")]([SubResource("Resource_ymqrl"), SubResource("Resource_42bdq"), SubResource("Resource_2kngt"), SubResource("Resource_a6sdx"), SubResource("Resource_ngmlf"), SubResource("Resource_xqoq0")])
+states = Array[ExtResource("3_7byh3")]([SubResource("Resource_ymqrl"), SubResource("Resource_42bdq"), SubResource("Resource_2kngt"), SubResource("Resource_a6sdx"), SubResource("Resource_ngmlf"), SubResource("Resource_xqoq0"), SubResource("Resource_gc7vo"), SubResource("Resource_es4on"), SubResource("Resource_ars5d"), SubResource("Resource_biiii")])

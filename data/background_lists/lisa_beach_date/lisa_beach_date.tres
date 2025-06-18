@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=35 format=3 uid="uid://dv4sxxt0dwfg7"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=37 format=3 uid="uid://dv4sxxt0dwfg7"]
 
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_k8xwb"]
 [ext_resource type="Texture2D" uid="uid://d32wcwjtxc25n" path="res://data/background_lists/lisa_beach_date/301.webp" id="2_ygs8g"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://vjc04jemi76c" path="res://data/background_lists/lisa_beach_date/d12.webp" id="16_6orck"]
 [ext_resource type="Texture2D" uid="uid://tiwvwubck5kt" path="res://data/background_lists/lisa_beach_date/d13.webp" id="17_bjjgm"]
 [ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="18_g51ie"]
+[ext_resource type="Texture2D" uid="uid://el7xopu8dy6b" path="res://data/background_lists/lisa_beach_date/walk.webp" id="18_ygs8g"]
 
 [sub_resource type="Resource" id="Resource_pwfc4"]
 script = ExtResource("1_k8xwb")
@@ -99,7 +100,13 @@ script = ExtResource("1_k8xwb")
 name = "d13.webp"
 images = ExtResource("17_bjjgm")
 
+[sub_resource type="Resource" id="Resource_gggky"]
+script = ExtResource("1_k8xwb")
+name = "walk"
+images = ExtResource("18_ygs8g")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
 [resource]
 script = ExtResource("18_g51ie")
 name = "lisa_beach_date"
-images = Array[ExtResource("1_k8xwb")]([SubResource("Resource_pwfc4"), SubResource("Resource_emufl"), SubResource("Resource_k6chs"), SubResource("Resource_de73f"), SubResource("Resource_oexwl"), SubResource("Resource_1x600"), SubResource("Resource_kuh0c"), SubResource("Resource_3jwk5"), SubResource("Resource_63wm8"), SubResource("Resource_2af8y"), SubResource("Resource_nqkkm"), SubResource("Resource_s1w0t"), SubResource("Resource_7k41i"), SubResource("Resource_p8qtt"), SubResource("Resource_1girw"), SubResource("Resource_t3vqe")])
+images = Array[ExtResource("1_k8xwb")]([SubResource("Resource_pwfc4"), SubResource("Resource_emufl"), SubResource("Resource_k6chs"), SubResource("Resource_de73f"), SubResource("Resource_oexwl"), SubResource("Resource_1x600"), SubResource("Resource_kuh0c"), SubResource("Resource_3jwk5"), SubResource("Resource_63wm8"), SubResource("Resource_2af8y"), SubResource("Resource_nqkkm"), SubResource("Resource_s1w0t"), SubResource("Resource_7k41i"), SubResource("Resource_p8qtt"), SubResource("Resource_1girw"), SubResource("Resource_t3vqe"), SubResource("Resource_gggky")])

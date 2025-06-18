@@ -1,0 +1,1123 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dp1kg6ui0w72d"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_rv8hn"]
+
+[resource]
+script = ExtResource("1_rv8hn")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-853.5, -163.87),
+"start_id": "START"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your stomach growls.",
+"offset": Vector2(-660, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... anything sounds good to me at this point. ",
+"offset": Vector2(2520, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's go! ",
+"offset": Vector2(2880, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_12": {
+"background": 16,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "The sun begins ssetting as you walk along the boardwalk. ",
+"offset": Vector2(3580, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Some vendors are closing up shop, and some are just now opening, with evening being the prime hours for the late night party crowds. ",
+"offset": Vector2(3943.22, 22.3955),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 7,
+"dialogue": "Seeing anything you like? ",
+"offset": Vector2(4320, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hmm no, not yet. ",
+"offset": Vector2(4680, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You walk past shops selling various fried foods, and vacation treats. ",
+"offset": Vector2(5040, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ehh I don't really want any of this cheap fried stuff... ",
+"offset": Vector2(5420, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Agreed, a funnel cake sounds great, but not as our only dinner! ",
+"offset": Vector2(5780, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You continue your walk, slowly reaching the further end of the boardwalk. ",
+"offset": Vector2(6160, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Actually I'm starving... that was a lot of action today. ",
+"offset": Vector2(-300, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This area merges with the coastal village, and has more proper restaurants and shops, rather than simple roadside vendors. ",
+"offset": Vector2(6520, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 6,
+"dialogue": "Hmm... I see \"Burt's Beefy BBQ Beefhouse\" ",
+"offset": Vector2(6900, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 536),
+"speaker": 1
+},
+&"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I really wanted sushi but... if we're desperate, I guess that could work. ",
+"offset": Vector2(7280, 20),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No no, there must be sushi around here somewhere. ",
+"offset": Vector2(7660, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You continue walking on",
+"offset": Vector2(8020, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Until...",
+"offset": Vector2(8380, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 8,
+"dialogue": "There!!",
+"offset": Vector2(8740, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(300, 536),
+"speaker": 1
+},
+&"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Lisa suddenly bursts out, pointing towards a fancy, well-lit building just ahead. ",
+"offset": Vector2(9140, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The sign reads \"The Oyster At Cummington Beach\" ",
+"offset": Vector2(9520, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They definitely have sushi!",
+"offset": Vector2(9880, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300, 536),
+"speaker": 1
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ooh I could totally eat! ",
+"offset": Vector2(60, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(10260, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 6,
+"dialogue": "Looks a little expensive though...",
+"offset": Vector2(10640, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_32",
+"text": ""
+}
+},
+"size": Vector2(300, 540),
+"speaker": 1
+},
+&"1_32": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I guess we could go back to the barbecue place... ",
+"offset": Vector2(10980, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_33",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_33": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, slightly disappointed. ",
+"offset": Vector2(11320, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_34": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nonsense. This is where we're going. It's on me. ",
+"offset": Vector2(11680, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_35": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks at you ",
+"offset": Vector2(12040, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_36",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_36": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[name] you don't have to do that!!",
+"offset": Vector2(12400, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_37",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_37": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You put this whole trip together, it's the least I could do. ",
+"offset": Vector2(12740, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_38",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_38": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Awwwww.... you're sweet. ",
+"offset": Vector2(13080, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_39",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_39": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(13460, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_40",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We completely skipped lunch, it's almost dinner time! ",
+"offset": Vector2(400, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_40": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "When I'm a poker expert, I'm going to win and pay you back every penny! ",
+"offset": Vector2(13840, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_41": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let me go reserve us a table! ",
+"offset": Vector2(14220, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_42": {
+"background": 0,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Lisa walks up to the restaurant. ",
+"offset": Vector2(14820, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_43",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_43": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks around briefly, enjoying the scenery and atmosphere. ",
+"offset": Vector2(15180, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_44",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_44": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's a sort of tiki, hawaiian themed restaurant. ",
+"offset": Vector2(15560, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_45",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_45": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Very upscale, with great beach views, and wide open outdoor seating. ",
+"offset": Vector2(15940, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"3_4",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_46": {
+"background": 1,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She gets in contact with the hostess. ",
+"offset": Vector2(16560, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_47",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_47": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You aren't sure exactly what she's talking about. ",
+"offset": Vector2(16920, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_48",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_48": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Maybe checking that the menu does in fact have sushi. ",
+"offset": Vector2(17260, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_49",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_49": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Maybe requesting some specific outdoor seating with the best view. ",
+"offset": Vector2(17632.4, 81.9027),
+"options": {
+0: {
+"condition": {},
+"link": &"1_50",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But... where do we eat at? ",
+"offset": Vector2(740, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_50": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Eventually the exchange comes to a conclusion that Lisa is happy with.",
+"offset": Vector2(18020, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_51",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_51": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And she begins to walk back, now with a menu in hand. ",
+"offset": Vector2(18360, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"3_5",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_52": {
+"background": 2,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Hey [name]! Over here! ",
+"offset": Vector2(18980, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_53",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_53": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They said it's just going to be a few minutes. ",
+"offset": Vector2(19340, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_54",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_54": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I grabbed a menu, do you want to take a look? ",
+"offset": Vector2(19720, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_55",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_55": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(20100, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_56",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_56": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's.... really expensive. ",
+"offset": Vector2(20480, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_57",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_57": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Are you sure? Last chance to go to beef town, or whatever it was called. ",
+"offset": Vector2(20840, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_58",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_58": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Don't even think about it. Order whatever you want. It's my treat. ",
+"offset": Vector2(21200, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_59",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_59": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She gives you a soft, kind smile. ",
+"offset": Vector2(21560, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_60",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Want to walk down the boardwalk and see what's available? ",
+"offset": Vector2(1100, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_60": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay ^.^",
+"offset": Vector2(21879.7, 89.4158),
+"options": {
+0: {
+"condition": {},
+"link": &"1_61",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_61": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then the hostess calls out",
+"offset": Vector2(22240, 120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_62",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_62": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "POKER PALS PARTY OF TWO!",
+"offset": Vector2(22640, 120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_63",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": "Hostess"
+},
+&"1_63": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "YOUR TABLE IS READY",
+"offset": Vector2(22980, 120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_64",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": "Hostess"
+},
+&"1_64": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That's us!! ",
+"offset": Vector2(23320.8, 129.987),
+"options": {
+0: {
+"condition": {},
+"link": &"1_65",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_65": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah, I figured. ",
+"offset": Vector2(23660, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_66",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_66": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You hear her giggle as she leads you to the table. ",
+"offset": Vector2(24028.4, 72.8869),
+"options": {
+0: {
+"condition": {},
+"link": &"3_6",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_67": {
+"background": 8,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You take your seat. ",
+"offset": Vector2(24680, 100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ok! That sounds like fun! ",
+"offset": Vector2(1440, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I want sushi! There is NO good sushi back home! ",
+"offset": Vector2(1800, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your stomach growls again. ",
+"offset": Vector2(2160, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"3_1": {
+"link": &"1_12",
+"offset": Vector2(3246.47, 571.4),
+"signalValue": "fade_next"
+},
+&"3_2": {
+"link": &"1_14",
+"offset": Vector2(4184.95, 595.988),
+"signalValue": "walk_in"
+},
+&"3_3": {
+"link": &"1_42",
+"offset": Vector2(14513.7, 589.158),
+"signalValue": "walk_off"
+},
+&"3_4": {
+"link": &"1_46",
+"offset": Vector2(16243.5, 769.474),
+"signalValue": "fade_next"
+},
+&"3_5": {
+"link": &"1_52",
+"offset": Vector2(18638.5, 627.628),
+"signalValue": "fade_next"
+},
+&"3_6": {
+"link": &"1_67",
+"offset": Vector2(24363.5, 665.194),
+"signalValue": "fade_next"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/lisa_beach_before_date/characters.tres"
+backgroundList = "res://data/game_stages/vn/lisa_beach_before_date/bgs.tres"

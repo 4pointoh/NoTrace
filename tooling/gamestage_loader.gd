@@ -2,11 +2,11 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'lisa_beach_realdate1'
+	var gamestageName = 'lisa_beach_before_date'
 	
 	var backgroundLists: Array[String] = [
 		'res://data/background_lists/home/home_bgl.tres',
-		"res://data/background_lists/lisa_beach_intro/lisa_beach_intro.tres"
+		"res://data/background_lists/lisa_beach_date/lisa_beach_date.tres"
 	]
 	
 	var characters: Array[String] = [
@@ -14,7 +14,7 @@ func _run() -> void:
 		"res://data/characters/lisa/lisa_beach/lisa_beach.tres"
 	]
 	
-	var type = "realdate" #vn, poker, date, phonemessage, special
+	var type = "vn" #vn, poker, date, phonemessage, special
 	var output_path: String = "res://data/game_stages/"
 	
 	if type == "vn":
@@ -125,7 +125,7 @@ func create_game_stage_data(output_path: String, gamestageName: String, backgrou
 		newGameStage.isDate = true
 		newGameStage.isCompletable = true
 		
-		var template_script_path = "res://data/game_stages/dates/ashely_park_date/scripts/ashely_park_date_script.gd"
+		var template_script_path = "res://data/game_stages/dates/anna_burger_date/anna_burger_date_date_script.gd"
 		var poker_script_output_path = output_path + "/" + gamestageName + "_date_script.gd"
 		var template_file = FileAccess.open(template_script_path, FileAccess.READ)
 		if template_file == null:

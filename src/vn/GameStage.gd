@@ -50,6 +50,7 @@ class_name GameStage
 @export var contactImage: Texture
 @export var startingMusic : AudioStream
 @export var randomMusic: Array[AudioStream]
+@export var musicList: Array[AudioStream]
 @export var delayMusicToTransition : bool = false
 
 # SelectableGameStage
