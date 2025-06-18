@@ -523,6 +523,9 @@ func _handle_save_loaded():
 	if is_instance_valid(currentDate):
 		currentDate.free()
 	
+	if is_instance_valid(currentRealDate):
+		currentRealDate.free()
+	
 	playBgMusic(load(GlobalGameStage.currentMusic))
 	$DialogueManager.stopDialogue()
 	$MainMenuContainer.visible = false

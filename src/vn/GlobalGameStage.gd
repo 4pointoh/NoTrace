@@ -251,7 +251,7 @@ func getCompletedSelectableEvents():
 		completedSelectableEvents.append(Flags.ASHELY_THEATER)
 	if completedStages.has(Flags.ANNA_BURGER.name):
 		completedSelectableEvents.append(Flags.ANNA_BURGER)
-	if completedStages.has(Flags.ASHELY_POKER.name):
+	if completedStages.has(Flags.ASHELY_POKER.name) or completedStages.has("ashely_bar_poker"):
 		completedSelectableEvents.append(Flags.ASHELY_POKER)
 	if completedStages.has(Flags.LISA_BEACH_BEFORE.name):
 		completedSelectableEvents.append(Flags.LISA_BEACH_BEFORE)
