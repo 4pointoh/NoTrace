@@ -181,7 +181,7 @@ func getAvailableMessages():
 	if completedStages.has('lisa_blocked'):
 		addMessage(Flags.CHAD_UNBLOCK_LISA)
 	
-	if (completedStages.has('chad_unblock_lisa') or completedStages.has('Chad Unblock Lisa')) and completedStages.has('ashely_intro_amy'):
+	if (completedStages.has('chad_unblock_lisa') or completedStages.has('Chad Unblock Lisa')) and completedStages.has('amy_poker_hall_intro'):
 		addMessage(Flags.LISA_AFTER_UNBLOCK)
 	
 	if completedStages.has('amy_poker_hall_intro_after'):

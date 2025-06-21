@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://c4vicjmmdrtmf"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://c4vicjmmdrtmf"]
 
 [ext_resource type="Resource" uid="uid://b3pqn78gsjj5" path="res://data/game_stages/vn/lisa_first_market_date/d_lisa_first_market_date.tres" id="1_rps2q"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_ye4pi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://yu1xx68sgprx" path="res://data/assets/stage_art/market_orange.png" id="4_hpx7u"]
 [ext_resource type="Texture2D" uid="uid://ba3ek5h08v26r" path="res://data/background_lists/lisa_market/0.png" id="6_5ihe7"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_dyrnr"]
+[ext_resource type="AudioStream" uid="uid://fvj4hpypx0js" path="res://data/assets/general/sounds/bg_music/Whispers of the Night.mp3" id="8_m03ri"]
 
 [sub_resource type="Resource" id="Resource_gxr4m"]
 script = ExtResource("7_dyrnr")
@@ -55,9 +56,10 @@ proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("8_m03ri")
 randomMusic = Array[AudioStream]([])
 musicList = Array[AudioStream]([])
-delayMusicToTransition = false
+delayMusicToTransition = true
 soundEffectList = Array[AudioStream]([])
 stageButtonTexture = ExtResource("4_hpx7u")
 stageButtonHover = ExtResource("3_qk1w5")

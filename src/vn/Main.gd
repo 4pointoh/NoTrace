@@ -4,6 +4,7 @@ var dontAutoAdvance = false
 var inputDisabled = false
 var shouldFade = false
 var shouldFadeQuick = false
+var shouldFadeSlow = false
 var isVideoPause = false
 var isFullscreenImage = false
 var currentStageIsLoaded = false
@@ -199,6 +200,7 @@ func beginStage():
 	
 	print('ENTERING STAGE: ' + GlobalGameStage.currentStage.name)
 	if GlobalGameStage.currentStage.isPokerMatch:
+		fadeNext()
 		$Background.enableZoomPan()
 		startNewPoker()
 	elif GlobalGameStage.currentStage.isPhoneScreen || GlobalGameStage.currentStage.isPhoneMessageEvent:
@@ -250,6 +252,7 @@ func startNewRealDate():
 	currentRealDate.dateComplete.connect(_on_realdate_complete)
 	currentRealDate.showStart()
 	add_child(currentRealDate)
+	print_tree_pretty()
 	move_child(currentRealDate, $DialogueManager.get_index() - 1)
 
 func createPokerGame():
@@ -299,6 +302,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"video_pause": videoPause()
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"fade_next_quick": fadeNextQuick()
+		"fade_next_slow": fadeNextSlow()
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
 		"music_neon_lights": playMusicNeonLights()
@@ -360,6 +364,9 @@ func fadeNext():
 
 func fadeNextQuick():
 	$Background.shouldFadeQuick = true
+
+func fadeNextSlow():
+	$Background.shouldFadeSlow = true
 
 func disableInput():
 	inputDisabled = true
@@ -479,6 +486,15 @@ func _on_background_is_fading():
 	$Background.z_index = 0
 	enableInput()
 
+func _on_background_is_fading_slow():
+	if isVideoPause: return
+	disableInput()
+	$DialogueManager.hideUiFast()
+	$Background.z_index = 1
+	await get_tree().create_timer(3).timeout
+	$DialogueManager.unhideUiFast()
+	$Background.z_index = 0
+	enableInput()
 
 func _on_continue_pressed():
 	$Continue.visible = false

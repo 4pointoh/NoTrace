@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmhnmn0imk4df"]
+[gd_scene load_steps=9 format=3 uid="uid://cmhnmn0imk4df"]
 
 [ext_resource type="Script" uid="uid://bwxf10dwhsliq" path="res://src/vn/Background.gd" id="1_jg27e"]
 [ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="2_sbf2l"]
@@ -64,12 +64,29 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_tqbq4"]
+resource_name = "fade_slow"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53abx"]
 _data = {
 &"RESET": SubResource("Animation_xy1k7"),
 &"fade": SubResource("Animation_rjx5v"),
 &"fade_quick": SubResource("Animation_eohq3"),
-&"fade_quick_2": SubResource("Animation_y765q")
+&"fade_quick_2": SubResource("Animation_y765q"),
+&"fade_slow": SubResource("Animation_tqbq4")
 }
 
 [node name="Background" type="Control"]

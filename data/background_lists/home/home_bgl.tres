@@ -1,21 +1,28 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=7 format=3 uid="uid://cht80hoqypt6q"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=9 format=3 uid="uid://cht80hoqypt6q"]
 
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="1_7d81o"]
 [ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_gwbg8"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="2_qtgix"]
-[ext_resource type="Texture2D" uid="uid://dijfb1r67p8kc" path="res://data/background_lists/home/backgrounds/intro_bg11_night.png" id="3_b08pi"]
+[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="2_rpm32"]
+[ext_resource type="Texture2D" uid="uid://2dmyrnvuoi84" path="res://data/background_lists/home/backgrounds/intro_bg11_night.webp" id="3_024wj"]
+[ext_resource type="Texture2D" uid="uid://d3ccvc0r6s84r" path="res://data/background_lists/home/backgrounds/black.png" id="4_024wj"]
 
 [sub_resource type="Resource" id="Resource_2qkpm"]
 script = ExtResource("2_qtgix")
 name = "home"
-images = ExtResource("1_7d81o")
+images = ExtResource("2_rpm32")
 
 [sub_resource type="Resource" id="Resource_1x1v4"]
 script = ExtResource("2_qtgix")
 name = "home_night"
-images = ExtResource("3_b08pi")
+images = ExtResource("3_024wj")
+
+[sub_resource type="Resource" id="Resource_4wtlj"]
+script = ExtResource("2_qtgix")
+name = "black"
+images = ExtResource("4_024wj")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
 script = ExtResource("1_gwbg8")
 name = "home"
-images = Array[ExtResource("2_qtgix")]([SubResource("Resource_2qkpm"), SubResource("Resource_1x1v4")])
+images = Array[ExtResource("2_qtgix")]([SubResource("Resource_2qkpm"), SubResource("Resource_1x1v4"), SubResource("Resource_4wtlj")])

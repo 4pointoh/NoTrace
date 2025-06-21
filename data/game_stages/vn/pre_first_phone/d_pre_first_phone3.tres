@@ -8,20 +8,33 @@ starts = {
 "START": &"0_1"
 }
 nodes = {
-"0_1": {
+&"0_1": {
 "link": &"1_2",
 "offset": Vector2(-1120, 160),
 "start_id": "START"
 },
-"1_1": {
+&"1_1": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "[i]Alright the party is thinning out. I should stay and help Chad clean up.[/i]
-[wait time=1.4]
-Nah fuck that, I'm out.
-[/wait]",
-"offset": Vector2(80, -160),
+"dialogue": "[i]Alright the party is thinning out. I should stay and help Chad clean up.[/i]",
+"offset": Vector2(-200, -260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(538.019, 770.207),
+"speaker": 0
+},
+&"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nah fuck that, I'm out.",
+"offset": Vector2(-440.338, 615.205),
 "options": {
 0: {
 "condition": {},
@@ -29,17 +42,17 @@ Nah fuck that, I'm out.
 "text": ""
 }
 },
-"size": Vector2(538.019, 770.207),
+"size": Vector2(300, 606),
 "speaker": 0
 },
-"1_2": {
+&"1_2": {
 "background": 28,
 "backgroundList": 0,
 "characterState": -1,
 "dialogue": "Several hours pass, you enjoy every minute of Chad's party. 
 
 Eventually the other guests begin to trickle home in their assorted drunken states. ",
-"offset": Vector2(-360, -140),
+"offset": Vector2(-540, -160),
 "options": {
 0: {
 "condition": {},
@@ -47,10 +60,10 @@ Eventually the other guests begin to trickle home in their assorted drunken stat
 "text": ""
 }
 },
-"size": Vector2(300, 641),
+"size": Vector2(300, 685),
 "speaker": ""
 },
-"1_3": {
+&"1_3": {
 "background": 1,
 "backgroundList": 1,
 "characterState": -1,
@@ -63,10 +76,10 @@ Eventually the other guests begin to trickle home in their assorted drunken stat
 "text": ""
 }
 },
-"size": Vector2(300, 641),
+"size": Vector2(300, 685),
 "speaker": ""
 },
-"1_4": {
+&"1_4": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
@@ -79,10 +92,10 @@ Eventually the other guests begin to trickle home in their assorted drunken stat
 "text": ""
 }
 },
-"size": Vector2(300.001, 623),
+"size": Vector2(300.001, 657),
 "speaker": 0
 },
-"1_5": {
+&"1_5": {
 "background": 0,
 "backgroundList": 1,
 "characterState": -1,
@@ -95,10 +108,10 @@ Eventually the other guests begin to trickle home in their assorted drunken stat
 "text": ""
 }
 },
-"size": Vector2(300.001, 621),
+"size": Vector2(300.001, 685),
 "speaker": ""
 },
-"1_6": {
+&"1_6": {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
@@ -111,28 +124,76 @@ Eventually the other guests begin to trickle home in their assorted drunken stat
 "text": ""
 }
 },
-"size": Vector2(300.001, 623.001),
+"size": Vector2(300.001, 657),
 "speaker": 0
 },
-"3_1": {
+&"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": ".",
+"offset": Vector2(400, -360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "..",
+"offset": Vector2(645.758, -469.56),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(436.791, 213.243),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"3_1": {
 "link": &"1_5",
 "offset": Vector2(1240, 620),
 "signalValue": "transition"
 },
-"3_2": {
+&"3_2": {
 "link": &"3_3",
 "offset": Vector2(560, 900),
 "signalValue": "unlock_wp_lisa_leaving"
 },
-"3_3": {
+&"3_3": {
 "link": &"1_3",
 "offset": Vector2(794.03, 614.818),
 "signalValue": "music_home"
 },
-"3_4": {
+&"3_4": {
 "link": &"3_2",
 "offset": Vector2(6.448, 900.543),
-"signalValue": "fade_next"
+"signalValue": "fade_next_slow"
 }
 }
 variables = {}

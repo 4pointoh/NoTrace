@@ -271,6 +271,7 @@ vertical_alignment = 1
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="is_fading" from="Background" to="." method="_on_background_is_fading"]
+[connection signal="is_fading_slow" from="Background" to="." method="_on_background_is_fading_slow"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

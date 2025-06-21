@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dq6wlnwk0sf8r"]
+[gd_scene load_steps=32 format=3 uid="uid://dq6wlnwk0sf8r"]
 
 [ext_resource type="Script" uid="uid://cc63lfak2dpt5" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
 [ext_resource type="PackedScene" uid="uid://btbl15a2lxka3" path="res://src/realdate/TopicChoice.tscn" id="1_x6s22"]
@@ -332,6 +332,10 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1gek6"]
+radius = 190.04
+height = 762.67
 
 [node name="RealDate" type="Node2D"]
 script = ExtResource("1_lqyw3")
@@ -828,6 +832,12 @@ offset_bottom = 141.0
 theme_override_fonts/font = ExtResource("4_surd0")
 text = "Help"
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(713, 765)
+shape = SubResource("CapsuleShape2D_1gek6")
+
 [connection signal="pressed" from="SubmitSection/Submit" to="." method="_on_submit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="hoveringColor" from="TrackerBg2/ColorTracker" to="." method="_on_color_tracker_hovering_color"]
@@ -837,3 +847,4 @@ text = "Help"
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Help" to="." method="_on_button_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
