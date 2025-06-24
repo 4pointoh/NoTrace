@@ -10,19 +10,19 @@ starts = {
 nodes = {
 &"0_1": {
 "link": &"3_16",
-"offset": Vector2(-380, 120),
+"offset": Vector2(-780, 40),
 "start_id": "START"
 },
 &"1_1": {
-"background": 1,
+"background": 0,
 "backgroundList": 0,
 "characterState": -1,
 "dialogue": "Ashely said she's got a new target. ",
-"offset": Vector2(200, 120),
+"offset": Vector2(-820, 440),
 "options": {
 0: {
 "condition": {},
-"link": &"1_2",
+"link": &"1_220",
 "text": ""
 }
 },
@@ -1793,7 +1793,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "... Hopefully a real one this time. ",
+"dialogue": "... Hopefully this is a real target this time. ",
 "offset": Vector2(520, 120),
 "options": {
 0: {
@@ -2172,6 +2172,54 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": 1
+},
+&"1_220": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We're meeting up tonight. Just gotta hang around for a bit. ",
+"offset": Vector2(-480, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"3_18",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_221": {
+"background": 1,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "You wait around until evening. ",
+"offset": Vector2(-80, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_222",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_222": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright... it's about time for me to head out. ",
+"offset": Vector2(111.33, 108.518),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
 },
 &"1_23": {
 "background": -1,
@@ -3554,13 +3602,18 @@ nodes = {
 },
 &"3_16": {
 "link": &"1_1",
-"offset": Vector2(-560, 340),
+"offset": Vector2(-720, 220),
 "signalValue": "reposition_bottom_left"
 },
 &"3_17": {
 "link": &"1_201",
 "offset": Vector2(62180.9, 1078.52),
 "signalValue": "fade_next"
+},
+&"3_18": {
+"link": &"1_221",
+"offset": Vector2(-100, 460),
+"signalValue": "fade_next_slow"
 },
 &"3_2": {
 "link": &"1_7",

@@ -797,7 +797,7 @@ func group_partnerask_why_ask_choice3():
 
 func group_have_a_shot():
 	var result = DateActionResult.new()
-	result.success = false
+	result.success = true
 	result.scoreProgression = 0
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'have_a_shot_success'

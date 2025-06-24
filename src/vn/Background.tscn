@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmhnmn0imk4df"]
+[gd_scene load_steps=10 format=3 uid="uid://cmhnmn0imk4df"]
 
 [ext_resource type="Script" uid="uid://bwxf10dwhsliq" path="res://src/vn/Background.gd" id="1_jg27e"]
 [ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="2_sbf2l"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_pwjtc"]
 
 [sub_resource type="Animation" id="Animation_xy1k7"]
 length = 0.001
@@ -134,5 +135,19 @@ libraries = {
 [node name="FadeTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="UnhideUiMessage" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1098.0
+offset_right = 318.0
+offset_bottom = 1134.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_pwjtc")
+theme_override_font_sizes/font_size = 30
+text = "Press H To Un-Hide UI"
 
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

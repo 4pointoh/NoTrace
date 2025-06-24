@@ -84,6 +84,27 @@ func setup():
 		
 		$SavesContainer.add_child(newSaveSelect)
 		newSaveSelect.clicked.connect(_handle_save_selected)
+	
+	# Setup the autosave
+	var autosaveName = "user://autosave.dat"
+	if availableSaves.has(autosaveName):
+		var autosaveLabel = Label.new()
+		autosaveLabel.text = 'AUTOSAVE'
+		autosaveLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		$SavesContainer.add_child(autosaveLabel)
+		var autosaveSaveSelect = saveItem.instantiate()
+		autosaveSaveSelect.save_name = autosaveName
+		var savedgs = GlobalGameStage.getSaveDataInfo(autosaveName)
+		var time = FileAccess.get_modified_time(autosaveName)
+		var ut = Time.get_datetime_string_from_unix_time(time)
+		
+		if savedgs:
+			autosaveSaveSelect.text = "Autosave" + " - " + savedgs.displayName + ' | ' + str(ut) 
+		else:
+			autosaveSaveSelect.text = "Autosave" + " - " + str(ut)
+		$SavesContainer.add_child(autosaveSaveSelect)
+		autosaveSaveSelect.clicked.connect(_handle_save_selected)
+	
 	setCurrentSpeedText()
 
 func _handle_save_selected(saveName):

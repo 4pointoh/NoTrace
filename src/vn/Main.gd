@@ -13,6 +13,7 @@ var isSkipping = false
 var inTransition = false
 var imageToRestoreOnDialogueEnd : Background = null
 var fullscreenImageIndex
+var isUiHidden = false
 
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
@@ -107,18 +108,25 @@ func _input(event):
 		testFunction()
 
 	if event.is_action_pressed('quick_skip'):
-		if !inTransition:
+		if !inTransition and !isUiHidden:
 			isSkipping = true
+			$Background.isSkipping = true
 			$DialogueManager.startQuickSkip()
 	
 	if event.is_action_released('quick_skip'):
 		isSkipping = false
+		$Background.isSkipping = false
 		$DialogueManager.stopQuickSkip()
 	
 	if event.is_action_pressed("hide_ui"):
 		Node2D.print_orphan_nodes()
 		toggleUi()
-		$DialogueManager.refocusDbox()
+		isUiHidden = !isUiHidden
+
+		if isUiHidden:
+			$DialogueManager.unfocusDbox()
+		else:
+			$DialogueManager.refocusDbox()
 	
 	if event.is_action_pressed("menu"):
 		#toggleUi()
@@ -128,6 +136,10 @@ func _input(event):
 		else:
 			$MainMenuContainer.showMenu()
 			$MainMenuContainer.show()
+	
+	if event.is_action_pressed("disable_fullscreen_image"):
+		if isUiHidden:
+			$Background.flashUnhideMessage()
 
 func toggleUi():
 	if GlobalGameStage.currentStage.isPokerMatch && !currentPokerGame.dialoguePause:
@@ -218,7 +230,7 @@ func beginStage():
 		startNewRealDate()
 	else:
 		$Background.disableZoomPan()
-		$DialogueManager.startDialogue()
+		beginDialogue()
 		if !$DialogueManager.uiVisible:
 			$DialogueManager.toggleUi()
 	
@@ -252,7 +264,6 @@ func startNewRealDate():
 	currentRealDate.dateComplete.connect(_on_realdate_complete)
 	currentRealDate.showStart()
 	add_child(currentRealDate)
-	print_tree_pretty()
 	move_child(currentRealDate, $DialogueManager.get_index() - 1)
 
 func createPokerGame():
@@ -276,7 +287,7 @@ func _on_start_pressed():
 
 func _on_name_enter_start():
 	hideTitleStuff()
-	$DialogueManager.startDialogue()
+	beginDialogue()
 	playBgMusic(firstSceneMusic)
 
 
@@ -374,6 +385,9 @@ func disableInput():
 func enableInput():
 	inputDisabled = false
 
+func beginDialogue(startKey = null):
+	$DialogueManager.startDialogue(startKey)
+
 func _on_dialogue_manager_dialogue_ended():
 	$CharacterManager.hideCharacter()
 	
@@ -422,7 +436,7 @@ func _on_poker_game_five_game_paused():
 		if nextAction.shouldHidePoker:
 			currentPokerGame.hide()
 
-		$DialogueManager.startDialogue(nextAction.dialogueStartKey)
+		beginDialogue(nextAction.dialogueStartKey)
 
 func _on_poker_game_five_game_lost():
 	remove_child(currentPokerGame)
@@ -440,7 +454,7 @@ func _on_poker_game_five_game_won():
 	advanceGameStage()
 
 func _on_date_dialogue_start(key):
-	$DialogueManager.startDialogue(key)
+	beginDialogue(key)
 
 func _on_date_complete(success, dialogueKey = null, retry = false):
 	currentDate.queue_free()
@@ -457,9 +471,9 @@ func _on_date_complete(success, dialogueKey = null, retry = false):
 		forcePhoneStage = true
 
 		if(!dialogueKey):
-			$DialogueManager.startDialogue(GlobalGameStage.currentStage.dateLossDialogueKey)
+			beginDialogue(GlobalGameStage.currentStage.dateLossDialogueKey)
 		else:
-			$DialogueManager.startDialogue(dialogueKey)
+			beginDialogue(dialogueKey)
 
 func _on_date_set_wallpaper(wallpaper):
 	$Background.setBackground(wallpaper)
@@ -510,7 +524,7 @@ func _on_phone_new_stage_select(stage):
 	advanceGameStage()
 
 func _on_phone_begin_dialogue(key):
-	$DialogueManager.startDialogue(key)
+	beginDialogue(key)
 
 func _on_phone_conversation_complete():
 	GlobalGameStage.setPhoneGameStage()
@@ -605,9 +619,12 @@ func _on_realdate_complete(mode):
 		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.perfectDateGameStage)
 	elif mode == 1:
 		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.midDateGameStage)
-		
-	advanceGameStage()
+	elif mode == -1:
+		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage)
+	
 	currentRealDate.queue_free()
+	advanceGameStage()
+	
 	
 func unlockLisaCatConvo():
 	GlobalGameStage.askedAboutLyric = true

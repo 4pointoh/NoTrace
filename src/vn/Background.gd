@@ -6,6 +6,7 @@ signal is_fading_slow
 var shouldFade = false
 var shouldFadeQuick = false
 var shouldFadeSlow = false
+var isSkipping = false
 @onready var zoompan = load("res://src/phone/zoompan.gdshader")
 
 func setBackground(newBackground):
@@ -56,12 +57,23 @@ func fadeVideo():
 	tween.tween_property($VideoStreamPlayer, "modulate", Color.TRANSPARENT, 1).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(resetVideoPlayer)
 
+func fadeVideoSlow():
+	$VideoStreamPlayer.visible = true
+	$VideoStreamPlayer.play()
+	await get_tree().create_timer(7).timeout
+	var tween = get_tree().create_tween()
+	tween.tween_property($VideoStreamPlayer, "modulate", Color.TRANSPARENT, 1).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(resetVideoPlayer)
+
 func resetVideoPlayer():
 	$VideoStreamPlayer.visible = false
 	$VideoStreamPlayer.modulate = Color.WHITE
 	$VideoStreamPlayer.stream = null
 
 func checkForVideo():
+	if isSkipping:
+		return
+
 	# literally just the name of the background in the resource
 	#if background.name == 'intro10':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/chads_party/video/intro_bg10_vid.ogv")
@@ -72,6 +84,9 @@ func checkForVideo():
 	if background.name == '402_vid':
 		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_beach_early_departure/video/foot_on_lap.ogv")
 		fadeVideo()
+	if background.name == '28_vid.png':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/ashely_theater/video/hold.ogv")
+		fadeVideoSlow()
 	#if background.name == 'boa_strip_vid1':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa1.ogv")
 	#	fadeVideo()
@@ -98,7 +113,7 @@ func clearBackground():
 
 func playFullscreenAnim(spritesheetPath : String):
 	%FullscreenAnim.modulate.a = 0 
-	%FullscreenAnim.sprite_frames = ResourceLoader.load_threaded_get(spritesheetPath)
+	%FullscreenAnim.sprite_frames = load(spritesheetPath)
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(%FullscreenAnim, "modulate:a", 1, 1)
@@ -108,3 +123,8 @@ func playFullscreenAnim(spritesheetPath : String):
 func stopFullscreenAnim():
 	%FullscreenAnim.stop()
 	%FullscreenAnim.sprite_frames = null
+
+func flashUnhideMessage():
+	%UnhideUiMessage.visible = true
+	await get_tree().create_timer(2).timeout
+	%UnhideUiMessage.visible = false

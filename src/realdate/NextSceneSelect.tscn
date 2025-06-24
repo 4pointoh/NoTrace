@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://2tnjxu18d7n4"]
+[gd_scene load_steps=14 format=3 uid="uid://2tnjxu18d7n4"]
 
 [ext_resource type="Script" uid="uid://bvwx8gra8hkn5" path="res://src/realdate/next_scene_select.gd" id="1_64suf"]
 [ext_resource type="PackedScene" uid="uid://bmqoicdod3no4" path="res://src/realdate/NextSceneSelectChoice.tscn" id="1_i8c8o"]
 [ext_resource type="Shader" uid="uid://c002r6r3x0rql" path="res://src/date/ember.gdshader" id="3_qtheu"]
 [ext_resource type="Texture2D" uid="uid://cpafmedr5c8lp" path="res://data/assets/realdate/bluebg.png" id="4_hmj4y"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_se82y"]
+[ext_resource type="AudioStream" uid="uid://3r5wy826rfc8" path="res://data/assets/general/sound_effects/win.mp3" id="6_hmj4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5b47"]
 shader = ExtResource("3_qtheu")
@@ -73,6 +74,9 @@ _data = {
 &"slide_up": SubResource("Animation_qtheu")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmj4y"]
+bg_color = Color(0.166853, 0.166853, 0.166853, 1)
+
 [node name="NextSceneSelect" type="Node2D"]
 script = ExtResource("1_64suf")
 dateChoiceSelect = ExtResource("1_i8c8o")
@@ -82,7 +86,7 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_c5b47")
 offset_top = -58.0
 offset_right = 410.0
-offset_bottom = 412.0
+offset_bottom = 490.0
 texture = ExtResource("4_hmj4y")
 patch_margin_left = 16
 patch_margin_top = 16
@@ -102,12 +106,12 @@ unique_name_in_owner = true
 offset_left = 19.0
 offset_top = 353.0
 offset_right = 389.0
-offset_bottom = 392.0
+offset_bottom = 422.0
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_se82y")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_nldp5")
-text = "Go!"
+text = "Continue"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -127,4 +131,21 @@ text = "Where To Next?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_hmj4y")
+
+[node name="Button2" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 19.0
+offset_top = 430.0
+offset_right = 389.0
+offset_bottom = 469.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_se82y")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hmj4y")
+text = "Play Again"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

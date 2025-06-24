@@ -128,7 +128,9 @@ func setSkipSpeed(newVal):
 func advanceGameStage():
 	if !nextStage:
 		return
-		
+
+	saveSaveData("user://autosave.dat")
+
 	if currentStage.isCompletable:
 		completedStages.append(currentStage.name)
 
@@ -159,6 +161,10 @@ func advanceGameStage():
 	if currentStage.cacheItems.size() > 0:
 		for item in currentStage.cacheItems:
 			ResourceLoader.load_threaded_request(item)
+
+func softCompleteCurrentStage():
+	if !completedStagesSOFT.has(currentStage.name):
+		completedStagesSOFT.append(currentStage.name)
 
 func setNextGameStage(stage):
 	nextStage = stage
@@ -274,10 +280,6 @@ func hasCompletedCurrentStageGlobally():
 
 func hasCompletedStageGloballySoft():
 	return hasCompletedCurrentStageGlobally() or completedStagesSOFT.has(currentStage.name)
-
-func softCompleteCurrentStage():
-	if(!completedStagesSOFT.has(currentStage.name)):
-		completedStagesSOFT.append(currentStage.name)
 
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here
@@ -484,6 +486,8 @@ func getExistingSaves():
 		availableFiles.append("user://save10.dat")
 	if FileAccess.file_exists("user://save11.dat"):
 		availableFiles.append("user://save11.dat")
+	if FileAccess.file_exists("user://autosave.dat"):
+		availableFiles.append("user://autosave.dat")
 	
 	return availableFiles
 

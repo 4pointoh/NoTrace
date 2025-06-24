@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dq6wlnwk0sf8r"]
+[gd_scene load_steps=38 format=3 uid="uid://dq6wlnwk0sf8r"]
 
 [ext_resource type="Script" uid="uid://cc63lfak2dpt5" path="res://src/realdate/RealDate.gd" id="1_lqyw3"]
 [ext_resource type="PackedScene" uid="uid://btbl15a2lxka3" path="res://src/realdate/TopicChoice.tscn" id="1_x6s22"]
@@ -17,12 +17,25 @@
 [ext_resource type="PackedScene" uid="uid://bve4ubl6ta28n" path="res://src/realdate/ColorTracker.tscn" id="13_wq1hb"]
 [ext_resource type="Texture2D" uid="uid://cwr0nhsp2sfrq" path="res://data/assets/realdate/speech.png" id="14_8iw8f"]
 [ext_resource type="PackedScene" uid="uid://dvmf6yw3jayaq" path="res://src/realdate/HelpScreen.tscn" id="17_1gek6"]
+[ext_resource type="PackedScene" uid="uid://cxu6iear8ifdr" path="res://src/realdate/ColorSelect.tscn" id="17_jurev"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryhvq"]
 shader = ExtResource("5_esl2f")
 shader_parameter/speed = 1.0
 shader_parameter/amplitude = 0.01
 shader_parameter/pivot = Vector2(256, 512)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gek6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jurev"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1574"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knqvx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7fkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ht83y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb5xy"]
 bg_color = Color(2.64719e-07, 0.694638, 1.15514e-06, 1)
@@ -333,10 +346,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1gek6"]
-radius = 190.04
-height = 762.67
-
 [node name="RealDate" type="Node2D"]
 script = ExtResource("1_lqyw3")
 topicChoiceScene = ExtResource("1_x6s22")
@@ -350,6 +359,19 @@ material = SubResource("ShaderMaterial_ryhvq")
 position = Vector2(750, 720)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_jpju5")
+
+[node name="TouchButton" type="Button" parent="."]
+offset_left = 546.0
+offset_top = 302.0
+offset_right = 895.0
+offset_bottom = 1143.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1gek6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jurev")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_k1574")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_knqvx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j7fkg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ht83y")
 
 [node name="SubmitSection" type="NinePatchRect" parent="."]
 unique_name_in_owner = true
@@ -728,10 +750,10 @@ texture = ExtResource("14_8iw8f")
 [node name="SpeechBubbleText" type="Label" parent="SpeechBubble"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 25.0
-offset_top = 19.0
-offset_right = 416.0
-offset_bottom = 162.0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 431.0
+offset_bottom = 170.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_surd0")
@@ -818,6 +840,24 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.856
 
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -5.0
+pitch_scale = 1.1
+
+[node name="ColorSelect" parent="." instance=ExtResource("17_jurev")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 983.0
+offset_right = 387.0
+offset_bottom = 983.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="HelpScreen" parent="." instance=ExtResource("17_1gek6")]
 unique_name_in_owner = true
 visible = false
@@ -832,12 +872,12 @@ offset_bottom = 141.0
 theme_override_fonts/font = ExtResource("4_surd0")
 text = "Help"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(713, 765)
-shape = SubResource("CapsuleShape2D_1gek6")
-
+[connection signal="pressed" from="TouchButton" to="." method="_on_touch_button_pressed"]
+[connection signal="clicked" from="SubmitSection/TopicToggle" to="." method="_on_topic_toggle_clicked"]
+[connection signal="clicked" from="SubmitSection/TopicToggle2" to="." method="_on_topic_toggle_clicked"]
+[connection signal="clicked" from="SubmitSection/TopicToggle3" to="." method="_on_topic_toggle_clicked"]
+[connection signal="clicked" from="SubmitSection/TopicToggle4" to="." method="_on_topic_toggle_clicked"]
+[connection signal="clicked" from="SubmitSection/TopicToggle5" to="." method="_on_topic_toggle_clicked"]
 [connection signal="pressed" from="SubmitSection/Submit" to="." method="_on_submit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="hoveringColor" from="TrackerBg2/ColorTracker" to="." method="_on_color_tracker_hovering_color"]
@@ -846,5 +886,5 @@ shape = SubResource("CapsuleShape2D_1gek6")
 [connection signal="timeout" from="SpeechBubble/SpeechBubbleTimer" to="." method="_on_speech_bubble_timer_timeout"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
+[connection signal="colorSelected" from="ColorSelect" to="." method="_on_color_select_color_selected"]
 [connection signal="pressed" from="Help" to="." method="_on_button_pressed"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

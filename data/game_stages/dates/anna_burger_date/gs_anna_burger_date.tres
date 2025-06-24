@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://c3dwqs6tljwbf" path="res://data/game_stages/vn/anna_burger_after_date/gs_anna_burger_after_date.tres" id="3_o8ick"]
 [ext_resource type="Texture2D" uid="uid://dkywah11b157" path="res://data/background_lists/anna_burger/6_d.webp" id="5_jii8v"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_fyy44"]
-[ext_resource type="AudioStream" uid="uid://bh8noxx28p17u" path="res://data/assets/general/sounds/bg_music/new/Untitled(22).mp3" id="7_7mnr5"]
+[ext_resource type="AudioStream" uid="uid://bd725vtbynaql" path="res://data/assets/general/sounds/bg_music/new/Drive & Date.mp3" id="7_goups"]
 
 [sub_resource type="Resource" id="Resource_xx04f"]
 script = ExtResource("6_fyy44")
@@ -54,7 +54,7 @@ proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
-startingMusic = ExtResource("7_7mnr5")
+startingMusic = ExtResource("7_goups")
 randomMusic = Array[AudioStream]([])
 musicList = Array[AudioStream]([])
 delayMusicToTransition = false
@@ -69,6 +69,7 @@ characterArtScale = Vector2(0, 0)
 characterArtPosition = Vector2(0, 0)
 character = 0
 lostDateStartKey = ""
+touchDialogues = Array[String]([])
 isDate = true
 dateScript = ExtResource("1_3f05l")
 dateWinGameStage = ExtResource("3_o8ick")

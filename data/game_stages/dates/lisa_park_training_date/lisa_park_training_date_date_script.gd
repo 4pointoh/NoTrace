@@ -603,7 +603,7 @@ func group_ask_top4_q4_c3():
 
 func group_ask_top4_q2():
 	var result = DateActionResult.new()
-	result.success = false
+	result.success = true
 	result.dialogueStartKey = 'leggings'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
 	result.progressQuantity = 50

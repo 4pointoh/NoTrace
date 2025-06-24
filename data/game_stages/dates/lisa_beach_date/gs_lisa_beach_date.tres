@@ -61,6 +61,7 @@ characterArtScale = Vector2(0, 0)
 characterArtPosition = Vector2(0, 0)
 character = 0
 lostDateStartKey = ""
+touchDialogues = Array[String]([])
 isDate = true
 dateScript = ExtResource("1_twdgi")
 dateWinGameStage = ExtResource("2_loqn2")

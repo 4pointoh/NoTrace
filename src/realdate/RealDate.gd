@@ -13,6 +13,16 @@ var turns : int = DEFAULT_TURNS
 var selections : int = 4
 var lockInBonus : int = 3
 var matchingChoices: int = 0
+var enableTouch: bool = false
+var currentFocusedChoiceIndex = -1
+
+# Touch tracking variables
+var touch_count : int = 0
+var touch_timer : float = 0.0
+var giggle_cooldown_timer : float = 0.0
+const TOUCH_WINDOW : float = 1.0
+const GIGGLE_COOLDOWN : float = 2.0
+const TOUCHES_FOR_GIGGLE : int = 4
 
 var excludedColors = []
 var results
@@ -25,10 +35,24 @@ var woopSound = load("res://data/assets/realdate/sounds/woop.mp3")
 var woop2Sound = load("res://data/assets/realdate/sounds/woop2.mp3")
 var woop3Sound = load("res://data/assets/realdate/sounds/woop3.mp3")
 var slideSound = load("res://data/assets/realdate/sounds/slide.mp3")
+var boopSound = load("res://data/assets/general/sound_effects/boop1.mp3")
+var giggleSound = load("res://data/assets/general/sound_effects/giggle.mp3")
 
+func _process(delta: float) -> void:
+	# Count down the touch window timer
+	if touch_timer > 0:
+		touch_timer -= delta
+		if touch_timer <= 0:
+			# Window expired, reset touch count
+			touch_count = 0
+	
+	# Count down giggle cooldown
+	if giggle_cooldown_timer > 0:
+		giggle_cooldown_timer -= delta
 
 func setup():
 	GlobalGameStage.setCurrentCharacter(GlobalGameStage.currentStage.character)
+	enableTouch = true
 	
 	clearEverything()
 	turns = GlobalGameStage.currentStage.firstRoundGuesses
@@ -213,6 +237,8 @@ func _on_color_tracker_not_hovering_tracker():
 func _on_submit_pressed():
 	%AnimationPlayer.play("main_ui_out")
 	%Help.hide()
+	%ColorSelect.hide()
+	enableTouch = false
 	results = resultsScreen.instantiate()
 	var startingPos = results.position
 	results.position = Vector2(startingPos.x - 1000, startingPos.y)
@@ -289,6 +315,7 @@ func _on_continue_pressed():
 	results.queue_free()
 	var nextSceneSelect = nextSceneSelect.instantiate()
 	nextSceneSelect.selectedMode.connect(_on_next_scene_selected)
+	nextSceneSelect.playAgain.connect(_on_next_scene_play_again)
 
 	if matchingChoices > 2:
 		nextSceneSelect.unlockedPerfectDate = true
@@ -298,6 +325,9 @@ func _on_continue_pressed():
 
 func _on_next_scene_selected(mode: int):
 	dateComplete.emit(mode)
+
+func _on_next_scene_play_again():
+	dateComplete.emit(-1)
 
 func showStart():
 	%SubmitSection.hide()
@@ -320,10 +350,65 @@ func _on_start_pressed():
 	%Start.hide()
 	%Title.hide()
 
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == 'main_ui_in':
 		setup()
 
 func _on_button_pressed() -> void:
 	%HelpScreen.visible = !%HelpScreen.visible
+
+func _on_touch_button_pressed() -> void:
+	if(enableTouch):
+		# Increment touch count
+		touch_count += 1
+		
+		# Start or reset the touch window timer
+		touch_timer = TOUCH_WINDOW
+		
+		# Check if we should play giggle
+		if touch_count > TOUCHES_FOR_GIGGLE and giggle_cooldown_timer <= 0:
+			# Play giggle sound
+			%AudioStreamPlayer3.stream = giggleSound
+			%AudioStreamPlayer3.play()
+			
+			# Reset everything
+			touch_count = 0
+			touch_timer = 0
+			giggle_cooldown_timer = GIGGLE_COOLDOWN
+			%SpeechBubble.show()
+			%SpeechBubbleText.text = GlobalGameStage.currentStage.touchDialogues[randi() % GlobalGameStage.currentStage.touchDialogues.size()]
+			%SpeechBubbleTimer.start()
+
+		%AudioStreamPlayer2.stream = boopSound
+		%AudioStreamPlayer2.play()
+
+		var shrinkScale = Vector2(GlobalGameStage.currentStage.characterArtScale.x - 0.05, GlobalGameStage.currentStage.characterArtScale.y - 0.05)
+
+		var tween = get_tree().create_tween()
+		tween.tween_property(%Character, "scale", shrinkScale, .1)
+		tween.tween_property(%Character, "scale", GlobalGameStage.currentStage.characterArtScale, .1)
+
+
+func _on_color_select_color_selected(colorIndex: int) -> void:
+	var color = RealDateColorHelper.getColorForIndex(colorIndex)
+	
+	if currentFocusedChoiceIndex == 1:
+		%TopicToggle.setColor(color)
+	elif currentFocusedChoiceIndex == 2:
+		%TopicToggle2.setColor(color)
+	elif currentFocusedChoiceIndex == 3:
+		%TopicToggle3.setColor(color)
+	elif currentFocusedChoiceIndex == 4:
+		%TopicToggle4.setColor(color)
+	elif currentFocusedChoiceIndex == 5:
+		%TopicToggle5.setColor(color)
+	
+	%ColorSelect.hide()
+	%PreferenceText.show()
+	
+
+func _on_topic_toggle_clicked(id: int) -> void:
+	currentFocusedChoiceIndex = id
+	%ColorSelect.show()
+	%ColorSelect.setChoiceNumber(id)
+	%PreferenceText.hide()

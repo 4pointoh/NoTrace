@@ -1430,6 +1430,11 @@ nodes = {
 "offset": Vector2(18900, 3380),
 "signalValue": "fade_next_slow"
 },
+&"3_12": {
+"link": &"1_45",
+"offset": Vector2(11071.9, 3519.59),
+"signalValue": "unlock_char_lisa"
+},
 &"3_2": {
 "link": &"3_7",
 "offset": Vector2(9508.63, 3337.47),
@@ -1461,7 +1466,7 @@ nodes = {
 "signalValue": "reposition_top"
 },
 &"3_8": {
-"link": &"1_45",
+"link": &"3_12",
 "offset": Vector2(10791.4, 3485.75),
 "signalValue": "fade_next_quick"
 },

@@ -45,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://bkwh8sx7n87fi" path="res://data/background_lists/ashely_theater/11.png" id="43_ckjru"]
 [ext_resource type="Texture2D" uid="uid://b5u5uhfy1ygv8" path="res://data/background_lists/ashely_theater/12.png" id="44_i2bfr"]
 [ext_resource type="Texture2D" uid="uid://c3bc7p7nai80j" path="res://data/background_lists/ashely_theater/24.png" id="45_ou3xw"]
-[ext_resource type="Texture2D" uid="uid://ds5wp0v8gxtrx" path="res://data/background_lists/ashely_theater/27.png" id="46_2d1qw"]
+[ext_resource type="Texture2D" uid="uid://bqs6bqmi2juxx" path="res://data/background_lists/ashely_theater/28.png" id="46_h7cln"]
 [ext_resource type="Texture2D" uid="uid://dev61x8hu6pm5" path="res://data/background_lists/ashely_theater/31.png" id="47_mcnna"]
 [ext_resource type="Texture2D" uid="uid://dlrrq0g06ksje" path="res://data/background_lists/ashely_theater/36.png" id="48_qtf6q"]
 [ext_resource type="Texture2D" uid="uid://lcrw6h8hokcn" path="res://data/background_lists/ashely_theater/39.png" id="49_xs5aa"]
@@ -452,9 +452,9 @@ video = ""
 [sub_resource type="Resource" id="Resource_d61as"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_5"
-image = ExtResource("46_2d1qw")
+image = ExtResource("46_h7cln")
 hint = "Ashely Theater (5)"
-video = ""
+video = "res://data/background_lists/ashely_theater/video/hold.ogv"
 
 [sub_resource type="Resource" id="Resource_ni0pm"]
 script = ExtResource("3_wccuy")

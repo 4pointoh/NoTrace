@@ -70,6 +70,7 @@ characterArtScale = Vector2(0, 0)
 characterArtPosition = Vector2(0, 0)
 character = 0
 lostDateStartKey = ""
+touchDialogues = Array[String]([])
 isDate = false
 cantLose = false
 dateWinMarkThisStageComplete = ""

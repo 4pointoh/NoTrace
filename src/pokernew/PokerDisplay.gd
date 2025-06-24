@@ -516,4 +516,5 @@ func _on_continue_pressed():
 	stageComplete.emit()
 
 func _on_cheat_pressed():
+	%Cheat.hide()
 	cheatPressed.emit()

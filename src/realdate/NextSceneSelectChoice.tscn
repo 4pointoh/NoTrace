@@ -87,4 +87,11 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_7kkrt")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8cdd1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1up03")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+
 [connection signal="pressed" from="PokerProPlus/ProPlusButton" to="." method="_on_pro_plus_button_pressed"]

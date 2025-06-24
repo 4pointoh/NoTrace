@@ -6,9 +6,16 @@ var currentColor = RealDateColorHelper.TopicColors.TOPIC_RED
 
 var clickSound = load("res://data/assets/realdate/sounds/click.mp3")
 
+signal clicked(id : int)
+
 func setId(newId: int):
 	id = newId
 	$Label.text = str(id)
+
+func setColor(color : RealDateColorHelper.TopicColors):
+	currentColor = color
+	$TextureRect.texture = RealDateColorHelper.getColorTexture(color)
+	%Icon.texture = RealDateColorHelper.getIconTexture(color)
 
 func _ready():
 	# Assign random color
@@ -21,8 +28,4 @@ func _ready():
 func _on_button_pressed():
 	%AudioStreamPlayer.stream = clickSound
 	%AudioStreamPlayer.play()
-	topicIndex = (topicIndex + 1) % 8
-	var color = RealDateColorHelper.getColorForIndex(topicIndex)
-	currentColor = color
-	$TextureRect.texture = RealDateColorHelper.getColorTexture(color)
-	%Icon.texture = RealDateColorHelper.getIconTexture(currentColor)
+	clicked.emit(id)

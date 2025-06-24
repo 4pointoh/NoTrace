@@ -48,7 +48,7 @@ enum DboxPosition{
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
 	
-	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch and !GlobalGameStage.currentStage.isDate and !GlobalGameStage.currentStage.isPhoneScreen and !GlobalGameStage.currentStage.isPhoneMessageEvent and !GlobalGameStage.currentStage.isRealDate:
+	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft():
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()
@@ -250,7 +250,16 @@ func unfocusDbox():
 	$DialoguePlayer.unfocusOption()
 	
 func clickNext():
+	if !canAdvanceDialogue():
+		return
+
 	$DialoguePlayer.clickNext()
+
+func canAdvanceDialogue() -> bool:
+	if GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent or GlobalGameStage.currentStage.isRealDate:
+		return false
+	
+	return true
 
 func startQuickSkip():
 	enableQuickSkip = true

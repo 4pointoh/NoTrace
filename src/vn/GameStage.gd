@@ -74,6 +74,7 @@ var soundEffectIndex: int = -1
 @export var perfectDateGameStage : GameStage
 @export var midDateGameStage : GameStage
 @export var lostDateStartKey : String
+@export var touchDialogues : Array[String] # These are the dialogues that will be shown when the player touches the character during the date.
 
 # Date stuff
 @export var isDate : bool

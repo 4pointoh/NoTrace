@@ -86,10 +86,12 @@ func startConversation():
 	$AvailableMessagesContainer.visible = false
 	$MessageScreen.clear()
 	
-	if GlobalGameStage.hasCompletedCurrentStageGlobally():
+	if GlobalGameStage.hasCompletedStageGloballySoft():
 		%SkipNoti.show()
 	else:
 		%SkipNoti.hide()
+	
+	GlobalGameStage.softCompleteCurrentStage()
 	
 	lastAddedMessage = null
 	$MessageScreen.visible = true

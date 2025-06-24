@@ -2394,7 +2394,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 685),
+"size": Vector2(300.004, 685),
 "speaker": ""
 },
 &"1_233": {
@@ -2906,7 +2906,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.012, 657),
+"size": Vector2(300.016, 657),
 "speaker": ""
 },
 &"1_262": {
@@ -2922,7 +2922,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.012, 657),
+"size": Vector2(300.016, 657),
 "speaker": ""
 },
 &"1_263": {
@@ -3082,7 +3082,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 657),
+"size": Vector2(300.008, 657),
 "speaker": ""
 },
 &"1_272": {
@@ -3274,7 +3274,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 657),
+"size": Vector2(300.012, 657),
 "speaker": ""
 },
 &"1_283": {
@@ -3322,7 +3322,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 685),
+"size": Vector2(300.012, 685),
 "speaker": ""
 },
 &"1_286": {
@@ -3338,7 +3338,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(307.008, 657),
+"size": Vector2(307.016, 657),
 "speaker": 1
 },
 &"1_287": {
@@ -3370,7 +3370,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 657),
+"size": Vector2(300.016, 657),
 "speaker": ""
 },
 &"1_289": {
@@ -3562,7 +3562,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 657),
+"size": Vector2(300.008, 657),
 "speaker": ""
 },
 &"1_3": {
@@ -3862,7 +3862,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_316",
+"link": &"3_59",
 "text": ""
 }
 },
@@ -3870,11 +3870,11 @@ nodes = {
 "speaker": ""
 },
 &"1_316": {
-"background": -1,
-"backgroundList": -1,
+"background": 2,
+"backgroundList": 1,
 "characterState": -1,
 "dialogue": "You sink back into the chair. ",
-"offset": Vector2(107440, 740),
+"offset": Vector2(107560, 700),
 "options": {
 0: {
 "condition": {},
@@ -3886,11 +3886,11 @@ nodes = {
 "speaker": ""
 },
 &"1_317": {
-"background": -1,
-"backgroundList": -1,
+"background": 2,
+"backgroundList": 1,
 "characterState": -1,
 "dialogue": "Might as well ride it out. ",
-"offset": Vector2(107777, 691.606),
+"offset": Vector2(108100, 720),
 "options": {
 0: {
 "condition": {},
@@ -5207,8 +5207,8 @@ nodes = {
 "signalValue": "fade_next"
 },
 &"3_29": {
-"link": &"1_171",
-"offset": Vector2(59980, 480),
+"link": &"3_60",
+"offset": Vector2(59560, 640),
 "signalValue": "fade_next"
 },
 &"3_3": {
@@ -5371,10 +5371,20 @@ nodes = {
 "offset": Vector2(40493.2, 1020.52),
 "signalValue": "next_sound"
 },
+&"3_59": {
+"link": &"1_316",
+"offset": Vector2(107742, 1500.01),
+"signalValue": "fade_next_slow"
+},
 &"3_6": {
 "link": &"3_57",
 "offset": Vector2(47200, 900),
 "signalValue": "fade_next"
+},
+&"3_60": {
+"link": &"1_171",
+"offset": Vector2(59600, 820),
+"signalValue": "video_pause"
 },
 &"3_7": {
 "link": &"1_27",
