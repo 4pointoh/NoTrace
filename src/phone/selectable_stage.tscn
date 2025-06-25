@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://besft41xqktl4"]
+[gd_scene load_steps=6 format=3 uid="uid://besft41xqktl4"]
 
 [ext_resource type="Texture2D" uid="uid://wg0yovvy27c5" path="res://data/assets/stage_art/park.png" id="1_garf1"]
 [ext_resource type="Texture2D" uid="uid://chg07uf16qlc3" path="res://data/assets/stage_art/park_hover.png" id="2_cru45"]
 [ext_resource type="Script" uid="uid://du7tr3g8puyub" path="res://src/phone/selectable_stage.gd" id="3_dcs3q"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_e8hpe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nk3u"]
+bg_color = Color(0.905882, 0.509804, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="TextureButton" type="TextureButton"]
 custom_minimum_size = Vector2(300, 100)
@@ -24,5 +31,17 @@ theme_override_font_sizes/font_size = 50
 text = "Meet Lisa"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LastEvent" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 153.0
+offset_top = 78.0
+offset_right = 351.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("3_e8hpe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4nk3u")
+text = "Last Event In this Update"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=34 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ooat0x0ooh2p" path="res://src/vn/name_enter.tscn" id="14_sr84d"]
 [ext_resource type="PackedScene" uid="uid://c0ronq3xhd3ic" path="res://src/vn/transition.tscn" id="18_hxheb"]
 [ext_resource type="PackedScene" uid="uid://m0y24r0kwcx3" path="res://src/vn/CharacterUnlockPanel.tscn" id="20_0bbbc"]
+[ext_resource type="PackedScene" uid="uid://cvds3comm8wia" path="res://src/vn/NewTitle.tscn" id="21_arifm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -73,23 +74,22 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Start" type="Button" parent="."]
-offset_left = 197.0
-offset_top = 618.0
-offset_right = 697.0
-offset_bottom = 699.0
+offset_left = 67.0
+offset_top = 947.0
+offset_right = 429.0
+offset_bottom = 1028.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_20bdf")
 text = "Start"
-metadata/_edit_lock_ = true
 
 [node name="Load" type="Button" parent="."]
-offset_left = 197.0
-offset_top = 730.0
-offset_right = 697.0
-offset_bottom = 811.0
+offset_left = 67.0
+offset_top = 1048.0
+offset_right = 429.0
+offset_bottom = 1129.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
@@ -97,33 +97,30 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_rf5te")
 text = "Load
 "
-metadata/_edit_lock_ = true
 
 [node name="Options" type="Button" parent="."]
-offset_left = 199.0
-offset_top = 842.0
-offset_right = 699.0
-offset_bottom = 923.0
+offset_left = 490.0
+offset_top = 947.0
+offset_right = 852.0
+offset_bottom = 1028.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_4fko3")
 text = "Options"
-metadata/_edit_lock_ = true
 
 [node name="SceneSelect" type="Button" parent="."]
-offset_left = 198.0
-offset_top = 947.0
-offset_right = 697.0
-offset_bottom = 1028.0
+offset_left = 490.0
+offset_top = 1048.0
+offset_right = 852.0
+offset_bottom = 1129.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_ex4uv")
 text = "Scene Select"
-metadata/_edit_lock_ = true
 
 [node name="Gallery" type="Button" parent="."]
 visible = false
@@ -148,6 +145,7 @@ offset_bottom = 863.0
 text = "Continue"
 
 [node name="Title" type="TextureRect" parent="."]
+visible = false
 offset_top = 337.0
 offset_right = 896.0
 offset_bottom = 539.0
@@ -155,6 +153,13 @@ texture = ExtResource("5_i3bvk")
 expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
+
+[node name="NewTitle" parent="." instance=ExtResource("21_arifm")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(896, 200)
+offset_top = 737.0
+offset_right = 896.0
+offset_bottom = 937.0
 
 [node name="CharacterManager" parent="." instance=ExtResource("6_qx8ua")]
 

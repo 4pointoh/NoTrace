@@ -10,6 +10,9 @@ func setStage(gameStage):
 	texture_hover = gameStage.stageButtonHover
 	$Label.text = gameStage.stageButtonLabel
 
+	if GlobalGameStage.isLastEventInThisUpdate(gameStage):
+		%LastEvent.show()
+
 
 func _on_pressed():
 	pressedButton.emit(curStage)

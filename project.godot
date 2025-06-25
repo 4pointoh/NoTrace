@@ -13,7 +13,8 @@ config_version=5
 config/name="No Trace of Luck"
 run/main_scene="res://src/vn/Main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://data/characters/lisa/phone_icons/default.ico"
+config/windows_native_icon="res://data/characters/lisa/phone_icons/default.ico"
 
 [autoload]
 

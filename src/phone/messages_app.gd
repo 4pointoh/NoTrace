@@ -11,10 +11,16 @@ extends Node2D
 var currentConversation
 var contactName
 var nextAction
+var previousAction
 var lastAddedMessage
 var isFirstAction
 var currentStatusMessage
 var skipping = false
+
+var isSpeedingUp = false
+var currentSpeedUp = 1.0
+var maxSpeedUp = 2.5
+var speedUpStep = .5
 
 var notUnlockedTexture = load("res://data/assets/phone/art/loading_image.png")
 
@@ -33,22 +39,29 @@ signal beginDialogue(key : String)
 
 func setup():
 	skipping = false
-	var existingMsgs = $AvailableMessagesContainer.get_children()
+	var existingMsgs = %AvailableMessagesContainer.get_children()
 	for existingMsg in existingMsgs:
-		$AvailableMessagesContainer.remove_child(existingMsg)
+		%AvailableMessagesContainer.remove_child(existingMsg)
 		existingMsg.queue_free()
 	
 	var msgs = GlobalGameStage.getAvailableMessages()
 	for msg in msgs:
 		addAvailableMessage(msg)
 	
-	$AvailableMessagesContainer.show()
+	%AvailableMessagesContainer.show()
+	%ReplayPastMessages.show()
 
 func addAvailableMessage(newMessage):
 	var message = availableMessage.instantiate()
 	message.pressed.connect(onMessageSelect)
 	message.setMessageName(newMessage)
-	$AvailableMessagesContainer.add_child(message)
+	%AvailableMessagesContainer.add_child(message)
+
+func addAvailablePastMessage(newMessage):
+	var message = availableMessage.instantiate()
+	message.pressed.connect(onMessageSelect)
+	message.setPastMessageName(newMessage)
+	%AvailableMessagesContainer.add_child(message)
 
 func onMessageSelect(selectedStage):
 	if selectedStage.contactImage:
@@ -56,24 +69,28 @@ func onMessageSelect(selectedStage):
 		$HBoxContainer/icon.texture = selectedStage.contactImage
 	else:
 		$HBoxContainer/icon.hide()
+	
+	%ReplayPastMessages.hide()
 	newMessageSelect.emit(selectedStage)
 
 func onComplete():
+	%SpeedUp.hide()
 	$HBoxContainer/icon.hide()
 	conversationComplete.emit()
 
 func closeApp():
 	%SkipNoti.hide()
+	%SpeedUp.hide()
 	%SkipNoti.button_pressed = false
 	$MessageScreen.hide()
-	$AvailableMessagesContainer.hide()
+	%AvailableMessagesContainer.hide()
 	$Respond.hide()
 	hide()
 	$HBoxContainer/ContactName.text = "Contacts"
 	
-	var existingMsgs = $AvailableMessagesContainer.get_children()
+	var existingMsgs = %AvailableMessagesContainer.get_children()
 	for existingMsg in existingMsgs:
-		$AvailableMessagesContainer.remove_child(existingMsg)
+		%AvailableMessagesContainer.remove_child(existingMsg)
 		existingMsg.queue_free()
 	
 	var existingMsgs2 = $MessageScreen/VBoxContainer.get_children()
@@ -83,8 +100,9 @@ func closeApp():
 	
 	
 func startConversation():
-	$AvailableMessagesContainer.visible = false
+	%AvailableMessagesContainer.visible = false
 	$MessageScreen.clear()
+	%SpeedUp.show()
 	
 	if GlobalGameStage.hasCompletedStageGloballySoft():
 		%SkipNoti.show()
@@ -103,6 +121,7 @@ func startConversation():
 	processNextAction()
 
 func processNextAction():
+	previousAction = nextAction
 	nextAction = currentConversation.getNextAction()
 	
 	if nextAction.action == PhoneAction.ACTIONS.TEXT_YOU:
@@ -150,7 +169,7 @@ func loadingMessage():
 	var loading = loadingAnim.instantiate()
 	loading.play()
 	if(!skipping):
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(getSpedUpValue(2)).timeout
 	
 	# Remove the status if it's there
 	if(is_instance_valid(currentStatusMessage) and currentStatusMessage):
@@ -162,14 +181,14 @@ func loadingMessage():
 	$AudioStreamPlayer2D.stream = messageStartTyping
 	$AudioStreamPlayer2D.play()
 	if(!skipping):
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(getSpedUpValue(2)).timeout
 	$MessageScreen/VBoxContainer.remove_child(loading)
 	loading.queue_free()
 	
 func delay(message):
 	if(message):
 		if(!skipping):
-			await get_tree().create_timer(1.75).timeout
+			await get_tree().create_timer(getSpedUpValue(1.75)).timeout
 		currentStatusMessage = partnerStatus.instantiate()
 		currentStatusMessage.setText(message)
 		$MessageScreen/VBoxContainer.add_child(currentStatusMessage)
@@ -177,18 +196,18 @@ func delay(message):
 			await get_tree().create_timer(3).timeout
 	else:
 		if(!skipping):
-			await get_tree().create_timer(4).timeout
+			await get_tree().create_timer(getSpedUpValue(4)).timeout
 	
 func readReceiptDelay():
 	if(!skipping):
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(getSpedUpValue(2)).timeout
 	lastAddedMessage.enableReadReceipt()
 	if(!skipping):
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(getSpedUpValue(2)).timeout
 
 func readReceiptFast():
 	if(!skipping):
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(getSpedUpValue(1)).timeout
 	lastAddedMessage.enableReadReceipt()
 	
 func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT):
@@ -295,3 +314,31 @@ func _on_skip_noti_toggled(toggled_on):
 		skipping = true
 	else:
 		skipping = false
+
+func getSpedUpValue(val : float) -> float:
+	if previousAction.action == PhoneAction.ACTIONS.TEXT_YOU:
+		return val
+
+	return val / (currentSpeedUp + 1.0) if currentSpeedUp > 1.0 else val
+
+func _on_speed_up_pressed() -> void:
+	if currentSpeedUp == maxSpeedUp:
+		currentSpeedUp = 1.0
+	else:
+		currentSpeedUp += speedUpStep
+
+	if currentSpeedUp > maxSpeedUp:
+		currentSpeedUp = maxSpeedUp
+
+	%SpeedUp.text = "Speed (" + str(currentSpeedUp) + "x)"
+
+
+func _on_replay_past_messages_pressed() -> void:
+	var childr = %AvailableMessagesContainer.get_children()
+	for chd in childr:
+		chd.queue_free()
+
+	var msgs = GlobalGameStage.getCompletedMessages()
+	for msg in msgs:
+		addAvailablePastMessage(msg)
+	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cmhnmn0imk4df"]
 
 [ext_resource type="Script" uid="uid://bwxf10dwhsliq" path="res://src/vn/Background.gd" id="1_jg27e"]
-[ext_resource type="Texture2D" uid="uid://lpkptqaxthij" path="res://data/background_lists/chads_party/backgrounds/intro_bg1.png" id="2_sbf2l"]
+[ext_resource type="Texture2D" uid="uid://di4x835kps6be" path="res://data/assets/general/art/newtitle.png" id="2_pwjtc"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_pwjtc"]
 
 [sub_resource type="Animation" id="Animation_xy1k7"]
@@ -103,7 +103,7 @@ script = ExtResource("1_jg27e")
 layout_mode = 0
 offset_right = 897.0
 offset_bottom = 1193.0
-texture = ExtResource("2_sbf2l")
+texture = ExtResource("2_pwjtc")
 expand_mode = 4
 stretch_mode = 4
 

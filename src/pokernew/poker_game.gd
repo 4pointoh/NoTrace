@@ -279,13 +279,9 @@ func _on_button_pressed():
 func cheat():
 	cheatsLeft -= 1
 
-	#Remove any aces from the player hand
-	for i in range(playerCards.size()):
-		if playerCards[i].value == "A":
-			playerCards.remove_at(i)
-			break	
+	playerCards = []
 
-	for i in range(4):
+	for i in range(5):
 		if i == 0:
 			var newAce = NonUiCard.new()
 			newAce.value = "A"
@@ -309,6 +305,13 @@ func cheat():
 			newAce.value = "A"
 			newAce.suit = "diamonds"
 			playerCards.append(newAce)
+		
+		if i == 4:
+			var newAce = NonUiCard.new()
+			newAce.value = "K"
+			newAce.suit = "hearts"
+			playerCards.append(newAce)
+		
 	
 	#Remove cards at the beginning of the player hand until they have 5 cards
 	while playerCards.size() > 5:
@@ -326,4 +329,4 @@ func setCheats(mode: int):
 	elif mode == 1:
 		cheatsLeft = GlobalGameStage.currentStage.proPlusCheats
 	elif mode == 2:
-		cheatsLeft == GlobalGameStage.currentStage.proPlusMaxCheats
+		cheatsLeft = GlobalGameStage.currentStage.proPlusMaxCheats

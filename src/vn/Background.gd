@@ -8,6 +8,7 @@ var shouldFadeQuick = false
 var shouldFadeSlow = false
 var isSkipping = false
 @onready var zoompan = load("res://src/phone/zoompan.gdshader")
+@onready var wavefromtop = load("res://src/vn/wavefromtop.gdshader")
 
 func setBackground(newBackground):
 	if background && (newBackground.name == background.name) && (!shouldFade || !shouldFadeQuick):
@@ -42,6 +43,24 @@ func enableZoomPan():
 	$BackgroundImage.material.set_shader_parameter("pan_amount", 0.025)
 	$BackgroundImage.scale = Vector2(1.1,1.1)
 	$BackgroundImage.position = Vector2(-50.0,-50.0)
+
+func enableWave():
+	var mat = ShaderMaterial.new()
+	mat.shader = wavefromtop
+	$BackgroundImage.material = mat
+	$BackgroundImage.material.set_shader_parameter("wave_amplitude", 10.2)
+	$BackgroundImage.material.set_shader_parameter("wave_frequency", 1.0)
+	$BackgroundImage.material.set_shader_parameter("wave_speed", 0.9)
+	$BackgroundImage.material.set_shader_parameter("vertical_wave_frequency", 0.2)
+	$BackgroundImage.material.set_shader_parameter("distortion_strength", 1.0)
+	$BackgroundImage.material.set_shader_parameter("fade_start", 0.0)
+	$BackgroundImage.material.set_shader_parameter("fade_end", 0.7)
+	$BackgroundImage.material.set_shader_parameter("use_sine_wave", true)
+	$BackgroundImage.material.set_shader_parameter("apply_to_alpha", false)
+	$BackgroundImage.material.set_shader_parameter("wave_direction", Vector2(0, 1))
+
+func disableWave():
+	$BackgroundImage.material = null
 
 func disableZoomPan():
 	$BackgroundImage.material = null

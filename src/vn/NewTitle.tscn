@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvds3comm8wia"]
+
+[ext_resource type="Script" uid="uid://c5yii6pywlf0s" path="res://src/vn/new_title.gd" id="1_jngax"]
+[ext_resource type="Texture2D" uid="uid://bgownqlu8x1fm" path="res://data/assets/general/art/title2.png" id="2_ndwik"]
+[ext_resource type="Texture2D" uid="uid://bv16o4wixd4x7" path="res://data/assets/general/art/title1_transp2.png" id="2_v3ujw"]
+[ext_resource type="Texture2D" uid="uid://bwg76el1a2uqe" path="res://data/assets/general/art/title1_transp_fill3.png" id="3_v3ujw"]
+[ext_resource type="Texture2D" uid="uid://b4uwr1plc4evm" path="res://data/assets/general/art/title1_transp2_fill2.png" id="4_3mdy8"]
+
+[node name="NewTitle" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -952.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jngax")
+
+[node name="TitleRoot" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_v3ujw")
+
+[node name="TitleRootFill" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_v3ujw")
+
+[node name="TitleRootFillOutline" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_3mdy8")
+
+[node name="TitleEnd" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ndwik")

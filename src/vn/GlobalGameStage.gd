@@ -210,6 +210,36 @@ func getAvailableMessages():
 
 	return availableMessages
 
+func getCompletedMessages():
+	availableMessages = []
+	
+	if completedStages.has(Flags.LISA_FIRST_PHONE.name):
+		availableMessages.append(Flags.LISA_FIRST_PHONE)
+	if completedStages.has(Flags.POKER_GIRLS_FIRST_PHONE.name):
+		availableMessages.append(Flags.POKER_GIRLS_FIRST_PHONE)
+	if completedStages.has(Flags.ASHELY_INTRODUCE_AMY.name):
+		availableMessages.append(Flags.ASHELY_INTRODUCE_AMY)
+	if completedStages.has(Flags.LISA_BLOCKED.name):
+		availableMessages.append(Flags.LISA_BLOCKED)
+	if completedStages.has(Flags.CHAD_UNBLOCK_LISA.name):
+		availableMessages.append(Flags.CHAD_UNBLOCK_LISA)
+	if completedStages.has(Flags.LISA_AFTER_UNBLOCK.name):
+		availableMessages.append(Flags.LISA_AFTER_UNBLOCK)
+	if completedStages.has(Flags.ASHELY_THEATER_PHONE.name):
+		availableMessages.append(Flags.ASHELY_THEATER_PHONE)
+	if completedStages.has(Flags.ANA_PHONE_INTRO.name):
+		availableMessages.append(Flags.ANA_PHONE_INTRO)
+	if completedStages.has(Flags.ASHELY_BAR_POKER_BEFORE.name):
+		availableMessages.append(Flags.ASHELY_BAR_POKER_BEFORE)
+	if completedStages.has(Flags.ASHELY_BAR_POKER_AFTER.name):
+		availableMessages.append(Flags.ASHELY_BAR_POKER_AFTER)
+	if completedStages.has(Flags.ANNA_PHONE_MESSAGE_LYRIC.name):
+		availableMessages.append(Flags.ANNA_PHONE_MESSAGE_LYRIC)
+	if completedStages.has(Flags.LISA_BEACH_BEFORE_MESSAGE.name):
+		availableMessages.append(Flags.LISA_BEACH_BEFORE_MESSAGE)
+
+	return availableMessages
+
 func getAvailableSelectableEvents():
 	availableSelectableEvents = []
 	
@@ -688,3 +718,12 @@ func incrementAndGetNextSoundEffect():
 		return currentStage.soundEffectList[currentStage.soundEffectIndex]
 	else:
 		return null
+
+func isLastEventInThisUpdate(stage: GameStage):
+	var lastEvent = "res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres"
+	var curResource = currentStage.resource_path
+
+	if stage.resource_path == lastEvent:
+		return true
+	else:
+		return false

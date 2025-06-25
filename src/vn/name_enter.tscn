@@ -4,11 +4,12 @@
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_3ploc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwf5v"]
+bg_color = Color(0.000381581, 0.259649, 0.828719, 1)
 
 [node name="NameEnter" type="ColorRect"]
 offset_right = 912.0
 offset_bottom = 1159.0
-color = Color(0.858824, 0.427451, 0.105882, 1)
+color = Color(0, 0, 0, 0.564706)
 script = ExtResource("1_wkjyn")
 
 [node name="Button" type="Button" parent="."]
@@ -28,9 +29,12 @@ offset_left = 197.0
 offset_top = 900.0
 offset_right = 697.0
 offset_bottom = 968.0
+theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Hugh Janus"
 placeholder_text = "Enter Your Name"
+context_menu_enabled = false
+emoji_menu_enabled = false
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

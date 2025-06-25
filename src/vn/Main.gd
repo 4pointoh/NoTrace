@@ -14,6 +14,7 @@ var inTransition = false
 var imageToRestoreOnDialogueEnd : Background = null
 var fullscreenImageIndex
 var isUiHidden = false
+var onMainMenu = true
 
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
@@ -45,7 +46,10 @@ func _ready():
 	GlobalGameStage.loadSave.connect(_handle_save_loaded)
 	GlobalGameStage.playParticle.connect(_handle_play_particle)
 	GlobalGameStage.startMusicSignal.connect(_handle_play_music)
-	playBgMusic(load("res://data/assets/general/sounds/bg_music/title.mp3"), true)
+	playBgMusic(load("res://data/assets/general/sounds/new_title.mp3"), true)
+
+	$Background.enableWave()
+	onMainMenu = true
 
 	if DisplayServer.screen_get_size().y <= 1152:
 		DisplayServer.window_set_size(Vector2i(448, 576))
@@ -119,6 +123,9 @@ func _input(event):
 		$DialogueManager.stopQuickSkip()
 	
 	if event.is_action_pressed("hide_ui"):
+		if onMainMenu:
+			return # Don't toggle UI on the main menu
+
 		Node2D.print_orphan_nodes()
 		toggleUi()
 		isUiHidden = !isUiHidden
@@ -283,12 +290,26 @@ func startNewDate():
 	move_child(currentDate, $DialogueManager.get_index() - 1)
 
 func _on_start_pressed():
+	hideTitleStuff()
+	$Background.disableWave()
 	%NameEnter.show()
 
 func _on_name_enter_start():
+	onMainMenu = false
 	hideTitleStuff()
 	beginDialogue()
+	fadeAudioToStart()
+
+func fadeAudioToStart():
+	var originalAudioLevel = $AudioStreamPlayer2D.volume_db
+	var tween = create_tween()
+	tween.tween_property($AudioStreamPlayer2D, "volume_db", -100, 4).set_trans(Tween.TRANS_SINE)
+	tween.tween_callback(startGameMusic.bind(originalAudioLevel))
+
+func startGameMusic(originalAudioLevel):
 	playBgMusic(firstSceneMusic)
+	var tween = create_tween()
+	tween.tween_property($AudioStreamPlayer2D, "volume_db", originalAudioLevel, 1)
 
 
 func hideTitleStuff():
@@ -296,6 +317,7 @@ func hideTitleStuff():
 	$Options.visible = false
 	$Load.visible = false
 	$Title.visible = false
+	%NewTitle.visible = false
 	$SceneSelect.visible = false
 	$Gallery.visible = false
 	%SmallResolution.visible = false
