@@ -1485,25 +1485,9 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
-&"1_182": {
-"background": 7,
-"backgroundList": 1,
-"characterState": -1,
-"dialogue": "",
-"offset": Vector2(67160, -280),
-"options": {
-0: {
-"condition": {},
-"link": &"1_183",
-"text": ""
-}
-},
-"size": Vector2(300, 586),
-"speaker": ""
-},
 &"1_183": {
-"background": -1,
-"backgroundList": -1,
+"background": 2,
+"backgroundList": 0,
 "characterState": -1,
 "dialogue": ".",
 "offset": Vector2(67540, -280),
@@ -1578,7 +1562,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_188": {
@@ -1594,7 +1578,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_189": {
@@ -1642,7 +1626,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_191": {
@@ -2362,7 +2346,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_231": {
@@ -2378,7 +2362,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_232": {
@@ -2394,7 +2378,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_233": {
@@ -2410,7 +2394,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_234": {
@@ -2426,7 +2410,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 544),
+"size": Vector2(300, 586),
 "speaker": ""
 },
 &"1_235": {
@@ -2442,7 +2426,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_236": {
@@ -2458,7 +2442,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 544),
+"size": Vector2(300, 586),
 "speaker": ""
 },
 &"1_237": {
@@ -2474,7 +2458,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_238": {
@@ -2490,12 +2474,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_239": {
-"background": -1,
-"backgroundList": -1,
+"background": 19,
+"backgroundList": 1,
 "characterState": -1,
 "dialogue": "I didn't close the door, you looked so tired I thought you'd be asleep for a long time!",
 "offset": Vector2(70380, -680),
@@ -2506,7 +2490,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_24": {
@@ -2538,7 +2522,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_241": {
@@ -2554,7 +2538,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_242": {
@@ -2570,7 +2554,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 544),
+"size": Vector2(300, 586),
 "speaker": ""
 },
 &"1_243": {
@@ -2586,7 +2570,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_25": {
@@ -3947,9 +3931,9 @@ nodes = {
 "signalValue": "fade_next_quick"
 },
 &"3_18": {
-"link": &"1_182",
+"link": &"1_183",
 "offset": Vector2(66796.7, 283.028),
-"signalValue": "fade_next"
+"signalValue": "fade_next_slow"
 },
 &"3_19": {
 "link": &"1_189",

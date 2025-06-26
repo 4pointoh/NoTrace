@@ -274,7 +274,6 @@ func group_smalltalk():
 func group_topic2():
 	var result = DateActionResult.new()
 	
-	var id = GlobalGameStage.getCurrentAsk()
 	result.dialogueStartKey = 'about_practice'
 		
 	result.success = true

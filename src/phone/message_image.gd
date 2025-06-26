@@ -1,7 +1,5 @@
 extends MarginContainer
 
-signal phone_image_clicked()
-
 var noFullscreen = false
 
 func setTexture(texture, skipBlur = false):

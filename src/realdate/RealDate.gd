@@ -313,14 +313,14 @@ func isPerfectDate():
 
 func _on_continue_pressed():
 	results.queue_free()
-	var nextSceneSelect = nextSceneSelect.instantiate()
-	nextSceneSelect.selectedMode.connect(_on_next_scene_selected)
-	nextSceneSelect.playAgain.connect(_on_next_scene_play_again)
+	var nextSceneSelect2 = nextSceneSelect.instantiate()
+	nextSceneSelect2.selectedMode.connect(_on_next_scene_selected)
+	nextSceneSelect2.playAgain.connect(_on_next_scene_play_again)
 
 	if matchingChoices > 2:
-		nextSceneSelect.unlockedPerfectDate = true
+		nextSceneSelect2.unlockedPerfectDate = true
 
-	add_child(nextSceneSelect)
+	add_child(nextSceneSelect2)
 	%Continue.hide()
 
 func _on_next_scene_selected(mode: int):

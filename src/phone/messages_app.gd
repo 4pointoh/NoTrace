@@ -345,11 +345,14 @@ func _on_replay_past_messages_pressed() -> void:
 		showingPastMessages = false
 		msgs = GlobalGameStage.getAvailableMessages()
 		%ReplayPastMessages.text = "Replay Past Messages"
+		for msg in msgs:
+			addAvailableMessage(msg)
 	else:
 		showingPastMessages = true
 		msgs = GlobalGameStage.getCompletedMessages()
 		%ReplayPastMessages.text = "Current Messages"
+		for msg in msgs:
+			addAvailablePastMessage(msg)
 
-	for msg in msgs:
-		addAvailablePastMessage(msg)
+	
 	

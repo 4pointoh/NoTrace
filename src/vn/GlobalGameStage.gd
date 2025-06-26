@@ -61,7 +61,6 @@ signal bgVolumeChanged
 signal loadSave
 signal playParticle(type: String)
 signal showTopImage(image: Texture2D)
-signal playTransition(transitionType: Transition.TransitionType, text: String)
 signal startMusicSignal(music: String)
 
 var bg_volume
@@ -410,8 +409,8 @@ func getSaveDataInfo(saveName):
 
 		var savedStage: GameStage
 		if(saveVersion > 001):
-			var completedStageTemp = file.get_var()
-			var currentMusicTemp = file.get_var()
+			var _completedStageTemp = file.get_var()
+			var _currentMusicTemp = file.get_var()
 			savedStage = load(file.get_var())
 		
 		return savedStage
@@ -627,10 +626,10 @@ func getRelationshipXp(character = null):
 		
 	return characterRelationshipXp[character]
 
-func addPerfectDate(character = null):
+func addPerfectDate(_character = null):
 	perfectDates += 1
 
-func getPerfectDates(character = null):
+func getPerfectDates(_character = null):
 	return perfectDates
 
 func unlockDateGirl(character):
@@ -651,7 +650,6 @@ func getRealDatesForGirl(character):
 	return availableStages
 
 func hasUnlockedDateGirl(character):
-	return true
 	return dateGirlsUnlocked.has(character)
 
 func getCharNameForGirl(character):
@@ -721,7 +719,6 @@ func incrementAndGetNextSoundEffect():
 
 func isLastEventInThisUpdate(stage: GameStage):
 	var lastEvent = "res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres"
-	var curResource = currentStage.resource_path
 
 	if stage.resource_path == lastEvent:
 		return true

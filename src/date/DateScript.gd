@@ -20,7 +20,7 @@ func getCurrentBackground():
 	assert(false, 'override me')
 
 func repeated_ask(action : DateAction):
-	assert(false, 'override me')
+	assert(false, 'override me' + str(action))
 
 func date_was_successful():
 	assert(false, 'override me')

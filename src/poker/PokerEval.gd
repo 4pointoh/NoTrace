@@ -519,10 +519,8 @@ static func test_poker_eval(hand1: Array, hand2: Array, expected_winner: String,
 
 	# The result[0] is either "Hand 1 wins", "Hand 2 wins", or "It's a tie"
 	var actual_winner = result[0]
-	var outcome = "PASS"
 	
 	if actual_winner != expected_winner:
-		outcome = "FAIL"
 		# Print detailed info if it fails
 		printerr("TEST FAILED: %s\n  Hand1: %s => %s\n  Hand2: %s => %s\n  Got: %s, Expected: %s\n"
 			% [test_name, str(hand1), str(result[1]), str(hand2), str(result[2]), actual_winner, expected_winner])

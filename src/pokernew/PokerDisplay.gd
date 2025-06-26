@@ -35,7 +35,7 @@ func _ready():
 	else:
 		%Hints.hide()
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	pass # Replace with function body.
 
 func processPreGameStart():
@@ -502,7 +502,7 @@ func _on_start_pressed():
 	%PokerModeSelect.hide ()
 	startPressed.emit()
 
-func cardSelected(index, selected):
+func cardSelected(_index, selected):
 	var selectedCount = 0
 	for uiCard in playerUICards:
 		if uiCard.selected:

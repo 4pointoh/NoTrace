@@ -26,7 +26,7 @@ func setup():
 	$Next.disabled = false
 
 	# Calculate the number of pages
-	maxPages = int(wallpapers.wallpapers.size() / 9)
+	maxPages = int(wallpapers.wallpapers.size() / 9.0)
 
 	# Set the current page to 0
 	pageIndex = 0

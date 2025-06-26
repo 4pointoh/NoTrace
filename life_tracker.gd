@@ -27,7 +27,6 @@ func setLives(maxLives: int, starLives: Array[int], currentLives: int):
 
 	if blueLives:
 		for i in range(20, 10, -1):
-			var livesGone = maxLives - currentLives
 			var textureRect = TextureRect.new()
 			textureRect.custom_minimum_size = Vector2(80, 10)
 			textureRect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
@@ -43,7 +42,6 @@ func setLives(maxLives: int, starLives: Array[int], currentLives: int):
 
 	else:
 		for i in range(10, 0, -1):
-			var livesGone = maxLives - currentLives
 			var textureRect = TextureRect.new()
 			textureRect.custom_minimum_size = Vector2(80, 10)
 			textureRect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL

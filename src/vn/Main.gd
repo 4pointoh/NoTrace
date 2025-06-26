@@ -612,7 +612,7 @@ func showEnterName():
 	%NameEnter.show()
 
 
-func _on_child_entered_tree(node):
+func _on_child_entered_tree(_node):
 	move_child.call_deferred($MainMenuContainer, -1)
 
 func _on_scene_select_pressed():

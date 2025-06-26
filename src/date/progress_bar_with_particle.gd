@@ -153,8 +153,8 @@ func spawn_diamond_cluster():
 		diamond.texture = particle
 		
 		var offset = Vector2(
-			randf() * CLUSTER_SPREAD - CLUSTER_SPREAD/2,
-			randf() * CLUSTER_SPREAD - CLUSTER_SPREAD/2
+			randf() * CLUSTER_SPREAD - CLUSTER_SPREAD/2.0,
+			randf() * CLUSTER_SPREAD - CLUSTER_SPREAD/2.0
 		)
 		
 		diamond.position = spawn_position + offset
