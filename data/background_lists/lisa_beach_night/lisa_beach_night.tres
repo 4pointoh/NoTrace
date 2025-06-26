@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=37 format=3 uid="uid://ba70guoq7eeu6"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=41 format=3 uid="uid://ba70guoq7eeu6"]
 
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_um0f7"]
 [ext_resource type="Texture2D" uid="uid://1cb3wgtaauct" path="res://data/background_lists/lisa_beach_night/500.webp" id="2_2x60u"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://ddya3axyw4k5p" path="res://data/background_lists/lisa_beach_night/304.webp" id="16_3d2b3"]
 [ext_resource type="Texture2D" uid="uid://el7xopu8dy6b" path="res://data/background_lists/lisa_beach_date/walk.webp" id="17_3d2b3"]
 [ext_resource type="Texture2D" uid="uid://d3nf7k2ql4d20" path="res://data/background_lists/lisa_beach_night/drive.webp" id="18_7nnbn"]
+[ext_resource type="Texture2D" uid="uid://qaiykpawx18p" path="res://data/background_lists/lisa_beach_night/shower.webp" id="19_lhxro"]
+[ext_resource type="Texture2D" uid="uid://b0dqgo22nismn" path="res://data/background_lists/lisa_beach_night/shower2.webp" id="20_qah03"]
 
 [sub_resource type="Resource" id="Resource_cl74g"]
 script = ExtResource("1_um0f7")
@@ -109,7 +111,19 @@ name = "drive"
 images = ExtResource("18_7nnbn")
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
+[sub_resource type="Resource" id="Resource_66yxn"]
+script = ExtResource("1_um0f7")
+name = "beach_shower"
+images = ExtResource("19_lhxro")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_aaq2u"]
+script = ExtResource("1_um0f7")
+name = "shower2"
+images = ExtResource("20_qah03")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
 [resource]
 script = ExtResource("15_rwdfb")
 name = "lisa_beach_night"
-images = Array[ExtResource("1_um0f7")]([SubResource("Resource_cl74g"), SubResource("Resource_rsxa2"), SubResource("Resource_6j34w"), SubResource("Resource_s3fnw"), SubResource("Resource_kol7p"), SubResource("Resource_svt4e"), SubResource("Resource_t5vnw"), SubResource("Resource_vkv8o"), SubResource("Resource_uhqps"), SubResource("Resource_l8tx6"), SubResource("Resource_dif8k"), SubResource("Resource_5xgj7"), SubResource("Resource_04b66"), SubResource("Resource_7nnbn"), SubResource("Resource_lhxro"), SubResource("Resource_qah03"), SubResource("Resource_nj3fj")])
+images = Array[ExtResource("1_um0f7")]([SubResource("Resource_cl74g"), SubResource("Resource_rsxa2"), SubResource("Resource_6j34w"), SubResource("Resource_s3fnw"), SubResource("Resource_kol7p"), SubResource("Resource_svt4e"), SubResource("Resource_t5vnw"), SubResource("Resource_vkv8o"), SubResource("Resource_uhqps"), SubResource("Resource_l8tx6"), SubResource("Resource_dif8k"), SubResource("Resource_5xgj7"), SubResource("Resource_04b66"), SubResource("Resource_7nnbn"), SubResource("Resource_lhxro"), SubResource("Resource_qah03"), SubResource("Resource_nj3fj"), SubResource("Resource_66yxn"), SubResource("Resource_aaq2u")])

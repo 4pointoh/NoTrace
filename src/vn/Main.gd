@@ -681,3 +681,17 @@ func _on_next_image_pressed() -> void:
 		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
 	else:
 		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	if GlobalGameStage.currentStage.randomMusic.size() > 1:
+		var randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
+		var newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
+
+		while $AudioStreamPlayer2D.stream == newStream:
+			randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
+			newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
+
+		$AudioStreamPlayer2D.stream = newStream
+
+	$AudioStreamPlayer2D.play()

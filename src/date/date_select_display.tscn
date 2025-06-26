@@ -71,9 +71,9 @@ mainLabel = "Poker Training"
 [node name="SkipButton" type="Button" parent="."]
 unique_name_in_owner = true
 offset_left = 629.0
-offset_top = 1060.0
+offset_top = 1011.0
 offset_right = 747.0
-offset_bottom = 1096.0
+offset_bottom = 1047.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("5_etjtp")
@@ -83,9 +83,9 @@ text = "Skip Date"
 
 [node name="SmallTalkButton" type="Button" parent="."]
 offset_left = 629.0
-offset_top = 1102.0
+offset_top = 970.0
 offset_right = 747.0
-offset_bottom = 1138.0
+offset_bottom = 1006.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("5_etjtp")
@@ -96,7 +96,7 @@ text = "Small Talk"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_lw1tx")
+&"": SubResource("AnimationLibrary_lw1tx")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1542,7 +1542,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_186",
+"link": &"3_31",
 "text": ""
 }
 },
@@ -1553,7 +1553,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "....sssssss",
+"dialogue": ".....sssssss",
 "offset": Vector2(68600, -260),
 "options": {
 0: {
@@ -1569,8 +1569,8 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Your eyes are still closed, but you hear the sound of running water. ",
-"offset": Vector2(68960, -260),
+"dialogue": "Your eyes are still closed but you wake to the sound of falling water. ",
+"offset": Vector2(68940, -260),
 "options": {
 0: {
 "condition": {},
@@ -1578,7 +1578,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_188": {
@@ -1586,27 +1586,27 @@ nodes = {
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "With sudden realization that you probably didn't set an alarm clock for the strict checkout time, your eyes pop open. ",
-"offset": Vector2(69300, -260),
+"offset": Vector2(68840, 400),
 "options": {
 0: {
 "condition": {},
-"link": &"3_19",
+"link": &"1_230",
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_189": {
 "background": 12,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "You realize where the sound was coming from very quickly. ",
+"dialogue": "You wake up",
 "offset": Vector2(69960, -260),
 "options": {
 0: {
 "condition": {},
-"link": &"1_190",
+"link": &"1_191",
 "text": ""
 }
 },
@@ -1633,16 +1633,16 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Lisa is in the bathroom, taking a shower. ",
-"offset": Vector2(70300, -260),
+"dialogue": "And then you head into the bathroom. ",
+"offset": Vector2(70460, 420),
 "options": {
 0: {
 "condition": {},
-"link": &"1_191",
+"link": &"1_233",
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_191": {
@@ -1650,11 +1650,11 @@ nodes = {
 "backgroundList": -1,
 "characterState": -1,
 "dialogue": "The room overall looks much nicer in the daytime than it did in the darkness of night. ",
-"offset": Vector2(70660, -260),
+"offset": Vector2(70320, -260),
 "options": {
 0: {
 "condition": {},
-"link": &"1_192",
+"link": &"1_190",
 "text": ""
 }
 },
@@ -1665,7 +1665,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Oh [name] are you awake? ",
+"dialogue": "Oh [name] by the way...",
 "offset": Vector2(71040, -260),
 "options": {
 0: {
@@ -1681,7 +1681,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "Hey! I ran over to reception this morning, we have to checkout at 11am, just so you know! ",
+"dialogue": "I ran over to reception this morning, we have to checkout at 11am, just so you know! ",
 "offset": Vector2(71380, -260),
 "options": {
 0: {
@@ -1697,7 +1697,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "The running water shuts off. ",
+"dialogue": "The shower runs for a while longer, then shuts off. ",
 "offset": Vector2(71760, -260),
 "options": {
 0: {
@@ -2349,6 +2349,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_230": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I guess it's raining... ",
+"offset": Vector2(69180, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_231",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_231": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That will make the ride home interesting",
+"offset": Vector2(69500, 400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_232",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_232": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": ".... but also it's making me [i]really[/i] need to take a piss! ",
+"offset": Vector2(69840, 420),
+"options": {
+0: {
+"condition": {},
+"link": &"3_19",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_233": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Only to realize the sound of water was, in fact, not rain. ",
+"offset": Vector2(70800, 420),
+"options": {
+0: {
+"condition": {},
+"link": &"3_32",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_234": {
+"background": 17,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Lisa is in the bathroom finishing her shower. ",
+"offset": Vector2(71240, 460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_235",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_235": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You quickly turn to leave",
+"offset": Vector2(71600, 460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_236",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_236": {
+"background": 18,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "But she notices you. ",
+"offset": Vector2(71920, 460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_237",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_237": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh!",
+"offset": Vector2(72280, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_238",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_238": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Omg! Sorry!!",
+"offset": Vector2(72600, 460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_239",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_239": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I didn't close the door, you looked so tired I thought you'd be asleep for a long time!",
+"offset": Vector2(70380, -680),
+"options": {
+0: {
+"condition": {},
+"link": &"1_240",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
 &"1_24": {
 "background": -1,
 "backgroundList": -1,
@@ -2363,6 +2523,70 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": ""
+},
+&"1_240": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No I definitely should have realized, my fault. ",
+"offset": Vector2(70720, -760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_241",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_241": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's okay! I'll just be another minute!",
+"offset": Vector2(71060, -820),
+"options": {
+0: {
+"condition": {},
+"link": &"3_34",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_242": {
+"background": 12,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You exit the bathroom to give Lisa her privacy. ",
+"offset": Vector2(71680, -880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_243",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_243": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Now aware that you're awake, she shouts to you over the sound of the shower. ",
+"offset": Vector2(72050.7, -928.214),
+"options": {
+0: {
+"condition": {},
+"link": &"1_192",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_25": {
@@ -3796,6 +4020,31 @@ nodes = {
 "link": &"1_15",
 "offset": Vector2(4101.06, 590.028),
 "signalValue": "next_music_track"
+},
+&"3_31": {
+"link": &"1_186",
+"offset": Vector2(68106.8, 452.459),
+"signalValue": "next_sound"
+},
+&"3_32": {
+"link": &"3_33",
+"offset": Vector2(70715.3, 1122.83),
+"signalValue": "fade_next"
+},
+&"3_33": {
+"link": &"3_35",
+"offset": Vector2(70979.8, 1103),
+"signalValue": "video_pause"
+},
+&"3_34": {
+"link": &"1_242",
+"offset": Vector2(71316.5, -365.57),
+"signalValue": "fade_next"
+},
+&"3_35": {
+"link": &"1_234",
+"offset": Vector2(71232.7, 1196.24),
+"signalValue": "next_sound"
 },
 &"3_4": {
 "link": &"1_39",

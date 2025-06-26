@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://cveje5ubkq7e4"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://cveje5ubkq7e4"]
 
 [ext_resource type="Resource" uid="uid://kdb517rxid54" path="res://data/game_stages/vn/lisa_beach_night/d_lisa_beach_night.tres" id="1_jrc23"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_0hwwl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ch37red6huc1l" path="res://data/background_lists/lisa_beach_date/304.webp" id="4_h781e"]
 [ext_resource type="AudioStream" uid="uid://k4grg7lvgv8n" path="res://data/assets/general/sound_effects/gasp.mp3" id="4_kaw4l"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_kaw4l"]
+[ext_resource type="AudioStream" uid="uid://hdbfs7ss7vk6" path="res://data/assets/general/sound_effects/shower_sound.mp3" id="6_30big"]
 
 [sub_resource type="Resource" id="Resource_30big"]
 script = ExtResource("5_kaw4l")
@@ -32,7 +33,7 @@ middleTransition = 0
 markStagesCompleteOnDateWin = Array[String]([])
 markStagesCompleteOnSceneEnd = Array[String]([])
 markStagesCompleteOnPokerWin = Array[String]([])
-unlockWallpapersOnSceneEnd = Array[String](["LISA_BEACH_36", "LISA_BEACH_37", "LISA_BEACH_38", "LISA_BEACH_39", "LISA_BEACH_40", "LISA_BEACH_41"])
+unlockWallpapersOnSceneEnd = Array[String](["LISA_BEACH_36", "LISA_BEACH_37", "LISA_BEACH_38", "LISA_BEACH_39", "LISA_BEACH_40", "LISA_BEACH_41", "LISA_BEACH_42"])
 cacheItems = Array[String]([])
 repositionDialogueBoxTo = 1
 isPokerMatch = false
@@ -59,7 +60,7 @@ contactName = ""
 randomMusic = Array[AudioStream]([])
 musicList = Array[AudioStream]([ExtResource("3_kaw4l")])
 delayMusicToTransition = false
-soundEffectList = Array[AudioStream]([ExtResource("4_kaw4l")])
+soundEffectList = Array[AudioStream]([ExtResource("4_kaw4l"), ExtResource("6_30big"), ExtResource("6_30big")])
 stageButtonLabel = "Get Dinner!"
 heartLevel = 0
 isRealDate = false

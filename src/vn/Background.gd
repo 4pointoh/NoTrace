@@ -106,6 +106,12 @@ func checkForVideo():
 	if background.name == '28_vid.png':
 		$VideoStreamPlayer.stream = load("res://data/background_lists/ashely_theater/video/hold.ogv")
 		fadeVideoSlow()
+	if background.name == 'poker_kiss.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/ashely_bar_poker/video/kiss.ogv")
+		fadeVideo()
+	if background.name == 'beach_shower':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_beach_night/video/shower.ogv")
+		fadeVideo()
 	#if background.name == 'boa_strip_vid1':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa1.ogv")
 	#	fadeVideo()

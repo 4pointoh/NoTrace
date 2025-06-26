@@ -7445,7 +7445,7 @@ nodes = {
 "background": -1,
 "backgroundList": -1,
 "characterState": -1,
-"dialogue": "And then, in another one of her abrupt shifts of demeanor...",
+"dialogue": "And then, in another one of her abrupt shifts...",
 "offset": Vector2(3880, 16200),
 "options": {
 0: {
@@ -12298,11 +12298,11 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"3_150",
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300, 560),
 "speaker": 0
 },
 &"1_776": {
@@ -15281,6 +15281,54 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 0
 },
+&"1_943": {
+"background": 2,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "You help the man get his keys while Ashely dresses herself in the back. ",
+"offset": Vector2(18360, 21380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_944",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_944": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You escort the man out, and then close the door on your way out, ensuring nobody walks in and gives Ashely a surprise. ",
+"offset": Vector2(18700, 21380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_945",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_945": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then you make your way home. ",
+"offset": Vector2(19040, 21380),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_95": {
 "background": -1,
 "backgroundList": -1,
@@ -15567,7 +15615,7 @@ nodes = {
 "signalValue": "fade_next"
 },
 &"3_136": {
-"link": &"1_711",
+"link": &"3_149",
 "offset": Vector2(3932.94, 15369.5),
 "signalValue": "reposition_max_lower"
 },
@@ -15636,10 +15684,20 @@ nodes = {
 "offset": Vector2(776.319, 16857.8),
 "signalValue": "music_passion"
 },
+&"3_149": {
+"link": &"1_711",
+"offset": Vector2(4163.44, 15321.4),
+"signalValue": "video_pause"
+},
 &"3_15": {
 "link": &"1_77",
 "offset": Vector2(2560, 3240),
 "signalValue": "fade_next_quick"
+},
+&"3_150": {
+"link": &"1_943",
+"offset": Vector2(18046.5, 22097.1),
+"signalValue": "fade_next_slow"
 },
 &"3_16": {
 "link": &"1_84",

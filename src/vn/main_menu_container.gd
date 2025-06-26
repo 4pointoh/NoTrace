@@ -99,9 +99,9 @@ func setup():
 		var ut = Time.get_datetime_string_from_unix_time(time)
 		
 		if savedgs:
-			autosaveSaveSelect.text = "Autosave" + " - " + savedgs.displayName + ' | ' + str(ut) 
+			autosaveSaveSelect.text = "AUTO" + " - " + savedgs.displayName + ' | ' + str(ut) 
 		else:
-			autosaveSaveSelect.text = "Autosave" + " - " + str(ut)
+			autosaveSaveSelect.text = "AUTO" + " - " + str(ut)
 		$SavesContainer.add_child(autosaveSaveSelect)
 		autosaveSaveSelect.clicked.connect(_handle_save_selected)
 	

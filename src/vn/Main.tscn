@@ -289,4 +289,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="FullscreenImageBg/FullscreenImage/CloseImage" to="." method="_on_close_image_pressed"]
 [connection signal="pressed" from="FullscreenImageBg/FullscreenImage/NextImage" to="." method="_on_next_image_pressed"]
 [connection signal="pressed" from="FullscreenImageBg/FullscreenImage/PrevImage" to="." method="_on_prev_image_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="start" from="NameEnter" to="." method="_on_name_enter_start"]

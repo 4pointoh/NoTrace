@@ -105,7 +105,7 @@ func _on_previous_pressed():
 	if pageIndex == 0:
 		$Previous.disabled = true
 	
-	if pageIndex < maxPages - 1:
+	if pageIndex < maxPages:
 		$Next.disabled = false
 		
 	setupWallpaperPage(pageIndex)

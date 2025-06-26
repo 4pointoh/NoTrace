@@ -22,6 +22,8 @@ var currentSpeedUp = 1.0
 var maxSpeedUp = 2.5
 var speedUpStep = .5
 
+var showingPastMessages = false
+
 var notUnlockedTexture = load("res://data/assets/phone/art/loading_image.png")
 
 @onready var imageLoadingSound = load("res://data/assets/phone/sounds/message_happy.wav")
@@ -338,7 +340,16 @@ func _on_replay_past_messages_pressed() -> void:
 	for chd in childr:
 		chd.queue_free()
 
-	var msgs = GlobalGameStage.getCompletedMessages()
+	var msgs = []
+	if showingPastMessages:
+		showingPastMessages = false
+		msgs = GlobalGameStage.getAvailableMessages()
+		%ReplayPastMessages.text = "Replay Past Messages"
+	else:
+		showingPastMessages = true
+		msgs = GlobalGameStage.getCompletedMessages()
+		%ReplayPastMessages.text = "Current Messages"
+
 	for msg in msgs:
 		addAvailablePastMessage(msg)
 	

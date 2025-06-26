@@ -283,8 +283,8 @@ func _on_dialogue_player_visibility_changed():
 	if !GlobalGameStage.hasCompletedStageGloballySoft() or GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
 		%SkipLabel.visible = false
 
-func setDialogueBoxPosition(position: DboxPosition):
-	match position:
+func setDialogueBoxPosition(pos: DboxPosition):
+	match pos:
 		DboxPosition.NO_CHANGE: pass
 		DboxPosition.MAX_UPPER: setDialogueBoxMaxUpper()
 		DboxPosition.UPPER: setDialogueBoxUpper()
