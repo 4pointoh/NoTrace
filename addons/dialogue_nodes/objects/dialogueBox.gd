@@ -429,7 +429,10 @@ func _process_text(text : String, is_dialogue = true):
 	if text == '' and is_dialogue:
 		text = ' '
 
-	text = text.replace("[name]", GlobalGameStage.playerName)
+	if GlobalGameStage.playerName:
+		text = text.replace("[name]", GlobalGameStage.playerName)
+	else:
+		text = text.replace("[name]", "You")
 
 	# Add variables
 	var formatted_variables = {}
@@ -479,7 +482,7 @@ func _process_text(text : String, is_dialogue = true):
 					text = text.insert(start_data.at, insertText)
 					idx = end_tag + insertText.length() + 7
 				elif img_tag == idx:
-					idx = img_tag_end + 6
+					idx = img_tag_end + 6 
 				else:
 					idx = open_tag_end + 1
 			'\n':

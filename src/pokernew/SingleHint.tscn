@@ -16,17 +16,17 @@ script = ExtResource("1_r08i3")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-offset_left = 5.0
+offset_left = 2.0
 offset_top = -4.0
-offset_right = 85.0
+offset_right = 82.0
 offset_bottom = 28.0
 
 [node name="HintText" type="Label" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(255, 0)
 layout_mode = 2
-offset_left = 86.0
-offset_right = 341.0
+offset_left = 88.0
+offset_right = 343.0
 offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("2_r08i3")
 theme_override_font_sizes/font_size = 16

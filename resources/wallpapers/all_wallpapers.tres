@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=295 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=293 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" uid="uid://cqw1gkn14oics" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://c2ouhg8lf1oj1" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward6.png" id="28_wudfs"]
 [ext_resource type="Texture2D" uid="uid://bx07tgxaqtgg4" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward7.png" id="29_dx0vj"]
 [ext_resource type="Texture2D" uid="uid://b634bt2htd3dw" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward8.png" id="30_5ybm3"]
-[ext_resource type="Texture2D" uid="uid://c8p64cjwle8xf" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward9.png" id="31_83mw7"]
 [ext_resource type="Texture2D" uid="uid://chpjhrdiuhuwq" path="res://data/background_lists/lisa_market_new/rew3.png" id="32_5qpvs"]
 [ext_resource type="Texture2D" uid="uid://bmdxkemprtvoh" path="res://data/background_lists/lisa_market_new/rew1.png" id="33_mx83n"]
 [ext_resource type="Texture2D" uid="uid://duwngfm701ykp" path="res://data/background_lists/lisa_market_new/rew2.png" id="34_bwfcr"]
@@ -394,13 +393,6 @@ image = ExtResource("30_5ybm3")
 hint = "Attempt to train Lisa the old-fashioned way (8)"
 video = ""
 
-[sub_resource type="Resource" id="Resource_in0k7"]
-script = ExtResource("3_wccuy")
-wallpaperId = "lisa_training_reward9"
-image = ExtResource("31_83mw7")
-hint = "Attempt to train Lisa the old-fashioned way (9)"
-video = ""
-
 [sub_resource type="Resource" id="Resource_iisrb"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_POK_PARK_1"
@@ -681,7 +673,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER11"
 image = ExtResource("77_7m82i")
-hint = "Ashely Poker (9)"
+hint = "Ashely Poker (9) - - (Unlocked if you complete Poker Hint 2)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -697,7 +689,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER13"
 image = ExtResource("79_r6xvj")
-hint = "Ashely Poker (11)"
+hint = "Ashely Poker (11) - (Unlocked if you complete Poker Hint 3)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -705,7 +697,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER14"
 image = ExtResource("80_28l3e")
-hint = "Ashely Poker (12)"
+hint = "Ashely Poker (12) - (Unlocked if you do NOT complete Poker Hint 3)"
 video = "res://data/background_lists/ashely_bar_poker/video/tease.ogv"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -713,7 +705,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER15"
 image = ExtResource("81_uqf1j")
-hint = "Ashely Poker (13)"
+hint = "Ashely Poker (13) - (Unlocked if you do NOT complete Poker Hint 3)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -721,7 +713,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER16"
 image = ExtResource("82_0rt81")
-hint = "Ashely Poker (14)"
+hint = "Ashely Poker (14) - (Unlocked if you complete Poker Hint 3)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -729,7 +721,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER17"
 image = ExtResource("83_7m82i")
-hint = "Ashely Poker (15)"
+hint = "Ashely Poker (15) - (Unlocked if you complete Poker Hint 3)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -737,7 +729,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER18"
 image = ExtResource("84_r6xvj")
-hint = "Ashely Poker (16)"
+hint = "Ashely Poker (16) - (Unlocked if you complete Poker Hint 3)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -745,7 +737,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER19"
 image = ExtResource("85_28l3e")
-hint = "Ashely Poker (17)"
+hint = "Ashely Poker (17) - (Unlocked if you do NOT complete Poker Hint 3)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -821,19 +813,19 @@ hint = "Ashely Poker (26)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
-[sub_resource type="Resource" id="Resource_tn5ie"]
-script = ExtResource("3_wccuy")
-wallpaperId = "ASHELY_POKER29"
-image = ExtResource("95_h1i8o")
-hint = "Ashely Poker (27)"
-video = ""
-metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
-
 [sub_resource type="Resource" id="Resource_2l4i8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER30"
 image = ExtResource("96_nfupu")
-hint = "Ashely Poker (28)"
+hint = "Ashely Poker (28) - (Unlocked by being far ahead when you lose your shirt)"
+video = ""
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_tn5ie"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_POKER29"
+image = ExtResource("95_h1i8o")
+hint = "Ashely Poker (27) - (Unlocked by being even farther ahead than the previous image,  when you lose your shirt)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -841,7 +833,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER31"
 image = ExtResource("97_htvw4")
-hint = "Ashely Poker (29)"
+hint = "Ashely Poker (29) - (Unlocked when you complete Poker Hint 4)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -849,7 +841,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER32"
 image = ExtResource("98_6bv1m")
-hint = "Ashely Poker (30)"
+hint = "Ashely Poker (30) - (Unlocked when you complete Poker Hint 4)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -857,7 +849,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER33"
 image = ExtResource("99_pob4n")
-hint = "Ashely Poker (31)"
+hint = "Ashely Poker (31) - - (Unlocked when you complete Poker Hint 5)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -865,7 +857,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER34"
 image = ExtResource("100_4ads7")
-hint = "Ashely Poker (32)"
+hint = "Ashely Poker (32) - - (Unlocked when you complete Poker Hint 5)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -873,7 +865,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER35"
 image = ExtResource("101_yfefg")
-hint = "Ashely Poker (33)"
+hint = "Ashely Poker (33) - - (Unlocked when you complete Poker Hint 7)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -881,7 +873,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER36"
 image = ExtResource("102_xj6uu")
-hint = "Ashely Poker (34)"
+hint = "Ashely Poker (34) - - (Unlocked when you complete Poker Hint 1)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -889,7 +881,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER37"
 image = ExtResource("103_guorf")
-hint = "Ashely Poker (35)"
+hint = "Ashely Poker (35) - (Unlocked when you complete Poker Hint 1)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -897,7 +889,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER38"
 image = ExtResource("104_hfumm")
-hint = "Ashely Poker (36)"
+hint = "Ashely Poker (36) - - (Unlocked when you complete Poker Hint 1)"
 video = ""
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -905,7 +897,7 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER39"
 image = ExtResource("105_hoyv7")
-hint = "Ashely Poker (37)"
+hint = "Ashely Poker (37) - - (Unlocked when you complete Poker Hint 1)"
 video = "res://data/background_lists/ashely_bar_poker/video/kiss.ogv"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
@@ -1248,4 +1240,4 @@ metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_in0k7"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4"), SubResource("Resource_xtbqc"), SubResource("Resource_rbg3e"), SubResource("Resource_uhg8y"), SubResource("Resource_2y4tb"), SubResource("Resource_83f3t"), SubResource("Resource_4n05t"), SubResource("Resource_n0wjw"), SubResource("Resource_52v4g"), SubResource("Resource_awamq"), SubResource("Resource_dcuae"), SubResource("Resource_0a0r8"), SubResource("Resource_hdlif"), SubResource("Resource_4f550"), SubResource("Resource_knobw"), SubResource("Resource_m2101"), SubResource("Resource_7cecp"), SubResource("Resource_pb515"), SubResource("Resource_0rt81"), SubResource("Resource_n7ryt"), SubResource("Resource_0omye"), SubResource("Resource_r6xvj"), SubResource("Resource_fgyo1"), SubResource("Resource_exlo8"), SubResource("Resource_o20yg"), SubResource("Resource_ydr00"), SubResource("Resource_cjv6e"), SubResource("Resource_uqf1j"), SubResource("Resource_ebdyc"), SubResource("Resource_sb8ak"), SubResource("Resource_oj0ec"), SubResource("Resource_htvw4"), SubResource("Resource_6bv1m"), SubResource("Resource_tn5ie"), SubResource("Resource_2l4i8"), SubResource("Resource_h1i8o"), SubResource("Resource_nfupu"), SubResource("Resource_7q6mc"), SubResource("Resource_xf6lt"), SubResource("Resource_arjys"), SubResource("Resource_8jsgg"), SubResource("Resource_jh3f8"), SubResource("Resource_eh5vm"), SubResource("Resource_deyor"), SubResource("Resource_yfefg"), SubResource("Resource_xj6uu"), SubResource("Resource_guorf"), SubResource("Resource_n1vug"), SubResource("Resource_hoyv7"), SubResource("Resource_lngf8"), SubResource("Resource_weqau"), SubResource("Resource_j80pk"), SubResource("Resource_m75yf"), SubResource("Resource_rasxk"), SubResource("Resource_edwk8"), SubResource("Resource_oi4e0"), SubResource("Resource_p4wa1"), SubResource("Resource_fd0vm"), SubResource("Resource_u7xa6"), SubResource("Resource_scoiv"), SubResource("Resource_msx3w"), SubResource("Resource_pm8hm"), SubResource("Resource_xwrbd"), SubResource("Resource_j6l20"), SubResource("Resource_h88py"), SubResource("Resource_4pamu"), SubResource("Resource_h7cln"), SubResource("Resource_h44hn"), SubResource("Resource_0gn2n"), SubResource("Resource_l2t2k"), SubResource("Resource_gpdk4"), SubResource("Resource_vh3qa"), SubResource("Resource_2lid5"), SubResource("Resource_i1u4a"), SubResource("Resource_unm8p"), SubResource("Resource_g7dh3"), SubResource("Resource_08mmx"), SubResource("Resource_258rc"), SubResource("Resource_qex3r"), SubResource("Resource_ir0bo"), SubResource("Resource_j1bep"), SubResource("Resource_jwbuy"), SubResource("Resource_jrt1e"), SubResource("Resource_2s5ix"), SubResource("Resource_s3603"), SubResource("Resource_hluk6"), SubResource("Resource_atw5o")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4"), SubResource("Resource_xtbqc"), SubResource("Resource_rbg3e"), SubResource("Resource_uhg8y"), SubResource("Resource_2y4tb"), SubResource("Resource_83f3t"), SubResource("Resource_4n05t"), SubResource("Resource_n0wjw"), SubResource("Resource_52v4g"), SubResource("Resource_awamq"), SubResource("Resource_dcuae"), SubResource("Resource_0a0r8"), SubResource("Resource_hdlif"), SubResource("Resource_4f550"), SubResource("Resource_knobw"), SubResource("Resource_m2101"), SubResource("Resource_7cecp"), SubResource("Resource_pb515"), SubResource("Resource_0rt81"), SubResource("Resource_n7ryt"), SubResource("Resource_0omye"), SubResource("Resource_r6xvj"), SubResource("Resource_fgyo1"), SubResource("Resource_exlo8"), SubResource("Resource_o20yg"), SubResource("Resource_ydr00"), SubResource("Resource_cjv6e"), SubResource("Resource_uqf1j"), SubResource("Resource_ebdyc"), SubResource("Resource_sb8ak"), SubResource("Resource_oj0ec"), SubResource("Resource_htvw4"), SubResource("Resource_6bv1m"), SubResource("Resource_2l4i8"), SubResource("Resource_tn5ie"), SubResource("Resource_h1i8o"), SubResource("Resource_nfupu"), SubResource("Resource_7q6mc"), SubResource("Resource_xf6lt"), SubResource("Resource_arjys"), SubResource("Resource_8jsgg"), SubResource("Resource_jh3f8"), SubResource("Resource_eh5vm"), SubResource("Resource_deyor"), SubResource("Resource_yfefg"), SubResource("Resource_xj6uu"), SubResource("Resource_guorf"), SubResource("Resource_n1vug"), SubResource("Resource_hoyv7"), SubResource("Resource_lngf8"), SubResource("Resource_weqau"), SubResource("Resource_j80pk"), SubResource("Resource_m75yf"), SubResource("Resource_rasxk"), SubResource("Resource_edwk8"), SubResource("Resource_oi4e0"), SubResource("Resource_p4wa1"), SubResource("Resource_fd0vm"), SubResource("Resource_u7xa6"), SubResource("Resource_scoiv"), SubResource("Resource_msx3w"), SubResource("Resource_pm8hm"), SubResource("Resource_xwrbd"), SubResource("Resource_j6l20"), SubResource("Resource_h88py"), SubResource("Resource_4pamu"), SubResource("Resource_h7cln"), SubResource("Resource_h44hn"), SubResource("Resource_0gn2n"), SubResource("Resource_l2t2k"), SubResource("Resource_gpdk4"), SubResource("Resource_vh3qa"), SubResource("Resource_2lid5"), SubResource("Resource_i1u4a"), SubResource("Resource_unm8p"), SubResource("Resource_g7dh3"), SubResource("Resource_08mmx"), SubResource("Resource_258rc"), SubResource("Resource_qex3r"), SubResource("Resource_ir0bo"), SubResource("Resource_j1bep"), SubResource("Resource_jwbuy"), SubResource("Resource_jrt1e"), SubResource("Resource_2s5ix"), SubResource("Resource_s3603"), SubResource("Resource_hluk6"), SubResource("Resource_atw5o")])

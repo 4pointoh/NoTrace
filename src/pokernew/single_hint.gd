@@ -2,7 +2,11 @@ extends Control
 
 var starIcon = load("res://data/assets/realdate/star_result.png")
 
-func setup(stars: int, txt: String):
+func setup(stars: int, txt: String, index: int):
+	var hintIndexLabel = Label.new()
+	hintIndexLabel.text = str(index + 1) + "."
+	%StarContainer.add_child(hintIndexLabel)
+
 	for i in range(0, stars):
 		var star = TextureRect.new()
 		star.texture = starIcon
