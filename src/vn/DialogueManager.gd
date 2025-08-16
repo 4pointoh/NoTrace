@@ -48,7 +48,8 @@ enum DboxPosition{
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
 	
-	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft():
+	# if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft():
+	if enableQuickSkip:
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()
@@ -227,6 +228,8 @@ func toggleUi():
 		tween.tween_property($DialoguePlayer, "position", Vector2(originalXPos,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
 	else:
 		originalXPos = $DialoguePlayer.position.x
+		if originalXPos > 900:
+			originalXPos = 120
 		tween.tween_property($DialoguePlayer, "position", Vector2(1200,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
 
 func hideUiFast():

@@ -5,10 +5,10 @@ extends EditorScript
 # Use char_art_loader to load states to it
 
 func _run() -> void:
-	var character_name: String = 'Lisa' #capitalize
-	var character_variant: String = 'lisa_beach'
+	var character_name: String = 'Anna' #capitalize
+	var character_variant: String = 'anna_class'
 	
-	var face_image_path: String = "res://data/characters/lisa/lisa_beach/face.png"
+	var face_image_path: String = "res://data/characters/anna/anna_class/face.png"
 	
 	var output_root: String = 'res://data/characters/' + character_name.to_lower() + '/' + character_variant + '/'
 	var output_resource: String = output_root + character_variant + '.tres'     # Where .png files are located

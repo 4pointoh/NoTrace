@@ -20,6 +20,9 @@ class_name GameStage
 @export var unlockWallpapersOnSceneEnd: Array[String]
 @export var cacheItems : Array[String]
 @export var repositionDialogueBoxTo : DialogueManager.DboxPosition = DialogueManager.DboxPosition.NO_CHANGE
+@export var endOnlyOnSpecificDialogueKey : bool = false
+@export var endingDialogueKeys : Array[String]
+@export var choicesScript : Script
 
 # Poker
 @export var isPokerMatch : bool

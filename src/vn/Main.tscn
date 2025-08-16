@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=35 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c0ronq3xhd3ic" path="res://src/vn/transition.tscn" id="18_hxheb"]
 [ext_resource type="PackedScene" uid="uid://m0y24r0kwcx3" path="res://src/vn/CharacterUnlockPanel.tscn" id="20_0bbbc"]
 [ext_resource type="PackedScene" uid="uid://cvds3comm8wia" path="res://src/vn/NewTitle.tscn" id="21_arifm"]
+[ext_resource type="PackedScene" uid="uid://kirrjy5dcir7" path="res://src/vn/ChoiceDisplay.tscn" id="22_mu6kp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -259,6 +260,11 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
+[node name="ChoiceDisplay" parent="." instance=ExtResource("22_mu6kp")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(155, 965)
+
 [node name="SmallResolution" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -292,3 +298,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="FullscreenImageBg/FullscreenImage/PrevImage" to="." method="_on_prev_image_pressed"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="start" from="NameEnter" to="." method="_on_name_enter_start"]
+[connection signal="choiceSelected" from="ChoiceDisplay" to="." method="_on_choice_display_choice_selected"]

@@ -7,9 +7,9 @@ void fragment()
     // Sample the original color
     vec4 tex_color = texture(TEXTURE, UV);
 
-    // Calculate the "clamped" UV within the rectangle 
+    // Calculate the "clamped" UV within the rectangle
     // that excludes the corners.
-    // This rectangle is from (corner_radius, corner_radius) 
+    // This rectangle is from (corner_radius, corner_radius)
     // to (1.0 - corner_radius, 1.0 - corner_radius).
     vec2 clamped_uv = clamp(UV, vec2(corner_radius), vec2(1.0 - corner_radius));
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://kirrjy5dcir7"]
+
+[ext_resource type="Script" uid="uid://cjb2t7jp3ibb5" path="res://src/vn/choice_display.gd" id="1_nx0uj"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_efltf"]
+[ext_resource type="PackedScene" uid="uid://cej7ytg7puxsy" path="res://src/choice_display_button.tscn" id="2_le5ot"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_le5ot"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_slwwh"]
+
+[node name="ChoiceDisplay" type="Node2D"]
+script = ExtResource("1_nx0uj")
+choiceButton = ExtResource("2_le5ot")
+
+[node name="bg" type="NinePatchRect" parent="."]
+material = SubResource("ShaderMaterial_slwwh")
+offset_right = 628.0
+offset_bottom = 187.0
+texture = ExtResource("2_efltf")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="title" type="Label" parent="bg"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 621.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_le5ot")
+theme_override_font_sizes/font_size = 28
+text = "Title Here"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChoiceContainer" type="HBoxContainer" parent="bg"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 62.0
+offset_right = 621.0
+offset_bottom = 174.0
+alignment = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cej7ytg7puxsy"]
+
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="1_8icq5"]
+[ext_resource type="Script" uid="uid://csej50jj2q2p3" path="res://src/choice_display_button.gd" id="2_06avw"]
+
+[node name="ChoiceDisplayButton" type="Button"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -393.0
+offset_bottom = -935.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_8icq5")
+theme_override_font_sizes/font_size = 28
+text = "Hello"
+autowrap_mode = 3
+script = ExtResource("2_06avw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -14,6 +14,9 @@ var completedStagesSOFT : Array[String]
 var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
 var playerName : String
+var currentDialogueKey : String = ''
+
+var annaCorrectChoices = 0
 
 # Poker stages by wins and losses
 var pokerStageHistory = {}
@@ -52,7 +55,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 010
+const VERSION = 011
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -266,6 +269,8 @@ func getAvailableSelectableEvents():
 
 	if completedStages.has('lisa_beach_message'):
 		addSelectableEvent(Flags.LISA_BEACH_BEFORE)
+
+	addSelectableEvent(Flags.ANNA_CLASS)
 	
 	return availableSelectableEvents
 
@@ -290,6 +295,8 @@ func getCompletedSelectableEvents():
 		completedSelectableEvents.append(Flags.ASHELY_POKER)
 	if completedStages.has(Flags.LISA_BEACH_BEFORE.name):
 		completedSelectableEvents.append(Flags.LISA_BEACH_BEFORE)
+	if completedStages.has(Flags.ANNA_CLASS.name):
+		completedSelectableEvents.append(Flags.ANNA_CLASS)
 	
 	return completedSelectableEvents
 
@@ -399,6 +406,8 @@ func saveSaveData(saveName):
 	file.store_var(perfectDates)
 	file.store_var(dateGirlsUnlocked)
 	file.store_var(askedAboutLyric)
+	file.store_var(currentDialogueKey)
+	file.store_var(annaCorrectChoices)
 	
 	savePersistentData()
 
@@ -484,6 +493,13 @@ func loadSaveData(saveName):
 			askedAboutLyric = file.get_var()
 		else:
 			askedAboutLyric = false
+		
+		if (saveVersion > 010):
+			currentDialogueKey = file.get_var()
+			annaCorrectChoices = file.get_var()
+		else:
+			currentDialogueKey = ''
+			annaCorrectChoices = 0
 
 		dateStorage.clearCurrentDate()
 
@@ -717,10 +733,18 @@ func incrementAndGetNextSoundEffect():
 	else:
 		return null
 
+func getSoundEffectAtIndex(index):
+	if index < 0 or index >= currentStage.soundEffectList.size():
+		return null
+	return currentStage.soundEffectList[index]
+
 func isLastEventInThisUpdate(stage: GameStage):
-	var lastEvent = "res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres"
+	var lastEvent = "res://data/game_stages/vn/anna_class/gs_anna_class.tres"
 
 	if stage.resource_path == lastEvent:
 		return true
 	else:
 		return false
+
+func setCurrentDialogueKey(key: String):
+	currentDialogueKey = key

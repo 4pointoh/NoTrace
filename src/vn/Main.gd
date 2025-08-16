@@ -47,7 +47,7 @@ func _ready():
 	GlobalGameStage.playParticle.connect(_handle_play_particle)
 	GlobalGameStage.startMusicSignal.connect(_handle_play_music)
 	playBgMusic(load("res://data/assets/general/sounds/new_title.mp3"), true)
-
+	
 	$Background.enableWave()
 	onMainMenu = true
 
@@ -329,6 +329,12 @@ func setDontAutoAdvance():
 	dontAutoAdvance = true
 
 func _on_dialogue_manager_dialogue_signal(value):
+	if value.begins_with("play_sfx_"):
+		#extract the number from the end of the string, eg: play_sfx_1
+		var soundIndex = value.replace("play_sfx_", "")
+		playSoundEffectAtIndex(int(soundIndex))
+		return
+
 	match(value):
 		"dont_auto_advance": setDontAutoAdvance()
 		"hide_char": $CharacterManager.hideCharacter()
@@ -389,7 +395,17 @@ func playNextSoundEffect():
 	if nextSound == null:
 		return
 
+	$SoundEffectPlayer.volume_db = GlobalGameStage.getBgVolume()
 	$SoundEffectPlayer.stream = nextSound
+	$SoundEffectPlayer.play()
+
+func playSoundEffectAtIndex(index):
+	var sound = GlobalGameStage.getSoundEffectAtIndex(index)
+	if sound == null:
+		return
+
+	$SoundEffectPlayer.volume_db = GlobalGameStage.getBgVolume()
+	$SoundEffectPlayer.stream = sound
 	$SoundEffectPlayer.play()
 
 func fadeNext():
@@ -408,37 +424,46 @@ func enableInput():
 	inputDisabled = false
 
 func beginDialogue(startKey = null):
+	if(startKey):
+		GlobalGameStage.setCurrentDialogueKey(startKey)
+	else:
+		GlobalGameStage.setCurrentDialogueKey("START")
 	$DialogueManager.startDialogue(startKey)
 
 func _on_dialogue_manager_dialogue_ended():
-	$CharacterManager.hideCharacter()
-	
-	if currentStageIsLoaded:
-		currentStageIsLoaded = false
-		return
-		
-	# We're in a poker game and just completed some dialogue
-	if forcePhoneStage:
-		forcePhoneStage = false
-		GlobalGameStage.setPhoneGameStage()
-		beginStage()
-	elif validPokerGameRunning():
-		if imageToRestoreOnDialogueEnd:
-			$Background.shouldFade = true
-			$Background.setBackground(imageToRestoreOnDialogueEnd)
-			imageToRestoreOnDialogueEnd = null
-
-		$Background.enableZoomPan()
-		currentPokerGame.show()
-		currentPokerGame.removeDialoguePause()
-	elif dontAutoAdvance: # We want to pause at the end, usually for cgs
-		$Continue.visible = true
-	elif inPhoneScene() && currentPhone.inConversation:
-		currentPhone.dialogueComplete()
-	elif GlobalGameStage.currentStage.isDate:
-		currentDate.processDialogueComplete()
+	if GlobalGameStage.currentStage.endOnlyOnSpecificDialogueKey and GlobalGameStage.currentDialogueKey not in GlobalGameStage.currentStage.endingDialogueKeys:
+		var choices = GlobalGameStage.currentStage.choicesScript.getChoicesForDialogueKey(GlobalGameStage.currentDialogueKey)
+		%ChoiceDisplay.show()
+		%ChoiceDisplay.setChoices(choices)
 	else:
-		advanceGameStage()
+		$CharacterManager.hideCharacter()
+		
+		if currentStageIsLoaded:
+			currentStageIsLoaded = false
+			return
+			
+		# We're in a poker game and just completed some dialogue
+		if forcePhoneStage:
+			forcePhoneStage = false
+			GlobalGameStage.setPhoneGameStage()
+			beginStage()
+		elif validPokerGameRunning():
+			if imageToRestoreOnDialogueEnd:
+				$Background.shouldFade = true
+				$Background.setBackground(imageToRestoreOnDialogueEnd)
+				imageToRestoreOnDialogueEnd = null
+
+			$Background.enableZoomPan()
+			currentPokerGame.show()
+			currentPokerGame.removeDialoguePause()
+		elif dontAutoAdvance: # We want to pause at the end, usually for cgs
+			$Continue.visible = true
+		elif inPhoneScene() && currentPhone.inConversation:
+			currentPhone.dialogueComplete()
+		elif GlobalGameStage.currentStage.isDate:
+			currentDate.processDialogueComplete()
+		else:
+			advanceGameStage()
 
 func validPokerGameRunning():
 	return is_instance_valid(currentPokerGame) && currentPokerGame && currentPokerGame.dialoguePause
@@ -565,6 +590,7 @@ func _handle_bg_volume_change():
 
 func _handle_save_loaded():
 	currentStageIsLoaded = true
+	onMainMenu = false
 	
 	if is_instance_valid(currentPhone):
 		currentPhone.free()
@@ -695,3 +721,8 @@ func _on_audio_stream_player_2d_finished() -> void:
 		$AudioStreamPlayer2D.stream = newStream
 
 	$AudioStreamPlayer2D.play()
+
+
+func _on_choice_display_choice_selected(key: String) -> void:
+	%ChoiceDisplay.hide()
+	beginDialogue(key)

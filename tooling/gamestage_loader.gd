@@ -2,16 +2,16 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'lisa_beach_before_date'
+	var gamestageName = 'anna_class_phone'
 	
 	var backgroundLists: Array[String] = [
 		'res://data/background_lists/home/home_bgl.tres',
-		"res://data/background_lists/lisa_beach_date/lisa_beach_date.tres"
+		"res://data/background_lists/anna_class/anna_class.tres"
 	]
 	
 	var characters: Array[String] = [
 		'res://data/characters/you/you.tres',
-		"res://data/characters/lisa/lisa_beach/lisa_beach.tres"
+		"res://data/characters/anna/anna_class/anna_class.tres"
 	]
 	
 	var type = "vn" #vn, poker, date, phonemessage, special

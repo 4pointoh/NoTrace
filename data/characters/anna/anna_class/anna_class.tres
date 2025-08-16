@@ -1,0 +1,165 @@
+[gd_resource type="Resource" script_class="Character" load_steps=42 format=3 uid="uid://cag2ytjbhn36a"]
+
+[ext_resource type="Texture2D" uid="uid://cgftjsqmiw6i3" path="res://data/characters/anna/anna_class/face.png" id="1_vhne8"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_o5eq5"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_exavl"]
+[ext_resource type="Texture2D" uid="uid://cp5ci2anuh2d2" path="res://data/characters/anna/anna_class/character_art/embarassed.png" id="4_80u03"]
+[ext_resource type="Texture2D" uid="uid://dm2pqd2chg3np" path="res://data/characters/anna/anna_class/character_art/embarassed_ink.png" id="5_bndf2"]
+[ext_resource type="Texture2D" uid="uid://bf66mae01xi3f" path="res://data/characters/anna/anna_class/character_art/hands_up_exicted.png" id="6_w11al"]
+[ext_resource type="Texture2D" uid="uid://m8jf1ngqa2wt" path="res://data/characters/anna/anna_class/character_art/hand_on_head_embarassed.png" id="7_mgkts"]
+[ext_resource type="Texture2D" uid="uid://cvmxxvq44sx7j" path="res://data/characters/anna/anna_class/character_art/hand_on_head_embarassed_ink.png" id="8_5or0j"]
+[ext_resource type="Texture2D" uid="uid://tof48sigvdu3" path="res://data/characters/anna/anna_class/character_art/hand_on_hip_happy.png" id="9_7m57n"]
+[ext_resource type="Texture2D" uid="uid://b6lfgxnw3006k" path="res://data/characters/anna/anna_class/character_art/happy_ink_no_ribbon.png" id="10_k7by7"]
+[ext_resource type="Texture2D" uid="uid://bmn1b1odwm7se" path="res://data/characters/anna/anna_class/character_art/no_top.png" id="11_m85gm"]
+[ext_resource type="Texture2D" uid="uid://dmr4vknsh66h2" path="res://data/characters/anna/anna_class/character_art/scared.png" id="12_j8v3o"]
+[ext_resource type="Texture2D" uid="uid://8d0has2wyq3k" path="res://data/characters/anna/anna_class/character_art/smile_blush.png" id="13_4xvm4"]
+[ext_resource type="Texture2D" uid="uid://3sacpdqyjce2" path="res://data/characters/anna/anna_class/character_art/smug.png" id="14_b11ji"]
+[ext_resource type="Texture2D" uid="uid://c67kn5xkcdjxn" path="res://data/characters/anna/anna_class/character_art/smug_ink.png" id="15_lr6eh"]
+[ext_resource type="Texture2D" uid="uid://v5am4w31kghu" path="res://data/characters/anna/anna_class/character_art/surprised.png" id="16_c4d6a"]
+[ext_resource type="Texture2D" uid="uid://cx1uscyky6nwj" path="res://data/characters/anna/anna_class/character_art/surprised_ink.png" id="17_khqpl"]
+[ext_resource type="Texture2D" uid="uid://bi8i2xvqmhmu2" path="res://data/characters/anna/anna_class/character_art/thinking.png" id="18_oqy7b"]
+[ext_resource type="Texture2D" uid="uid://drkymrkpllnak" path="res://data/characters/anna/anna_class/character_art/tired_ink.png" id="19_glqga"]
+[ext_resource type="Texture2D" uid="uid://ytof83dht1hs" path="res://data/characters/anna/anna_class/character_art/wet_cold_arms_crossed.png" id="20_v2prk"]
+[ext_resource type="Texture2D" uid="uid://b5tfersgm46b" path="res://data/characters/anna/anna_class/character_art/wet_cold_sad.png" id="21_6ka5s"]
+[ext_resource type="Texture2D" uid="uid://bfuhtriliimy2" path="res://data/characters/anna/anna_class/character_art/windy_happy.png" id="22_j0wvg"]
+
+[sub_resource type="Resource" id="Resource_rvbyt"]
+script = ExtResource("3_exavl")
+name = "embarassed.png"
+image = ExtResource("4_80u03")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_kd0o4"]
+script = ExtResource("3_exavl")
+name = "embarassed_ink.png"
+image = ExtResource("5_bndf2")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_2yqwb"]
+script = ExtResource("3_exavl")
+name = "hands_up_exicted.png"
+image = ExtResource("6_w11al")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_32rsx"]
+script = ExtResource("3_exavl")
+name = "hand_on_head_embarassed.png"
+image = ExtResource("7_mgkts")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_1a254"]
+script = ExtResource("3_exavl")
+name = "hand_on_head_embarassed_ink.png"
+image = ExtResource("8_5or0j")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_geggq"]
+script = ExtResource("3_exavl")
+name = "hand_on_hip_happy.png"
+image = ExtResource("9_7m57n")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_img73"]
+script = ExtResource("3_exavl")
+name = "happy_ink_no_ribbon.png"
+image = ExtResource("10_k7by7")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_hwf06"]
+script = ExtResource("3_exavl")
+name = "no_top.png"
+image = ExtResource("11_m85gm")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_sydji"]
+script = ExtResource("3_exavl")
+name = "scared.png"
+image = ExtResource("12_j8v3o")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_f3tio"]
+script = ExtResource("3_exavl")
+name = "smile_blush.png"
+image = ExtResource("13_4xvm4")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_1fyno"]
+script = ExtResource("3_exavl")
+name = "smug.png"
+image = ExtResource("14_b11ji")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_verna"]
+script = ExtResource("3_exavl")
+name = "smug_ink.png"
+image = ExtResource("15_lr6eh")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_jt7d6"]
+script = ExtResource("3_exavl")
+name = "surprised.png"
+image = ExtResource("16_c4d6a")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_w78ig"]
+script = ExtResource("3_exavl")
+name = "surprised_ink.png"
+image = ExtResource("17_khqpl")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_qfelb"]
+script = ExtResource("3_exavl")
+name = "thinking.png"
+image = ExtResource("18_oqy7b")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_mjdgf"]
+script = ExtResource("3_exavl")
+name = "tired_ink.png"
+image = ExtResource("19_glqga")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_te7r7"]
+script = ExtResource("3_exavl")
+name = "wet_cold_arms_crossed.png"
+image = ExtResource("20_v2prk")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_nspxq"]
+script = ExtResource("3_exavl")
+name = "wet_cold_sad.png"
+image = ExtResource("21_6ka5s")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_br3l6"]
+script = ExtResource("3_exavl")
+name = "windy_happy.png"
+image = ExtResource("22_j0wvg")
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[resource]
+script = ExtResource("2_o5eq5")
+name = "Anna"
+editorName = "anna_class"
+image = ExtResource("1_vhne8")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("3_exavl")]([SubResource("Resource_rvbyt"), SubResource("Resource_kd0o4"), SubResource("Resource_2yqwb"), SubResource("Resource_32rsx"), SubResource("Resource_1a254"), SubResource("Resource_geggq"), SubResource("Resource_img73"), SubResource("Resource_hwf06"), SubResource("Resource_sydji"), SubResource("Resource_f3tio"), SubResource("Resource_1fyno"), SubResource("Resource_verna"), SubResource("Resource_jt7d6"), SubResource("Resource_w78ig"), SubResource("Resource_qfelb"), SubResource("Resource_mjdgf"), SubResource("Resource_te7r7"), SubResource("Resource_nspxq"), SubResource("Resource_br3l6")])

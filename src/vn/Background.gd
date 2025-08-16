@@ -112,6 +112,27 @@ func checkForVideo():
 	if background.name == 'beach_shower':
 		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_beach_night/video/shower.ogv")
 		fadeVideo()
+	if background.name == '036_anna_feet.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/feet.ogv")
+		fadeVideo()
+	if background.name == '200_lake.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/lake.ogv")
+		fadeVideo()
+	if background.name == '502_kiss.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/kiss.ogv")
+		fadeVideo()
+	if background.name == '1107_rain_lay.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/rain_lay.ogv")
+		fadeVideo()
+	if background.name == '1313_shirt_fall.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/shirt_fall.ogv")
+		fadeVideo()
+	if background.name == '1320_pool_back.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/pool_back.ogv")
+		fadeVideo()
+	if background.name == '1321_pool_sit.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/pool_sit.ogv")
+		fadeVideo()
 	#if background.name == 'boa_strip_vid1':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa1.ogv")
 	#	fadeVideo()

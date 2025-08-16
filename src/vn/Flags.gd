@@ -23,3 +23,4 @@ var ASHELY_THEATER = load("res://data/game_stages/vn/ashely_theater/gs_ashely_th
 var ANNA_BURGER = load("res://data/game_stages/vn/anna_burger_before_date/gs_anna_burger_before_date.tres")
 var ASHELY_POKER = load("res://data/game_stages/vn/ashely_bar_before_poker/gs_ashely_bar_before_poker.tres")
 var LISA_BEACH_BEFORE = load("res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres")
+var ANNA_CLASS = load("res://data/game_stages/vn/anna_class/gs_anna_class.tres")

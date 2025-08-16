@@ -1,0 +1,102 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=22 format=3 uid="uid://imr2rwudeh8a"]
+
+[ext_resource type="Script" uid="uid://boffrfxcwbivm" path="res://data/game_stages/vn/anna_class/AnnaClassChoices.gd" id="1_6evmw"]
+[ext_resource type="Resource" uid="uid://brk0kgvi2vxdu" path="res://data/game_stages/vn/anna_class/d_anna_class.tres" id="1_peirj"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_cm4pi"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="3_2uh4o"]
+[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="3_t2w6o"]
+[ext_resource type="AudioStream" uid="uid://b6vmlmq2tnwwo" path="res://data/assets/general/sounds/bg_music/Neon Lights and Endless Nights.mp3" id="4_1uq3b"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_6evmw"]
+[ext_resource type="Texture2D" uid="uid://cbtl3m440t6sg" path="res://data/assets/stage_art/university_hover.png" id="4_ony1k"]
+[ext_resource type="Texture2D" uid="uid://ba6jnooox2gpk" path="res://data/assets/stage_art/university.png" id="5_2uh4o"]
+[ext_resource type="AudioStream" uid="uid://g1rty0eeq1x6" path="res://data/assets/general/sounds/bg_music/new_new/chill1.mp3" id="5_vojkl"]
+[ext_resource type="AudioStream" uid="uid://dmyw2p2ome5kk" path="res://data/assets/general/sounds/bg_music/new_new/First Day Horizons.mp3" id="6_bdniy"]
+[ext_resource type="AudioStream" uid="uid://cooh41572mlkb" path="res://data/assets/general/sound_effects/class_bell.mp3" id="6_w7br8"]
+[ext_resource type="AudioStream" uid="uid://d3h5bxxlljgef" path="res://data/assets/general/sound_effects/chatter.mp3" id="7_jc4ix"]
+[ext_resource type="AudioStream" uid="uid://bijw3u8s2wt3k" path="res://data/assets/general/sound_effects/woo2.mp3" id="8_jc4ix"]
+[ext_resource type="AudioStream" uid="uid://cstifacu5k7wo" path="res://data/assets/general/sound_effects/thunder.mp3" id="10_2mm15"]
+[ext_resource type="AudioStream" uid="uid://dp8u65jiv6o71" path="res://data/assets/general/sound_effects/yelp.mp3" id="11_w7y78"]
+[ext_resource type="AudioStream" uid="uid://cepjishkiftps" path="res://data/assets/general/sound_effects/yell.mp3" id="12_03ig6"]
+[ext_resource type="AudioStream" uid="uid://ckba1mnacqk7q" path="res://data/assets/general/sound_effects/running.mp3" id="13_aabxs"]
+[ext_resource type="AudioStream" uid="uid://xelkief1gfis" path="res://data/assets/general/sound_effects/rain.mp3" id="14_k2qul"]
+[ext_resource type="AudioStream" uid="uid://dbqxvl2k87ynu" path="res://data/assets/general/sound_effects/piano.mp3" id="15_wlfqt"]
+
+[sub_resource type="Resource" id="Resource_1572o"]
+script = ExtResource("4_6evmw")
+name = "esfdf"
+images = ExtResource("3_t2w6o")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_cm4pi")
+name = "anna_class"
+displayName = "Anna - Class"
+dialogue = ExtResource("1_peirj")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("3_2uh4o")
+isCompletable = true
+startingBackground = SubResource("Resource_1572o")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = "Back To School..."
+middleTransition = 1
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = true
+endingDialogueKeys = Array[String](["ROUTE_3", "ROUTE_5", "ROUTE_7", "ROUTE_9", "ROUTE_13", "ROUTE_12", "ROUTE_11", "ROUTE_8"])
+choicesScript = ExtResource("1_6evmw")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([ExtResource("4_1uq3b"), ExtResource("5_vojkl"), ExtResource("6_bdniy")])
+delayMusicToTransition = true
+soundEffectList = Array[AudioStream]([ExtResource("6_w7br8"), ExtResource("7_jc4ix"), ExtResource("8_jc4ix"), ExtResource("10_2mm15"), ExtResource("11_w7y78"), ExtResource("12_03ig6"), ExtResource("13_aabxs"), ExtResource("14_k2qul"), ExtResource("15_wlfqt")])
+stageButtonTexture = ExtResource("5_2uh4o")
+stageButtonHover = ExtResource("4_ony1k")
+stageButtonLabel = "Anna's Day At CSU"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])
