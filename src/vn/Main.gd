@@ -11,6 +11,7 @@ var currentStageIsLoaded = false
 var forcePhoneStage = false
 var isSkipping = false
 var inTransition = false
+var inChoice = false
 var imageToRestoreOnDialogueEnd : Background = null
 var fullscreenImageIndex
 var isUiHidden = false
@@ -112,16 +113,14 @@ func _input(event):
 		testFunction()
 
 	if event.is_action_pressed('quick_skip'):
-		if !inTransition and !isUiHidden:
+		if !inTransition and !isUiHidden and !inChoice:
 			isSkipping = true
 			$Background.isSkipping = true
 			$DialogueManager.startQuickSkip()
 	
 	if event.is_action_released('quick_skip'):
-		isSkipping = false
-		$Background.isSkipping = false
-		$DialogueManager.stopQuickSkip()
-	
+		disableSkipping()
+
 	if event.is_action_pressed("hide_ui"):
 		if onMainMenu:
 			return # Don't toggle UI on the main menu
@@ -147,6 +146,11 @@ func _input(event):
 	if event.is_action_pressed("disable_fullscreen_image"):
 		if isUiHidden:
 			$Background.flashUnhideMessage()
+
+func disableSkipping():
+	isSkipping = false
+	$Background.isSkipping = false
+	$DialogueManager.stopQuickSkip()
 
 func toggleUi():
 	if GlobalGameStage.currentStage.isPokerMatch && !currentPokerGame.dialoguePause:
@@ -334,6 +338,11 @@ func _on_dialogue_manager_dialogue_signal(value):
 		var soundIndex = value.replace("play_sfx_", "")
 		playSoundEffectAtIndex(int(soundIndex))
 		return
+	# New dialogue command pattern: play_music_# to play a specific music track index
+	if value.begins_with("play_music_"):
+		var musicIndex = value.replace("play_music_", "")
+		playMusicAtIndex(int(musicIndex))
+		return
 
 	match(value):
 		"dont_auto_advance": setDontAutoAdvance()
@@ -408,6 +417,13 @@ func playSoundEffectAtIndex(index):
 	$SoundEffectPlayer.stream = sound
 	$SoundEffectPlayer.play()
 
+# New helper to play a music track at a specific index in the current stage's musicList
+func playMusicAtIndex(index):
+	var music = GlobalGameStage.getMusicAtIndex(index)
+	if music == null:
+		return
+	playBgMusic(music, true)
+
 func fadeNext():
 	$Background.shouldFade = true
 
@@ -433,6 +449,8 @@ func beginDialogue(startKey = null):
 func _on_dialogue_manager_dialogue_ended():
 	if GlobalGameStage.currentStage.endOnlyOnSpecificDialogueKey and GlobalGameStage.currentDialogueKey not in GlobalGameStage.currentStage.endingDialogueKeys:
 		var choices = GlobalGameStage.currentStage.choicesScript.getChoicesForDialogueKey(GlobalGameStage.currentDialogueKey)
+		inChoice = true
+		disableSkipping()
 		%ChoiceDisplay.show()
 		%ChoiceDisplay.setChoices(choices)
 	else:
@@ -724,5 +742,6 @@ func _on_audio_stream_player_2d_finished() -> void:
 
 
 func _on_choice_display_choice_selected(key: String) -> void:
+	inChoice = false
 	%ChoiceDisplay.hide()
 	beginDialogue(key)

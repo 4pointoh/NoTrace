@@ -152,6 +152,9 @@ func advanceGameStage():
 	if(!completedStagesSOFT.has(currentStage.name)):
 		completedStagesSOFT.append(currentStage.name)
 	
+	currentStage.musicIndex = -1
+	currentStage.soundEffectIndex = -1
+	
 	previousStage = currentStage
 	currentStage = nextStage
 	
@@ -737,6 +740,12 @@ func getSoundEffectAtIndex(index):
 	if index < 0 or index >= currentStage.soundEffectList.size():
 		return null
 	return currentStage.soundEffectList[index]
+
+# New helper to fetch a music track by index (mirrors getSoundEffectAtIndex)
+func getMusicAtIndex(index):
+	if index < 0 or index >= currentStage.musicList.size():
+		return null
+	return currentStage.musicList[index]
 
 func isLastEventInThisUpdate(stage: GameStage):
 	var lastEvent = "res://data/game_stages/vn/anna_class/gs_anna_class.tres"

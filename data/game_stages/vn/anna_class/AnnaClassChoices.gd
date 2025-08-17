@@ -37,7 +37,7 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 		}
 	elif dialogueKey == 'ROUTE_1_Q3_A1' or dialogueKey == 'ROUTE_1_Q3_A2' or dialogueKey == 'ROUTE_1_Q3_A3':
 		if dialogueKey == 'ROUTE_1_Q3_A3':
-			GlobalGameStage.annaCorrectChoices += 1
+				GlobalGameStage.annaCorrectChoices += 1
 
 		if GlobalGameStage.annaCorrectChoices == 3:
 			GlobalGameStage.annaCorrectChoices = 0
@@ -74,7 +74,7 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 	elif dialogueKey == 'ROUTE_6':
 		return {
 			'TITLE': 'Where to?',
-			'ROUTE_9': 'Steal Snacks From The Cafeteria',
+			'ROUTE_9': 'Steal Snacks From The Food Court',
 			'ROUTE_13': 'The Sports Wing'
 		}
 	else:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=22 format=3 uid="uid://imr2rwudeh8a"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=26 format=3 uid="uid://imr2rwudeh8a"]
 
 [ext_resource type="Script" uid="uid://boffrfxcwbivm" path="res://data/game_stages/vn/anna_class/AnnaClassChoices.gd" id="1_6evmw"]
 [ext_resource type="Resource" uid="uid://brk0kgvi2vxdu" path="res://data/game_stages/vn/anna_class/d_anna_class.tres" id="1_peirj"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dmyw2p2ome5kk" path="res://data/assets/general/sounds/bg_music/new_new/First Day Horizons.mp3" id="6_bdniy"]
 [ext_resource type="AudioStream" uid="uid://cooh41572mlkb" path="res://data/assets/general/sound_effects/class_bell.mp3" id="6_w7br8"]
 [ext_resource type="AudioStream" uid="uid://d3h5bxxlljgef" path="res://data/assets/general/sound_effects/chatter.mp3" id="7_jc4ix"]
+[ext_resource type="AudioStream" uid="uid://c2qquccfd6sge" path="res://data/assets/general/sounds/bg_music/new_new/Untitled(10)pool.mp3" id="7_r0was"]
 [ext_resource type="AudioStream" uid="uid://bijw3u8s2wt3k" path="res://data/assets/general/sound_effects/woo2.mp3" id="8_jc4ix"]
 [ext_resource type="AudioStream" uid="uid://cstifacu5k7wo" path="res://data/assets/general/sound_effects/thunder.mp3" id="10_2mm15"]
 [ext_resource type="AudioStream" uid="uid://dp8u65jiv6o71" path="res://data/assets/general/sound_effects/yelp.mp3" id="11_w7y78"]
@@ -20,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://ckba1mnacqk7q" path="res://data/assets/general/sound_effects/running.mp3" id="13_aabxs"]
 [ext_resource type="AudioStream" uid="uid://xelkief1gfis" path="res://data/assets/general/sound_effects/rain.mp3" id="14_k2qul"]
 [ext_resource type="AudioStream" uid="uid://dbqxvl2k87ynu" path="res://data/assets/general/sound_effects/piano.mp3" id="15_wlfqt"]
+[ext_resource type="AudioStream" uid="uid://4nq2jhbma078" path="res://data/assets/general/sound_effects/rain2.mp3" id="17_7oqn3"]
+[ext_resource type="AudioStream" uid="uid://den76djqc38x8" path="res://data/assets/general/sound_effects/splash.mp3" id="19_l5jpb"]
+[ext_resource type="AudioStream" uid="uid://nrq18ht5ge5r" path="res://data/assets/general/sound_effects/water_sound.mp3" id="20_c70k3"]
 
 [sub_resource type="Resource" id="Resource_1572o"]
 script = ExtResource("4_6evmw")
@@ -73,9 +77,9 @@ isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
 randomMusic = Array[AudioStream]([])
-musicList = Array[AudioStream]([ExtResource("4_1uq3b"), ExtResource("5_vojkl"), ExtResource("6_bdniy")])
+musicList = Array[AudioStream]([ExtResource("4_1uq3b"), ExtResource("5_vojkl"), ExtResource("6_bdniy"), ExtResource("7_r0was")])
 delayMusicToTransition = true
-soundEffectList = Array[AudioStream]([ExtResource("6_w7br8"), ExtResource("7_jc4ix"), ExtResource("8_jc4ix"), ExtResource("10_2mm15"), ExtResource("11_w7y78"), ExtResource("12_03ig6"), ExtResource("13_aabxs"), ExtResource("14_k2qul"), ExtResource("15_wlfqt")])
+soundEffectList = Array[AudioStream]([ExtResource("6_w7br8"), ExtResource("7_jc4ix"), ExtResource("8_jc4ix"), ExtResource("10_2mm15"), ExtResource("11_w7y78"), ExtResource("12_03ig6"), ExtResource("13_aabxs"), ExtResource("14_k2qul"), ExtResource("15_wlfqt"), ExtResource("17_7oqn3"), ExtResource("19_l5jpb"), ExtResource("20_c70k3")])
 stageButtonTexture = ExtResource("5_2uh4o")
 stageButtonHover = ExtResource("4_ony1k")
 stageButtonLabel = "Anna's Day At CSU"
