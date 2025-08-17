@@ -77,5 +77,17 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 			'ROUTE_9': 'Steal Snacks From The Food Court',
 			'ROUTE_13': 'The Sports Wing'
 		}
+	elif dialogueKey == 'ROUTE_2':
+		return {
+			'TITLE': 'Where to?',
+			'ROUTE_10': 'The Music Wing',
+			'ROUTE_8': 'The Sports Wing'
+		}
+	elif dialogueKey == 'ROUTE_10':
+		return {
+			'TITLE': 'Where to?',
+			'ROUTE_12': 'Stay Dry In Here',
+			'ROUTE_11': 'The Pool'
+		}
 	else:
 		return {}

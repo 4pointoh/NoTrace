@@ -6,6 +6,9 @@
 script = ExtResource("1_4k8b1")
 starts = {
 "ROUTE_1": &"0_2",
+"ROUTE_10": &"0_25",
+"ROUTE_11": &"0_27",
+"ROUTE_12": &"0_26",
 "ROUTE_13": &"0_23",
 "ROUTE_1_ALL_CORRECT": &"0_13",
 "ROUTE_1_ALL_INCORRECT": &"0_14",
@@ -26,6 +29,7 @@ starts = {
 "ROUTE_6": &"0_20",
 "ROUTE_6_TRANSITION": &"0_19",
 "ROUTE_7": &"0_21",
+"ROUTE_8": &"0_24",
 "ROUTE_9": &"0_22",
 "START": &"0_1"
 }
@@ -109,6 +113,26 @@ nodes = {
 "link": &"3_161",
 "offset": Vector2(-802.023, 7096.28),
 "start_id": "ROUTE_13"
+},
+&"0_24": {
+"link": &"1_1139",
+"offset": Vector2(-1002.92, 8486.36),
+"start_id": "ROUTE_8"
+},
+&"0_25": {
+"link": &"1_1319",
+"offset": Vector2(-1120, 9240),
+"start_id": "ROUTE_10"
+},
+&"0_26": {
+"link": &"3_243",
+"offset": Vector2(-1220, 11000),
+"start_id": "ROUTE_12"
+},
+&"0_27": {
+"link": &"3_244",
+"offset": Vector2(-1240, 10080),
+"start_id": "ROUTE_11"
 },
 &"0_3": {
 "link": &"1_3",
@@ -382,7 +406,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.004, 528),
 "speaker": 1
 },
 &"1_1011": {
@@ -398,7 +422,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.004, 528),
 "speaker": 1
 },
 &"1_1012": {
@@ -430,7 +454,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.016, 528),
 "speaker": 1
 },
 &"1_1014": {
@@ -494,7 +518,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 528),
+"size": Vector2(300, 528),
 "speaker": 0
 },
 &"1_1018": {
@@ -558,7 +582,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 1
 },
 &"1_1021": {
@@ -574,7 +598,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.016, 528),
 "speaker": 0
 },
 &"1_1022": {
@@ -638,7 +662,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 528),
+"size": Vector2(300.016, 528),
 "speaker": 1
 },
 &"1_1026": {
@@ -654,7 +678,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.023, 528),
 "speaker": 1
 },
 &"1_1027": {
@@ -702,7 +726,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 1
 },
 &"1_103": {
@@ -734,7 +758,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 544),
+"size": Vector2(300, 544),
 "speaker": ""
 },
 &"1_1031": {
@@ -750,7 +774,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 528),
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_1032": {
@@ -782,7 +806,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.016, 528),
 "speaker": ""
 },
 &"1_1034": {
@@ -798,7 +822,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 544),
+"size": Vector2(300.008, 544),
 "speaker": ""
 },
 &"1_1035": {
@@ -830,7 +854,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": ""
 },
 &"1_1037": {
@@ -846,7 +870,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 0
 },
 &"1_1038": {
@@ -862,7 +886,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 1
 },
 &"1_1039": {
@@ -910,7 +934,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 1
 },
 &"1_1041": {
@@ -942,7 +966,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 0
 },
 &"1_1043": {
@@ -974,7 +998,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.016, 528),
 "speaker": 1
 },
 &"1_1045": {
@@ -990,7 +1014,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.016, 528),
 "speaker": ""
 },
 &"1_1046": {
@@ -1022,7 +1046,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 552),
+"size": Vector2(300.008, 552),
 "speaker": 1
 },
 &"1_1048": {
@@ -1054,7 +1078,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 0
 },
 &"1_105": {
@@ -1086,7 +1110,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": 1
 },
 &"1_1051": {
@@ -1102,7 +1126,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": ""
 },
 &"1_1052": {
@@ -1230,7 +1254,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 528),
+"size": Vector2(300.023, 528),
 "speaker": 0
 },
 &"1_106": {
@@ -1278,7 +1302,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": ""
 },
 &"1_1062": {
@@ -1470,7 +1494,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.016, 528),
 "speaker": 1
 },
 &"1_1073": {
@@ -1486,7 +1510,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": ""
 },
 &"1_1074": {
@@ -1502,7 +1526,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 528),
+"size": Vector2(300.008, 528),
 "speaker": ""
 },
 &"1_1075": {
@@ -1866,12 +1890,76 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"1_1096",
 "text": ""
 }
 },
 "size": Vector2(301, 552),
 "speaker": 1
+},
+&"1_1096": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yep",
+"offset": Vector2(7500, 7880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1097",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1097": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Lead the way. ",
+"offset": Vector2(7900, 7980),
+"options": {
+0: {
+"condition": {},
+"link": &"3_194",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1098": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You exit the building, first carefully checking for security or other onlookers. ",
+"offset": Vector2(8520, 8040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1099",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1099": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "When you are convinced the area is clear, you call out to Anna. ",
+"offset": Vector2(8860, 8080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1100",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
 },
 &"1_11": {
 "background": -1,
@@ -1905,6 +1993,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 0
 },
+&"1_1100": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We're good",
+"offset": Vector2(9240, 8160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1101",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1101": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ok, here I come. ",
+"offset": Vector2(9600, 8160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_196",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1102": {
+"background": 130,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She joins you outside",
+"offset": Vector2(10280, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1103",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1103": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The first thing she notices is the large fountain which marks the center of the campus. ",
+"offset": Vector2(10640, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_197",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1104": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 12,
+"dialogue": "Oooh look at that fountain!",
+"offset": Vector2(11040, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1105",
+"text": ""
+}
+},
+"size": Vector2(300, 536),
+"speaker": 1
+},
+&"1_1105": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It really is pretty amazing to see at night. ",
+"offset": Vector2(11400, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1106",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1106": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I've only ever seen it during the day. ",
+"offset": Vector2(11760, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1107",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1107": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's really beautiful how they keep the lights on at night. ",
+"offset": Vector2(12120, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1108",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1108": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You admire the fountain for a short while longer",
+"offset": Vector2(12480, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1109",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1109": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then start your casual stroll across the campus. ",
+"offset": Vector2(12820, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_198",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_111": {
 "background": -1,
 "backgroundList": -1,
@@ -1919,6 +2167,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": 1
+},
+&"1_1110": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You feel the wind start to pick up, indicating a storm might be approaching. ",
+"offset": Vector2(13180, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1111",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1111": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "However, the night is still currently clear and warm. ",
+"offset": Vector2(13540, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1112",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1112": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You mentioned a lake? ",
+"offset": Vector2(13900, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1113",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1113": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah it should be right up around the corner over here. ",
+"offset": Vector2(14280, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1114",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1114": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Many of the main campus buildings fall away as you approach the western edge of the school. ",
+"offset": Vector2(14640, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1115",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1115": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This is where all of the agricultural classes are held. ",
+"offset": Vector2(14980, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1116",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1116": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They actually use the lake for studying wildlife and such. ",
+"offset": Vector2(15320, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1117",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1117": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ooooh! ",
+"offset": Vector2(15680, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1118",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1118": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You turn one final corner, and a large sprawling, deep blue lake fills your view. ",
+"offset": Vector2(16040, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1119",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1119": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh my gosh!! It's beautiful!",
+"offset": Vector2(16400, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1120",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": 1
 },
 &"1_112": {
@@ -1937,6 +2345,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_1120": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wait... are those...?",
+"offset": Vector2(16760, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1121",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1121": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They are SO CUTE!!! ",
+"offset": Vector2(17120, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_199",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1122": {
+"background": 91,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You look over to find that Anna has somehow attracted a group of geese. ",
+"offset": Vector2(17760, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_200",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1123": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna sits precariously on the edge of a stone as one of the geese approaches her. ",
+"offset": Vector2(18120, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1124",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1124": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's coming over to me! ",
+"offset": Vector2(18480, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1125",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1125": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You stand by, not interrupting her moment",
+"offset": Vector2(18860, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1126",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1126": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But ready to grab her if she slips off of the wet river rock. ",
+"offset": Vector2(19220, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_201",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1127": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Look at them all!",
+"offset": Vector2(19600, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1128",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1128": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She admires the geese for a while longer. ",
+"offset": Vector2(19960, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1129",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1129": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Until they eventually realize that she is not a source of food. ",
+"offset": Vector2(20320, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1130",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_113": {
 "background": 128,
 "backgroundList": 1,
@@ -1953,6 +2521,166 @@ nodes = {
 "size": Vector2(300, 586),
 "speaker": ""
 },
+&"1_1130": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "After which, they continue on their journey across the lake. ",
+"offset": Vector2(20660, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1131",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1131": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The wind is picking up further, there is a storm approach. ",
+"offset": Vector2(21040, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1132",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1132": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There is so much cool stuff out here, I don't think we will ever see it all! ",
+"offset": Vector2(21400, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_202",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1133": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A soft roll of thunder echoes in the distance. ",
+"offset": Vector2(21880, 8180),
+"options": {
+0: {
+"condition": {},
+"link": &"3_203",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1134": {
+"background": 92,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Anna stands up",
+"offset": Vector2(22500, 8200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1135",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1135": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think it's going to rain, do you feel that? ",
+"offset": Vector2(22840, 8200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1136",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1136": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yep, definitely rain. ",
+"offset": Vector2(23180, 8200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1137",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1137": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We'd better get inside",
+"offset": Vector2(23520, 8200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1138",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1138": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But where to? Any ideas?",
+"offset": Vector2(23860, 8200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1139": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The sports wing of the campus is very close to here. ",
+"offset": Vector2(-344.448, 8484.56),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1140",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_114": {
 "background": -1,
 "backgroundList": -1,
@@ -1967,6 +2695,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": ""
+},
+&"1_1140": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There's a gym, pool. ",
+"offset": Vector2(20, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1141",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1141": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We can take shelter there and decide what to do next. ",
+"offset": Vector2(360, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1142",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1142": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Lead the way!",
+"offset": Vector2(720, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1143",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1143": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "With the oncoming story provoking some urgency, you walk more briskly now. ",
+"offset": Vector2(1100, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1144",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1144": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You motion towards a building. ",
+"offset": Vector2(1480, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1145",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1145": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That's the music wing, we could check that out next. ",
+"offset": Vector2(1860, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1146",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1146": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oooh, yes we definitely need to see that! ",
+"offset": Vector2(2220, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1147",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1147": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You pass through other noteworthy spots on campus. ",
+"offset": Vector2(2620, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1148",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1148": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A little section outside of the art school which has interesting sculptures",
+"offset": Vector2(2980, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1149",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1149": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A section outside of the math and science wing which has math equations embedded in the concrete. ",
+"offset": Vector2(3340, 8480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1150",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_115": {
@@ -1985,6 +2873,166 @@ nodes = {
 "size": Vector2(301, 578),
 "speaker": 1
 },
+&"1_1150": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The amount of detail at this school is crazy! ",
+"offset": Vector2(3700, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1151",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1151": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah, a lot of schools try to compete on this sort of thing. ",
+"offset": Vector2(4060, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1152",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1152": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "If the school isn't known for its educational talents, then it needs other ways to attract students. ",
+"offset": Vector2(4420, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1153",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1153": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You mean there are other schools as beautiful as this one? ",
+"offset": Vector2(4780, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1154",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1154": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Tons of them. ",
+"offset": Vector2(5140, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1155",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1155": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh my gosh we have to see them some day!",
+"offset": Vector2(5500, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1156",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1156": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[name] and Anna cross country school tour! ",
+"offset": Vector2(5860, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1157",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1157": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hold your horses cowgirl, we still have to get through this one without getting ticketed for trespassing. ",
+"offset": Vector2(6240, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1158",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1158": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let a girl dream! ",
+"offset": Vector2(6620, 8520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1159",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1159": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And with that, you reach the entrance to the school gym. ",
+"offset": Vector2(7040, 8540),
+"options": {
+0: {
+"condition": {},
+"link": &"3_206",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_116": {
 "background": -1,
 "backgroundList": -1,
@@ -2001,6 +3049,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 1
 },
+&"1_1160": {
+"background": 131,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "It is a modest gym. Clean, but limited on some forms of equipment. ",
+"offset": Vector2(7740, 8600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1161",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1161": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "In the day time, you would often find it packed with people, and lines to use the equipment. ",
+"offset": Vector2(8160, 8660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1162",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1162": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But at night, when it's empty, it seems like a far more compelling place to be. ",
+"offset": Vector2(8540, 8720),
+"options": {
+0: {
+"condition": {},
+"link": &"3_207",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1163": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 12,
+"dialogue": "So this is where all the college people work out? ",
+"offset": Vector2(9000, 8760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1164",
+"text": ""
+}
+},
+"size": Vector2(300, 536),
+"speaker": 1
+},
+&"1_1164": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks on over the room. ",
+"offset": Vector2(9420, 8820),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1165",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1165": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 14,
+"dialogue": "Didn't you say there's a pool? ",
+"offset": Vector2(9780, 8840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1166",
+"text": ""
+}
+},
+"size": Vector2(300, 536),
+"speaker": 1
+},
+&"1_1166": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yep, it should be attached to this building.",
+"offset": Vector2(10160, 8900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1167",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1167": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You walk to the other side of the room towards a large exit door. ",
+"offset": Vector2(10540, 8900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1168",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1168": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And you push it open to reveal...",
+"offset": Vector2(10920, 8900),
+"options": {
+0: {
+"condition": {},
+"link": &"3_209",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1169": {
+"background": 136,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "The pride of Cummington State University... their full olympic sized swimming pool. ",
+"offset": Vector2(11660, 8880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1170",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
 &"1_117": {
 "background": -1,
 "backgroundList": -1,
@@ -2015,6 +3223,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": ""
+},
+&"1_1170": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh my gosh!!",
+"offset": Vector2(12020, 8880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1171",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1171": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The water looks so clean and blue! ",
+"offset": Vector2(12400, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1172",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1172": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I can't believe you guys have a full sized pool here!",
+"offset": Vector2(12740, 8960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1173",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1173": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How much does this place cost?? A million dollars a year? ",
+"offset": Vector2(13080, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1174",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1174": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...not as far off as you might think. ",
+"offset": Vector2(13440, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1175",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1175": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(13880, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1176",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1176": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Can I... put my toes in? ",
+"offset": Vector2(14260, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1177",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1177": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You are a grown adult woman who can do whatever the hell she wants. ",
+"offset": Vector2(14640, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1178",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1178": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "True! ",
+"offset": Vector2(15020, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1179",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1179": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna carefully shuffles her way over to the edge of the pool. ",
+"offset": Vector2(15420, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1180",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_118": {
@@ -2033,6 +3401,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_1180": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She is being careful not to slip, having somehow lost her shoes. ",
+"offset": Vector2(15800, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"3_211",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1181": {
+"background": 115,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She plops herself down on the edge of the pool",
+"offset": Vector2(16520, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1182",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1182": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And begins removing her wet socks. ",
+"offset": Vector2(16900, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1183",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1183": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ahh... it feel so good to take these off... ",
+"offset": Vector2(17260, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1184",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1184": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She slips one sock off",
+"offset": Vector2(17640, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1185",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1185": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Then the other ",
+"offset": Vector2(17980, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1186",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1186": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Until slowly sliding just the tip of her toes in, to test the temperature. ",
+"offset": Vector2(18360, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1187",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1187": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's actually a little bit warm! ",
+"offset": Vector2(18740, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1188",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1188": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It feels really nice!",
+"offset": Vector2(19100, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1189",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1189": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says as her foot slowly submerges beneath the surface. ",
+"offset": Vector2(19440, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"3_212",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_119": {
 "background": 11,
 "backgroundList": 1,
@@ -2048,6 +3576,166 @@ nodes = {
 },
 "size": Vector2(300, 586),
 "speaker": "Female Student (Talking On Phone)"
+},
+&"1_1190": {
+"background": 116,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Ahh....",
+"offset": Vector2(20120, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1191",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_1191": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "My socks got a little bit wet when we visited the lake. ",
+"offset": Vector2(20500, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1192",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1192": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I hate wet socks! ",
+"offset": Vector2(20880, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1193",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1193": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... wait why don't I have shoes? ",
+"offset": Vector2(21260, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1194",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1194": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(21680, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1195",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1195": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh no, I left them in the classroom! ",
+"offset": Vector2(22080, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1196",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1196": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(22480, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1197",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1197": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh well, I hated those shoes anyway. ",
+"offset": Vector2(22840, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1198",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1198": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, accepting her fate, and leaning back slightly to better enjoy the water. ",
+"offset": Vector2(23240, 8920),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1199",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1199": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She sits for a while. ",
+"offset": Vector2(23660, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1200",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
 },
 &"1_12": {
 "background": -1,
@@ -2081,6 +3769,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": "Female Student (Talking On Phone)"
 },
+&"1_1200": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She kicks her feet around lightly. ",
+"offset": Vector2(24060, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"3_213",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1201": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Taking in the moment of relaxation. ",
+"offset": Vector2(24540, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1202",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1202": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But then her eyes open. ",
+"offset": Vector2(24900, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1203",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1203": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Um....",
+"offset": Vector2(25240, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1204",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1204": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She stands up",
+"offset": Vector2(25620, 8940),
+"options": {
+0: {
+"condition": {},
+"link": &"3_214",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1205": {
+"background": 136,
+"backgroundList": 1,
+"characterState": 3,
+"dialogue": "Is there's a girl's room in here somewhere?? ",
+"offset": Vector2(26320, 8960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1206",
+"text": ""
+}
+},
+"size": Vector2(365, 552),
+"speaker": 1
+},
+&"1_1206": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh... um...",
+"offset": Vector2(26740, 8960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1207",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1207": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You look around",
+"offset": Vector2(27100, 8960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1208",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1208": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There's the women's locker room back in that corner. ",
+"offset": Vector2(27460, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1209",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1209": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh! I'm sure there's a bathroom in there! ",
+"offset": Vector2(27820, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1210",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
 &"1_121": {
 "background": -1,
 "backgroundList": -1,
@@ -2095,6 +3943,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": ""
+},
+&"1_1210": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uh... I'll be right back! ",
+"offset": Vector2(28160, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"3_216",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1211": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, semi-urgently, and runs off. ",
+"offset": Vector2(28680, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1212",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1212": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You wait around, now alone with the pool. ",
+"offset": Vector2(29100, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1213",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1213": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The sounds of slightly moving water as the pool's filters cause turbulence in the water's surface. ",
+"offset": Vector2(29480, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1214",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1214": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You give Anna some time as she disappears into the locker room. ",
+"offset": Vector2(29860, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1215",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1215": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": ".",
+"offset": Vector2(30220, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1216",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1216": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "..",
+"offset": Vector2(30540, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1217",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1217": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(30860, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1218",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1218": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "....",
+"offset": Vector2(31200, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1219",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1219": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A few minutes pass",
+"offset": Vector2(31560, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1220",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_122": {
@@ -2113,6 +4121,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_1220": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You start to suspect that she should have been back by now...",
+"offset": Vector2(31920, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1221",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1221": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then...",
+"offset": Vector2(32260, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1222",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1222": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[name]!!!!",
+"offset": Vector2(32620, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1223",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1223": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "COME IN HERE! NOW!!",
+"offset": Vector2(32980, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1224",
+"text": ""
+}
+},
+"size": Vector2(340, 528),
+"speaker": 1
+},
+&"1_1224": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You jump slightly at her shout. ",
+"offset": Vector2(33380, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1225",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1225": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And you quickly run your way over, being careful not to slip on the pool tile. ",
+"offset": Vector2(33720, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1226",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1226": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What? Are you okay?!",
+"offset": Vector2(34060, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1227",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1227": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Get in here!!",
+"offset": Vector2(34460, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"3_217",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1228": {
+"background": 133,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You burst your way into the locker room. ",
+"offset": Vector2(35100, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1229",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1229": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Without hesitating at the fact that it's the women's locker room. ",
+"offset": Vector2(35440, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1230",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_123": {
 "background": -1,
 "backgroundList": -1,
@@ -2127,6 +4295,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": 1
+},
+&"1_1230": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Where are you?!",
+"offset": Vector2(35780, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1231",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1231": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Back here! Way in the back!",
+"offset": Vector2(36140, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1232",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1232": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hurry! ",
+"offset": Vector2(36480, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1233",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1233": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You rush all the way to the back of the locker room. ",
+"offset": Vector2(36840, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1234",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1234": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "At which point you notice several bathroom stalls. ",
+"offset": Vector2(37180, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1235",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1235": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "All of which are fully open, except one. ",
+"offset": Vector2(37520, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1236",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1236": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You see Anna's bare feet, now absent of socks, beneath the stall door. ",
+"offset": Vector2(37880, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1237",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1237": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You want me to come in there?",
+"offset": Vector2(38260, 9020),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1238",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1238": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You ask, hesitating for the first time. ",
+"offset": Vector2(38600, 9020),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1239",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1239": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes!! Hurry!",
+"offset": Vector2(38940, 9020),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1240",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": 1
 },
 &"1_124": {
@@ -2145,6 +4473,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 1
 },
+&"1_1240": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You walk your way into the bathroom stall, being careful not to bump Anna on your way in. ",
+"offset": Vector2(39320, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1241",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1241": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What is it?? Is something wrong? ",
+"offset": Vector2(39700, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"3_218",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1242": {
+"background": 117,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Look! ",
+"offset": Vector2(40280, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1243",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_1243": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You can tell from her expression immediately that this was not a cry for help.",
+"offset": Vector2(40620, 9000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1244",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1244": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She points urgently at the bathroom stall door. ",
+"offset": Vector2(40960, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1245",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1245": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Look at what's on the door! ",
+"offset": Vector2(41360, 8980),
+"options": {
+0: {
+"condition": {},
+"link": &"3_219",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1246": {
+"background": 118,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You turn towards the door. ",
+"offset": Vector2(41980, 9020),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1247",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1247": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You see neatly written bathroom graffiti all over the door. ",
+"offset": Vector2(42360, 9020),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1248",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1248": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then you turn to Anna, confused",
+"offset": Vector2(42700, 9020),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1249",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1249": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm... what am I missing here? ",
+"offset": Vector2(43040, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1250",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_125": {
 "background": -1,
 "backgroundList": -1,
@@ -2160,6 +4648,166 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": 1
+},
+&"1_1250": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Look at the door! It has writing on it! ",
+"offset": Vector2(43400, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1251",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1251": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "People must use this as some kind of secret message board among students!",
+"offset": Vector2(43740, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1252",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1252": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wait... you...",
+"offset": Vector2(44100, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1253",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1253": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You made me rush in here just to show me... bathroom stall graffiti? ",
+"offset": Vector2(44440, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1254",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1254": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yes!! ",
+"offset": Vector2(44840, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1255",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1255": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... Wait are you saying this is a normal thing? ",
+"offset": Vector2(45200, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1256",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1256": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do they do this in the boy's bathroom too? ",
+"offset": Vector2(45540, 9040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1257",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1257": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm...",
+"offset": Vector2(45920, 9060),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1258",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1258": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You think back to the last time you use a bathroom stall at CSU...",
+"offset": Vector2(46280, 9060),
+"options": {
+0: {
+"condition": {},
+"link": &"3_220",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1259": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... yes and no...",
+"offset": Vector2(46960, 9080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1260",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 0
 },
 &"1_126": {
 "background": -1,
@@ -2177,6 +4825,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 1
 },
+&"1_1260": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The boy's bathroom doesnt have the same... tone. ",
+"offset": Vector2(47300, 9080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1261",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1261": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But forget about that...",
+"offset": Vector2(47640, 9080),
+"options": {
+0: {
+"condition": {},
+"link": &"3_221",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1262": {
+"background": 119,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Can we go back to talking about how you just urgently called me into the women's bathroom. ",
+"offset": Vector2(48180, 9080),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1263",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 0
+},
+&"1_1263": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And how I am somehow in a bathroom stall with you... [i]again!?[/i]",
+"offset": Vector2(48580, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"3_222",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1264": {
+"background": 121,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "What??",
+"offset": Vector2(49280, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1265",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_1265": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You're the one making it weird again!!",
+"offset": Vector2(49660, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1266",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1266": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This is completely normal!",
+"offset": Vector2(50020, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1267",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1267": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She insists, with a slight blush across her face. ",
+"offset": Vector2(50360, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1268",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1268": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay okay... my bad...",
+"offset": Vector2(50720, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1269",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1269": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's not acknowledge the bathroom stall co-habitation phenomenon that we keep running into. ",
+"offset": Vector2(51060, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"3_223",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_127": {
 "background": -1,
 "backgroundList": -1,
@@ -2191,6 +4999,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": ""
+},
+&"1_1270": {
+"background": 122,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "tsk, tsk, you boys always overthink everything. ",
+"offset": Vector2(51700, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1271",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_1271": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I call you in here to see a cool message board system...",
+"offset": Vector2(52060, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"3_231",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1272": {
+"background": 123,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You suddenly hear walking outside. ",
+"offset": Vector2(52700, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1273",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1273": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[font_size=12] D...did you hear that? [/font_size]",
+"offset": Vector2(53060, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1274",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1274": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[font_size=12] yes. there's somebody out there [/font_size]",
+"offset": Vector2(53420, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1275",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1275": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You hear casual whistling as somebody walks through the women's locker room. ",
+"offset": Vector2(53780, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"3_232",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1276": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A few sinks turn on, then then shower heads. ",
+"offset": Vector2(54140, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1277",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1277": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Then you hear the sound of a wet mop against the tile floor. ",
+"offset": Vector2(54520, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1278",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1278": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[font_size=12] janitor?  [/font_size]",
+"offset": Vector2(54900, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1279",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1279": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The sounds continue on for a few minutes longer. ",
+"offset": Vector2(55240, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1280",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_128": {
@@ -2209,6 +5177,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 0
 },
+&"1_1280": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The janitor turns off all the sinks",
+"offset": Vector2(55600, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1281",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1281": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Then all of the shower heads",
+"offset": Vector2(55943.7, 9106.16),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1282",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1282": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "All done in here... just gotta top up the pool chemicals and I'm home free...",
+"offset": Vector2(56280, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1283",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": "Voice"
+},
+&"1_1283": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And with that remark...",
+"offset": Vector2(56620, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1284",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1284": {
+"background": 124,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "The room goes dark.",
+"offset": Vector2(57000, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1285",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1285": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And the door closes. ",
+"offset": Vector2(57340, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1286",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1286": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[font_size=12] eeeek  [/font_size]",
+"offset": Vector2(57720, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1287",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1287": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna lets out a small squeel",
+"offset": Vector2(58080, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1288",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1288": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think he's gone. ",
+"offset": Vector2(58440, 9100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1289",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1289": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's so dark in here! It's scary!",
+"offset": Vector2(58800, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1290",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
 &"1_129": {
 "background": -1,
 "backgroundList": -1,
@@ -2224,6 +5352,166 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": ""
+},
+&"1_1290": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Follow me...",
+"offset": Vector2(59140, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_225",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1291": {
+"background": 134,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You use your phone flashlight to illuminate the now pitch-black locker room. ",
+"offset": Vector2(59720, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1292",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1292": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Careful, don't hit your knee on the bench. ",
+"offset": Vector2(60080, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1293",
+"text": ""
+}
+},
+"size": Vector2(320, 528),
+"speaker": 0
+},
+&"1_1293": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna squeezes your hand tightly as you navigate through the maze of lockers. ",
+"offset": Vector2(60460, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1294",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1294": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your destination being indicated by a bright red \"EXIT\" sign. ",
+"offset": Vector2(60800, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1295",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1295": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You hear a loud thump",
+"offset": Vector2(61140, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_226",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1296": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ow! Shit!",
+"offset": Vector2(61780, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1297",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1297": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I mean uh... \"shoot\"",
+"offset": Vector2(62120, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1298",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1298": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Shoot... that really hurt. ",
+"offset": Vector2(62460, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1299",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1299": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm... did you just censor yourself? You know you can swear around me... I'm a grown adult. ",
+"offset": Vector2(62800, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1300",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
 },
 &"1_13": {
 "background": -1,
@@ -2257,6 +5545,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 1
 },
+&"1_1300": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I didn't swear!! I said \"shoot!\"",
+"offset": Vector2(63140, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1301",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1301": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh, sure. ",
+"offset": Vector2(63500, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1302",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1302": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The door is right here... let me peek out. ",
+"offset": Vector2(63840, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_227",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1303": {
+"background": 137,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You look out over the pool, which is now completely dark. ",
+"offset": Vector2(64460, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1304",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1304": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ok... good news, I think the janitor is gone. ",
+"offset": Vector2(64820, 9140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1305",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1305": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Bad news... they turned off all the lights around the pool too. ",
+"offset": Vector2(65180, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1306",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1306": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(65540, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1307",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1307": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay can we just get out of here?? It's really creepy in here. ",
+"offset": Vector2(65880, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1308",
+"text": ""
+}
+},
+"size": Vector2(300.004, 528),
+"speaker": 1
+},
+&"1_1308": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think it's time for us to go home. Plus, I think it's raining outside now. ",
+"offset": Vector2(66220, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1309",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1309": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Agreed... we saw most of the campus anyway.",
+"offset": Vector2(66580, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1310",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_131": {
 "background": -1,
 "backgroundList": -1,
@@ -2272,6 +5720,166 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": 1
+},
+&"1_1310": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There, in the back, there's another Exit sign which goes to the parking lot. ",
+"offset": Vector2(66920, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1311",
+"text": ""
+}
+},
+"size": Vector2(300.016, 528),
+"speaker": 0
+},
+&"1_1311": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's make out way over towards that",
+"offset": Vector2(67260, 9120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_228",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1312": {
+"background": 2,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "You reach the rear entrance to the pool. ",
+"offset": Vector2(67920, 9140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1313",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1313": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And walk outside into the night. ",
+"offset": Vector2(68280, 9140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1314",
+"text": ""
+}
+},
+"size": Vector2(300.008, 540),
+"speaker": ""
+},
+&"1_1314": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay that was not a great ending but the rest of the night was so fun! ",
+"offset": Vector2(68600, 9140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1315",
+"text": ""
+}
+},
+"size": Vector2(300.016, 528),
+"speaker": 1
+},
+&"1_1315": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I can't wait to see what we do next. ",
+"offset": Vector2(68940, 9140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1316",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1316": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And with that, you both depart home for the evening ~Ending 5 of 8~",
+"offset": Vector2(69280, 9140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1317": {
+"background": 120,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Your memory of the men's room does not quite match what you see in the women's room. ",
+"offset": Vector2(46620, 8520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1318",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1318": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She eagerly awaits your answer.",
+"offset": Vector2(46960, 8500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1259",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1319": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The music wing is right up the hill here.",
+"offset": Vector2(-480, 9200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1320",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
 },
 &"1_132": {
 "background": -1,
@@ -2289,6 +5897,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_1320": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It has instruments, and... other music stuff. ",
+"offset": Vector2(-140, 9200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1321",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1321": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "There is a whole building just for teaching music?!",
+"offset": Vector2(240, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1322",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1322": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Say no more. Let's go! ",
+"offset": Vector2(620, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1323",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1323": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "To get to the music wing, you have to circle back towards the fountain. ",
+"offset": Vector2(1000, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1324",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1324": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You start walking. ",
+"offset": Vector2(1340, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1325",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1325": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna follows closely behind. ",
+"offset": Vector2(1700, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1326",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1326": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So do they have... a piano?",
+"offset": Vector2(2060, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1327",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1327": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna asks",
+"offset": Vector2(2420, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1328",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1328": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hmm, I'd imagine so. ",
+"offset": Vector2(2800, 9280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1329",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1329": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ooh....",
+"offset": Vector2(3220, 9300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1330",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
 &"1_133": {
 "background": -1,
 "backgroundList": -1,
@@ -2305,6 +6073,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_1330": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do they have...",
+"offset": Vector2(3560, 9300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1331",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1331": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Drums? ",
+"offset": Vector2(3900, 9300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1332",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1332": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hmm, I'd imagine so. ",
+"offset": Vector2(4240, 9300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1333",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1333": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ooh...",
+"offset": Vector2(4580, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1334",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1334": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do they have...",
+"offset": Vector2(4960, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1335",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1335": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna, I think they probably have anything you're thinking about. ",
+"offset": Vector2(5320, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1336",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1336": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Really??",
+"offset": Vector2(5700, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1337",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1337": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Even a...",
+"offset": Vector2(6080, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1338",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1338": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Trombone?",
+"offset": Vector2(6440, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1339",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1339": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(6800, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1340",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_134": {
 "background": 12,
 "backgroundList": 1,
@@ -2319,6 +6247,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 586),
+"speaker": ""
+},
+&"1_1340": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh look, we're here. ",
+"offset": Vector2(7160, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1341",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1341": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna's face lights up as you approach the entrance to the music building. ",
+"offset": Vector2(7560, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1342",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1342": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You peek inside to ensure nobody is in there. ",
+"offset": Vector2(7960, 9320),
+"options": {
+0: {
+"condition": {},
+"link": &"3_242",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1343": {
+"background": 132,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Seems clear. Come on in. ",
+"offset": Vector2(8340, 9420),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1344",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 0
+},
+&"1_1344": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna quickly follows you up from behind. ",
+"offset": Vector2(8700, 9440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1345",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1345": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Where are all of the instruments? ",
+"offset": Vector2(9080, 9460),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1346",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1346": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "They should be in one of these classrooms. ",
+"offset": Vector2(9440, 9500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1347",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1347": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You wander down the hallway, checking the door to each room. ",
+"offset": Vector2(9820, 9580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1348",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1348": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Some are locked, some are not. ",
+"offset": Vector2(10180, 9580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1349",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1349": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Finally at the very end of the hallway, you find a room labeled 'Practice Room' ",
+"offset": Vector2(10540, 9600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1350",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_135": {
@@ -2337,6 +6425,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 0
 },
+&"1_1350": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You test the door",
+"offset": Vector2(10920, 9600),
+"options": {
+0: {
+"condition": {},
+"link": &"3_233",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1351": {
+"background": 39,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And it opens to reveal a room stocked with pianos, drums, and other instruments. ",
+"offset": Vector2(11560, 9600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1352",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1352": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna inhales sharply. ",
+"offset": Vector2(11960, 9620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1353",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1353": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This place is incredible! Look at everything!",
+"offset": Vector2(12340, 9660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1354",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1354": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She immediately runs over to the nearest piano. ",
+"offset": Vector2(12740, 9660),
+"options": {
+0: {
+"condition": {},
+"link": &"3_234",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1355": {
+"background": 40,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She taps away at a few keys",
+"offset": Vector2(13400, 9660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1356",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1356": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Clearly just having fun, not trying to play anything in particular. ",
+"offset": Vector2(13740, 9660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1357",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1357": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "People get to learn songs here and play them together? ",
+"offset": Vector2(14080, 9660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1358",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1358": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Mmhm, there are entire degrees in just music. ",
+"offset": Vector2(14440, 9680),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1359",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1359": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Without hearing your response, Anna gasps. ",
+"offset": Vector2(14800, 9660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1360",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_136": {
 "background": -1,
 "backgroundList": -1,
@@ -2353,6 +6601,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 1
 },
+&"1_1360": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A drum set!!",
+"offset": Vector2(15160, 9680),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1361",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1361": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Tossing the piano aside like a used dish towel, Anna runs over to the drum set. ",
+"offset": Vector2(15506.2, 9686.88),
+"options": {
+0: {
+"condition": {},
+"link": &"3_236",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1362": {
+"background": 41,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Do you know how to play? ",
+"offset": Vector2(16180, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1363",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 0
+},
+&"1_1363": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well it's been a long time...",
+"offset": Vector2(16540, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1364",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1364": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm usually not the one on the instruments... but, I have used them.",
+"offset": Vector2(16920, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1365",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1365": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Only one way to find out!",
+"offset": Vector2(17280, 9720),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1366",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1366": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna picks up the drum sticks",
+"offset": Vector2(17640, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1367",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1367": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And begins tapping away. ",
+"offset": Vector2(18000, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"3_237",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1368": {
+"background": 42,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Her hands flowing naturally. ",
+"offset": Vector2(18720, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1369",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1369": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "While it's clear that she is somewhat out of practice...",
+"offset": Vector2(19080, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1370",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_137": {
 "background": -1,
 "backgroundList": -1,
@@ -2367,6 +6775,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": ""
+},
+&"1_1370": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It is entirely obvious that she was once a highly experienced musician. ",
+"offset": Vector2(19420, 9780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1371",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1371": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... if not still one. ",
+"offset": Vector2(19780, 9800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1372",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1372": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Holy...",
+"offset": Vector2(20140, 9780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1373",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1373": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna does not acknowledge your praise. ",
+"offset": Vector2(20500, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1374",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1374": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She is lost in the music, her consciousness separated from the confines of the stuffy little practice room. ",
+"offset": Vector2(20840, 9780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1375",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1375": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She bangs on, hitting note after note. ",
+"offset": Vector2(21220, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1376",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1376": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No sheet music in sight, she is operating entirely from memory. ",
+"offset": Vector2(21580, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1377",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1377": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "As she approaches the mid-point of her performance...",
+"offset": Vector2(21940, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"3_239",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1378": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Thunder rolls across the sky, vibrating the room. ",
+"offset": Vector2(22540, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1379",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1379": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This breaks Anna's trance. ",
+"offset": Vector2(22900, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1380",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_138": {
@@ -2385,6 +6953,166 @@ nodes = {
 "size": Vector2(300.008, 570),
 "speaker": ""
 },
+&"1_1380": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks at you. ",
+"offset": Vector2(23241.7, 9765.9),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1381",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1381": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm... wow. ",
+"offset": Vector2(23640, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1382",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1382": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You are amazing at drums and you just never mentioned that? ",
+"offset": Vector2(24000, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1383",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1383": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Heh... let's umm... ",
+"offset": Vector2(24360, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1384",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1384": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's pretend that never happened. ",
+"offset": Vector2(24760, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1385",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1385": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay... I will. ",
+"offset": Vector2(25160, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1386",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1386": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks relieved. ",
+"offset": Vector2(25500.2, 9753.59),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1387",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1387": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "On one condition. ",
+"offset": Vector2(25860, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1388",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1388": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Now she looks surprised, and concerned. ",
+"offset": Vector2(26220, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1389",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1389": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Take a bow. You deserve it after that. ",
+"offset": Vector2(26580, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1390",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_139": {
 "background": 13,
 "backgroundList": 1,
@@ -2400,6 +7128,166 @@ nodes = {
 },
 "size": Vector2(300, 586),
 "speaker": "Professor"
+},
+&"1_1390": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Relief replaces the concern. ",
+"offset": Vector2(26940, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1391",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1391": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Then, she giggles. ",
+"offset": Vector2(27280, 9760),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1392",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1392": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Okay ^.^",
+"offset": Vector2(27640, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"3_240",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1393": {
+"background": 43,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She stands from the drum set",
+"offset": Vector2(28160, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1394",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1394": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And takes a formal bow. ",
+"offset": Vector2(28500, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1395",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1395": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Thank you all. You've been a great audience! ",
+"offset": Vector2(28840, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1396",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1396": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Encore! Encore!",
+"offset": Vector2(29200, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1397",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1397": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You shout, teasingly. ",
+"offset": Vector2(29580, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1398",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1398": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh if you want an encore, let me introduce my partner: [name]. He wil sing you karakeoke. ",
+"offset": Vector2(29940, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1399",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1399": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Uhh, on second though, no encore! No encore! ",
+"offset": Vector2(30300, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1400",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
 },
 &"1_14": {
 "background": 138,
@@ -2433,6 +7321,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": "Professor"
 },
+&"1_1400": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She laughs. ",
+"offset": Vector2(30660, 9740),
+"options": {
+0: {
+"condition": {},
+"link": &"3_241",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1401": {
+"background": 135,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "This was so much fun! But there's still more to see, right?",
+"offset": Vector2(31340, 9780),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1402",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 1
+},
+&"1_1402": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Where to next? ",
+"offset": Vector2(31700, 9800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1403": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We could check out the pool. ",
+"offset": Vector2(-300, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"3_245",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1404": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 5,
+"dialogue": "Ooh, yes!",
+"offset": Vector2(60, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1405",
+"text": ""
+}
+},
+"size": Vector2(301, 536),
+"speaker": 1
+},
+&"1_1405": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We will have to go outside though, it seems like it's raining. ",
+"offset": Vector2(420, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1406",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1406": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I'm not afraid of a little water! ",
+"offset": Vector2(760, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1407",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1407": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Also it's super warm and stuffy in this room! ",
+"offset": Vector2(1100, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1408",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1408": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The warm summer rain might actually feel really nice. ",
+"offset": Vector2(1480, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1409",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1409": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let me check the hallway really quick to make sure nobody is out there. ",
+"offset": Vector2(1860, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1410",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
 &"1_141": {
 "background": -1,
 "backgroundList": -1,
@@ -2448,6 +7496,166 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": "Professor"
+},
+&"1_1410": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Though if anybody was there, they probably would have heard you dropping fire beats on those drums. ",
+"offset": Vector2(2240, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1411",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1411": {
+"background": -1,
+"backgroundList": -1,
+"characterState": 3,
+"dialogue": "Yeah  maybe that wasn't the most stealthy thing to do, hahaha. ",
+"offset": Vector2(2580, 9960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1412",
+"text": ""
+}
+},
+"size": Vector2(365, 536),
+"speaker": 1
+},
+&"1_1412": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You peek out the door into the hallway. ",
+"offset": Vector2(3040, 9960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1413",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": -1
+},
+&"1_1413": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Seems totally clear. ",
+"offset": Vector2(3400, 9960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1414",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1414": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The rain is definitely coming down though. ",
+"offset": Vector2(3760, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1415",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1415": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ready?",
+"offset": Vector2(4140, 10000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1416",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1416": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You know it! ",
+"offset": Vector2(4480, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1417",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1417": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's go!",
+"offset": Vector2(4827.26, 9983.05),
+"options": {
+0: {
+"condition": {},
+"link": &"3_247",
+"text": ""
+}
+},
+"size": Vector2(300, 540),
+"speaker": 0
+},
+&"1_1418": {
+"background": 130,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You make a break for it, running in the direction of the gym. ",
+"offset": Vector2(5420, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1419",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1419": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The rain is coming down, but it's only a modest sprinkle. ",
+"offset": Vector2(5780, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1420",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
 },
 &"1_142": {
 "background": -1,
@@ -2465,6 +7673,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": "Professor"
 },
+&"1_1420": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The water itself is warm, and the wind is nothing more than a pleasant breeze. ",
+"offset": Vector2(6120, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1421",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1421": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The definition of a nice, mild summer shower. ",
+"offset": Vector2(6460, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1422",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1422": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You continue running on. ",
+"offset": Vector2(6800, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1423",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1423": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Until you notice...",
+"offset": Vector2(7140, 9980),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1424",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1424": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna's foot steps have slowed down behind you.  ",
+"offset": Vector2(7500, 10040),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1425",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1425": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then they stopped entirely. ",
+"offset": Vector2(7840, 10120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1426",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1426": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You look back. ",
+"offset": Vector2(8220, 10140),
+"options": {
+0: {
+"condition": {},
+"link": &"3_249",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1427": {
+"background": 53,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You see Anna just standing there, in the rain, looking up. ",
+"offset": Vector2(8960, 10120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1428",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1428": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What's up? We're getting soaked out here! ",
+"offset": Vector2(9360, 10200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1429",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1429": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I know!",
+"offset": Vector2(9720, 10220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1430",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
 &"1_143": {
 "background": -1,
 "backgroundList": -1,
@@ -2480,6 +7848,166 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": "Professor"
+},
+&"1_1430": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It feels kind of nice, doesn't it?",
+"offset": Vector2(10100, 10220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1431",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1431": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You take a moment to feel the rain on your skin. ",
+"offset": Vector2(10460, 10240),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1432",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1432": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It is so warm it feels almost like taking a shower. ",
+"offset": Vector2(10820, 10260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1433",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1433": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The slight breeze cools your wet clothing down, taking away the summer heat. ",
+"offset": Vector2(11180, 10300),
+"options": {
+0: {
+"condition": {},
+"link": &"3_252",
+"text": ""
+}
+},
+"size": Vector2(300, 540),
+"speaker": ""
+},
+&"1_1434": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And the calm thunder is so distant that it become soothing in a way. ",
+"offset": Vector2(11840, 10300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1435",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1435": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I guess it does feel pretty nice...",
+"offset": Vector2(12240, 10340),
+"options": {
+0: {
+"condition": {},
+"link": &"3_253",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1436": {
+"background": 54,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "Anna holds her arms up, as if trying to capture more of the soothing  rain. ",
+"offset": Vector2(12940, 10360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1437",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1437": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You just stand and watch her, as she takes it all in. ",
+"offset": Vector2(13340, 10380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1438",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1438": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What an amazing night!",
+"offset": Vector2(13720, 10400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1439",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1439": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, though it is drowned out slightly by the sounds of the storm. ",
+"offset": Vector2(14120, 10380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1440",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
 },
 &"1_144": {
 "background": -1,
@@ -2497,6 +8025,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": "Professor"
 },
+&"1_1440": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Such a beautiful campus...",
+"offset": Vector2(14520, 10400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1441",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1441": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I got to play drums again for the first time in so long...",
+"offset": Vector2(14900, 10400),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1442",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1442": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And now we're out here...",
+"offset": Vector2(15300, 10420),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1443",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1443": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna begins to slowly wander, taking in the sounds and smells of rain, grass, trees...",
+"offset": Vector2(15700, 10420),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1444",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1444": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You look away for just a moment, enjoying these sights yourself. ",
+"offset": Vector2(16080, 10480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1445",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1445": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You attended school here for years... ",
+"offset": Vector2(16440, 10500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1446",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1446": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But have never seen it like this. ",
+"offset": Vector2(16820, 10500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1447",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1447": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It really takes the perspective of somebody special, to reveal the beauty in something so normal. ",
+"offset": Vector2(17200, 10480),
+"options": {
+0: {
+"condition": {},
+"link": &"3_254",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1448": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ahh!",
+"offset": Vector2(17860, 10500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1449",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1449": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna lets out a  yelp. ",
+"offset": Vector2(18240, 10480),
+"options": {
+0: {
+"condition": {},
+"link": &"3_255",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_145": {
 "background": 14,
 "backgroundList": 1,
@@ -2511,6 +8199,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 586),
+"speaker": ""
+},
+&"1_1450": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And then there's a splash. ",
+"offset": Vector2(18900, 10540),
+"options": {
+0: {
+"condition": {},
+"link": &"3_256",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1451": {
+"background": 55,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You look over to see Anna has slipped and fallen into a puddle. ",
+"offset": Vector2(19600, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1452",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1452": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hey! Are you okay/",
+"offset": Vector2(20020, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1453",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1453": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ahh! I fell! ",
+"offset": Vector2(20380, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1454",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1454": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Anna lays there, hardly moving",
+"offset": Vector2(20740, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1455",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1455": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Are you hurt? ",
+"offset": Vector2(21100, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1456",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1456": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Maybe...",
+"offset": Vector2(21440, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1457",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1457": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Come over here...",
+"offset": Vector2(21780, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1460",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1458": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You quickly jog your way over to Anna",
+"offset": Vector2(22540, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"3_257",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1459": {
+"background": 56,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She is sitting on the ground, in the middle of a puddle. ",
+"offset": Vector2(23140, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1461",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
 "speaker": ""
 },
 &"1_146": {
@@ -2529,6 +8377,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": 0
 },
+&"1_1460": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I need help!",
+"offset": Vector2(22140, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1458",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1461": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A sad, pained expression on her face. ",
+"offset": Vector2(23540, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1462",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1462": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Does anything hurt? ",
+"offset": Vector2(23920, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1463",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1463": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeah... it hurts everywhere...",
+"offset": Vector2(24280, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1464",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1464": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I need help. ",
+"offset": Vector2(24640, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1465",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1465": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hurry up and offer to pick me up, like a gentleman. ",
+"offset": Vector2(25000, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1466",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1466": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Umm... okay... bossy much? ",
+"offset": Vector2(25360, 10540),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1467",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1467": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You reach your arm out. ",
+"offset": Vector2(25740, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1468",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1468": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She grasps it. ",
+"offset": Vector2(26120, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1469",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1469": {
+"background": 57,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And then her expression shifts immediately to one of devious betrayal. ",
+"offset": Vector2(26560, 10560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1470",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
 &"1_147": {
 "background": -1,
 "backgroundList": -1,
@@ -2544,6 +8552,166 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": 0
+},
+&"1_1470": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Wh...!",
+"offset": Vector2(26960, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1471",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1471": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But before you can react",
+"offset": Vector2(27340, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"3_258",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1472": {
+"background": 58,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "She has both of her arms around you",
+"offset": Vector2(28020, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1473",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1473": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And she's pulling you down with her. ",
+"offset": Vector2(28400, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1474",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1474": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Get down here! ",
+"offset": Vector2(28780, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1475",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1475": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She's now laughing joyfully as she struggles to wrestle you to the ground. ",
+"offset": Vector2(29180, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1476",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1476": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What are you...?!!",
+"offset": Vector2(29540, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1477",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1477": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She grasps one hand on your shirt. ",
+"offset": Vector2(29900, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1478",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1478": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And finally, she topples the giant. ",
+"offset": Vector2(30260, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"3_259",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1479": {
+"background": 59,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You are pulled down with a splash. ",
+"offset": Vector2(30920, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1480",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
 },
 &"1_148": {
 "background": -1,
@@ -2561,6 +8729,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": ""
 },
+&"1_1480": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You land hard on the ground. ",
+"offset": Vector2(31280, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1481",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1481": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Only to realize that the rain had softened the ground so much, that it felt like landing on a pillow. ",
+"offset": Vector2(31640, 10580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1482",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1482": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You are now looking directly at Anna",
+"offset": Vector2(32000, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1483",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1483": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A pleased smug smile on her face. ",
+"offset": Vector2(32360, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1484",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1484": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You aren't actually hurt, are you? ",
+"offset": Vector2(32740, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1485",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1485": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nope.",
+"offset": Vector2(33140, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1486",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1486": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You just wanted me to come over so that you can pull me down to the ground with you, huh? ",
+"offset": Vector2(33500, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1487",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1487": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yep. ",
+"offset": Vector2(33860, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1488",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1488": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You are way too happy with yourself right now. ",
+"offset": Vector2(34240, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1489",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": 0
+},
+&"1_1489": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She doesn't respond verbally, she just laughs, and her smile grows wider. ",
+"offset": Vector2(34620, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1490",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_149": {
 "background": -1,
 "backgroundList": -1,
@@ -2576,6 +8904,150 @@ nodes = {
 },
 "size": Vector2(300, 570),
 "speaker": "Professor"
+},
+&"1_1490": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "We get a much nicer view from this angle anyway. ",
+"offset": Vector2(35000, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1491",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1491": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You look up, now with a perfect view of the stormy night sky. ",
+"offset": Vector2(35380, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1492",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1492": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Stars intermixed with light reflecting off of rain drops. Clouds dancing in the wind. ",
+"offset": Vector2(35740, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1493",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1493": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "*Sigh*",
+"offset": Vector2(36140, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1494",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1494": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Fine... I admit it is kind of relaxing down here. ",
+"offset": Vector2(36500, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1495",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1495": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But let's go with the \"ask nicely\" option instead of the \"wrestlemania\" option next time, alright? ",
+"offset": Vector2(36860, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1496",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1496": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No promises. ",
+"offset": Vector2(37220, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1498",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1498": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She says, smugly. ",
+"offset": Vector2(37900, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1499",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1499": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Now... quiet. ",
+"offset": Vector2(38240, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1500",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
 },
 &"1_15": {
 "background": -1,
@@ -2609,6 +9081,166 @@ nodes = {
 "size": Vector2(300.004, 586),
 "speaker": ""
 },
+&"1_1500": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's just enjoy this moment.",
+"offset": Vector2(38560, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1501",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1501": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And with that remark, Anna rolls back flat on the ground. ",
+"offset": Vector2(38920, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"3_261",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1502": {
+"background": 60,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And lets the rain lull her into a state of zen. ",
+"offset": Vector2(39580, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1503",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1503": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She just lays there",
+"offset": Vector2(39960, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1504",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1504": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Breathing, but not much else",
+"offset": Vector2(40300, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1505",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1505": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And soon you follow her lead. ",
+"offset": Vector2(40640, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1506",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1506": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Laying back on the soft, warm ground. ",
+"offset": Vector2(41000, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1507",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1507": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And experiencing the summer storm in a way that you've never experienced one before. ",
+"offset": Vector2(41360, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1508",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1508": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You hear nothing other than the sound of rain in the trees. ",
+"offset": Vector2(41720, 10600),
+"options": {
+0: {
+"condition": {},
+"link": &"3_263",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1509": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And the occasional roll of distant thunder. ",
+"offset": Vector2(42380, 10620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1510",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_151": {
 "background": -1,
 "backgroundList": -1,
@@ -2623,6 +9255,166 @@ nodes = {
 }
 },
 "size": Vector2(300, 570),
+"speaker": 1
+},
+&"1_1510": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": ".",
+"offset": Vector2(42740, 10620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1511",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1511": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "..",
+"offset": Vector2(43080, 10620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1512",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1512": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "...",
+"offset": Vector2(43420, 10620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1513",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1513": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "[name]?",
+"offset": Vector2(43760, 10620),
+"options": {
+0: {
+"condition": {},
+"link": &"3_264",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1514": {
+"background": 61,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "You look at Anna. She is now laying casually on the grass, looking back at you. ",
+"offset": Vector2(44420, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1515",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1515": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "This was fun. ",
+"offset": Vector2(44780, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1516",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1516": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The whole day. ",
+"offset": Vector2(45120, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1517",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1517": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think so too. ",
+"offset": Vector2(45460, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1518",
+"text": ""
+}
+},
+"size": Vector2(320, 528),
+"speaker": 0
+},
+&"1_1518": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She smiles, as if she was secretly awaiting your agreement. ",
+"offset": Vector2(45820, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1519",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1519": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "But...",
+"offset": Vector2(46160, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1520",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": 1
 },
 &"1_152": {
@@ -2641,6 +9433,166 @@ nodes = {
 "size": Vector2(300, 570),
 "speaker": "Professor"
 },
+&"1_1520": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "It's time to get off this dirty wet ground? ",
+"offset": Vector2(46500, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1521",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1521": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Hahaha, yep. ",
+"offset": Vector2(46840, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1522",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1522": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Is there anything more to see? ",
+"offset": Vector2(47180, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1523",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1523": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well... let me think. ",
+"offset": Vector2(47520, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1524",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1524": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You begin hoisting yourself up to a standing position. ",
+"offset": Vector2(47860, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"3_265",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1525": {
+"background": 62,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "And like the gentleman you are, you help her up too. ",
+"offset": Vector2(48540, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1526",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1526": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Out of the things we haven't seen... ",
+"offset": Vector2(48880, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1527",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1527": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Well we never actually saw the pool. ",
+"offset": Vector2(49240, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1528",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1528": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I don't think I need to see the pool at this point...",
+"offset": Vector2(49600, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1529",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1529": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She looks down at her body, drenched in muddy water. ",
+"offset": Vector2(49960, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1530",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_153": {
 "background": -1,
 "backgroundList": -1,
@@ -2657,6 +9609,166 @@ nodes = {
 "size": Vector2(300.004, 570),
 "speaker": "Professor"
 },
+&"1_1530": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Agreed. In that case, that's really about it. ",
+"offset": Vector2(50300, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1531",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1531": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So... time to go? ",
+"offset": Vector2(50660, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1532",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1532": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "I think so. ",
+"offset": Vector2(51000, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1533",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 0
+},
+&"1_1533": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let's go. ",
+"offset": Vector2(51340, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1534",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": 1
+},
+&"1_1534": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "She takes your hand and starts leading you back towards the parking lot. ",
+"offset": Vector2(51680, 10640),
+"options": {
+0: {
+"condition": {},
+"link": &"3_266",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1535": {
+"background": 2,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "On your way back, the storm begins to worsen. ",
+"offset": Vector2(52340, 10660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1536",
+"text": ""
+}
+},
+"size": Vector2(300, 544),
+"speaker": ""
+},
+&"1_1536": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Confirming that you've picked the perfect time to head out. ",
+"offset": Vector2(52680, 10660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1537",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1537": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Soon you reach the parking lot. ",
+"offset": Vector2(53020, 10660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1538",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1538": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "The storm has become too intense for a proper goodbye. ",
+"offset": Vector2(53360, 10660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1539",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
+&"1_1539": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "So you give each other a brief wave. ",
+"offset": Vector2(53720, 10660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1540",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
+"speaker": ""
+},
 &"1_154": {
 "background": 16,
 "backgroundList": 1,
@@ -2671,6 +9783,22 @@ nodes = {
 }
 },
 "size": Vector2(300, 586),
+"speaker": ""
+},
+&"1_1540": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Before heading home for the evening. ~Ending 6 of 8~",
+"offset": Vector2(54060, 10660),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 528),
 "speaker": ""
 },
 &"1_155": {
@@ -3086,7 +10214,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.004, 570),
 "speaker": 1
 },
 &"1_179": {
@@ -3102,7 +10230,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.004, 570),
 "speaker": 1
 },
 &"1_18": {
@@ -3134,7 +10262,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_181": {
@@ -3150,7 +10278,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_182": {
@@ -3166,7 +10294,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.016, 570),
 "speaker": 0
 },
 &"1_183": {
@@ -3182,7 +10310,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.016, 570),
 "speaker": 1
 },
 &"1_184": {
@@ -3198,7 +10326,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 570),
+"size": Vector2(300.039, 570),
 "speaker": 0
 },
 &"1_185": {
@@ -3214,7 +10342,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.004, 570),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_186": {
@@ -3310,7 +10438,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.008, 570),
 "speaker": 0
 },
 &"1_191": {
@@ -3326,7 +10454,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.008, 570),
 "speaker": 1
 },
 &"1_192": {
@@ -3342,7 +10470,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.023, 570),
 "speaker": 0
 },
 &"1_193": {
@@ -3358,7 +10486,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 570),
+"size": Vector2(300.039, 570),
 "speaker": 0
 },
 &"1_194": {
@@ -3374,7 +10502,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.023, 570),
 "speaker": 1
 },
 &"1_195": {
@@ -3390,7 +10518,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 586),
+"size": Vector2(300.023, 586),
 "speaker": ""
 },
 &"1_196": {
@@ -3422,7 +10550,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_198": {
@@ -3438,7 +10566,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 586),
+"size": Vector2(300.031, 586),
 "speaker": 1
 },
 &"1_199": {
@@ -3502,7 +10630,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_201": {
@@ -3534,7 +10662,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.023, 570),
 "speaker": 1
 },
 &"1_203": {
@@ -3550,7 +10678,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 570),
+"size": Vector2(300.039, 570),
 "speaker": 1
 },
 &"1_204": {
@@ -3566,7 +10694,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.008, 570),
 "speaker": 1
 },
 &"1_205": {
@@ -3582,7 +10710,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 570),
+"size": Vector2(300.039, 570),
 "speaker": 1
 },
 &"1_206": {
@@ -3598,7 +10726,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.039, 570),
+"size": Vector2(300.031, 570),
 "speaker": 0
 },
 &"1_207": {
@@ -3678,7 +10806,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.023, 570),
 "speaker": 1
 },
 &"1_211": {
@@ -3694,7 +10822,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.008, 570),
 "speaker": 0
 },
 &"1_212": {
@@ -3710,7 +10838,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_213": {
@@ -3742,7 +10870,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_215": {
@@ -3758,7 +10886,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.031, 570),
 "speaker": ""
 },
 &"1_216": {
@@ -3774,7 +10902,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 586),
+"size": Vector2(300.039, 586),
 "speaker": ""
 },
 &"1_217": {
@@ -3790,7 +10918,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 570),
+"size": Vector2(300.016, 570),
 "speaker": 1
 },
 &"1_218": {
@@ -3854,7 +10982,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.039, 570),
+"size": Vector2(300.023, 570),
 "speaker": 0
 },
 &"1_221": {
@@ -3870,7 +10998,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 570),
+"size": Vector2(300.031, 570),
 "speaker": 0
 },
 &"1_222": {
@@ -3886,7 +11014,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 586),
+"size": Vector2(300.016, 586),
 "speaker": ""
 },
 &"1_223": {
@@ -3902,7 +11030,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.023, 570),
 "speaker": 1
 },
 &"1_224": {
@@ -3918,7 +11046,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.039, 570),
+"size": Vector2(300.023, 570),
 "speaker": 0
 },
 &"1_225": {
@@ -3982,7 +11110,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.023, 570),
 "speaker": 0
 },
 &"1_229": {
@@ -4030,7 +11158,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.008, 570),
 "speaker": ""
 },
 &"1_231": {
@@ -4062,7 +11190,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.016, 570),
 "speaker": 1
 },
 &"1_233": {
@@ -4110,7 +11238,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 586),
+"size": Vector2(300.008, 586),
 "speaker": 0
 },
 &"1_236": {
@@ -4158,7 +11286,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 586),
+"size": Vector2(300.008, 586),
 "speaker": ""
 },
 &"1_239": {
@@ -4174,7 +11302,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.008, 570),
 "speaker": 1
 },
 &"1_24": {
@@ -4302,7 +11430,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": ""
 },
 &"1_247": {
@@ -4318,7 +11446,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.031, 570),
 "speaker": ""
 },
 &"1_248": {
@@ -4334,7 +11462,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 586),
+"size": Vector2(300.016, 586),
 "speaker": 1
 },
 &"1_249": {
@@ -4430,7 +11558,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300, 570),
 "speaker": 0
 },
 &"1_254": {
@@ -4462,7 +11590,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 586),
+"size": Vector2(300.016, 586),
 "speaker": ""
 },
 &"1_256": {
@@ -4558,7 +11686,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.047, 570),
 "speaker": ""
 },
 &"1_261": {
@@ -4638,7 +11766,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.023, 570),
 "speaker": 1
 },
 &"1_266": {
@@ -4750,7 +11878,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 570),
+"size": Vector2(300.031, 570),
 "speaker": ""
 },
 &"1_272": {
@@ -4782,7 +11910,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 586),
+"size": Vector2(300.023, 586),
 "speaker": "Passerby 4"
 },
 &"1_274": {
@@ -4862,7 +11990,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.016, 570),
 "speaker": ""
 },
 &"1_279": {
@@ -4926,7 +12054,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.016, 570),
 "speaker": ""
 },
 &"1_282": {
@@ -4990,7 +12118,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.016, 570),
 "speaker": "Passerby"
 },
 &"1_286": {
@@ -5006,7 +12134,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 586),
+"size": Vector2(300.023, 586),
 "speaker": ""
 },
 &"1_287": {
@@ -5038,7 +12166,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.023, 570),
 "speaker": 0
 },
 &"1_289": {
@@ -5134,7 +12262,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.008, 570),
 "speaker": 0
 },
 &"1_294": {
@@ -5198,7 +12326,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.008, 570),
 "speaker": 1
 },
 &"1_298": {
@@ -5214,7 +12342,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.016, 570),
 "speaker": 0
 },
 &"1_299": {
@@ -5230,7 +12358,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300.016, 570),
 "speaker": 1
 },
 &"1_3": {
@@ -5326,7 +12454,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.047, 570),
+"size": Vector2(300.031, 570),
 "speaker": 1
 },
 &"1_304": {
@@ -5390,7 +12518,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.016, 570),
+"size": Vector2(300.008, 570),
 "speaker": 1
 },
 &"1_308": {
@@ -5454,7 +12582,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 570),
+"size": Vector2(300.008, 570),
 "speaker": 1
 },
 &"1_311": {
@@ -5518,7 +12646,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.008, 570),
+"size": Vector2(300, 570),
 "speaker": 1
 },
 &"1_315": {
@@ -5646,7 +12774,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.047, 570),
+"size": Vector2(300.055, 570),
 "speaker": 1
 },
 &"1_322": {
@@ -5662,7 +12790,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 586),
+"size": Vector2(300.031, 586),
 "speaker": 1
 },
 &"1_323": {
@@ -5758,7 +12886,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 570),
+"size": Vector2(300.039, 570),
 "speaker": 1
 },
 &"1_329": {
@@ -7150,7 +14278,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.031, 528),
+"size": Vector2(300.023, 528),
 "speaker": 0
 },
 &"1_407": {
@@ -7166,7 +14294,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.023, 528),
+"size": Vector2(300.016, 528),
 "speaker": 0
 },
 &"1_408": {
@@ -18186,9 +25314,39 @@ nodes = {
 "signalValue": "reposition_upper_mid"
 },
 &"3_193": {
-"link": &"1_1095",
-"offset": Vector2(6838.68, 8236.21),
+"link": &"3_195",
+"offset": Vector2(6880, 8200),
 "signalValue": "walk_on"
+},
+&"3_194": {
+"link": &"1_1098",
+"offset": Vector2(8244.81, 8373.71),
+"signalValue": "walk_off"
+},
+&"3_195": {
+"link": &"1_1095",
+"offset": Vector2(6874.96, 8376.79),
+"signalValue": "reposition_upper_mid"
+},
+&"3_196": {
+"link": &"1_1102",
+"offset": Vector2(9966.83, 8438.37),
+"signalValue": "fade_next"
+},
+&"3_197": {
+"link": &"1_1104",
+"offset": Vector2(10809.6, 8723.69),
+"signalValue": "walk_on"
+},
+&"3_198": {
+"link": &"1_1110",
+"offset": Vector2(12942.9, 8767.82),
+"signalValue": "walk_off"
+},
+&"3_199": {
+"link": &"3_204",
+"offset": Vector2(17464.3, 8447.61),
+"signalValue": "fade_next"
 },
 &"3_2": {
 "link": &"3_3",
@@ -18200,9 +25358,109 @@ nodes = {
 "offset": Vector2(43855.5, 493.864),
 "signalValue": "hide_char"
 },
+&"3_200": {
+"link": &"1_1123",
+"offset": Vector2(18000.2, 8736),
+"signalValue": "play_sfx_12"
+},
+&"3_201": {
+"link": &"1_1127",
+"offset": Vector2(19473.1, 8730.87),
+"signalValue": "play_sfx_12"
+},
+&"3_202": {
+"link": &"1_1133",
+"offset": Vector2(21611.1, 8689.82),
+"signalValue": "play_sfx_3"
+},
+&"3_203": {
+"link": &"3_205",
+"offset": Vector2(22204.4, 8392.19),
+"signalValue": "fade_next"
+},
+&"3_204": {
+"link": &"1_1122",
+"offset": Vector2(17422.5, 8188.82),
+"signalValue": "reposition_top"
+},
+&"3_205": {
+"link": &"1_1134",
+"offset": Vector2(22160, 8720),
+"signalValue": "reposition_mid"
+},
+&"3_206": {
+"link": &"1_1160",
+"offset": Vector2(7420, 8780),
+"signalValue": "fade_next"
+},
+&"3_207": {
+"link": &"3_208",
+"offset": Vector2(8763.85, 9215.57),
+"signalValue": "walk_on"
+},
+&"3_208": {
+"link": &"1_1163",
+"offset": Vector2(8740, 9060),
+"signalValue": "reposition_upper_mid"
+},
+&"3_209": {
+"link": &"3_210",
+"offset": Vector2(11313.8, 9309.41),
+"signalValue": "fade_next"
+},
 &"3_21": {
 "link": &"1_119",
 "offset": Vector2(44059.1, 518.515),
+"signalValue": "fade_next"
+},
+&"3_210": {
+"link": &"1_1169",
+"offset": Vector2(11300, 9140),
+"signalValue": "hide_char"
+},
+&"3_211": {
+"link": &"3_229",
+"offset": Vector2(16191.6, 9203.29),
+"signalValue": "fade_next"
+},
+&"3_212": {
+"link": &"1_1190",
+"offset": Vector2(19785.2, 9237.16),
+"signalValue": "fade_next"
+},
+&"3_213": {
+"link": &"1_1201",
+"offset": Vector2(24239.4, 9461.82),
+"signalValue": "play_sfx_11"
+},
+&"3_214": {
+"link": &"3_215",
+"offset": Vector2(26000, 9220),
+"signalValue": "fade_next"
+},
+&"3_215": {
+"link": &"1_1205",
+"offset": Vector2(25985.4, 9027.17),
+"signalValue": "reposition_upper_mid"
+},
+&"3_216": {
+"link": &"1_1211",
+"offset": Vector2(28396.3, 9265.38),
+"signalValue": "walk_off"
+},
+&"3_217": {
+"link": &"1_1228",
+"offset": Vector2(34820, 9240),
+"signalValue": "fade_next_quick"
+},
+&"3_218": {
+"link": &"3_230",
+"offset": Vector2(39980, 9340),
+"signalValue": "fade_next"
+},
+&"3_219": {
+"link": &"1_1246",
+"offset": Vector2(41704.8, 9224.74),
 "signalValue": "fade_next"
 },
 &"3_22": {
@@ -18210,14 +25468,164 @@ nodes = {
 "offset": Vector2(30451.5, 572.26),
 "signalValue": "reposition_bottom"
 },
+&"3_220": {
+"link": &"1_1317",
+"offset": Vector2(46629, 9304.89),
+"signalValue": "fade_next"
+},
+&"3_221": {
+"link": &"1_1262",
+"offset": Vector2(47900, 9400),
+"signalValue": "fade_next"
+},
+&"3_222": {
+"link": &"1_1264",
+"offset": Vector2(48960, 9340),
+"signalValue": "fade_next_quick"
+},
+&"3_223": {
+"link": &"1_1270",
+"offset": Vector2(51398.8, 9382.79),
+"signalValue": "fade_next"
+},
+&"3_224": {
+"link": &"1_1272",
+"offset": Vector2(52420, 9320),
+"signalValue": "fade_next"
+},
+&"3_225": {
+"link": &"1_1291",
+"offset": Vector2(59460, 9340),
+"signalValue": "fade_next"
+},
+&"3_226": {
+"link": &"1_1296",
+"offset": Vector2(61500, 9420),
+"signalValue": "play_sfx_13"
+},
+&"3_227": {
+"link": &"1_1303",
+"offset": Vector2(64180, 9380),
+"signalValue": "fade_next"
+},
+&"3_228": {
+"link": &"1_1312",
+"offset": Vector2(67607.5, 9396.65),
+"signalValue": "fade_next"
+},
+&"3_229": {
+"link": &"1_1181",
+"offset": Vector2(16181.6, 9397.67),
+"signalValue": "reposition_top"
+},
 &"3_23": {
 "link": &"1_108",
 "offset": Vector2(39602.5, 503.665),
 "signalValue": "reposition_upper_mid"
 },
+&"3_230": {
+"link": &"1_1242",
+"offset": Vector2(39942.1, 9517.75),
+"signalValue": "reposition_bottom"
+},
+&"3_231": {
+"link": &"3_224",
+"offset": Vector2(52377.8, 9524.94),
+"signalValue": "play_sfx_13"
+},
+&"3_232": {
+"link": &"1_1276",
+"offset": Vector2(53934.5, 8941.99),
+"signalValue": "play_sfx_14"
+},
+&"3_233": {
+"link": &"1_1351",
+"offset": Vector2(11240, 9900),
+"signalValue": "fade_next"
+},
+&"3_234": {
+"link": &"3_235",
+"offset": Vector2(13060, 10040),
+"signalValue": "fade_next"
+},
+&"3_235": {
+"link": &"1_1355",
+"offset": Vector2(13058.4, 9857.9),
+"signalValue": "play_sfx_8"
+},
+&"3_236": {
+"link": &"1_1362",
+"offset": Vector2(15894.3, 9916.4),
+"signalValue": "fade_next"
+},
+&"3_237": {
+"link": &"3_238",
+"offset": Vector2(18340, 10140),
+"signalValue": "play_music_4"
+},
+&"3_238": {
+"link": &"1_1368",
+"offset": Vector2(18360.9, 9959.51),
+"signalValue": "fade_next"
+},
+&"3_239": {
+"link": &"1_1378",
+"offset": Vector2(22260, 10120),
+"signalValue": "play_sfx_3"
+},
 &"3_24": {
 "link": &"1_134",
 "offset": Vector2(48784.4, 503.572),
+"signalValue": "fade_next"
+},
+&"3_240": {
+"link": &"1_1393",
+"offset": Vector2(27895.3, 10217.1),
+"signalValue": "fade_next"
+},
+&"3_241": {
+"link": &"1_1401",
+"offset": Vector2(31027.8, 10006.7),
+"signalValue": "fade_next"
+},
+&"3_242": {
+"link": &"1_1343",
+"offset": Vector2(7986.34, 9915.38),
+"signalValue": "reposition_top"
+},
+&"3_243": {
+"link": "END",
+"offset": Vector2(-680, 11000),
+"signalValue": "play_music_1"
+},
+&"3_244": {
+"link": &"1_1403",
+"offset": Vector2(-640, 10100),
+"signalValue": "play_music_1"
+},
+&"3_245": {
+"link": &"3_246",
+"offset": Vector2(-134.374, 10528.7),
+"signalValue": "walk_on"
+},
+&"3_246": {
+"link": &"1_1404",
+"offset": Vector2(50.3627, 10571.8),
+"signalValue": "reposition_upper_nid"
+},
+&"3_247": {
+"link": &"3_248",
+"offset": Vector2(5037.89, 10499.9),
+"signalValue": "fade_next"
+},
+&"3_248": {
+"link": &"1_1418",
+"offset": Vector2(5197.99, 10564.6),
+"signalValue": "hide_char"
+},
+&"3_249": {
+"link": &"3_250",
+"offset": Vector2(8615.73, 10538.9),
 "signalValue": "fade_next"
 },
 &"3_25": {
@@ -18225,9 +25633,94 @@ nodes = {
 "offset": Vector2(50529.4, 401.28),
 "signalValue": "fade_next"
 },
+&"3_250": {
+"link": &"3_251",
+"offset": Vector2(8619.58, 10312.1),
+"signalValue": "play_sfx_7"
+},
+&"3_251": {
+"link": &"1_1427",
+"offset": Vector2(8621.63, 10165.4),
+"signalValue": "reposition_top"
+},
+&"3_252": {
+"link": &"1_1434",
+"offset": Vector2(11520, 10560),
+"signalValue": "play_sfx_6"
+},
+&"3_253": {
+"link": &"1_1436",
+"offset": Vector2(12591.8, 10656.4),
+"signalValue": "fade_next"
+},
+&"3_254": {
+"link": &"1_1448",
+"offset": Vector2(17548, 10710.1),
+"signalValue": "play_sfx_4"
+},
+&"3_255": {
+"link": &"1_1450",
+"offset": Vector2(18600, 10760),
+"signalValue": "play_sfx_15"
+},
+&"3_256": {
+"link": &"1_1451",
+"offset": Vector2(19274.5, 10849.6),
+"signalValue": "fade_next"
+},
+&"3_257": {
+"link": &"1_1459",
+"offset": Vector2(22880, 10800),
+"signalValue": "fade_next"
+},
+&"3_258": {
+"link": &"1_1472",
+"offset": Vector2(27680, 10860),
+"signalValue": "fade_next_quick"
+},
+&"3_259": {
+"link": &"3_260",
+"offset": Vector2(30580, 10900),
+"signalValue": "play_sfx_15"
+},
 &"3_26": {
 "link": &"1_145",
 "offset": Vector2(52734.5, 501.493),
+"signalValue": "fade_next"
+},
+&"3_260": {
+"link": &"1_1479",
+"offset": Vector2(30600, 10720),
+"signalValue": "fade_next_slow"
+},
+&"3_261": {
+"link": &"3_262",
+"offset": Vector2(39280, 10860),
+"signalValue": "fade_next"
+},
+&"3_262": {
+"link": &"1_1502",
+"offset": Vector2(39248.8, 10655.7),
+"signalValue": "play_sfx_7"
+},
+&"3_263": {
+"link": &"1_1509",
+"offset": Vector2(42062, 10914.3),
+"signalValue": "play_sfx_3"
+},
+&"3_264": {
+"link": &"1_1514",
+"offset": Vector2(44106.4, 10882.5),
+"signalValue": "fade_next"
+},
+&"3_265": {
+"link": &"1_1525",
+"offset": Vector2(48240, 10880),
+"signalValue": "fade_next"
+},
+&"3_266": {
+"link": &"1_1535",
+"offset": Vector2(52040, 10880),
 "signalValue": "fade_next"
 },
 &"3_27": {
