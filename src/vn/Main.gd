@@ -158,6 +158,9 @@ func toggleUi():
 	if GlobalGameStage.currentStage.isDate:
 		currentDate.visible = !currentDate.visible
 	
+	if inChoice:
+		%ChoiceDisplay.visible = !%ChoiceDisplay.visible
+
 	$DialogueManager.toggleUi()
 
 func playSceneMusic():
@@ -447,6 +450,11 @@ func beginDialogue(startKey = null):
 	$DialogueManager.startDialogue(startKey)
 
 func _on_dialogue_manager_dialogue_ended():
+	var unlocks = GlobalGameStage.getWallpaperUnlocksForDialogueKey(GlobalGameStage.currentDialogueKey)
+	if unlocks:
+		for unlock in unlocks:
+			GlobalGameStage.unlockWallpaper(unlock, '', true)
+
 	if GlobalGameStage.currentStage.endOnlyOnSpecificDialogueKey and GlobalGameStage.currentDialogueKey not in GlobalGameStage.currentStage.endingDialogueKeys:
 		var choices = GlobalGameStage.currentStage.choicesScript.getChoicesForDialogueKey(GlobalGameStage.currentDialogueKey)
 		inChoice = true

@@ -9,6 +9,7 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 			'ROUTE_2': 'Explore'
 		}
 	elif dialogueKey == 'ROUTE_1':
+		GlobalGameStage.unlockWallpaper('ANNA_CLASS6','',true)
 		return {
 			'TITLE': 'How many cats does Anna have?',
 			'ROUTE_1_Q1_A1': 'Six',
@@ -28,6 +29,8 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 	elif dialogueKey == 'ROUTE_1_Q2_A1' or dialogueKey == 'ROUTE_1_Q2_A2' or dialogueKey == 'ROUTE_1_Q2_A3':
 		if dialogueKey == 'ROUTE_1_Q2_A2':
 			GlobalGameStage.annaCorrectChoices += 1
+		else:
+			GlobalGameStage.unlockWallpaper('ANNA_CLASS7','',true)
 
 		return {
 			'TITLE': 'What is Anna\'s favorite ice cream flavor?',
@@ -38,6 +41,8 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 	elif dialogueKey == 'ROUTE_1_Q3_A1' or dialogueKey == 'ROUTE_1_Q3_A2' or dialogueKey == 'ROUTE_1_Q3_A3':
 		if dialogueKey == 'ROUTE_1_Q3_A3':
 				GlobalGameStage.annaCorrectChoices += 1
+		else:
+			GlobalGameStage.unlockWallpaper('ANNA_CLASS8','',true)
 
 		if GlobalGameStage.annaCorrectChoices == 3:
 			GlobalGameStage.annaCorrectChoices = 0
@@ -78,6 +83,8 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 			'ROUTE_13': 'The Sports Wing'
 		}
 	elif dialogueKey == 'ROUTE_2':
+		GlobalGameStage.unlockWallpaper('ANNA_CLASS9','',true)
+		GlobalGameStage.unlockWallpaper('ANNA_CLASS10','',true)
 		return {
 			'TITLE': 'Where to?',
 			'ROUTE_10': 'The Music Wing',

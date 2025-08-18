@@ -212,6 +212,9 @@ func getAvailableMessages():
 
 	if completedStages.has('ashely_bar_poker_message_after'):
 		addMessage(Flags.LISA_BEACH_BEFORE_MESSAGE)
+	
+	if completedStages.has('lisa_beach_night') or completedStages.has('lisa_beach_early_departure'):
+		addMessage(Flags.ANNA_CLASS_MESSAGE)
 
 	return availableMessages
 
@@ -242,6 +245,8 @@ func getCompletedMessages():
 		availableMessages.append(Flags.ANNA_PHONE_MESSAGE_LYRIC)
 	if completedStages.has(Flags.LISA_BEACH_BEFORE_MESSAGE.name):
 		availableMessages.append(Flags.LISA_BEACH_BEFORE_MESSAGE)
+	if completedStages.has(Flags.ANNA_CLASS_MESSAGE.name):
+		availableMessages.append(Flags.ANNA_CLASS_MESSAGE)
 
 	return availableMessages
 
@@ -273,7 +278,8 @@ func getAvailableSelectableEvents():
 	if completedStages.has('lisa_beach_message'):
 		addSelectableEvent(Flags.LISA_BEACH_BEFORE)
 
-	addSelectableEvent(Flags.ANNA_CLASS)
+	if completedStages.has('anna_class_phone'):
+		addSelectableEvent(Flags.ANNA_CLASS)
 	
 	return availableSelectableEvents
 
@@ -757,3 +763,30 @@ func isLastEventInThisUpdate(stage: GameStage):
 
 func setCurrentDialogueKey(key: String):
 	currentDialogueKey = key
+
+func getWallpaperUnlocksForDialogueKey(dialogueKey: String):
+	if GlobalGameStage.currentStage.name == 'anna_class':
+		if dialogueKey == 'ROUTE_2':
+			return ['ANNA_CLASS9','ANNA_CLASS10']
+		elif dialogueKey == 'ROUTE_3':
+			return ['ANNA_CLASS11']
+		elif dialogueKey == 'ROUTE_5':
+			return ['ANNA_CLASS12']
+		elif dialogueKey == 'ROUTE_6':
+			return ['ANNA_CLASS13', 'ANNA_CLASS37']
+		elif dialogueKey == 'ROUTE_7':
+			return ['ANNA_CLASS14', 'ANNA_CLASS15']
+		elif dialogueKey == 'ROUTE_8':
+			return ['ANNA_CLASS38', 'ANNA_CLASS39']
+		elif dialogueKey == 'ROUTE_9':
+			return ['ANNA_CLASS36']
+		elif dialogueKey == 'ROUTE_10':
+			return ['ANNA_CLASS16','ANNA_CLASS17']
+		elif dialogueKey == 'ROUTE_11':
+			return ['ANNA_CLASS18','ANNA_CLASS19','ANNA_CLASS20','ANNA_CLASS21','ANNA_CLASS22']
+		elif dialogueKey == 'ROUTE_12':
+			return ['ANNA_CLASS23','ANNA_CLASS24','ANNA_CLASS25']
+		elif dialogueKey == 'ROUTE_13':
+			return ['ANNA_CLASS26','ANNA_CLASS27','ANNA_CLASS28','ANNA_CLASS29','ANNA_CLASS30','ANNA_CLASS31','ANNA_CLASS32','ANNA_CLASS33','ANNA_CLASS34','ANNA_CLASS35']
+	else:
+		return []

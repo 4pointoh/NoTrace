@@ -1,15 +1,26 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=3 format=3 uid="uid://ryxv8rhblqie"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://ryxv8rhblqie"]
 
 [ext_resource type="Resource" uid="uid://g7iu5700rf7a" path="res://data/game_stages/phone_message/anna_class_phone/d_anna_class_phone.tres" id="1_0e860"]
+[ext_resource type="Texture2D" uid="uid://buvcu733sur8r" path="res://data/characters/anna/phone_icons/default.png" id="1_c55uv"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_q7l0q"]
+[ext_resource type="Script" uid="uid://ldshq2bsn3ij" path="res://data/game_stages/phone_message/anna_class_phone/AnnaClassPhoneScript.gd" id="3_o8h35"]
+[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="5_0fsq7"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_j81wa"]
+
+[sub_resource type="Resource" id="Resource_4kd1c"]
+script = ExtResource("6_j81wa")
+name = "f"
+images = ExtResource("5_0fsq7")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
 script = ExtResource("2_q7l0q")
 name = "anna_class_phone"
-displayName = ""
+displayName = "Anna - Day At CSU"
 dialogue = ExtResource("1_0e860")
 dialogueStartKey = "START"
-isCompletable = false
+isCompletable = true
+startingBackground = SubResource("Resource_4kd1c")
 startTransitionText = ""
 startTransition = 0
 endTransitionText = ""
@@ -23,6 +34,7 @@ unlockWallpapersOnSceneEnd = Array[String]([])
 cacheItems = Array[String]([])
 repositionDialogueBoxTo = 0
 endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
 isPokerMatch = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
@@ -43,7 +55,9 @@ proPlusCheats = 0
 proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = true
-contactName = "REPLACEME"
+phoneScript = ExtResource("3_o8h35")
+contactName = "Anna"
+contactImage = ExtResource("1_c55uv")
 randomMusic = Array[AudioStream]([])
 musicList = Array[AudioStream]([])
 delayMusicToTransition = false
