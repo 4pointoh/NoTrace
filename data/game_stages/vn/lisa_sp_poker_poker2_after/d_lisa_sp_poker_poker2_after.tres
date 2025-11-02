@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dkxbnm206dxth"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_jnibc"]
+
+[resource]
+script = ExtResource("1_jnibc")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-77, 238.5),
+"start_id": "START"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Yeet3",
+"offset": Vector2(480, 140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 657),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/lisa_sp_poker_poker2_after/characters.tres"
+backgroundList = "res://data/game_stages/vn/lisa_sp_poker_poker2_after/bgs.tres"

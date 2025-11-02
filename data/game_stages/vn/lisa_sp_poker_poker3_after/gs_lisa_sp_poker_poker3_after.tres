@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://jbjs1qxnkmlc"]
+
+[ext_resource type="Resource" uid="uid://lk6ajao3tlie" path="res://data/game_stages/vn/lisa_sp_poker_poker3_after/d_lisa_sp_poker_poker3_after.tres" id="1_b786f"]
+[ext_resource type="Script" uid="uid://g5x3qfvwak7b" path="res://data/game_stages/vn/lisa_sp_poker_poker3_after/LisaPokerChoices.gd" id="1_ma07s"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_3iuve"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_pqfi6"]
+[ext_resource type="Texture2D" uid="uid://dcsl8vp3xrbgq" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0120.webp" id="4_ma07s"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_kh4h3"]
+
+[sub_resource type="Resource" id="Resource_e3rbp"]
+script = ExtResource("5_kh4h3")
+name = "f"
+images = ExtResource("4_ma07s")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_pqfi6")
+name = "lisa_sp_poker_poker3_after"
+displayName = "Lisa Poker 3 After"
+dialogue = ExtResource("1_b786f")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_3iuve")
+isCompletable = true
+startingBackground = SubResource("Resource_e3rbp")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 2
+endOnlyOnSpecificDialogueKey = true
+endingDialogueKeys = Array[String](["ROUTE_1", "ROUTE_3", "ROUTE_5", "ROUTE_1_Q1_A1", "ROUTE_1_Q1_A2", "ROUTE_1_Q1_A3", "ROUTE_1_Q2_A1", "ROUTE_1_Q2_A2"])
+choicesScript = ExtResource("1_ma07s")
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

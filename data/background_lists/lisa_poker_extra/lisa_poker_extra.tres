@@ -1,0 +1,243 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=81 format=3 uid="uid://thws6fgu0do2"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_eeaoy"]
+[ext_resource type="Texture2D" uid="uid://torgfbbo7y4p" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0001.webp" id="2_h44dk"]
+[ext_resource type="Texture2D" uid="uid://btkdwia32ftr1" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0002.webp" id="3_2ao2m"]
+[ext_resource type="Texture2D" uid="uid://rn5y0j56t2hj" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0003.webp" id="4_si2be"]
+[ext_resource type="Texture2D" uid="uid://coc6sg6fq0de4" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0004.webp" id="5_tslm2"]
+[ext_resource type="Texture2D" uid="uid://kycg5wm2rk7i" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0005.webp" id="6_k50et"]
+[ext_resource type="Texture2D" uid="uid://dv63vhoopbra7" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0006.webp" id="7_idcub"]
+[ext_resource type="Texture2D" uid="uid://thwvdi4v7tt0" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0007.webp" id="8_71ryg"]
+[ext_resource type="Texture2D" uid="uid://cyep0w6mmypif" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0008.webp" id="9_r4ak8"]
+[ext_resource type="Texture2D" uid="uid://bmvtdhkddbl8f" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0009.webp" id="10_y6w53"]
+[ext_resource type="Texture2D" uid="uid://cxav8oe8vwtwi" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0010.webp" id="11_f070d"]
+[ext_resource type="Texture2D" uid="uid://dcn1icrlbinfn" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0011.webp" id="12_viio3"]
+[ext_resource type="Texture2D" uid="uid://35j356jc8hc" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0012.webp" id="13_bkvw7"]
+[ext_resource type="Texture2D" uid="uid://dvimxoljwt7hy" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0013.webp" id="14_axhnp"]
+[ext_resource type="Texture2D" uid="uid://bs5p0m4te12of" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0014.webp" id="15_kidq2"]
+[ext_resource type="Texture2D" uid="uid://xs8hajtbq1t3" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0015.webp" id="16_2vgmv"]
+[ext_resource type="Texture2D" uid="uid://cbhhyhnnmjnk6" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0016.webp" id="17_u5g0s"]
+[ext_resource type="Texture2D" uid="uid://baulwfdadokx0" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0017.webp" id="18_27obi"]
+[ext_resource type="Texture2D" uid="uid://b5is5lgx4ig6s" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0018.webp" id="19_12b81"]
+[ext_resource type="Texture2D" uid="uid://c3n2egs5lnsmx" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0019.webp" id="20_hflq8"]
+[ext_resource type="Texture2D" uid="uid://cv7dcvdblhrq4" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0020.webp" id="21_5i8ii"]
+[ext_resource type="Texture2D" uid="uid://b354j8ns5xc5e" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0021.webp" id="22_a3yoa"]
+[ext_resource type="Texture2D" uid="uid://dhdqk1biqngud" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0022.webp" id="23_hoiaj"]
+[ext_resource type="Texture2D" uid="uid://cohb3ftxljti5" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0023.webp" id="24_ympri"]
+[ext_resource type="Texture2D" uid="uid://bpant2vcwrvwa" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0024.webp" id="25_mh7ih"]
+[ext_resource type="Texture2D" uid="uid://dn33x23k4b1rj" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0025.webp" id="26_kki28"]
+[ext_resource type="Texture2D" uid="uid://caq18bywtkoxm" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0026.webp" id="27_xba1x"]
+[ext_resource type="Texture2D" uid="uid://djw3raa7h55ey" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0027.webp" id="28_x0tb7"]
+[ext_resource type="Texture2D" uid="uid://b378hmptnm624" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0028.webp" id="29_0agf5"]
+[ext_resource type="Texture2D" uid="uid://b1if01xgpifx1" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0029.webp" id="30_lldn2"]
+[ext_resource type="Texture2D" uid="uid://chajjrmq1seas" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0030.webp" id="31_vdyix"]
+[ext_resource type="Texture2D" uid="uid://b4bh216gsp45i" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0031.webp" id="32_eqs7p"]
+[ext_resource type="Texture2D" uid="uid://ccxmmceq3b4ek" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0032.webp" id="33_b8usm"]
+[ext_resource type="Texture2D" uid="uid://bdccwcgwwcfd" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0033.webp" id="34_ssqjm"]
+[ext_resource type="Texture2D" uid="uid://bo1fde2jeqvix" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0034.webp" id="35_nkhcb"]
+[ext_resource type="Texture2D" uid="uid://dkirev0q2uldv" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0035.webp" id="36_myujk"]
+[ext_resource type="Texture2D" uid="uid://dh8wmtidsqehg" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0036.webp" id="37_8xjcu"]
+[ext_resource type="Texture2D" uid="uid://ccqpsnf3m06tf" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0037.webp" id="38_xjkbx"]
+[ext_resource type="Texture2D" uid="uid://db23endfbjebm" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0038.webp" id="39_oe7fx"]
+[ext_resource type="Texture2D" uid="uid://dlb5tyrr1e1wn" path="res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0039.webp" id="40_g8h8s"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="41_0v3p2"]
+
+[sub_resource type="Resource" id="Resource_lhs2u"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0001.webp"
+images = ExtResource("2_h44dk")
+
+[sub_resource type="Resource" id="Resource_lvntw"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0002.webp"
+images = ExtResource("3_2ao2m")
+
+[sub_resource type="Resource" id="Resource_hss6h"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0003.webp"
+images = ExtResource("4_si2be")
+
+[sub_resource type="Resource" id="Resource_w2lt1"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0004.webp"
+images = ExtResource("5_tslm2")
+
+[sub_resource type="Resource" id="Resource_18yke"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0005.webp"
+images = ExtResource("6_k50et")
+
+[sub_resource type="Resource" id="Resource_uy8rp"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0006.webp"
+images = ExtResource("7_idcub")
+
+[sub_resource type="Resource" id="Resource_x0qgy"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0007.webp"
+images = ExtResource("8_71ryg")
+
+[sub_resource type="Resource" id="Resource_3pler"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0008.webp"
+images = ExtResource("9_r4ak8")
+
+[sub_resource type="Resource" id="Resource_nnoeq"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0009.webp"
+images = ExtResource("10_y6w53")
+
+[sub_resource type="Resource" id="Resource_uhfgd"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0010.webp"
+images = ExtResource("11_f070d")
+
+[sub_resource type="Resource" id="Resource_gf2sk"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0011.webp"
+images = ExtResource("12_viio3")
+
+[sub_resource type="Resource" id="Resource_voax2"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0012.webp"
+images = ExtResource("13_bkvw7")
+
+[sub_resource type="Resource" id="Resource_qe4fn"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0013.webp"
+images = ExtResource("14_axhnp")
+
+[sub_resource type="Resource" id="Resource_mla8q"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0014.webp"
+images = ExtResource("15_kidq2")
+
+[sub_resource type="Resource" id="Resource_uya5t"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0015.webp"
+images = ExtResource("16_2vgmv")
+
+[sub_resource type="Resource" id="Resource_s8nwp"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0016.webp"
+images = ExtResource("17_u5g0s")
+
+[sub_resource type="Resource" id="Resource_7yv10"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0017.webp"
+images = ExtResource("18_27obi")
+
+[sub_resource type="Resource" id="Resource_ercuq"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0018.webp"
+images = ExtResource("19_12b81")
+
+[sub_resource type="Resource" id="Resource_yabq2"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0019.webp"
+images = ExtResource("20_hflq8")
+
+[sub_resource type="Resource" id="Resource_bgi27"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0020.webp"
+images = ExtResource("21_5i8ii")
+
+[sub_resource type="Resource" id="Resource_5566p"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0021.webp"
+images = ExtResource("22_a3yoa")
+
+[sub_resource type="Resource" id="Resource_io6ci"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0022.webp"
+images = ExtResource("23_hoiaj")
+
+[sub_resource type="Resource" id="Resource_0x2ii"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0023.webp"
+images = ExtResource("24_ympri")
+
+[sub_resource type="Resource" id="Resource_bukk7"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0024.webp"
+images = ExtResource("25_mh7ih")
+
+[sub_resource type="Resource" id="Resource_r2ipk"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0025.webp"
+images = ExtResource("26_kki28")
+
+[sub_resource type="Resource" id="Resource_0h74b"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0026.webp"
+images = ExtResource("27_xba1x")
+
+[sub_resource type="Resource" id="Resource_xdl3g"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0027.webp"
+images = ExtResource("28_x0tb7")
+
+[sub_resource type="Resource" id="Resource_6sv8s"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0028.webp"
+images = ExtResource("29_0agf5")
+
+[sub_resource type="Resource" id="Resource_l30og"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0029.webp"
+images = ExtResource("30_lldn2")
+
+[sub_resource type="Resource" id="Resource_kew0l"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0030.webp"
+images = ExtResource("31_vdyix")
+
+[sub_resource type="Resource" id="Resource_68xpn"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0031.webp"
+images = ExtResource("32_eqs7p")
+
+[sub_resource type="Resource" id="Resource_3ian3"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0032.webp"
+images = ExtResource("33_b8usm")
+
+[sub_resource type="Resource" id="Resource_d3vyv"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0033.webp"
+images = ExtResource("34_ssqjm")
+
+[sub_resource type="Resource" id="Resource_d0dho"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0034.webp"
+images = ExtResource("35_nkhcb")
+
+[sub_resource type="Resource" id="Resource_y6c5s"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0035.webp"
+images = ExtResource("36_myujk")
+
+[sub_resource type="Resource" id="Resource_fog17"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0036.webp"
+images = ExtResource("37_8xjcu")
+
+[sub_resource type="Resource" id="Resource_ncfaw"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0037.webp"
+images = ExtResource("38_xjkbx")
+
+[sub_resource type="Resource" id="Resource_qk18u"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0038.webp"
+images = ExtResource("39_oe7fx")
+
+[sub_resource type="Resource" id="Resource_eccus"]
+script = ExtResource("1_eeaoy")
+name = "lisa_sp_extra_0039.webp"
+images = ExtResource("40_g8h8s")
+
+[resource]
+script = ExtResource("41_0v3p2")
+name = "lisa_poker_extra"
+images = Array[ExtResource("1_eeaoy")]([SubResource("Resource_lhs2u"), SubResource("Resource_lvntw"), SubResource("Resource_hss6h"), SubResource("Resource_w2lt1"), SubResource("Resource_18yke"), SubResource("Resource_uy8rp"), SubResource("Resource_x0qgy"), SubResource("Resource_3pler"), SubResource("Resource_nnoeq"), SubResource("Resource_uhfgd"), SubResource("Resource_gf2sk"), SubResource("Resource_voax2"), SubResource("Resource_qe4fn"), SubResource("Resource_mla8q"), SubResource("Resource_uya5t"), SubResource("Resource_s8nwp"), SubResource("Resource_7yv10"), SubResource("Resource_ercuq"), SubResource("Resource_yabq2"), SubResource("Resource_bgi27"), SubResource("Resource_5566p"), SubResource("Resource_io6ci"), SubResource("Resource_0x2ii"), SubResource("Resource_bukk7"), SubResource("Resource_r2ipk"), SubResource("Resource_0h74b"), SubResource("Resource_xdl3g"), SubResource("Resource_6sv8s"), SubResource("Resource_l30og"), SubResource("Resource_kew0l"), SubResource("Resource_68xpn"), SubResource("Resource_3ian3"), SubResource("Resource_d3vyv"), SubResource("Resource_d0dho"), SubResource("Resource_y6c5s"), SubResource("Resource_fog17"), SubResource("Resource_ncfaw"), SubResource("Resource_qk18u"), SubResource("Resource_eccus")])

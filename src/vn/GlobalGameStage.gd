@@ -212,9 +212,12 @@ func getAvailableMessages():
 
 	if completedStages.has('ashely_bar_poker_message_after'):
 		addMessage(Flags.LISA_BEACH_BEFORE_MESSAGE)
-	
-	if completedStages.has('lisa_beach_night') or completedStages.has('lisa_beach_early_departure'):
+
+	if completedStages.has('lisa_beach_intro') and completedStages.has('anna_burger_after_date'):
 		addMessage(Flags.ANNA_CLASS_MESSAGE)
+	
+	if completedStages.has('anna_class'):
+		addMessage(Flags.LISA_SP_PHONE)
 
 	return availableMessages
 
@@ -247,6 +250,8 @@ func getCompletedMessages():
 		availableMessages.append(Flags.LISA_BEACH_BEFORE_MESSAGE)
 	if completedStages.has(Flags.ANNA_CLASS_MESSAGE.name):
 		availableMessages.append(Flags.ANNA_CLASS_MESSAGE)
+	if completedStages.has(Flags.LISA_SP_PHONE.name):
+		availableMessages.append(Flags.LISA_SP_PHONE)
 
 	return availableMessages
 
@@ -280,6 +285,9 @@ func getAvailableSelectableEvents():
 
 	if completedStages.has('anna_class_phone'):
 		addSelectableEvent(Flags.ANNA_CLASS)
+	
+	if completedStages.has('lisa_sp_poker_phone'):
+		addSelectableEvent(Flags.LISA_SP_INTRO)
 	
 	return availableSelectableEvents
 
@@ -754,7 +762,7 @@ func getMusicAtIndex(index):
 	return currentStage.musicList[index]
 
 func isLastEventInThisUpdate(stage: GameStage):
-	var lastEvent = "res://data/game_stages/vn/anna_class/gs_anna_class.tres"
+	var lastEvent = "res://data/game_stages/vn/lisa_sp_poker_intro/gs_lisa_sp_poker_intro.tres"
 
 	if stage.resource_path == lastEvent:
 		return true

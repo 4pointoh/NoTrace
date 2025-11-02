@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://bpr08dvmger73"]
+
+[ext_resource type="Texture2D" uid="uid://bsl2inunmpj7p" path="res://data/characters/lisa/lisa_sp_one/face.png" id="1_4niic"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_mgq55"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_i3o3r"]
+
+[resource]
+script = ExtResource("2_mgq55")
+name = "Lisa"
+editorName = "lisa_sp_one"
+image = ExtResource("1_4niic")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("3_i3o3r")]([])

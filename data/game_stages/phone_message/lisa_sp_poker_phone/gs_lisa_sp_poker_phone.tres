@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://yevidu10g3kl"]
+
+[ext_resource type="Resource" uid="uid://dbkernuxr4l1l" path="res://data/game_stages/phone_message/lisa_sp_poker_phone/d_lisa_sp_poker_phone.tres" id="1_qrl2k"]
+[ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_rs612"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_rfs3o"]
+[ext_resource type="Script" uid="uid://cu6vy2sdlvb85" path="res://data/game_stages/phone_message/lisa_sp_poker_phone/LisaSPPhone.gd" id="3_57n3h"]
+[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="5_efn82"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_8r7nn"]
+
+[sub_resource type="Resource" id="Resource_xcjod"]
+script = ExtResource("6_8r7nn")
+name = "jjd"
+images = ExtResource("5_efn82")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_rfs3o")
+name = "lisa_sp_poker_phone"
+displayName = "Lisa - Poker Phone"
+dialogue = ExtResource("1_qrl2k")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_xcjod")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_57n3h")
+contactName = "Lisa"
+contactImage = ExtResource("1_rs612")
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

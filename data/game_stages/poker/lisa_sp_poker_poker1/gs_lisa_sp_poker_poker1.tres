@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://cv7dfbcshbimt"]
+
+[ext_resource type="Resource" uid="uid://dbcl8bh4l51r" path="res://data/game_stages/poker/lisa_sp_poker_poker1/d_lisa_sp_poker_poker1.tres" id="1_8d8mv"]
+[ext_resource type="Resource" uid="uid://cimglmax4gxww" path="res://data/game_stages/vn/lisa_sp_poker_poker1_after/gs_lisa_sp_poker_poker1_after.tres" id="2_151xo"]
+[ext_resource type="Script" uid="uid://c4orhr0wissum" path="res://data/game_stages/poker/lisa_sp_poker_poker1/lisa_sp_poker_poker1_poker_script.gd" id="2_y4wsu"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_6gwft"]
+[ext_resource type="Texture2D" uid="uid://cc87w2u8w8ywf" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0007.webp" id="5_g7vm7"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_44rbu"]
+[ext_resource type="AudioStream" uid="uid://db1f0m0awkp6" path="res://data/assets/general/sounds/bg_music/Untitled (Edit).mp3" id="7_g7vm7"]
+
+[sub_resource type="Resource" id="Resource_cv2ur"]
+script = ExtResource("6_44rbu")
+name = "ddd"
+images = ExtResource("5_g7vm7")
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("3_6gwft")
+name = "lisa_sp_poker_poker1"
+displayName = "Lisa Strip Poker 1"
+dialogue = ExtResource("1_8d8mv")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_151xo")
+isCompletable = true
+startingBackground = SubResource("Resource_cv2ur")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = true
+playerStartingMoney = 200
+cpuStartingMoney = 200
+startingAnte = 20
+opponentName = "Lisa"
+opponentNamePlural = false
+maxRaise = 40
+pokerType = 0
+cheatCount = 0
+playerLives = 10
+cpuLives = 10
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([9, 6, 3])
+cpuLivesWithEvents = Array[int]([9, 6, 4])
+allowProPlus = true
+allowProPlusMax = false
+proPlusCheats = 10
+proPlusMaxCheats = 0
+pokerScript = ExtResource("2_y4wsu")
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+startingMusic = ExtResource("7_g7vm7")
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

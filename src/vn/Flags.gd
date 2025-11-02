@@ -13,6 +13,7 @@ var ASHELY_BAR_POKER_BEFORE = load("res://data/game_stages/phone_message/ashely_
 var ANNA_PHONE_MESSAGE_LYRIC = load("res://data/game_stages/phone_message/anna_phone_message_lyric/gs_anna_phone_message_lyric.tres")
 var LISA_BEACH_BEFORE_MESSAGE = load("res://data/game_stages/phone_message/lisa_beach_message/gs_lisa_beach_message.tres")
 var ANNA_CLASS_MESSAGE = load("res://data/game_stages/phone_message/anna_class_phone/gs_anna_class_phone.tres")
+var LISA_SP_PHONE = load("res://data/game_stages/phone_message/lisa_sp_poker_phone/gs_lisa_sp_poker_phone.tres")
 
 #selectable events 
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")
@@ -25,3 +26,4 @@ var ANNA_BURGER = load("res://data/game_stages/vn/anna_burger_before_date/gs_ann
 var ASHELY_POKER = load("res://data/game_stages/vn/ashely_bar_before_poker/gs_ashely_bar_before_poker.tres")
 var LISA_BEACH_BEFORE = load("res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres")
 var ANNA_CLASS = load("res://data/game_stages/vn/anna_class/gs_anna_class.tres")
+var LISA_SP_INTRO = load("res://data/game_stages/vn/lisa_sp_poker_intro/gs_lisa_sp_poker_intro.tres")

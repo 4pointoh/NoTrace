@@ -48,8 +48,7 @@ enum DboxPosition{
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
 	
-	# if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft():
-	if enableQuickSkip:
+	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft():
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()

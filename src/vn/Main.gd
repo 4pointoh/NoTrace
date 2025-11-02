@@ -358,6 +358,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"music_whimsical": playMusicWhimsical()
 		"music_neon_lights": playMusicNeonLights()
 		"stop_music": $AudioStreamPlayer2D.stop()
+		"fade_out_music": fadeOutMusic()
 		"next_music_track": playNextMusicTrack()
 		"next_sound": playNextSoundEffect()
 		"walk_on": $CharacterManager.walkOnNext()
@@ -371,6 +372,16 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"end_unlock_sequence": endUnlockSequence()
 		"unlock_lisa_cat_convo": unlockLisaCatConvo()
 		"music_passion": playMusicPassion()
+	
+func fadeOutMusic():
+	var tween = create_tween()
+	tween.tween_property($AudioStreamPlayer2D, "volume_db", -80, 3).set_trans(Tween.TRANS_SINE)
+	tween.tween_callback(stopAndResetMusicVolume)
+	
+func stopAndResetMusicVolume():
+	$AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
+
 
 func videoPause():
 	isVideoPause = true

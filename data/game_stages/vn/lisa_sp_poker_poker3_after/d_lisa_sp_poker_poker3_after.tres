@@ -1,0 +1,257 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://lk6ajao3tlie"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_8smep"]
+
+[resource]
+script = ExtResource("1_8smep")
+starts = {
+"ROUTE_1": &"0_2",
+"ROUTE_1_Q1_A1": &"0_7",
+"ROUTE_1_Q1_A2": &"0_8",
+"ROUTE_1_Q1_A3": &"0_9",
+"ROUTE_1_Q2_A1": &"0_10",
+"ROUTE_1_Q2_A2": &"0_11",
+"ROUTE_2": &"0_3",
+"ROUTE_3": &"0_4",
+"ROUTE_4": &"0_5",
+"ROUTE_5": &"0_6",
+"START": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-4, 333.5),
+"start_id": "START"
+},
+&"0_10": {
+"link": &"1_10",
+"offset": Vector2(0, 7520),
+"start_id": "ROUTE_1_Q2_A1"
+},
+&"0_11": {
+"link": &"1_11",
+"offset": Vector2(-40, 8240),
+"start_id": "ROUTE_1_Q2_A2"
+},
+&"0_2": {
+"link": &"1_2",
+"offset": Vector2(-20, 980),
+"start_id": "ROUTE_1"
+},
+&"0_3": {
+"link": &"1_3",
+"offset": Vector2(-20, 1700),
+"start_id": "ROUTE_2"
+},
+&"0_4": {
+"link": &"1_4",
+"offset": Vector2(-40, 2480),
+"start_id": "ROUTE_3"
+},
+&"0_5": {
+"link": &"1_5",
+"offset": Vector2(0, 3240),
+"start_id": "ROUTE_4"
+},
+&"0_6": {
+"link": &"1_6",
+"offset": Vector2(-121.342, 4095.47),
+"start_id": "ROUTE_5"
+},
+&"0_7": {
+"link": &"1_7",
+"offset": Vector2(-165.342, 4957.12),
+"start_id": "ROUTE_1_Q1_A1"
+},
+&"0_8": {
+"link": &"1_8",
+"offset": Vector2(-80, 5800),
+"start_id": "ROUTE_1_Q1_A2"
+},
+&"0_9": {
+"link": &"1_9",
+"offset": Vector2(-20, 6560),
+"start_id": "ROUTE_1_Q1_A3"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "What do you want me to do? ",
+"offset": Vector2(560, 160),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 657),
+"speaker": 1
+},
+&"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You pick. ",
+"offset": Vector2(682.658, 7400.38),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You know where. ",
+"offset": Vector2(680, 8200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Drop your hands. ",
+"offset": Vector2(580, 980),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Let me touch you. ",
+"offset": Vector2(580, 1680),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Kiss me.",
+"offset": Vector2(580, 2460),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Touch me. ",
+"offset": Vector2(592.658, 3297.28),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nothing. You did great. ",
+"offset": Vector2(512.658, 4088.97),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your beast.",
+"offset": Vector2(500, 4940),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your butt. ",
+"offset": Vector2(570.658, 5717.03),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": 0
+},
+&"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Your...",
+"offset": Vector2(620, 6600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 606),
+"speaker": ""
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/lisa_sp_poker_poker3_after/characters.tres"
+backgroundList = "res://data/game_stages/vn/lisa_sp_poker_poker3_after/bgs.tres"
