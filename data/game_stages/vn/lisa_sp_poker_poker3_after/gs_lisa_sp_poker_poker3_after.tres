@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://jbjs1qxnkmlc"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://jbjs1qxnkmlc"]
 
 [ext_resource type="Resource" uid="uid://lk6ajao3tlie" path="res://data/game_stages/vn/lisa_sp_poker_poker3_after/d_lisa_sp_poker_poker3_after.tres" id="1_b786f"]
 [ext_resource type="Script" uid="uid://g5x3qfvwak7b" path="res://data/game_stages/vn/lisa_sp_poker_poker3_after/LisaPokerChoices.gd" id="1_ma07s"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_pqfi6"]
 [ext_resource type="Texture2D" uid="uid://dcsl8vp3xrbgq" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0120.webp" id="4_ma07s"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_kh4h3"]
+[ext_resource type="AudioStream" uid="uid://ejb8ql0nyxfh" path="res://data/assets/general/sounds/bg_music/new_new/new_new_new/Untitled(20) (Cover) (Edit).mp3" id="7_kh4h3"]
 
 [sub_resource type="Resource" id="Resource_e3rbp"]
 script = ExtResource("5_kh4h3")
@@ -58,6 +59,7 @@ proPlusMaxCheats = 0
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
+startingMusic = ExtResource("7_kh4h3")
 randomMusic = Array[AudioStream]([])
 musicList = Array[AudioStream]([])
 delayMusicToTransition = false

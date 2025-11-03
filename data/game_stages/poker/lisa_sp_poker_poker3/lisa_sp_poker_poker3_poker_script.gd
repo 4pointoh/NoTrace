@@ -7,16 +7,11 @@ static var shouldRestoreImageOnCompletion = false
 static var PLAYER_LOST_SHIRT = false
 static var PLAYER_LOST_PANTS = false
 static var PLAYER_LOST_UNDERWEAR = false
-static var PLAYER_LOST_EVERYTHING = false
 
-static var CPU_LOST_HAIRBAND = false
-static var CPU_LOST_JACKET = false
-static var CPU_LOST_SHIRT = false
-static var CPU_LOST_PANTS = false
+static var CPU_LOST_PRACTICE = false
+static var CPU_LOST_TOP = false
+static var CPU_LOST_SHORTS = false
 static var CPU_LOST_BRA = false
-static var CPU_LOST_EVERYTHING = false
-
-static var PANTS_OFF_ALT = false
 
 # Num of losses in a row
 static var playerLossesInARow = 0
@@ -63,13 +58,9 @@ static func reset_tracking_vars():
 	PLAYER_LOST_SHIRT = false
 	PLAYER_LOST_PANTS = false
 	PLAYER_LOST_UNDERWEAR = false
-	PLAYER_LOST_EVERYTHING = false
-	CPU_LOST_HAIRBAND = false
-	CPU_LOST_JACKET = false
-	CPU_LOST_SHIRT = false
-	CPU_LOST_PANTS = false
+	CPU_LOST_TOP = false
+	CPU_LOST_SHORTS = false
 	CPU_LOST_BRA = false
-	CPU_LOST_EVERYTHING = false
 	playerLossesInARow = 0
 	cpuLossesInARow = 0
 	playerTotalLosses = 0
@@ -130,216 +121,115 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 	elif cpuCurrentWinStreak > cpuHighestWinStreak:
 		cpuHighestWinStreak = cpuCurrentWinStreak
 
-	if _pokerInfo.cpuLives == 0:
-		CPU_LOST_EVERYTHING = true
-	elif _pokerInfo.cpuLives < 5:
+	if _pokerInfo.cpuLives < 6:
 		CPU_LOST_BRA = true
-	elif _pokerInfo.cpuLives < 8:
-		CPU_LOST_PANTS = true
 	elif _pokerInfo.cpuLives < 11:
-		CPU_LOST_SHIRT = true
-	elif _pokerInfo.cpuLives < 14:
-		CPU_LOST_JACKET = true
-	elif _pokerInfo.cpuLives < 17:
-		CPU_LOST_HAIRBAND = true
+		CPU_LOST_SHORTS = true
+	elif _pokerInfo.cpuLives < 16:
+		CPU_LOST_TOP = true
 
 	if _pokerInfo.playerLives == 0:
-		PLAYER_LOST_EVERYTHING = true
-	elif _pokerInfo.playerLives < 5:
 		PLAYER_LOST_UNDERWEAR = true
-	elif _pokerInfo.playerLives < 10:
+	elif _pokerInfo.playerLives < 9:
 		PLAYER_LOST_PANTS = true
-	elif _pokerInfo.playerLives < 15:
+	elif _pokerInfo.playerLives < 14:
 		PLAYER_LOST_SHIRT = true
 
 	# CORE EVENTS
 
-	if _pokerInfo.cpuLives == 16:
-		cpuMostRecentlyLostItem = 'HAIRBAND'
+	if _pokerInfo.cpuLives == 15:
+		cpuMostRecentlyLostItem = 'TOP'
 
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER1','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER2','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER3','',true)
+		# GlobalGameStage.unlockWallpaper('ASHELY_POKER1','',true)
+
+		if PLAYER_LOST_SHIRT or PLAYER_LOST_PANTS:
+			# She is about even
+			updateResult = getResultForDialogue('LISA_STRIP_TOP2', 'strip_top') # done
+		else:
+			# She is behind
+			updateResult = getResultForDialogue('LISA_STRIP_TOP3', 'strip_top') # done
+		
+	elif _pokerInfo.cpuLives == 10:
+		cpuMostRecentlyLostItem = 'SHORTS'
 
 		if PLAYER_LOST_PANTS:
 			# She is very far ahead
-			updateResult = getResultForDialogue('ASHE_STRIP_HAIRBAND_FAR_AHEAD', 'strip_hairband')
-		elif PLAYER_LOST_SHIRT:
+			updateResult = getResultForDialogue('LISA_STRIP_SHORTS1', 'strip_shorts') #done
+		#elif PLAYER_LOST_SHIRT:
 			# She is about even
-			updateResult = getResultForDialogue('ASHE_STRIP_HAIRBAND_EVEN', 'strip_hairband')
-		else:
+		#	updateResult = getResultForDialogue('LISA_STRIP_SHORTS2', 'strip_shorts') #lisa is losing shorts, player lost shirt
+		else: # includes player lost shirt
 			# She is behind
-			updateResult = getResultForDialogue('ASHE_STRIP_HAIRBAND_BEHIND', 'strip_hairband')
-		
-	elif _pokerInfo.cpuLives == 13:
-		cpuMostRecentlyLostItem = 'JACKET'
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER6','',true)
+			updateResult = getResultForDialogue('LISA_STRIP_SHORTS3', 'strip_shorts') #done
 
-		if PLAYER_LOST_UNDERWEAR:
-			# She is very far ahead
-			updateResult = getResultForDialogue('ASHE_STRIP_JACKET_FAR_AHEAD', 'strip_jacket')
-		elif PLAYER_LOST_PANTS or PLAYER_LOST_SHIRT:
-			# She is ahead
-			updateResult = getResultForDialogue('ASHE_STRIP_JACKET_AHEAD', 'strip_jacket')
-		else:
-			# She is behind
-			updateResult = getResultForDialogue('ASHE_STRIP_JACKET_BEHIND', 'strip_jacket')
-
-	elif _pokerInfo.cpuLives == 10:
-		cpuMostRecentlyLostItem = 'SHIRT'
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER7','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER8','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER9','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER10','',true)
-
-		if PLAYER_LOST_UNDERWEAR or PLAYER_LOST_PANTS or PLAYER_LOST_SHIRT:
-			# She is very far ahead
-			updateResult = getResultForDialogue('ASHE_STRIP_SHIRT_EVEN', 'strip_shirt')
-		else:
-			# She is behind, player still has shirt
-			updateResult = getResultForDialogue('ASHE_STRIP_SHIRT_BEHIND', 'strip_shirt')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER11','',true)
-		
-	elif _pokerInfo.cpuLives == 7:
-		cpuMostRecentlyLostItem = 'PANTS'
-
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER12','',true)
-
-		if PLAYER_LOST_UNDERWEAR:
-			# She is about even
-			updateResult = getResultForDialogue('ASHE_STRIP_PANTS_EVEN_2', 'strip_pants')
-		elif PLAYER_LOST_PANTS:
-			# She is about even
-			updateResult = getResultForDialogue('ASHE_STRIP_PANTS_EVEN', 'strip_pants')
-		else:
-			# She is behind
-			updateResult = getResultForDialogue('ASHE_STRIP_PANTS_FAR_BEHIND', 'strip_pants')
-		
-	elif _pokerInfo.cpuLives == 4:
+	elif _pokerInfo.cpuLives == 5:
 		cpuMostRecentlyLostItem = 'BRA'
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER4','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER20','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER21','',true)
-		GlobalGameStage.unlockWallpaper('ASHELY_POKER22','',true)
 
-		if PLAYER_LOST_UNDERWEAR or PLAYER_LOST_PANTS:
-			# She is ahead / not far behind
-			updateResult = getResultForDialogue('ASHE_STRIP_BRA_STILL_AHEAD', 'strip_bra')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER14','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER15','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER19','',true)
+		if PLAYER_LOST_PANTS:
+			# She is very far ahead
+			updateResult = getResultForDialogue('LISA_STRIP_BRA1', 'strip_bra') 
 		else:
-			# She is far behind
-			updateResult = getResultForDialogue('ASHE_STRIP_BRA_VERY_FAR_BEHIND', 'strip_bra')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER13','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER16','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER17','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER18','',true)
-		
-	elif _pokerInfo.cpuLives == 0:
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER5','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER23','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER24','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER25','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER26','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER27','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER28','',true)
-			updateResult = getResultForDialogue('ASHE_STRIP_ALL', 'strip_all')
-
+			# She is behind
+			updateResult = getResultForDialogue('LISA_STRIP_BRA3', 'strip_bra') 
 	
 	if updateResult.dialogueStartKey:
 		return updateResult
 	
-	shouldRestoreImageOnCompletion = true
+	#shouldRestoreImageOnCompletion = true
 
-	if _pokerInfo.playerLives == 14:
-		playerMostRecentlyLostItem = 'SHIRT'
+	# if _pokerInfo.playerLives == 13:
+	# 	playerMostRecentlyLostItem = 'SHIRT'
 
-		if CPU_LOST_BRA:
-			# player is very far ahead
-			updateResult = getResultForDialogue('PLAYER_STRIP_SHIRT_VERY_FAR_AHEAD', 'player_strip_shirt')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER30','',true)
-		elif CPU_LOST_PANTS:
-			# player is far ahead
-			updateResult = getResultForDialogue('PLAYER_STRIP_SHIRT_FAR_AHEAD', 'player_strip_shirt')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER29','',true)
-		elif CPU_LOST_SHIRT :
-			# player is ahead
-			updateResult = getResultForDialogue('PLAYER_STRIP_SHIRT_AHEAD', 'player_strip_shirt')
-		elif CPU_LOST_JACKET or CPU_LOST_HAIRBAND :
-			# player is about even
-			updateResult = getResultForDialogue('PLAYER_STRIP_SHIRT_EVEN', 'player_strip_shirt')
-		else:
-			# player is behind
-			updateResult = getResultForDialogue('PLAYER_STRIP_SHIRT_BEHIND', 'player_strip_shirt')
+	# 	if CPU_LOST_BRA:
+	# 		# player is behind
+	# 		updateResult = getResultForDialogue('P_STRIP_SHIRT3', 'player_strip_shirt') 
+	# 	elif CPU_LOST_SHORTS:
+	# 		# player is about even
+	# 		updateResult = getResultForDialogue('P_STRIP_SHIRT2', 'player_strip_shirt') 
+	# 	elif CPU_LOST_TOP:
+	# 		# player is very far ahead
+	# 		updateResult = getResultForDialogue('P_STRIP_SHIRT1', 'player_strip_shirt') 
+	# 	else:
+	# 		# player is way behind
+	# 		updateResult = getResultForDialogue('P_STRIP_SHIRT4', 'player_strip_shirt') 
 
-	elif _pokerInfo.playerLives == 9:
-		playerMostRecentlyLostItem = 'PANTS'
+	# elif _pokerInfo.playerLives == 8:
+	# 	playerMostRecentlyLostItem = 'PANTS'
 
-		if CPU_LOST_BRA:
-			# player is far ahead
-			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_NO_BRA', 'player_strip_pants')
-			PANTS_OFF_ALT = true
-		elif CPU_LOST_PANTS:
-			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_BRA', 'player_strip_pants')
-			PANTS_OFF_ALT = true
-		elif CPU_LOST_SHIRT:
-			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_PANTS', 'player_strip_pants')
-			PANTS_OFF_ALT = true
-		else:
-			# player slips when sitting
-			updateResult = getResultForDialogue('PLAYER_STRIP_PANTS_SLIP', 'player_strip_pants')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER33','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER34','',true)
+	# 	if CPU_LOST_BRA:
+	# 		# player is behind
+	# 		updateResult = getResultForDialogue('P_STRIP_PANTS3', 'player_strip_pants') 
+	# 	elif CPU_LOST_SHORTS:
+	# 		# player is about even
+	# 		updateResult = getResultForDialogue('P_STRIP_PANTS2', 'player_strip_pants') 
+	# 	elif CPU_LOST_TOP:
+	# 		# player is very far ahead
+	# 		updateResult = getResultForDialogue('P_STRIP_PANTS1', 'player_strip_pants') 
+	# 	else:
+	# 		# player is way behind
+	# 		updateResult = getResultForDialogue('P_STRIP_PANTS4', 'player_strip_pants') 
 
-		if PANTS_OFF_ALT:
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER31','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER32','',true)
-		
-	elif _pokerInfo.playerLives == 4:
-		playerMostRecentlyLostItem = 'UNDERWEAR'
-
-		updateResult = getResultForDialogue('PLAYER_STRIP_UNDERWEAR', 'player_strip_underwear')
-
-		# if CPU_LOST_BRA:
-		# 	# player is ahead
-		# 	updateResult = getResultForDialogue('PLAYER_STRIP_UNDERWEAR_STILL_AHEAD', 'player_strip_underwear')
-		# elif CPU_LOST_PANTS:
-		# 	# player is behind
-		# 	updateResult = getResultForDialogue('PLAYER_STRIP_UNDERWEAR_BEHIND', 'player_strip_underwear')
-		# elif CPU_LOST_SHIRT :
-		# 	# player is far behind
-		# 	updateResult = getResultForDialogue('PLAYER_STRIP_UNDERWEAR_FAR_BEHIND', 'player_strip_underwear')
-		# elif CPU_LOST_JACKET or CPU_LOST_HAIRBAND :
-		# 	# player is very far behind
-		# 	updateResult = getResultForDialogue('PLAYER_STRIP_UNDERWEAR_VERY_FAR_BEHIND', 'player_strip_underwear')
-		# else:
-		# 	# player is extremely far behind
-		# 	updateResult = getResultForDialogue('PLAYER_STRIP_UNDERWEAR_EXTREMELY_FAR_BEHIND', 'player_strip_underwear')
-		
-	elif _pokerInfo.playerLives == 0:
-		if CPU_LOST_BRA:
-			# player barely lost
-			updateResult = getResultForDialogue('PLAYER_STRIP_ALL_NO_BRA', 'player_strip_all')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER36','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER37','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER38','',true)
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER39','',true)
-		elif CPU_LOST_PANTS or CPU_LOST_SHIRT:
-			# player lost by a bit
-			updateResult = getResultForDialogue('PLAYER_STRIP_ALL_NO_PANTS', 'player_strip_all')
-		else:
-			# player lost by a lot
-			updateResult = getResultForDialogue('PLAYER_STRIP_ALL_SHIRT_ON', 'player_strip_all')
-			GlobalGameStage.unlockWallpaper('ASHELY_POKER35','',true)
+	# elif _pokerInfo.playerLives == 0:
+	# 	if CPU_LOST_BRA:
+	# 		# player is behind
+	# 		updateResult = getResultForDialogue('P_STRIP_ALL3', 'player_strip_all') 
+	# 	elif CPU_LOST_SHORTS:
+	# 		# player is about even
+	# 		updateResult = getResultForDialogue('P_STRIP_ALL2', 'player_strip_all') 
+	# 	elif CPU_LOST_TOP:
+	# 		# player is very far ahead
+	# 		updateResult = getResultForDialogue('P_STRIP_ALL1', 'player_strip_all') 
+	# 	else:
+	# 		# player is way behind
+	# 		updateResult = getResultForDialogue('P_STRIP_ALL4', 'player_strip_all') 
 
 	if updateResult.dialogueStartKey:
 		return updateResult
 
-	var ambientDialogue = getAmbientDialogue(_pokerInfo)
+	#var ambientDialogue = getAmbientDialogue(_pokerInfo)
 
-	if ambientDialogue.size() > 0:
-		updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
+	#if ambientDialogue.size() > 0:
+	#	updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
 
 	return updateResult
 
@@ -367,36 +257,10 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 			# Player: This is a close game
 			ambient_talks.append(['EARLY_CLOSE_GAME', 'early_close_game'])
 
-	if !hasSeen('where_is_guy') and !CPU_LOST_SHIRT:
-		if totalRounds > 10 and cpuLifeAdvantage > 3 :
-			# Player: Nervously -- is that guy going to come back or what?
-			ambient_talks.append(['WHERE_IS_GUY_NERVOUS', 'where_is_guy'])
-
-	if !hasSeen('you_seem_cold'):
-		if PLAYER_LOST_SHIRT and not CPU_LOST_SHIRT and randf() < 0.2:
-			# Ashe: You seem cold
-			ambient_talks.append(['ASHE_SAYS_YOU_SEEM_COLD', 'you_seem_cold'])
-
-	if !hasSeen('you_seem_cold_back') and hasSeen('you_seem_cold'):
-		if CPU_LOST_SHIRT and randf() < 0.5:
-			# Player: You thought I was cold? How do you like it?
-			ambient_talks.append(['YOU_SAY_YOU_SEEM_COLD_BACK', 'you_seem_cold_back'])
-
-	if !hasSeen('both_players_in_underwear'):
-		if PLAYER_LOST_PANTS and CPU_LOST_PANTS and not CPU_LOST_BRA:
-			# Player: I guess we are both in our underwear now
-			# Ashe: Don't act like your underpants are an equal sight to mine
-			ambient_talks.append(['BOTH_PLAYERS_IN_UNDERWEAR', 'both_players_in_underwear'])
-	
 	if !hasSeen('cpu_compliment') and !hasSeen('cpu_compliment_naked'):
 		if PLAYER_LOST_SHIRT and randf() < 0.2:
 			# Ashe: I have to admit, you don't look half bad without a shirt
 			ambient_talks.append(['CPU_COMPLIMENT', 'cpu_compliment'])
-
-	if !hasSeen('player_compliment'):
-		if CPU_LOST_PANTS and randf() < 0.1:
-			# Player: that's some fancy underwear... were you planning to show it off tonight?
-			ambient_talks.append(['PLAYER_COMPLIMENT', 'player_compliment'])
 	
 	if !hasSeen('big_cpu_advantage'):
 		if cpuLifeAdvantage > 9:
@@ -408,11 +272,6 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 			# Player: I guess we are both down to our last piece
 			ambient_talks.append(['BOTH_PLAYERS_LAST_LIFE', 'both_players_last_life'])
 
-	if !hasSeen('player_staring'):
-		if CPU_LOST_BRA and randf() < 0.2:
-			# Player: I can't help but stare at your bra
-			ambient_talks.append(['PLAYER_STARING_BRA', 'player_staring'])
-
 	if !hasSeen('player_final_life') and !hasSeen('cpu_final_life') and !hasSeen('both_players_last_life'):
 		if _pokerInfo.playerLives == 1 and not (_pokerInfo.playerLives == 1 and _pokerInfo.cpuLives == 1):
 			# Player: I guess this is my last life
@@ -422,21 +281,11 @@ static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
 		if totalRounds > 30 and playerLifeAdvantage < 2 and cpuLifeAdvantage < 2:
 			# Player: This is a long match and it's still close -- *** do something special fo this one
 			ambient_talks.append(['LONG_MATCH', 'long_match'])
-	
-	if !hasSeen('guy_knocks'):
-		if totalRounds > 20 and CPU_LOST_SHIRT:
-			# Player: is that guy knocking on the door?
-			ambient_talks.append(['GUY_KNOCKS', 'guy_knocks'])
 
 	if !hasSeen('cpu_accuses_player_of_letting_win'):
 		if cpuLifeAdvantage > 15:
 			# Ashe: You know, I think you're letting me win because you think you'll get some action when you're naked
 			ambient_talks.append(['CPU_ACCUSE_LETTING_WIN', 'cpu_accuses_player_of_letting_win'])
-
-	if !hasSeen('player_excuses'):
-		if PANTS_OFF_ALT and PLAYER_LOST_PANTS and randf() < 0.2:
-			# Ashely: So you really werent hard?
-			ambient_talks.append(['REALLY_WERENT_HARD', 'player_excuses'])
 
 	if !hasSeen('player_poker_strategy'):
 		if cpuCurrentWinStreak > 5 and cpuLifeAdvantage > 5:

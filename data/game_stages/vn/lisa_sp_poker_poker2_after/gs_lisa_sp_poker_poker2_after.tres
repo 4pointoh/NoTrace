@@ -3,13 +3,13 @@
 [ext_resource type="Resource" uid="uid://dkxbnm206dxth" path="res://data/game_stages/vn/lisa_sp_poker_poker2_after/d_lisa_sp_poker_poker2_after.tres" id="1_b6xms"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_d0xup"]
 [ext_resource type="Resource" uid="uid://c1sraarguswyw" path="res://data/game_stages/poker/lisa_sp_poker_poker3/gs_lisa_sp_poker_poker3.tres" id="2_x40ap"]
-[ext_resource type="Texture2D" uid="uid://dnllyctl1s7ie" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0048.webp" id="4_x02vl"]
+[ext_resource type="Texture2D" uid="uid://bwnw267erpavs" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0046.webp" id="4_x40ap"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_bfpdb"]
 
 [sub_resource type="Resource" id="Resource_usplh"]
 script = ExtResource("5_bfpdb")
 name = "0048"
-images = ExtResource("4_x02vl")
+images = ExtResource("4_x40ap")
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]

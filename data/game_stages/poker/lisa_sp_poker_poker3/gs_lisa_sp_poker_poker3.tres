@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://c1sraarguswyw"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://c1sraarguswyw"]
 
 [ext_resource type="Resource" uid="uid://etenmhmikhnl" path="res://data/game_stages/poker/lisa_sp_poker_poker3/d_lisa_sp_poker_poker3.tres" id="1_mcess"]
 [ext_resource type="Resource" uid="uid://jbjs1qxnkmlc" path="res://data/game_stages/vn/lisa_sp_poker_poker3_after/gs_lisa_sp_poker_poker3_after.tres" id="2_1akr3"]
 [ext_resource type="Script" uid="uid://bacuxfi3ds6va" path="res://data/game_stages/poker/lisa_sp_poker_poker3/lisa_sp_poker_poker3_poker_script.gd" id="2_o6tel"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_4deou"]
-[ext_resource type="Texture2D" uid="uid://cglncfesypesr" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0077.webp" id="5_mu0sk"]
+[ext_resource type="AudioStream" uid="uid://c67t4nm4fejhl" path="res://data/assets/general/sounds/bg_music/new_new/new_new_new/Untitled(20) (Cover).mp3" id="4_os338"]
+[ext_resource type="Texture2D" uid="uid://bpb31wpqv80yn" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0052.webp" id="5_1akr3"]
+[ext_resource type="AudioStream" uid="uid://clypwi373yxdm" path="res://data/assets/general/sounds/bg_music/new_new/new_new_new/Untitled(20) (Cover)(1).mp3" id="5_d4nvu"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_os338"]
 
 [sub_resource type="Resource" id="Resource_d4nvu"]
 script = ExtResource("6_os338")
 name = "ddd"
-images = ExtResource("5_mu0sk")
+images = ExtResource("5_1akr3")
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
@@ -45,20 +47,21 @@ opponentNamePlural = false
 maxRaise = 40
 pokerType = 0
 cheatCount = 0
-playerLives = 1
-cpuLives = 1
+playerLives = 20
+cpuLives = 20
 cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([])
-cpuLivesWithEvents = Array[int]([])
-allowProPlus = false
+cpuLivesWithEvents = Array[int]([1, 6, 11, 16])
+allowProPlus = true
 allowProPlusMax = false
-proPlusCheats = 0
+proPlusCheats = 20
 proPlusMaxCheats = 0
 pokerScript = ExtResource("2_o6tel")
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""
-randomMusic = Array[AudioStream]([])
+startingMusic = ExtResource("4_os338")
+randomMusic = Array[AudioStream]([ExtResource("4_os338"), ExtResource("5_d4nvu")])
 musicList = Array[AudioStream]([])
 delayMusicToTransition = false
 soundEffectList = Array[AudioStream]([])
