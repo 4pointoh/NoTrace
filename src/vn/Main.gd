@@ -454,6 +454,7 @@ func enableInput():
 	inputDisabled = false
 
 func beginDialogue(startKey = null):
+	currentStageIsLoaded = false
 	if(startKey):
 		GlobalGameStage.setCurrentDialogueKey(startKey)
 	else:
@@ -572,6 +573,7 @@ func _on_dialogue_manager_dialogue_proceeded():
 		$CharacterManager.setCharacter($DialogueManager.currentCharacterState)
 	
 	if($DialogueManager.currentBackground):
+		GlobalGameStage.unlockWallpaper($DialogueManager.currentBackground.wallpaperId, '', true)
 		$Background.setBackground($DialogueManager.currentBackground)
 
 func _on_background_is_fading():
@@ -626,8 +628,7 @@ func _handle_bg_volume_change():
 	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 
 func _handle_save_loaded():
-	currentStageIsLoaded = true
-	onMainMenu = false
+	
 	
 	if is_instance_valid(currentPhone):
 		currentPhone.free()
@@ -642,7 +643,18 @@ func _handle_save_loaded():
 		currentRealDate.free()
 	
 	playBgMusic(load(GlobalGameStage.currentMusic))
-	$DialogueManager.stopDialogue()
+
+	if !onMainMenu:
+		$DialogueManager.stopDialogue()
+
+	currentStageIsLoaded = true
+	onMainMenu = false
+
+	GlobalGameStage.resetMusicAndSoundIndexes()
+	
+	inChoice = false
+	%ChoiceDisplay.hide()
+
 	$MainMenuContainer.visible = false
 	$DialogueManager.clearCurrentBg()
 	
@@ -687,10 +699,13 @@ func _on_scene_select_pressed():
 func _on_gallery_pressed():
 	print('hi2')
 
-func _on_scene_select_stage_selected(stage):
+func _on_scene_select_stage_selected(checkpoint):
 	currentSceneSelector.queue_free()
 	hideTitleStuff()
-	GlobalGameStage.setNextGameStage(stage)
+
+	#GlobalGameStage.setNextGameStage(stage)
+	GlobalGameStage.setNextCheckpoint(checkpoint)
+
 	advanceGameStage()
 
 func _on_scene_select_close():
@@ -728,7 +743,7 @@ func _on_prev_image_pressed() -> void:
 	var wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
 
 	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
-		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
+		$FullscreenImageBg/FullscreenImage.texture = load(wallpapers.wallpapers[fullscreenImageIndex].wallpaperImagePath)
 	else:
 		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
@@ -741,7 +756,7 @@ func _on_next_image_pressed() -> void:
 	fullscreenImageIndex = fullscreenImageIndex + 1
 
 	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
-		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
+		$FullscreenImageBg/FullscreenImage.texture = load(wallpapers.wallpapers[fullscreenImageIndex].wallpaperImagePath)
 	else:
 		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 

@@ -15,7 +15,7 @@ func _init():
 	GlobalGameStage.wallpaperChange.connect(setWallpaper)
 	
 func setup():
-	$PhoneBox/Wallpaper.texture = GlobalGameStage.currentWallpaper.image
+	$PhoneBox/Wallpaper.texture = load(GlobalGameStage.currentWallpaper.wallpaperImagePath)
 	show()
 	$AnimationPlayer.play("phone_up")
 	$PhoneBox/Back.visible = false
@@ -42,7 +42,7 @@ func setNotificationIcons():
 		$PhoneBox/NotificationIconEvents.visible = false
 
 func setWallpaper(wallaper):
-	$PhoneBox/Wallpaper.texture = wallaper.image
+	$PhoneBox/Wallpaper.texture = load(wallaper.wallpaperImagePath)
 
 func _on_messages_pressed():
 	playAppOpenSound()

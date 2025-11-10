@@ -1,13 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://weo0fevob14c"]
+[gd_scene load_steps=4 format=3 uid="uid://weo0fevob14c"]
 
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="1_jiedo"]
 [ext_resource type="Script" uid="uid://cxwaokc57spy7" path="res://src/vn/SceneButton.gd" id="1_yuftv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jiedo"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="SceneButton" type="Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+custom_minimum_size = Vector2(600, 150)
+anchors_preset = -1
+anchor_right = 0.67
+anchor_bottom = 0.103
+offset_right = -0.320007
+offset_bottom = 31.344
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_jiedo")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jiedo")
+text = "Checkpoint X
+[Click To Reveal Spoilers]"
 script = ExtResource("1_yuftv")
+
+[node name="MainText" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("1_jiedo")
+theme_override_font_sizes/font_size = 28
+text = "Poker With Ashely"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 59.0
+offset_right = 600.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("1_jiedo")
+theme_override_font_sizes/font_size = 20
+text = "So far you've met Lisa, Anna, and Ashely. 
+Lisa is practicing poker on her own after a long training session in the park. 
+Anna is still a mystery. 
+Ashely has invited you to face off against her first target. "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HeaderColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 18.0
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

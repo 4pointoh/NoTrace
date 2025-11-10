@@ -73,7 +73,7 @@ func setupWallpaperPage(pageNumber: int):
 
 		var unlocked = GlobalGameStage.unlockedWallpapers.has(curPaper.wallpaperId)
 		if unlocked:
-			newSelection.texture = curPaper.image
+			newSelection.texture = load(curPaper.wallpaperImagePath)
 			newSelection.unlocked = true
 		else:
 			newSelection.texture = wallpaperNotUnlockedImage
@@ -97,6 +97,24 @@ func _on_next_pressed():
 		
 	setupWallpaperPage(pageIndex)
 
+func _on_last_pressed() -> void:
+	if pageIndex > maxPages - 1:
+		return
+
+	pageIndex = maxPages
+	
+	$VideoStreamPlayer.hide()
+	
+	if pageIndex == maxPages:
+		$Next.disabled = true
+		$Last.disabled = true
+	
+	if pageIndex != 0:
+		$Previous.disabled = false
+		
+	setupWallpaperPage(pageIndex)
+
+
 func _on_previous_pressed():
 	pageIndex -= 1
 
@@ -107,6 +125,7 @@ func _on_previous_pressed():
 	
 	if pageIndex < maxPages:
 		$Next.disabled = false
+		$Last.disabled = false
 		
 	setupWallpaperPage(pageIndex)
 
@@ -127,7 +146,7 @@ func _on_wallpaper_selected(index: int):
 	GlobalGameStage.setCurrentWallpaper(wallpapers.wallpapers[index])
 
 func _on_wallpaper_viewed(index: int):
-	GlobalGameStage.setImageFullscreen(wallpapers.wallpapers[index].image, index)
+	GlobalGameStage.setImageFullscreen(load(wallpapers.wallpapers[index].wallpaperImagePath), index)
 
 func _on_hide_video_pressed() -> void:
 	$VideoStreamPlayer.stop()

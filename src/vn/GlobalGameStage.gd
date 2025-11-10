@@ -13,6 +13,7 @@ var completedStagesGLOBAL : Array[String]
 var completedStagesSOFT : Array[String]
 var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
+var newWallpapersSinceLastCheck : Array[String]
 var playerName : String
 var currentDialogueKey : String = ''
 
@@ -173,7 +174,17 @@ func softCompleteCurrentStage():
 
 func setNextGameStage(stage):
 	nextStage = stage
-	
+
+func setNextCheckpoint(checkpoint : Checkpoint):
+	nextStage = PHONE_STAGE
+	completedStages = []
+	playerName = 'Player'
+	for stageName in checkpoint.completedStages:
+		if !completedStages.has(stageName):
+			completedStages.append(stageName)
+
+	dateGirlsUnlocked = [CHARACTERS.ASHLEY, CHARACTERS.LISA, CHARACTERS.AMY, CHARACTERS.ANA]
+
 func setPhoneGameStage():
 	setNextGameStage(PHONE_STAGE)
 	advanceGameStage()
@@ -338,8 +349,11 @@ func hasCompletedStageGloballySoft():
 # Then the text id value is passed in here
 # Wallpapers in Dialogue scenes can be unlocked by emitting a signal & subscribing in DialogueManager
 func unlockWallpaper(wallpaperResourceId, customMessage = '', skipNotify = false):
+	if unlockedWallpapers.has(wallpaperResourceId):
+		return
+
+	newWallpapersSinceLastCheck.append(wallpaperResourceId)
 	unlockedWallpapers.append(wallpaperResourceId)
-	
 	var selectedWallpaper
 	for wallpaper in ALL_WALLPAPERS.wallpapers:
 		if wallpaper.wallpaperId == wallpaperResourceId:
@@ -349,11 +363,12 @@ func unlockWallpaper(wallpaperResourceId, customMessage = '', skipNotify = false
 		savePersistentData()
 		return
 
+	var wallpaperImage = load(selectedWallpaper.wallpaperImagePath)
 	if selectedWallpaper:
 		if(customMessage == ''):
-			notify.emit("Wallpaper Unlocked", selectedWallpaper.image)
+			notify.emit("Wallpaper Unlocked", wallpaperImage)
 		else:
-			notify.emit(customMessage, selectedWallpaper.image)
+			notify.emit(customMessage, wallpaperImage)
 	else:
 		printerr("Attempted to unlock wallpaper " + wallpaperResourceId + " but no resource matched this name")
 	
@@ -460,7 +475,7 @@ func loadSaveData(saveName):
 		if(saveVersion > 001):
 			playerName = file.get_var()
 		else:
-			playerName = 'Sam'
+			playerName = 'Hugh Janus'
 		
 		if(saveVersion > 003):
 			previousStage = load(file.get_var())
@@ -754,6 +769,10 @@ func getSoundEffectAtIndex(index):
 	if index < 0 or index >= currentStage.soundEffectList.size():
 		return null
 	return currentStage.soundEffectList[index]
+
+func resetMusicAndSoundIndexes():
+	currentStage.musicIndex = -1
+	currentStage.soundEffectIndex = -1
 
 # New helper to fetch a music track by index (mirrors getSoundEffectAtIndex)
 func getMusicAtIndex(index):

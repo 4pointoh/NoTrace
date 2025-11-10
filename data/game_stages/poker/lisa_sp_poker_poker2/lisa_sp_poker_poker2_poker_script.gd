@@ -155,6 +155,9 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 	elif _pokerInfo.cpuLives == 7:
 		cpuMostRecentlyLostItem = 'SHIRT'
 
+		GlobalGameStage.unlockWallpaper('LISA_SP_19','',true)
+		GlobalGameStage.unlockWallpaper('LISA_SP_20','',true)
+
 		if PLAYER_LOST_PANTS:
 			# She is very far ahead
 			updateResult = getResultForDialogue('LISA_STRIP_SHIRT1', 'strip_shirt') #done
@@ -167,6 +170,8 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 
 	elif _pokerInfo.cpuLives == 4:
 		cpuMostRecentlyLostItem = 'PANTS'
+
+		GlobalGameStage.unlockWallpaper('LISA_SP_48','',true)
 
 		if PLAYER_LOST_PANTS:
 			# She is very far ahead

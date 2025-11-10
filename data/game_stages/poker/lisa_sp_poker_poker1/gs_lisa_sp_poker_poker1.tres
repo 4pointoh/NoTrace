@@ -12,6 +12,7 @@
 script = ExtResource("6_44rbu")
 name = "ddd"
 images = ExtResource("5_g7vm7")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
@@ -52,9 +53,9 @@ cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([9, 6, 3])
 cpuLivesWithEvents = Array[int]([9, 6, 4])
 allowProPlus = true
-allowProPlusMax = false
+allowProPlusMax = true
 proPlusCheats = 1
-proPlusMaxCheats = 0
+proPlusMaxCheats = 5
 pokerScript = ExtResource("2_y4wsu")
 isPhoneScreen = false
 isPhoneMessageEvent = false
@@ -84,5 +85,5 @@ dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
 oneStarHints = Array[String]([])
-twoStarHints = Array[String]([])
+twoStarHints = Array[String](["You fall behind", "She falls behind"])
 threeStarHints = Array[String](["Win", "Lose"])

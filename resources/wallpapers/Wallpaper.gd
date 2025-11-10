@@ -5,3 +5,4 @@ class_name Wallpaper
 @export var image: Texture
 @export var hint : String
 @export var video: String
+@export var wallpaperImagePath : String

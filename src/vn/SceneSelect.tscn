@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://da8r3nxuuv3bn"]
+[gd_scene load_steps=5 format=3 uid="uid://da8r3nxuuv3bn"]
 
 [ext_resource type="Script" uid="uid://cn7eth5vrotan" path="res://src/vn/SceneSelect.gd" id="1_hyoyv"]
 [ext_resource type="PackedScene" uid="uid://weo0fevob14c" path="res://src/vn/SceneButton.tscn" id="2_47bw8"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_yeper"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yeper"]
+bg_color = Color(0.116127, 0.116127, 0.116127, 1)
 
 [node name="SceneSelect" type="Node2D"]
 script = ExtResource("1_hyoyv")
@@ -13,13 +17,14 @@ offset_left = 103.0
 offset_top = 22.0
 offset_right = 817.0
 offset_bottom = 1118.0
-color = Color(0.815686, 0.341176, 0.152941, 1)
+color = Color(0.0117647, 0.431373, 0.780392, 0.945098)
 
 [node name="Close" type="Button" parent="."]
 offset_left = 121.0
 offset_top = 33.0
 offset_right = 338.0
 offset_bottom = 75.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yeper")
 text = "Close"
 
 [node name="Label" type="Label" parent="."]
@@ -27,24 +32,33 @@ offset_left = 369.0
 offset_top = 33.0
 offset_right = 548.0
 offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_yeper")
 theme_override_font_sizes/font_size = 30
 text = "Select Scene"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 151.0
-offset_top = 87.0
+offset_top = 106.0
 offset_right = 781.0
-offset_bottom = 171.0
-text = "The Scene Selector is a beta feature for replaying specific scenes.
-Do NOT use it as a way to kickstart a new save, as there is a high likelihood it will glitch your save. Certain scenes in this list may crash the game or be buggy."
+offset_bottom = 195.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_yeper")
+theme_override_font_sizes/font_size = 25
+text = "This page allows you to start a new game from specific points in the story. 
+
+[After loading, remember to set your character's name in the Options menu]
+
+Click once to reveal the spoiler. Then click again to begin. "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 151.0
-offset_top = 215.0
-offset_right = 781.0
+offset_left = 162.0
+offset_top = 383.0
+offset_right = 792.0
 offset_bottom = 997.0
 horizontal_scroll_mode = 0
 

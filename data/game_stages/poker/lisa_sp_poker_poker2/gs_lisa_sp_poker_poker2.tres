@@ -13,6 +13,7 @@
 script = ExtResource("6_up80x")
 name = "ss"
 images = ExtResource("5_neig0")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
@@ -53,9 +54,9 @@ cpuRandomDiscardChance = 0
 playerLivesWithEvents = Array[int]([10, 5, 1])
 cpuLivesWithEvents = Array[int]([1, 5, 8, 12])
 allowProPlus = true
-allowProPlusMax = false
+allowProPlusMax = true
 proPlusCheats = 2
-proPlusMaxCheats = 0
+proPlusMaxCheats = 8
 pokerScript = ExtResource("2_rd0xg")
 isPhoneScreen = false
 isPhoneMessageEvent = false
@@ -85,5 +86,5 @@ dateTitle = ""
 dateBusinessButtonLabel = ""
 maxProgress = 0
 oneStarHints = Array[String]([])
-twoStarHints = Array[String]([])
-threeStarHints = Array[String]([])
+twoStarHints = Array[String](["Lose", "Lose by a lot"])
+threeStarHints = Array[String](["Win", "Lisa loses her shirt, she is far ahead", "Lisa loses her shirt, it's close", "Lisa loses pants, you've already lost yours", "Lisa loses pants, you haven't lost yours"])

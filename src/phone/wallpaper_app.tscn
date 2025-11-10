@@ -46,13 +46,24 @@ metadata/_edit_lock_ = true
 [node name="Next" type="Button" parent="."]
 offset_left = 637.0
 offset_top = 1008.0
-offset_right = 747.0
+offset_right = 691.0
 offset_bottom = 1058.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("4_b03ht")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_ojxim")
-text = "Next"
+text = ">"
+
+[node name="Last" type="Button" parent="."]
+offset_left = 696.0
+offset_top = 1008.0
+offset_right = 750.0
+offset_bottom = 1058.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_b03ht")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ojxim")
+text = ">>>"
 
 [node name="Previous" type="Button" parent="."]
 offset_left = 204.0
@@ -183,6 +194,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Last" to="." method="_on_last_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="HideVideo" to="." method="_on_hide_video_pressed"]

@@ -506,7 +506,7 @@ func group_partnerask_good_at_poker_choice1():
 func group_partnerask_good_at_poker_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	result.dialogueStartKey = 'only_saw_one_round'
 	return result
@@ -533,7 +533,7 @@ func group_partnerask_neverseen_choice1():
 func group_partnerask_neverseen_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'looked_hard_enough'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
@@ -541,7 +541,7 @@ func group_partnerask_neverseen_choice2():
 func group_partnerask_neverseen_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'different_places'
 	result.particleType = Heartsplosion.TYPES.SURPRISED
 	return result
@@ -558,7 +558,7 @@ func group_partnerask_high_stakes():
 func group_partnerask_high_stakes_choice1():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'crippling_debt'
 	return result
 
@@ -689,7 +689,7 @@ func group_chad_party_answer_choice1():
 func group_chad_party_answer_choice3():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'chad_i_do_his_homework'
 	result.particleType = Heartsplosion.TYPES.LAUGH
 	return result
@@ -732,7 +732,7 @@ func group_topic4():
 func group_topic4_fail():
 	var result = DateActionResult.new()
 	result.success = false 
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'relationships_fail'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
@@ -751,7 +751,7 @@ func group_are_you_single():
 func group_are_you_single_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.PISSED
 	result.dialogueStartKey = 'current_relationship_fail'
@@ -778,7 +778,7 @@ func group_partnerask_why_ask_choice1():
 func group_partnerask_why_ask_choice2():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.dialogueStartKey = 'have_a_shot_10'
 	result.addParticleRain = 'annoyed'
 	result.particleType = Heartsplosion.TYPES.LAUGH
@@ -798,7 +798,7 @@ func group_partnerask_why_ask_choice3():
 func group_have_a_shot():
 	var result = DateActionResult.new()
 	result.success = true
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'have_a_shot_success'
 	result.progressType = DateActionResult.DATE_PROGRESS_TYPE.LOVE
@@ -809,7 +809,7 @@ func group_have_a_shot():
 func group_have_a_shot_fail():
 	var result = DateActionResult.new()
 	result.success = false
-	result.scoreProgression = 0
+	result.scoreProgression = 10
 	result.addParticleRain = 'annoyed'
 	result.dialogueStartKey = 'first_kiss_fail'
 	return result
