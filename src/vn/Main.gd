@@ -454,7 +454,7 @@ func enableInput():
 	inputDisabled = false
 
 func beginDialogue(startKey = null):
-	currentStageIsLoaded = false
+	#currentStageIsLoaded = false
 	if(startKey):
 		GlobalGameStage.setCurrentDialogueKey(startKey)
 	else:
@@ -476,6 +476,7 @@ func _on_dialogue_manager_dialogue_ended():
 	else:
 		$CharacterManager.hideCharacter()
 		
+		# We just loaded a stage, skip the'end dialogue' for the current stage
 		if currentStageIsLoaded:
 			currentStageIsLoaded = false
 			return
@@ -629,7 +630,9 @@ func _handle_bg_volume_change():
 
 func _handle_save_loaded():
 	
-	
+	# Used to skip the 'dialogue ended' event for this scene
+	currentStageIsLoaded = true
+		
 	if is_instance_valid(currentPhone):
 		currentPhone.free()
 	
@@ -647,7 +650,6 @@ func _handle_save_loaded():
 	if !onMainMenu:
 		$DialogueManager.stopDialogue()
 
-	currentStageIsLoaded = true
 	onMainMenu = false
 
 	GlobalGameStage.resetMusicAndSoundIndexes()
