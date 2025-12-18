@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="BackgroundLists" load_steps=6 format=3 uid="uid://c72v8fp1onp3"]
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=7 format=3 uid="uid://c72v8fp1onp3"]
 
 [ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_b2yc4"]
 [ext_resource type="Resource" uid="uid://cht80hoqypt6q" path="res://data/background_lists/home/home_bgl.tres" id="2_66o7k"]
 [ext_resource type="Resource" uid="uid://gvjj0igfau8g" path="res://data/background_lists/lisa_poker_final/lisa_poker_final.tres" id="3_apd0o"]
 [ext_resource type="Resource" uid="uid://thws6fgu0do2" path="res://data/background_lists/lisa_poker_extra/lisa_poker_extra.tres" id="4_66o7k"]
 [ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="4_214yb"]
+[ext_resource type="Resource" uid="uid://co5p4efuqmmpp" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward.tres" id="5_apd0o"]
 
 [resource]
 script = ExtResource("4_214yb")
-backgroundLists = Array[ExtResource("1_b2yc4")]([ExtResource("2_66o7k"), ExtResource("3_apd0o"), ExtResource("4_66o7k")])
+backgroundLists = Array[ExtResource("1_b2yc4")]([ExtResource("2_66o7k"), ExtResource("3_apd0o"), ExtResource("4_66o7k"), ExtResource("5_apd0o")])

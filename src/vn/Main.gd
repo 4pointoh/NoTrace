@@ -25,12 +25,14 @@ var onMainMenu = true
 @export var sceneSelector : PackedScene
 @export var realDateScene : PackedScene
 @export var characterUnlockPanel : PackedScene
+@export var ashelyKitchenScene : PackedScene
 
 var currentPokerGame
 var currentPhone
 var currentDate
 var currentRealDate
 var currentSceneSelector
+var ashelyKitchenInstance
 
 var currentUnlockPanel
 
@@ -47,6 +49,9 @@ func _ready():
 	GlobalGameStage.loadSave.connect(_handle_save_loaded)
 	GlobalGameStage.playParticle.connect(_handle_play_particle)
 	GlobalGameStage.startMusicSignal.connect(_handle_play_music)
+	GlobalGameStage.startBespokeEvent.connect(_handle_bespoke_event)
+	GlobalGameStage.stopBespokeEvent.connect(_handle_bespoke_event_ended)
+	GlobalGameStage.stopMusicFade.connect(_handle_fade_out_music)
 	playBgMusic(load("res://data/assets/general/sounds/new_title.mp3"), true)
 	
 	$Background.enableWave()
@@ -164,7 +169,12 @@ func toggleUi():
 	$DialogueManager.toggleUi()
 
 func playSceneMusic():
-	if GlobalGameStage.currentStage.randomMusic.size() > 0:
+	if GlobalGameStage.currentStage.isPhoneScreen:
+		var randomPhoneMusic = _get_phone_music_options()
+		var randomIndex = randi() % randomPhoneMusic.size()
+		var newStream = load(randomPhoneMusic[randomIndex])
+		playBgMusic(newStream, false, true)
+	elif GlobalGameStage.currentStage.randomMusic.size() > 0:
 		var randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
 
 		var newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
@@ -218,6 +228,7 @@ func advanceGameStage():
 func beginStage():
 
 	dontAutoAdvance = false
+	currentStageIsLoaded = false
 	$DialogueManager.clearCurrentBg()
 	$DialogueManager.setDialogueData(GlobalGameStage.currentStage.dialogue)
 
@@ -330,7 +341,10 @@ func hideTitleStuff():
 	%SmallResolution.visible = false
 
 func _handle_play_music(music):
-	playBgMusic(load(music))
+	if GlobalGameStage.currentStage.isPhoneScreen:
+		pass
+	else:
+		playBgMusic(load(music))
 
 func setDontAutoAdvance():
 	dontAutoAdvance = true
@@ -616,11 +630,14 @@ func _on_phone_begin_dialogue(key):
 func _on_phone_conversation_complete():
 	GlobalGameStage.setPhoneGameStage()
 
-func playBgMusic(stream, skipCheck = false):
+func playBgMusic(stream, skipCheck = false, quiet = false):
 	if $AudioStreamPlayer2D.stream == stream && !skipCheck:
 		return
 
-	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
+	if quiet:
+		$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume() * .7
+	else:
+		$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 	$AudioStreamPlayer2D.stream = stream
 	$AudioStreamPlayer2D.play()
 	GlobalGameStage.currentMusic = stream.get_path()
@@ -702,6 +719,7 @@ func _on_gallery_pressed():
 	print('hi2')
 
 func _on_scene_select_stage_selected(checkpoint):
+	onMainMenu = false
 	currentSceneSelector.queue_free()
 	hideTitleStuff()
 
@@ -764,7 +782,12 @@ func _on_next_image_pressed() -> void:
 
 
 func _on_audio_stream_player_2d_finished() -> void:
-	if GlobalGameStage.currentStage.randomMusic.size() > 1:
+	if GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
+		var randomPhoneMusic = _get_phone_music_options()
+		var randomIndex = randi() % randomPhoneMusic.size()
+		var newStream = load(randomPhoneMusic[randomIndex])
+		$AudioStreamPlayer2D.stream = newStream
+	elif GlobalGameStage.currentStage.randomMusic.size() > 1:
 		var randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
 		var newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
 
@@ -776,8 +799,39 @@ func _on_audio_stream_player_2d_finished() -> void:
 
 	$AudioStreamPlayer2D.play()
 
+func _get_phone_music_options():
+	var randomPhoneMusic = []
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Almost Said Something.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Blue City Heat.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Dead Air.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Half Remembered.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Late Night Glances.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Neon Halos.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Neon Mirage.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Side Street.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Silent Echoes.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Verse Without You.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/bg_music/home2.mp3")
+	return randomPhoneMusic
 
 func _on_choice_display_choice_selected(key: String) -> void:
 	inChoice = false
 	%ChoiceDisplay.hide()
 	beginDialogue(key)
+
+func _handle_bespoke_event(eventName: String):
+	if eventName == 'Ashely Kitchen Phone':
+		print('starting bespoke event: Ashely Kitchen Phone')
+		fadeOutMusic()
+		ashelyKitchenInstance = ashelyKitchenScene.instantiate()
+		currentPhone.add_sibling(ashelyKitchenInstance)
+	
+func _handle_bespoke_event_ended(eventName: String):
+	if eventName == 'Ashely Kitchen Phone':
+		ashelyKitchenInstance.queue_free()
+		currentPhone.loadPreparedMessages()
+		$AudioStreamPlayer2D.play()
+		print('ended bespoke event: Ashely Kitchen Phone')
+
+func _handle_fade_out_music():
+	fadeOutMusic()

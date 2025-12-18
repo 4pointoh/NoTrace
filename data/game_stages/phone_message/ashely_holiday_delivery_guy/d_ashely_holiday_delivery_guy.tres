@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bgucpx2e7edul"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_if75p"]
+
+[resource]
+script = ExtResource("1_if75p")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-60, 280),
+"start_id": "START"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Oh my god, it's the delivery guy who delivered Ashely's sweater! ",
+"offset": Vector2(500, 40),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": 0
+},
+&"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Since I ordered it from my phone, he thinks [i]I'm[/i] Ashely. ",
+"offset": Vector2(880, 40),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": 0
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/phone_message/ashely_holiday_delivery_guy/characters.tres"
+backgroundList = "res://data/game_stages/phone_message/ashely_holiday_delivery_guy/bgs.tres"

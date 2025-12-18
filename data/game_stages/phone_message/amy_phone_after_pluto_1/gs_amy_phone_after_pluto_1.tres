@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://c3gcr50pvl70w"]
+
+[ext_resource type="Resource" uid="uid://dn4vvunujw3wk" path="res://data/game_stages/phone_message/amy_phone_after_pluto_1/d_amy_phone_after_pluto_1.tres" id="1_oe71x"]
+[ext_resource type="Texture2D" uid="uid://buq8404vf8ns5" path="res://data/characters/amy/phone_icons/default.png" id="1_op7dn"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_tnoo2"]
+[ext_resource type="Script" uid="uid://bjdblbg2jbt4n" path="res://data/game_stages/phone_message/amy_phone_after_pluto_1/AmyAfterPlutoPhone1.gd" id="3_7oqxo"]
+[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="5_t0gte"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_0xhhq"]
+
+[sub_resource type="Resource" id="Resource_15phi"]
+script = ExtResource("6_0xhhq")
+name = "sdsd"
+images = ExtResource("5_t0gte")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_tnoo2")
+name = "amy_phone_after_pluto_1"
+displayName = "Amy After Pluto Txt"
+dialogue = ExtResource("1_oe71x")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_15phi")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_7oqxo")
+contactName = "Amy"
+contactImage = ExtResource("1_op7dn")
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

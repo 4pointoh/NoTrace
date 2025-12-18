@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=36 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="8_by1x2"]
 [ext_resource type="PackedScene" uid="uid://dq6wlnwk0sf8r" path="res://src/realdate/RealDate.tscn" id="8_dqkor"]
 [ext_resource type="PackedScene" uid="uid://cx4x2fdhktike" path="res://src/vn/Notification.tscn" id="8_i5hgj"]
+[ext_resource type="PackedScene" uid="uid://dku2bjs0v2a6a" path="res://data/assets/general/bespoke_scenes/ashely_bespoke_kitchen_scene.tscn" id="10_o23y4"]
 [ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
 [ext_resource type="AudioStream" uid="uid://dkosxg1xda685" path="res://data/assets/general/sounds/bg_music/title.mp3" id="11_1jasj"]
 [ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="13_sdhtv"]
@@ -62,6 +63,7 @@ heartsplosion = ExtResource("5_02o78")
 sceneSelector = ExtResource("7_cgb2p")
 realDateScene = ExtResource("8_dqkor")
 characterUnlockPanel = ExtResource("20_0bbbc")
+ashelyKitchenScene = ExtResource("10_o23y4")
 metadata/_edit_lock_ = true
 
 [node name="BlackBg" type="ColorRect" parent="."]

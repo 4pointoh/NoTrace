@@ -95,6 +95,11 @@ func startConversation():
 	%Back.visible = false
 	%MessagesApp.startConversation()
 
+func loadPreparedMessages(processNextAction = true):
+	%MessagesApp.loadPreparedMessages()
+	if processNextAction:
+		%MessagesApp.processNextAction()
+
 func _on_messages_app_new_message_select(stage):
 	playAppOpenSound()
 	inConversation = true

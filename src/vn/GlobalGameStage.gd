@@ -66,6 +66,9 @@ signal loadSave
 signal playParticle(type: String)
 signal showTopImage(image: Texture2D)
 signal startMusicSignal(music: String)
+signal startBespokeEvent(eventName: String)
+signal stopBespokeEvent(eventName: String)
+signal stopMusicFade
 
 var bg_volume
 var text_speed
@@ -230,6 +233,10 @@ func getAvailableMessages():
 	if completedStages.has('anna_class'):
 		addMessage(Flags.LISA_SP_PHONE)
 
+	addMessage(Flags.AMY_PLUTO_PHONE)
+	addMessage(Flags.AMY_AFTER_PLUTO_PHONE)
+	addMessage(Flags.ASHELY_HOLIDAY_PHONE)
+
 	return availableMessages
 
 func getCompletedMessages():
@@ -299,6 +306,8 @@ func getAvailableSelectableEvents():
 	
 	if completedStages.has('lisa_sp_poker_phone'):
 		addSelectableEvent(Flags.LISA_SP_INTRO)
+
+	addSelectableEvent(Flags.AMY_LISA_DISCOVERY)
 	
 	return availableSelectableEvents
 
@@ -715,6 +724,9 @@ func getCharNameForGirl(character):
 func startMusic(music : String):
 	startMusicSignal.emit(music)
 
+func fadeOutMusic():
+	stopMusicFade.emit()
+
 func startDefaultPhoneMusic():
 	startMusicSignal.emit("res://data/assets/general/sounds/bg_music/home2.mp3")
 
@@ -817,3 +829,9 @@ func getWallpaperUnlocksForDialogueKey(dialogueKey: String):
 			return ['ANNA_CLASS26','ANNA_CLASS27','ANNA_CLASS28','ANNA_CLASS29','ANNA_CLASS30','ANNA_CLASS31','ANNA_CLASS32','ANNA_CLASS33','ANNA_CLASS34','ANNA_CLASS35']
 	else:
 		return []
+
+func startBespoke(eventName : String):
+	startBespokeEvent.emit(eventName)
+
+func stopBespoke(eventName : String):
+	stopBespokeEvent.emit(eventName)

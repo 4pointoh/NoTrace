@@ -120,7 +120,21 @@ func startConversation():
 	
 	$HBoxContainer/ContactName.text = contactName
 	isFirstAction = true
+
+	if currentConversation.loadPreparedMessagesAtStart():
+		loadPreparedMessages()
+
 	processNextAction()
+
+func loadPreparedMessages():
+	var preparedMessages = currentConversation.getPreparedMessages()
+
+	for preparedMessage in preparedMessages:
+		preparedMessage.content = preparedMessage.content.replace("{player_name}", GlobalGameStage.playerName)
+		if preparedMessage.type == 'partner_text':
+			addText(false, preparedMessage.content, null, true)
+		elif preparedMessage.type == 'player_text':
+			addText(true, preparedMessage.content, null, true)
 
 func processNextAction():
 	previousAction = nextAction
@@ -128,6 +142,15 @@ func processNextAction():
 	
 	if nextAction.action == PhoneAction.ACTIONS.TEXT_YOU:
 		enableRespond()
+	elif nextAction.action == PhoneAction.ACTIONS.PLAY_MUSIC:
+		GlobalGameStage.startMusic(nextAction.message)
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.FADE_MUSIC_OUT:
+		GlobalGameStage.fadeOutMusic()
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER_LONG_TYPING:
+		await loadingMessageLong()
+		processNextAction()
 	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER:
 		if lastAddedMessage:
 			if isFirstAction:
@@ -166,6 +189,8 @@ func processNextAction():
 		await loadingMessage()
 		addVideo(nextAction.videoPath)
 		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.SPECIAL:
+		GlobalGameStage.startBespoke(nextAction.message)
 
 func loadingMessage():
 	var loading = loadingAnim.instantiate()
@@ -184,6 +209,26 @@ func loadingMessage():
 	$AudioStreamPlayer2D.play()
 	if(!skipping):
 		await get_tree().create_timer(getSpedUpValue(2)).timeout
+	$MessageScreen/VBoxContainer.remove_child(loading)
+	loading.queue_free()
+
+func loadingMessageLong():
+	var loading = loadingAnim.instantiate()
+	loading.play()
+	if(!skipping):
+		await get_tree().create_timer(2).timeout
+	
+	# Remove the status if it's there
+	if(is_instance_valid(currentStatusMessage) and currentStatusMessage):
+		$MessageScreen/VBoxContainer.remove_child(currentStatusMessage)
+		currentStatusMessage.queue_free()
+		currentStatusMessage = null
+		
+	$MessageScreen/VBoxContainer.add_child(loading)
+	$AudioStreamPlayer2D.stream = messageStartTyping
+	$AudioStreamPlayer2D.play()
+	if(!skipping):
+		await get_tree().create_timer(10).timeout
 	$MessageScreen/VBoxContainer.remove_child(loading)
 	loading.queue_free()
 	
@@ -212,7 +257,7 @@ func readReceiptFast():
 		await get_tree().create_timer(getSpedUpValue(1)).timeout
 	lastAddedMessage.enableReadReceipt()
 	
-func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT):
+func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT, skipSound = false):
 	var newText = messageText.instantiate()
 	newText.setMessage(isPlayer, message, contactName)
 	
@@ -223,6 +268,9 @@ func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT):
 
 	lastAddedMessage = newText
 	$MessageScreen/VBoxContainer.add_child(newText)
+
+	if skipSound:
+		return
 	
 	if isPlayer:
 		$AudioStreamPlayer2D.stream = messageSentSound
