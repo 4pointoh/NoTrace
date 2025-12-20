@@ -1,0 +1,138 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dboy5jqitpnhm"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_bdnku"]
+
+[resource]
+script = ExtResource("1_bdnku")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"3_1",
+"offset": Vector2(25380, 2220),
+"start_id": "START"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Weather Report - SEVERE WEATHER WARNING",
+"offset": Vector2(26320, 1960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": "News Anchor"
+},
+&"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Last night, Cummington received its first heavy snow of the year. ",
+"offset": Vector2(26660, 1960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": "News Anchor"
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "All residents are advised to be careful of icy roads and cold temperatures. ",
+"offset": Vector2(27020, 1960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": "News Achor"
+},
+&"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Thanks for tuning in to WCUMYZ - Your trusted source for Cummington news. ",
+"offset": Vector2(27360, 1960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": "News Anchor"
+},
+&"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "-- You've activated some special Christmas events! -- ",
+"offset": Vector2(27720, 1960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": ""
+},
+&"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "These events aren't directly related to the main story. ",
+"offset": Vector2(28060, 1960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": ""
+},
+&"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Enjoy! ",
+"offset": Vector2(28380, 1960),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": ""
+},
+&"3_1": {
+"link": &"1_1",
+"offset": Vector2(25900, 2080),
+"signalValue": "unlock_christmas"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/activate_christmas_1/characters.tres"
+backgroundList = "res://data/game_stages/vn/activate_christmas_1/bgs.tres"

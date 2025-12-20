@@ -386,6 +386,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"end_unlock_sequence": endUnlockSequence()
 		"unlock_lisa_cat_convo": unlockLisaCatConvo()
 		"music_passion": playMusicPassion()
+		"unlock_christmas": GlobalGameStage.unlockChristmas()
 	
 func fadeOutMusic():
 	var tween = create_tween()

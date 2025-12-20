@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3tjbs8klb0sh"]
+[gd_scene load_steps=22 format=3 uid="uid://d3tjbs8klb0sh"]
 
 [ext_resource type="Script" uid="uid://crun72pdkotsa" path="res://src/phone/messages_app.gd" id="1_nop6m"]
 [ext_resource type="PackedScene" uid="uid://3n8lkyrp2q07" path="res://src/phone/available_message.tscn" id="2_pvtiw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cbrldi5en371m" path="res://src/phone/MessageScreen.gd" id="6_us3ry"]
 [ext_resource type="PackedScene" uid="uid://drkv4n8chck8g" path="res://src/phone/phone_choice.tscn" id="7_gcin8"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="7_w7den"]
+[ext_resource type="PackedScene" uid="uid://bfhyqma8hi8w4" path="res://src/vn/VisualCountdown.tscn" id="9_pwgee"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="10_juhdj"]
 [ext_resource type="Texture2D" uid="uid://cvx2by8m4vyvl" path="res://data/assets/phone/art/ff.png" id="14_q07u5"]
 [ext_resource type="Texture2D" uid="uid://c0rjsggtitt1p" path="res://data/assets/phone/art/ff_white.png" id="14_xm7d8"]
@@ -95,6 +96,7 @@ videoMessage = ExtResource("5_wijxh")
 messageImage = ExtResource("4_74deq")
 loadingAnim = ExtResource("5_vla3j")
 partnerStatus = ExtResource("6_7x5po")
+visualCountdownScene = ExtResource("9_pwgee")
 
 [node name="MessagesBackground" type="TextureRect" parent="."]
 offset_left = 188.0
@@ -133,7 +135,7 @@ horizontal_alignment = 1
 offset_left = 247.0
 offset_top = 170.0
 offset_right = 750.0
-offset_bottom = 940.0
+offset_bottom = 952.0
 
 [node name="AvailableMessagesContainer" type="VBoxContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
@@ -170,6 +172,18 @@ offset_bottom = 1609.0
 libraries = {
 &"": SubResource("AnimationLibrary_tiln1")
 }
+
+[node name="Wait" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 220.0
+offset_top = 972.0
+offset_right = 729.0
+offset_bottom = 1037.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("7_w7den")
+theme_override_font_sizes/font_size = 32
+text = "Wait"
 
 [node name="Respond" type="Button" parent="."]
 visible = false
@@ -230,6 +244,7 @@ theme_override_font_sizes/font_size = 26
 text = "Replay Past Messages"
 
 [connection signal="choice" from="Choice" to="." method="_on_choice_choice"]
+[connection signal="pressed" from="Wait" to="." method="_on_wait_pressed"]
 [connection signal="pressed" from="Respond" to="." method="_on_respond_pressed"]
 [connection signal="toggled" from="SkipNoti" to="." method="_on_skip_noti_toggled"]
 [connection signal="button_down" from="SpeedUp" to="." method="_on_speed_up_button_down"]

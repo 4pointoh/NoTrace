@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://b1o0ks3x6sgcm"]
+
+[ext_resource type="Resource" uid="uid://dboy5jqitpnhm" path="res://data/game_stages/vn/activate_christmas_1/d_activate_christmas_1.tres" id="1_tv2a2"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_6miic"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_ndkb6"]
+[ext_resource type="Texture2D" uid="uid://bbldebsbon1ak" path="res://data/assets/stage_art/christmas_hover.png" id="4_8k7c7"]
+[ext_resource type="Texture2D" uid="uid://cbv8jlo8pfujc" path="res://data/assets/stage_art/christmas.png" id="5_wyglc"]
+[ext_resource type="Texture2D" uid="uid://jkspkaa1stm" path="res://data/background_lists/home/backgrounds/phone_christmas.png" id="6_hehqi"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_5whsh"]
+
+[sub_resource type="Resource" id="Resource_my211"]
+script = ExtResource("7_5whsh")
+name = "dsds"
+images = ExtResource("6_hehqi")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_6miic")
+name = "activate_christmas_1"
+displayName = "Snow Day!"
+dialogue = ExtResource("1_tv2a2")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_ndkb6")
+isCompletable = true
+startingBackground = SubResource("Resource_my211")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonTexture = ExtResource("5_wyglc")
+stageButtonHover = ExtResource("4_8k7c7")
+stageButtonLabel = "Snow Day!"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

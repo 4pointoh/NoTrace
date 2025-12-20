@@ -94,3 +94,17 @@ func getVideoAction(videoPath):
 	action.action = PhoneAction.ACTIONS.VIDEO
 	action.videoPath = videoPath
 	return action
+
+func getNextMessageInstantAction():
+	var action = PhoneAction.new()
+	action.action = PhoneAction.ACTIONS.NEXT_MESSAGE_INSTANT
+	return action
+
+func getCountdownAction(minutes: int, countdownLabel: String = "", countdownButtonLabel: String = "", actualDelayInSeconds: int = 0) -> PhoneAction:
+	var action = PhoneAction.new()
+	action.action = PhoneAction.ACTIONS.COUNTDOWN
+	action.countdownMinutes = minutes
+	action.countdownLabel = countdownLabel
+	action.countdownButtonLabel = countdownButtonLabel
+	action.actualDelayInSeconds = actualDelayInSeconds
+	return action

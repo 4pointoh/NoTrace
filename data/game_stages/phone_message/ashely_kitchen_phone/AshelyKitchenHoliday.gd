@@ -35,6 +35,7 @@ var actions = [
 	{ "type": "player_text", "content": "But, y'know, together." },
 	{ "type": "partner_text", "content": "Stop trying to fix me, sweetheart." },
 	{ "type": "partner_text", "content": "I'm going to bed now. And I'm turning my phone off. Talk to you again in January when Santa Clause is back at the north pole. Bye." },
+	{ "type": "player_text", "content": "I don't believe you. I don't think you're going to bed." },
 	{ "type": "player_text", "content": "I think you're still sitting in your kitchen being a Mrs. Grinch." },
 	{ "type": "player_text", "content": "..." },
 	{ "type": "player_text", "content": "Fine, if you really aren't still here reading this..." },
@@ -72,35 +73,31 @@ var actions = [
 	{ "type": "partner_text", "content": "..." },
 	{ "type": "partner_text", "content": "hold on, there's somebody at my door" },
 	{ "type": "fade_music_out" },
-	{
-		"type": "partner_delay",
-		"content": "Partner is away"
-	},
+	{ "type": "countdown", "content": 5, "countdownLabel": "Ashely is checking the door.", "countdownButtonLabel": "Wait for Ashely", "actualDelayInSeconds": 8 },
 	{ "type": "partner_text", "content": "What the fuck did you do." },
 	{ "type": "player_text", "content": "A little holiday magic." },
 	{ "type": "partner_text", "content": "You..." },
+	{ "type": "countdown", "content": 5, "countdownLabel": "Ashely is... doing something?", "countdownButtonLabel": "Wait for Ashely", "actualDelayInSeconds": 8 },
+	{ "type": "player_text", "content": "And Ashely, I just wanted to say..." },
+	{ "type": "player_text", "content": "I'm alone for the holidays too. I usually am." },
+	{ "type": "player_text", "content": "I know how hard it can be. But, on the worst days, if I force myself to do the things I don't want to do..." },
+	{ "type": "player_text", "content": "Put up decorations, bake some christmas cookies... wear a sweater." },
+	{ "type": "player_text", "content": "Things don't feel so bad." },
+	{ "type": "player_text", "content": "Just... something to think about." },
 	{
 		"type": "partner_delay",
 		"content": "Partner is away"
 	},
-	{ "type": "player_text", "content": "And Ashely, it probably doesn't mean much, but I'm alone for the holidays too." },
-	{ "type": "player_text", "content": "I have been for years." },
-	{ "type": "player_text", "content": "But sometimes if you just force yourself to put up some decorations, bake some christmas cookies" },
-	{ "type": "player_text", "content": "... and wear a warm sweater." },
-	{ "type": "player_text", "content": "It helps me get through the hardest days." },
-	{ "type": "player_text", "content": "Not to suggest that you're asking for help. Just my two cents." },
-	{
-		"type": "partner_delay",
-		"content": "Partner is away"
-	},
+	{ "type": "partner_text", "content": "I can't believe..." },
 	{ "type": "image", "path": "res://data/wallpapers/ashely_kitchen_3.webp" },
-	{ "type": "partner_text", "content": "I can't believe you fucking DoorDash'd a christmas sweater to my house." },
+	{ "type": "next_message_instant" },
+	{ "type": "partner_text", "content": "You fucking DoorDash'd a christmas sweater to my house." },
 	{ "type": "play_music", "content": "res://data/assets/general/bespoke_scenes/christmas_fade_in.mp3" },
 	{ "type": "player_text", "content": "Wow, goodbye Mrs. Grinch." },
 	{ "type": "player_text", "content": "And hellllooo sexy Mrs. Clause!" },
 	{ "type": "partner_text", "content": "Do not compare me to Mrs. Clause. She's probably like 4000 years old" },
 	{ "type": "player_text", "content": "Well, you look great, and cozy as hell! " },
-	{ "type": "player_text", "content": "I'll let you get back to your holiday solitude." },
+	{ "type": "player_text", "content": "But, I'll let you get back to your holiday solitude." },
 	{ "type": "partner_text", "content": "... thanks." },
 	{ "type": "partner_text", "content": "for the sweater, and for the mental check." },
 	{ "type": "partner_text", "content": "maybe I'll bake a cookie or something..." },
@@ -170,6 +167,10 @@ func actionGroupZero():
 			return getPlayMusicAction(action["content"])
 		"fade_music_out":
 			return getFadeMusicOutAction()
+		"next_message_instant":
+			return getNextMessageInstantAction()
+		"countdown":
+			return getCountdownAction(action["content"], action["countdownLabel"], action["countdownButtonLabel"], action.get("actualDelayInSeconds", 0))
 	return null
 
 func getPreparedMessages():

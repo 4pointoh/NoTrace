@@ -16,6 +16,7 @@ var availableSelectableEvents : Array[GameStage]
 var newWallpapersSinceLastCheck : Array[String]
 var playerName : String
 var currentDialogueKey : String = ''
+var christmasEventUnlocked = false
 
 var annaCorrectChoices = 0
 
@@ -232,10 +233,16 @@ func getAvailableMessages():
 	
 	if completedStages.has('anna_class'):
 		addMessage(Flags.LISA_SP_PHONE)
+	
+	if completedStages.has('lisa_sp_poker_poker3_after'):
+		addMessage(Flags.AMY_PLUTO_PHONE)
+	
+	if completedStages.has('amy_phone_with_pluto_1'):
+		addMessage(Flags.AMY_AFTER_PLUTO_PHONE)
 
-	addMessage(Flags.AMY_PLUTO_PHONE)
-	addMessage(Flags.AMY_AFTER_PLUTO_PHONE)
-	addMessage(Flags.ASHELY_HOLIDAY_PHONE)
+	if christmasEventUnlocked: #holidays events
+		addMessage(Flags.ASHELY_HOLIDAY_PHONE)
+		addMessage(Flags.LISA_WINTER)
 
 	return availableMessages
 
@@ -270,6 +277,14 @@ func getCompletedMessages():
 		availableMessages.append(Flags.ANNA_CLASS_MESSAGE)
 	if completedStages.has(Flags.LISA_SP_PHONE.name):
 		availableMessages.append(Flags.LISA_SP_PHONE)
+	if completedStages.has(Flags.AMY_PLUTO_PHONE.name):
+		availableMessages.append(Flags.AMY_PLUTO_PHONE)
+	if completedStages.has(Flags.AMY_AFTER_PLUTO_PHONE.name):
+		availableMessages.append(Flags.AMY_AFTER_PLUTO_PHONE)
+	if completedStages.has(Flags.ASHELY_HOLIDAY_PHONE.name):
+		availableMessages.append(Flags.ASHELY_HOLIDAY_PHONE)
+	if completedStages.has(Flags.LISA_WINTER.name):
+		availableMessages.append(Flags.LISA_WINTER)
 
 	return availableMessages
 
@@ -307,7 +322,12 @@ func getAvailableSelectableEvents():
 	if completedStages.has('lisa_sp_poker_phone'):
 		addSelectableEvent(Flags.LISA_SP_INTRO)
 
-	addSelectableEvent(Flags.AMY_LISA_DISCOVERY)
+	if completedStages.has('amy_phone_after_pluto_1'):
+		addSelectableEvent(Flags.AMY_LISA_DISCOVERY)
+	
+	if completedStages.has('amy_lisa_discovery'):
+		addSelectableEvent(Flags.UNLOCK_CHRISTMAS)
+	
 	
 	return availableSelectableEvents
 
@@ -334,6 +354,12 @@ func getCompletedSelectableEvents():
 		completedSelectableEvents.append(Flags.LISA_BEACH_BEFORE)
 	if completedStages.has(Flags.ANNA_CLASS.name):
 		completedSelectableEvents.append(Flags.ANNA_CLASS)
+	if completedStages.has(Flags.LISA_SP_INTRO.name):
+		completedSelectableEvents.append(Flags.LISA_SP_INTRO)
+	if completedStages.has(Flags.AMY_LISA_DISCOVERY.name):
+		completedSelectableEvents.append(Flags.AMY_LISA_DISCOVERY)
+	if completedStages.has(Flags.UNLOCK_CHRISTMAS.name):
+		completedSelectableEvents.append(Flags.UNLOCK_CHRISTMAS)
 	
 	return completedSelectableEvents
 
@@ -793,7 +819,7 @@ func getMusicAtIndex(index):
 	return currentStage.musicList[index]
 
 func isLastEventInThisUpdate(stage: GameStage):
-	var lastEvent = "res://data/game_stages/vn/lisa_sp_poker_intro/gs_lisa_sp_poker_intro.tres"
+	var lastEvent = "res://data/game_stages/vn/activate_christmas_1/gs_activate_christmas_1.tres"
 
 	if stage.resource_path == lastEvent:
 		return true
@@ -835,3 +861,6 @@ func startBespoke(eventName : String):
 
 func stopBespoke(eventName : String):
 	stopBespokeEvent.emit(eventName)
+
+func unlockChristmas():
+	christmasEventUnlocked = true

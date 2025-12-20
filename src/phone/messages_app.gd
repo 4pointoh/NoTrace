@@ -7,6 +7,7 @@ extends Node2D
 @export var messageImage : PackedScene
 @export var loadingAnim : PackedScene
 @export var partnerStatus : PackedScene
+@export var visualCountdownScene : PackedScene
 
 var currentConversation
 var contactName
@@ -16,6 +17,8 @@ var lastAddedMessage
 var isFirstAction
 var currentStatusMessage
 var skipping = false
+var nextMessageInstant = false
+var currentCountdown
 
 var isSpeedingUp = false
 var currentSpeedUp = 1.0
@@ -152,13 +155,15 @@ func processNextAction():
 		await loadingMessageLong()
 		processNextAction()
 	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER:
-		if lastAddedMessage:
+		if lastAddedMessage and !nextMessageInstant:
 			if isFirstAction:
 				await readReceiptDelay()
 			else:
 				await readReceiptFast()
 				
 			await loadingMessage()
+		elif nextMessageInstant:
+			nextMessageInstant = false
 			
 		addText(false, nextAction.message, nextAction.soundType)
 		
@@ -191,6 +196,33 @@ func processNextAction():
 		processNextAction()
 	elif nextAction.action == PhoneAction.ACTIONS.SPECIAL:
 		GlobalGameStage.startBespoke(nextAction.message)
+	elif nextAction.action == PhoneAction.ACTIONS.NEXT_MESSAGE_INSTANT:
+		nextMessageInstant = true
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.COUNTDOWN:
+		if(!skipping):
+			await get_tree().create_timer(1).timeout
+
+		currentCountdown = visualCountdownScene.instantiate()
+		currentCountdown.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		currentCountdown.setTime(nextAction.countdownMinutes)
+		currentCountdown.setCountdownLabel(nextAction.countdownLabel)
+		currentCountdown.setButtonLabel(nextAction.countdownButtonLabel)
+
+		if(!skipping):
+			currentCountdown.setDelay(nextAction.actualDelayInSeconds)
+		else:
+			currentCountdown.setDelay(0)
+
+		$MessageScreen/VBoxContainer.add_child(currentCountdown)
+		currentCountdown.countdown_finished.connect(finishCountdown)
+
+func finishCountdown():
+	if(is_instance_valid(currentCountdown) and currentCountdown):
+		$MessageScreen/VBoxContainer.remove_child(currentCountdown)
+		currentCountdown.queue_free()
+		currentCountdown = null
+	processNextAction()
 
 func loadingMessage():
 	var loading = loadingAnim.instantiate()
@@ -398,9 +430,11 @@ func _on_replay_past_messages_pressed() -> void:
 	else:
 		showingPastMessages = true
 		msgs = GlobalGameStage.getCompletedMessages()
+		msgs.reverse()
 		%ReplayPastMessages.text = "Current Messages"
 		for msg in msgs:
 			addAvailablePastMessage(msg)
 
-	
-	
+func _on_wait_pressed() -> void:
+	currentCountdown.start(3)
+	%Wait.hide()

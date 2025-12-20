@@ -23,7 +23,8 @@ var actions = [
 	{ "type": "partner_text", "content": "Yes. Forget the rules." },
 
 	{ "type": "player_text", "content": "Ok" },
-	{ "type": "player_text", "content": "So you got a boyfriend or nah? And could you spot me like $5000? I'll pay it back, promise." },
+	{ "type": "player_text", "content": "So... boyfriend? Husband?" },
+	{ "type": "player_text", "content": "Also could you spot me like $5000? I'm kind of down bad right now... I'll pay it back. Probably." },
 	{ "type": "partner_text", "content": "Rules re-established." },
 
 	{ "type": "player_text", "content": "Sorry, already forgot them. Poof. Gone from memory." },
@@ -32,26 +33,26 @@ var actions = [
 	{ "type": "partner_text", "content": "Rich... Powerful... Could send a hitman to dispose of you and nobody would ever know..." },
 
 	{ "type": "player_text", "content": "Who?" },
-	{ "type": "partner_text", "content": "... And so you're going to continue being crude and wasting my time with your \"jokes\"?" },
+	{ "type": "partner_text", "content": "... And so you're going to continue being crude and wasting my time with your jokes?" },
 
 	{ "type": "player_text", "content": "Yes ma'am" },
 
-	{ "type": "partner_text", "content": "I have meetings with nine different individuals over the next two hours." },
-	{ "type": "partner_text", "content": "Top ranking government officials, leaders of trillion dollar hedge funds, heads of secret societies that you don't even know exist." },
+	{ "type": "partner_text", "content": "I have a dozen meetings over the next few hours." },
+	{ "type": "partner_text", "content": "With top ranking government officials, leaders of trillion dollar hedge funds, heads of secret societies that you don't even know exist." },
 	{ "type": "partner_text", "content": "Men who accomplish more in five seconds than your entire family tree's combined legacy" },
 	{ "type": "partner_text", "content": "And you're telling me..." },
 
 	{ "type": "player_text", "content": "Miss Amy, I've got chicken nuggets in the microwave getting cold. Can we hurry this up?" },
 
 	{ "type": "partner_text", "content": "..." },
-	{ "type": "partner_text", "content": "You..." },
 	{ "type": "image", "path": "res://data/wallpapers/amy_txt_1.webp" },
 	{ "type": "partner_text", "content": "You made me smile. Congratulations." },
+	{ "type": "partner_text", "content": "Excuse the cropped face. I'm trying to squash scandals here, not create more by sending selfies to random college guys." },
 	{ "type": "partner_text", "content": "And call me Amy. Just Amy." },
 
 	{ "type": "player_text", "content": "Oh? No more \"Miss\"?" },
 
-	{ "type": "partner_text", "content": "\"Miss\" is for all those boring old government dorks and hedge fund clowns." },
+	{ "type": "partner_text", "content": "\"Miss\" is for all those boring old government snobs and hedge fund clowns." },
 	{ "type": "partner_text", "content": "You... clearly aren't boring. That's refreshing." },
 	{ "type": "partner_text", "content": "Now, we'd better speed this along, we wouldn't want your chicken nuggets to get too cold." },
 
@@ -110,21 +111,27 @@ var actions = [
 	{ "type": "player_text", "content": "Yeah about a hundred of them!" },
 
 	{ "type": "player_text", "content": "Amy Perrier is in some secret relationship?? Who is it??" },
-	{ "type": "player_text", "content": "Let me guess, it's your personal trainer! Perfect body, chiseled jaw, six and a half foot Norwegian. A man you'd NEVER be permitted to date due to being poor and totally not in your wealth class?"},
+	{ "type": "player_text", "content": "Let me guess, it's your personal trainer! I bet he has a perfect body, chiseled jaw, six and a half foot Norwegian. A man you'd NEVER be permitted to date due to being poor and totally not in your wealth class?"},
 
 	{ "type": "partner_text", "content": "No." },
-	{ "type": "partner_text", "content": "And my personal trainer is french." },
+	{ "type": "partner_text", "content": "And my personal trainer is a woman." },
+	{ "type": "player_text", "content": "I could see you dating a woman ¯\\_(ツ)_/¯"},
+	{ "type": "player_text", "content": "And not just in a \"Oh that would be really hot\" kind of way"},
+	{ "type": "partner_text", "content": "Focus." },
 
-	{ "type": "player_text", "content": "Is it a politician? Somebody who would cause a huge scandal if it was figured out?" },
+	{ "type": "player_text", "content": "Fine. But just tell me - is it a politician? Somebody who would cause a huge scandal if it was figured out?" },
 	{ "type": "partner_text", "content": "No." },
 
 	{ "type": "player_text", "content": "Is it someone famous?" },
+	{ "type": "next_message_instant" },
 	{ "type": "partner_text", "content": "No." },
 
 	{ "type": "player_text", "content": "Is it someone dangerous?" },
+	{ "type": "next_message_instant" },
 	{ "type": "partner_text", "content": "No." },
 
-	{ "type": "player_text", "content": "Is it someone way older than you?" },
+	{ "type": "player_text", "content": "Is it someone way older than you? Like, so old that it's weird?" },
+	{ "type": "next_message_instant" },
 	{ "type": "partner_text", "content": "No." },
 
 	{ "type": "player_text", "content": "Is he younger than you?" },
@@ -276,4 +283,6 @@ func actionGroupZero():
 			return getCompleteAction()
 		"choice":
 			return getChoiceAction(action["content"])
+		"next_message_instant":
+			return getNextMessageInstantAction()
 	return null

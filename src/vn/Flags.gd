@@ -17,6 +17,7 @@ var LISA_SP_PHONE = load("res://data/game_stages/phone_message/lisa_sp_poker_pho
 var AMY_PLUTO_PHONE = load("res://data/game_stages/phone_message/amy_phone_with_pluto_1/gs_amy_phone_with_pluto_1.tres")
 var AMY_AFTER_PLUTO_PHONE = load("res://data/game_stages/phone_message/amy_phone_after_pluto_1/gs_amy_phone_after_pluto_1.tres")
 var ASHELY_HOLIDAY_PHONE = load("res://data/game_stages/phone_message/ashely_kitchen_phone/gs_ashely_kitchen_phone.tres")
+var LISA_WINTER = load("res://data/game_stages/phone_message/lisa_winter/gs_lisa_winter.tres")
 
 #selectable events 
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")
@@ -31,3 +32,4 @@ var LISA_BEACH_BEFORE = load("res://data/game_stages/vn/lisa_beach_intro/gs_lisa
 var ANNA_CLASS = load("res://data/game_stages/vn/anna_class/gs_anna_class.tres")
 var LISA_SP_INTRO = load("res://data/game_stages/vn/lisa_sp_poker_intro/gs_lisa_sp_poker_intro.tres")
 var AMY_LISA_DISCOVERY = load("res://data/game_stages/vn/amy_lisa_discovery/gs_amy_lisa_discovery.tres")
+var UNLOCK_CHRISTMAS = load("res://data/game_stages/vn/activate_christmas_1/gs_activate_christmas_1.tres")

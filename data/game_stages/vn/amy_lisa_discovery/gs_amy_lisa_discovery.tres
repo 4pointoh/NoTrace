@@ -19,11 +19,11 @@ metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 [resource]
 script = ExtResource("2_cp33r")
 name = "amy_lisa_discovery"
-displayName = "Amy Lisa Discovery"
+displayName = "Amy's Favor"
 dialogue = ExtResource("1_mi6lr")
 dialogueStartKey = "START"
 guaranteedNextGameStage = ExtResource("2_pflr7")
-isCompletable = false
+isCompletable = true
 startingBackground = SubResource("Resource_ayfbs")
 startTransitionText = "Next Weekend"
 startTransition = 3
