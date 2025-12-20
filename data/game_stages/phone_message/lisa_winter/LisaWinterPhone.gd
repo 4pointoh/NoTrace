@@ -136,7 +136,7 @@ var actions = [
 	{ "type": "partner_text", "content": "Note to self, leggings are not sufficient for extended snowman building sessions!" },
 	{ "type": "partner_text", "content": "They're soaked through and FREEZING!" },
 	{ "type": "partner_text", "content": "I'm gonna run inside and warm up!" },
-	{ "type": "partner_text", "content": "Chat later!" },
+	{ "type": "partner_text", "content": "Chat later!", "wallpaperUnlock": ["LISA_HOLIDAY_1", "LISA_HOLIDAY_2", "LISA_HOLIDAY_3", "LISA_HOLIDAY_11", "LISA_HOLIDAY_4", "LISA_HOLIDAY_5", "LISA_HOLIDAY_6", "LISA_HOLIDAY_7", "LISA_HOLIDAY_8", "LISA_HOLIDAY_9", "LISA_HOLIDAY_10"] },
 	{ "type": "complete" }
 ];
 
@@ -167,7 +167,7 @@ func actionGroupZero():
 
 	if "wallpaperUnlock" in action:
 		for wp in action["wallpaperUnlock"]:
-			GlobalGameStage.unlockWallpaperWithDelay(wp, 14)
+			GlobalGameStage.unlockWallpaperWithDelay(wp, 1)
 		
 	match action["type"]:
 		"player_text":

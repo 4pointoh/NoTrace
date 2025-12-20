@@ -133,6 +133,15 @@ func checkForVideo():
 	if background.name == '1321_pool_sit.webp':
 		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_class/videos/pool_sit.ogv")
 		fadeVideo()
+	if background.name == 'lisa_poker_reward_0056.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_poker_reward/video/mas_1.ogv")
+		fadeVideo()
+	if background.name == 'lisa_poker_reward_0060.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_poker_reward/video/mas_2.ogv")
+		fadeVideo()
+	if background.name == 'lisa_poker_reward_0067.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_poker_reward/video/mas_3.ogv")
+		fadeVideo()
 	#if background.name == 'boa_strip_vid1':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa1.ogv")
 	#	fadeVideo()

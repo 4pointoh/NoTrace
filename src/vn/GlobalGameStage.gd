@@ -19,6 +19,7 @@ var currentDialogueKey : String = ''
 var christmasEventUnlocked = false
 
 var annaCorrectChoices = 0
+var lisaMassagePoints = 0
 
 # Poker stages by wins and losses
 var pokerStageHistory = {}

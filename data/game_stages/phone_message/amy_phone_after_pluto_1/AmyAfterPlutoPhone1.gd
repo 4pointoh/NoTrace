@@ -224,9 +224,7 @@ var actions = [
 
 	{ "type": "partner_text", "content": "Now, I've missed an appointment with the ambassador of a small nation due to your excessive drawing out of this conversation." },
 	{ "type": "partner_text", "content": "I have to go. And I expect you'll text me with updates. Pluto will send you the address before the weekend." },
-	{ "type": "partner_text", "content": "Have fun." },
-
-
+	{ "type": "partner_text", "content": "Have fun.", "wallpaperUnlock": ["AMY_FAVOR_1", "AMY_FAVOR_2"] },
 	{ "type": "complete" }
 ];
 
@@ -257,7 +255,7 @@ func actionGroupZero():
 
 	if "wallpaperUnlock" in action:
 		for wp in action["wallpaperUnlock"]:
-			GlobalGameStage.unlockWallpaperWithDelay(wp, 14)
+			GlobalGameStage.unlockWallpaperWithDelay(wp, 1)
 		
 	match action["type"]:
 		"player_text":

@@ -104,7 +104,7 @@ var actions = [
 	{ "type": "player_text", "content": "One cookie?" },
 	{ "type": "partner_text", "content": "One." },
 	{ "type": "partner_text", "content": "Now stop trying to fix me you dork." },
-	{ "type": "partner_text", "content": "and... Merry Christmas {player_name}." },
+	{ "type": "partner_text", "content": "and... Merry Christmas {player_name}.", "wallpaperUnlock": ["ASHELY_HOLIDAY_1", "ASHELY_HOLIDAY_2", "ASHELY_HOLIDAY_3"] },
 	{ "type": "complete" }
 ];
 
@@ -135,7 +135,7 @@ func actionGroupZero():
 
 	if "wallpaperUnlock" in action:
 		for wp in action["wallpaperUnlock"]:
-			GlobalGameStage.unlockWallpaperWithDelay(wp, 14)
+			GlobalGameStage.unlockWallpaperWithDelay(wp, 1)
 		
 	match action["type"]:
 		"player_text":
