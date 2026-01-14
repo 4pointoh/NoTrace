@@ -193,6 +193,20 @@ offset_right = 741.0
 offset_bottom = 1037.0
 text = "Send Message"
 
+[node name="Next" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 220.0
+offset_top = 972.0
+offset_right = 729.0
+offset_bottom = 1042.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("7_w7den")
+theme_override_font_sizes/font_size = 32
+text = "Next"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="SkipNoti" type="TextureButton" parent="."]
@@ -243,9 +257,24 @@ theme_override_fonts/font = ExtResource("7_w7den")
 theme_override_font_sizes/font_size = 26
 text = "Replay Past Messages"
 
+[node name="SpeedUpManual" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 220.0
+offset_top = 1050.0
+offset_right = 740.0
+offset_bottom = 1085.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("7_w7den")
+theme_override_font_sizes/font_size = 18
+text = "Manual Mode Enabled - You Can Progress Messages Manually"
+horizontal_alignment = 1
+
 [connection signal="choice" from="Choice" to="." method="_on_choice_choice"]
 [connection signal="pressed" from="Wait" to="." method="_on_wait_pressed"]
 [connection signal="pressed" from="Respond" to="." method="_on_respond_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="toggled" from="SkipNoti" to="." method="_on_skip_noti_toggled"]
 [connection signal="button_down" from="SpeedUp" to="." method="_on_speed_up_button_down"]
 [connection signal="button_up" from="SpeedUp" to="." method="_on_speed_up_button_up"]
