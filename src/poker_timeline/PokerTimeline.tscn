@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://enj1rk5nm578"]
+
+[ext_resource type="Script" uid="uid://imd1s1lp86yi" path="res://src/poker_timeline/PokerTimelineGraphEdit.gd" id="1_n1wou"]
+
+[node name="PokerTimeline" type="Node2D"]
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+offset_right = 891.0
+offset_bottom = 1146.0
+scroll_offset = Vector2(-477, -236)
+show_zoom_label = true
+show_grid_buttons = false
+show_minimap_button = false
+show_arrange_button = false
+script = ExtResource("1_n1wou")
