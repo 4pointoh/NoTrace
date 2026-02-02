@@ -2,8 +2,8 @@
 extends EditorScript
 
 # Paths - Update these to match your actual project structure
-const CONFIG_PATH = "res://data/game_stages/poker/boa_poker_new_poker/boa_poker1_config.json"
-const OUTPUT_CSV_PATH = "res://data/game_stages/poker/boa_poker_new_poker/boa_poker1_generated.csv"
+const CONFIG_PATH = "res://data/game_stages/poker/lisa_sp_poker_poker1/lisa_sp_poker_poker1_config.json"
+const OUTPUT_CSV_PATH = "res://data/game_stages/poker/lisa_sp_poker_poker1/csv/lisa_sp_poker_poker1_generated.csv"
 
 func _run():
 	generate_csv()
@@ -28,7 +28,7 @@ func generate_csv():
 	# 2. Prepare CSV Content
 	var lines = []
 	# Header
-	lines.append("Row_ID,Trigger_Type,Stripper,Watcher,Event_Item,Stripper_Lost,Watcher_Lost,Condition_Expr,Priority,Dialogue_Key,Tooltip")
+	lines.append("Row_ID,Trigger_Type,Stripper,Watcher,Event_Item,Stripper_Lost,Watcher_Lost,Condition_Expr,Priority,Dialogue_Key,Tooltip,Starting_Background_Override")
 	
 	# 3. Iterate The Matrix (Bidirectional)
 	var opp_id = "OPPONENT"
@@ -70,6 +70,12 @@ func _generate_matchup(lines: Array, config: Dictionary, actor_id: String, targe
 		var target_lost_so_far: Array = []
 		for j in range(target_stack.size()):
 			target_lost_so_far.append(target_stack[j].id)
+			
+			# FIX: If the target has lost their entire stack, the game is already over.
+			# We cannot have an event occur VS a fully stripped opponent.
+			if target_lost_so_far.size() >= target_stack.size():
+				break
+				
 			_append_row(lines, actor_id, target_id, current_item_id, req_actor_str, target_lost_so_far)
 
 func _append_row(lines: Array, actor: String, target: String, event_item: String, actor_req: String, target_list: Array):
@@ -88,8 +94,8 @@ func _append_row(lines: Array, actor: String, target: String, event_item: String
 	var base_key = "%s_LOSE_%s_VS_%s" % [actor, event_item, suffix]
 	
 	# CSV Columns:
-	# Row_ID, Trigger_Type, Actor, Target, Event_Item, R_Actor, R_Target, Cond, Prio, Key, Tooltip
-	var row = "%s,ITEM_LOST,%s,%s,%s,%s,%s,,1,%s," % [
+	# Row_ID, Trigger_Type, Actor, Target, Event_Item, R_Actor, R_Target, Cond, Prio, Key, Tooltip, BG_Override
+	var row = "%s,ITEM_LOST,%s,%s,%s,%s,%s,,1,%s,," % [
 		base_key, # Row ID
 		actor,
 		target,

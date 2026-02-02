@@ -44,6 +44,10 @@ class_name GameStage
 @export var proPlusCheats: int
 @export var proPlusMaxCheats: int
 @export var pokerScript : Script
+@export var useNewPokerSystem : bool
+@export var pokerConfigJsonPath : String
+@export var pokerCSVPath : String
+
 
 # Phone
 @export var isPhoneScreen : bool

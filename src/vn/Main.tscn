@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=37 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://m0y24r0kwcx3" path="res://src/vn/CharacterUnlockPanel.tscn" id="20_0bbbc"]
 [ext_resource type="PackedScene" uid="uid://cvds3comm8wia" path="res://src/vn/NewTitle.tscn" id="21_arifm"]
 [ext_resource type="PackedScene" uid="uid://kirrjy5dcir7" path="res://src/vn/ChoiceDisplay.tscn" id="22_mu6kp"]
+[ext_resource type="PackedScene" uid="uid://enj1rk5nm578" path="res://src/poker_timeline/PokerTimeline.tscn" id="24_3lhh4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -64,6 +65,7 @@ sceneSelector = ExtResource("7_cgb2p")
 realDateScene = ExtResource("8_dqkor")
 characterUnlockPanel = ExtResource("20_0bbbc")
 ashelyKitchenScene = ExtResource("10_o23y4")
+pokerTimeline = ExtResource("24_3lhh4")
 metadata/_edit_lock_ = true
 
 [node name="BlackBg" type="ColorRect" parent="."]

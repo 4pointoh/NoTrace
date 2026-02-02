@@ -1,15 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://enj1rk5nm578"]
+[gd_scene load_steps=8 format=3 uid="uid://enj1rk5nm578"]
 
 [ext_resource type="Script" uid="uid://imd1s1lp86yi" path="res://src/poker_timeline/PokerTimelineGraphEdit.gd" id="1_n1wou"]
+[ext_resource type="Texture2D" uid="uid://dsryk3ne6r61q" path="res://data/assets/poker/art/poker_table_fabric_only.png" id="1_n4xhq"]
+[ext_resource type="PackedScene" uid="uid://bf06usv5mi2r7" path="res://src/poker_timeline/TimelineNode.tscn" id="2_8prra"]
+[ext_resource type="Texture2D" uid="uid://brv0eo15tpmkj" path="res://data/assets/poker/art/poker_table_wood_border_top.png" id="4_76v3q"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="5_t3o0x"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="6_u1mah"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4xhq"]
+texture = ExtResource("1_n4xhq")
 
 [node name="PokerTimeline" type="Node2D"]
 
 [node name="GraphEdit" type="GraphEdit" parent="."]
-offset_right = 891.0
-offset_bottom = 1146.0
+offset_top = 60.0
+offset_right = 896.0
+offset_bottom = 1151.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_n4xhq")
 scroll_offset = Vector2(-477, -236)
+grid_pattern = 1
+zoom_min = 0.2
+zoom_max = 2.5
 show_zoom_label = true
 show_grid_buttons = false
 show_minimap_button = false
 show_arrange_button = false
 script = ExtResource("1_n1wou")
+TimelineNodeScene = ExtResource("2_8prra")
+
+[node name="WoodTop" type="TextureRect" parent="."]
+offset_right = 896.0
+offset_bottom = 73.0
+texture = ExtResource("4_76v3q")
+
+[node name="TitleBg" type="NinePatchRect" parent="."]
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 759.0
+offset_bottom = 48.0
+texture = ExtResource("5_t3o0x")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="TitleBg"]
+layout_mode = 0
+offset_right = 591.0
+offset_bottom = 40.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_u1mah")
+theme_override_font_sizes/font_size = 28
+text = "Lisa First Poker"
+horizontal_alignment = 1
+vertical_alignment = 1

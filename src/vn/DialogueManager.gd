@@ -63,6 +63,7 @@ func setDialogueData(data : DialogueData):
 func startDialogue(startKey = null):
 	originalXPos = $DialoguePlayer.position.x
 	if startKey:
+		GlobalGameStage.setDialogueKeySeen(startKey)
 		$DialoguePlayer.start(startKey)
 	else:
 		$DialoguePlayer.start()

@@ -16,6 +16,10 @@ var dialoguePause = false
 
 var cheatsLeft
 
+# New CSV-based poker system
+var _csv_evaluator: PokerCSVEventEvaluator = null
+var _lastRoundPlayerLost: bool = false
+
 signal gamePaused
 signal gameWon
 signal gameLost
@@ -29,7 +33,15 @@ func _ready():
 	playerLives = GlobalGameStage.currentStage.playerLives
 	cpuLives = GlobalGameStage.currentStage.cpuLives
 
-	GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
+	# Initialize the appropriate poker event system
+	if GlobalGameStage.currentStage.useNewPokerSystem:
+		_csv_evaluator = PokerCSVEventEvaluator.new()
+		_csv_evaluator.initialize(
+			GlobalGameStage.currentStage.pokerConfigJsonPath,
+			GlobalGameStage.currentStage.pokerCSVPath
+		)
+	else:
+		GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
 
 	currentStage = PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START
 	%PokerDisplay.stageComplete.connect(processStageComplete)
@@ -47,6 +59,20 @@ func setup():
 	opponentNamePlural = GlobalGameStage.currentStage.opponentName
 	playerLives = GlobalGameStage.currentStage.playerLives
 	cpuLives = GlobalGameStage.currentStage.cpuLives
+
+	# Reset the appropriate poker event system
+	if GlobalGameStage.currentStage.useNewPokerSystem:
+		if _csv_evaluator:
+			_csv_evaluator.reset()
+		else:
+			_csv_evaluator = PokerCSVEventEvaluator.new()
+			_csv_evaluator.initialize(
+				GlobalGameStage.currentStage.pokerConfigJsonPath,
+				GlobalGameStage.currentStage.pokerCSVPath
+			)
+	else:
+		if GlobalGameStage.currentStage.pokerScript:
+			GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
 
 	setCheats(0)
 	
@@ -215,10 +241,12 @@ func processEvaluateWinner():
 	if winner[0] == "Hand 1 wins":
 		playerWins = true
 		cpuLives -= 1
+		_lastRoundPlayerLost = false
 		print('Player Wins with ' + winningHand)
 	else:
 		playerWins = false
 		playerLives -= 1
+		_lastRoundPlayerLost = true
 		print('CPU Wins with ' + winningHand)
 	
 	print('Other player had ' + losingHand)
@@ -260,8 +288,14 @@ func getCurrentEvent():
 	var pokerInfo = PokerInfo.new()
 	pokerInfo.playerLives = playerLives
 	pokerInfo.cpuLives = cpuLives
+	pokerInfo.playerLost = _lastRoundPlayerLost
 
-	var updateResult = GlobalGameStage.currentStage.pokerScript.evaluate_poker_game(pokerInfo)
+	# Use the new CSV system if enabled, otherwise use the old script system
+	var updateResult: PokerUpdateActionResult
+	if GlobalGameStage.currentStage.useNewPokerSystem and _csv_evaluator:
+		updateResult = _csv_evaluator.evaluate(pokerInfo)
+	else:
+		updateResult = GlobalGameStage.currentStage.pokerScript.evaluate_poker_game(pokerInfo)
 
 	return updateResult
 

@@ -1,0 +1,47 @@
+{
+	"settings": {
+		"max_lives": 20
+	},
+	"participants": {
+		"LISA": {
+			"clothing_stack": [
+				{
+					"id": "HAT",
+					"lives_threshold": 18,
+					"starting_background": "res://data/game_stages/poker/boa_poker_new_poker/backgrounds/boa_poker1_lisa_hat.png"
+				},
+				{
+					"id": "TOP",
+					"lives_threshold": 15,
+					"starting_background": "res://data/game_stages/poker/boa_poker_new_poker/backgrounds/boa_poker1_lisa_hat.png"
+				},
+				{
+					"id": "SKIRT",
+					"lives_threshold": 10,
+					"starting_background": "res://data/game_stages/poker/boa_poker_new_poker/backgrounds/boa_poker1_lisa_hat.png"
+				},
+				{
+					"id": "UNDERWEAR",
+					"lives_threshold": 0,
+					"starting_background": "res://data/game_stages/poker/boa_poker_new_poker/backgrounds/boa_poker1_lisa_hat.png"
+				}
+			]
+		},
+		"PLAYER": {
+			"clothing_stack": [
+				{
+					"id": "SHIRT",
+					"lives_threshold": 15
+				},
+				{
+					"id": "PANTS",
+					"lives_threshold": 10
+				},
+				{
+					"id": "BOXERS",
+					"lives_threshold": 0
+				}
+			]
+		}
+	}
+}

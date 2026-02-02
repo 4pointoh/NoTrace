@@ -17,6 +17,8 @@ var fullscreenImageIndex
 var isUiHidden = false
 var onMainMenu = true
 
+var tempPokerTimelines : Node = null
+
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
 @export var phoneScene : PackedScene
@@ -26,6 +28,7 @@ var onMainMenu = true
 @export var realDateScene : PackedScene
 @export var characterUnlockPanel : PackedScene
 @export var ashelyKitchenScene : PackedScene
+@export var pokerTimeline : PackedScene
 
 var currentPokerGame
 var currentPhone
@@ -80,7 +83,12 @@ func _handle_fullscreenImage(image, index):
 	$FullscreenImageBg/FullscreenImage.show()
 
 func testFunction():
-	print('testing')
+	if is_instance_valid(tempPokerTimelines):
+		tempPokerTimelines.queue_free()
+	else:
+		tempPokerTimelines = pokerTimeline.instantiate()
+		add_child(tempPokerTimelines)
+		print('testing')
 
 func unlockChar(character : GlobalGameStage.CHARACTERS):
 	GlobalGameStage.unlockDateGirl(character)

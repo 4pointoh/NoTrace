@@ -17,6 +17,7 @@ var newWallpapersSinceLastCheck : Array[String]
 var playerName : String
 var currentDialogueKey : String = ''
 var christmasEventUnlocked = false
+var seenDialogueKeys : Dictionary = {}
 
 var annaCorrectChoices = 0
 var lisaMassagePoints = 0
@@ -58,7 +59,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 011
+const VERSION = 013
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -476,6 +477,8 @@ func saveSaveData(saveName):
 	file.store_var(askedAboutLyric)
 	file.store_var(currentDialogueKey)
 	file.store_var(annaCorrectChoices)
+	file.store_var(seenDialogueKeys)
+	file.store_var(christmasEventUnlocked)
 	
 	savePersistentData()
 
@@ -569,9 +572,20 @@ func loadSaveData(saveName):
 			currentDialogueKey = ''
 			annaCorrectChoices = 0
 
+		if (saveVersion > 011):
+			seenDialogueKeys = file.get_var()
+		else:
+			seenDialogueKeys = {}
+		
+		if (saveVersion > 012):
+			christmasEventUnlocked = file.get_var()
+		else:
+			christmasEventUnlocked = false
+
 		dateStorage.clearCurrentDate()
 
 		print('file version is ' + str(saveVersion))
+		print(seenDialogueKeys)
 
 	loadSave.emit()
 
@@ -829,6 +843,7 @@ func isLastEventInThisUpdate(stage: GameStage):
 
 func setCurrentDialogueKey(key: String):
 	currentDialogueKey = key
+	setDialogueKeySeen(key)
 
 func getWallpaperUnlocksForDialogueKey(dialogueKey: String):
 	if GlobalGameStage.currentStage.name == 'anna_class':
@@ -865,3 +880,22 @@ func stopBespoke(eventName : String):
 
 func unlockChristmas():
 	christmasEventUnlocked = true
+
+func getSeenDialogueKeysForStage(stageName: String):
+	if seenDialogueKeys.has(stageName):
+		return seenDialogueKeys[stageName]
+	else:
+		return []
+	
+func hasSeenDialogueKey(dialogueKey: String, stageName: String = ""):
+	if stageName == "":
+		stageName = currentStage.name
+	if seenDialogueKeys.has(stageName):
+		return dialogueKey in seenDialogueKeys[stageName]
+	return false
+
+func setDialogueKeySeen(dialogueKey: String):
+	if !seenDialogueKeys.has(currentStage.name):
+		seenDialogueKeys[currentStage.name] = []
+	if dialogueKey not in seenDialogueKeys[currentStage.name]:
+		seenDialogueKeys[currentStage.name].append(dialogueKey)
