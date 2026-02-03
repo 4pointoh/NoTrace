@@ -1,9 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://tlo2xv2dxetl"]
+[gd_scene load_steps=8 format=3 uid="uid://tlo2xv2dxetl"]
 
 [ext_resource type="Script" uid="uid://cb4evutfl6mi8" path="res://src/phone/continue_app.gd" id="1_5dxdv"]
 [ext_resource type="Texture2D" uid="uid://pg2eup6fq4n2" path="res://data/assets/phone/art/continue_background.png" id="2_4xyho"]
 [ext_resource type="PackedScene" uid="uid://besft41xqktl4" path="res://src/phone/selectable_stage.tscn" id="3_hlown"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_pjnll"]
+[ext_resource type="Texture2D" uid="uid://bkracgdkida6d" path="res://data/assets/phone/art/poker_bg.png" id="5_wka1e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsnnm"]
+bg_color = Color(0.145527, 0.43433, 0.821342, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.350523, 0.878952, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wka1e"]
+bg_color = Color(0.826439, 1.67495e-05, 0.567287, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.674207, 0.940202, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="ContinueApp" type="Node2D"]
 script = ExtResource("1_5dxdv")
@@ -57,4 +82,93 @@ theme_override_fonts/font = ExtResource("5_pjnll")
 theme_override_font_sizes/font_size = 26
 text = "Replay Past Activities"
 
+[node name="PokerSelectionContainer" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 188.0
+offset_top = 158.0
+offset_right = 762.0
+offset_bottom = 1086.0
+color = Color(0.999999, 0.489405, 0.192564, 1)
+
+[node name="TextureRect" type="TextureRect" parent="PokerSelectionContainer"]
+self_modulate = Color(1, 1, 1, 0.223529)
+layout_mode = 0
+offset_left = -394.0
+offset_right = 722.0
+offset_bottom = 1022.0
+texture = ExtResource("5_wka1e")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PokerSelectionContainer"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 559.0
+offset_bottom = 211.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 32
+text = "This scene leads to a poker match that you've already beaten.
+
+How would you like to proceed? "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FromBeginning" type="Button" parent="PokerSelectionContainer"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 211.0
+offset_right = 468.0
+offset_bottom = 435.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dsnnm")
+
+[node name="FromBeginningLabel" type="Label" parent="PokerSelectionContainer/FromBeginning"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 82.0
+offset_right = 331.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 24
+text = "Play the full scene from the beginning."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FromTimeline" type="Button" parent="PokerSelectionContainer"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 458.0
+offset_right = 468.0
+offset_bottom = 682.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wka1e")
+
+[node name="FromTimelineLabel" type="Label" parent="PokerSelectionContainer/FromTimeline"]
+offset_left = 34.0
+offset_top = 29.0
+offset_right = 331.0
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 24
+text = "See what you've already completed.
+
+Start from any point in the match."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="PokerSelectionContainer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 101.0
+offset_top = 841.0
+offset_right = 468.0
+offset_bottom = 886.0
+text = "Choose A Different Scene"
+
 [connection signal="pressed" from="PastEventsButton" to="." method="_on_past_events_button_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/FromBeginning" to="." method="_on_from_beginning_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/FromTimeline" to="." method="_on_from_timeline_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/Back" to="." method="_on_back_pressed"]

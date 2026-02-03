@@ -82,13 +82,7 @@ func _handle_fullscreenImage(image, index):
 	$FullscreenImageBg/FullscreenImage.show()
 
 func testFunction():
-	if is_instance_valid(currentPokerTimeline):
-		currentPokerTimeline.queue_free()
-	else:
-		currentPokerTimeline = pokerTimeline.instantiate()
-		currentPokerTimeline.get_node("GraphEdit").startFromNode.connect(startPokerFromNode)
-		add_child(currentPokerTimeline)
-		print('testing')
+	print('testing')
 	
 func startPokerFromNode(nodeData : PokerNodeData, stage : GameStage):
 	print(nodeData)
@@ -296,6 +290,7 @@ func startNewPhone():
 	currentPhone.beginDialogue.connect(_on_phone_begin_dialogue)
 	currentPhone.conversationComplete.connect(_on_phone_conversation_complete)
 	currentPhone.newStageSelect.connect(_on_phone_new_stage_select)
+	currentPhone.showTimeline.connect(_on_phone_show_timeline)
 	$Background.add_sibling(currentPhone)
 	currentPhone.setup()
 
@@ -304,6 +299,7 @@ func startNewPoker():
 	currentPokerGame.gamePaused.connect(_on_poker_game_five_game_paused)
 	currentPokerGame.gameWon.connect(_on_poker_game_five_game_won)
 	currentPokerGame.gameLost.connect(_on_poker_game_five_game_lost)
+	currentPokerGame.showTimeline.connect(_on_poker_game_show_timeline)
 	currentPokerGame.setup()
 	add_child(currentPokerGame)
 	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
@@ -861,3 +857,16 @@ func _handle_bespoke_event_ended(eventName: String):
 
 func _handle_fade_out_music():
 	fadeOutMusic()
+
+func _on_phone_show_timeline(stage):
+	currentPokerTimeline = pokerTimeline.instantiate()
+	currentPokerTimeline.setup(stage)
+	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
+	add_child(currentPokerTimeline)
+
+func _on_poker_game_show_timeline(mostRecentKeyEventRowId : String):
+	currentPokerTimeline = pokerTimeline.instantiate()
+	currentPokerTimeline.disableStartFromNode()
+	currentPokerTimeline.setup(GlobalGameStage.currentStage, mostRecentKeyEventRowId)
+	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
+	add_child(currentPokerTimeline)

@@ -312,6 +312,7 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="selected" from="PhoneBox/ContinueApp" to="." method="_on_continue_app_selected"]
+[connection signal="selectedTimeline" from="PhoneBox/ContinueApp" to="." method="_on_continue_app_selected_timeline"]
 [connection signal="beginDialogue" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_begin_dialogue"]
 [connection signal="conversationComplete" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_conversation_complete"]
 [connection signal="newMessageSelect" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_new_message_select"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf06usv5mi2r7"]
+[gd_scene load_steps=13 format=3 uid="uid://bf06usv5mi2r7"]
 
 [ext_resource type="Script" uid="uid://btak2r2m3ep8y" path="res://src/poker_timeline/timeline_node.gd" id="1_34hll"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="1_gkyw6"]
 [ext_resource type="Texture2D" uid="uid://je0u7r5x3lup" path="res://data/assets/poker/art/dot_matrix_rounded.png" id="1_sawmw"]
 [ext_resource type="Texture2D" uid="uid://buq8404vf8ns5" path="res://data/characters/amy/phone_icons/default.png" id="2_34hll"]
 [ext_resource type="Texture2D" uid="uid://5g5kxhxgf5iv" path="res://data/background_lists/ashely_bar_poker/111.webp" id="3_11opb"]
+[ext_resource type="Shader" uid="uid://cseadgykofhvg" path="res://src/date/ember2.gdshader" id="3_j7cgw"]
 [ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="4_11opb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7cgw"]
@@ -22,6 +23,14 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 anti_aliasing = false
 anti_aliasing_size = 1.053
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02blk"]
+shader = ExtResource("3_j7cgw")
+shader_parameter/base_color = Vector4(1, 0.4, 0, 1)
+shader_parameter/glow_color = Vector4(0.5, 1, 0.5, 1)
+shader_parameter/glow_strength = 1.0
+shader_parameter/glow_speed = 2.0
+shader_parameter/noise_scale = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11opb"]
 content_margin_top = 4.0
@@ -151,6 +160,28 @@ slot/10/right_color = Color(1, 1, 1, 1)
 slot/10/right_icon = null
 slot/10/draw_stylebox = true
 script = ExtResource("1_34hll")
+
+[node name="HighlightPositioner" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="HighlightPositioner"]
+modulate = Color(1, 1, 1, 0.854902)
+material = SubResource("ShaderMaterial_02blk")
+offset_top = -40.0
+offset_right = 353.0
+color = Color(1, 0.866667, 0, 1)
+
+[node name="Label" type="Label" parent="HighlightPositioner"]
+offset_left = 5.0
+offset_top = -40.0
+offset_right = 353.0
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 32
+text = "YOU ARE HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Node2D2" type="Node2D" parent="."]
 

@@ -381,6 +381,9 @@ func addMessage(message):
 func hasCompletedCurrentStage():
 	return completedStages.has(currentStage.name)
 
+func hasCompletedStage(stageName):
+	return completedStages.has(stageName)
+
 func hasCompletedCurrentStageGlobally():
 	return completedStagesGLOBAL.has(currentStage.name) or hasCompletedCurrentStage()
 

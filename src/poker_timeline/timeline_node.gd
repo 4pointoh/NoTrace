@@ -6,13 +6,12 @@ const SLOT_PLAYER_OUT := 4 # Port 0 (Cyan)
 const SLOT_OPP_OUT := 6    # Port 1 (Pink)
 
 static var backgroundListsCache
+static var cacheForStage
 var nodeData : PokerNodeData
-
-var DEBUG_STAGE = 'res://data/game_stages/poker/ashely_bar_poker/gs_ashely_bar_poker.tres'
 
 signal startFromNode(data: PokerNodeData)
 
-func setupFromData(data: PokerNodeData) -> void:
+func setupFromData(data: PokerNodeData, stage : GameStage) -> void:
 	nodeData = data
 	%NodeTitle.text = "Partially Complete"
 	%WhoLosesWhatLabel.text = data.main_label_text
@@ -44,14 +43,15 @@ func setupFromData(data: PokerNodeData) -> void:
 	position_offset = data.position_offset
 	set_slot(SLOT_OPP_OUT, false, 0, Color.WHITE, !data.is_game_over, 0, Color(1, 0.4, 0.7))
 
-	if backgroundListsCache == null:
-		backgroundListsCache = NodeDataService.getBackgroundListsForNode(load(DEBUG_STAGE))
+	if backgroundListsCache == null or stage != cacheForStage:
+		cacheForStage = stage
+		backgroundListsCache = NodeDataService.getBackgroundListsForNode(stage)
 
 	var previewImage 
 	if data.starting_background_override:
 		previewImage = load(data.starting_background_override)
 	else:
-		previewImage = NodeDataService.getImagePreviewForDialogueKey(data.dialogue_key, load(DEBUG_STAGE), backgroundListsCache)
+		previewImage = NodeDataService.getImagePreviewForDialogueKey(data.dialogue_key, stage, backgroundListsCache)
 		if previewImage != null:
 			previewImage = previewImage.images
 
@@ -81,12 +81,11 @@ func setupFromData(data: PokerNodeData) -> void:
 	allKeys.append_array(data.related_dialogue_keys)
 	allKeys.append(data.dialogue_key)
 
-	var gs = load(DEBUG_STAGE)
-	if hasSeenAllDialogueKeys(allKeys, gs.name):
+	if hasSeenAllDialogueKeys(allKeys, stage.name):
 		get("theme_override_styles/titlebar").set("bg_color", Color.GREEN)
 		%NodeTitle.text = 'Scene Seen!'
 		%ColorRect.color = Color.GREEN
-	elif hasSeenSomeDialogueKeys(allKeys, gs.name):
+	elif hasSeenSomeDialogueKeys(allKeys, stage.name):
 		get("theme_override_styles/titlebar").set("bg_color", Color.YELLOW)
 		%NodeTitle.text = 'Scene Partially Seen'
 		%ColorRect.color = Color.YELLOW
@@ -96,7 +95,7 @@ func setupFromData(data: PokerNodeData) -> void:
 		%NodeTitle.text = 'Not Seen'
 	
 		# TODO - Uncomment for full release
-		#%Wallpaper.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
+		%Wallpaper.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
 func getClothingLabel(clothingItem: String) -> Label:
 	var label = Label.new()
@@ -135,3 +134,9 @@ func setDebugInfo(data: PokerNodeData):
 func _on_start_from_here_button_pressed() -> void:
 	startFromNode.emit(nodeData)
 	backgroundListsCache = null
+
+func highlightNode():
+	%HighlightPositioner.show()
+
+func hideStartFrom():
+	%StartFromHereButton.hide()

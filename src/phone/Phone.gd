@@ -2,6 +2,7 @@ extends Node2D
 
 signal newMessageSelect(stage : GameStage)
 signal newStageSelect(stage : GameStage)
+signal showTimeline(stage : GameStage)
 signal beginDialogue(key : String)
 signal conversationComplete()
 
@@ -138,3 +139,7 @@ func _on_real_date_icon_pressed():
 	%RealDateApp.visible = true
 	%Back.visible = true
 	%AnimationPlayer.play("realdate_up")
+
+func _on_continue_app_selected_timeline(stage: GameStage) -> void:
+	playAppOpenSound()
+	showTimeline.emit(stage)

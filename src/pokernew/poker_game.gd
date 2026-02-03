@@ -24,6 +24,10 @@ var nextPokerAction
 var dialoguePause: bool = false
 var cheatsLeft: int
 
+var mostRecentKeyEventRowId: String
+
+var animationsOn : bool = true
+
 # New CSV-based poker system
 var _csv_evaluator: PokerCSVEventEvaluator = null
 var _lastRoundPlayerLost: bool = false
@@ -31,6 +35,7 @@ var _lastRoundPlayerLost: bool = false
 signal gamePaused
 signal gameWon
 signal gameLost
+signal showTimeline(mostRecentKeyEventRowId : String)
 
 
 func _ready():
@@ -210,16 +215,22 @@ func _on_alt_start_pressed() -> void:
 	%Start.show()
 	%AltStartInfo.show()
 	%AltStart.hide()
-	pass # Replace with function body.
 
 func processStartPressed():
 	%Skip.hide()
 	%AltStartInfo.hide()
+	%DisableAnimButton.show()
+	
+	if GlobalGameStage.hasCompletedCurrentStage():
+		%GraphViewButton.show()
+	
 	processCurrentStage()
 
 func processAltStartInitialDialogue():
 	var dialogueAction = PokerUpdateActionResult.new()
 	dialogueAction.dialogueStartKey = altStartData.dialogue_key
+	dialogueAction.nodeId = altStartData.row_id
+	mostRecentKeyEventRowId = altStartData.row_id
 	dialogueAction.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 	dialogueAction.shouldPausePoker = true
 	dialogueAction.shouldHidePoker = true
@@ -351,6 +362,9 @@ func getCurrentEvent():
 	var updateResult: PokerUpdateActionResult
 	if GlobalGameStage.currentStage.useNewPokerSystem and _csv_evaluator:
 		updateResult = _csv_evaluator.evaluate(pokerInfo)
+
+		if updateResult.nodeId != null:
+			mostRecentKeyEventRowId = updateResult.nodeId
 	else:
 		updateResult = GlobalGameStage.currentStage.pokerScript.evaluate_poker_game(pokerInfo)
 
@@ -446,3 +460,32 @@ func getAltStartDescription():
 		full_text = target + ' ' + target_pronoun + ' just lost' + ' ' + target_item
 	
 	return full_text
+
+
+func _on_disable_anim_button_mouse_entered() -> void:
+	%ButtonDescription.text = 'Toggle Animations'
+	%ButtonDescription.show()
+
+
+func _on_graph_view_button_mouse_entered() -> void:
+	%ButtonDescription.text = 'View Timeline'
+	%ButtonDescription.show()
+
+
+func _on_graph_view_button_mouse_exited() -> void:
+	%ButtonDescription.hide()
+
+
+func _on_disable_anim_button_mouse_exited() -> void:
+	%ButtonDescription.hide()
+
+
+func _on_disable_anim_button_pressed() -> void:
+	animationsOn = !animationsOn
+	if animationsOn:
+		%DisableAnimLabel.text = 'Anim.\nOn'
+	else:
+		%DisableAnimLabel.text = 'Anim.\nOff'
+
+func _on_graph_view_button_pressed() -> void:
+	showTimeline.emit(mostRecentKeyEventRowId)

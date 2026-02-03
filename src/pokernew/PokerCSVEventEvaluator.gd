@@ -183,6 +183,7 @@ func evaluate(poker_info: PokerInfo) -> PokerUpdateActionResult:
 		
 		if node.dialogue_key and not node.dialogue_key.is_empty():
 			result.dialogueStartKey = node.dialogue_key
+			result.nodeId = node.row_id
 			result.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 			result.shouldPausePoker = true
 			result.shouldHidePoker = true

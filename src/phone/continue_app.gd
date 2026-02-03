@@ -3,8 +3,10 @@ extends Node2D
 @export var availableMessage : PackedScene
 
 signal selected(stage: GameStage)
+signal selectedTimeline(stage: GameStage)
 
 var currentEvents = true
+var gs : GameStage
 
 func setup():
 	var availableEvents = GlobalGameStage.getAvailableSelectableEvents()
@@ -28,8 +30,11 @@ func reset():
 		stages.queue_free()
 		
 func handlePressed(gameStage):
-	selected.emit(gameStage)
-
+	gs = gameStage
+	if GlobalGameStage.hasCompletedStage(gameStage.name) && gameStage.sceneLeadsToAPokerMatch:
+		%PokerSelectionContainer.show()
+	else:
+		selected.emit(gameStage)
 
 func _on_past_events_button_pressed() -> void:
 	currentEvents = !currentEvents
@@ -49,3 +54,13 @@ func _on_past_events_button_pressed() -> void:
 		newMessage.setStage(stage)
 		newMessage.pressedButton.connect(handlePressed)
 		%AvailableMessagesContainer.add_child(newMessage)
+
+
+func _on_from_beginning_pressed() -> void:
+	selected.emit(gs)
+
+func _on_from_timeline_pressed() -> void:
+	selectedTimeline.emit(gs.pokerMatchGameStage)
+
+func _on_back_pressed() -> void:
+	%PokerSelectionContainer.hide()

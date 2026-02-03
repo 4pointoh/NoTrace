@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnd677crdakvo"]
+[gd_scene load_steps=19 format=3 uid="uid://dnd677crdakvo"]
 
 [ext_resource type="Script" uid="uid://qxdo2crqyu5e" path="res://src/pokernew/poker_game.gd" id="1_haorf"]
 [ext_resource type="Script" uid="uid://dslhhjk1qq2d3" path="res://src/pokernew/PokerDisplay.gd" id="2_n8c77"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cxjkkyt53huvr" path="res://src/pokernew/life_tracker.tscn" id="6_akmyq"]
 [ext_resource type="PackedScene" uid="uid://dqgpk6g0igcli" path="res://src/pokernew/Hints.tscn" id="7_m6qfe"]
 [ext_resource type="PackedScene" uid="uid://cci6mujrkijn" path="res://src/pokernew/PokerModeSelect.tscn" id="8_jfo4i"]
+[ext_resource type="Texture2D" uid="uid://75qd7fai8bya" path="res://data/assets/poker/art/graph_icon_white.png" id="9_rhayl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y20me"]
 bg_color = Color(0, 0, 0, 1)
@@ -210,9 +211,9 @@ vertical_alignment = 1
 [node name="IntroBg" type="NinePatchRect" parent="PokerDisplay"]
 unique_name_in_owner = true
 visible = false
-offset_left = -213.0
+offset_left = -1329.0
 offset_top = 265.0
-offset_right = 1089.0
+offset_right = -27.0
 offset_bottom = 528.0
 texture = ExtResource("3_i4s7q")
 patch_margin_left = 8
@@ -222,8 +223,9 @@ patch_margin_bottom = 8
 
 [node name="IntroLabel" type="Label" parent="PokerDisplay"]
 unique_name_in_owner = true
+offset_left = 916.0
 offset_top = 265.0
-offset_right = 896.0
+offset_right = 1812.0
 offset_bottom = 528.0
 theme_override_fonts/font = ExtResource("4_dai1u")
 theme_override_font_sizes/font_size = 80
@@ -449,13 +451,20 @@ text = "Alternate Start"
 [node name="AltStartInfo" type="ColorRect" parent="PokerDisplay"]
 unique_name_in_owner = true
 visible = false
-offset_left = 172.0
-offset_top = 275.0
-offset_right = 727.0
-offset_bottom = 568.0
+offset_left = 166.0
+offset_top = 269.0
+offset_right = 734.0
+offset_bottom = 574.0
+color = Color(1, 1, 0, 1)
+
+[node name="AltStartInfo2" type="ColorRect" parent="PokerDisplay/AltStartInfo"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 562.0
+offset_bottom = 299.0
 color = Color(0.0119761, 1.92523e-07, 0.150161, 1)
 
-[node name="Label" type="Label" parent="PokerDisplay/AltStartInfo"]
+[node name="Label" type="Label" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 layout_mode = 0
 offset_right = 555.0
 offset_bottom = 46.0
@@ -465,7 +474,7 @@ text = "Poker Alternate Start (BETA)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AltStartLabel2" type="Label" parent="PokerDisplay/AltStartInfo"]
+[node name="AltStartLabel2" type="Label" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 offset_left = 60.0
 offset_top = 46.0
 offset_right = 492.0
@@ -475,14 +484,14 @@ text = "Note: Your opponent may appear fully clothed until you experience at lea
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="PokerDisplay/AltStartInfo"]
+[node name="ColorRect" type="ColorRect" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 106.0
 offset_right = 534.0
 offset_bottom = 109.0
 
-[node name="Label2" type="Label" parent="PokerDisplay/AltStartInfo"]
+[node name="Label2" type="Label" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 156.0
@@ -495,7 +504,7 @@ text = "When you click start:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StripDesciption" type="Label" parent="PokerDisplay/AltStartInfo"]
+[node name="StripDesciption" type="Label" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 18.0
@@ -511,7 +520,7 @@ text = "ASHELY will strip her HAIRBAND"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="PokerDisplay/AltStartInfo"]
+[node name="Label3" type="Label" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 253.0
@@ -522,7 +531,7 @@ text = "Click the Start button below to begin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AltStartLabel" type="Label" parent="PokerDisplay/AltStartInfo"]
+[node name="AltStartLabel" type="Label" parent="PokerDisplay/AltStartInfo/AltStartInfo2"]
 unique_name_in_owner = true
 visible = false
 offset_left = 18.0
@@ -530,6 +539,59 @@ offset_top = 176.0
 offset_right = 436.0
 offset_bottom = 199.0
 text = "Alternate Start"
+
+[node name="GraphViewButton" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 26.0
+offset_top = 1076.0
+offset_right = 83.0
+offset_bottom = 1130.0
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="PokerDisplay/GraphViewButton"]
+self_modulate = Color(1, 1, 1, 0.427451)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 46.0
+offset_bottom = 45.0
+texture = ExtResource("9_rhayl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonDescription" type="Label" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 26.0
+offset_top = 1048.0
+offset_right = 169.0
+offset_bottom = 1073.0
+theme_override_constants/outline_size = 8
+text = "Toggle Animations"
+
+[node name="DisableAnimButton" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 89.0
+offset_top = 1076.0
+offset_right = 146.0
+offset_bottom = 1130.0
+focus_mode = 0
+
+[node name="DisableAnimLabel" type="Label" parent="PokerDisplay/DisableAnimButton"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 55.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0.612036, 0.612036, 0.612036, 1)
+theme_override_constants/line_spacing = -7
+text = "Anim.
+On"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PokerDisplay/Continue" to="PokerDisplay" method="_on_continue_pressed"]
 [connection signal="pressed" from="PokerDisplay/Discard" to="PokerDisplay" method="_on_discard_pressed"]
@@ -540,3 +602,9 @@ text = "Alternate Start"
 [connection signal="animation_finished" from="PokerDisplay/AnimationPlayer" to="PokerDisplay" method="_on_animation_player_animation_finished"]
 [connection signal="selectedMode" from="PokerDisplay/PokerModeSelect" to="." method="_on_poker_mode_select_selected_mode"]
 [connection signal="pressed" from="PokerDisplay/AltStart" to="." method="_on_alt_start_pressed"]
+[connection signal="mouse_entered" from="PokerDisplay/GraphViewButton" to="." method="_on_graph_view_button_mouse_entered"]
+[connection signal="mouse_exited" from="PokerDisplay/GraphViewButton" to="." method="_on_graph_view_button_mouse_exited"]
+[connection signal="pressed" from="PokerDisplay/GraphViewButton" to="." method="_on_graph_view_button_pressed"]
+[connection signal="mouse_entered" from="PokerDisplay/DisableAnimButton" to="." method="_on_disable_anim_button_mouse_entered"]
+[connection signal="mouse_exited" from="PokerDisplay/DisableAnimButton" to="." method="_on_disable_anim_button_mouse_exited"]
+[connection signal="pressed" from="PokerDisplay/DisableAnimButton" to="." method="_on_disable_anim_button_pressed"]
