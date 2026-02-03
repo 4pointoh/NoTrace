@@ -1,20 +1,28 @@
 extends Node2D
 
 
-var deck : Deck = Deck.new()
-var isPlayerTurn : bool = true
+var deck: Deck = Deck.new()
+var isPlayerTurn: bool = true
 var playerCards = []
 var cpuCards = []
 var cpuIndexesToDiscard
-var playerLives
-var cpuLives
-var opponentName = GlobalGameStage.currentStage.opponentName
-var opponentNamePlural = GlobalGameStage.currentStage.opponentName
-var currentStage : PokerEnums.PokerStageFiveCardDraw
-var nextPokerAction
-var dialoguePause = false
 
-var cheatsLeft
+# Lives state
+var playerLives: int
+var cpuLives: int
+var maxPlayerLives: int
+var maxCpuLives: int
+var startingPlayerLivesLost: int = 0
+var startingCpuLivesLost: int = 0
+var isAlternateStart: bool = false
+var altStartData : PokerNodeData = null
+
+var opponentName: String
+var opponentNamePlural: String
+var currentStage: PokerEnums.PokerStageFiveCardDraw
+var nextPokerAction
+var dialoguePause: bool = false
+var cheatsLeft: int
 
 # New CSV-based poker system
 var _csv_evaluator: PokerCSVEventEvaluator = null
@@ -24,26 +32,81 @@ signal gamePaused
 signal gameWon
 signal gameLost
 
+
 func _ready():
+	_initializeGameState()
+	_initializePokerEventSystem()
+	_connectSignals()
+
+
+func setup():
+	_initializeGameState()
+	_resetPokerEventSystem()
+	setCheats(0)
+	_updateSkipVisibility()
+
+
+func _initializeGameState():
 	deck = Deck.new()
 	isPlayerTurn = true
 	dialoguePause = false
 	opponentName = GlobalGameStage.currentStage.opponentName
 	opponentNamePlural = GlobalGameStage.currentStage.opponentName
-	playerLives = GlobalGameStage.currentStage.playerLives
-	cpuLives = GlobalGameStage.currentStage.cpuLives
+	currentStage = PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START
+	
+	_initializeLives()
 
-	# Initialize the appropriate poker event system
+
+func _initializeLives():
+	maxPlayerLives = GlobalGameStage.currentStage.playerLives
+	maxCpuLives = GlobalGameStage.currentStage.cpuLives
+	isAlternateStart = GlobalGameStage.isStartingPokerFromNode
+	
+	if isAlternateStart:
+		altStartData = GlobalGameStage.altStartSceneData
+		playerLives = GlobalGameStage.altStartPlayerLives
+		cpuLives = GlobalGameStage.altStartOppLives
+		currentStage = PokerEnums.PokerStageFiveCardDraw.ALTERNATE_START_INITIAL_DIALOGUE
+		startingPlayerLivesLost = maxPlayerLives - playerLives
+		startingCpuLivesLost = maxCpuLives - cpuLives
+		%AltStart.show()
+		%Start.hide()
+		%StripDesciption.text = getAltStartDescription()
+		%AltStartLabel.text = 'Alt Start | Opp Lives: %d/%d | Player Lives: %d/%d' % [cpuLives, maxCpuLives, playerLives, maxPlayerLives]
+	else:
+		%AltStartInfo.hide()
+		%AltStart.hide()
+		%Start.show()
+		altStartData = null
+		playerLives = maxPlayerLives
+		cpuLives = maxCpuLives
+		startingPlayerLivesLost = 0
+		startingCpuLivesLost = 0
+
+
+func _initializePokerEventSystem():
 	if GlobalGameStage.currentStage.useNewPokerSystem:
 		_csv_evaluator = PokerCSVEventEvaluator.new()
 		_csv_evaluator.initialize(
 			GlobalGameStage.currentStage.pokerConfigJsonPath,
-			GlobalGameStage.currentStage.pokerCSVPath
+			GlobalGameStage.currentStage.pokerCSVPath,
+			altStartData
 		)
 	else:
 		GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
 
-	currentStage = PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START
+
+func _resetPokerEventSystem():
+	if GlobalGameStage.currentStage.useNewPokerSystem:
+		if _csv_evaluator:
+			_csv_evaluator.reset()
+		else:
+			_initializePokerEventSystem()
+	elif GlobalGameStage.currentStage.pokerScript:
+		GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
+
+
+func _connectSignals():
 	%PokerDisplay.stageComplete.connect(processStageComplete)
 	%PokerDisplay.discardPressed.connect(processDiscardPressed)
 	%PokerDisplay.startPressed.connect(processStartPressed)
@@ -51,40 +114,15 @@ func _ready():
 	%PokerDisplay.cheatPressed.connect(cheat)
 
 
-func setup():
-	deck = Deck.new()
-	isPlayerTurn = true
-	dialoguePause = false
-	opponentName = GlobalGameStage.currentStage.opponentName
-	opponentNamePlural = GlobalGameStage.currentStage.opponentName
-	playerLives = GlobalGameStage.currentStage.playerLives
-	cpuLives = GlobalGameStage.currentStage.cpuLives
-
-	# Reset the appropriate poker event system
-	if GlobalGameStage.currentStage.useNewPokerSystem:
-		if _csv_evaluator:
-			_csv_evaluator.reset()
-		else:
-			_csv_evaluator = PokerCSVEventEvaluator.new()
-			_csv_evaluator.initialize(
-				GlobalGameStage.currentStage.pokerConfigJsonPath,
-				GlobalGameStage.currentStage.pokerCSVPath
-			)
-	else:
-		if GlobalGameStage.currentStage.pokerScript:
-			GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
-
-	setCheats(0)
-	
-	if GlobalGameStage.hasCompletedCurrentStageGlobally():
-		%Skip.show()
-	else:
-		%Skip.hide()
+func _updateSkipVisibility():
+	%Skip.visible = GlobalGameStage.hasCompletedCurrentStageGlobally()
 
 func processStageComplete():
 	var shouldEnd = false
 
-	if(currentStage == PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START):
+	if(currentStage == PokerEnums.PokerStageFiveCardDraw.ALTERNATE_START_INITIAL_DIALOGUE):
+		currentStage = PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START
+	elif(currentStage == PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START):
 		currentStage = PokerEnums.PokerStageFiveCardDraw.PRE_ROUND_START
 	elif(currentStage == PokerEnums.PokerStageFiveCardDraw.PRE_ROUND_START):
 		currentStage = PokerEnums.PokerStageFiveCardDraw.CLEAR_BOARD
@@ -136,7 +174,9 @@ func processCurrentStage():
 	print('Player Card: ' + str(playerCards.map(func(card): return card.value + ' of ' + card.suit)))
 	print('CPU Card: ' + str(cpuCards.map(func(card): return card.value + ' of ' + card.suit)))
 
-	if(currentStage == PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START):
+	if(currentStage == PokerEnums.PokerStageFiveCardDraw.ALTERNATE_START_INITIAL_DIALOGUE):
+		processAltStartInitialDialogue()
+	elif(currentStage == PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START):
 		processPreGameStart();
 	elif(currentStage == PokerEnums.PokerStageFiveCardDraw.PRE_ROUND_START):
 		processPreRoundStart();
@@ -164,13 +204,30 @@ func processCurrentStage():
 		processRoundComplete();
 	elif(currentStage == PokerEnums.PokerStageFiveCardDraw.GAME_COMPLETE):
 		processGameComplete();
+		
+
+func _on_alt_start_pressed() -> void:
+	%Start.show()
+	%AltStartInfo.show()
+	%AltStart.hide()
+	pass # Replace with function body.
 
 func processStartPressed():
 	%Skip.hide()
+	%AltStartInfo.hide()
 	processCurrentStage()
 
+func processAltStartInitialDialogue():
+	var dialogueAction = PokerUpdateActionResult.new()
+	dialogueAction.dialogueStartKey = altStartData.dialogue_key
+	dialogueAction.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
+	dialogueAction.shouldPausePoker = true
+	dialogueAction.shouldHidePoker = true
+	nextPokerAction = dialogueAction
+	startDialogue()
+
 func processPreGameStart():
-	%PokerDisplay.processPreGameStart()
+	%PokerDisplay.processPreGameStart(maxPlayerLives, maxCpuLives, startingPlayerLivesLost, startingCpuLivesLost)
 
 func processPreRoundStart():
 	%PokerDisplay.processPreRoundStart()
@@ -364,3 +421,28 @@ func setCheats(mode: int):
 		cheatsLeft = GlobalGameStage.currentStage.proPlusCheats
 	elif mode == 2:
 		cheatsLeft = GlobalGameStage.currentStage.proPlusMaxCheats
+
+func getAltStartDescription():
+	var target = ""
+	var target_pronoun = ""
+	var target_item = altStartData.event_item
+	var full_text = ""
+
+	if GlobalGameStage.currentStage.isStripPoker:
+		if altStartData.is_opponent_strip:
+			target = altStartData.stripper_id
+			target_pronoun = "her"
+		else:
+			target = "YOU"
+			target_pronoun = "your"
+		full_text = target + ' ' + 'will strip' + ' ' + target_pronoun + ' ' + target_item
+	else:
+		if altStartData.is_opponent_strip:
+			target = altStartData.stripper_id
+			target_pronoun = "has"
+		else:
+			target = "YOU"
+			target_pronoun = "have"
+		full_text = target + ' ' + target_pronoun + ' just lost' + ' ' + target_item
+	
+	return full_text

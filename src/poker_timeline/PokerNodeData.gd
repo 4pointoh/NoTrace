@@ -12,6 +12,8 @@ var pre_player_count: int = 0
 var post_opp_count: int = 0
 var post_player_count: int = 0
 var current_round: int = 0
+var player_lives: int = 0
+var opponent_lives: int = 0
 
 # character info
 var player_full_clothes_list: Array[String] = []

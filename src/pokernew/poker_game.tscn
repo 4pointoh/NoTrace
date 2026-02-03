@@ -210,9 +210,9 @@ vertical_alignment = 1
 [node name="IntroBg" type="NinePatchRect" parent="PokerDisplay"]
 unique_name_in_owner = true
 visible = false
-offset_left = -1329.0
+offset_left = -213.0
 offset_top = 265.0
-offset_right = -27.0
+offset_right = 1089.0
 offset_bottom = 528.0
 texture = ExtResource("3_i4s7q")
 patch_margin_left = 8
@@ -222,9 +222,8 @@ patch_margin_bottom = 8
 
 [node name="IntroLabel" type="Label" parent="PokerDisplay"]
 unique_name_in_owner = true
-offset_left = 916.0
 offset_top = 265.0
-offset_right = 1812.0
+offset_right = 896.0
 offset_bottom = 528.0
 theme_override_fonts/font = ExtResource("4_dai1u")
 theme_override_font_sizes/font_size = 80
@@ -435,6 +434,103 @@ position = Vector2(511, 578)
 unique_name_in_owner = true
 volume_db = 10.757
 
+[node name="AltStart" type="Button" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 253.0
+offset_top = 1060.0
+offset_right = 647.0
+offset_bottom = 1133.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_2c8i3")
+text = "Alternate Start"
+
+[node name="AltStartInfo" type="ColorRect" parent="PokerDisplay"]
+unique_name_in_owner = true
+visible = false
+offset_left = 172.0
+offset_top = 275.0
+offset_right = 727.0
+offset_bottom = 568.0
+color = Color(0.0119761, 1.92523e-07, 0.150161, 1)
+
+[node name="Label" type="Label" parent="PokerDisplay/AltStartInfo"]
+layout_mode = 0
+offset_right = 555.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 24
+text = "Poker Alternate Start (BETA)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AltStartLabel2" type="Label" parent="PokerDisplay/AltStartInfo"]
+offset_left = 60.0
+offset_top = 46.0
+offset_right = 492.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 16
+text = "Note: Your opponent may appear fully clothed until you experience at least one stripping event."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="PokerDisplay/AltStartInfo"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 106.0
+offset_right = 534.0
+offset_bottom = 109.0
+
+[node name="Label2" type="Label" parent="PokerDisplay/AltStartInfo"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 156.0
+offset_right = 534.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 20
+text = "When you click start:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StripDesciption" type="Label" parent="PokerDisplay/AltStartInfo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = 188.0
+offset_right = 534.0
+offset_bottom = 211.0
+theme_override_colors/font_color = Color(0.117647, 0.823529, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_dai1u")
+theme_override_font_sizes/font_size = 20
+text = "ASHELY will strip her HAIRBAND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PokerDisplay/AltStartInfo"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 253.0
+offset_right = 533.0
+offset_bottom = 276.0
+theme_override_font_sizes/font_size = 18
+text = "Click the Start button below to begin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AltStartLabel" type="Label" parent="PokerDisplay/AltStartInfo"]
+unique_name_in_owner = true
+visible = false
+offset_left = 18.0
+offset_top = 176.0
+offset_right = 436.0
+offset_bottom = 199.0
+text = "Alternate Start"
+
 [connection signal="pressed" from="PokerDisplay/Continue" to="PokerDisplay" method="_on_continue_pressed"]
 [connection signal="pressed" from="PokerDisplay/Discard" to="PokerDisplay" method="_on_discard_pressed"]
 [connection signal="pressed" from="PokerDisplay/Reveal" to="PokerDisplay" method="_on_reveal_pressed"]
@@ -443,3 +539,4 @@ volume_db = 10.757
 [connection signal="pressed" from="PokerDisplay/Cheat" to="PokerDisplay" method="_on_cheat_pressed"]
 [connection signal="animation_finished" from="PokerDisplay/AnimationPlayer" to="PokerDisplay" method="_on_animation_player_animation_finished"]
 [connection signal="selectedMode" from="PokerDisplay/PokerModeSelect" to="." method="_on_poker_mode_select_selected_mode"]
+[connection signal="pressed" from="PokerDisplay/AltStart" to="." method="_on_alt_start_pressed"]

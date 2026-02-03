@@ -302,6 +302,10 @@ func _populate_character_info(data: PokerNodeData) -> void:
 	
 	data.player_current_clothes_list = p_full.slice(data.post_player_count)
 	data.opponent_current_clothes_list = o_full.slice(data.post_opp_count)
+	
+	# Calculate remaining lives based on clothing state
+	data.player_lives = _calculate_remaining_lives(_player_stack, data.post_player_count)
+	data.opponent_lives = _calculate_remaining_lives(_opp_stack, data.post_opp_count)
 
 
 func _get_item_name_at_index(stack: Array, index: int) -> String:
@@ -377,3 +381,18 @@ func _calculate_lives_lost(stack: Array, count: int) -> int:
 		threshold = item.lives_threshold
 		
 	return _max_lives - threshold
+
+
+func _calculate_remaining_lives(stack: Array, items_lost_count: int) -> int:
+	if items_lost_count <= 0:
+		return _max_lives
+	
+	# Clamp to valid index range
+	var index = items_lost_count - 1
+	if index >= stack.size():
+		index = stack.size() - 1
+	
+	var item = stack[index]
+	if item.has("lives_threshold"):
+		return item.lives_threshold
+	return 0

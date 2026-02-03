@@ -1,0 +1,55 @@
+{
+	"settings": {
+		"max_lives": 20
+	},
+	"participants": {
+		"ASHELY": {
+			"clothing_stack": [
+				{
+					"id": "HAIRBAND",
+					"lives_threshold": 16
+				},
+				{
+					"id": "JACKET",
+					"lives_threshold": 13
+				},
+				{
+					"id": "SHIRT",
+					"lives_threshold": 10
+				},
+				{
+					"id": "PANTS",
+					"lives_threshold": 7
+				},
+				{
+					"id": "BRA",
+					"lives_threshold": 4
+				},
+				{
+					"id": "PANTIES",
+					"lives_threshold": 0
+				}
+			]
+		},
+		"PLAYER": {
+			"clothing_stack": [
+				{
+					"id": "SHIRT",
+					"lives_threshold": 14
+				},
+				{
+					"id": "PANTS",
+					"lives_threshold": 9
+				},
+				{
+					"id": "BOXERS",
+					"lives_threshold": 4
+				},
+				{
+					"id": "XTRA LIFE",
+					"lives_threshold": 0
+				}
+			]
+		}
+	}
+}

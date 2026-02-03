@@ -38,12 +38,21 @@ func _ready():
 func _on_animation_player_animation_finished(_anim_name):
 	pass # Replace with function body.
 
-func processPreGameStart():
-	playerLives = GlobalGameStage.currentStage.playerLives
-	cpuLives = GlobalGameStage.currentStage.cpuLives
+func processPreGameStart(maxPlayerLives: int = -1, maxCpuLives: int = -1, startingPlayerLivesLost: int = 0, startingCpuLivesLost: int = 0):
+	# Use provided max lives or fall back to stage config
+	if maxPlayerLives >= 0:
+		playerLives = maxPlayerLives
+	else:
+		playerLives = GlobalGameStage.currentStage.playerLives
+	
+	if maxCpuLives >= 0:
+		cpuLives = maxCpuLives
+	else:
+		cpuLives = GlobalGameStage.currentStage.cpuLives
 
-	currentPlayerLifeIndex = 0
-	currentCPULifeIndex = 0
+	# Set starting indices based on lives already lost
+	currentPlayerLifeIndex = startingPlayerLivesLost
+	currentCPULifeIndex = startingCpuLivesLost
 
 	playerLivesWithEvents = GlobalGameStage.currentStage.playerLivesWithEvents
 	cpuLivesWithEvents = GlobalGameStage.currentStage.cpuLivesWithEvents
@@ -53,7 +62,10 @@ func processPreGameStart():
 		textureRect.custom_minimum_size = Vector2(80, 10)
 		textureRect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 
-		if(playerLivesWithEvents.has(i)):
+		# Mark lives as lost if below the starting index
+		if i < startingPlayerLivesLost:
+			textureRect.texture = load("res://data/assets/poker/art/life_lost.png")
+		elif playerLivesWithEvents.has(i):
 			textureRect.texture = load("res://data/assets/poker/art/life_star.png")
 		else:
 			textureRect.texture = load("res://data/assets/poker/art/life.png")
@@ -66,15 +78,21 @@ func processPreGameStart():
 		textureRect.custom_minimum_size = Vector2(80, 10)
 		textureRect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 
-		if(cpuLivesWithEvents.has(i)):
+		# Mark lives as lost if below the starting index
+		if i < startingCpuLivesLost:
+			textureRect.texture = load("res://data/assets/poker/art/life_lost.png")
+		elif cpuLivesWithEvents.has(i):
 			textureRect.texture = load("res://data/assets/poker/art/life_star.png")
 		else:
 			textureRect.texture = load("res://data/assets/poker/art/life.png")
 
 		%TheirLivesContainer.add_child(textureRect)
 
-	%YourLivesNew.setLives(playerLives, playerLivesWithEvents, playerLives)
-	%TheirLivesNew.setLives(cpuLives, cpuLivesWithEvents, cpuLives)
+	# Current lives = max - already lost
+	var currentPlayerLives = playerLives - startingPlayerLivesLost
+	var currentCpuLives = cpuLives - startingCpuLivesLost
+	%YourLivesNew.setLives(playerLives, playerLivesWithEvents, currentPlayerLives)
+	%TheirLivesNew.setLives(cpuLives, cpuLivesWithEvents, currentCpuLives)
 
 	preGameStartAnimationComplete()
 

@@ -1,10 +1,13 @@
 @tool
 extends GraphEdit
+class_name PokerTimeline
 
 @export var TimelineNodeScene : PackedScene
 
-const CONFIG_PATH = "res://data/game_stages/poker/lisa_sp_poker_poker1/lisa_sp_poker_poker1_config.json"
-const CSV_PATH = "res://data/game_stages/poker/lisa_sp_poker_poker1/csv/lisa_sp_poker_poker1_generated.csv"
+const CONFIG_PATH = "res://data/game_stages/poker/ashely_bar_poker/ashely_bar_poker_config.json"
+const CSV_PATH = "res://data/game_stages/poker/ashely_bar_poker/csv/ashely_bar_poker_generated.csv"
+
+var selectedGameStage : GameStage = load('res://data/game_stages/poker/ashely_bar_poker/gs_ashely_bar_poker.tres')
 
 # GraphNode Slot Constants
 const SLOT_HEADER := 0
@@ -16,13 +19,14 @@ const SLOT_BUTTON := 4
 # Maps node_id -> GraphNode instance for connection lookup
 var _node_instances: Dictionary = {}
 
+signal startFromNode(nodeData : PokerNodeData, stage : GameStage)
+
 #func _process(delta: float) -> void:
 #	scroll_offset += Vector2(1,1)
 
 func _ready():
 	if not Engine.is_editor_hint():
 		generate_graph()
-
 
 func generate_graph():
 	# 1. Cleanup
@@ -35,7 +39,6 @@ func generate_graph():
 	# 2. Process data
 	var processor = PokerTimelineProcessor.new()
 	var node_datas = processor.process(CONFIG_PATH, CSV_PATH)
-	
 	if node_datas.is_empty():
 		push_error("No nodes generated from processor")
 		return
@@ -45,7 +48,6 @@ func generate_graph():
 		var node = _create_node_from_data(data)
 		add_child(node)
 		_node_instances[data.node_id] = node
-	
 	# 4. Create connections from pre-computed IDs
 	for data in node_datas:
 		if data.is_game_over:
@@ -69,15 +71,14 @@ func generate_graph():
 
 
 func _create_node_from_data(data: PokerNodeData) -> GraphNode:
-	var node = GraphNode.new()
-	node.title = data.row_id
-	node.name = "Node_" + data.node_id
-	node.position_offset = data.position_offset
-	node.size = data.size
-	node.set_meta("node_data", data)
-	node.set_meta("is_opp", data.is_opponent_strip)
-	
 	if data.is_start_node:
+		var node = GraphNode.new()
+		node.title = data.row_id
+		node.name = "Node_" + data.node_id
+		node.position_offset = data.position_offset
+		node.size = data.size
+		node.set_meta("node_data", data)
+		node.set_meta("is_opp", data.is_opponent_strip)
 		return _setup_start_node(node, data)
 	else:
 		return _setup_event_node(data)
@@ -120,5 +121,9 @@ func _setup_start_node(node: GraphNode, data: PokerNodeData) -> GraphNode:
 func _setup_event_node(data: PokerNodeData) -> GraphNode:
 	var newNode = TimelineNodeScene.instantiate()
 	newNode.setupFromData(data)
+	newNode.startFromNode.connect(startClicked)
 
 	return newNode
+
+func startClicked(data : PokerNodeData):
+	startFromNode.emit(data, selectedGameStage)

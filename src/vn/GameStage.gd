@@ -26,6 +26,7 @@ class_name GameStage
 
 # Poker
 @export var isPokerMatch : bool
+@export var isStripPoker : bool
 @export var playerStartingMoney: int
 @export var cpuStartingMoney: int
 @export var startingAnte : int

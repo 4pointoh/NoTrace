@@ -17,8 +17,6 @@ var fullscreenImageIndex
 var isUiHidden = false
 var onMainMenu = true
 
-var tempPokerTimelines : Node = null
-
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
 @export var phoneScene : PackedScene
@@ -32,6 +30,7 @@ var tempPokerTimelines : Node = null
 
 var currentPokerGame
 var currentPhone
+var currentPokerTimeline
 var currentDate
 var currentRealDate
 var currentSceneSelector
@@ -83,12 +82,30 @@ func _handle_fullscreenImage(image, index):
 	$FullscreenImageBg/FullscreenImage.show()
 
 func testFunction():
-	if is_instance_valid(tempPokerTimelines):
-		tempPokerTimelines.queue_free()
+	if is_instance_valid(currentPokerTimeline):
+		currentPokerTimeline.queue_free()
 	else:
-		tempPokerTimelines = pokerTimeline.instantiate()
-		add_child(tempPokerTimelines)
+		currentPokerTimeline = pokerTimeline.instantiate()
+		currentPokerTimeline.get_node("GraphEdit").startFromNode.connect(startPokerFromNode)
+		add_child(currentPokerTimeline)
 		print('testing')
+	
+func startPokerFromNode(nodeData : PokerNodeData, stage : GameStage):
+	print(nodeData)
+	print(stage)
+	GlobalGameStage.setNextGameStage(stage)
+	GlobalGameStage.isStartingPokerFromNode = true
+	GlobalGameStage.altStartOppLives = nodeData.opponent_lives
+	GlobalGameStage.altStartPlayerLives = nodeData.player_lives
+	GlobalGameStage.altStartSceneData = nodeData
+
+	if(is_instance_valid(currentPhone)):
+		currentPhone.destroy()
+	
+	if is_instance_valid(currentPokerTimeline):
+		currentPokerTimeline.queue_free()
+
+	advanceGameStage()
 
 func unlockChar(character : GlobalGameStage.CHARACTERS):
 	GlobalGameStage.unlockDateGirl(character)

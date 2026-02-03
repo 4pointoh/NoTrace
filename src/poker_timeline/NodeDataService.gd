@@ -1,5 +1,5 @@
 class_name NodeDataService
-extends Node
+extends RefCounted
 
 static var LISA_PFP = "res://data/characters/lisa/phone_icons/default.png"
 static var ANNA_PFP = "res://data/characters/anna/phone_icons/default.png"
@@ -29,10 +29,11 @@ static func getImagePreviewForDialogueKey(key: String, gameStage: GameStage, bac
 	var startNode = dialogue.starts[key]
 	var nextNodeKey = dialogue.nodes[startNode].link
 	var nextNode = dialogue.nodes[nextNodeKey]
-	var relevantBackgroundList = backgroundLists.backgroundLists[nextNode.backgroundList]
 
-	if nextNode.background == -1:
+	if !nextNode.has('background') or nextNode.background == -1 or nextNode.backgroundList == -1:
 		return getNextNodeWithImage(nextNode, dialogue, backgroundLists)
+		
+	var relevantBackgroundList = backgroundLists.backgroundLists[nextNode.backgroundList]
 
 	var relevantImage = relevantBackgroundList.images[nextNode.background]
 	return relevantImage
@@ -40,15 +41,27 @@ static func getImagePreviewForDialogueKey(key: String, gameStage: GameStage, bac
 # If the first node didnt have an image, recursively find the next node that does
 static func getNextNodeWithImage(nextNode, dialogue, backgroundLists: BackgroundLists):
 	var relevantImage
-	if nextNode.options != null and nextNode.options.size() > 0:
+	
+	if nextNode.has('background') and nextNode.background != -1:
+		var relevantBackgroundList = backgroundLists.backgroundLists[nextNode.backgroundList]
+		relevantImage = relevantBackgroundList.images[nextNode.background]
+	elif nextNode.has('options') and nextNode.options.size() > 0:
 		var nextNextNodeKey = nextNode.options[0].link
+		
+		if nextNextNodeKey == 'END':
+			return null
+		
 		var nextNextNode = dialogue.nodes[nextNextNodeKey]
 
-		if nextNextNode.background == -1:
+		if !nextNextNode.has('background') or nextNextNode.background == -1:
 			relevantImage = getNextNodeWithImage(nextNextNode, dialogue, backgroundLists)
 		else:
 			var relevantBackgroundList = backgroundLists.backgroundLists[nextNextNode.backgroundList]
 			relevantImage = relevantBackgroundList.images[nextNextNode.background]
+	elif nextNode.has('link'):
+		if nextNode.link == 'END':
+			return null
+		relevantImage = getNextNodeWithImage(dialogue.nodes[nextNode.link], dialogue, backgroundLists)
 	else: 
 		return null
 

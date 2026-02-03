@@ -316,7 +316,8 @@ horizontal_alignment = 2
 [node name="WallpaperContainer" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
 
-[node name="ColorRect" type="ColorRect" parent="WallpaperContainer"]
+[node name="WpBg" type="ColorRect" parent="WallpaperContainer"]
+unique_name_in_owner = true
 offset_left = 10.0
 offset_top = 78.0
 offset_right = 159.0
@@ -424,6 +425,7 @@ patch_margin_bottom = 8
 
 [node name="DebugText" type="RichTextLabel" parent="DebugPanelPositioner/DebugPanel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 219.0
@@ -438,5 +440,6 @@ offset_bottom = 21.0
 theme_override_font_sizes/font_size = 8
 text = "?"
 
+[connection signal="pressed" from="StartFromHereButton" to="." method="_on_start_from_here_button_pressed"]
 [connection signal="pressed" from="AltRoutePositioner/AltRouteHintButton" to="." method="_on_alt_route_hint_button_pressed"]
 [connection signal="pressed" from="DebugPanelPositioner/DebugButton" to="." method="_on_debug_button_pressed"]

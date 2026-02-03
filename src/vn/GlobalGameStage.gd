@@ -19,6 +19,11 @@ var currentDialogueKey : String = ''
 var christmasEventUnlocked = false
 var seenDialogueKeys : Dictionary = {}
 
+var isStartingPokerFromNode : bool = false
+var altStartPlayerLives : int = 0
+var altStartOppLives : int = 0
+var altStartSceneData : PokerNodeData
+
 var annaCorrectChoices = 0
 var lisaMassagePoints = 0
 

@@ -1,12 +1,19 @@
 extends GraphNode
+class_name TimelineNode
 
 const SLOT_HEADER := 0
 const SLOT_PLAYER_OUT := 4 # Port 0 (Cyan)
 const SLOT_OPP_OUT := 6    # Port 1 (Pink)
 
-static var backgroundListsCache : BackgroundLists
+static var backgroundListsCache
+var nodeData : PokerNodeData
+
+var DEBUG_STAGE = 'res://data/game_stages/poker/ashely_bar_poker/gs_ashely_bar_poker.tres'
+
+signal startFromNode(data: PokerNodeData)
 
 func setupFromData(data: PokerNodeData) -> void:
+	nodeData = data
 	%NodeTitle.text = "Partially Complete"
 	%WhoLosesWhatLabel.text = data.main_label_text
 	%WhoLosesWhatLabel.modulate = data.main_label_color
@@ -38,13 +45,13 @@ func setupFromData(data: PokerNodeData) -> void:
 	set_slot(SLOT_OPP_OUT, false, 0, Color.WHITE, !data.is_game_over, 0, Color(1, 0.4, 0.7))
 
 	if backgroundListsCache == null:
-		backgroundListsCache = NodeDataService.getBackgroundListsForNode(load("res://data/game_stages/poker/lisa_sp_poker_poker1/gs_lisa_sp_poker_poker1.tres"))
+		backgroundListsCache = NodeDataService.getBackgroundListsForNode(load(DEBUG_STAGE))
 
 	var previewImage 
 	if data.starting_background_override:
 		previewImage = load(data.starting_background_override)
 	else:
-		previewImage = NodeDataService.getImagePreviewForDialogueKey(data.dialogue_key, load("res://data/game_stages/poker/lisa_sp_poker_poker1/gs_lisa_sp_poker_poker1.tres"), backgroundListsCache)
+		previewImage = NodeDataService.getImagePreviewForDialogueKey(data.dialogue_key, load(DEBUG_STAGE), backgroundListsCache)
 		if previewImage != null:
 			previewImage = previewImage.images
 
@@ -52,6 +59,7 @@ func setupFromData(data: PokerNodeData) -> void:
 		%Wallpaper.texture = previewImage
 	else:
 		%Wallpaper.texture = null
+		%WpBg.hide()
 
 	for clothingItem in data.player_current_clothes_list:
 		var label = getClothingLabel(clothingItem)
@@ -73,7 +81,7 @@ func setupFromData(data: PokerNodeData) -> void:
 	allKeys.append_array(data.related_dialogue_keys)
 	allKeys.append(data.dialogue_key)
 
-	var gs = load("res://data/game_stages/poker/lisa_sp_poker_poker1/gs_lisa_sp_poker_poker1.tres")
+	var gs = load(DEBUG_STAGE)
 	if hasSeenAllDialogueKeys(allKeys, gs.name):
 		get("theme_override_styles/titlebar").set("bg_color", Color.GREEN)
 		%NodeTitle.text = 'Scene Seen!'
@@ -123,3 +131,7 @@ func setDebugInfo(data: PokerNodeData):
 	text += "\n"
 	text += "Row ID: " + data.row_id
 	%DebugText.text = text
+
+func _on_start_from_here_button_pressed() -> void:
+	startFromNode.emit(nodeData)
+	backgroundListsCache = null
