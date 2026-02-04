@@ -125,6 +125,26 @@ func reset() -> void:
 		print("\n--- Resetting to Normal Start ---")
 
 
+## Returns a list of item IDs that the opponent has lost based on current items lost count
+func getOpponentItemsLost() -> Array[String]:
+	var items: Array[String] = []
+	for i in range(_last_opp_items_lost):
+		if i < _opp_stack.size():
+			var item_id = _opp_stack[i].get("id", "ITEM_%d" % i)
+			items.append(item_id.to_upper())
+	return items
+
+
+## Returns a list of item IDs that the player has lost based on current items lost count
+func getPlayerItemsLost() -> Array[String]:
+	var items: Array[String] = []
+	for i in range(_last_player_items_lost):
+		if i < _player_stack.size():
+			var item_id = _player_stack[i].get("id", "ITEM_%d" % i)
+			items.append(item_id.to_upper())
+	return items
+
+
 func evaluate(poker_info: PokerInfo) -> PokerUpdateActionResult:
 	var result = PokerUpdateActionResult.new()
 	result.actionResult = PokerUpdateActionResult.ACTION_RESULTS.NOTHING
@@ -193,7 +213,7 @@ func evaluate(poker_info: PokerInfo) -> PokerUpdateActionResult:
 	return result
 
 
-func _calculate_items_lost_from_lives(current_lives: int, stack: Array, debug_name: String = "") -> int:
+func _calculate_items_lost_from_lives(current_lives: int, stack: Array, _debug_name: String = "") -> int:
 	var items_lost = 0
 	# Note: Assuming config uses 'safe at X' logic, so losing requires dropping BELOW or AT threshold depending on config.
 	# Based on typical settings:

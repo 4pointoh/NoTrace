@@ -1,205 +1,79 @@
 extends PokerScript
+## Poker Script Template for CSV-Migrated Scenes
+##
+## This script handles AMBIENT DIALOGUES only. Core strip events are handled by the CSV system.
+## 
+## Available PokerInfo properties for ambient dialogue conditions:
+##   - _pokerInfo.totalRounds: int - Total rounds played
+##   - _pokerInfo.playerLives / cpuLives: int - Current lives
+##   - _pokerInfo.maxPlayerLives / maxCpuLives: int - Starting lives
+##   - _pokerInfo.playerLifeAdvantage / cpuLifeAdvantage: int - Current life difference
+##   - _pokerInfo.highestPlayerLifeAdvantage / highestCpuLifeAdvantage: int - Historical max
+##   - _pokerInfo.playerTotalWins / cpuTotalWins: int - Total wins this game
+##   - _pokerInfo.playerTotalLosses / cpuTotalLosses: int - Total losses this game
+##   - _pokerInfo.playerCurrentWinStreak / cpuCurrentWinStreak: int - Current streak
+##   - _pokerInfo.playerHighestWinStreak / cpuHighestWinStreak: int - Best streak this game
+##   - _pokerInfo.playerLossesInARow / cpuLossesInARow: int - Current loss streak
+##   - _pokerInfo.playerHasLost("ITEM"): bool - Check if player lost specific item (e.g., "SHIRT", "PANTS")
+##   - _pokerInfo.cpuHasLost("ITEM"): bool - Check if CPU lost specific item
+##   - _pokerInfo.playerItemsLost: Array[String] - List of items player has lost
+##   - _pokerInfo.cpuItemsLost: Array[String] - List of items CPU has lost
 
+
+# Tracks which ambient dialogues have already been shown this game
 static var alreadyActivatedDialogues = []
 
-static var shouldRestoreImageOnCompletion = false
+# Add any scene-specific narrative flags here (flags that can't be derived from clothing state)
+# Example: static var SPECIAL_DIALOGUE_BRANCH = false
 
-static var PLAYER_LOST_SHIRT = false
-static var PLAYER_LOST_PANTS = false
-static var PLAYER_LOST_UNDERWEAR = false
-static var PLAYER_LOST_EVERYTHING = false
-
-static var CPU_LOST_HAIRBAND = false
-static var CPU_LOST_JACKET = false
-static var CPU_LOST_SHIRT = false
-static var CPU_LOST_PANTS = false
-static var CPU_LOST_BRA = false
-static var CPU_LOST_EVERYTHING = false
-
-static var PANTS_OFF_ALT = false
-
-# Num of losses in a row
-static var playerLossesInARow = 0
-static var cpuLossesInARow = 0
-
-# Total losses
-static var playerTotalLosses = 0
-static var cpuTotalLosses = 0
-
-# Total wins
-static var playerTotalWins = 0
-static var cpuTotalWins = 0
-
-# Total Life Advantage
-static var playerLifeAdvantage = 0
-static var cpuLifeAdvantage = 0
-
-# Highest historical life advantage
-static var highestCpuLifeAdvantage = 0
-static var highestPlayerLifeAdvantage = 0
-
-# Most recent loss streak
-static var playerMostRecentLossStreak = 0
-static var cpuMostRecentLossStreak = 0
-
-# Current Win Streak
-static var playerCurrentWinStreak = 0
-static var cpuCurrentWinStreak = 0
-
-# Highest Win Streak
-static var playerHighestWinStreak = 0
-static var cpuHighestWinStreak = 0
-
-# Most recent lost item
-static var playerMostRecentlyLostItem = 'NOTHING'
-static var cpuMostRecentlyLostItem = 'NOTHING'
-
-# Total rounds played
-static var totalRounds = 0
 
 static func reset_tracking_vars():
 	alreadyActivatedDialogues = []
-	shouldRestoreImageOnCompletion = false
-	PLAYER_LOST_SHIRT = false
-	PLAYER_LOST_PANTS = false
-	PLAYER_LOST_UNDERWEAR = false
-	PLAYER_LOST_EVERYTHING = false
-	CPU_LOST_HAIRBAND = false
-	CPU_LOST_JACKET = false
-	CPU_LOST_SHIRT = false
-	CPU_LOST_PANTS = false
-	CPU_LOST_BRA = false
-	CPU_LOST_EVERYTHING = false
-	playerLossesInARow = 0
-	cpuLossesInARow = 0
-	playerTotalLosses = 0
-	cpuTotalLosses = 0
-	playerTotalWins = 0
-	cpuTotalWins = 0
-	playerLifeAdvantage = 0
-	cpuLifeAdvantage = 0
-	highestCpuLifeAdvantage = 0
-	highestPlayerLifeAdvantage = 0
-	playerMostRecentLossStreak = 0
-	cpuMostRecentLossStreak = 0
-	playerCurrentWinStreak = 0
-	cpuCurrentWinStreak = 0
-	playerHighestWinStreak = 0
-	cpuHighestWinStreak = 0
-	playerMostRecentlyLostItem = 'NOTHING'
-	cpuMostRecentlyLostItem = 'NOTHING'
-	totalRounds = 0
+	# Reset any scene-specific flags here
 
-static func evaluate_poker_game(_pokerInfo : PokerInfo) :
+
+static func evaluate_ambient_dialogue(_pokerInfo: PokerInfo) -> PokerUpdateActionResult:
+	## Main entry point for ambient dialogue evaluation.
+	## Called by poker_game.gd when the CSV system returns no event.
 	var updateResult = PokerUpdateActionResult.new()
-
-	shouldRestoreImageOnCompletion = false
-
-	totalRounds += 1
-
-	if _pokerInfo.playerLost:
-		playerLossesInARow += 1
-		cpuLossesInARow = 0
-		playerTotalLosses += 1
-		cpuTotalWins += 1
-		playerCurrentWinStreak = 0
-		cpuCurrentWinStreak += 1
-	else:
-		playerLossesInARow = 0
-		cpuLossesInARow += 1
-		playerTotalWins += 1
-		cpuTotalLosses += 1
-		playerCurrentWinStreak += 1
-		cpuCurrentWinStreak = 0
-
-	playerLifeAdvantage = _pokerInfo.playerLives - _pokerInfo.cpuLives
-	cpuLifeAdvantage = _pokerInfo.cpuLives - _pokerInfo.playerLives
-
-	if playerLifeAdvantage > highestPlayerLifeAdvantage:
-		highestPlayerLifeAdvantage = playerLifeAdvantage
-	elif cpuLifeAdvantage > highestCpuLifeAdvantage:
-		highestCpuLifeAdvantage = cpuLifeAdvantage
-
-	if playerLossesInARow > 2:
-		playerMostRecentLossStreak = playerLossesInARow
-	elif cpuLossesInARow > 2:
-		cpuMostRecentLossStreak = cpuLossesInARow
-
-	if playerCurrentWinStreak > playerHighestWinStreak:
-		playerHighestWinStreak = playerCurrentWinStreak
-	elif cpuCurrentWinStreak > cpuHighestWinStreak:
-		cpuHighestWinStreak = cpuCurrentWinStreak
-
-	# CORE EVENTS
-
-	if _pokerInfo.cpuLives == 8:
-		# Lisa First Loss
-		if _pokerInfo.playerLives <= 3:
-			updateResult = getResultForDialogue('LISA_FIRST_LOSS_FAR_AHEAD', 'lisa_first_loss')
-		elif _pokerInfo.playerLives <= 7:
-			updateResult = getResultForDialogue('LISA_FIRST_LOSS_AHEAD', 'lisa_first_loss')
-		elif _pokerInfo.playerLives == 10:
-			updateResult = getResultForDialogue('LISA_FIRST_LOSS_BEHIND', 'lisa_first_loss')
-		else:
-			updateResult = getResultForDialogue('LISA_FIRST_LOSS_CLOSE', 'lisa_first_loss')
-		
-	elif _pokerInfo.cpuLives == 5:
-		if _pokerInfo.playerLives <= 3:
-			updateResult = getResultForDialogue('LISA_SEC_LOSS_FAR_AHEAD', 'lisa_sec_loss')
-		elif _pokerInfo.playerLives <= 6:
-			updateResult = getResultForDialogue('LISA_SEC_LOSS_CLOSE', 'lisa_sec_loss')
-		else:
-			updateResult = getResultForDialogue('LISA_SEC_LOSS_BEHIND', 'lisa_sec_loss')
-
-	elif _pokerInfo.cpuLives == 3:
-		if _pokerInfo.playerLives <= 6:
-			updateResult = getResultForDialogue('LISA_THIRD_LOSS_CLOSE', 'lisa_third_loss')
-		else:
-			updateResult = getResultForDialogue('LISA_THIRD_LOSS_BEHIND', 'lisa_third_loss')
 	
-	if updateResult.dialogueStartKey:
-		return updateResult
+	var ambientDialogue = getAmbientDialogue(_pokerInfo)
 	
-	#shouldRestoreImageOnCompletion = true
-
-	if _pokerInfo.playerLives == 8:
-
-		if _pokerInfo.cpuLives <= 4:
-			updateResult = getResultForDialogue('PLAYER_FIRST_LOSS_FAR_AHEAD', 'player_first_loss')
-		elif _pokerInfo.cpuLives <= 8:
-			updateResult = getResultForDialogue('PLAYER_FIRST_LOSS_CLOSE', 'player_first_loss')
-		else:
-			updateResult = getResultForDialogue('PLAYER_FIRST_LOSS_BEHIND', 'player_first_loss')
-
-	elif _pokerInfo.playerLives == 5:
-		if _pokerInfo.cpuLives <= 2:
-			updateResult = getResultForDialogue('PLAYER_SEC_LOSS_AHEAD', 'player_sec_loss')
-		elif _pokerInfo.cpuLives <= 5:
-			updateResult = getResultForDialogue('PLAYER_SEC_LOSS_CLOSE', 'player_sec_loss')
-		else:
-			updateResult = getResultForDialogue('PLAYER_SEC_LOSS_BEHIND', 'player_sec_loss')
-
-		
-	elif _pokerInfo.playerLives == 2:
-		if _pokerInfo.cpuLives <= 2:
-			updateResult = getResultForDialogue('PLAYER_THIRD_LOSS_CLOSE', 'player_third_loss')
-		elif _pokerInfo.cpuLives <= 5:
-			updateResult = getResultForDialogue('PLAYER_THIRD_LOSS_BEHIND', 'player_third_loss')
-		else:
-			updateResult = getResultForDialogue('PLAYER_THIRD_LOSS_FAR_BEHIND', 'player_third_loss')
-
-		
-	elif _pokerInfo.playerLives == 0:
-			updateResult = getResultForDialogue('PLAYER_LOST', 'player_lost')
-
-	if updateResult.dialogueStartKey:
-		return updateResult
-
+	if ambientDialogue.size() > 0:
+		updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
+	
 	return updateResult
 
 
-# altKey is used for dialogues that have multiple paths
-static func getResultForDialogue(dialogueKey : String, altKey : String = ''):
+static func getAmbientDialogue(_pokerInfo: PokerInfo) -> Array:
+	## Define ambient dialogue triggers here.
+	## Each dialogue is an array: ['DIALOGUE_KEY', 'tracking_key']
+	## Use hasSeen('tracking_key') to prevent repeat triggers.
+	## Use randf() < 0.2 for random chance triggers.
+	##
+	## Example:
+	##   if !hasSeen('early_taunt') and _pokerInfo.totalRounds < 5 and _pokerInfo.cpuLifeAdvantage > 2:
+	##       ambient_talks.append(['EARLY_TAUNT_DIALOGUE', 'early_taunt'])
+	
+	var ambient_talks = []
+	
+	# Add ambient dialogue conditions here
+	# Example:
+	# if !hasSeen('close_game'):
+	#     if _pokerInfo.totalRounds > 10 and abs(_pokerInfo.playerLifeAdvantage) < 2:
+	#         ambient_talks.append(['CLOSE_GAME_COMMENT', 'close_game'])
+	
+	ambient_talks.shuffle()
+	if ambient_talks.size() > 0:
+		return ambient_talks[0]
+	else:
+		return []
+
+
+static func getResultForDialogue(dialogueKey: String, altKey: String = '') -> PokerUpdateActionResult:
+	## Creates a PokerUpdateActionResult for a dialogue trigger.
+	## dialogueKey: The dialogue node key to start
+	## altKey: Alternative key to track (prevents both from triggering)
 	var updateResult = PokerUpdateActionResult.new()
 
 	if alreadyActivatedDialogues.has(dialogueKey) or alreadyActivatedDialogues.has(altKey):
@@ -209,9 +83,7 @@ static func getResultForDialogue(dialogueKey : String, altKey : String = ''):
 	updateResult.actionResult = PokerUpdateActionResult.ACTION_RESULTS.START_DIALOGUE
 	updateResult.shouldPausePoker = true
 	updateResult.shouldHidePoker = true
-
-	if shouldRestoreImageOnCompletion:
-		updateResult.restoreImageOnCompletion = true
+	updateResult.restoreImageOnCompletion = true
 
 	alreadyActivatedDialogues.append(dialogueKey)
 	
@@ -220,5 +92,7 @@ static func getResultForDialogue(dialogueKey : String, altKey : String = ''):
 	
 	return updateResult
 
-static func hasSeen(dialogueKey : String) -> bool:
+
+static func hasSeen(dialogueKey: String) -> bool:
+	## Check if a dialogue has already been triggered this game.
 	return alreadyActivatedDialogues.has(dialogueKey)

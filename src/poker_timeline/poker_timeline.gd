@@ -141,6 +141,9 @@ func _setup_event_node(data: PokerNodeData) -> GraphNode:
 	
 	if disableStartFrom:
 		newNode.hideStartFrom()
+	
+	if data.is_game_over:
+		newNode.hideStartFrom()
 
 	return newNode
 

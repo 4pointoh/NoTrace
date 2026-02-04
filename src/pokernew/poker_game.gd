@@ -32,6 +32,27 @@ var animationsOn : bool = true
 var _csv_evaluator: PokerCSVEventEvaluator = null
 var _lastRoundPlayerLost: bool = false
 
+# State tracking for ambient dialogues
+var _totalRounds: int = 0
+var _playerTotalLosses: int = 0
+var _cpuTotalLosses: int = 0
+var _playerTotalWins: int = 0
+var _cpuTotalWins: int = 0
+var _playerLossesInARow: int = 0
+var _cpuLossesInARow: int = 0
+var _playerCurrentWinStreak: int = 0
+var _cpuCurrentWinStreak: int = 0
+var _playerHighestWinStreak: int = 0
+var _cpuHighestWinStreak: int = 0
+var _playerMostRecentLossStreak: int = 0
+var _cpuMostRecentLossStreak: int = 0
+var _highestPlayerLifeAdvantage: int = 0
+var _highestCpuLifeAdvantage: int = 0
+var _playerItemsLost: Array[String] = []
+var _cpuItemsLost: Array[String] = []
+var _playerMostRecentlyLostItem: String = "NOTHING"
+var _cpuMostRecentlyLostItem: String = "NOTHING"
+
 signal gamePaused
 signal gameWon
 signal gameLost
@@ -60,6 +81,30 @@ func _initializeGameState():
 	currentStage = PokerEnums.PokerStageFiveCardDraw.PRE_GAME_START
 	
 	_initializeLives()
+	_resetStateTracking()
+
+
+func _resetStateTracking():
+	_totalRounds = 0
+	_playerTotalLosses = 0
+	_cpuTotalLosses = 0
+	_playerTotalWins = 0
+	_cpuTotalWins = 0
+	_playerLossesInARow = 0
+	_cpuLossesInARow = 0
+	_playerCurrentWinStreak = 0
+	_cpuCurrentWinStreak = 0
+	_playerHighestWinStreak = 0
+	_cpuHighestWinStreak = 0
+	_playerMostRecentLossStreak = 0
+	_cpuMostRecentLossStreak = 0
+	_highestPlayerLifeAdvantage = 0
+	_highestCpuLifeAdvantage = 0
+	_playerItemsLost = []
+	_cpuItemsLost = []
+	_playerMostRecentlyLostItem = "NOTHING"
+	_cpuMostRecentlyLostItem = "NOTHING"
+	_lastRoundPlayerLost = false
 
 
 func _initializeLives():
@@ -107,6 +152,9 @@ func _resetPokerEventSystem():
 			_csv_evaluator.reset()
 		else:
 			_initializePokerEventSystem()
+		# Also reset script tracking vars if a fallback script exists
+		if GlobalGameStage.currentStage.pokerScript:
+			GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
 	elif GlobalGameStage.currentStage.pokerScript:
 		GlobalGameStage.currentStage.pokerScript.reset_tracking_vars()
 
@@ -318,6 +366,9 @@ func processEvaluateWinner():
 		print('CPU Wins with ' + winningHand)
 	
 	print('Other player had ' + losingHand)
+	
+	# Update state tracking after the round
+	_updateStateTracking(playerWins)
 
 	var playerHandResult
 	var cpuHandResult
@@ -329,6 +380,48 @@ func processEvaluateWinner():
 		cpuHandResult = winningHandDescription
 
 	%PokerDisplay.processEvaluateWinner(playerWins, playerHandResult, cpuHandResult)
+
+
+func _updateStateTracking(playerWins: bool):
+	_totalRounds += 1
+	
+	if playerWins:
+		# Player won this round
+		_playerTotalWins += 1
+		_cpuTotalLosses += 1
+		_playerCurrentWinStreak += 1
+		_cpuCurrentWinStreak = 0
+		_playerLossesInARow = 0
+		_cpuLossesInARow += 1
+	else:
+		# CPU won this round
+		_cpuTotalWins += 1
+		_playerTotalLosses += 1
+		_cpuCurrentWinStreak += 1
+		_playerCurrentWinStreak = 0
+		_cpuLossesInARow = 0
+		_playerLossesInARow += 1
+	
+	# Update highest win streaks
+	if _playerCurrentWinStreak > _playerHighestWinStreak:
+		_playerHighestWinStreak = _playerCurrentWinStreak
+	if _cpuCurrentWinStreak > _cpuHighestWinStreak:
+		_cpuHighestWinStreak = _cpuCurrentWinStreak
+	
+	# Update most recent loss streaks (when streak > 2)
+	if _playerLossesInARow > 2:
+		_playerMostRecentLossStreak = _playerLossesInARow
+	if _cpuLossesInARow > 2:
+		_cpuMostRecentLossStreak = _cpuLossesInARow
+	
+	# Update life advantage tracking
+	var playerLifeAdvantage = playerLives - cpuLives
+	var cpuLifeAdvantage = cpuLives - playerLives
+	
+	if playerLifeAdvantage > _highestPlayerLifeAdvantage:
+		_highestPlayerLifeAdvantage = playerLifeAdvantage
+	if cpuLifeAdvantage > _highestCpuLifeAdvantage:
+		_highestCpuLifeAdvantage = cpuLifeAdvantage
 
 func processRoundComplete():
 	%PokerDisplay.processRoundComplete()
@@ -344,6 +437,11 @@ func endMatch():
 		GlobalGameStage.addWinToPokerStageHistory()
 		gameWon.emit()
 	
+	isAlternateStart = false
+	GlobalGameStage.isStartingPokerFromNode = false
+	GlobalGameStage.altStartPlayerLives = 0
+	GlobalGameStage.altStartOppLives = 0
+	
 	print(GlobalGameStage.pokerStageHistory)
 
 func eventIsStartDialogue(actionResult):
@@ -353,10 +451,7 @@ func eventIsStartDialogue(actionResult):
 		return false
 
 func getCurrentEvent():
-	var pokerInfo = PokerInfo.new()
-	pokerInfo.playerLives = playerLives
-	pokerInfo.cpuLives = cpuLives
-	pokerInfo.playerLost = _lastRoundPlayerLost
+	var pokerInfo = _buildPokerInfo()
 
 	# Use the new CSV system if enabled, otherwise use the old script system
 	var updateResult: PokerUpdateActionResult
@@ -365,10 +460,74 @@ func getCurrentEvent():
 
 		if updateResult.nodeId != null:
 			mostRecentKeyEventRowId = updateResult.nodeId
+		
+		# Fallback to script for ambient dialogues if CSV returned no event
+		if _isNoEvent(updateResult) and GlobalGameStage.currentStage.pokerScript:
+				updateResult = GlobalGameStage.currentStage.pokerScript.evaluate_ambient_dialogue(pokerInfo)
 	else:
 		updateResult = GlobalGameStage.currentStage.pokerScript.evaluate_poker_game(pokerInfo)
 
 	return updateResult
+
+
+func _buildPokerInfo() -> PokerInfo:
+	var info = PokerInfo.new()
+	
+	# Core state
+	info.playerLives = playerLives
+	info.cpuLives = cpuLives
+	info.maxPlayerLives = maxPlayerLives
+	info.maxCpuLives = maxCpuLives
+	info.playerLost = _lastRoundPlayerLost
+	
+	# Round tracking
+	info.totalRounds = _totalRounds
+	
+	# Loss/win counts
+	info.playerTotalLosses = _playerTotalLosses
+	info.cpuTotalLosses = _cpuTotalLosses
+	info.playerTotalWins = _playerTotalWins
+	info.cpuTotalWins = _cpuTotalWins
+	
+	# Streak tracking
+	info.playerLossesInARow = _playerLossesInARow
+	info.cpuLossesInARow = _cpuLossesInARow
+	info.playerCurrentWinStreak = _playerCurrentWinStreak
+	info.cpuCurrentWinStreak = _cpuCurrentWinStreak
+	info.playerHighestWinStreak = _playerHighestWinStreak
+	info.cpuHighestWinStreak = _cpuHighestWinStreak
+	info.playerMostRecentLossStreak = _playerMostRecentLossStreak
+	info.cpuMostRecentLossStreak = _cpuMostRecentLossStreak
+	
+	# Life advantage tracking
+	info.playerLifeAdvantage = playerLives - cpuLives
+	info.cpuLifeAdvantage = cpuLives - playerLives
+	info.highestPlayerLifeAdvantage = _highestPlayerLifeAdvantage
+	info.highestCpuLifeAdvantage = _highestCpuLifeAdvantage
+	
+	# Clothing state - get from CSV evaluator if available for accurate item names
+	if _csv_evaluator:
+		info.playerItemsLost = _csv_evaluator.getPlayerItemsLost()
+		info.cpuItemsLost = _csv_evaluator.getOpponentItemsLost()
+		if info.playerItemsLost.size() > 0:
+			info.playerMostRecentlyLostItem = info.playerItemsLost[-1]
+		if info.cpuItemsLost.size() > 0:
+			info.cpuMostRecentlyLostItem = info.cpuItemsLost[-1]
+	else:
+		info.playerItemsLost = _playerItemsLost.duplicate()
+		info.cpuItemsLost = _cpuItemsLost.duplicate()
+		info.playerMostRecentlyLostItem = _playerMostRecentlyLostItem
+		info.cpuMostRecentlyLostItem = _cpuMostRecentlyLostItem
+	
+	return info
+
+
+func _isNoEvent(result: PokerUpdateActionResult) -> bool:
+	if result.actionResult != PokerUpdateActionResult.ACTION_RESULTS.NOTHING:
+		return false
+	if result.dialogueStartKey != null and not result.dialogueStartKey.is_empty():
+		return false
+	return true
 
 func startDialogue():
 	dialoguePause = true

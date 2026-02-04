@@ -49,7 +49,7 @@ class_name GameStage
 @export var pokerConfigJsonPath : String
 @export var pokerCSVPath : String
 @export var sceneLeadsToAPokerMatch : bool
-@export var pokerMatchGameStage : GameStage
+@export var pokerMatchGameStage : Array[GameStage]
 
 # Phone
 @export var isPhoneScreen : bool

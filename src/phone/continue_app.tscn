@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://tlo2xv2dxetl"]
+[gd_scene load_steps=12 format=3 uid="uid://tlo2xv2dxetl"]
 
 [ext_resource type="Script" uid="uid://cb4evutfl6mi8" path="res://src/phone/continue_app.gd" id="1_5dxdv"]
 [ext_resource type="Texture2D" uid="uid://pg2eup6fq4n2" path="res://data/assets/phone/art/continue_background.png" id="2_4xyho"]
 [ext_resource type="PackedScene" uid="uid://besft41xqktl4" path="res://src/phone/selectable_stage.tscn" id="3_hlown"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_pjnll"]
-[ext_resource type="Texture2D" uid="uid://bkracgdkida6d" path="res://data/assets/phone/art/poker_bg.png" id="5_wka1e"]
+[ext_resource type="Texture2D" uid="uid://vpsh1qrgpc1e" path="res://data/assets/poker/art/poker_timeline_app_new_bg.png" id="5_wka1e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsnnm"]
 bg_color = Color(0.145527, 0.43433, 0.821342, 1)
@@ -29,6 +29,57 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kadji"]
+bg_color = Color(0.891488, 0.0418287, 0.551837, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.991388, 0.57796, 0.923357, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="Animation" id="Animation_wka1e"]
+resource_name = "slide_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PokerSelectionContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(188, 1120), Vector2(188, 154)]
+}
+
+[sub_resource type="Animation" id="Animation_kadji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PokerSelectionContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(188, 158)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtrqu"]
+_data = {
+&"RESET": SubResource("Animation_kadji"),
+&"slide_up": SubResource("Animation_wka1e")
+}
 
 [node name="ContinueApp" type="Node2D"]
 script = ExtResource("1_5dxdv")
@@ -89,14 +140,12 @@ offset_left = 188.0
 offset_top = 158.0
 offset_right = 762.0
 offset_bottom = 1086.0
-color = Color(0.999999, 0.489405, 0.192564, 1)
 
 [node name="TextureRect" type="TextureRect" parent="PokerSelectionContainer"]
-self_modulate = Color(1, 1, 1, 0.223529)
 layout_mode = 0
-offset_left = -394.0
-offset_right = 722.0
-offset_bottom = 1022.0
+offset_left = -257.0
+offset_right = 756.0
+offset_bottom = 928.0
 texture = ExtResource("5_wka1e")
 expand_mode = 1
 
@@ -117,6 +166,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="FromBeginning" type="Button" parent="PokerSelectionContainer"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 101.0
 offset_top = 211.0
@@ -138,6 +188,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="FromTimeline" type="Button" parent="PokerSelectionContainer"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 101.0
 offset_top = 458.0
@@ -168,7 +219,78 @@ offset_right = 468.0
 offset_bottom = 886.0
 text = "Choose A Different Scene"
 
+[node name="MultiSceneContainer" type="VBoxContainer" parent="PokerSelectionContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 39.0
+offset_top = 386.0
+offset_right = 543.0
+offset_bottom = 705.0
+theme_override_constants/separation = 25
+
+[node name="Label2" type="Label" parent="PokerSelectionContainer/MultiSceneContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 28
+text = "This Scene Has Multiple Poker Matches
+Which do you want to view?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scene1" type="Button" parent="PokerSelectionContainer/MultiSceneContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_kadji")
+text = "Scene 1"
+
+[node name="Scene2" type="Button" parent="PokerSelectionContainer/MultiSceneContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_kadji")
+text = "Scene 1"
+
+[node name="Scene3" type="Button" parent="PokerSelectionContainer/MultiSceneContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_kadji")
+text = "Scene 1"
+
+[node name="Scene4" type="Button" parent="PokerSelectionContainer/MultiSceneContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_pjnll")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_kadji")
+text = "Scene 1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_jtrqu")
+}
+
 [connection signal="pressed" from="PastEventsButton" to="." method="_on_past_events_button_pressed"]
 [connection signal="pressed" from="PokerSelectionContainer/FromBeginning" to="." method="_on_from_beginning_pressed"]
 [connection signal="pressed" from="PokerSelectionContainer/FromTimeline" to="." method="_on_from_timeline_pressed"]
 [connection signal="pressed" from="PokerSelectionContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/MultiSceneContainer/Scene1" to="." method="_on_scene_1_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/MultiSceneContainer/Scene2" to="." method="_on_scene_2_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/MultiSceneContainer/Scene3" to="." method="_on_scene_3_pressed"]
+[connection signal="pressed" from="PokerSelectionContainer/MultiSceneContainer/Scene4" to="." method="_on_scene_4_pressed"]
