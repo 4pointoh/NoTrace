@@ -47,8 +47,14 @@ enum DboxPosition{
 
 var elapsedQuickSkipTime = 0.0
 func _process(delta):
+
+	var shouldSkip = false
+	if GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch: #soft complete is acceptable for non-poker scenes
+		shouldSkip = true
+	elif GlobalGameStage.hasCompletedCurrentDialogueKeyInCurrentGameStage(): #otherwise fall back to scene specific completion
+		shouldSkip = true
 	
-	if enableQuickSkip and GlobalGameStage.hasCompletedStageGloballySoft():
+	if enableQuickSkip and shouldSkip:
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()
@@ -259,7 +265,7 @@ func clickNext():
 	$DialoguePlayer.clickNext()
 
 func canAdvanceDialogue() -> bool:
-	if GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent or GlobalGameStage.currentStage.isRealDate:
+	if GlobalGameStage.preventSkipping or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent or GlobalGameStage.currentStage.isRealDate:
 		return false
 	
 	return true
@@ -283,8 +289,19 @@ func _on_dialogue_player_item_rect_changed():
 func _on_dialogue_player_visibility_changed():
 	%SkipLabel.visible = $DialoguePlayer.visible
 	
-	if !GlobalGameStage.hasCompletedStageGloballySoft() or GlobalGameStage.currentStage.isPokerMatch or GlobalGameStage.currentStage.isDate or GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
-		%SkipLabel.visible = false
+	if !$DialoguePlayer.visible:
+		return
+	
+	var shouldShow = false
+	
+	if GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent: #No skipping on phones
+		shouldShow = false
+	elif GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch: #soft complete is acceptable for non-poker scenes
+		shouldShow = true
+	elif GlobalGameStage.hasCompletedCurrentDialogueKeyInCurrentGameStage(): #otherwise fall back to scene specific completion
+		shouldShow = true
+	
+	%SkipLabel.visible = shouldShow
 
 func setDialogueBoxPosition(pos: DboxPosition):
 	match pos:

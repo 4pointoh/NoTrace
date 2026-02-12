@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_cp33r"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_pflr7"]
 [ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="4_wgs7b"]
-[ext_resource type="Texture2D" uid="uid://ckwnjv51moxmv" path="res://data/assets/stage_art/market_orange_hover.png" id="4_wyax5"]
-[ext_resource type="Texture2D" uid="uid://yu1xx68sgprx" path="res://data/assets/stage_art/market_orange.png" id="5_pt480"]
+[ext_resource type="Texture2D" uid="uid://df6f3xotmt5uq" path="res://data/assets/stage_art/lisa_door_hover.png" id="4_wyax5"]
+[ext_resource type="Texture2D" uid="uid://ch01o86805j2h" path="res://data/assets/stage_art/lisa_door.png" id="5_pt480"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_wyax5"]
 [ext_resource type="AudioStream" uid="uid://c0oxbg76msm8o" path="res://data/assets/general/sounds/phone_music/Side Street.mp3" id="6_pt480"]
 
@@ -40,6 +40,7 @@ repositionDialogueBoxTo = 0
 endOnlyOnSpecificDialogueKey = false
 endingDialogueKeys = Array[String]([])
 isPokerMatch = false
+isStripPoker = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
 startingAnte = 0
@@ -57,6 +58,11 @@ allowProPlus = false
 allowProPlusMax = false
 proPlusCheats = 0
 proPlusMaxCheats = 0
+useNewPokerSystem = false
+pokerConfigJsonPath = ""
+pokerCSVPath = ""
+sceneLeadsToAPokerMatch = false
+pokerMatchGameStage = Array[ExtResource("2_cp33r")]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""

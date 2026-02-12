@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://tlo2xv2dxetl"]
+[gd_scene load_steps=13 format=3 uid="uid://tlo2xv2dxetl"]
 
 [ext_resource type="Script" uid="uid://cb4evutfl6mi8" path="res://src/phone/continue_app.gd" id="1_5dxdv"]
 [ext_resource type="Texture2D" uid="uid://pg2eup6fq4n2" path="res://data/assets/phone/art/continue_background.png" id="2_4xyho"]
 [ext_resource type="PackedScene" uid="uid://besft41xqktl4" path="res://src/phone/selectable_stage.tscn" id="3_hlown"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_pjnll"]
 [ext_resource type="Texture2D" uid="uid://vpsh1qrgpc1e" path="res://data/assets/poker/art/poker_timeline_app_new_bg.png" id="5_wka1e"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="6_kadji"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsnnm"]
 bg_color = Color(0.145527, 0.43433, 0.821342, 1)
@@ -137,9 +138,9 @@ text = "Replay Past Activities"
 unique_name_in_owner = true
 visible = false
 offset_left = 188.0
-offset_top = 158.0
+offset_top = 154.0
 offset_right = 762.0
-offset_bottom = 1086.0
+offset_bottom = 1082.0
 
 [node name="TextureRect" type="TextureRect" parent="PokerSelectionContainer"]
 layout_mode = 0
@@ -148,6 +149,18 @@ offset_right = 756.0
 offset_bottom = 928.0
 texture = ExtResource("5_wka1e")
 expand_mode = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PokerSelectionContainer"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 15.0
+offset_right = 550.0
+offset_bottom = 719.0
+texture = ExtResource("6_kadji")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
 
 [node name="Label" type="Label" parent="PokerSelectionContainer"]
 layout_mode = 0

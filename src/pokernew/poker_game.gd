@@ -262,6 +262,7 @@ func processCurrentStage():
 func _on_alt_start_pressed() -> void:
 	%Start.show()
 	%AltStartInfo.show()
+	%AnimationPlayer.play("alt_start_info_in")
 	%AltStart.hide()
 
 func processStartPressed():
@@ -641,6 +642,7 @@ func _on_disable_anim_button_mouse_exited() -> void:
 
 func _on_disable_anim_button_pressed() -> void:
 	animationsOn = !animationsOn
+	%PokerDisplay.animationsOn = animationsOn
 	if animationsOn:
 		%DisableAnimLabel.text = 'Anim.\nOn'
 	else:

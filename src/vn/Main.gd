@@ -27,6 +27,7 @@ var onMainMenu = true
 @export var characterUnlockPanel : PackedScene
 @export var ashelyKitchenScene : PackedScene
 @export var pokerTimeline : PackedScene
+@export var credits : PackedScene
 
 var currentPokerGame
 var currentPhone
@@ -35,6 +36,7 @@ var currentDate
 var currentRealDate
 var currentSceneSelector
 var ashelyKitchenInstance
+var currentCredits
 
 var currentUnlockPanel
 
@@ -354,6 +356,7 @@ func startGameMusic(originalAudioLevel):
 func hideTitleStuff():
 	$Start.visible = false
 	$Options.visible = false
+	$Credits.visible = false
 	$Load.visible = false
 	$Title.visible = false
 	%NewTitle.visible = false
@@ -491,6 +494,7 @@ func enableInput():
 
 func beginDialogue(startKey = null):
 	#currentStageIsLoaded = false
+	GlobalGameStage.preventSkipping = false
 	if(startKey):
 		GlobalGameStage.setCurrentDialogueKey(startKey)
 	else:
@@ -498,6 +502,8 @@ func beginDialogue(startKey = null):
 	$DialogueManager.startDialogue(startKey)
 
 func _on_dialogue_manager_dialogue_ended():
+	GlobalGameStage.preventSkipping = true
+	
 	var unlocks = GlobalGameStage.getWallpaperUnlocksForDialogueKey(GlobalGameStage.currentDialogueKey)
 	if unlocks:
 		for unlock in unlocks:
@@ -870,3 +876,21 @@ func _on_poker_game_show_timeline(mostRecentKeyEventRowId : String):
 	currentPokerTimeline.setup(GlobalGameStage.currentStage, mostRecentKeyEventRowId)
 	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
 	add_child(currentPokerTimeline)
+
+
+func _on_credits_pressed() -> void:
+	currentCredits = credits.instantiate()
+	currentCredits.creditsEnded.connect(_end_credits)
+	fadeOutMusic()
+	hideTitleStuff()
+	add_child(currentCredits)
+
+func _end_credits():
+	$AudioStreamPlayer2D.play()
+	currentCredits.queue_free()
+	$Start.visible = true
+	$Options.visible = true
+	$Credits.visible = true
+	$Load.visible = true
+	%NewTitle.visible = true
+	$SceneSelect.visible = true

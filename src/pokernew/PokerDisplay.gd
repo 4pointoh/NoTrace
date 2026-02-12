@@ -22,6 +22,7 @@ var cpuIndexesToDiscard = []
 
 var currentPlayerLifeIndex = 0
 var currentCPULifeIndex = 0
+var animationsOn = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -109,28 +110,35 @@ func processPreRoundStart():
 	preRoundStartAnimationComplete()
 
 func processClearBoard():
-	var MOVE_DURATION = 0.4
+	var MOVE_DURATION = 0.4 if animationsOn else 0.0
 	var PLAYER_MOVE_OFF_POSITION = Vector2(1200, 850)	# Right side
 	var CPU_MOVE_OFF_POSITION = Vector2(1200, 100)	# Right side but at CPU height
 	
 	# Animate player cards off screen
 	for card in playerUICards:
-		var tween = create_tween()
-		tween.tween_property(card, "position", 
-			PLAYER_MOVE_OFF_POSITION, 
-			MOVE_DURATION)
-		tween.tween_callback(card.queue_free)
+		if animationsOn:
+			var tween = create_tween()
+			tween.tween_property(card, "position", 
+				PLAYER_MOVE_OFF_POSITION, 
+				MOVE_DURATION)
+			tween.tween_callback(card.queue_free)
+		else:
+			card.queue_free()
 	
 	# Animate CPU cards off screen
 	for card in cpuUICards:
-		var tween = create_tween()
-		tween.tween_property(card, "position", 
-			CPU_MOVE_OFF_POSITION, 
-			MOVE_DURATION)
-		tween.tween_callback(card.queue_free)
+		if animationsOn:
+			var tween = create_tween()
+			tween.tween_property(card, "position", 
+				CPU_MOVE_OFF_POSITION, 
+				MOVE_DURATION)
+			tween.tween_callback(card.queue_free)
+		else:
+			card.queue_free()
 	
 	# Wait for animations to complete
-	await get_tree().create_timer(MOVE_DURATION).timeout
+	if animationsOn:
+		await get_tree().create_timer(MOVE_DURATION).timeout
 	
 	# Clear the arrays
 	playerUICards.clear()
@@ -160,43 +168,50 @@ func processDeal(playerCards2, cpuCards2):
 	for i in range(playerCards.size()):
 		var nextCard = cardScene.instantiate()
 		nextCard.nonUiCard = playerCards[i]
-		nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
+		if animationsOn:
+			nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		else:
+			nextCard.position = Vector2(final_x, PLAYER_CARD_Y_POS)
 		nextCard.index = i
 		nextCard.cardClicked.connect(cardSelected)
 		nextCard.selectable = true
 		add_child(nextCard)
 		playerUICards.append(nextCard)
 		
-		var tween = create_tween()
-		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
-		
-		# Chain the delay and movement
-		tween.tween_interval(i * DELAY_BETWEEN_CARDS)  # First add delay based on card position
-		tween.tween_property(nextCard, "position",
-			Vector2(final_x, PLAYER_CARD_Y_POS),
-			ANIMATION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			# Chain the delay and movement
+			tween.tween_interval(i * DELAY_BETWEEN_CARDS)  # First add delay based on card position
+			tween.tween_property(nextCard, "position",
+				Vector2(final_x, PLAYER_CARD_Y_POS),
+				ANIMATION_DURATION)
 	
 	# Create CPU cards with similar animation
 	for i in range(cpuCards.size()):
 		var nextCard = cardScene.instantiate()
 		nextCard.nonUiCard = cpuCards[i]
-		nextCard.position = Vector2(CPU_CARD_X_START_POS, CPU_CARD_Y_POS)
+		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
+		if animationsOn:
+			nextCard.position = Vector2(CPU_CARD_X_START_POS, CPU_CARD_Y_POS)
+		else:
+			nextCard.position = Vector2(final_x, CPU_CARD_Y_POS)
 		nextCard.index = i
 		add_child(nextCard)
 		cpuUICards.append(nextCard)
 		
-		var tween = create_tween()
-		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
-		
-		# Add delay for CPU cards (after player cards)
-		tween.tween_interval((playerCards.size() + i) * DELAY_BETWEEN_CARDS)
-		tween.tween_property(nextCard, "position",
-			Vector2(final_x, CPU_CARD_Y_POS),
-			ANIMATION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			# Add delay for CPU cards (after player cards)
+			tween.tween_interval((playerCards.size() + i) * DELAY_BETWEEN_CARDS)
+			tween.tween_property(nextCard, "position",
+				Vector2(final_x, CPU_CARD_Y_POS),
+				ANIMATION_DURATION)
 	
 	# Calculate total animation time and delay dealAnimationComplete
-	var total_animation_time = (playerCards.size() + cpuCards.size()) * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
-	await get_tree().create_timer(total_animation_time).timeout
+	if animationsOn:
+		var total_animation_time = (playerCards.size() + cpuCards.size()) * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
+		await get_tree().create_timer(total_animation_time).timeout
 
 	for playerUICard in playerUICards:
 		playerUICard.flip()
@@ -247,40 +262,47 @@ func processRedraw(playerCards2, cpuCards2):
 		var cardIndex = playerStartIndex + i
 		var nextCard = cardScene.instantiate()
 		nextCard.nonUiCard = playerCards[cardIndex]
-		nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		var final_x = FIRST_CARD_X_POS + (cardIndex * CARD_SPACING)
+		if animationsOn:
+			nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		else:
+			nextCard.position = Vector2(final_x, PLAYER_CARD_Y_POS)
 		add_child(nextCard)
 		playerUICards.append(nextCard)
 		
-		var tween = create_tween()
-		var final_x = FIRST_CARD_X_POS + (cardIndex * CARD_SPACING)
-		
-		tween.tween_interval(i * DELAY_BETWEEN_CARDS)
-		tween.tween_property(nextCard, "position",
-			Vector2(final_x, PLAYER_CARD_Y_POS),
-			ANIMATION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			tween.tween_interval(i * DELAY_BETWEEN_CARDS)
+			tween.tween_property(nextCard, "position",
+				Vector2(final_x, PLAYER_CARD_Y_POS),
+				ANIMATION_DURATION)
 	
 	# Create and animate new CPU cards
 	for i in range(cpuCardsAdded):
 		var cardIndex = cpuStartIndex + i
 		var nextCard = cardScene.instantiate()
 		nextCard.nonUiCard = cpuCards[cardIndex]
-		nextCard.position = Vector2(CPU_CARD_X_START_POS, CPU_CARD_Y_POS)
+		var final_x = FIRST_CARD_X_POS + (cardIndex * CARD_SPACING)
+		if animationsOn:
+			nextCard.position = Vector2(CPU_CARD_X_START_POS, CPU_CARD_Y_POS)
+		else:
+			nextCard.position = Vector2(final_x, CPU_CARD_Y_POS)
 		add_child(nextCard)
 		cpuUICards.append(nextCard)
 		
-		var tween = create_tween()
-		var final_x = FIRST_CARD_X_POS + (cardIndex * CARD_SPACING)
-		
-		tween.tween_interval((cpuCardsAdded + i) * DELAY_BETWEEN_CARDS)
-		tween.tween_property(nextCard, "position",
-			Vector2(final_x, CPU_CARD_Y_POS),
-			ANIMATION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			tween.tween_interval((cpuCardsAdded + i) * DELAY_BETWEEN_CARDS)
+			tween.tween_property(nextCard, "position",
+				Vector2(final_x, CPU_CARD_Y_POS),
+				ANIMATION_DURATION)
 	
 	print('Redrew ' + str(playerCardsAdded) + ' cards')
 	
 	# Wait for all animations to complete
-	var total_animation_time = (playerCardsAdded + cpuCardsAdded) * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
-	await get_tree().create_timer(total_animation_time).timeout
+	if animationsOn:
+		var total_animation_time = (playerCardsAdded + cpuCardsAdded) * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
+		await get_tree().create_timer(total_animation_time).timeout
 
 	for playerUICard in playerUICards:
 		if(playerUICard.flipped):
@@ -380,23 +402,27 @@ func displayCheat(playerCards2):
 	for i in range(playerCards.size()):
 		var nextCard = cardScene.instantiate()
 		nextCard.nonUiCard = playerCards[i]
-		nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
+		if animationsOn:
+			nextCard.position = Vector2(PLAYER_CARD_X_START_POS, PLAYER_CARD_Y_POS)
+		else:
+			nextCard.position = Vector2(final_x, PLAYER_CARD_Y_POS)
 		nextCard.index = i
 		add_child(nextCard)
 		playerUICards.append(nextCard)
 		
-		var tween = create_tween()
-		var final_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
-		
-		# Chain the delay and movement
-		tween.tween_interval(i * DELAY_BETWEEN_CARDS)  # First add delay based on card position
-		tween.tween_property(nextCard, "position",
-			Vector2(final_x, PLAYER_CARD_Y_POS),
-			ANIMATION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			# Chain the delay and movement
+			tween.tween_interval(i * DELAY_BETWEEN_CARDS)  # First add delay based on card position
+			tween.tween_property(nextCard, "position",
+				Vector2(final_x, PLAYER_CARD_Y_POS),
+				ANIMATION_DURATION)
 	
 	# Calculate total animation time and delay dealAnimationComplete
-	var total_animation_time = playerCards.size() * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
-	await get_tree().create_timer(total_animation_time).timeout
+	if animationsOn:
+		var total_animation_time = playerCards.size() * DELAY_BETWEEN_CARDS + ANIMATION_DURATION
+		await get_tree().create_timer(total_animation_time).timeout
 
 	for playerUICard in playerUICards:
 		if(playerUICard.flipped):
@@ -446,60 +472,73 @@ func _on_discard_pressed():
 	# Animate player cards
 	for i in selectedPlayerCards.size():
 		var card = selectedPlayerCards[i]
-		var tween = create_tween()
-		
-		# Player cards flip first
-		tween.tween_callback(card.flip)
-		tween.tween_interval(FLIP_DURATION)
-		
-		# Then move off screen
-		tween.tween_property(card, "position", 
-			PLAYER_MOVE_OFF_POSITION, 
-			MOVE_DURATION)
-		
-		tween.tween_callback(card.queue_free)
+		if animationsOn:
+			var tween = create_tween()
+			# Player cards flip first
+			tween.tween_callback(card.flip)
+			tween.tween_interval(FLIP_DURATION)
+			# Then move off screen
+			tween.tween_property(card, "position", 
+				PLAYER_MOVE_OFF_POSITION, 
+				MOVE_DURATION)
+			tween.tween_callback(card.queue_free)
+		else:
+			card.queue_free()
 	
 	# Animate CPU cards
 	for i in selectedCpuCards.size():
 		var card = selectedCpuCards[i]
-		var tween = create_tween()
-		
-		# CPU cards just move off screen (no flip)
-		tween.tween_property(card, "position", 
-			CPU_MOVE_OFF_POSITION, 
-			MOVE_DURATION)
-		
-		tween.tween_callback(card.queue_free)
+		if animationsOn:
+			var tween = create_tween()
+			# CPU cards just move off screen (no flip)
+			tween.tween_property(card, "position", 
+				CPU_MOVE_OFF_POSITION, 
+				MOVE_DURATION)
+			tween.tween_callback(card.queue_free)
+		else:
+			card.queue_free()
 	
 	# Wait for discard animations before repositioning
-	await get_tree().create_timer(FLIP_DURATION + MOVE_DURATION).timeout
+	if animationsOn:
+		await get_tree().create_timer(FLIP_DURATION + MOVE_DURATION).timeout
 	
 	# Reposition remaining player cards
 	for i in remainingPlayerCards.size():
 		var card = remainingPlayerCards[i]
-		var tween = create_tween()
 		var new_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
-		tween.tween_property(card, "position",
-			Vector2(new_x, card.position.y),
-			REPOSITION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			tween.tween_property(card, "position",
+				Vector2(new_x, card.position.y),
+				REPOSITION_DURATION)
+		else:
+			card.position = Vector2(new_x, card.position.y)
 	
 	# Reposition remaining CPU cards
 	for i in remainingCpuCards.size():
 		var card = remainingCpuCards[i]
-		var tween = create_tween()
 		var new_x = FIRST_CARD_X_POS + (i * CARD_SPACING)
-		tween.tween_property(card, "position",
-			Vector2(new_x, card.position.y),
-			REPOSITION_DURATION)
+		if animationsOn:
+			var tween = create_tween()
+			tween.tween_property(card, "position",
+				Vector2(new_x, card.position.y),
+				REPOSITION_DURATION)
+		else:
+			card.position = Vector2(new_x, card.position.y)
 	
 	# Wait for repositioning before completing
-	await get_tree().create_timer(REPOSITION_DURATION).timeout
+	if animationsOn:
+		await get_tree().create_timer(REPOSITION_DURATION).timeout
+
+	print('Opponent discarded: ' + str(selectedCpuCards.size()))
+	displayOpponentDiscardLabel(selectedCpuCards.size())
 	
 	discardPressed.emit(selectedIndexes)
 	discardAnimationComplete()
 
 func _on_reveal_pressed():
 	%Reveal.hide()
+	%SheDiscardsCountBg.hide()
 
 	# Flip all cards
 	for playerUICard in playerUICards:
@@ -536,3 +575,9 @@ func _on_continue_pressed():
 func _on_cheat_pressed():
 	%Cheat.hide()
 	cheatPressed.emit()
+
+func displayOpponentDiscardLabel(count : int):
+	var txt = ''
+	txt += 'She Drew ' + str(count) + ' Cards'
+	%SheDiscardsCountLabel.text = txt
+	%SheDiscardsCountBg.show()

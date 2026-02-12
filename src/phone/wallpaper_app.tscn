@@ -193,8 +193,25 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="RandomizeWallpaper" type="CheckBox" parent="."]
+unique_name_in_owner = true
+offset_left = 629.0
+offset_top = 88.0
+offset_right = 744.0
+offset_bottom = 142.0
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.270222, 0.270222, 0.270222, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_b03ht")
+text = "Randomize
+Wallpaper"
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Last" to="." method="_on_last_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="HideVideo" to="." method="_on_hide_video_pressed"]
+[connection signal="toggled" from="RandomizeWallpaper" to="." method="_on_randomize_wallpaper_toggled"]

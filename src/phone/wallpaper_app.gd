@@ -24,6 +24,7 @@ func setup():
 	wallpaperNotUnlockedImage = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 	$Previous.disabled = true
 	$Next.disabled = false
+	%RandomizeWallpaper.button_pressed = GlobalGameStage.randomizeWallpaper
 
 	# Calculate the number of pages
 	maxPages = int(wallpapers.wallpapers.size() / 9.0)
@@ -156,3 +157,7 @@ func _on_hide_video_pressed() -> void:
 	$Previous.show()
 	$Next.show()
 	%HintContainer.show()
+
+
+func _on_randomize_wallpaper_toggled(toggled_on: bool) -> void:
+	GlobalGameStage.randomizeWallpaper = toggled_on

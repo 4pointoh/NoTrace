@@ -17,7 +17,9 @@ var newWallpapersSinceLastCheck : Array[String]
 var playerName : String
 var currentDialogueKey : String = ''
 var christmasEventUnlocked = false
-var seenDialogueKeys : Dictionary = {}
+var seenDialogueKeys : Dictionary = {} # Seen = has started the dialogue (true on scene begin)
+var completedDialogueKeys : Dictionary = {} # Complete = has finished the dialogue (true on scene end)
+var randomizeWallpaper = false
 
 var isStartingPokerFromNode : bool = false
 var altStartPlayerLives : int = 0
@@ -29,6 +31,8 @@ var lisaMassagePoints = 0
 
 # Poker stages by wins and losses
 var pokerStageHistory = {}
+
+var preventSkipping = false
 
 
 # State Variables
@@ -64,7 +68,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 013
+const VERSION = 015
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -487,6 +491,8 @@ func saveSaveData(saveName):
 	file.store_var(annaCorrectChoices)
 	file.store_var(seenDialogueKeys)
 	file.store_var(christmasEventUnlocked)
+	file.store_var(completedDialogueKeys)
+	file.store_var(randomizeWallpaper)
 	
 	savePersistentData()
 
@@ -506,6 +512,7 @@ func getSaveDataInfo(saveName):
 		return null
 	
 func loadSaveData(saveName):
+	lisaMassagePoints = 0
 	var file = FileAccess.open(saveName, FileAccess.READ)
 	if file:
 		var saveVersion = file.get_var()
@@ -589,11 +596,20 @@ func loadSaveData(saveName):
 			christmasEventUnlocked = file.get_var()
 		else:
 			christmasEventUnlocked = false
+		
+		if (saveVersion > 013):
+			completedDialogueKeys = file.get_var()
+		else:
+			completedDialogueKeys = {}
+		
+		if (saveVersion > 014):
+			randomizeWallpaper = file.get_var()
+		else:
+			randomizeWallpaper = false
 
 		dateStorage.clearCurrentDate()
 
 		print('file version is ' + str(saveVersion))
-		print(seenDialogueKeys)
 
 	loadSave.emit()
 
@@ -850,6 +866,7 @@ func isLastEventInThisUpdate(stage: GameStage):
 		return false
 
 func setCurrentDialogueKey(key: String):
+	setDialogueKeyCompleted(currentDialogueKey)
 	currentDialogueKey = key
 	setDialogueKeySeen(key)
 
@@ -907,3 +924,35 @@ func setDialogueKeySeen(dialogueKey: String):
 		seenDialogueKeys[currentStage.name] = []
 	if dialogueKey not in seenDialogueKeys[currentStage.name]:
 		seenDialogueKeys[currentStage.name].append(dialogueKey)
+
+func hasSeenCurrentDialogueKeyInCurrentGameStage():
+	return hasSeenDialogueKey(currentDialogueKey, currentStage.name)
+
+func setDialogueKeyCompleted(dialogueKey: String):
+	if !completedDialogueKeys.has(currentStage.name):
+		completedDialogueKeys[currentStage.name] = []
+	if dialogueKey not in completedDialogueKeys[currentStage.name]:
+		completedDialogueKeys[currentStage.name].append(dialogueKey)
+
+func hasCompletedDialogueKey(dialogueKey: String, stageName: String = ""):
+	if stageName == "":
+		stageName = currentStage.name
+	if completedDialogueKeys.has(stageName):
+		return dialogueKey in completedDialogueKeys[stageName]
+	return false
+
+func hasCompletedCurrentDialogueKeyInCurrentGameStage():
+	return hasCompletedDialogueKey(currentDialogueKey, currentStage.name)
+
+func getRandomUnlockedWallpaper():
+	var randomWallpaper = ALL_WALLPAPERS.wallpapers.filter(func(wallpaper):
+		return unlockedWallpapers.has(wallpaper.wallpaperId)
+	)
+
+	if randomWallpaper.size() > 0:
+		return randomWallpaper[randi() % randomWallpaper.size()].wallpaperImagePath
+
+	return "res://data/wallpapers/phone_bg1.png"
+
+func shouldRandomizeWallpaper():
+	return randomizeWallpaper

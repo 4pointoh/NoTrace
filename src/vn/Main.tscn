@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=38 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dku2bjs0v2a6a" path="res://data/assets/general/bespoke_scenes/ashely_bespoke_kitchen_scene.tscn" id="10_o23y4"]
 [ext_resource type="PackedScene" uid="uid://p4kqdvjxxhnu" path="res://src/vn/main_menu_container.tscn" id="10_q6am1"]
 [ext_resource type="AudioStream" uid="uid://dkosxg1xda685" path="res://data/assets/general/sounds/bg_music/title.mp3" id="11_1jasj"]
+[ext_resource type="PackedScene" uid="uid://bqfml28um0iea" path="res://src/vn/credits.tscn" id="12_d2vtd"]
 [ext_resource type="Texture2D" uid="uid://cpigjr5sgknpv" path="res://data/assets/date/art/success_art.png" id="13_sdhtv"]
 [ext_resource type="PackedScene" uid="uid://ooat0x0ooh2p" path="res://src/vn/name_enter.tscn" id="14_sr84d"]
 [ext_resource type="PackedScene" uid="uid://c0ronq3xhd3ic" path="res://src/vn/transition.tscn" id="18_hxheb"]
@@ -66,6 +67,7 @@ realDateScene = ExtResource("8_dqkor")
 characterUnlockPanel = ExtResource("20_0bbbc")
 ashelyKitchenScene = ExtResource("10_o23y4")
 pokerTimeline = ExtResource("24_3lhh4")
+credits = ExtResource("12_d2vtd")
 metadata/_edit_lock_ = true
 
 [node name="BlackBg" type="ColorRect" parent="."]
@@ -80,9 +82,9 @@ metadata/_edit_lock_ = true
 
 [node name="Start" type="Button" parent="."]
 offset_left = 67.0
-offset_top = 947.0
+offset_top = 949.0
 offset_right = 429.0
-offset_bottom = 1028.0
+offset_bottom = 1030.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
@@ -92,9 +94,9 @@ text = "Start"
 
 [node name="Load" type="Button" parent="."]
 offset_left = 67.0
-offset_top = 1048.0
+offset_top = 1056.0
 offset_right = 429.0
-offset_bottom = 1129.0
+offset_bottom = 1137.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
@@ -105,27 +107,39 @@ text = "Load
 
 [node name="Options" type="Button" parent="."]
 offset_left = 490.0
-offset_top = 947.0
+offset_top = 949.0
 offset_right = 852.0
-offset_bottom = 1028.0
+offset_bottom = 1007.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_4fko3")
 text = "Options"
 
 [node name="SceneSelect" type="Button" parent="."]
 offset_left = 490.0
-offset_top = 1048.0
+offset_top = 1015.0
 offset_right = 852.0
-offset_bottom = 1129.0
+offset_bottom = 1073.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("8_by1x2")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_ex4uv")
 text = "Scene Select"
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 490.0
+offset_top = 1079.0
+offset_right = 852.0
+offset_bottom = 1137.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_by1x2")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_ex4uv")
+text = "Credits"
 
 [node name="Gallery" type="Button" parent="."]
 visible = false
@@ -292,6 +306,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="SceneSelect" to="." method="_on_scene_select_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Gallery" to="." method="_on_gallery_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="dialogue_ended" from="DialogueManager" to="." method="_on_dialogue_manager_dialogue_ended"]

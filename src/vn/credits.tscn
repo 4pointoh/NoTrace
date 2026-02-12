@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqfml28um0iea"]
+
+[ext_resource type="Script" uid="uid://cdue4j478grr5" path="res://credits.gd" id="1_vchbt"]
+[ext_resource type="Texture2D" uid="uid://gt6myvni2mt7" path="res://data/assets/date/art/transparent_pink_light_rounded_rect_8px9patch.png" id="2_bm1is"]
+[ext_resource type="PackedScene" uid="uid://bkiolbfmi0013" path="res://src/vn/OneCredit.tscn" id="2_flb28"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="2_my16y"]
+[ext_resource type="AudioStream" uid="uid://s8q2tsi7nri3" path="res://data/assets/general/sounds/CreditsMusic.mp3" id="3_bm1is"]
+[ext_resource type="Texture2D" uid="uid://bsje3ju0ts8c4" path="res://data/assets/general/art/credits_art/credits_1.webp" id="3_h4ltf"]
+[ext_resource type="Texture2D" uid="uid://rk1dymt7rm7x" path="res://data/assets/general/art/curtains_left.png" id="6_h4ltf"]
+[ext_resource type="Texture2D" uid="uid://cfnrxmqxayogb" path="res://data/assets/general/art/curtains_right.png" id="7_flb28"]
+[ext_resource type="AudioStream" uid="uid://etvcm6ieq6dm" path="res://data/assets/general/sound_effects/curtains_closing.mp3" id="8_h4ltf"]
+[ext_resource type="VideoStream" uid="uid://b0ce3ma5208sc" path="res://data/assets/general/art/credits_art/credits_vid_1.ogv" id="10_webil"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_vchbt")
+OneCreditScene = ExtResource("2_flb28")
+
+[node name="BlackBg" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -251.0
+offset_top = -86.0
+offset_right = 1293.0
+offset_bottom = 1615.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_bm1is")
+
+[node name="bg1" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 942.0
+offset_bottom = 1211.0
+texture = ExtResource("3_h4ltf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="bg2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 942.0
+offset_bottom = 1211.0
+texture = ExtResource("3_h4ltf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 896.0
+offset_bottom = 1152.0
+stream = ExtResource("10_webil")
+autoplay = true
+loop = true
+
+[node name="Subtitles" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 80.0
+offset_top = 180.0
+offset_right = 829.0
+offset_bottom = 252.0
+texture = ExtResource("2_bm1is")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Subtitles"]
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+texture = ExtResource("2_bm1is")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Subtitles"]
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+texture = ExtResource("2_bm1is")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="Subtitles"]
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+texture = ExtResource("2_bm1is")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="Clipper" type="Control" parent="Subtitles"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 749.0
+offset_bottom = 72.0
+metadata/_edit_lock_ = true
+
+[node name="LyricA" type="Label" parent="Subtitles/Clipper"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_my16y")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="LyricB" type="Label" parent="Subtitles/Clipper"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 72.0
+offset_right = 749.0
+offset_bottom = 144.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_my16y")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(80, 180)
+stream = ExtResource("8_h4ltf")
+
+[node name="CurtainsLeft" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1005.0
+offset_bottom = 1647.0
+texture = ExtResource("6_h4ltf")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="CurtainsRight" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1154.0
+offset_bottom = 1551.0
+texture = ExtResource("7_flb28")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_lock_ = true
