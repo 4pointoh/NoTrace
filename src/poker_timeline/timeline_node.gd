@@ -95,7 +95,8 @@ func setupFromData(data: PokerNodeData, stage : GameStage) -> void:
 		%NodeTitle.text = 'Not Seen'
 	
 		# TODO - Uncomment for full release
-		%Wallpaper.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
+		if %Wallpaper.texture != null:
+			%Wallpaper.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
 func getClothingLabel(clothingItem: String) -> Label:
 	var label = Label.new()

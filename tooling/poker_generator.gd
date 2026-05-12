@@ -2,8 +2,8 @@
 extends EditorScript
 
 # Paths - Update these to match your actual project structure
-const CONFIG_PATH = "res://data/game_stages/poker/ashely_bar_poker/ashely_bar_poker_config.json"
-const OUTPUT_CSV_PATH = "res://data/game_stages/poker/ashely_bar_poker/csv//ashely_bar_poker_generated.csv"
+const CONFIG_PATH = "res://data/game_stages/poker/boa_poker_new_poker/boa_poker_new_poker.json"
+const OUTPUT_CSV_PATH = "res://data/game_stages/poker/boa_poker_new_poker/csv/boa_poker_new_poker_generated.csv"
 
 func _run():
 	generate_csv()

@@ -10,6 +10,7 @@ var _already_triggered: Array[String] = []
 var _opp_stack: Array = []
 var _player_stack: Array = []
 var _max_lives: int = 0
+var _player_max_lives: int = 0
 
 # Track the number of items lost in the previous check
 # This ensures we only trigger events on the specific turn an item is lost
@@ -32,6 +33,12 @@ func initialize(config_path: String, csv_path: String, nodeData: PokerNodeData =
 		if config:
 			if config.has("settings") and config.settings.has("max_lives"):
 				_max_lives = config.settings.max_lives
+			
+			# Use player_max_lives if specified, otherwise fall back to max_lives
+			if config.has("settings") and config.settings.has("player_max_lives"):
+				_player_max_lives = config.settings.player_max_lives
+			else:
+				_player_max_lives = _max_lives
 			
 			# Identify opponent (non-PLAYER participant)
 			var opp_id = "OPPONENT"

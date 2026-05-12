@@ -157,9 +157,6 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 		if PLAYER_LOST_PANTS:
 			# She is very far ahead
 			updateResult = getResultForDialogue('LISA_STRIP_SHORTS1', 'strip_shorts') #done
-		#elif PLAYER_LOST_SHIRT:
-			# She is about even
-		#	updateResult = getResultForDialogue('LISA_STRIP_SHORTS2', 'strip_shorts') #lisa is losing shorts, player lost shirt
 		else: # includes player lost shirt
 			# She is behind
 			updateResult = getResultForDialogue('LISA_STRIP_SHORTS3', 'strip_shorts') #done
@@ -237,72 +234,37 @@ static func evaluate_poker_game(_pokerInfo : PokerInfo) :
 
 	return updateResult
 
-static func getAmbientDialogue(_pokerInfo : PokerInfo) -> Array:
+static func evaluate_ambient_dialogue(_pokerInfo: PokerInfo) -> PokerUpdateActionResult:
+	## Main entry point for ambient dialogue evaluation.
+	## Called by poker_game.gd when the CSV system returns no event.
+	var updateResult = PokerUpdateActionResult.new()
+	
+	var ambientDialogue = getAmbientDialogue(_pokerInfo)
+	
+	if ambientDialogue.size() > 0:
+		updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
+	
+	return updateResult
+
+
+static func getAmbientDialogue(_pokerInfo: PokerInfo) -> Array:
+	## Define ambient dialogue triggers here.
+	## Each dialogue is an array: ['DIALOGUE_KEY', 'tracking_key']
+	## Use hasSeen('tracking_key') to prevent repeat triggers.
+	## Use randf() < 0.2 for random chance triggers.
+	##
+	## Example:
+	##   if !hasSeen('early_taunt') and _pokerInfo.totalRounds < 5 and _pokerInfo.cpuLifeAdvantage > 2:
+	##       ambient_talks.append(['EARLY_TAUNT_DIALOGUE', 'early_taunt'])
+	
 	var ambient_talks = []
-
-	# NEED SOME DIALOGUES EARLY GAME THAT CAN trigger without too much long-form criteria
-	if !hasSeen('player_losing_early'):
-		if totalRounds < 5 and cpuLifeAdvantage > 2:
-			# Player: I guess I'm losing early
-			ambient_talks.append(['PLAYER_LOSING_EARLY', 'player_losing_early'])
 	
-	if !hasSeen('player_lost_first_hand'):
-		if playerTotalWins == 0 and cpuTotalWins == 1:
-			# Player: I guess I lost the first hand
-			ambient_talks.append(['PLAYER_LOST_FIRST_HAND', 'player_lost_first_hand'])
+	# Add ambient dialogue conditions here
+	# Example:
+	# if !hasSeen('close_game'):
+	#     if _pokerInfo.totalRounds > 10 and abs(_pokerInfo.playerLifeAdvantage) < 2:
+	#         ambient_talks.append(['CLOSE_GAME_COMMENT', 'close_game'])
 	
-	if !hasSeen('cpu_early_streak'):
-		if cpuCurrentWinStreak > 3 and totalRounds < 8 and cpuLifeAdvantage > 2 and cpuTotalLosses < 3:
-			# Ashe: I guess I'm on a winning streak
-			ambient_talks.append(['CPU_EARLY_STREAK', 'cpu_early_streak'])
-
-	if !hasSeen('early_close_game') and !hasSeen('player_losing_early') and !hasSeen('cpu_early_streak'):
-		if totalRounds < 10 and totalRounds > 4 and playerLifeAdvantage < 2 and cpuLifeAdvantage < 2:
-			# Player: This is a close game
-			ambient_talks.append(['EARLY_CLOSE_GAME', 'early_close_game'])
-
-	if !hasSeen('cpu_compliment') and !hasSeen('cpu_compliment_naked'):
-		if PLAYER_LOST_SHIRT and randf() < 0.2:
-			# Ashe: I have to admit, you don't look half bad without a shirt
-			ambient_talks.append(['CPU_COMPLIMENT', 'cpu_compliment'])
-	
-	if !hasSeen('big_cpu_advantage'):
-		if cpuLifeAdvantage > 9:
-			# Ashe: You sure you dont want to quit? I'll barely have lost anything at this rate
-			ambient_talks.append(['BIG_CPU_ADVANTAGE', 'big_cpu_advantage'])
-	
-	if !hasSeen('both_players_last_life'):
-		if _pokerInfo.playerLives == 1 and _pokerInfo.cpuLives == 1:
-			# Player: I guess we are both down to our last piece
-			ambient_talks.append(['BOTH_PLAYERS_LAST_LIFE', 'both_players_last_life'])
-
-	if !hasSeen('player_final_life') and !hasSeen('cpu_final_life') and !hasSeen('both_players_last_life'):
-		if _pokerInfo.playerLives == 1 and not (_pokerInfo.playerLives == 1 and _pokerInfo.cpuLives == 1):
-			# Player: I guess this is my last life
-			ambient_talks.append(['PLAYER_FINAL_LIFE', 'player_final_life'])
-
-	if !hasSeen('long_match'):
-		if totalRounds > 30 and playerLifeAdvantage < 2 and cpuLifeAdvantage < 2:
-			# Player: This is a long match and it's still close -- *** do something special fo this one
-			ambient_talks.append(['LONG_MATCH', 'long_match'])
-
-	if !hasSeen('cpu_accuses_player_of_letting_win'):
-		if cpuLifeAdvantage > 15:
-			# Ashe: You know, I think you're letting me win because you think you'll get some action when you're naked
-			ambient_talks.append(['CPU_ACCUSE_LETTING_WIN', 'cpu_accuses_player_of_letting_win'])
-
-	if !hasSeen('player_poker_strategy'):
-		if cpuCurrentWinStreak > 5 and cpuLifeAdvantage > 5:
-			# Player: You know, on that hand, you should have <something> 
-			# Ashe: You're giving me poker advice? you realize im destroying you right?
-			ambient_talks.append(['PLAYER_POKER_STRATEGY', 'player_poker_strategy'])
-
-	if !hasSeen('player_blame_lighting'):
-		if PLAYER_LOST_PANTS and randf() < 0.5:
-			# Player: I think the lighting is making me look pale
-			# Ashe: Yes, it's definitely the lighting making you look like uncooked pizza dough
-			ambient_talks.append(['PLAYER_BLAME_LIGHTING', 'player_blame_lighting'])
-
 	ambient_talks.shuffle()
 	if ambient_talks.size() > 0:
 		return ambient_talks[0]

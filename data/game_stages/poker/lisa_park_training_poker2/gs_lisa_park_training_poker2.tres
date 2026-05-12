@@ -12,11 +12,12 @@
 script = ExtResource("5_rtawp")
 name = "asda"
 images = ExtResource("4_2lrvn")
+wallpaperId = ""
 
 [resource]
 script = ExtResource("3_8sucb")
 name = "lisa_park_training_poker2"
-displayName = "Lisa Training At Poker 2"
+displayName = "Lisa Park Training 2"
 dialogue = ExtResource("1_kii32")
 dialogueStartKey = "START"
 guaranteedNextGameStage = ExtResource("2_ese66")
@@ -37,6 +38,7 @@ repositionDialogueBoxTo = 0
 endOnlyOnSpecificDialogueKey = false
 endingDialogueKeys = Array[String]([])
 isPokerMatch = true
+isStripPoker = false
 playerStartingMoney = 200
 cpuStartingMoney = 200
 startingAnte = 20
@@ -55,6 +57,11 @@ allowProPlusMax = false
 proPlusCheats = 2
 proPlusMaxCheats = 0
 pokerScript = ExtResource("2_jqrbf")
+useNewPokerSystem = true
+pokerConfigJsonPath = "res://data/game_stages/poker/lisa_park_training_poker2/lisa_park_training_poker2.json"
+pokerCSVPath = "res://data/game_stages/poker/lisa_park_training_poker2/csv/lisa_park_training_poker2_generated.csv"
+sceneLeadsToAPokerMatch = false
+pokerMatchGameStage = Array[ExtResource("3_8sucb")]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""

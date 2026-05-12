@@ -577,6 +577,8 @@ func _on_poker_game_five_game_won():
 	if GlobalGameStage.currentStage.markStagesCompleteOnPokerWin.size() > 0:
 		for stage in GlobalGameStage.currentStage.markStagesCompleteOnPokerWin:
 			GlobalGameStage.markStageComplete(stage)
+	
+	GlobalGameStage.isStartingPokerFromNode = false
 
 	currentPokerGame.queue_free()
 	advanceGameStage()

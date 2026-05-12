@@ -105,7 +105,7 @@ func loadConfig():
 	var config = ConfigFile.new()
 	var err = config.load("user://settings.cfg")
 	if err != OK:
-		config.set_value("Audio", "bg_volume", 100);
+		config.set_value("Audio", "bg_volume", 10);
 		config.set_value("Text", "text_speed", 100)
 		config.set_value("Text", "skip_speed", 0.12)
 		config.save("user://settings.cfg");

@@ -38,6 +38,7 @@ var _opp_id: String = ""
 var _opp_stack: Array = []
 var _player_stack: Array = []
 var _max_lives: int = 0
+var _player_max_lives: int = 0
 
 
 func process(config_path: String, csv_path: String) -> Array[PokerNodeData]:
@@ -69,6 +70,12 @@ func _load_config(config_path: String) -> bool:
 	
 	if config.has("settings") and config.settings.has("max_lives"):
 		_max_lives = config.settings.max_lives
+	
+	# Use player_max_lives if specified, otherwise fall back to max_lives
+	if config.has("settings") and config.settings.has("player_max_lives"):
+		_player_max_lives = config.settings.player_max_lives
+	else:
+		_player_max_lives = _max_lives
 	
 	# Identify opponent (non-PLAYER participant)
 	_opp_id = "OPPONENT"
@@ -304,8 +311,8 @@ func _populate_character_info(data: PokerNodeData) -> void:
 	data.opponent_current_clothes_list = o_full.slice(data.post_opp_count)
 	
 	# Calculate remaining lives based on clothing state
-	data.player_lives = _calculate_remaining_lives(_player_stack, data.post_player_count)
-	data.opponent_lives = _calculate_remaining_lives(_opp_stack, data.post_opp_count)
+	data.player_lives = _calculate_remaining_lives(_player_stack, data.post_player_count, _player_max_lives)
+	data.opponent_lives = _calculate_remaining_lives(_opp_stack, data.post_opp_count, _max_lives)
 
 
 func _get_item_name_at_index(stack: Array, index: int) -> String:
@@ -361,12 +368,12 @@ func _count_items(item_str: String) -> int:
 
 
 func _calculate_current_round(post_opp_count: int, post_player_count: int) -> int:
-	var opp_loss = _calculate_lives_lost(_opp_stack, post_opp_count)
-	var player_loss = _calculate_lives_lost(_player_stack, post_player_count)
+	var opp_loss = _calculate_lives_lost(_opp_stack, post_opp_count, _max_lives)
+	var player_loss = _calculate_lives_lost(_player_stack, post_player_count, _player_max_lives)
 	return opp_loss + player_loss
 
 
-func _calculate_lives_lost(stack: Array, count: int) -> int:
+func _calculate_lives_lost(stack: Array, count: int, max_lives: int) -> int:
 	if count <= 0:
 		return 0
 	
@@ -380,12 +387,12 @@ func _calculate_lives_lost(stack: Array, count: int) -> int:
 	if item.has("lives_threshold"):
 		threshold = item.lives_threshold
 		
-	return _max_lives - threshold
+	return max_lives - threshold
 
 
-func _calculate_remaining_lives(stack: Array, items_lost_count: int) -> int:
+func _calculate_remaining_lives(stack: Array, items_lost_count: int, max_lives: int) -> int:
 	if items_lost_count <= 0:
-		return _max_lives
+		return max_lives
 	
 	# Clamp to valid index range
 	var index = items_lost_count - 1

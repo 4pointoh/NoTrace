@@ -1,23 +1,23 @@
 shader_type canvas_item;
 
-uniform sampler2D day_texture : source_color; 
+uniform sampler2D day_texture : source_color;
 
-// NEW: The black and white mask image. 
+// NEW: The black and white mask image.
 // "hint_default_white" means if you forget to add the image, the whole screen still lights up.
-uniform sampler2D window_mask : hint_default_white; 
+uniform sampler2D window_mask : hint_default_white;
 
 // Controls for the street lights
 uniform float speed = 1.5;
-uniform float angle_degrees = 45.0; 
-uniform float streak_width = 0.2; 
-uniform float softness = 0.05; 
-uniform float light_spacing = 3.0; 
+uniform float angle_degrees = 45.0;
+uniform float streak_width = 0.2;
+uniform float softness = 0.05;
+uniform float light_spacing = 3.0;
 
 void fragment() {
     vec4 dark_color = texture(TEXTURE, UV);
     vec4 light_color = texture(day_texture, UV);
 
-    // NEW: Read the black and white mask. 
+    // NEW: Read the black and white mask.
     // We only need one color channel (like 'r' for red) since it's black and white.
     // White returns 1.0, Black returns 0.0.
     float is_interior = texture(window_mask, UV).r;
