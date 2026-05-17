@@ -254,6 +254,9 @@ func getAvailableMessages():
 	if christmasEventUnlocked: #holidays events
 		addMessage(Flags.ASHELY_HOLIDAY_PHONE)
 		addMessage(Flags.LISA_WINTER)
+	
+	if completedStages.has('amy_lisa_discovery'):
+		addMessage(Flags.ANNA_NIGHT_PHONE)
 
 	return availableMessages
 
@@ -296,6 +299,8 @@ func getCompletedMessages():
 		availableMessages.append(Flags.ASHELY_HOLIDAY_PHONE)
 	if completedStages.has(Flags.LISA_WINTER.name):
 		availableMessages.append(Flags.LISA_WINTER)
+	if completedStages.has(Flags.ANNA_NIGHT_PHONE.name):
+		availableMessages.append(Flags.ANNA_NIGHT_PHONE)
 
 	return availableMessages
 
@@ -338,6 +343,9 @@ func getAvailableSelectableEvents():
 	
 	if completedStages.has('amy_lisa_discovery'):
 		addSelectableEvent(Flags.UNLOCK_CHRISTMAS)
+	
+	if completedStages.has('anna_night_phone'):
+		addSelectableEvent(Flags.ANNA_NIGHT)
 	
 	
 	return availableSelectableEvents

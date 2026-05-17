@@ -19,12 +19,13 @@ var ending_started: bool = false
 var scene_end_emitted: bool = false
 
 const FADE_DURATION := 0.5
+const FADE_IN_DURATION := 2.0
 
 func _ready() -> void:
 	timeline = get_timeline()
 	timeline.sort_custom(func(a, b): return a["time"] < b["time"])
 	%AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
-	%FadeOverlay.color.a = 0.0
+	%FadeOverlay.color.a = 1.0
 	%Skip.visible = false
 	skip_hide_timer = Timer.new()
 	skip_hide_timer.one_shot = true
@@ -42,6 +43,10 @@ func _ready() -> void:
 			current_index += 1
 	else:
 		%AudioStreamPlayer2D.play()
+
+	# Fade in from black, mirroring the fade-to-black at scene end.
+	var fade_in_tween = get_tree().create_tween()
+	fade_in_tween.tween_property(%FadeOverlay, "color:a", 0.0, FADE_IN_DURATION)
 
 func _process(delta: float) -> void:
 	if scene_end_emitted:

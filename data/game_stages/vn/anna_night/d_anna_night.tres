@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://s5xilm0y8w5y"]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_rdo5o"]
+
+[resource]
+script = ExtResource("1_rdo5o")
+starts = {
+"START": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-35, 201.5),
+"start_id": "START"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Starting",
+"offset": Vector2(808, 140),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 669),
+"speaker": 1
+},
+&"1_2": {
+"background": 2,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "Singing now",
+"offset": Vector2(1440, 120),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Done singing",
+"offset": Vector2(2440, 80),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 618),
+"speaker": 1
+},
+&"3_1": {
+"link": &"1_3",
+"offset": Vector2(2000, 220),
+"signalValue": "anna_music_video"
+},
+&"3_2": {
+"link": &"3_3",
+"offset": Vector2(1166.53, 817.843),
+"signalValue": "fade_next_slow"
+},
+&"3_3": {
+"link": &"1_2",
+"offset": Vector2(1369.04, 908.158),
+"signalValue": "anna_music_video_song_intro"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/anna_night/characters.tres"
+backgroundList = "res://data/game_stages/vn/anna_night/bgs.tres"

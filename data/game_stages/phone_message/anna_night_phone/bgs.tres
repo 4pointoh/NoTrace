@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=4 format=3 uid="uid://dqjhnml8t1db8"]
+
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="1_fvcsp"]
+[ext_resource type="Resource" uid="uid://cht80hoqypt6q" path="res://data/background_lists/home/home_bgl.tres" id="2_yv2pm"]
+[ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="3_bl7c2"]
+
+[resource]
+script = ExtResource("3_bl7c2")
+backgroundLists = Array[ExtResource("1_fvcsp")]([ExtResource("2_yv2pm")])

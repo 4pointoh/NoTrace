@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://dl4ifd2w4kvp"]
+
+[ext_resource type="Texture2D" uid="uid://qsqya63yhuth" path="res://data/characters/anna/anna_night/face.png" id="1_1serd"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_p3y2o"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_daixl"]
+
+[resource]
+script = ExtResource("2_p3y2o")
+name = "Anna"
+editorName = "anna_night"
+image = ExtResource("1_1serd")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("3_daixl")]([])

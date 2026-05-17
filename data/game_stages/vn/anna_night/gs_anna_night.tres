@@ -1,0 +1,93 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://cvprhvmgjxmja"]
+
+[ext_resource type="Resource" uid="uid://s5xilm0y8w5y" path="res://data/game_stages/vn/anna_night/d_anna_night.tres" id="1_8y4in"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_3ccya"]
+[ext_resource type="Texture2D" uid="uid://2dmyrnvuoi84" path="res://data/background_lists/home/backgrounds/intro_bg11_night.webp" id="3_fx3xm"]
+[ext_resource type="Texture2D" uid="uid://cjqswkc7ctmln" path="res://data/assets/stage_art/anna_night_hover.png" id="3_qypbr"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_bedir"]
+[ext_resource type="Texture2D" uid="uid://devm5k6kkeu77" path="res://data/assets/stage_art/anna_night.png" id="4_nm8y6"]
+
+[sub_resource type="Resource" id="Resource_qypbr"]
+script = ExtResource("4_bedir")
+name = "f"
+images = ExtResource("3_fx3xm")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_3ccya")
+name = "anna_night"
+displayName = "Anna - Night"
+dialogue = ExtResource("1_8y4in")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("Resource_qypbr")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = false
+isStripPoker = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+useNewPokerSystem = false
+pokerConfigJsonPath = ""
+pokerCSVPath = ""
+sceneLeadsToAPokerMatch = false
+pokerMatchGameStage = Array[ExtResource("2_3ccya")]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonTexture = ExtResource("4_nm8y6")
+stageButtonHover = ExtResource("3_qypbr")
+stageButtonLabel = "Go To Sleep"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

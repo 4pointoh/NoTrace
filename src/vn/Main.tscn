@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=40 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://cvds3comm8wia" path="res://src/vn/NewTitle.tscn" id="21_arifm"]
 [ext_resource type="PackedScene" uid="uid://kirrjy5dcir7" path="res://src/vn/ChoiceDisplay.tscn" id="22_mu6kp"]
 [ext_resource type="PackedScene" uid="uid://enj1rk5nm578" path="res://src/poker_timeline/PokerTimeline.tscn" id="24_3lhh4"]
+[ext_resource type="PackedScene" uid="uid://jddtx26iom45" path="res://src/vn/AnnaDressingRoom.tscn" id="25_anna1"]
+[ext_resource type="PackedScene" uid="uid://ds454mryfvys" path="res://src/vn/AnaMusicVideo.tscn" id="26_anavid"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -66,6 +68,8 @@ sceneSelector = ExtResource("7_cgb2p")
 realDateScene = ExtResource("8_dqkor")
 characterUnlockPanel = ExtResource("20_0bbbc")
 ashelyKitchenScene = ExtResource("10_o23y4")
+annaDressingRoomScene = ExtResource("25_anna1")
+anaMusicVideoScene = ExtResource("26_anavid")
 pokerTimeline = ExtResource("24_3lhh4")
 credits = ExtResource("12_d2vtd")
 metadata/_edit_lock_ = true

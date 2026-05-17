@@ -26,6 +26,8 @@ var onMainMenu = true
 @export var realDateScene : PackedScene
 @export var characterUnlockPanel : PackedScene
 @export var ashelyKitchenScene : PackedScene
+@export var annaDressingRoomScene : PackedScene
+@export var anaMusicVideoScene : PackedScene
 @export var pokerTimeline : PackedScene
 @export var credits : PackedScene
 
@@ -36,6 +38,8 @@ var currentDate
 var currentRealDate
 var currentSceneSelector
 var ashelyKitchenInstance
+var annaDressingRoomInstance
+var anaMusicVideoInstance
 var currentCredits
 
 var currentUnlockPanel
@@ -407,6 +411,8 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"unlock_char_amy": unlockChar(GlobalGameStage.CHARACTERS.AMY)
 		"unlock_char_lisa": unlockChar(GlobalGameStage.CHARACTERS.LISA)
 		"unlock_char_anna": unlockChar(GlobalGameStage.CHARACTERS.ANA)
+		"anna_music_video_song_intro": playAnaMusicVideoSongIntro()
+		"anna_music_video": playAnaMusicVideo()
 		"end_unlock_sequence": endUnlockSequence()
 		"unlock_lisa_cat_convo": unlockLisaCatConvo()
 		"music_passion": playMusicPassion()
@@ -421,6 +427,30 @@ func stopAndResetMusicVolume():
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 
+func playAnaMusicVideoSongIntro():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/Sunset Strip - Instrumental.mp3"))
+
+
+func playAnaMusicVideo():
+	# Overlay scene with no phone to parent under, so it rides above $Background.
+	# Mirrors the unlockChar/videoPause precedent for hiding the dialogue box,
+	# but the overlay's length is dynamic so we wait on its sceneEnd signal.
+	disableInput()
+	$DialogueManager.disableDialogueProgression()
+	$DialogueManager.hideUiFast()
+	fadeOutMusic()
+	anaMusicVideoInstance = anaMusicVideoScene.instantiate()
+	anaMusicVideoInstance.sceneEnd.connect(_on_ana_music_video_scene_end)
+	$Background.add_sibling(anaMusicVideoInstance)
+
+func _on_ana_music_video_scene_end():
+	if is_instance_valid(anaMusicVideoInstance):
+		anaMusicVideoInstance.queue_free()
+	anaMusicVideoInstance = null
+	$DialogueManager.unhideUiFast()
+	$DialogueManager.enableDialogueProgression()
+	enableInput()
+	playSceneMusic()
 
 func videoPause():
 	isVideoPause = true
@@ -855,13 +885,23 @@ func _handle_bespoke_event(eventName: String):
 		fadeOutMusic()
 		ashelyKitchenInstance = ashelyKitchenScene.instantiate()
 		currentPhone.add_sibling(ashelyKitchenInstance)
-	
+	elif eventName == 'Anna Dressing Room':
+		print('starting bespoke event: Anna Dressing Room')
+		fadeOutMusic()
+		annaDressingRoomInstance = annaDressingRoomScene.instantiate()
+		currentPhone.add_sibling(annaDressingRoomInstance)
+
 func _handle_bespoke_event_ended(eventName: String):
 	if eventName == 'Ashely Kitchen Phone':
 		ashelyKitchenInstance.queue_free()
 		currentPhone.loadPreparedMessages()
 		$AudioStreamPlayer2D.play()
 		print('ended bespoke event: Ashely Kitchen Phone')
+	elif eventName == 'Anna Dressing Room':
+		annaDressingRoomInstance.queue_free()
+		currentPhone.loadPreparedMessages()
+		$AudioStreamPlayer2D.play()
+		print('ended bespoke event: Anna Dressing Room')
 
 func _handle_fade_out_music():
 	fadeOutMusic()

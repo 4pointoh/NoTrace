@@ -1,0 +1,18 @@
+# Sample script demonstrating every directive.
+# a: = Anna message    p: = player message (waits for click)
+# img: <res path>      pos: tl | tr | bl | br
+
+img: res://data/background_lists/anna_night/lion/lion_1.webp
+pos: bl
+a: hey
+a: you there?
+p: yeah whats up
+a: ok check this out
+img: res://data/background_lists/anna_night/lion/lion_3.webp
+a: rawr 🦁
+a: do i look fierce
+p: very intimidating
+pos: tr
+img: res://data/background_lists/anna_night/lion/lion_7.webp
+a: ok what about this one
+p: also good
