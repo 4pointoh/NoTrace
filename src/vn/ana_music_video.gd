@@ -19,7 +19,7 @@ var ending_started: bool = false
 var scene_end_emitted: bool = false
 
 const FADE_DURATION := 0.5
-const FADE_IN_DURATION := 2.0
+const FADE_IN_DURATION := 5.0
 
 func _ready() -> void:
 	timeline = get_timeline()

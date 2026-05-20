@@ -15,35 +15,37 @@ const POST_PICK_DELAY := 0.6
 # Falls back to a generic line if an outfit isn't listed here.
 const OUTFIT_PICK_LINES := {
 	"lion": "the lion onesie!",
-	"clown": "clown outfit!!",
-	"daisyduke": "ive always thought you were a cowgirl at heart, how about the daisy dukes?",
-	"fairy": "how about the fairy outfit ✨",
-	"formal": "lets see you all dressed up",
-	"goth": "the goth look maybe?",
-	"nurse": "the nurse outfit",
+	"clown": "🤡",
+	"daisyduke": "I've always thought you were a cowgirl at heart, how about the daisy dukes?",
+	"fairy": "What is that one?",
+	"formal": "What's that black one?",
+	"goth": "The other nurse outfit!",
+	"nurse": "The nurse outfit",
 	"punk": "how about the punk look",
 	"swim": "the swimsuit?",
 	"workout": "the workout one",
-	"ballet": "the ballet outfit",
+	"ballet": "Is that a ballet outfit?",
 }
 
 # Line spoken by the player when picking their favorite at the end.
 const OUTFIT_FAVORITE_LINES := {
 	"lion": "the lion onesie was my favorite!",
-	"clown": "the clown outfit, no contest",
-	"daisyduke": "the daisy dukes for sure",
-	"fairy": "the fairy outfit was perfect",
-	"formal": "the formal dress, you looked stunning",
-	"goth": "the goth look, definitely",
-	"nurse": "the nurse outfit",
+	"clown": "You know which one.",
+	"daisyduke": "The daisy dukes for sure",
+	"fairy": "The fairy outfit was so surreal, how about that one?",
+	"formal": "the black dress, you looked stunning",
+	"goth": "That vampire one... it awoke something in me...",
+	"nurse": "The nurse!",
 	"punk": "the punk look",
 	"swim": "the swimsuit",
 	"workout": "the workout fit",
-	"ballet": "the ballet outfit",
+	"ballet": "I think it has to be the color-changing ballet outfit that was my favorite.",
 }
 
 const ANNA_FIRST_DELAY := 1.2
 const ANNA_RUN_DELAY := 0.8
+# Time Anna spends "reading" a player message before her typing starts.
+const ANNA_READ_DELAY := 1.2
 const POS_TWEEN_SEC := 0.25
 const HIDE_FADE_SEC := 0.2
 const BG_FADE_SEC := 0.35
@@ -56,12 +58,20 @@ const MessageTextScene := preload("res://src/phone/message_text.tscn")
 const TypingScene := preload("res://src/phone/phone_loading.tscn")
 const HubScene := preload("res://src/vn/anna_dressing_room_hub.tscn")
 const ChangingRoomBg := preload("res://data/background_lists/anna_night/changing_room/studio_4.webp")
-const RoundedRectTexture := preload("res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png")
+const RoundedRectTexture := preload("res://data/assets/date/art/transparent_purple_bright_rounded_rect_8px9patch.png")
 const ROUNDED_RECT_MARGIN := 8
 
 const SOUND_TYPING := preload("res://data/assets/phone/sounds/click.wav")
 const SOUND_RECEIVED := preload("res://data/assets/phone/sounds/message_sent.wav")
 const SOUND_SENT := preload("res://data/assets/phone/sounds/noti1.wav")
+const SOUND_CAMERA := preload("res://data/assets/general/sound_effects/camera_click.mp3")
+
+# Camera-shot flash: a soft, slow fade-in from white (not a harsh strobe).
+# Beat before a camera shot — Anna lining up and taking the photo.
+const CAMERA_SHOT_DELAY := 1.0
+const CAMERA_FLASH_PEAK := 0.8
+const CAMERA_FLASH_IN_SEC := 0.12
+const CAMERA_FLASH_OUT_SEC := 0.85
 
 var panel: Control
 var scroll: ScrollContainer
@@ -71,10 +81,12 @@ var send_button: Button
 var return_button: Button
 var audio: AudioStreamPlayer
 var hub: Control
+var flash: ColorRect
 
 var current_quadrant := "tl"
 var panel_hidden := false
 var previous_was_anna := false
+var previous_was_player := false
 var awaiting_advance := false
 
 signal _advance_requested
@@ -86,8 +98,10 @@ var tried_outfits: Array[String] = []
 var picking_favorite := false
 
 func _ready() -> void:
+	GlobalGameStage.resetAnnaDressingRoomTranscript()
 	audio = AudioStreamPlayer.new()
 	add_child(audio)
+	_build_flash()
 	_build_panel()
 	_build_hub()
 	script_finished.connect(_on_script_finished)
@@ -99,6 +113,17 @@ func _build_hub() -> void:
 	hub.modulate.a = 0.0
 	hub.outfit_selected.connect(_on_outfit_selected)
 	add_child(hub)
+
+func _build_flash() -> void:
+	# White overlay used for the camera-shot flash. Built before the panel so
+	# it covers the photo but never the phone UI on top of it.
+	flash = ColorRect.new()
+	flash.name = "CameraFlash"
+	flash.color = Color(1, 1, 1, 0)
+	flash.position = Vector2.ZERO
+	flash.size = Vector2(SCREEN_W, SCREEN_H)
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(flash)
 
 func _play_sound(stream: AudioStream) -> void:
 	audio.stream = stream
@@ -227,6 +252,12 @@ func parse_script(text: String) -> Array:
 			entries.append({"type": "anna", "text": line.substr(2).strip_edges()})
 		elif line.begins_with("p:"):
 			entries.append({"type": "player", "text": line.substr(2).strip_edges()})
+		elif line.begins_with("delay:"):
+			var raw := line.substr(6).strip_edges()
+			if raw.is_valid_float():
+				entries.append({"type": "delay", "seconds": raw.to_float()})
+			else:
+				push_error("Invalid delay value: " + line)
 		elif line.begins_with("img:"):
 			entries.append({"type": "img", "path": line.substr(4).strip_edges()})
 		elif line.begins_with("pos:"):
@@ -246,23 +277,44 @@ func _run(entries: Array) -> void:
 				if previous_was_anna:
 					await get_tree().create_timer(ANNA_RUN_DELAY).timeout
 				else:
+					if previous_was_player:
+						# Let Anna "read" the player's message before she
+						# starts typing back.
+						await get_tree().create_timer(ANNA_READ_DELAY).timeout
 					var spinner := _show_typing()
 					await get_tree().create_timer(ANNA_FIRST_DELAY).timeout
 					if is_instance_valid(spinner):
 						spinner.queue_free()
 				_add_bubble(false, entry.text)
 				previous_was_anna = true
+				previous_was_player = false
 			"player":
 				_set_awaiting_advance(true)
 				await _advance_requested
 				_set_awaiting_advance(false)
 				_add_bubble(true, entry.text)
 				previous_was_anna = false
+				previous_was_player = true
 			"img":
 				if ResourceLoader.exists(entry.path):
-					await _fade_swap_bg(entry.path)
+					# studio_3 / studio_4 are framing backdrops, not part of the
+					# conversation, so don't mirror them onto the phone.
+					if not ("studio_3" in entry.path or "studio_4" in entry.path):
+						GlobalGameStage.recordAnnaDressingRoomMessage({
+							"type": "image",
+							"path": entry.path,
+						})
+					await _swap_bg(entry.path)
 				else:
 					push_error("Missing image: " + entry.path)
+			"delay":
+				await get_tree().create_timer(entry.seconds).timeout
+				# Force the next anna message to show the typing animation,
+				# the same as the first message in a sequence.
+				previous_was_anna = false
+				# An explicit delay is authoritative — don't also stack the
+				# player-read delay on top of it.
+				previous_was_player = false
 			"pos":
 				_move_panel(entry.quadrant)
 
@@ -278,11 +330,22 @@ func _show_typing() -> Node:
 	_scroll_to_bottom_deferred()
 	return spinner
 
+func _substitute_placeholders(text: String) -> String:
+	var player_name: String = GlobalGameStage.playerName
+	text = text.replace("{player_name_caps}", player_name.to_upper())
+	text = text.replace("{player_name}", player_name)
+	return text
+
 func _add_bubble(is_player: bool, text: String) -> void:
+	text = _substitute_placeholders(text)
 	var msg := MessageTextScene.instantiate()
 	msg.size_flags_horizontal = Control.SIZE_SHRINK_END if is_player else Control.SIZE_SHRINK_BEGIN
 	vbox.add_child(msg)
 	msg.setMessage(is_player, text, "Anna")
+	GlobalGameStage.recordAnnaDressingRoomMessage({
+		"type": "player_text" if is_player else "partner_text",
+		"content": text,
+	})
 	_play_sound(SOUND_SENT if is_player else SOUND_RECEIVED)
 	_scroll_to_bottom_deferred()
 
@@ -291,6 +354,29 @@ func _scroll_to_bottom_deferred() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	scroll.scroll_vertical = int(vbox.size.y)
+
+func _swap_bg(path: String) -> void:
+	# studio_3 / studio_4 are framing backdrops (plain fade through black).
+	# Every other photo is an in-fiction camera shot: click + white flash.
+	if "studio_3" in path or "studio_4" in path:
+		await _fade_swap_bg(path)
+	else:
+		await _camera_swap_bg(path)
+
+func _camera_swap_bg(path: String) -> void:
+	# Give Anna a beat to actually take the photo instead of it snapping in
+	# the instant the player hits send.
+	await get_tree().create_timer(CAMERA_SHOT_DELAY).timeout
+	_play_sound(SOUND_CAMERA)
+	# Soft, quick rise to white, swap behind the white, then a slow-ish
+	# fade back in — reads as a gentle flash, not a harsh strobe.
+	var up_tween := create_tween()
+	up_tween.tween_property(flash, "color:a", CAMERA_FLASH_PEAK, CAMERA_FLASH_IN_SEC)
+	await up_tween.finished
+	(%bg as TextureRect).texture = load(path)
+	var down_tween := create_tween()
+	down_tween.tween_property(flash, "color:a", 0.0, CAMERA_FLASH_OUT_SEC)
+	await down_tween.finished
 
 func _fade_swap_bg(path: String) -> void:
 	# The bg TextureRect sits over a black ColorRect, so fading its modulate
@@ -363,6 +449,7 @@ func _on_outfit_selected(outfit_name: String) -> void:
 func _inject_player_line(text: String) -> void:
 	_add_bubble(true, text)
 	previous_was_anna = false
+	previous_was_player = true
 	await get_tree().create_timer(POST_PICK_DELAY).timeout
 
 func _enter_hub() -> void:

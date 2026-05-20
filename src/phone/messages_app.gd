@@ -146,11 +146,14 @@ func loadPreparedMessages():
 	var preparedMessages = currentConversation.getPreparedMessages()
 
 	for preparedMessage in preparedMessages:
-		preparedMessage.content = preparedMessage.content.replace("{player_name}", GlobalGameStage.playerName)
 		if preparedMessage.type == 'partner_text':
-			addText(false, preparedMessage.content, null, true)
+			var partnerContent = preparedMessage.content.replace("{player_name}", GlobalGameStage.playerName)
+			addText(false, partnerContent, null, true)
 		elif preparedMessage.type == 'player_text':
-			addText(true, preparedMessage.content, null, true)
+			var playerContent = preparedMessage.content.replace("{player_name}", GlobalGameStage.playerName)
+			addText(true, playerContent, null, true)
+		elif preparedMessage.type == 'image':
+			addImage(load(preparedMessage.path), true)
 
 func processNextAction():
 	previousAction = nextAction
@@ -424,13 +427,18 @@ func disableRespond():
 	if !speedUpManual:
 		$Respond.visible = false
 
-func addImage(image):
+func addImage(image, instant = false):
 	var newImage = messageImage.instantiate()
 
-	newImage.setTexture(image, skipping)
+	newImage.setTexture(image, skipping or instant)
 
 	newImage.noFullscreen = true
 	$MessageScreen/VBoxContainer.add_child(newImage)
+
+	if instant:
+		newImage.noFullscreen = false
+		return
+
 	$AudioStreamPlayer2D.stream = imageLoadingSound
 	$AudioStreamPlayer2D.play()
 	if(!skipping):

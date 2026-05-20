@@ -911,6 +911,16 @@ func startBespoke(eventName : String):
 func stopBespoke(eventName : String):
 	stopBespokeEvent.emit(eventName)
 
+# Conversation transcript recorded during the Anna Dressing Room minigame so it
+# can be replayed onto the phone as prepared messages once the minigame ends.
+var annaDressingRoomTranscript: Array = []
+
+func resetAnnaDressingRoomTranscript():
+	annaDressingRoomTranscript = []
+
+func recordAnnaDressingRoomMessage(entry: Dictionary):
+	annaDressingRoomTranscript.append(entry)
+
 func unlockChristmas():
 	christmasEventUnlocked = true
 

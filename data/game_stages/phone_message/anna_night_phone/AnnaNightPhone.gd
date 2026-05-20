@@ -129,7 +129,29 @@ var actions = [
 	{ "type": "partner_text", "content": "Let me send you a clearer photo of all the options." },
 	{ "type": "player_text", "content": "Perfect!" },
 	{ "type": "special", "content": "Anna Dressing Room" },
-	{ "type": "partner_text", "content": "That dressing game was fun!" },
+	{ "type": "partner_text", "content": "Okay I'm back!" },
+	{ "type": "partner_text", "content": "That was fun!" },
+	{ "type": "partner_text", "content": "Hope you... enjoyed it too 😅" },
+	{ "type": "partner_text", "content": "I'm going to have to go... I have so much to do today..." },
+	{ "type": "player_text", "content": "Lots of sponsorships on the schedule?" },
+	{ "type": "partner_text", "content": "I have a few more hours of these." },
+	{ "type": "partner_text", "content": "Then I have like... a whole other thing after it." },
+	{ "type": "partner_text", "content": "Sometimes I just want to sneak out the back door, and not tell anybody where I'm going." },
+	{ "type": "partner_text", "content": "... and just hang out with you for a while." },
+	{ "type": "player_text", "content": "Well, if you ever do, I have plenty of mail to show you." },
+	{ "type": "partner_text", "content": "Hehe" },
+	{ "type": "partner_text", "content": "When can we meet again?" },
+	{ "type": "partner_text", "content": "Actually I'm busy like this whole week... ugh..." },
+	{ "type": "partner_text", "content": "..." },
+	{ "type": "partner_text", "content": "Next week?" },
+	{ "type": "player_text", "content": "I think I can pencil you in Miss Blake." },
+	{ "type": "partner_text", "content": "I will pick you up. Send me your address later." },
+	{ "type": "partner_text", "content": "UGH!! I have to go, they're calling me over." },
+	{ "type": "player_text", "content": "Going to proudly proclaim your love for the facial cream?" },
+	{ "type": "partner_text", "content": "Hey, I'm Anna Blake and I LOVVEEE this facial cream!" },
+	{ "type": "partner_text", "content": "😅" },
+	{ "type": "partner_text", "content": "Ok I really gotta go. I'll see you next week..." },
+	{ "type": "partner_text", "content": "If I can make it that long..." },
 	{ "type": "complete" }
 ];
 
@@ -199,61 +221,6 @@ func actionGroupZero():
 	return null
 
 func getPreparedMessages():
-	return []
-
-func _unusedPreparedMessages():
-	return [
-		{ "type": "player_text", "content": "so he started talking to her" },
-		{ "type": "player_text", "content": "and then she got annoyed and went deeper into her burrow" },
-		{ "type": "player_text", "content": "and so the male rabbit had an idea" },
-		{ "type": "player_text", "content": "he stood outside the white rabbit's burrow" },
-		{ "type": "player_text", "content": "and began to tell her a story" },
-		{ "type": "player_text", "content": "in this story, there was a white winter fox who hated winter" },
-		{ "type": "player_text", "content": "'and because this fox was so well suited for winter, everybody assumed he loved winter' said the male rabbit" },
-		{ "type": "player_text", "content": "'but the reality was different, this fox just wanted to stay home' the male rabbit continued" },
-		{ "type": "player_text", "content": "and then uh..." },
-		{ "type": "player_text", "content": "the rabbit soon realized..." },
-		{ "type": "player_text", "content": "er, the fox, I mean" },
-		{ "type": "player_text", "content": "wait, maybe it was the rabbit." },
-		{ "type": "player_text", "content": "...anyway something something, now they love winter" },
-		{ "type": "player_text", "content": "the white rabbit is you" },
-		{ "type": "player_text", "content": "if that wasn't clear" },
-		{ "type": "player_text", "content": "... wait, did you actually turn your phone off?" },
-		{ "type": "player_text", "content": "I kind of expected you to respond by now." },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "asdf" },
-		{ "type": "player_text", "content": "asdf" },
-		{ "type": "player_text", "content": "asdf" },
-		{ "type": "player_text", "content": "asdf" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "A" },
-		{ "type": "player_text", "content": "AA" },
-		{ "type": "player_text", "content": "AAA" },
-		{ "type": "player_text", "content": "AAAA" },
-		{ "type": "player_text", "content": "AAAAA" },
-		{ "type": "player_text", "content": "AAAAAA" },
-		{ "type": "player_text", "content": "AAAAAAA" },
-		{ "type": "player_text", "content": "AAAAAAAA" },
-	]
-
-# IDEA - 2nd conversation happens afterwards. From doordash driver. He says he thinks you were cute (thinking you are ashely)
-# IDEA - add 'new message from {name}' pop up to phone in ashely scene 
+	# Populated live during the Anna Dressing Room minigame so the whole
+	# conversation (text + images) appears on the phone once it ends.
+	return GlobalGameStage.annaDressingRoomTranscript
