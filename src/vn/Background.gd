@@ -68,10 +68,10 @@ func disableZoomPan():
 	$BackgroundImage.position = Vector2(0,0)
 
 # Plys for 3 seconds
-func fadeVideo():
+func fadeVideo(playDuration := 5.5):
 	$VideoStreamPlayer.visible = true
 	$VideoStreamPlayer.play()
-	await get_tree().create_timer(5.5).timeout
+	await get_tree().create_timer(playDuration).timeout
 	var tween = get_tree().create_tween()
 	tween.tween_property($VideoStreamPlayer, "modulate", Color.TRANSPARENT, 1).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(resetVideoPlayer)
@@ -141,6 +141,15 @@ func checkForVideo():
 		fadeVideo()
 	if background.name == 'lisa_poker_reward_0067.webp':
 		$VideoStreamPlayer.stream = load("res://data/background_lists/lisa_poker_reward/video/mas_3.ogv")
+		fadeVideo()
+	if background.name == 'anna_night_love_0017.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_night/video/anna_night_vid_1.ogv")
+		fadeVideo(45)  # 46s video: play 45s, then 1s fade-out to line up with video_pause_46
+	if background.name == 'anna_night_love_0012.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_night/video/anna_night_love_0012_vid.ogv")
+		fadeVideo()
+	if background.name == 'anna_night_love_0032.webp':
+		$VideoStreamPlayer.stream = load("res://data/background_lists/anna_night/video/anna_night_love_0032_vid.ogv")
 		fadeVideo()
 	#if background.name == 'boa_strip_vid1':
 	#	$VideoStreamPlayer.stream = load("res://data/background_lists/boa_poker_new/video/boa1.ogv")

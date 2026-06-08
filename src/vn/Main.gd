@@ -69,6 +69,8 @@ func _ready():
 		DisplayServer.window_set_size(Vector2i(448, 576))
 		%SmallResolution.show()
 
+	$Credits.disabled = !GlobalGameStage.anaMusicVideoCompleted
+
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
 	
@@ -393,6 +395,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"dont_auto_advance": setDontAutoAdvance()
 		"hide_char": $CharacterManager.hideCharacter()
 		"video_pause": videoPause()
+		"video_pause_46": videoPause(46)
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"fade_next_quick": fadeNextQuick()
 		"fade_next_slow": fadeNextSlow()
@@ -417,6 +420,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"unlock_lisa_cat_convo": unlockLisaCatConvo()
 		"music_passion": playMusicPassion()
 		"unlock_christmas": GlobalGameStage.unlockChristmas()
+		"play_marble_morning": playMarbleMorning()
 	
 func fadeOutMusic():
 	var tween = create_tween()
@@ -452,12 +456,12 @@ func _on_ana_music_video_scene_end():
 	enableInput()
 	playSceneMusic()
 
-func videoPause():
+func videoPause(duration := 6):
 	isVideoPause = true
 	$DialogueManager.muteDialogueBox()
 	disableInput()
 	$DialogueManager.hideUiFast()
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(duration).timeout
 	$DialogueManager.unhideUiFast()
 	enableInput()
 	$DialogueManager.unmuteDialogueBox()
@@ -468,6 +472,9 @@ func playMusicHome():
 	
 func playMusicWhimsical():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/Whispers of the Night.mp3"))
+
+func playMarbleMorning():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/Marble Morning.mp3"), true)
 
 func playMusicNeonLights():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/new/Untitled(11).mp3"))
@@ -721,6 +728,9 @@ func _handle_save_loaded():
 	
 	if is_instance_valid(currentRealDate):
 		currentRealDate.free()
+
+	if is_instance_valid(annaDressingRoomInstance):
+		annaDressingRoomInstance.free()
 	
 	playBgMusic(load(GlobalGameStage.currentMusic))
 
@@ -936,3 +946,12 @@ func _end_credits():
 	$Load.visible = true
 	%NewTitle.visible = true
 	$SceneSelect.visible = true
+
+
+func _on_credits_mouse_entered() -> void:
+	if $Credits.disabled:
+		$Credits.text = "Not Unlocked"
+
+func _on_credits_mouse_exited() -> void:
+	if $Credits.disabled:
+		$Credits.text = "Credits"

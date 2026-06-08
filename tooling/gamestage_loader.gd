@@ -2,11 +2,10 @@
 extends EditorScript
 
 func _run() -> void:
-	var gamestageName = 'anna_night'
+	var gamestageName = 'anna_night_after_message'
 	
 	var backgroundLists: Array[String] = [
-		'res://data/background_lists/home/home_bgl.tres',
-		'res://data/background_lists/anna_night/anna_night.tres'
+		'res://data/background_lists/home/home_bgl.tres'
 	]
 	
 	var characters: Array[String] = [
@@ -14,7 +13,7 @@ func _run() -> void:
 		'res://data/characters/anna/anna_night/anna_night.tres'
 	]
 	
-	var type = "vn" #vn, poker, date, phonemessage, special
+	var type = "phonemessage" #vn, poker, date, phonemessage, special
 	var output_path: String = "res://data/game_stages/"
 	
 	if type == "vn":

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CheckpointList" load_steps=7 format=3 uid="uid://b5oob2iylf3ic"]
+[gd_resource type="Resource" script_class="CheckpointList" load_steps=8 format=3 uid="uid://b5oob2iylf3ic"]
 
 [ext_resource type="Script" uid="uid://c5wy81o1v7fwa" path="res://src/vn/Checkpoint.gd" id="1_n0w6w"]
 [ext_resource type="Script" uid="uid://4leghujcfxeu" path="res://src/vn/CheckpointList.gd" id="2_qkg1k"]
@@ -35,7 +35,15 @@ completedStages = Array[String](["intro_after_poker", "lisa_first_market_date", 
 character = "Lisa"
 metadata/_custom_type_script = "uid://c5wy81o1v7fwa"
 
+[sub_resource type="Resource" id="Resource_yj1nv"]
+script = ExtResource("1_n0w6w")
+checkpointName = "Night With Anna"
+checkpointDescription = "At this point in the game: You've beaten Ashely at poker.  You've beaten Lisa at poker. You've met Amy. And Anna is calling again. "
+completedStages = Array[String](["intro_after_poker", "lisa_first_market_date", "ashely_first_park_date", "lisa_blocked", "chad_unblock_lisa", "amy_poker_hall_intro", "amy_poker_hall_intro_after", "lisa_park_training_poker3", "lisa_first_phone", "poker_girls_first_phone", "ashely_intro_amy", "chad_unblock_lisa", "lisa_blocked", "lisa_after_unblock", "ashely_theater_phone", "ana_phone_intro", "anna_burger_after_date", "ashely_theater", "anna_burger_after_date", "ana_shop_meeting", "anna_burger_before_date", "lisa_park_training", "ashely_bar_before_poker", "ashely_bar_poker_message_after", "ashely_bar_poker", "ashely_bar_poker_message", "lisa_beach_intro", "lisa_beach_message", "anna_class_phone", "anna_class", "amy_lisa_discovery", "lisa_sp_poker_poker3_after", "amy_phone_with_pluto_1", "lisa_sp_poker_phone", "amy_phone_after_pluto_1", "lisa_sp_poker_intro"])
+character = "Anna"
+metadata/_custom_type_script = "uid://c5wy81o1v7fwa"
+
 [resource]
 script = ExtResource("2_qkg1k")
-checkpoints = Array[ExtResource("1_n0w6w")]([SubResource("Resource_n0w6w"), SubResource("Resource_qkg1k"), SubResource("Resource_pp6fk"), SubResource("Resource_dq6hg")])
+checkpoints = Array[ExtResource("1_n0w6w")]([SubResource("Resource_n0w6w"), SubResource("Resource_qkg1k"), SubResource("Resource_pp6fk"), SubResource("Resource_dq6hg"), SubResource("Resource_yj1nv")])
 metadata/_custom_type_script = "uid://4leghujcfxeu"

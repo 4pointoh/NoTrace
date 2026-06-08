@@ -56,6 +56,8 @@ var characterRelationshipXp = {
 
 var perfectDates = 0
 
+var anaMusicVideoCompleted = false
+
 enum CHARACTERS {
 	UNKNOWN,
 	ASHLEY,
@@ -68,7 +70,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 015
+const VERSION = 017
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -257,6 +259,8 @@ func getAvailableMessages():
 	
 	if completedStages.has('amy_lisa_discovery'):
 		addMessage(Flags.ANNA_NIGHT_PHONE)
+	if completedStages.has('anna_night'):
+		addMessage(Flags.ANNA_NIGHT_PHONE_AFTER)
 
 	return availableMessages
 
@@ -301,6 +305,8 @@ func getCompletedMessages():
 		availableMessages.append(Flags.LISA_WINTER)
 	if completedStages.has(Flags.ANNA_NIGHT_PHONE.name):
 		availableMessages.append(Flags.ANNA_NIGHT_PHONE)
+	if completedStages.has(Flags.ANNA_NIGHT_PHONE_AFTER.name):
+		availableMessages.append(Flags.ANNA_NIGHT_PHONE_AFTER)
 
 	return availableMessages
 
@@ -379,6 +385,8 @@ func getCompletedSelectableEvents():
 		completedSelectableEvents.append(Flags.AMY_LISA_DISCOVERY)
 	if completedStages.has(Flags.UNLOCK_CHRISTMAS.name):
 		completedSelectableEvents.append(Flags.UNLOCK_CHRISTMAS)
+	if completedStages.has(Flags.ANNA_NIGHT.name):
+		completedSelectableEvents.append(Flags.ANNA_NIGHT)
 	
 	return completedSelectableEvents
 
@@ -456,6 +464,7 @@ func savePersistentData():
 	file.store_var(unlockedWallpapers)
 	file.store_var(completedStagesGLOBAL)
 	file.store_var(pokerStageHistory)
+	file.store_var(anaMusicVideoCompleted)
 
 func loadPersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.READ)
@@ -463,11 +472,16 @@ func loadPersistentData():
 		var saveVersion = file.get_var()
 		unlockedWallpapers.assign(file.get_var())
 		completedStagesGLOBAL.assign(file.get_var())
-		
+
 		if (saveVersion > 009):
 			pokerStageHistory = file.get_var()
 		else:
 			pokerStageHistory = {}
+
+		if (saveVersion > 015):
+			anaMusicVideoCompleted = file.get_var()
+		else:
+			anaMusicVideoCompleted = false
 
 func saveSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.WRITE)
@@ -501,7 +515,8 @@ func saveSaveData(saveName):
 	file.store_var(christmasEventUnlocked)
 	file.store_var(completedDialogueKeys)
 	file.store_var(randomizeWallpaper)
-	
+	file.store_var(annaDressingRoomSeenIntros)
+
 	savePersistentData()
 
 func getSaveDataInfo(saveName):
@@ -614,6 +629,11 @@ func loadSaveData(saveName):
 			randomizeWallpaper = file.get_var()
 		else:
 			randomizeWallpaper = false
+
+		if (saveVersion > 016):
+			annaDressingRoomSeenIntros.assign(file.get_var())
+		else:
+			annaDressingRoomSeenIntros = []
 
 		dateStorage.clearCurrentDate()
 
@@ -866,7 +886,7 @@ func getMusicAtIndex(index):
 	return currentStage.musicList[index]
 
 func isLastEventInThisUpdate(stage: GameStage):
-	var lastEvent = "res://data/game_stages/vn/activate_christmas_1/gs_activate_christmas_1.tres"
+	var lastEvent = "res://data/game_stages/vn/anna_night/gs_anna_night.tres"
 
 	if stage.resource_path == lastEvent:
 		return true
@@ -921,8 +941,28 @@ func resetAnnaDressingRoomTranscript():
 func recordAnnaDressingRoomMessage(entry: Dictionary):
 	annaDressingRoomTranscript.append(entry)
 
+# Outfits whose intro the player has finished watching, used to gate the
+# "Skip to Rewards" shortcut. Persisted per-save; NOT reset between sessions.
+var annaDressingRoomSeenIntros : Array[String] = []
+
+func recordAnnaDressingRoomIntroSeen(outfitName: String):
+	if outfitName not in annaDressingRoomSeenIntros:
+		annaDressingRoomSeenIntros.append(outfitName)
+
+func hasSeenAnnaDressingRoomIntros() -> bool:
+	return annaDressingRoomSeenIntros.size() > 0
+
+func getAnnaDressingRoomSeenIntros() -> Array[String]:
+	return annaDressingRoomSeenIntros
+
 func unlockChristmas():
 	christmasEventUnlocked = true
+
+func markAnaMusicVideoCompleted():
+	if anaMusicVideoCompleted:
+		return
+	anaMusicVideoCompleted = true
+	savePersistentData()
 
 func getSeenDialogueKeysForStage(stageName: String):
 	if seenDialogueKeys.has(stageName):

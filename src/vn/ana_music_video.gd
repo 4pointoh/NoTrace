@@ -260,6 +260,7 @@ func _emit_scene_end() -> void:
 	if scene_end_emitted:
 		return
 	scene_end_emitted = true
+	GlobalGameStage.markAnaMusicVideoCompleted()
 	emit_signal("sceneEnd")
 
 func _show_skip_button() -> void:

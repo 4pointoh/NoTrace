@@ -10,6 +10,8 @@ const PAN_TWEEN_SEC := 0.3
 const GlowTexture := preload("res://data/background_lists/anna_night/changing_room/glow_texture.webp")
 
 signal outfit_selected(outfit_name: String)
+signal skip_to_rewards_requested
+signal done_browsing_requested
 
 var glow: TextureRect
 
@@ -17,6 +19,8 @@ func _ready() -> void:
 	_build_glow()
 	%LeftArrow.pressed.connect(_pan_by.bind(PAN_STEP))
 	%RightArrow.pressed.connect(_pan_by.bind(-PAN_STEP))
+	%SkipToRewards.pressed.connect(_on_skip_pressed)
+	%DoneBrowsing.pressed.connect(_on_done_pressed)
 	for child in %Pan.get_children():
 		if child is Button:
 			child.pressed.connect(_on_hotspot_pressed.bind(child.name))
@@ -71,3 +75,16 @@ func _on_hotspot_pressed(outfit_name: String) -> void:
 func reset_pan() -> void:
 	%Pan.position.x = 0
 	_update_arrows()
+
+func _on_skip_pressed() -> void:
+	skip_to_rewards_requested.emit()
+
+func set_skip_button_visible(v: bool) -> void:
+	%SkipToRewards.visible = v
+
+func _on_done_pressed() -> void:
+	done_browsing_requested.emit()
+
+func set_done_button_visible(v: bool) -> void:
+	%DoneBrowsing.visible = v
+	%DoneBrowsingLabel.visible = v

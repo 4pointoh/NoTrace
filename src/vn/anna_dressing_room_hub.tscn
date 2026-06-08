@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c51ntnau602mx"]
+[gd_scene load_steps=7 format=3 uid="uid://c51ntnau602mx"]
 
 [ext_resource type="Script" uid="uid://dqhv8fbvky1i4" path="res://src/vn/anna_dressing_room_hub.gd" id="1_hub"]
 [ext_resource type="Texture2D" uid="uid://c7i8uukdmbrwc" path="res://data/background_lists/anna_night/changing_room/studio_3.webp" id="2_img"]
 [ext_resource type="Texture2D" uid="uid://blmmmhw1rq72l" path="res://data/background_lists/anna_night/changing_room/glow_texture.webp" id="2_k2kn4"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_x5g46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgpky"]
+bg_color = Color(0.733767, 0.0542051, 0.69375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwth5"]
+bg_color = Color(0.608116, 0.0907748, 0.544673, 1)
 
 [node name="Hub" type="Control"]
 layout_mode = 3
@@ -154,3 +161,43 @@ offset_top = 516.0
 offset_right = 888.0
 offset_bottom = 636.0
 text = ">"
+
+[node name="SkipToRewards" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 328.0
+offset_top = 24.0
+offset_right = 568.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("4_x5g46")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jgpky")
+text = "Skip to Rewards"
+
+[node name="DoneBrowsing" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 288.0
+offset_top = 996.0
+offset_right = 608.0
+offset_bottom = 1052.0
+theme_override_fonts/font = ExtResource("4_x5g46")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_pwth5")
+text = "End Reward Selection"
+
+[node name="DoneBrowsingLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 128.0
+offset_top = 1058.0
+offset_right = 768.0
+offset_bottom = 1140.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "When you're done selecting favorites, click here to end. You can only select those which you've seen."
+horizontal_alignment = 1
+autowrap_mode = 2

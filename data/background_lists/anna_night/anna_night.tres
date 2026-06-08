@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=189 format=3 uid="uid://dkdti5lxuggf1"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=195 format=3 uid="uid://dkdti5lxuggf1"]
 
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_i5qhr"]
 [ext_resource type="Texture2D" uid="uid://c8o1767yqpwx3" path="res://data/background_lists/anna_night/home/anna_night_love_0001.webp" id="2_d7gv6"]
@@ -95,6 +95,9 @@
 [ext_resource type="Texture2D" uid="uid://d2g38xsuu37p4" path="res://data/background_lists/anna_night/home/night_8.webp" id="93_cye2x"]
 [ext_resource type="Texture2D" uid="uid://dwxhaih1lcp3g" path="res://data/background_lists/anna_night/home/night_9.webp" id="94_m6eka"]
 [ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="95_x5ab2"]
+[ext_resource type="Texture2D" uid="uid://dnee6lum7i4sr" path="res://data/background_lists/anna_night/home/night_new_1.png" id="95_ykysc"]
+[ext_resource type="Texture2D" uid="uid://b7shw1eutadyj" path="res://data/background_lists/anna_night/home/night_new_2.webp" id="96_neaij"]
+[ext_resource type="Texture2D" uid="uid://c4jn3qlpcxiq" path="res://data/background_lists/anna_night/home/night_new_5.png" id="97_43hm4"]
 
 [sub_resource type="Resource" id="Resource_edrgo"]
 script = ExtResource("1_i5qhr")
@@ -654,7 +657,28 @@ name = "night_9.webp"
 images = ExtResource("94_m6eka")
 wallpaperId = ""
 
+[sub_resource type="Resource" id="Resource_merun"]
+script = ExtResource("1_i5qhr")
+name = "night_new_1"
+images = ExtResource("95_ykysc")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_n167k"]
+script = ExtResource("1_i5qhr")
+name = "night_new_2"
+images = ExtResource("96_neaij")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_ljqpp"]
+script = ExtResource("1_i5qhr")
+name = "night_new_3"
+images = ExtResource("97_43hm4")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
 [resource]
 script = ExtResource("95_x5ab2")
 name = "anna_night"
-images = Array[ExtResource("1_i5qhr")]([SubResource("Resource_edrgo"), SubResource("Resource_wvjem"), SubResource("Resource_efstl"), SubResource("Resource_8jh75"), SubResource("Resource_mq1lu"), SubResource("Resource_4hljf"), SubResource("Resource_sjqb1"), SubResource("Resource_nhlq7"), SubResource("Resource_r2eok"), SubResource("Resource_wswuk"), SubResource("Resource_qaywd"), SubResource("Resource_gyjj6"), SubResource("Resource_c0ptg"), SubResource("Resource_omugx"), SubResource("Resource_6amjn"), SubResource("Resource_oyuvm"), SubResource("Resource_tqcyk"), SubResource("Resource_derpx"), SubResource("Resource_vgylh"), SubResource("Resource_rxuui"), SubResource("Resource_8mopx"), SubResource("Resource_hel0c"), SubResource("Resource_ngbdt"), SubResource("Resource_06wgx"), SubResource("Resource_w1qml"), SubResource("Resource_8x01j"), SubResource("Resource_g285a"), SubResource("Resource_o2ftg"), SubResource("Resource_duthj"), SubResource("Resource_oyk6e"), SubResource("Resource_eei7h"), SubResource("Resource_xveug"), SubResource("Resource_fvubk"), SubResource("Resource_a6ffd"), SubResource("Resource_vre8i"), SubResource("Resource_fbgkv"), SubResource("Resource_of4wf"), SubResource("Resource_nq56n"), SubResource("Resource_t5ghb"), SubResource("Resource_mai7u"), SubResource("Resource_yn1mu"), SubResource("Resource_uyy2p"), SubResource("Resource_7umm3"), SubResource("Resource_8e6ks"), SubResource("Resource_s4ixn"), SubResource("Resource_t3i82"), SubResource("Resource_u5mh4"), SubResource("Resource_etp6h"), SubResource("Resource_7k4m8"), SubResource("Resource_jxtsc"), SubResource("Resource_rv5lp"), SubResource("Resource_dysem"), SubResource("Resource_db2ti"), SubResource("Resource_63w31"), SubResource("Resource_fd3nd"), SubResource("Resource_viwgn"), SubResource("Resource_xcbf6"), SubResource("Resource_5q23s"), SubResource("Resource_wnqha"), SubResource("Resource_7w40e"), SubResource("Resource_hybc6"), SubResource("Resource_8w3rf"), SubResource("Resource_xiyl3"), SubResource("Resource_soh84"), SubResource("Resource_hat4p"), SubResource("Resource_ymokk"), SubResource("Resource_dxdan"), SubResource("Resource_nuqkf"), SubResource("Resource_gh1m2"), SubResource("Resource_yfxbj"), SubResource("Resource_vqnlj"), SubResource("Resource_p1ayy"), SubResource("Resource_wdcof"), SubResource("Resource_ck005"), SubResource("Resource_mh3tx"), SubResource("Resource_7tk64"), SubResource("Resource_p75v2"), SubResource("Resource_epiqq"), SubResource("Resource_3eyao"), SubResource("Resource_ikfsf"), SubResource("Resource_fcn1x"), SubResource("Resource_pwa06"), SubResource("Resource_qumlq"), SubResource("Resource_jrc7b"), SubResource("Resource_i2l5m"), SubResource("Resource_o2dv6"), SubResource("Resource_fq520"), SubResource("Resource_txyd3"), SubResource("Resource_n2jcc"), SubResource("Resource_te45y"), SubResource("Resource_08ak2"), SubResource("Resource_172al"), SubResource("Resource_rxdp2")])
+images = Array[ExtResource("1_i5qhr")]([SubResource("Resource_edrgo"), SubResource("Resource_wvjem"), SubResource("Resource_efstl"), SubResource("Resource_8jh75"), SubResource("Resource_mq1lu"), SubResource("Resource_4hljf"), SubResource("Resource_sjqb1"), SubResource("Resource_nhlq7"), SubResource("Resource_r2eok"), SubResource("Resource_wswuk"), SubResource("Resource_qaywd"), SubResource("Resource_gyjj6"), SubResource("Resource_c0ptg"), SubResource("Resource_omugx"), SubResource("Resource_6amjn"), SubResource("Resource_oyuvm"), SubResource("Resource_tqcyk"), SubResource("Resource_derpx"), SubResource("Resource_vgylh"), SubResource("Resource_rxuui"), SubResource("Resource_8mopx"), SubResource("Resource_hel0c"), SubResource("Resource_ngbdt"), SubResource("Resource_06wgx"), SubResource("Resource_w1qml"), SubResource("Resource_8x01j"), SubResource("Resource_g285a"), SubResource("Resource_o2ftg"), SubResource("Resource_duthj"), SubResource("Resource_oyk6e"), SubResource("Resource_eei7h"), SubResource("Resource_xveug"), SubResource("Resource_fvubk"), SubResource("Resource_a6ffd"), SubResource("Resource_vre8i"), SubResource("Resource_fbgkv"), SubResource("Resource_of4wf"), SubResource("Resource_nq56n"), SubResource("Resource_t5ghb"), SubResource("Resource_mai7u"), SubResource("Resource_yn1mu"), SubResource("Resource_uyy2p"), SubResource("Resource_7umm3"), SubResource("Resource_8e6ks"), SubResource("Resource_s4ixn"), SubResource("Resource_t3i82"), SubResource("Resource_u5mh4"), SubResource("Resource_etp6h"), SubResource("Resource_7k4m8"), SubResource("Resource_jxtsc"), SubResource("Resource_rv5lp"), SubResource("Resource_dysem"), SubResource("Resource_db2ti"), SubResource("Resource_63w31"), SubResource("Resource_fd3nd"), SubResource("Resource_viwgn"), SubResource("Resource_xcbf6"), SubResource("Resource_5q23s"), SubResource("Resource_wnqha"), SubResource("Resource_7w40e"), SubResource("Resource_hybc6"), SubResource("Resource_8w3rf"), SubResource("Resource_xiyl3"), SubResource("Resource_soh84"), SubResource("Resource_hat4p"), SubResource("Resource_ymokk"), SubResource("Resource_dxdan"), SubResource("Resource_nuqkf"), SubResource("Resource_gh1m2"), SubResource("Resource_yfxbj"), SubResource("Resource_vqnlj"), SubResource("Resource_p1ayy"), SubResource("Resource_wdcof"), SubResource("Resource_ck005"), SubResource("Resource_mh3tx"), SubResource("Resource_7tk64"), SubResource("Resource_p75v2"), SubResource("Resource_epiqq"), SubResource("Resource_3eyao"), SubResource("Resource_ikfsf"), SubResource("Resource_fcn1x"), SubResource("Resource_pwa06"), SubResource("Resource_qumlq"), SubResource("Resource_jrc7b"), SubResource("Resource_i2l5m"), SubResource("Resource_o2dv6"), SubResource("Resource_fq520"), SubResource("Resource_txyd3"), SubResource("Resource_n2jcc"), SubResource("Resource_te45y"), SubResource("Resource_08ak2"), SubResource("Resource_172al"), SubResource("Resource_rxdp2"), SubResource("Resource_merun"), SubResource("Resource_n167k"), SubResource("Resource_ljqpp")])

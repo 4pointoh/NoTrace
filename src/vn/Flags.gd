@@ -19,6 +19,7 @@ var AMY_AFTER_PLUTO_PHONE = load("res://data/game_stages/phone_message/amy_phone
 var ASHELY_HOLIDAY_PHONE = load("res://data/game_stages/phone_message/ashely_kitchen_phone/gs_ashely_kitchen_phone.tres")
 var LISA_WINTER = load("res://data/game_stages/phone_message/lisa_winter/gs_lisa_winter.tres")
 var ANNA_NIGHT_PHONE = load("res://data/game_stages/phone_message/anna_night_phone/gs_anna_night_phone.tres")
+var ANNA_NIGHT_PHONE_AFTER = load("res://data/game_stages/phone_message/anna_night_after_message/gs_anna_night_after_message.tres")
 
 #selectable events 
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")

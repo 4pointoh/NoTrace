@@ -11,6 +11,33 @@ const HUB_FADE_SEC := 0.3
 const MAX_OUTFITS_TO_TRY := 3
 const POST_PICK_DELAY := 0.6
 
+# Wallpapers unlocked when a given script begins. Keyed by script name
+# ("<outfit>_intro" / "<outfit>_reward"); values are wallpaperId lists from
+# all_wallpapers.tres. Unlocks are silent (skipNotify). Note "daisy" maps to the
+# "daisyduke" scripts.
+const WALLPAPER_UNLOCKS := {
+	"ballet_intro": ["ANNA_BALLET_1", "ANNA_BALLET_2"],
+	"ballet_reward": ["ANNA_BALLET_3"],
+	"clown_intro": ["ANNA_CLOWN_1"],
+	"clown_reward": ["ANNA_CLOWN_2"],
+	"daisyduke_intro": ["ANNA_DAISY_1", "ANNA_DAISY_2"],
+	"daisyduke_reward": ["ANNA_DAISY_4", "ANNA_DAISY_5", "ANNA_DAISY_6", "ANNA_DAISY_7", "ANNA_DAISY_9", "ANNA_DAISY_10", "ANNA_DAISY_11", "ANNA_DAISY_12"],
+	"fairy_intro": ["ANNA_FAIRY_1", "ANNA_FAIRY_2"],
+	"fairy_reward": ["ANNA_FAIRY_3", "ANNA_FAIRY_4"],
+	"formal_intro": ["ANNA_FORMAL_1", "ANNA_FORMAL_4"],
+	"formal_reward": ["ANNA_FORMAL_2", "ANNA_FORMAL_6", "ANNA_FORMAL_7", "ANNA_FORMAL_8", "ANNA_FORMAL_9"],
+	"goth_intro": ["ANNA_GOTH_1", "ANNA_GOTH_4", "ANNA_GOTH_6", "ANNA_GOTH_3"],
+	"goth_reward": ["ANNA_GOTH_1", "ANNA_GOTH_8", "ANNA_GOTH_9", "ANNA_GOTH_10", "ANNA_GOTH_11"],
+	"lion_intro": ["ANNA_LION_1", "ANNA_LION_3", "ANNA_LION_4", "ANNA_LION_5"],
+	"lion_reward": ["ANNA_LION_2", "ANNA_LION_7", "ANNA_LION_6", "ANNA_LION_13", "ANNA_LION_14", "ANNA_LION_16"],
+	"nurse_intro": ["ANNA_NURSE_1", "ANNA_NURSE_3", "ANNA_NURSE_5"],
+	"nurse_reward": ["ANNA_NURSE_6", "ANNA_NURSE_8", "ANNA_NURSE_7", "ANNA_NURSE_9"],
+	"punk_intro": ["ANNA_PUNK_1", "ANNA_PUNK_3", "ANNA_PUNK_4"],
+	"punk_reward": ["ANNA_PUNK_5", "ANNA_PUNK_6", "ANNA_PUNK_7"],
+	"swim_intro": ["ANNA_SWIM_1", "ANNA_SWIM_2", "ANNA_SWIM_4"],
+	"swim_reward": ["ANNA_SWIM_3", "ANNA_SWIM_5", "ANNA_SWIM_7", "ANNA_SWIM_9"],
+}
+
 # Line spoken by the player when picking an outfit during the trying phase.
 # Falls back to a generic line if an outfit isn't listed here.
 const OUTFIT_PICK_LINES := {
@@ -97,8 +124,26 @@ signal scene_ended
 var tried_outfits: Array[String] = []
 var picking_favorite := false
 
+# Outfits the reward (favorite-pick) hub is restricted to. Set to this run's
+# tried outfits for the normal ending, or the persisted seen-intros when the
+# player taps "Skip to Rewards".
+var reward_outfit_pool: Array[String] = []
+
+# Whether the "Skip to Rewards" shortcut is offered this session. Snapshotted
+# once at _ready from the persisted seen-intros, BEFORE this run records any of
+# its own intros — so the player must finish a full run (which persists intros)
+# in a prior session before they can skip. Not recomputed mid-session.
+var skip_available := false
+
+# True while the player is in the Skip-to-Rewards browse loop: each reward
+# returns to the gated hub to pick another, until they press Done. The standard
+# favorite-pick path leaves this false and ends after a single reward.
+var browsing_rewards := false
+
 func _ready() -> void:
 	GlobalGameStage.resetAnnaDressingRoomTranscript()
+	# Decide skip availability once, before any intro this run gets recorded.
+	skip_available = GlobalGameStage.hasSeenAnnaDressingRoomIntros()
 	audio = AudioStreamPlayer.new()
 	add_child(audio)
 	_build_flash()
@@ -112,6 +157,8 @@ func _build_hub() -> void:
 	hub.visible = false
 	hub.modulate.a = 0.0
 	hub.outfit_selected.connect(_on_outfit_selected)
+	hub.skip_to_rewards_requested.connect(_on_skip_to_rewards)
+	hub.done_browsing_requested.connect(_on_done_browsing)
 	add_child(hub)
 
 func _build_flash() -> void:
@@ -228,6 +275,9 @@ func play_script(script_name: String) -> void:
 		push_error("Script not found: " + path)
 		return
 
+	# Unlock this scene's wallpapers as soon as it begins.
+	_unlock_wallpapers_for_script(script_name)
+
 	var file := FileAccess.open(path, FileAccess.READ)
 	var text := file.get_as_text()
 	file.close()
@@ -241,6 +291,12 @@ func play_script(script_name: String) -> void:
 	await _return_requested
 	return_button.visible = false
 	script_finished.emit(script_name)
+
+func _unlock_wallpapers_for_script(script_name: String) -> void:
+	if not WALLPAPER_UNLOCKS.has(script_name):
+		return
+	for wallpaper_id in WALLPAPER_UNLOCKS[script_name]:
+		GlobalGameStage.unlockWallpaper(wallpaper_id, '', true)
 
 func parse_script(text: String) -> Array:
 	var entries: Array = []
@@ -414,18 +470,24 @@ func _on_script_finished(script_name: String) -> void:
 	if script_name == "hub_intro":
 		await _enter_hub()
 	elif script_name == "pick_favorite":
-		picking_favorite = true
-		hub.restrict_to_outfits(tried_outfits)
-		await _enter_hub()
+		await _enter_reward_hub()
+	elif script_name == "skip_lead_in":
+		await _enter_reward_hub()
 	elif script_name == "goodbye":
 		scene_ended.emit()
 		GlobalGameStage.stopBespoke('Anna Dressing Room')
 	elif script_name == "already_tried":
 		await _enter_hub()
 	elif script_name.ends_with("_reward"):
-		play_script("goodbye")
+		if browsing_rewards:
+			# Skip-to-Rewards browse loop: back to the gated hub for another pick.
+			await _enter_reward_hub()
+		else:
+			play_script("goodbye")
 	elif script_name.ends_with("_intro"):
+		GlobalGameStage.recordAnnaDressingRoomIntroSeen(script_name.trim_suffix("_intro"))
 		if tried_outfits.size() >= MAX_OUTFITS_TO_TRY:
+			reward_outfit_pool.assign(tried_outfits)
 			play_script("pick_favorite")
 		else:
 			await _enter_hub()
@@ -433,6 +495,12 @@ func _on_script_finished(script_name: String) -> void:
 		push_error("Unhandled script_finished: " + script_name)
 
 func _on_outfit_selected(outfit_name: String) -> void:
+	# Disable every hotspot (and the browse Done button) immediately so rapid
+	# clicks can't fire this handler again — or the Done handler — during the
+	# exit fade. Hotspots are re-enabled on the next trying-phase _enter_hub.
+	hub.restrict_to_outfits([])
+	hub.set_done_button_visible(false)
+	hub.set_skip_button_visible(false)
 	await _exit_hub()
 	if picking_favorite:
 		picking_favorite = false
@@ -446,6 +514,32 @@ func _on_outfit_selected(outfit_name: String) -> void:
 			tried_outfits.append(outfit_name)
 			play_script(outfit_name + "_intro")
 
+func _enter_reward_hub() -> void:
+	picking_favorite = true
+	hub.restrict_to_outfits(reward_outfit_pool)
+	await _enter_hub()
+
+func _on_skip_to_rewards() -> void:
+	# Disable the hotspots and hide the skip button immediately so a fast tap
+	# during the exit fade can't fire this (or an outfit) again.
+	hub.restrict_to_outfits([])
+	hub.set_skip_button_visible(false)
+	hub.set_done_button_visible(false)
+	browsing_rewards = true
+	reward_outfit_pool.assign(GlobalGameStage.getAnnaDressingRoomSeenIntros())
+	await _exit_hub()
+	play_script("skip_lead_in")
+
+func _on_done_browsing() -> void:
+	# End the browse loop: hide the button and disable the hotspots (guards
+	# double-clicks and a stray outfit pick during the fade), then exit via the
+	# normal goodbye farewell.
+	hub.set_done_button_visible(false)
+	hub.restrict_to_outfits([])
+	browsing_rewards = false
+	await _exit_hub()
+	play_script("goodbye")
+
 func _inject_player_line(text: String) -> void:
 	_add_bubble(true, text)
 	previous_was_anna = false
@@ -455,6 +549,13 @@ func _inject_player_line(text: String) -> void:
 func _enter_hub() -> void:
 	hub.visible = true
 	hub.reset_pan()
+	# Trying-phase rounds: re-enable all hotspots (a prior pick disabled them).
+	# The favorite-pick round keeps the restriction set in _enter_reward_hub.
+	if not picking_favorite:
+		hub.enable_all_outfits()
+	hub.set_skip_button_visible(not picking_favorite and skip_available)
+	# Done button appears only in the Skip-to-Rewards browse hub.
+	hub.set_done_button_visible(browsing_rewards and picking_favorite)
 	var tween := create_tween().set_parallel(true)
 	tween.tween_property(hub, "modulate:a", 1.0, HUB_FADE_SEC)
 	tween.tween_property(panel, "modulate:a", 0.0, HUB_FADE_SEC)
