@@ -25,12 +25,22 @@ var onMainMenu = true
 @export var sceneSelector : PackedScene
 @export var realDateScene : PackedScene
 @export var characterUnlockPanel : PackedScene
+@export var ashelyKitchenScene : PackedScene
+@export var annaDressingRoomScene : PackedScene
+@export var anaMusicVideoScene : PackedScene
+@export var pokerTimeline : PackedScene
+@export var credits : PackedScene
 
 var currentPokerGame
 var currentPhone
+var currentPokerTimeline
 var currentDate
 var currentRealDate
 var currentSceneSelector
+var ashelyKitchenInstance
+var annaDressingRoomInstance
+var anaMusicVideoInstance
+var currentCredits
 
 var currentUnlockPanel
 
@@ -47,6 +57,9 @@ func _ready():
 	GlobalGameStage.loadSave.connect(_handle_save_loaded)
 	GlobalGameStage.playParticle.connect(_handle_play_particle)
 	GlobalGameStage.startMusicSignal.connect(_handle_play_music)
+	GlobalGameStage.startBespokeEvent.connect(_handle_bespoke_event)
+	GlobalGameStage.stopBespokeEvent.connect(_handle_bespoke_event_ended)
+	GlobalGameStage.stopMusicFade.connect(_handle_fade_out_music)
 	playBgMusic(load("res://data/assets/general/sounds/new_title.mp3"), true)
 	
 	$Background.enableWave()
@@ -55,6 +68,8 @@ func _ready():
 	if DisplayServer.screen_get_size().y <= 1152:
 		DisplayServer.window_set_size(Vector2i(448, 576))
 		%SmallResolution.show()
+
+	$Credits.disabled = !GlobalGameStage.anaMusicVideoCompleted
 
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
@@ -76,6 +91,23 @@ func _handle_fullscreenImage(image, index):
 
 func testFunction():
 	print('testing')
+	
+func startPokerFromNode(nodeData : PokerNodeData, stage : GameStage):
+	print(nodeData)
+	print(stage)
+	GlobalGameStage.setNextGameStage(stage)
+	GlobalGameStage.isStartingPokerFromNode = true
+	GlobalGameStage.altStartOppLives = nodeData.opponent_lives
+	GlobalGameStage.altStartPlayerLives = nodeData.player_lives
+	GlobalGameStage.altStartSceneData = nodeData
+
+	if(is_instance_valid(currentPhone)):
+		currentPhone.destroy()
+	
+	if is_instance_valid(currentPokerTimeline):
+		currentPokerTimeline.queue_free()
+
+	advanceGameStage()
 
 func unlockChar(character : GlobalGameStage.CHARACTERS):
 	GlobalGameStage.unlockDateGirl(character)
@@ -164,7 +196,12 @@ func toggleUi():
 	$DialogueManager.toggleUi()
 
 func playSceneMusic():
-	if GlobalGameStage.currentStage.randomMusic.size() > 0:
+	if GlobalGameStage.currentStage.isPhoneScreen:
+		var randomPhoneMusic = _get_phone_music_options()
+		var randomIndex = randi() % randomPhoneMusic.size()
+		var newStream = load(randomPhoneMusic[randomIndex])
+		playBgMusic(newStream, false, true)
+	elif GlobalGameStage.currentStage.randomMusic.size() > 0:
 		var randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
 
 		var newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
@@ -218,6 +255,7 @@ func advanceGameStage():
 func beginStage():
 
 	dontAutoAdvance = false
+	currentStageIsLoaded = false
 	$DialogueManager.clearCurrentBg()
 	$DialogueManager.setDialogueData(GlobalGameStage.currentStage.dialogue)
 
@@ -260,6 +298,7 @@ func startNewPhone():
 	currentPhone.beginDialogue.connect(_on_phone_begin_dialogue)
 	currentPhone.conversationComplete.connect(_on_phone_conversation_complete)
 	currentPhone.newStageSelect.connect(_on_phone_new_stage_select)
+	currentPhone.showTimeline.connect(_on_phone_show_timeline)
 	$Background.add_sibling(currentPhone)
 	currentPhone.setup()
 
@@ -268,6 +307,7 @@ func startNewPoker():
 	currentPokerGame.gamePaused.connect(_on_poker_game_five_game_paused)
 	currentPokerGame.gameWon.connect(_on_poker_game_five_game_won)
 	currentPokerGame.gameLost.connect(_on_poker_game_five_game_lost)
+	currentPokerGame.showTimeline.connect(_on_poker_game_show_timeline)
 	currentPokerGame.setup()
 	add_child(currentPokerGame)
 	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
@@ -322,6 +362,7 @@ func startGameMusic(originalAudioLevel):
 func hideTitleStuff():
 	$Start.visible = false
 	$Options.visible = false
+	$Credits.visible = false
 	$Load.visible = false
 	$Title.visible = false
 	%NewTitle.visible = false
@@ -330,7 +371,10 @@ func hideTitleStuff():
 	%SmallResolution.visible = false
 
 func _handle_play_music(music):
-	playBgMusic(load(music))
+	if GlobalGameStage.currentStage.isPhoneScreen:
+		pass
+	else:
+		playBgMusic(load(music))
 
 func setDontAutoAdvance():
 	dontAutoAdvance = true
@@ -351,6 +395,7 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"dont_auto_advance": setDontAutoAdvance()
 		"hide_char": $CharacterManager.hideCharacter()
 		"video_pause": videoPause()
+		"video_pause_46": videoPause(46)
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"fade_next_quick": fadeNextQuick()
 		"fade_next_slow": fadeNextSlow()
@@ -369,9 +414,13 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"unlock_char_amy": unlockChar(GlobalGameStage.CHARACTERS.AMY)
 		"unlock_char_lisa": unlockChar(GlobalGameStage.CHARACTERS.LISA)
 		"unlock_char_anna": unlockChar(GlobalGameStage.CHARACTERS.ANA)
+		"anna_music_video_song_intro": playAnaMusicVideoSongIntro()
+		"anna_music_video": playAnaMusicVideo()
 		"end_unlock_sequence": endUnlockSequence()
 		"unlock_lisa_cat_convo": unlockLisaCatConvo()
 		"music_passion": playMusicPassion()
+		"unlock_christmas": GlobalGameStage.unlockChristmas()
+		"play_marble_morning": playMarbleMorning()
 	
 func fadeOutMusic():
 	var tween = create_tween()
@@ -382,13 +431,37 @@ func stopAndResetMusicVolume():
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 
+func playAnaMusicVideoSongIntro():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/Sunset Strip - Instrumental.mp3"))
 
-func videoPause():
+
+func playAnaMusicVideo():
+	# Overlay scene with no phone to parent under, so it rides above $Background.
+	# Mirrors the unlockChar/videoPause precedent for hiding the dialogue box,
+	# but the overlay's length is dynamic so we wait on its sceneEnd signal.
+	disableInput()
+	$DialogueManager.disableDialogueProgression()
+	$DialogueManager.hideUiFast()
+	fadeOutMusic()
+	anaMusicVideoInstance = anaMusicVideoScene.instantiate()
+	anaMusicVideoInstance.sceneEnd.connect(_on_ana_music_video_scene_end)
+	$Background.add_sibling(anaMusicVideoInstance)
+
+func _on_ana_music_video_scene_end():
+	if is_instance_valid(anaMusicVideoInstance):
+		anaMusicVideoInstance.queue_free()
+	anaMusicVideoInstance = null
+	$DialogueManager.unhideUiFast()
+	$DialogueManager.enableDialogueProgression()
+	enableInput()
+	playSceneMusic()
+
+func videoPause(duration := 6):
 	isVideoPause = true
 	$DialogueManager.muteDialogueBox()
 	disableInput()
 	$DialogueManager.hideUiFast()
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(duration).timeout
 	$DialogueManager.unhideUiFast()
 	enableInput()
 	$DialogueManager.unmuteDialogueBox()
@@ -399,6 +472,9 @@ func playMusicHome():
 	
 func playMusicWhimsical():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/Whispers of the Night.mp3"))
+
+func playMarbleMorning():
+	playBgMusic(load("res://data/assets/general/sounds/bg_music/Marble Morning.mp3"), true)
 
 func playMusicNeonLights():
 	playBgMusic(load("res://data/assets/general/sounds/bg_music/new/Untitled(11).mp3"))
@@ -454,6 +530,8 @@ func enableInput():
 	inputDisabled = false
 
 func beginDialogue(startKey = null):
+	#currentStageIsLoaded = false
+	GlobalGameStage.preventSkipping = false
 	if(startKey):
 		GlobalGameStage.setCurrentDialogueKey(startKey)
 	else:
@@ -461,6 +539,8 @@ func beginDialogue(startKey = null):
 	$DialogueManager.startDialogue(startKey)
 
 func _on_dialogue_manager_dialogue_ended():
+	GlobalGameStage.preventSkipping = true
+	
 	var unlocks = GlobalGameStage.getWallpaperUnlocksForDialogueKey(GlobalGameStage.currentDialogueKey)
 	if unlocks:
 		for unlock in unlocks:
@@ -475,6 +555,7 @@ func _on_dialogue_manager_dialogue_ended():
 	else:
 		$CharacterManager.hideCharacter()
 		
+		# We just loaded a stage, skip the'end dialogue' for the current stage
 		if currentStageIsLoaded:
 			currentStageIsLoaded = false
 			return
@@ -533,6 +614,8 @@ func _on_poker_game_five_game_won():
 	if GlobalGameStage.currentStage.markStagesCompleteOnPokerWin.size() > 0:
 		for stage in GlobalGameStage.currentStage.markStagesCompleteOnPokerWin:
 			GlobalGameStage.markStageComplete(stage)
+	
+	GlobalGameStage.isStartingPokerFromNode = false
 
 	currentPokerGame.queue_free()
 	advanceGameStage()
@@ -572,6 +655,7 @@ func _on_dialogue_manager_dialogue_proceeded():
 		$CharacterManager.setCharacter($DialogueManager.currentCharacterState)
 	
 	if($DialogueManager.currentBackground):
+		GlobalGameStage.unlockWallpaper($DialogueManager.currentBackground.wallpaperId, '', true)
 		$Background.setBackground($DialogueManager.currentBackground)
 
 func _on_background_is_fading():
@@ -613,11 +697,14 @@ func _on_phone_begin_dialogue(key):
 func _on_phone_conversation_complete():
 	GlobalGameStage.setPhoneGameStage()
 
-func playBgMusic(stream, skipCheck = false):
+func playBgMusic(stream, skipCheck = false, quiet = false):
 	if $AudioStreamPlayer2D.stream == stream && !skipCheck:
 		return
 
-	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
+	if quiet:
+		$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume() * .7
+	else:
+		$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 	$AudioStreamPlayer2D.stream = stream
 	$AudioStreamPlayer2D.play()
 	GlobalGameStage.currentMusic = stream.get_path()
@@ -626,9 +713,10 @@ func _handle_bg_volume_change():
 	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 
 func _handle_save_loaded():
-	currentStageIsLoaded = true
-	onMainMenu = false
 	
+	# Used to skip the 'dialogue ended' event for this scene
+	currentStageIsLoaded = true
+		
 	if is_instance_valid(currentPhone):
 		currentPhone.free()
 	
@@ -640,9 +728,22 @@ func _handle_save_loaded():
 	
 	if is_instance_valid(currentRealDate):
 		currentRealDate.free()
+
+	if is_instance_valid(annaDressingRoomInstance):
+		annaDressingRoomInstance.free()
 	
 	playBgMusic(load(GlobalGameStage.currentMusic))
-	$DialogueManager.stopDialogue()
+
+	if !onMainMenu:
+		$DialogueManager.stopDialogue()
+
+	onMainMenu = false
+
+	GlobalGameStage.resetMusicAndSoundIndexes()
+	
+	inChoice = false
+	%ChoiceDisplay.hide()
+
 	$MainMenuContainer.visible = false
 	$DialogueManager.clearCurrentBg()
 	
@@ -687,10 +788,14 @@ func _on_scene_select_pressed():
 func _on_gallery_pressed():
 	print('hi2')
 
-func _on_scene_select_stage_selected(stage):
+func _on_scene_select_stage_selected(checkpoint):
+	onMainMenu = false
 	currentSceneSelector.queue_free()
 	hideTitleStuff()
-	GlobalGameStage.setNextGameStage(stage)
+
+	#GlobalGameStage.setNextGameStage(stage)
+	GlobalGameStage.setNextCheckpoint(checkpoint)
+
 	advanceGameStage()
 
 func _on_scene_select_close():
@@ -728,7 +833,7 @@ func _on_prev_image_pressed() -> void:
 	var wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
 
 	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
-		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
+		$FullscreenImageBg/FullscreenImage.texture = load(wallpapers.wallpapers[fullscreenImageIndex].wallpaperImagePath)
 	else:
 		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
@@ -741,13 +846,18 @@ func _on_next_image_pressed() -> void:
 	fullscreenImageIndex = fullscreenImageIndex + 1
 
 	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
-		$FullscreenImageBg/FullscreenImage.texture = wallpapers.wallpapers[fullscreenImageIndex].image
+		$FullscreenImageBg/FullscreenImage.texture = load(wallpapers.wallpapers[fullscreenImageIndex].wallpaperImagePath)
 	else:
 		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
 
 func _on_audio_stream_player_2d_finished() -> void:
-	if GlobalGameStage.currentStage.randomMusic.size() > 1:
+	if GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent:
+		var randomPhoneMusic = _get_phone_music_options()
+		var randomIndex = randi() % randomPhoneMusic.size()
+		var newStream = load(randomPhoneMusic[randomIndex])
+		$AudioStreamPlayer2D.stream = newStream
+	elif GlobalGameStage.currentStage.randomMusic.size() > 1:
 		var randomIndex = randi() % GlobalGameStage.currentStage.randomMusic.size()
 		var newStream = load(GlobalGameStage.currentStage.randomMusic[randomIndex].resource_path)
 
@@ -759,8 +869,89 @@ func _on_audio_stream_player_2d_finished() -> void:
 
 	$AudioStreamPlayer2D.play()
 
+func _get_phone_music_options():
+	var randomPhoneMusic = []
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Almost Said Something.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Blue City Heat.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Dead Air.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Half Remembered.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Late Night Glances.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Neon Halos.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Neon Mirage.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Side Street.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Silent Echoes.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/phone_music/Verse Without You.mp3")
+	randomPhoneMusic.append("res://data/assets/general/sounds/bg_music/home2.mp3")
+	return randomPhoneMusic
 
 func _on_choice_display_choice_selected(key: String) -> void:
 	inChoice = false
 	%ChoiceDisplay.hide()
 	beginDialogue(key)
+
+func _handle_bespoke_event(eventName: String):
+	if eventName == 'Ashely Kitchen Phone':
+		print('starting bespoke event: Ashely Kitchen Phone')
+		fadeOutMusic()
+		ashelyKitchenInstance = ashelyKitchenScene.instantiate()
+		currentPhone.add_sibling(ashelyKitchenInstance)
+	elif eventName == 'Anna Dressing Room':
+		print('starting bespoke event: Anna Dressing Room')
+		fadeOutMusic()
+		annaDressingRoomInstance = annaDressingRoomScene.instantiate()
+		currentPhone.add_sibling(annaDressingRoomInstance)
+
+func _handle_bespoke_event_ended(eventName: String):
+	if eventName == 'Ashely Kitchen Phone':
+		ashelyKitchenInstance.queue_free()
+		currentPhone.loadPreparedMessages()
+		$AudioStreamPlayer2D.play()
+		print('ended bespoke event: Ashely Kitchen Phone')
+	elif eventName == 'Anna Dressing Room':
+		annaDressingRoomInstance.queue_free()
+		currentPhone.loadPreparedMessages()
+		$AudioStreamPlayer2D.play()
+		print('ended bespoke event: Anna Dressing Room')
+
+func _handle_fade_out_music():
+	fadeOutMusic()
+
+func _on_phone_show_timeline(stage):
+	currentPokerTimeline = pokerTimeline.instantiate()
+	currentPokerTimeline.setup(stage)
+	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
+	add_child(currentPokerTimeline)
+
+func _on_poker_game_show_timeline(mostRecentKeyEventRowId : String):
+	currentPokerTimeline = pokerTimeline.instantiate()
+	currentPokerTimeline.disableStartFromNode()
+	currentPokerTimeline.setup(GlobalGameStage.currentStage, mostRecentKeyEventRowId)
+	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
+	add_child(currentPokerTimeline)
+
+
+func _on_credits_pressed() -> void:
+	currentCredits = credits.instantiate()
+	currentCredits.creditsEnded.connect(_end_credits)
+	fadeOutMusic()
+	hideTitleStuff()
+	add_child(currentCredits)
+
+func _end_credits():
+	$AudioStreamPlayer2D.play()
+	currentCredits.queue_free()
+	$Start.visible = true
+	$Options.visible = true
+	$Credits.visible = true
+	$Load.visible = true
+	%NewTitle.visible = true
+	$SceneSelect.visible = true
+
+
+func _on_credits_mouse_entered() -> void:
+	if $Credits.disabled:
+		$Credits.text = "Not Unlocked"
+
+func _on_credits_mouse_exited() -> void:
+	if $Credits.disabled:
+		$Credits.text = "Credits"

@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=14 format=3 uid="uid://cvprhvmgjxmja"]
+
+[ext_resource type="Resource" uid="uid://s5xilm0y8w5y" path="res://data/game_stages/vn/anna_night/d_anna_night.tres" id="1_8y4in"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_3ccya"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_bnnnt"]
+[ext_resource type="AudioStream" uid="uid://cp31e8ud0dadk" path="res://data/assets/general/sounds/bg_music/Velvet Static(3).mp3" id="2_vhfdc"]
+[ext_resource type="Texture2D" uid="uid://2dmyrnvuoi84" path="res://data/background_lists/home/backgrounds/intro_bg11_night.webp" id="3_fx3xm"]
+[ext_resource type="AudioStream" uid="uid://dkv0nod5722cy" path="res://data/assets/general/sound_effects/knock_knock.mp3" id="3_nm8y6"]
+[ext_resource type="AudioStream" uid="uid://prqcci1gq5ty" path="res://data/assets/general/sounds/bg_music/Marble Morning.mp3" id="3_oqdnt"]
+[ext_resource type="Texture2D" uid="uid://cjqswkc7ctmln" path="res://data/assets/stage_art/anna_night_hover.png" id="3_qypbr"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_bedir"]
+[ext_resource type="AudioStream" uid="uid://b0fk18oq4jo4x" path="res://data/assets/general/sounds/bg_music/Sunset Strip - Instrumental.mp3" id="4_k44q6"]
+[ext_resource type="Texture2D" uid="uid://devm5k6kkeu77" path="res://data/assets/stage_art/anna_night.png" id="4_nm8y6"]
+[ext_resource type="AudioStream" uid="uid://bhqmpueoxcbvb" path="res://data/assets/general/sound_effects/door_open.mp3" id="5_vhfdc"]
+
+[sub_resource type="Resource" id="Resource_qypbr"]
+script = ExtResource("4_bedir")
+name = "f"
+images = ExtResource("3_fx3xm")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_3ccya")
+name = "anna_night"
+displayName = "Anna - Night"
+dialogue = ExtResource("1_8y4in")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_bnnnt")
+isCompletable = true
+startingBackground = SubResource("Resource_qypbr")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String](["ANNA_NIGHT_2", "ANNA_NIGHT_5", "ANNA_NIGHT_10", "ANNA_MUSIC_VIDEO_1", "ANNA_MUSIC_VIDEO_2", "ANNA_MUSIC_VIDEO_3", "ANNA_MUSIC_VIDEO_4", "ANNA_MUSIC_VIDEO_5", "ANNA_LOVE_16", "ANNA_LOVE_32", "ANNA_LOVE_51", "ANNA_LOVE_29", "ANNA_LOVE_17", "ANNA_LOVE_3"])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = false
+isStripPoker = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+useNewPokerSystem = false
+pokerConfigJsonPath = ""
+pokerCSVPath = ""
+sceneLeadsToAPokerMatch = false
+pokerMatchGameStage = Array[ExtResource("2_3ccya")]([])
+isPhoneScreen = false
+isPhoneMessageEvent = false
+contactName = ""
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([ExtResource("2_vhfdc"), ExtResource("3_oqdnt"), ExtResource("4_k44q6"), ExtResource("3_oqdnt")])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([ExtResource("3_nm8y6"), ExtResource("3_nm8y6"), ExtResource("3_nm8y6"), ExtResource("3_nm8y6"), ExtResource("3_nm8y6"), ExtResource("5_vhfdc")])
+stageButtonTexture = ExtResource("4_nm8y6")
+stageButtonHover = ExtResource("3_qypbr")
+stageButtonLabel = "Go To Sleep"
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://dku2bjs0v2a6a"]
+
+[ext_resource type="Script" uid="uid://cir3x1k816gc4" path="res://data/assets/general/bespoke_scenes/ashely_bespoke_kitchen_scene.gd" id="1_7fscd"]
+[ext_resource type="Texture2D" uid="uid://b0vt1wsuu262o" path="res://data/assets/general/bespoke_scenes/ashely_bespoke_kitchen_1.png" id="2_nweve"]
+[ext_resource type="AudioStream" uid="uid://dfic4ehbwxaua" path="res://data/assets/general/bespoke_scenes/phone_buzz.mp3" id="3_g3jdn"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="4_nweve"]
+
+[node name="AshelyBespokeKitchenScene" type="Node2D"]
+script = ExtResource("1_7fscd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_left = -23.0
+offset_right = 930.0
+offset_bottom = 1209.0
+texture = ExtResource("2_nweve")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_g3jdn")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 328.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 26
+text = "Send Message"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 637.0
+offset_top = 1067.0
+offset_right = 877.0
+offset_bottom = 1122.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 42
+text = "Ashely POV"
+
+[node name="MessageFromLeft1" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 82.0
+offset_top = 711.0
+offset_right = 259.0
+offset_bottom = 777.0
+rotation = -1.309
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 16
+text = "New Message From
+[Name]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageFromRight1" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 160.0
+offset_top = 431.0
+offset_right = 337.0
+offset_bottom = 497.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 16
+text = "New Message From
+[Name]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageFromLeft2" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 40.0
+offset_top = 508.0
+offset_right = 217.0
+offset_bottom = 574.0
+rotation = -0.785397
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 16
+text = "New Message From
+[Name]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageFromLeft3" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 14.0
+offset_top = 641.0
+offset_right = 191.0
+offset_bottom = 707.0
+rotation = -1.0472
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 16
+text = "New Message From
+[Name]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageFromRight2" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 184.0
+offset_top = 497.0
+offset_right = 361.0
+offset_bottom = 563.0
+rotation = -0.261799
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_nweve")
+theme_override_font_sizes/font_size = 16
+text = "New Message From
+[Name]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

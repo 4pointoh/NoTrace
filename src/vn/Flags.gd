@@ -14,6 +14,12 @@ var ANNA_PHONE_MESSAGE_LYRIC = load("res://data/game_stages/phone_message/anna_p
 var LISA_BEACH_BEFORE_MESSAGE = load("res://data/game_stages/phone_message/lisa_beach_message/gs_lisa_beach_message.tres")
 var ANNA_CLASS_MESSAGE = load("res://data/game_stages/phone_message/anna_class_phone/gs_anna_class_phone.tres")
 var LISA_SP_PHONE = load("res://data/game_stages/phone_message/lisa_sp_poker_phone/gs_lisa_sp_poker_phone.tres")
+var AMY_PLUTO_PHONE = load("res://data/game_stages/phone_message/amy_phone_with_pluto_1/gs_amy_phone_with_pluto_1.tres")
+var AMY_AFTER_PLUTO_PHONE = load("res://data/game_stages/phone_message/amy_phone_after_pluto_1/gs_amy_phone_after_pluto_1.tres")
+var ASHELY_HOLIDAY_PHONE = load("res://data/game_stages/phone_message/ashely_kitchen_phone/gs_ashely_kitchen_phone.tres")
+var LISA_WINTER = load("res://data/game_stages/phone_message/lisa_winter/gs_lisa_winter.tres")
+var ANNA_NIGHT_PHONE = load("res://data/game_stages/phone_message/anna_night_phone/gs_anna_night_phone.tres")
+var ANNA_NIGHT_PHONE_AFTER = load("res://data/game_stages/phone_message/anna_night_after_message/gs_anna_night_after_message.tres")
 
 #selectable events 
 var LISA_FIRST_MARKET_DATE = load("res://data/game_stages/vn/lisa_first_market_date/gs_lisa_first_market_date.tres")
@@ -27,3 +33,6 @@ var ASHELY_POKER = load("res://data/game_stages/vn/ashely_bar_before_poker/gs_as
 var LISA_BEACH_BEFORE = load("res://data/game_stages/vn/lisa_beach_intro/gs_lisa_beach_intro.tres")
 var ANNA_CLASS = load("res://data/game_stages/vn/anna_class/gs_anna_class.tres")
 var LISA_SP_INTRO = load("res://data/game_stages/vn/lisa_sp_poker_intro/gs_lisa_sp_poker_intro.tres")
+var AMY_LISA_DISCOVERY = load("res://data/game_stages/vn/amy_lisa_discovery/gs_amy_lisa_discovery.tres")
+var UNLOCK_CHRISTMAS = load("res://data/game_stages/vn/activate_christmas_1/gs_activate_christmas_1.tres")
+var ANNA_NIGHT = load("res://data/game_stages/vn/anna_night/gs_anna_night.tres")

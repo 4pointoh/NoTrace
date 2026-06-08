@@ -13,15 +13,15 @@ func setMessageName(newStage):
 	else:
 		$ColorRect/icon.hide()
 	
-	if newStage.contactName == 'Lisa':
+	if newStage.contactName.contains('Lisa'):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg3_outline.png")
-	elif newStage.contactName == 'Ashely' or newStage.contactName == 'Unknown Number':
+	elif newStage.contactName.contains('Ashely') or newStage.contactName == 'Unknown Number':
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg5_outline.png")
-	elif newStage.contactName == 'Chad':
+	elif newStage.contactName == 'Chad' or newStage.contactName == 'Private Number':
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_outline.png")
-	elif newStage.contactName == 'Amy':
+	elif newStage.contactName.contains('Amy'):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_shadow.png")
-	elif newStage.contactName == 'Ana' or newStage.contactName == 'Anna':
+	elif newStage.contactName.contains('Ana') or newStage.contactName.contains('Anna'):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg7_outline.png")
 
 func setPastMessageName(newStage):
@@ -36,16 +36,18 @@ func setPastMessageName(newStage):
 	else:
 		$ColorRect/icon.hide()
 	
-	if newStage.contactName == 'Lisa':
+	if newStage.contactName.contains('Lisa'):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg3_outline.png")
-	elif newStage.contactName == 'Ashely' or newStage.contactName == 'Unknown Number':
+	elif newStage.contactName.contains('Ashely') or newStage.contactName == 'Unknown Number':
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg5_outline.png")
 	elif newStage.contactName == 'Chad':
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_outline.png")
-	elif newStage.contactName == 'Amy':
+	elif newStage.contactName.contains('Amy'):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_shadow.png")
-	elif newStage.contactName == 'Ana' or newStage.contactName == 'Anna':
+	elif newStage.contactName.contains('Ana') or newStage.contactName.contains('Anna'):
 		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg7_outline.png")
+	else:
+		$ColorRect.texture = load("res://data/assets/phone/art/message_text_bg6_outline.png")
 
 func _on_button_pressed():
 	pressed.emit(gameStage)

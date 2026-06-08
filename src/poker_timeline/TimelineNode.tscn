@@ -1,0 +1,486 @@
+[gd_scene load_steps=13 format=3 uid="uid://bf06usv5mi2r7"]
+
+[ext_resource type="Script" uid="uid://btak2r2m3ep8y" path="res://src/poker_timeline/timeline_node.gd" id="1_34hll"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="1_gkyw6"]
+[ext_resource type="Texture2D" uid="uid://je0u7r5x3lup" path="res://data/assets/poker/art/dot_matrix_rounded.png" id="1_sawmw"]
+[ext_resource type="Texture2D" uid="uid://buq8404vf8ns5" path="res://data/characters/amy/phone_icons/default.png" id="2_34hll"]
+[ext_resource type="Texture2D" uid="uid://5g5kxhxgf5iv" path="res://data/background_lists/ashely_bar_poker/111.webp" id="3_11opb"]
+[ext_resource type="Shader" uid="uid://cseadgykofhvg" path="res://src/date/ember2.gdshader" id="3_j7cgw"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="4_11opb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7cgw"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_sawmw")
+modulate_color = Color(1, 1, 1, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sawmw"]
+content_margin_left = 86.0
+bg_color = Color(0.00392157, 0.576471, 0.298039, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+anti_aliasing_size = 1.053
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02blk"]
+shader = ExtResource("3_j7cgw")
+shader_parameter/base_color = Vector4(1, 0.4, 0, 1)
+shader_parameter/glow_color = Vector4(0.5, 1, 0.5, 1)
+shader_parameter/glow_strength = 1.0
+shader_parameter/glow_speed = 2.0
+shader_parameter/noise_scale = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11opb"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.537255)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7cgw"]
+bg_color = Color(0.447059, 0.447059, 0.447059, 0.862745)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TimelineNode" type="GraphNode"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -543.0
+offset_bottom = -839.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j7cgw")
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_sawmw")
+draggable = false
+selectable = false
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color(1, 1, 1, 1)
+slot/6/left_icon = null
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color(1, 1, 1, 1)
+slot/6/right_icon = null
+slot/6/draw_stylebox = true
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color(1, 1, 1, 1)
+slot/7/left_icon = null
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color(1, 1, 1, 1)
+slot/7/right_icon = null
+slot/7/draw_stylebox = true
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color(1, 1, 1, 1)
+slot/8/left_icon = null
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color(1, 1, 1, 1)
+slot/8/right_icon = null
+slot/8/draw_stylebox = true
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color(1, 1, 1, 1)
+slot/9/left_icon = null
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color(1, 1, 1, 1)
+slot/9/right_icon = null
+slot/9/draw_stylebox = true
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color(1, 1, 1, 1)
+slot/10/left_icon = null
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color(1, 1, 1, 1)
+slot/10/right_icon = null
+slot/10/draw_stylebox = true
+script = ExtResource("1_34hll")
+
+[node name="HighlightPositioner" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="HighlightPositioner"]
+modulate = Color(1, 1, 1, 0.854902)
+material = SubResource("ShaderMaterial_02blk")
+offset_top = -40.0
+offset_right = 353.0
+color = Color(1, 0.866667, 0, 1)
+
+[node name="Label" type="Label" parent="HighlightPositioner"]
+offset_left = 5.0
+offset_top = -40.0
+offset_right = 353.0
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 32
+text = "YOU ARE HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D2"]
+unique_name_in_owner = true
+offset_right = 353.0
+offset_bottom = 23.0
+
+[node name="NodeTitle" type="Label" parent="Node2D2"]
+unique_name_in_owner = true
+offset_right = 331.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 18
+text = "Scene Seen!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WhoLosesWhatLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = -6
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_gkyw6")
+text = "LISA loses HAT"
+
+[node name="positioner" type="Sprite2D" parent="."]
+position = Vector2(32, 7)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="positioner"]
+offset_left = 144.0
+offset_top = 23.0
+offset_right = 317.0
+offset_bottom = 115.0
+texture = ExtResource("4_11opb")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ColorRect2" type="ColorRect" parent="positioner"]
+offset_left = 199.0
+offset_top = 43.0
+offset_right = 200.0
+offset_bottom = 115.0
+color = Color(0.462745, 0.462745, 0.462745, 0.352941)
+
+[node name="pfp" type="Sprite2D" parent="positioner"]
+unique_name_in_owner = true
+position = Vector2(287, 71)
+scale = Vector2(0.150316, 0.150316)
+texture = ExtResource("2_34hll")
+
+[node name="Label" type="Label" parent="positioner"]
+offset_left = 258.0
+offset_top = 23.0
+offset_right = 317.0
+offset_bottom = 43.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_gkyw6")
+text = "Loser"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerLivesLabel" type="Label" parent="positioner"]
+unique_name_in_owner = true
+offset_left = 149.0
+offset_top = 43.0
+offset_right = 195.0
+offset_bottom = 56.0
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 10
+text = "You Have"
+
+[node name="OppLivesLabel" type="Label" parent="positioner"]
+unique_name_in_owner = true
+offset_left = 209.0
+offset_top = 44.0
+offset_right = 246.0
+offset_bottom = 57.0
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 10
+text = "She Has"
+
+[node name="RoundLabel" type="Label" parent="positioner"]
+unique_name_in_owner = true
+offset_left = 144.0
+offset_top = 22.0
+offset_right = 257.0
+offset_bottom = 42.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_gkyw6")
+text = "Round 14"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="positioner"]
+offset_left = 257.0
+offset_top = 23.0
+offset_right = 258.0
+offset_bottom = 115.0
+color = Color(0.462745, 0.462745, 0.462745, 0.352941)
+
+[node name="ColorRect3" type="ColorRect" parent="positioner"]
+offset_left = 159.0
+offset_top = 42.0
+offset_right = 257.0
+offset_bottom = 43.0
+color = Color(0.462745, 0.462745, 0.462745, 0.352941)
+
+[node name="PlayerClothesContainer" type="VBoxContainer" parent="positioner"]
+unique_name_in_owner = true
+offset_left = 147.0
+offset_top = 55.0
+offset_right = 198.0
+offset_bottom = 112.0
+theme_override_constants/separation = -2
+
+[node name="OppClothesContainer" type="VBoxContainer" parent="positioner"]
+unique_name_in_owner = true
+offset_left = 202.0
+offset_top = 57.0
+offset_right = 256.0
+offset_bottom = 113.0
+theme_override_constants/separation = -2
+
+[node name="Spacer" type="Label" parent="."]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Spacer2" type="Label" parent="."]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Spacer3" type="Label" parent="."]
+layout_mode = 2
+
+[node name="PlayerLostLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 15
+text = "PLAYER loses HAT"
+horizontal_alignment = 2
+
+[node name="Spacer4" type="Label" parent="."]
+layout_mode = 2
+
+[node name="OppLostLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 15
+text = "LISA loses TOP"
+horizontal_alignment = 2
+
+[node name="WallpaperContainer" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="WpBg" type="ColorRect" parent="WallpaperContainer"]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 78.0
+offset_right = 159.0
+offset_bottom = 274.0
+
+[node name="Wallpaper" type="TextureRect" parent="WallpaperContainer"]
+unique_name_in_owner = true
+offset_left = 12.0
+offset_top = 78.0
+offset_right = 157.0
+offset_bottom = 274.0
+texture = ExtResource("3_11opb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Spacer5" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Spacer6" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Spacer7" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+
+[node name="StartFromHereButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_11opb")
+text = "Start From Here"
+
+[node name="AltRoutePositioner" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(27, 0)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="AltRoutePositioner"]
+offset_left = 149.0
+offset_top = 200.0
+offset_right = 323.0
+offset_bottom = 261.0
+texture = ExtResource("4_11opb")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="AltRouteHintButton" type="Button" parent="AltRoutePositioner"]
+unique_name_in_owner = true
+offset_left = 158.0
+offset_top = 228.0
+offset_right = 316.0
+offset_bottom = 253.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7cgw")
+text = "Alt Route Hint"
+
+[node name="AltRouteTitle" type="Label" parent="AltRoutePositioner"]
+unique_name_in_owner = true
+offset_left = 149.0
+offset_top = 204.0
+offset_right = 323.0
+offset_bottom = 224.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 15
+text = "Has Alternate Route"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AltRouteHintLabel" type="Label" parent="AltRoutePositioner"]
+unique_name_in_owner = true
+visible = false
+offset_left = 152.0
+offset_top = 204.0
+offset_right = 318.0
+offset_bottom = 258.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -4
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_gkyw6")
+theme_override_font_sizes/font_size = 12
+text = "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DebugPanelPositioner" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DebugPanel" type="NinePatchRect" parent="DebugPanelPositioner"]
+unique_name_in_owner = true
+visible = false
+offset_left = 361.0
+offset_right = 584.0
+offset_bottom = 313.0
+texture = ExtResource("4_11opb")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="DebugText" type="RichTextLabel" parent="DebugPanelPositioner/DebugPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 49.0
+offset_right = 219.0
+offset_bottom = 306.0
+theme_override_font_sizes/normal_font_size = 10
+
+[node name="Label" type="Label" parent="DebugPanelPositioner/DebugPanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 10
+text = "Bug with this scene? Send a screenshot of this panel to the dev!"
+autowrap_mode = 3
+
+[node name="DebugButton" type="Button" parent="DebugPanelPositioner"]
+offset_left = 331.0
+offset_top = 1.0
+offset_right = 349.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 8
+text = "?"
+
+[connection signal="pressed" from="StartFromHereButton" to="." method="_on_start_from_here_button_pressed"]
+[connection signal="pressed" from="AltRoutePositioner/AltRouteHintButton" to="." method="_on_alt_route_hint_button_pressed"]
+[connection signal="pressed" from="DebugPanelPositioner/DebugButton" to="." method="_on_debug_button_pressed"]

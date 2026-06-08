@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BackgroundList" load_steps=65 format=3 uid="uid://b8g0cgh1qmr2w"]
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=69 format=3 uid="uid://b8g0cgh1qmr2w"]
 
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_s0o3h"]
 [ext_resource type="Texture2D" uid="uid://bhod7uhd7s5xw" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0001.webp" id="2_wo0fp"]
@@ -33,171 +33,218 @@
 [ext_resource type="Texture2D" uid="uid://bpqfgrpe0mdkp" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0029.webp" id="30_u552x"]
 [ext_resource type="Texture2D" uid="uid://bbgbcnud2ut3b" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0030.webp" id="31_5dgp5"]
 [ext_resource type="Texture2D" uid="uid://cl4a7205kwhws" path="res://data/background_lists/lisa_poker_pre/lisa_poker_1_0002.webp" id="32_low1r"]
+[ext_resource type="Texture2D" uid="uid://bodao10yvhgtw" path="res://data/background_lists/amy_lisa_discovery/amy_lisa_discovery_1.webp" id="33_q1m57"]
+[ext_resource type="Texture2D" uid="uid://usow4q6vwyl7" path="res://data/background_lists/amy_lisa_discovery/amy_lisa_discovery_2.webp" id="34_w1kan"]
 
 [sub_resource type="Resource" id="Resource_8a32j"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0001.webp"
 images = ExtResource("2_wo0fp")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_i6kq3"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0002.webp"
 images = ExtResource("3_3cnkr")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_eq71i"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0003.webp"
 images = ExtResource("4_eydp5")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_pt6go"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0004.webp"
 images = ExtResource("5_x6rtq")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_2y7lb"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0005.webp"
 images = ExtResource("6_kk6iv")
+wallpaperId = "LISA_SP_1"
 
 [sub_resource type="Resource" id="Resource_ilwij"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0006.webp"
 images = ExtResource("7_u552x")
+wallpaperId = "LISA_SP_2"
 
 [sub_resource type="Resource" id="Resource_3sgf7"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0007.webp"
 images = ExtResource("8_5dgp5")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_0ptv8"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0008.webp"
 images = ExtResource("9_low1r")
+wallpaperId = "LISA_SP_3"
 
 [sub_resource type="Resource" id="Resource_jsq0r"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0009.webp"
 images = ExtResource("10_2i476")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_ild5x"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0010.webp"
 images = ExtResource("11_q1m57")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_8nq8e"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0011.webp"
 images = ExtResource("12_w1kan")
+wallpaperId = "LISA_SP_4"
 
 [sub_resource type="Resource" id="Resource_7pvtb"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0012.webp"
 images = ExtResource("13_h63oe")
+wallpaperId = "LISA_SP_5"
 
 [sub_resource type="Resource" id="Resource_7k5go"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0013.webp"
 images = ExtResource("14_vtifl")
+wallpaperId = "LISA_SP_6"
 
 [sub_resource type="Resource" id="Resource_g8jd7"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0014.webp"
 images = ExtResource("15_bp37f")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_ghl7y"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0015.webp"
 images = ExtResource("16_xsv5e")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_fkaeu"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0016.webp"
 images = ExtResource("17_o3qbl")
+wallpaperId = "LISA_SP_7"
 
 [sub_resource type="Resource" id="Resource_x0kxj"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0017.webp"
 images = ExtResource("18_o5gu3")
+wallpaperId = "LISA_SP_8"
 
 [sub_resource type="Resource" id="Resource_i2ied"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0018.webp"
 images = ExtResource("19_iuy8g")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_d1s7n"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0019.webp"
 images = ExtResource("20_xctgc")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_rbp44"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0020.webp"
 images = ExtResource("21_54vdj")
+wallpaperId = "LISA_SP_9"
 
 [sub_resource type="Resource" id="Resource_twlou"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0021.webp"
 images = ExtResource("22_jrkpd")
+wallpaperId = "LISA_SP_10"
 
 [sub_resource type="Resource" id="Resource_2dp78"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0022.webp"
 images = ExtResource("23_fmbbi")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_3x0r1"]
 script = ExtResource("1_s0o3h")
 name = "lisa_poker_pre_0023.webp"
 images = ExtResource("24_2cn1l")
+wallpaperId = ""
 
 [sub_resource type="Resource" id="Resource_3cnkr"]
 script = ExtResource("1_s0o3h")
 name = "extra_01"
 images = ExtResource("25_wo0fp")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_eydp5"]
 script = ExtResource("1_s0o3h")
 name = "extra02"
 images = ExtResource("26_3cnkr")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_low1r"]
 script = ExtResource("1_s0o3h")
 name = "extra03"
 images = ExtResource("27_kk6iv")
+wallpaperId = "LISA_SP_11"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_2i476"]
 script = ExtResource("1_s0o3h")
 name = "extra04"
 images = ExtResource("28_u552x")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_q1m57"]
 script = ExtResource("1_s0o3h")
 name = "extra04"
 images = ExtResource("29_5dgp5")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_5dgp5"]
 script = ExtResource("1_s0o3h")
 name = "extra06"
 images = ExtResource("30_u552x")
+wallpaperId = "LISA_SP_12"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_w1kan"]
 script = ExtResource("1_s0o3h")
 name = "extra07"
 images = ExtResource("31_5dgp5")
+wallpaperId = "LISA_SP_13"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [sub_resource type="Resource" id="Resource_h63oe"]
 script = ExtResource("1_s0o3h")
 name = "extra08"
 images = ExtResource("32_low1r")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_vtifl"]
+script = ExtResource("1_s0o3h")
+name = "lobby"
+images = ExtResource("33_q1m57")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_bp37f"]
+script = ExtResource("1_s0o3h")
+name = "door_closed"
+images = ExtResource("34_w1kan")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
 script = ExtResource("25_v22j0")
 name = "lisa_poker_pre"
-images = Array[ExtResource("1_s0o3h")]([SubResource("Resource_8a32j"), SubResource("Resource_i6kq3"), SubResource("Resource_eq71i"), SubResource("Resource_pt6go"), SubResource("Resource_2y7lb"), SubResource("Resource_ilwij"), SubResource("Resource_3sgf7"), SubResource("Resource_0ptv8"), SubResource("Resource_jsq0r"), SubResource("Resource_ild5x"), SubResource("Resource_8nq8e"), SubResource("Resource_7pvtb"), SubResource("Resource_7k5go"), SubResource("Resource_g8jd7"), SubResource("Resource_ghl7y"), SubResource("Resource_fkaeu"), SubResource("Resource_x0kxj"), SubResource("Resource_i2ied"), SubResource("Resource_d1s7n"), SubResource("Resource_rbp44"), SubResource("Resource_twlou"), SubResource("Resource_2dp78"), SubResource("Resource_3x0r1"), SubResource("Resource_3cnkr"), SubResource("Resource_eydp5"), SubResource("Resource_low1r"), SubResource("Resource_2i476"), SubResource("Resource_q1m57"), SubResource("Resource_5dgp5"), SubResource("Resource_w1kan"), SubResource("Resource_h63oe")])
+images = Array[ExtResource("1_s0o3h")]([SubResource("Resource_8a32j"), SubResource("Resource_i6kq3"), SubResource("Resource_eq71i"), SubResource("Resource_pt6go"), SubResource("Resource_2y7lb"), SubResource("Resource_ilwij"), SubResource("Resource_3sgf7"), SubResource("Resource_0ptv8"), SubResource("Resource_jsq0r"), SubResource("Resource_ild5x"), SubResource("Resource_8nq8e"), SubResource("Resource_7pvtb"), SubResource("Resource_7k5go"), SubResource("Resource_g8jd7"), SubResource("Resource_ghl7y"), SubResource("Resource_fkaeu"), SubResource("Resource_x0kxj"), SubResource("Resource_i2ied"), SubResource("Resource_d1s7n"), SubResource("Resource_rbp44"), SubResource("Resource_twlou"), SubResource("Resource_2dp78"), SubResource("Resource_3x0r1"), SubResource("Resource_3cnkr"), SubResource("Resource_eydp5"), SubResource("Resource_low1r"), SubResource("Resource_2i476"), SubResource("Resource_q1m57"), SubResource("Resource_5dgp5"), SubResource("Resource_w1kan"), SubResource("Resource_h63oe"), SubResource("Resource_vtifl"), SubResource("Resource_bp37f")])

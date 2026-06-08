@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://dyhhachry1mbx"]
+
+[ext_resource type="Resource" uid="uid://bgucpx2e7edul" path="res://data/game_stages/phone_message/ashely_holiday_delivery_guy/d_ashely_holiday_delivery_guy.tres" id="1_wghcl"]
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_i3y5e"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_l05tp"]
+[ext_resource type="Script" uid="uid://lmnjtxfwowgc" path="res://data/game_stages/phone_message/ashely_holiday_delivery_guy/AshelyDeliveryGuy.gd" id="3_b7erp"]
+[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="5_lu7j8"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_17tkm"]
+
+[sub_resource type="Resource" id="Resource_l7hcx"]
+script = ExtResource("6_17tkm")
+name = "f"
+images = ExtResource("5_lu7j8")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("2_i3y5e")
+name = "ashely_holiday_delivery_guy"
+displayName = "Ashely Delivery Guy"
+dialogue = ExtResource("1_wghcl")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("2_l05tp")
+isCompletable = true
+startingBackground = SubResource("Resource_l7hcx")
+startTransitionText = ""
+startTransition = 0
+endTransitionText = ""
+endTransition = 0
+middleTransitionText = ""
+middleTransition = 0
+markStagesCompleteOnDateWin = Array[String]([])
+markStagesCompleteOnSceneEnd = Array[String]([])
+markStagesCompleteOnPokerWin = Array[String]([])
+unlockWallpapersOnSceneEnd = Array[String]([])
+cacheItems = Array[String]([])
+repositionDialogueBoxTo = 0
+endOnlyOnSpecificDialogueKey = false
+endingDialogueKeys = Array[String]([])
+isPokerMatch = false
+playerStartingMoney = 0
+cpuStartingMoney = 0
+startingAnte = 0
+opponentName = ""
+opponentNamePlural = false
+maxRaise = 0
+pokerType = 0
+cheatCount = 0
+playerLives = 0
+cpuLives = 0
+cpuRandomDiscardChance = 0
+playerLivesWithEvents = Array[int]([])
+cpuLivesWithEvents = Array[int]([])
+allowProPlus = false
+allowProPlusMax = false
+proPlusCheats = 0
+proPlusMaxCheats = 0
+isPhoneScreen = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("3_b7erp")
+contactName = "Unknown Number"
+randomMusic = Array[AudioStream]([])
+musicList = Array[AudioStream]([])
+delayMusicToTransition = false
+soundEffectList = Array[AudioStream]([])
+stageButtonLabel = ""
+heartLevel = 0
+isRealDate = false
+numberOfSelections = 0
+firstRoundGuesses = 6
+secondRoundGuesses = 4
+characterArtScale = Vector2(0, 0)
+characterArtPosition = Vector2(0, 0)
+character = 0
+lostDateStartKey = ""
+touchDialogues = Array[String]([])
+isDate = false
+cantLose = false
+dateWinMarkThisStageComplete = ""
+dateLossDialogueKey = ""
+dateCharacter = ""
+dateTitle = ""
+dateBusinessButtonLabel = ""
+maxProgress = 0
+oneStarHints = Array[String]([])
+twoStarHints = Array[String]([])
+threeStarHints = Array[String]([])

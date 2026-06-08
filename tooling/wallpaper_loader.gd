@@ -10,7 +10,7 @@ func _run() -> void:
 	
 	var newwallpaper = Wallpaper.new()
 	newwallpaper.hint = wallpaper_hint
-	newwallpaper.image = load(wallpaper_png_path)
+	newwallpaper.wallpaperImagePath = wallpaper_png_path
 	newwallpaper.wallpaperId = wallpaper_id
 	
 	all_wallpapers_resource.wallpapers.append(newwallpaper)

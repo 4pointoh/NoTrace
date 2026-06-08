@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=9 format=3 uid="uid://bjx2x6d81ggdr"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_vjxnw"]
+[ext_resource type="Texture2D" uid="uid://bodao10yvhgtw" path="res://data/background_lists/amy_lisa_discovery/amy_lisa_discovery_1.webp" id="2_wimd1"]
+[ext_resource type="Texture2D" uid="uid://usow4q6vwyl7" path="res://data/background_lists/amy_lisa_discovery/amy_lisa_discovery_2.webp" id="3_e7302"]
+[ext_resource type="Texture2D" uid="uid://uo23c441pxp4" path="res://data/background_lists/amy_lisa_discovery/amy_lisa_discovery_3.webp" id="4_mq2g2"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="5_htfhr"]
+
+[sub_resource type="Resource" id="Resource_ykbid"]
+script = ExtResource("1_vjxnw")
+name = "amy_lisa_discovery_1.webp"
+images = ExtResource("2_wimd1")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_nal6r"]
+script = ExtResource("1_vjxnw")
+name = "amy_lisa_discovery_2.webp"
+images = ExtResource("3_e7302")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_te837"]
+script = ExtResource("1_vjxnw")
+name = "amy_lisa_discovery_3.webp"
+images = ExtResource("4_mq2g2")
+wallpaperId = ""
+
+[resource]
+script = ExtResource("5_htfhr")
+name = "amy_lisa_discovery"
+images = Array[ExtResource("1_vjxnw")]([SubResource("Resource_ykbid"), SubResource("Resource_nal6r"), SubResource("Resource_te837")])

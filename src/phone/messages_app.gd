@@ -7,6 +7,7 @@ extends Node2D
 @export var messageImage : PackedScene
 @export var loadingAnim : PackedScene
 @export var partnerStatus : PackedScene
+@export var visualCountdownScene : PackedScene
 
 var currentConversation
 var contactName
@@ -16,11 +17,18 @@ var lastAddedMessage
 var isFirstAction
 var currentStatusMessage
 var skipping = false
+var nextMessageInstant = false
+var currentCountdown
 
 var isSpeedingUp = false
 var currentSpeedUp = 1.0
 var maxSpeedUp = 2.5
 var speedUpStep = .5
+var speedUpManual = false
+var respondShouldBeVisible = false
+
+var turnManualOnNextSafeSpot = false
+var turnAutoOnNextSafeSpot = false
 
 var showingPastMessages = false
 
@@ -78,6 +86,11 @@ func onMessageSelect(selectedStage):
 func onComplete():
 	%SpeedUp.hide()
 	$HBoxContainer/icon.hide()
+
+	if speedUpManual:
+		%Next.hide()
+		%SpeedUpManual.hide()
+
 	conversationComplete.emit()
 
 func closeApp():
@@ -120,22 +133,65 @@ func startConversation():
 	
 	$HBoxContainer/ContactName.text = contactName
 	isFirstAction = true
+
+	if currentConversation.loadPreparedMessagesAtStart():
+		loadPreparedMessages()
+	
+	if speedUpManual:
+		%Next.show()
+
 	processNextAction()
+
+func loadPreparedMessages():
+	var preparedMessages = currentConversation.getPreparedMessages()
+
+	for preparedMessage in preparedMessages:
+		if preparedMessage.type == 'partner_text':
+			var partnerContent = preparedMessage.content.replace("{player_name}", GlobalGameStage.playerName)
+			addText(false, partnerContent, null, true)
+		elif preparedMessage.type == 'player_text':
+			var playerContent = preparedMessage.content.replace("{player_name}", GlobalGameStage.playerName)
+			addText(true, playerContent, null, true)
+		elif preparedMessage.type == 'image':
+			addImage(load(preparedMessage.path), true)
 
 func processNextAction():
 	previousAction = nextAction
 	nextAction = currentConversation.getNextAction()
+
+	if nextAction.action == PhoneAction.ACTIONS.TEXT_YOU or nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER:
+		if turnManualOnNextSafeSpot:
+			enableManual()
+			turnManualOnNextSafeSpot = false
+		elif turnAutoOnNextSafeSpot:
+			enableAuto()
+			turnAutoOnNextSafeSpot = false
+
+	if speedUpManual:
+		processActionManual()
+		return
 	
 	if nextAction.action == PhoneAction.ACTIONS.TEXT_YOU:
 		enableRespond()
+	elif nextAction.action == PhoneAction.ACTIONS.PLAY_MUSIC:
+		GlobalGameStage.startMusic(nextAction.message)
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.FADE_MUSIC_OUT:
+		GlobalGameStage.fadeOutMusic()
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER_LONG_TYPING:
+		await loadingMessageLong()
+		processNextAction()
 	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER:
-		if lastAddedMessage:
+		if lastAddedMessage and !nextMessageInstant:
 			if isFirstAction:
 				await readReceiptDelay()
 			else:
 				await readReceiptFast()
 				
 			await loadingMessage()
+		elif nextMessageInstant:
+			nextMessageInstant = false
 			
 		addText(false, nextAction.message, nextAction.soundType)
 		
@@ -166,6 +222,89 @@ func processNextAction():
 		await loadingMessage()
 		addVideo(nextAction.videoPath)
 		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.SPECIAL:
+		GlobalGameStage.startBespoke(nextAction.message)
+	elif nextAction.action == PhoneAction.ACTIONS.NEXT_MESSAGE_INSTANT:
+		nextMessageInstant = true
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.COUNTDOWN:
+		if(!skipping):
+			await get_tree().create_timer(1).timeout
+
+		currentCountdown = visualCountdownScene.instantiate()
+		currentCountdown.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		currentCountdown.setTime(nextAction.countdownMinutes)
+		currentCountdown.setCountdownLabel(nextAction.countdownLabel)
+		currentCountdown.setButtonLabel(nextAction.countdownButtonLabel)
+
+		if(!skipping):
+			currentCountdown.setDelay(nextAction.actualDelayInSeconds)
+		else:
+			currentCountdown.setDelay(0)
+
+		$MessageScreen/VBoxContainer.add_child(currentCountdown)
+		currentCountdown.countdown_finished.connect(finishCountdown)
+
+func processActionManual():
+	if nextAction.action == PhoneAction.ACTIONS.TEXT_YOU:
+		addText(true, nextAction.message)
+	elif nextAction.action == PhoneAction.ACTIONS.PLAY_MUSIC:
+		GlobalGameStage.startMusic(nextAction.message)
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.FADE_MUSIC_OUT:
+		GlobalGameStage.fadeOutMusic()
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER_LONG_TYPING:
+		await loadingMessageLong()
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.TEXT_PARTNER:	
+		addText(false, nextAction.message, nextAction.soundType)
+	elif nextAction.action == PhoneAction.ACTIONS.IMAGE_PARTNER:
+		%Next.hide()
+		await addImage(nextAction.image)
+		if speedUpManual:
+			%Next.show()
+	elif nextAction.action == PhoneAction.ACTIONS.CHOICE:
+		%Next.hide()
+		addChoices(nextAction.choices)
+	elif nextAction.action == PhoneAction.ACTIONS.DIALOGUE:
+		%Next.hide()
+		startDialogue(nextAction.dialogueKey)
+	elif nextAction.action == PhoneAction.ACTIONS.COMPLETE:
+		onComplete()
+	elif nextAction.action == PhoneAction.ACTIONS.PARTNER_DELAY:
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.BLOCKED:
+		addBlocked()
+	elif nextAction.action == PhoneAction.ACTIONS.VIDEO:
+		addVideo(nextAction.videoPath)
+	elif nextAction.action == PhoneAction.ACTIONS.SPECIAL:
+		GlobalGameStage.startBespoke(nextAction.message)
+	elif nextAction.action == PhoneAction.ACTIONS.NEXT_MESSAGE_INSTANT:
+		nextMessageInstant = true
+		processNextAction()
+	elif nextAction.action == PhoneAction.ACTIONS.COUNTDOWN:
+		%Next.hide()
+		currentCountdown = visualCountdownScene.instantiate()
+		currentCountdown.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		currentCountdown.setTime(nextAction.countdownMinutes)
+		currentCountdown.setCountdownLabel(nextAction.countdownLabel)
+		currentCountdown.setButtonLabel(nextAction.countdownButtonLabel)
+		currentCountdown.setDelay(nextAction.actualDelayInSeconds)
+
+		$MessageScreen/VBoxContainer.add_child(currentCountdown)
+		currentCountdown.countdown_finished.connect(finishCountdown)
+
+func finishCountdown():
+	if(is_instance_valid(currentCountdown) and currentCountdown):
+		$MessageScreen/VBoxContainer.remove_child(currentCountdown)
+		currentCountdown.queue_free()
+		currentCountdown = null
+
+	if speedUpManual:
+		%Next.show()
+	else:
+		processNextAction()
 
 func loadingMessage():
 	var loading = loadingAnim.instantiate()
@@ -186,7 +325,31 @@ func loadingMessage():
 		await get_tree().create_timer(getSpedUpValue(2)).timeout
 	$MessageScreen/VBoxContainer.remove_child(loading)
 	loading.queue_free()
+	if speedUpManual:
+		%Next.show()
+
+func loadingMessageLong():
+	var loading = loadingAnim.instantiate()
+	loading.play()
+	if(!skipping):
+		await get_tree().create_timer(2).timeout
 	
+	# Remove the status if it's there
+	if(is_instance_valid(currentStatusMessage) and currentStatusMessage):
+		$MessageScreen/VBoxContainer.remove_child(currentStatusMessage)
+		currentStatusMessage.queue_free()
+		currentStatusMessage = null
+		
+	$MessageScreen/VBoxContainer.add_child(loading)
+	$AudioStreamPlayer2D.stream = messageStartTyping
+	$AudioStreamPlayer2D.play()
+	if(!skipping):
+		await get_tree().create_timer(10).timeout
+	$MessageScreen/VBoxContainer.remove_child(loading)
+	loading.queue_free()
+	if speedUpManual:
+		%Next.show()
+
 func delay(message):
 	if(message):
 		if(!skipping):
@@ -212,7 +375,7 @@ func readReceiptFast():
 		await get_tree().create_timer(getSpedUpValue(1)).timeout
 	lastAddedMessage.enableReadReceipt()
 	
-func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT):
+func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT, skipSound = false):
 	var newText = messageText.instantiate()
 	newText.setMessage(isPlayer, message, contactName)
 	
@@ -223,6 +386,9 @@ func addText(isPlayer, message, soundType = PhoneAction.SOUND_TYPE.DEFAULT):
 
 	lastAddedMessage = newText
 	$MessageScreen/VBoxContainer.add_child(newText)
+
+	if skipSound:
+		return
 	
 	if isPlayer:
 		$AudioStreamPlayer2D.stream = messageSentSound
@@ -250,18 +416,29 @@ func addVideo(videoPath):
 	$MessageScreen/VBoxContainer.add_child(video)
 
 func enableRespond():
-	$Respond.visible = true
+	respondShouldBeVisible = true
+
+	if !speedUpManual:
+		$Respond.visible = true
 
 func disableRespond():
-	$Respond.visible = false
+	respondShouldBeVisible = false
 
-func addImage(image):
+	if !speedUpManual:
+		$Respond.visible = false
+
+func addImage(image, instant = false):
 	var newImage = messageImage.instantiate()
 
-	newImage.setTexture(image, skipping)
+	newImage.setTexture(image, skipping or instant)
 
 	newImage.noFullscreen = true
 	$MessageScreen/VBoxContainer.add_child(newImage)
+
+	if instant:
+		newImage.noFullscreen = false
+		return
+
 	$AudioStreamPlayer2D.stream = imageLoadingSound
 	$AudioStreamPlayer2D.play()
 	if(!skipping):
@@ -271,12 +448,15 @@ func addImage(image):
 	newImage.noFullscreen = false
 
 func startDialogue(key):
-	if(!skipping):
+	if(!skipping and !speedUpManual):
 		await get_tree().create_timer(1.5).timeout
 	beginDialogue.emit(key)
 
 func setDialogueEnded():
-	processNextAction()
+	if speedUpManual:
+		%Next.show()
+	else:
+		processNextAction()
 
 func addChoices(choices):
 	$Choice.setChoices(choices)
@@ -287,7 +467,11 @@ func _on_choice_choice(id, text):
 	currentConversation.handleChoice(id)
 	addText(true, text)
 	$Choice.visible = false
-	processNextAction()
+
+	if speedUpManual:
+		%Next.show()
+	else:
+		processNextAction()
 
 func _on_respond_pressed():
 	if nextAction.action == PhoneAction.ACTIONS.TEXT_YOU:
@@ -324,8 +508,15 @@ func getSpedUpValue(val : float) -> float:
 	return val / (currentSpeedUp + 1.0) if currentSpeedUp > 1.0 else val
 
 func _on_speed_up_pressed() -> void:
+	if speedUpManual:
+		turnAutoOnNextSafeSpot = true
+	
 	if currentSpeedUp == maxSpeedUp:
+		turnManualOnNextSafeSpot = true
+		%SpeedUp.text = "Speed (Man.)"
 		currentSpeedUp = 1.0
+		$Respond.hide()
+		return
 	else:
 		currentSpeedUp += speedUpStep
 
@@ -350,9 +541,34 @@ func _on_replay_past_messages_pressed() -> void:
 	else:
 		showingPastMessages = true
 		msgs = GlobalGameStage.getCompletedMessages()
+		msgs.reverse()
 		%ReplayPastMessages.text = "Current Messages"
 		for msg in msgs:
 			addAvailablePastMessage(msg)
 
+func _on_wait_pressed() -> void:
+	currentCountdown.start(3)
+	%Wait.hide()
+
+func _on_next_pressed() -> void:
+	processNextAction()
+
+func _input(event):
+	if event.is_action_pressed('advance_phone') and %Next.visible:
+		processNextAction()
+
+func enableManual():
+	speedUpManual = true
+	currentSpeedUp = 1.0
+	%SpeedUp.text = "Speed (Man.)"
+	%SpeedUpManual.show()
+	%Next.show()
 	
-	
+func enableAuto():
+	speedUpManual = false
+	currentSpeedUp = 1.0
+	%Next.hide()
+	%SpeedUp.text = "Speed (1.0x)"
+	%SpeedUpManual.hide()
+	if respondShouldBeVisible:
+		$Respond.show()

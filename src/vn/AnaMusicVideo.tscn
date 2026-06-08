@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds454mryfvys"]
+
+[ext_resource type="Script" uid="uid://dw814roywn1iv" path="res://src/vn/ana_music_video.gd" id="1_wk80y"]
+[ext_resource type="Texture2D" uid="uid://gt6myvni2mt7" path="res://data/assets/date/art/transparent_pink_light_rounded_rect_8px9patch.png" id="2_3ug03"]
+[ext_resource type="AudioStream" uid="uid://dy43eo37ekf3d" path="res://data/background_lists/anna_music_video/Sunset Strip.mp3" id="2_fls46"]
+[ext_resource type="Texture2D" uid="uid://cektcsm2300d3" path="res://data/background_lists/anna_music_video/ana_music_video_0006.webp" id="3_fls46"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_kch3g"]
+
+[node name="AnaMusicVideo" type="Node2D"]
+script = ExtResource("1_wk80y")
+
+[node name="BlackBg" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = -251.0
+offset_top = -86.0
+offset_right = 1293.0
+offset_bottom = 1615.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_fls46")
+
+[node name="bg1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(450, 561)
+texture = ExtResource("3_fls46")
+
+[node name="bg2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(450, 561)
+texture = ExtResource("3_fls46")
+
+[node name="Subtitles" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_left = 80.0
+offset_top = 71.0
+offset_right = 829.0
+offset_bottom = 143.0
+texture = ExtResource("2_3ug03")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Subtitles"]
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+texture = ExtResource("2_3ug03")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Subtitles"]
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+texture = ExtResource("2_3ug03")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="Subtitles"]
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+texture = ExtResource("2_3ug03")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="Clipper" type="Control" parent="Subtitles"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 749.0
+offset_bottom = 72.0
+metadata/_edit_lock_ = true
+
+[node name="LyricA" type="Label" parent="Subtitles/Clipper"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 749.0
+offset_bottom = 72.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_kch3g")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="LyricB" type="Label" parent="Subtitles/Clipper"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 72.0
+offset_right = 749.0
+offset_bottom = 144.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_kch3g")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skip" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 14.0
+offset_top = 1103.0
+offset_right = 167.0
+offset_bottom = 1142.0
+focus_mode = 0
+text = "Skip"
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeOverlay" type="ColorRect" parent="FadeLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

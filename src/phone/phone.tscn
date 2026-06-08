@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dwy36oubalf26"]
+[gd_scene load_steps=31 format=3 uid="uid://dwy36oubalf26"]
 
 [ext_resource type="Script" uid="uid://dmopxi50jijau" path="res://src/phone/Phone.gd" id="1_q1yen"]
 [ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_6ld0i"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://cqa2q3mwhscc2" path="res://src/phone/notification_icon.tscn" id="12_1ripe"]
 [ext_resource type="Texture2D" uid="uid://bgdilt3xg8un0" path="res://data/assets/phone/art/realdate_icon.webp" id="14_7ay1n"]
 [ext_resource type="Texture2D" uid="uid://77ulvh0rtc5h" path="res://data/assets/phone/art/realdate_icon_hover.webp" id="15_nwp6v"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="17_40lvp"]
+[ext_resource type="Texture2D" uid="uid://b6b0xocsgsm5u" path="res://data/assets/general/art/toggle_on.png" id="18_0q128"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bugkw"]
 shader = ExtResource("2_48j3f")
@@ -284,9 +286,11 @@ texture_normal = ExtResource("14_7ay1n")
 texture_hover = ExtResource("15_nwp6v")
 
 [node name="NotificationIconEvents" parent="PhoneBox" instance=ExtResource("12_1ripe")]
+unique_name_in_owner = true
 position = Vector2(507, 810)
 
 [node name="NotificationIconMessages" parent="PhoneBox" instance=ExtResource("12_1ripe")]
+unique_name_in_owner = true
 position = Vector2(225, 84)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PhoneBox"]
@@ -294,6 +298,27 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_f4b01")
 }
+
+[node name="ToggleAppViewBg" type="NinePatchRect" parent="PhoneBox"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 986.0
+offset_right = 536.0
+offset_bottom = 1014.0
+texture = ExtResource("17_40lvp")
+
+[node name="ToggleAppView" type="TextureButton" parent="PhoneBox/ToggleAppViewBg"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 25.0
+focus_mode = 0
+texture_normal = ExtResource("18_0q128")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="PhoneOutline" type="TextureRect" parent="."]
 offset_left = 165.0
@@ -312,6 +337,7 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="selected" from="PhoneBox/ContinueApp" to="." method="_on_continue_app_selected"]
+[connection signal="selectedTimeline" from="PhoneBox/ContinueApp" to="." method="_on_continue_app_selected_timeline"]
 [connection signal="beginDialogue" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_begin_dialogue"]
 [connection signal="conversationComplete" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_conversation_complete"]
 [connection signal="newMessageSelect" from="PhoneBox/MessagesApp" to="." method="_on_messages_app_new_message_select"]
@@ -321,3 +347,4 @@ libraries = {
 [connection signal="pressed" from="PhoneBox/MessagesIcon" to="." method="_on_messages_pressed"]
 [connection signal="pressed" from="PhoneBox/ContinueIcon" to="." method="_on_continue_icon_pressed"]
 [connection signal="pressed" from="PhoneBox/RealDateIcon" to="." method="_on_real_date_icon_pressed"]
+[connection signal="pressed" from="PhoneBox/ToggleAppViewBg/ToggleAppView" to="." method="_on_toggle_app_view_pressed"]

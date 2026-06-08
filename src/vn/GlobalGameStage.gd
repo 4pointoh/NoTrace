@@ -13,13 +13,26 @@ var completedStagesGLOBAL : Array[String]
 var completedStagesSOFT : Array[String]
 var availableMessages : Array[GameStage]
 var availableSelectableEvents : Array[GameStage]
+var newWallpapersSinceLastCheck : Array[String]
 var playerName : String
 var currentDialogueKey : String = ''
+var christmasEventUnlocked = false
+var seenDialogueKeys : Dictionary = {} # Seen = has started the dialogue (true on scene begin)
+var completedDialogueKeys : Dictionary = {} # Complete = has finished the dialogue (true on scene end)
+var randomizeWallpaper = false
+
+var isStartingPokerFromNode : bool = false
+var altStartPlayerLives : int = 0
+var altStartOppLives : int = 0
+var altStartSceneData : PokerNodeData
 
 var annaCorrectChoices = 0
+var lisaMassagePoints = 0
 
 # Poker stages by wins and losses
 var pokerStageHistory = {}
+
+var preventSkipping = false
 
 
 # State Variables
@@ -43,6 +56,8 @@ var characterRelationshipXp = {
 
 var perfectDates = 0
 
+var anaMusicVideoCompleted = false
+
 enum CHARACTERS {
 	UNKNOWN,
 	ASHLEY,
@@ -55,7 +70,7 @@ var currentCharacter
 
 var dateStorage : DateStorage
 
-const VERSION = 011
+const VERSION = 017
 
 signal notify(text : String, image : Texture)
 signal fullscreenImage(image: Texture)
@@ -65,6 +80,9 @@ signal loadSave
 signal playParticle(type: String)
 signal showTopImage(image: Texture2D)
 signal startMusicSignal(music: String)
+signal startBespokeEvent(eventName: String)
+signal stopBespokeEvent(eventName: String)
+signal stopMusicFade
 
 var bg_volume
 var text_speed
@@ -89,7 +107,7 @@ func loadConfig():
 	var config = ConfigFile.new()
 	var err = config.load("user://settings.cfg")
 	if err != OK:
-		config.set_value("Audio", "bg_volume", 100);
+		config.set_value("Audio", "bg_volume", 10);
 		config.set_value("Text", "text_speed", 100)
 		config.set_value("Text", "skip_speed", 0.12)
 		config.save("user://settings.cfg");
@@ -173,7 +191,17 @@ func softCompleteCurrentStage():
 
 func setNextGameStage(stage):
 	nextStage = stage
-	
+
+func setNextCheckpoint(checkpoint : Checkpoint):
+	nextStage = PHONE_STAGE
+	completedStages = []
+	playerName = 'Player'
+	for stageName in checkpoint.completedStages:
+		if !completedStages.has(stageName):
+			completedStages.append(stageName)
+
+	dateGirlsUnlocked = [CHARACTERS.ASHLEY, CHARACTERS.LISA, CHARACTERS.AMY, CHARACTERS.ANA]
+
 func setPhoneGameStage():
 	setNextGameStage(PHONE_STAGE)
 	advanceGameStage()
@@ -218,6 +246,21 @@ func getAvailableMessages():
 	
 	if completedStages.has('anna_class'):
 		addMessage(Flags.LISA_SP_PHONE)
+	
+	if completedStages.has('lisa_sp_poker_poker3_after'):
+		addMessage(Flags.AMY_PLUTO_PHONE)
+	
+	if completedStages.has('amy_phone_with_pluto_1'):
+		addMessage(Flags.AMY_AFTER_PLUTO_PHONE)
+
+	if christmasEventUnlocked: #holidays events
+		addMessage(Flags.ASHELY_HOLIDAY_PHONE)
+		addMessage(Flags.LISA_WINTER)
+	
+	if completedStages.has('amy_lisa_discovery'):
+		addMessage(Flags.ANNA_NIGHT_PHONE)
+	if completedStages.has('anna_night'):
+		addMessage(Flags.ANNA_NIGHT_PHONE_AFTER)
 
 	return availableMessages
 
@@ -252,6 +295,18 @@ func getCompletedMessages():
 		availableMessages.append(Flags.ANNA_CLASS_MESSAGE)
 	if completedStages.has(Flags.LISA_SP_PHONE.name):
 		availableMessages.append(Flags.LISA_SP_PHONE)
+	if completedStages.has(Flags.AMY_PLUTO_PHONE.name):
+		availableMessages.append(Flags.AMY_PLUTO_PHONE)
+	if completedStages.has(Flags.AMY_AFTER_PLUTO_PHONE.name):
+		availableMessages.append(Flags.AMY_AFTER_PLUTO_PHONE)
+	if completedStages.has(Flags.ASHELY_HOLIDAY_PHONE.name):
+		availableMessages.append(Flags.ASHELY_HOLIDAY_PHONE)
+	if completedStages.has(Flags.LISA_WINTER.name):
+		availableMessages.append(Flags.LISA_WINTER)
+	if completedStages.has(Flags.ANNA_NIGHT_PHONE.name):
+		availableMessages.append(Flags.ANNA_NIGHT_PHONE)
+	if completedStages.has(Flags.ANNA_NIGHT_PHONE_AFTER.name):
+		availableMessages.append(Flags.ANNA_NIGHT_PHONE_AFTER)
 
 	return availableMessages
 
@@ -288,6 +343,16 @@ func getAvailableSelectableEvents():
 	
 	if completedStages.has('lisa_sp_poker_phone'):
 		addSelectableEvent(Flags.LISA_SP_INTRO)
+
+	if completedStages.has('amy_phone_after_pluto_1'):
+		addSelectableEvent(Flags.AMY_LISA_DISCOVERY)
+	
+	if completedStages.has('amy_lisa_discovery'):
+		addSelectableEvent(Flags.UNLOCK_CHRISTMAS)
+	
+	if completedStages.has('anna_night_phone'):
+		addSelectableEvent(Flags.ANNA_NIGHT)
+	
 	
 	return availableSelectableEvents
 
@@ -314,6 +379,14 @@ func getCompletedSelectableEvents():
 		completedSelectableEvents.append(Flags.LISA_BEACH_BEFORE)
 	if completedStages.has(Flags.ANNA_CLASS.name):
 		completedSelectableEvents.append(Flags.ANNA_CLASS)
+	if completedStages.has(Flags.LISA_SP_INTRO.name):
+		completedSelectableEvents.append(Flags.LISA_SP_INTRO)
+	if completedStages.has(Flags.AMY_LISA_DISCOVERY.name):
+		completedSelectableEvents.append(Flags.AMY_LISA_DISCOVERY)
+	if completedStages.has(Flags.UNLOCK_CHRISTMAS.name):
+		completedSelectableEvents.append(Flags.UNLOCK_CHRISTMAS)
+	if completedStages.has(Flags.ANNA_NIGHT.name):
+		completedSelectableEvents.append(Flags.ANNA_NIGHT)
 	
 	return completedSelectableEvents
 
@@ -328,6 +401,9 @@ func addMessage(message):
 func hasCompletedCurrentStage():
 	return completedStages.has(currentStage.name)
 
+func hasCompletedStage(stageName):
+	return completedStages.has(stageName)
+
 func hasCompletedCurrentStageGlobally():
 	return completedStagesGLOBAL.has(currentStage.name) or hasCompletedCurrentStage()
 
@@ -338,8 +414,11 @@ func hasCompletedStageGloballySoft():
 # Then the text id value is passed in here
 # Wallpapers in Dialogue scenes can be unlocked by emitting a signal & subscribing in DialogueManager
 func unlockWallpaper(wallpaperResourceId, customMessage = '', skipNotify = false):
+	if unlockedWallpapers.has(wallpaperResourceId):
+		return
+
+	newWallpapersSinceLastCheck.append(wallpaperResourceId)
 	unlockedWallpapers.append(wallpaperResourceId)
-	
 	var selectedWallpaper
 	for wallpaper in ALL_WALLPAPERS.wallpapers:
 		if wallpaper.wallpaperId == wallpaperResourceId:
@@ -349,11 +428,12 @@ func unlockWallpaper(wallpaperResourceId, customMessage = '', skipNotify = false
 		savePersistentData()
 		return
 
+	var wallpaperImage = load(selectedWallpaper.wallpaperImagePath)
 	if selectedWallpaper:
 		if(customMessage == ''):
-			notify.emit("Wallpaper Unlocked", selectedWallpaper.image)
+			notify.emit("Wallpaper Unlocked", wallpaperImage)
 		else:
-			notify.emit(customMessage, selectedWallpaper.image)
+			notify.emit(customMessage, wallpaperImage)
 	else:
 		printerr("Attempted to unlock wallpaper " + wallpaperResourceId + " but no resource matched this name")
 	
@@ -384,6 +464,7 @@ func savePersistentData():
 	file.store_var(unlockedWallpapers)
 	file.store_var(completedStagesGLOBAL)
 	file.store_var(pokerStageHistory)
+	file.store_var(anaMusicVideoCompleted)
 
 func loadPersistentData():
 	var file = FileAccess.open("user://persistent.dat", FileAccess.READ)
@@ -391,11 +472,16 @@ func loadPersistentData():
 		var saveVersion = file.get_var()
 		unlockedWallpapers.assign(file.get_var())
 		completedStagesGLOBAL.assign(file.get_var())
-		
+
 		if (saveVersion > 009):
 			pokerStageHistory = file.get_var()
 		else:
 			pokerStageHistory = {}
+
+		if (saveVersion > 015):
+			anaMusicVideoCompleted = file.get_var()
+		else:
+			anaMusicVideoCompleted = false
 
 func saveSaveData(saveName):
 	var file = FileAccess.open(saveName, FileAccess.WRITE)
@@ -425,7 +511,12 @@ func saveSaveData(saveName):
 	file.store_var(askedAboutLyric)
 	file.store_var(currentDialogueKey)
 	file.store_var(annaCorrectChoices)
-	
+	file.store_var(seenDialogueKeys)
+	file.store_var(christmasEventUnlocked)
+	file.store_var(completedDialogueKeys)
+	file.store_var(randomizeWallpaper)
+	file.store_var(annaDressingRoomSeenIntros)
+
 	savePersistentData()
 
 func getSaveDataInfo(saveName):
@@ -444,6 +535,7 @@ func getSaveDataInfo(saveName):
 		return null
 	
 func loadSaveData(saveName):
+	lisaMassagePoints = 0
 	var file = FileAccess.open(saveName, FileAccess.READ)
 	if file:
 		var saveVersion = file.get_var()
@@ -460,7 +552,7 @@ func loadSaveData(saveName):
 		if(saveVersion > 001):
 			playerName = file.get_var()
 		else:
-			playerName = 'Sam'
+			playerName = 'Hugh Janus'
 		
 		if(saveVersion > 003):
 			previousStage = load(file.get_var())
@@ -517,6 +609,31 @@ func loadSaveData(saveName):
 		else:
 			currentDialogueKey = ''
 			annaCorrectChoices = 0
+
+		if (saveVersion > 011):
+			seenDialogueKeys = file.get_var()
+		else:
+			seenDialogueKeys = {}
+		
+		if (saveVersion > 012):
+			christmasEventUnlocked = file.get_var()
+		else:
+			christmasEventUnlocked = false
+		
+		if (saveVersion > 013):
+			completedDialogueKeys = file.get_var()
+		else:
+			completedDialogueKeys = {}
+		
+		if (saveVersion > 014):
+			randomizeWallpaper = file.get_var()
+		else:
+			randomizeWallpaper = false
+
+		if (saveVersion > 016):
+			annaDressingRoomSeenIntros.assign(file.get_var())
+		else:
+			annaDressingRoomSeenIntros = []
 
 		dateStorage.clearCurrentDate()
 
@@ -700,6 +817,9 @@ func getCharNameForGirl(character):
 func startMusic(music : String):
 	startMusicSignal.emit(music)
 
+func fadeOutMusic():
+	stopMusicFade.emit()
+
 func startDefaultPhoneMusic():
 	startMusicSignal.emit("res://data/assets/general/sounds/bg_music/home2.mp3")
 
@@ -755,6 +875,10 @@ func getSoundEffectAtIndex(index):
 		return null
 	return currentStage.soundEffectList[index]
 
+func resetMusicAndSoundIndexes():
+	currentStage.musicIndex = -1
+	currentStage.soundEffectIndex = -1
+
 # New helper to fetch a music track by index (mirrors getSoundEffectAtIndex)
 func getMusicAtIndex(index):
 	if index < 0 or index >= currentStage.musicList.size():
@@ -762,7 +886,7 @@ func getMusicAtIndex(index):
 	return currentStage.musicList[index]
 
 func isLastEventInThisUpdate(stage: GameStage):
-	var lastEvent = "res://data/game_stages/vn/lisa_sp_poker_intro/gs_lisa_sp_poker_intro.tres"
+	var lastEvent = "res://data/game_stages/vn/anna_night/gs_anna_night.tres"
 
 	if stage.resource_path == lastEvent:
 		return true
@@ -770,7 +894,9 @@ func isLastEventInThisUpdate(stage: GameStage):
 		return false
 
 func setCurrentDialogueKey(key: String):
+	setDialogueKeyCompleted(currentDialogueKey)
 	currentDialogueKey = key
+	setDialogueKeySeen(key)
 
 func getWallpaperUnlocksForDialogueKey(dialogueKey: String):
 	if GlobalGameStage.currentStage.name == 'anna_class':
@@ -798,3 +924,93 @@ func getWallpaperUnlocksForDialogueKey(dialogueKey: String):
 			return ['ANNA_CLASS26','ANNA_CLASS27','ANNA_CLASS28','ANNA_CLASS29','ANNA_CLASS30','ANNA_CLASS31','ANNA_CLASS32','ANNA_CLASS33','ANNA_CLASS34','ANNA_CLASS35']
 	else:
 		return []
+
+func startBespoke(eventName : String):
+	startBespokeEvent.emit(eventName)
+
+func stopBespoke(eventName : String):
+	stopBespokeEvent.emit(eventName)
+
+# Conversation transcript recorded during the Anna Dressing Room minigame so it
+# can be replayed onto the phone as prepared messages once the minigame ends.
+var annaDressingRoomTranscript: Array = []
+
+func resetAnnaDressingRoomTranscript():
+	annaDressingRoomTranscript = []
+
+func recordAnnaDressingRoomMessage(entry: Dictionary):
+	annaDressingRoomTranscript.append(entry)
+
+# Outfits whose intro the player has finished watching, used to gate the
+# "Skip to Rewards" shortcut. Persisted per-save; NOT reset between sessions.
+var annaDressingRoomSeenIntros : Array[String] = []
+
+func recordAnnaDressingRoomIntroSeen(outfitName: String):
+	if outfitName not in annaDressingRoomSeenIntros:
+		annaDressingRoomSeenIntros.append(outfitName)
+
+func hasSeenAnnaDressingRoomIntros() -> bool:
+	return annaDressingRoomSeenIntros.size() > 0
+
+func getAnnaDressingRoomSeenIntros() -> Array[String]:
+	return annaDressingRoomSeenIntros
+
+func unlockChristmas():
+	christmasEventUnlocked = true
+
+func markAnaMusicVideoCompleted():
+	if anaMusicVideoCompleted:
+		return
+	anaMusicVideoCompleted = true
+	savePersistentData()
+
+func getSeenDialogueKeysForStage(stageName: String):
+	if seenDialogueKeys.has(stageName):
+		return seenDialogueKeys[stageName]
+	else:
+		return []
+	
+func hasSeenDialogueKey(dialogueKey: String, stageName: String = ""):
+	if stageName == "":
+		stageName = currentStage.name
+	if seenDialogueKeys.has(stageName):
+		return dialogueKey in seenDialogueKeys[stageName]
+	return false
+
+func setDialogueKeySeen(dialogueKey: String):
+	if !seenDialogueKeys.has(currentStage.name):
+		seenDialogueKeys[currentStage.name] = []
+	if dialogueKey not in seenDialogueKeys[currentStage.name]:
+		seenDialogueKeys[currentStage.name].append(dialogueKey)
+
+func hasSeenCurrentDialogueKeyInCurrentGameStage():
+	return hasSeenDialogueKey(currentDialogueKey, currentStage.name)
+
+func setDialogueKeyCompleted(dialogueKey: String):
+	if !completedDialogueKeys.has(currentStage.name):
+		completedDialogueKeys[currentStage.name] = []
+	if dialogueKey not in completedDialogueKeys[currentStage.name]:
+		completedDialogueKeys[currentStage.name].append(dialogueKey)
+
+func hasCompletedDialogueKey(dialogueKey: String, stageName: String = ""):
+	if stageName == "":
+		stageName = currentStage.name
+	if completedDialogueKeys.has(stageName):
+		return dialogueKey in completedDialogueKeys[stageName]
+	return false
+
+func hasCompletedCurrentDialogueKeyInCurrentGameStage():
+	return hasCompletedDialogueKey(currentDialogueKey, currentStage.name)
+
+func getRandomUnlockedWallpaper():
+	var randomWallpaper = ALL_WALLPAPERS.wallpapers.filter(func(wallpaper):
+		return unlockedWallpapers.has(wallpaper.wallpaperId)
+	)
+
+	if randomWallpaper.size() > 0:
+		return randomWallpaper[randi() % randomWallpaper.size()].wallpaperImagePath
+
+	return "res://data/wallpapers/phone_bg1.png"
+
+func shouldRandomizeWallpaper():
+	return randomizeWallpaper

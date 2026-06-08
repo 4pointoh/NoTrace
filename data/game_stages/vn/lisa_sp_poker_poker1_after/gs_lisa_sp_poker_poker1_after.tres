@@ -10,6 +10,7 @@
 script = ExtResource("5_3a0gr")
 name = "ff"
 images = ExtResource("4_pv23y")
+wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
@@ -36,6 +37,7 @@ repositionDialogueBoxTo = 0
 endOnlyOnSpecificDialogueKey = false
 endingDialogueKeys = Array[String]([])
 isPokerMatch = false
+isStripPoker = false
 playerStartingMoney = 0
 cpuStartingMoney = 0
 startingAnte = 0
@@ -53,6 +55,11 @@ allowProPlus = false
 allowProPlusMax = false
 proPlusCheats = 0
 proPlusMaxCheats = 0
+useNewPokerSystem = false
+pokerConfigJsonPath = ""
+pokerCSVPath = ""
+sceneLeadsToAPokerMatch = false
+pokerMatchGameStage = Array[ExtResource("2_1c40m")]([])
 isPhoneScreen = false
 isPhoneMessageEvent = false
 contactName = ""

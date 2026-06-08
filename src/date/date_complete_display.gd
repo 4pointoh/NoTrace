@@ -26,7 +26,7 @@ func set_memories(memories : Dictionary):
 
 func appendUnlockedMemory(wallpaper):
 	var texture_rect = TextureRect.new()
-	texture_rect.texture = wallpaper.image
+	texture_rect.texture = load(wallpaper.wallpaperImagePath)
 	texture_rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	texture_rect.custom_minimum_size = Vector2(200, 200)
@@ -34,7 +34,7 @@ func appendUnlockedMemory(wallpaper):
 
 func appendLockedMemory(wallpaper):
 	var texture_rect = TextureRect.new()
-	texture_rect.texture = wallpaper.image
+	texture_rect.texture = load(wallpaper.wallpaperImagePath)
 	texture_rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	texture_rect.custom_minimum_size = Vector2(200, 200)

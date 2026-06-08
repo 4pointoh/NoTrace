@@ -1,0 +1,44 @@
+{
+	"settings": {
+		"max_lives": 10,
+		"player_max_lives": 10
+	},
+	"participants": {
+		"LISA": {
+			"clothing_stack": [
+				{
+					"id": "EVENT 1",
+					"lives_threshold": 9
+				},
+				{
+					"id": "EVENT 2",
+					"lives_threshold": 6
+				},
+				{
+					"id": "EVENT 3",
+					"lives_threshold": 3
+				},
+				{
+					"id": "EVENT 4",
+					"lives_threshold": 0
+				}
+			]
+		},
+		"PLAYER": {
+			"clothing_stack": [
+				{
+					"id": "EVENT 1",
+					"lives_threshold": 9
+				},
+				{
+					"id": "EVENT 2",
+					"lives_threshold": 6
+				},
+				{
+					"id": "EVENT 3",
+					"lives_threshold": 0
+				}
+			]
+		}
+	}
+}

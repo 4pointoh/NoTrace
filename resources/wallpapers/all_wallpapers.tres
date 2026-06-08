@@ -1,1723 +1,2986 @@
-[gd_resource type="Resource" script_class="WallpaperList" load_steps=398 format=3 uid="uid://ben8w4alkj2ss"]
+[gd_resource type="Resource" script_class="WallpaperList" load_steps=384 format=3 uid="uid://ben8w4alkj2ss"]
 
 [ext_resource type="Script" uid="uid://cqw1gkn14oics" path="res://resources/wallpapers/WallpaperList.gd" id="1_ogmi2"]
-[ext_resource type="Texture2D" uid="uid://bj74nl6ua852s" path="res://data/wallpapers/phone_bg1.png" id="2_tnhn8"]
 [ext_resource type="Script" uid="uid://ch5xf2lfvgdoy" path="res://resources/wallpapers/Wallpaper.gd" id="3_wccuy"]
-[ext_resource type="Texture2D" uid="uid://bntivd5r3cvac" path="res://data/wallpapers/lisa_leaving.png" id="4_dipm0"]
-[ext_resource type="Texture2D" uid="uid://brdsu1blrr44u" path="res://data/wallpapers/phone_proof.png" id="5_w01my"]
-[ext_resource type="Texture2D" uid="uid://bpsyr4aihlpco" path="res://data/wallpapers/lisa_garbage.png" id="6_qlfik"]
-[ext_resource type="Texture2D" uid="uid://dnry46ekvsul5" path="res://data/wallpapers/ashe_selfie.png" id="7_m1d5n"]
-[ext_resource type="Texture2D" uid="uid://dmx3cxtb56ost" path="res://data/background_lists/ashe_park_new/rew2.png" id="8_1yf3e"]
-[ext_resource type="Texture2D" uid="uid://fsy0y4hdm6t2" path="res://data/background_lists/ashe_park_new/rew1.png" id="9_gutbg"]
-[ext_resource type="Texture2D" uid="uid://dhdpdt8p5ate4" path="res://data/background_lists/ashe_park_new/rew3.png" id="10_dospk"]
-[ext_resource type="Texture2D" uid="uid://bl3qxac68dimg" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special2.png" id="12_yefge"]
-[ext_resource type="Texture2D" uid="uid://b1dkmrtjxcgmw" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special3.png" id="13_cm23t"]
-[ext_resource type="Texture2D" uid="uid://dto8ugykv4oof" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/special5.png" id="14_yjpjy"]
-[ext_resource type="Texture2D" uid="uid://bvgh844jvm4nn" path="res://data/wallpapers/ashepark_reward5.png" id="15_i6byd"]
-[ext_resource type="Texture2D" uid="uid://ckgavu0ytc0ud" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/9.png" id="15_sr0ot"]
-[ext_resource type="Texture2D" uid="uid://cyq41msg44dhy" path="res://data/background_lists/boa_poker_new/with_shirt/11.png" id="16_y2g20"]
-[ext_resource type="Texture2D" uid="uid://bftvjg34dljwn" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/4.png" id="17_dq1fp"]
-[ext_resource type="Texture2D" uid="uid://dwm22fj7elvme" path="res://data/background_lists/boa_poker_new/shirt_irrelevant/rew1.png" id="18_dlrwp"]
-[ext_resource type="Texture2D" uid="uid://dtdkgf6ruvaoh" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool1.png" id="19_v5ci5"]
-[ext_resource type="Texture2D" uid="uid://dxhv4626n88xj" path="res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png" id="20_yxqy0"]
-[ext_resource type="Texture2D" uid="uid://cfq73hfyrlomt" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger.png" id="21_vn4i6"]
-[ext_resource type="Texture2D" uid="uid://cknmnxuvpbwdi" path="res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger-altart.png" id="22_l4qir"]
-[ext_resource type="Texture2D" uid="uid://b3o3bhp5grl50" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward1.png" id="23_mmxrp"]
-[ext_resource type="Texture2D" uid="uid://cwd80875s7nxs" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward2.png" id="24_0vmbd"]
-[ext_resource type="Texture2D" uid="uid://btfknhvqnut4a" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward3.png" id="25_wkv0p"]
-[ext_resource type="Texture2D" uid="uid://c85l56t6ss65p" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward4.png" id="26_tgh7g"]
-[ext_resource type="Texture2D" uid="uid://rh1stktawcea" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward5.png" id="27_6asmi"]
-[ext_resource type="Texture2D" uid="uid://c2ouhg8lf1oj1" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward6.png" id="28_wudfs"]
-[ext_resource type="Texture2D" uid="uid://bx07tgxaqtgg4" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward7.png" id="29_dx0vj"]
-[ext_resource type="Texture2D" uid="uid://b634bt2htd3dw" path="res://data/background_lists/lisa_park_training/lisa_park_training_reward8.png" id="30_5ybm3"]
-[ext_resource type="Texture2D" uid="uid://chpjhrdiuhuwq" path="res://data/background_lists/lisa_market_new/rew3.png" id="32_5qpvs"]
-[ext_resource type="Texture2D" uid="uid://bmdxkemprtvoh" path="res://data/background_lists/lisa_market_new/rew1.png" id="33_mx83n"]
-[ext_resource type="Texture2D" uid="uid://duwngfm701ykp" path="res://data/background_lists/lisa_market_new/rew2.png" id="34_bwfcr"]
-[ext_resource type="Texture2D" uid="uid://daxhp3pqki2r7" path="res://data/background_lists/lisa_park_training/lisa_park_training_59.png" id="35_slt3q"]
-[ext_resource type="Texture2D" uid="uid://bhlijyxjt5e45" path="res://data/background_lists/lisa_park_training/lisa_park_training_61.png" id="36_epf1q"]
-[ext_resource type="Texture2D" uid="uid://bo8mip2p63ncc" path="res://data/background_lists/lisa_park_training/lisa_park_training_63.png" id="37_6elky"]
-[ext_resource type="Texture2D" uid="uid://c0v5xuynlx2c" path="res://data/background_lists/ana_shop_meeting/undress_8.png" id="38_0i5lc"]
-[ext_resource type="Texture2D" uid="uid://climqdw53i22x" path="res://data/background_lists/ana_shop_meeting/undress_9.png" id="39_uemvh"]
-[ext_resource type="Texture2D" uid="uid://c7cnac1l06hdg" path="res://data/background_lists/ana_shop_meeting/undress_10.png" id="40_ao66a"]
-[ext_resource type="Texture2D" uid="uid://cw30gst8s06v8" path="res://data/background_lists/ana_shop_meeting/undress_11.png" id="41_m4fkv"]
-[ext_resource type="Texture2D" uid="uid://xwd7lxewvnq7" path="res://data/background_lists/ashely_theater/5.1.png" id="42_hsrdh"]
-[ext_resource type="Texture2D" uid="uid://bkwh8sx7n87fi" path="res://data/background_lists/ashely_theater/11.png" id="43_ckjru"]
-[ext_resource type="Texture2D" uid="uid://b5u5uhfy1ygv8" path="res://data/background_lists/ashely_theater/12.png" id="44_i2bfr"]
-[ext_resource type="Texture2D" uid="uid://c3bc7p7nai80j" path="res://data/background_lists/ashely_theater/24.png" id="45_ou3xw"]
-[ext_resource type="Texture2D" uid="uid://bqs6bqmi2juxx" path="res://data/background_lists/ashely_theater/28.png" id="46_h7cln"]
-[ext_resource type="Texture2D" uid="uid://dev61x8hu6pm5" path="res://data/background_lists/ashely_theater/31.png" id="47_mcnna"]
-[ext_resource type="Texture2D" uid="uid://dlrrq0g06ksje" path="res://data/background_lists/ashely_theater/36.png" id="48_qtf6q"]
-[ext_resource type="Texture2D" uid="uid://lcrw6h8hokcn" path="res://data/background_lists/ashely_theater/39.png" id="49_xs5aa"]
-[ext_resource type="Texture2D" uid="uid://csh6dmith6g7g" path="res://data/background_lists/ashely_theater/43.png" id="50_6qe2x"]
-[ext_resource type="Texture2D" uid="uid://hfwgy0tj8cg" path="res://data/background_lists/ashely_theater/48.png" id="51_o7prm"]
-[ext_resource type="Texture2D" uid="uid://drd75h6qsj6e5" path="res://data/background_lists/ashely_theater/49.png" id="52_ab3h0"]
-[ext_resource type="Texture2D" uid="uid://dqjxuebxtcpy4" path="res://data/background_lists/ashely_theater/53.png" id="53_32fyo"]
-[ext_resource type="Texture2D" uid="uid://dmmxmhxa7yhqm" path="res://data/wallpapers/ana_phone_intro_selfie.png" id="54_2mfvm"]
-[ext_resource type="Texture2D" uid="uid://duhr3mbghl8og" path="res://data/wallpapers/ana_phone_intro_selfie_angry.png" id="55_scl6i"]
-[ext_resource type="Texture2D" uid="uid://da7rok32u5p1x" path="res://data/wallpapers/ana_phone_intro_selfie_angry2.png" id="56_gg6uf"]
-[ext_resource type="Texture2D" uid="uid://7rts4bn7ha2d" path="res://data/background_lists/anna_burger/rew1.webp" id="57_en8fl"]
-[ext_resource type="Texture2D" uid="uid://bact3o5teel8" path="res://data/background_lists/anna_burger/rew2.webp" id="58_7l0vy"]
-[ext_resource type="Texture2D" uid="uid://dxswaeyy2o65e" path="res://data/background_lists/anna_burger/rew3.webp" id="59_nrw2d"]
-[ext_resource type="Texture2D" uid="uid://c5epn44xgruar" path="res://data/background_lists/anna_burger/rew4.webp" id="60_o3vsx"]
-[ext_resource type="Texture2D" uid="uid://dcf7m75jffkie" path="res://data/background_lists/anna_burger/rew5.webp" id="61_bg2q2"]
-[ext_resource type="Texture2D" uid="uid://dea1sqtpa48uw" path="res://data/background_lists/anna_burger/rew6.webp" id="62_b6t61"]
-[ext_resource type="Texture2D" uid="uid://df1nbv1h6quaw" path="res://data/wallpapers/ana_lyric.png" id="63_wjeyn"]
-[ext_resource type="Texture2D" uid="uid://dajtbpv8scrhg" path="res://data/wallpapers/ana_lyric2.png" id="64_xtbqc"]
-[ext_resource type="Texture2D" uid="uid://tbuajjsxc8sp" path="res://data/wallpapers/ana_lyric3.png" id="65_rbg3e"]
-[ext_resource type="Texture2D" uid="uid://bkkvkhj5t8o3n" path="res://data/wallpapers/ashely_selfie1.png" id="66_uhg8y"]
-[ext_resource type="Texture2D" uid="uid://4kywwss6pihl" path="res://data/background_lists/ashely_bar_poker/002.webp" id="67_ohb7o"]
-[ext_resource type="Texture2D" uid="uid://4rjjlwsaty06" path="res://data/background_lists/ashely_bar_poker/007.webp" id="68_ra4yy"]
-[ext_resource type="Texture2D" uid="uid://c25stkjx780rn" path="res://data/background_lists/ashely_bar_poker/101.webp" id="69_52v4g"]
-[ext_resource type="Texture2D" uid="uid://dl5ruw2hcu7bv" path="res://data/background_lists/ashely_bar_poker/121.webp" id="70_awamq"]
-[ext_resource type="Texture2D" uid="uid://dctk41l1tht05" path="res://data/background_lists/ashely_bar_poker/128.webp" id="71_dcuae"]
-[ext_resource type="Texture2D" uid="uid://dlyp0xc832yw5" path="res://data/background_lists/ashely_bar_poker/203.webp" id="72_0a0r8"]
-[ext_resource type="Texture2D" uid="uid://ro8necll2nji" path="res://data/background_lists/ashely_bar_poker/309_1.webp" id="73_hdlif"]
-[ext_resource type="Texture2D" uid="uid://d2d0wbmopv3t4" path="res://data/background_lists/ashely_bar_poker/312.webp" id="74_7cecp"]
-[ext_resource type="Texture2D" uid="uid://b4geignguypdx" path="res://data/background_lists/ashely_bar_poker/314.webp" id="75_pb515"]
-[ext_resource type="Texture2D" uid="uid://d4gku8chjmhhn" path="res://data/background_lists/ashely_bar_poker/315.webp" id="76_0rt81"]
-[ext_resource type="Texture2D" uid="uid://dgbya22rnlhnr" path="res://data/background_lists/ashely_bar_poker/318.webp" id="77_7m82i"]
-[ext_resource type="Texture2D" uid="uid://cau1gj3e8w6kw" path="res://data/background_lists/ashely_bar_poker/405_1.webp" id="78_0omye"]
-[ext_resource type="Texture2D" uid="uid://b1n205pqm21td" path="res://data/background_lists/ashely_bar_poker/500.webp" id="79_r6xvj"]
-[ext_resource type="Texture2D" uid="uid://8kbgv78u8v6x" path="res://data/background_lists/ashely_bar_poker/500_1.webp" id="80_28l3e"]
-[ext_resource type="Texture2D" uid="uid://cj4hxrwq5v3iv" path="res://data/background_lists/ashely_bar_poker/500_2.webp" id="81_uqf1j"]
-[ext_resource type="Texture2D" uid="uid://c532ycm27il7u" path="res://data/background_lists/ashely_bar_poker/504.webp" id="82_0rt81"]
-[ext_resource type="Texture2D" uid="uid://oeskujxveuhw" path="res://data/background_lists/ashely_bar_poker/505.webp" id="83_7m82i"]
-[ext_resource type="Texture2D" uid="uid://dmc1exwnorf2" path="res://data/background_lists/ashely_bar_poker/511.webp" id="84_r6xvj"]
-[ext_resource type="Texture2D" uid="uid://bewp5hqvesb0y" path="res://data/background_lists/ashely_bar_poker/512.webp" id="85_28l3e"]
-[ext_resource type="Texture2D" uid="uid://bfsrnk5xue7gi" path="res://data/background_lists/ashely_bar_poker/516.webp" id="86_uqf1j"]
-[ext_resource type="Texture2D" uid="uid://cggi4f4epboki" path="res://data/background_lists/ashely_bar_poker/518.webp" id="87_uqf1j"]
-[ext_resource type="Texture2D" uid="uid://cgy4lepyrv8ut" path="res://data/background_lists/ashely_bar_poker/519.webp" id="88_n7ryt"]
-[ext_resource type="Texture2D" uid="uid://dt0pgki0mhof4" path="res://data/background_lists/ashely_bar_poker/606.webp" id="89_sb8ak"]
-[ext_resource type="Texture2D" uid="uid://dk8feovscss4t" path="res://data/background_lists/ashely_bar_poker/607.webp" id="90_oj0ec"]
-[ext_resource type="Texture2D" uid="uid://dvw8cott6w37u" path="res://data/background_lists/ashely_bar_poker/608.webp" id="91_htvw4"]
-[ext_resource type="Texture2D" uid="uid://cey7fl3srkt5t" path="res://data/background_lists/ashely_bar_poker/612.webp" id="92_6bv1m"]
-[ext_resource type="Texture2D" uid="uid://bdmisj2gt87o8" path="res://data/background_lists/ashely_bar_poker/613.webp" id="93_tn5ie"]
-[ext_resource type="Texture2D" uid="uid://dcqadf5tskvnq" path="res://data/background_lists/ashely_bar_poker/l_0.webp" id="94_2l4i8"]
-[ext_resource type="Texture2D" uid="uid://efd7ofrlfvsi" path="res://data/background_lists/ashely_bar_poker/l_7.webp" id="95_h1i8o"]
-[ext_resource type="Texture2D" uid="uid://cwpx8gioepluf" path="res://data/background_lists/ashely_bar_poker/l_8.webp" id="96_nfupu"]
-[ext_resource type="Texture2D" uid="uid://nf8yw2eheqn4" path="res://data/background_lists/ashely_bar_poker/l12_v1_2.webp" id="97_htvw4"]
-[ext_resource type="Texture2D" uid="uid://c2vpo3anawm57" path="res://data/background_lists/ashely_bar_poker/l12_v1_4.webp" id="98_6bv1m"]
-[ext_resource type="Texture2D" uid="uid://dhee0rv6nooq1" path="res://data/background_lists/ashely_bar_poker/l13_2.webp" id="99_pob4n"]
-[ext_resource type="Texture2D" uid="uid://p8dv84ignw8u" path="res://data/background_lists/ashely_bar_poker/l13_3.webp" id="100_4ads7"]
-[ext_resource type="Texture2D" uid="uid://mxxck3ija4dl" path="res://data/background_lists/ashely_bar_poker/l16.webp" id="101_yfefg"]
-[ext_resource type="Texture2D" uid="uid://dn46pu4wv0cy" path="res://data/background_lists/ashely_bar_poker/l17_1.webp" id="102_xj6uu"]
-[ext_resource type="Texture2D" uid="uid://1bb7vvaog6tv" path="res://data/background_lists/ashely_bar_poker/l17_2.webp" id="103_guorf"]
-[ext_resource type="Texture2D" uid="uid://brvn518hoft2w" path="res://data/background_lists/ashely_bar_poker/l17_3.webp" id="104_hfumm"]
-[ext_resource type="Texture2D" uid="uid://btnwu2ocmcfu" path="res://data/background_lists/ashely_bar_poker/l17_4.webp" id="105_hoyv7"]
-[ext_resource type="Texture2D" uid="uid://dgx2jtpot4ycn" path="res://data/wallpapers/beach1.png" id="106_4ads7"]
-[ext_resource type="Texture2D" uid="uid://cneglplkb085e" path="res://data/wallpapers/lisabeach_wall1.png" id="107_guorf"]
-[ext_resource type="Texture2D" uid="uid://cmxp638g1v77p" path="res://data/wallpapers/lisabeach_wall2.png" id="108_hfumm"]
-[ext_resource type="Texture2D" uid="uid://dj37oo1kdyov2" path="res://data/wallpapers/lisabeach_wall3.png" id="109_hoyv7"]
-[ext_resource type="Texture2D" uid="uid://cvrk50h7fcsge" path="res://data/background_lists/lisa_beach_beach/200.webp" id="110_hfumm"]
-[ext_resource type="Texture2D" uid="uid://bw6j86kt4j313" path="res://data/background_lists/lisa_beach_beach/201.webp" id="111_hoyv7"]
-[ext_resource type="Texture2D" uid="uid://dy866c2ybrgt7" path="res://data/background_lists/lisa_beach_beach/205.webp" id="112_7q6mc"]
-[ext_resource type="Texture2D" uid="uid://ctbpku3q0hxld" path="res://data/background_lists/lisa_beach_beach/208.webp" id="113_xf6lt"]
-[ext_resource type="Texture2D" uid="uid://b0yq1u3esidis" path="res://data/background_lists/lisa_beach_beach/210.webp" id="114_m75yf"]
-[ext_resource type="Texture2D" uid="uid://cnx7ubm7u2wjx" path="res://data/background_lists/lisa_beach_beach/213.webp" id="115_rasxk"]
-[ext_resource type="Texture2D" uid="uid://c07p2ns51uk7v" path="res://data/background_lists/lisa_beach_beach/216.webp" id="116_edwk8"]
-[ext_resource type="Texture2D" uid="uid://bkuvba0jguj3e" path="res://data/background_lists/lisa_beach_beach/219.webp" id="117_oi4e0"]
-[ext_resource type="Texture2D" uid="uid://cv5clx254oxg7" path="res://data/background_lists/lisa_beach_beach/221.webp" id="118_p4wa1"]
-[ext_resource type="Texture2D" uid="uid://d1jb6b5e8ij13" path="res://data/background_lists/lisa_beach_beach/223.webp" id="119_fd0vm"]
-[ext_resource type="Texture2D" uid="uid://bmuqskqj7fhq7" path="res://data/background_lists/lisa_beach_beach/227.webp" id="120_u7xa6"]
-[ext_resource type="Texture2D" uid="uid://mca2pbyo3cdv" path="res://data/background_lists/lisa_beach_beach/230.webp" id="121_xwrbd"]
-[ext_resource type="Texture2D" uid="uid://bwpe6m3gybm5q" path="res://data/background_lists/lisa_beach_beach/240.webp" id="122_j6l20"]
-[ext_resource type="Texture2D" uid="uid://bxwpsfk2c7nug" path="res://data/background_lists/lisa_beach_beach/242.webp" id="123_h88py"]
-[ext_resource type="Texture2D" uid="uid://lnivrj3vrcfh" path="res://data/background_lists/lisa_beach_beach/248.webp" id="124_p4wa1"]
-[ext_resource type="Texture2D" uid="uid://bukl82n0nacvd" path="res://data/background_lists/lisa_beach_beach/251.webp" id="125_fd0vm"]
-[ext_resource type="Texture2D" uid="uid://c5fupevct05yj" path="res://data/background_lists/lisa_beach_beach/255.webp" id="126_u7xa6"]
-[ext_resource type="Texture2D" uid="uid://c3xuofht48roj" path="res://data/background_lists/lisa_beach_beach/new2.webp" id="127_xwrbd"]
-[ext_resource type="Texture2D" uid="uid://byvmxy51nnpkk" path="res://data/background_lists/lisa_beach_boardwalk/102.webp" id="128_82mex"]
-[ext_resource type="Texture2D" uid="uid://ctuc5wnu5ma8u" path="res://data/background_lists/lisa_beach_boardwalk/105.webp" id="129_5y00m"]
-[ext_resource type="Texture2D" uid="uid://c871n7v0u8y7a" path="res://data/background_lists/lisa_beach_boardwalk/106.webp" id="130_w05yg"]
-[ext_resource type="Texture2D" uid="uid://b2h5tsymf03ic" path="res://data/background_lists/lisa_beach_boardwalk/108.webp" id="131_afth5"]
-[ext_resource type="Texture2D" uid="uid://c0wxsyg3r8jr2" path="res://data/background_lists/lisa_beach_boardwalk/111.webp" id="132_ksahr"]
-[ext_resource type="Texture2D" uid="uid://gqyub5eholmp" path="res://data/background_lists/lisa_beach_boardwalk/116_4.webp" id="133_jopn4"]
-[ext_resource type="Texture2D" uid="uid://pm0b3c86ba5c" path="res://data/background_lists/lisa_beach_boardwalk/122.webp" id="134_j1bep"]
-[ext_resource type="Texture2D" uid="uid://bhlelb57br0cl" path="res://data/background_lists/lisa_beach_boardwalk/123.webp" id="135_mgx5a"]
-[ext_resource type="Texture2D" uid="uid://c8ktis5lokm8d" path="res://data/background_lists/lisa_beach_boardwalk/129.webp" id="136_08mmx"]
-[ext_resource type="Texture2D" uid="uid://dnvfd8dqrc0f2" path="res://data/background_lists/lisa_beach_boardwalk/131.webp" id="137_258rc"]
-[ext_resource type="Texture2D" uid="uid://nn8xgvfvfk0b" path="res://data/background_lists/lisa_beach_early_departure/400.webp" id="138_ksahr"]
-[ext_resource type="Texture2D" uid="uid://dngdmf00w2ekq" path="res://data/background_lists/lisa_beach_early_departure/402.webp" id="139_jopn4"]
-[ext_resource type="Texture2D" uid="uid://csgyb08reoci4" path="res://data/background_lists/lisa_beach_early_departure/403.webp" id="140_j1bep"]
-[ext_resource type="Texture2D" uid="uid://dtxolxgdc0ean" path="res://data/background_lists/lisa_beach_early_departure/409.webp" id="141_mgx5a"]
-[ext_resource type="Texture2D" uid="uid://1cb3wgtaauct" path="res://data/background_lists/lisa_beach_night/500.webp" id="142_jopn4"]
-[ext_resource type="Texture2D" uid="uid://bmvr3lwp7ak7b" path="res://data/background_lists/lisa_beach_night/502.webp" id="143_h7cln"]
-[ext_resource type="Texture2D" uid="uid://dn3ajt6jldwc3" path="res://data/background_lists/lisa_beach_night/506.webp" id="144_h44hn"]
-[ext_resource type="Texture2D" uid="uid://bhmloaisvowbh" path="res://data/background_lists/lisa_beach_night/510.webp" id="145_0gn2n"]
-[ext_resource type="Texture2D" uid="uid://dau45hxismlfe" path="res://data/background_lists/lisa_beach_night/511.webp" id="146_l2t2k"]
-[ext_resource type="Texture2D" uid="uid://cmj2ux8haaqvd" path="res://data/background_lists/lisa_beach_night/503.webp" id="147_gpdk4"]
-[ext_resource type="Texture2D" uid="uid://qaiykpawx18p" path="res://data/background_lists/lisa_beach_night/shower.webp" id="148_h44hn"]
-[ext_resource type="Texture2D" uid="uid://dp2fcqsyyi4f4" path="res://data/background_lists/anna_class/001.webp" id="148_s3603"]
-[ext_resource type="Texture2D" uid="uid://vf4tu745s88n" path="res://data/background_lists/anna_class/010_1.webp" id="149_hluk6"]
-[ext_resource type="Texture2D" uid="uid://lmepinbydoxi" path="res://data/background_lists/anna_class/017.webp" id="150_atw5o"]
-[ext_resource type="Texture2D" uid="uid://cubir2pwto5os" path="res://data/background_lists/anna_class/036.webp" id="151_0u550"]
-[ext_resource type="Texture2D" uid="uid://e3lamqpp1nm2" path="res://data/background_lists/anna_class/035.webp" id="152_wgbvn"]
-[ext_resource type="Texture2D" uid="uid://c7ww01hvdgf1d" path="res://data/background_lists/anna_class/102.webp" id="153_v7pem"]
-[ext_resource type="Texture2D" uid="uid://twlwhka47tri" path="res://data/background_lists/anna_class/103.webp" id="154_15tl8"]
-[ext_resource type="Texture2D" uid="uid://bboj5wdgdkgf6" path="res://data/background_lists/anna_class/106.webp" id="155_1sfev"]
-[ext_resource type="Texture2D" uid="uid://djkjm1oq2dg3t" path="res://data/background_lists/anna_class/200.webp" id="156_6r2ts"]
-[ext_resource type="Texture2D" uid="uid://1jh5mx7p0inh" path="res://data/background_lists/anna_class/201.webp" id="157_leckg"]
-[ext_resource type="Texture2D" uid="uid://ct38k3tj62ulf" path="res://data/background_lists/anna_class/300.webp" id="158_rosnl"]
-[ext_resource type="Texture2D" uid="uid://bkpn561iproh0" path="res://data/background_lists/anna_class/502_kiss.webp" id="159_f5osu"]
-[ext_resource type="Texture2D" uid="uid://mq2hthehscqy" path="res://data/background_lists/anna_class/601.webp" id="160_h60do"]
-[ext_resource type="Texture2D" uid="uid://ccyw3pl5w3dg7" path="res://data/background_lists/anna_class/701.webp" id="161_t3uu6"]
-[ext_resource type="Texture2D" uid="uid://betgiu0d2tu2h" path="res://data/background_lists/anna_class/704.webp" id="162_7udci"]
-[ext_resource type="Texture2D" uid="uid://bn4eyn53k5jvm" path="res://data/background_lists/anna_class/1001.webp" id="163_y58y4"]
-[ext_resource type="Texture2D" uid="uid://cskf1a02m1osp" path="res://data/background_lists/anna_class/1003.webp" id="164_is76j"]
-[ext_resource type="Texture2D" uid="uid://dv077u3sobwmv" path="res://data/background_lists/anna_class/1100.webp" id="165_lae08"]
-[ext_resource type="Texture2D" uid="uid://caricgcpb1yh" path="res://data/background_lists/anna_class/1104.webp" id="166_tf6xf"]
-[ext_resource type="Texture2D" uid="uid://bhpxn7hcwyekf" path="res://data/background_lists/anna_class/1105.webp" id="167_kpmrj"]
-[ext_resource type="Texture2D" uid="uid://b2kwxk3658dpo" path="res://data/background_lists/anna_class/1106.webp" id="168_26sa2"]
-[ext_resource type="Texture2D" uid="uid://gd3dl5eyxra" path="res://data/background_lists/anna_class/1107.webp" id="169_wyqog"]
-[ext_resource type="Texture2D" uid="uid://d0gve5udnlj6" path="res://data/background_lists/anna_class/1202.webp" id="170_x605a"]
-[ext_resource type="Texture2D" uid="uid://c16518aamwsal" path="res://data/wallpapers/Magazine.png" id="171_xp60g"]
-[ext_resource type="Texture2D" uid="uid://hwqd13c0fjxb" path="res://data/background_lists/anna_class/1205.webp" id="172_uybey"]
-[ext_resource type="Texture2D" uid="uid://cmisdhm068hwg" path="res://data/background_lists/anna_class/1304.webp" id="173_wcrto"]
-[ext_resource type="Texture2D" uid="uid://c6u22n5ij4v4" path="res://data/background_lists/anna_class/1306.webp" id="174_nhpew"]
-[ext_resource type="Texture2D" uid="uid://clsu6fpwjm1dr" path="res://data/background_lists/anna_class/1307.webp" id="175_k87pw"]
-[ext_resource type="Texture2D" uid="uid://trylvlpbmtjp" path="res://data/background_lists/anna_class/1310.webp" id="176_qv10a"]
-[ext_resource type="Texture2D" uid="uid://iw7brey2ddpo" path="res://data/background_lists/anna_class/1312.webp" id="177_n35fa"]
-[ext_resource type="Texture2D" uid="uid://bdemt8t4mxanc" path="res://data/background_lists/anna_class/1314.webp" id="178_1dmnq"]
-[ext_resource type="Texture2D" uid="uid://b6ghplflxxne7" path="res://data/background_lists/anna_class/1316.webp" id="179_34qh2"]
-[ext_resource type="Texture2D" uid="uid://caupdfsx5nrrn" path="res://data/background_lists/anna_class/1318.webp" id="180_77ke4"]
-[ext_resource type="Texture2D" uid="uid://blovj4el34gjt" path="res://data/background_lists/anna_class/1320.webp" id="181_6vo3m"]
-[ext_resource type="Texture2D" uid="uid://ccupdkxxulqai" path="res://data/background_lists/anna_class/1321.webp" id="182_k28yx"]
-[ext_resource type="Texture2D" uid="uid://b0k8hcul1xq77" path="res://data/background_lists/anna_class/901.webp" id="183_kpmrj"]
-[ext_resource type="Texture2D" uid="uid://b0ck1dfos5pa" path="res://data/background_lists/anna_class/600.webp" id="184_26sa2"]
-[ext_resource type="Texture2D" uid="uid://dbh5ahbvrbfr" path="res://data/background_lists/anna_class/801.webp" id="185_wyqog"]
-[ext_resource type="Texture2D" uid="uid://17mwschpc1uv" path="res://data/background_lists/anna_class/803.webp" id="186_x605a"]
-[ext_resource type="Texture2D" uid="uid://dql2a46ggjtfw" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0005.webp" id="187_34qh2"]
-[ext_resource type="Texture2D" uid="uid://csg6b217j5s4j" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0006.webp" id="188_77ke4"]
-[ext_resource type="Texture2D" uid="uid://ccoc8ny0d5kxo" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0008.webp" id="189_6vo3m"]
-[ext_resource type="Texture2D" uid="uid://dfxgky7q4hadd" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0011.webp" id="190_k28yx"]
-[ext_resource type="Texture2D" uid="uid://duw7g1isk3syp" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0012.webp" id="191_thsml"]
-[ext_resource type="Texture2D" uid="uid://crf52ujwyfm3v" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0013.webp" id="192_2vtmp"]
-[ext_resource type="Texture2D" uid="uid://di5u10r7rrnis" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0016.webp" id="193_oblfm"]
-[ext_resource type="Texture2D" uid="uid://cxdt3gmv5u63p" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0017.webp" id="194_gt7xa"]
-[ext_resource type="Texture2D" uid="uid://bpox4swepfy3e" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0020.webp" id="195_j1bg4"]
-[ext_resource type="Texture2D" uid="uid://bbe4ft8p15jkq" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0021.webp" id="196_i27lp"]
-[ext_resource type="Texture2D" uid="uid://cpc4qerl427hr" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0026.webp" id="197_8nogi"]
-[ext_resource type="Texture2D" uid="uid://bpqfgrpe0mdkp" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0029.webp" id="198_r4usm"]
 
 [sub_resource type="Resource" id="Resource_fr55m"]
 script = ExtResource("3_wccuy")
 wallpaperId = "DEFAULT"
-image = ExtResource("2_tnhn8")
 hint = "The default wallpaper. Always unlocked."
 video = ""
+wallpaperImagePath = "res://data/wallpapers/phone_bg1.png"
 
 [sub_resource type="Resource" id="Resource_6bfou"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_LEAVING"
-image = ExtResource("4_dipm0")
 hint = "Lisa leaving Chad's party"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/lisa_leaving.png"
 
 [sub_resource type="Resource" id="Resource_367e1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_PROOF"
-image = ExtResource("5_w01my")
 hint = "A photo sent by Lisa as proof of her identity. Unlocked in the intro phone conversation."
 video = ""
+wallpaperImagePath = "res://data/wallpapers/phone_proof.png"
 
 [sub_resource type="Resource" id="Resource_jgui8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_GARBAGE"
-image = ExtResource("6_qlfik")
 hint = "A photo sent by Lisa to make you feel less garbage. Unlocked in the intro phone conversation."
 video = ""
+wallpaperImagePath = "res://data/wallpapers/lisa_garbage.png"
 
 [sub_resource type="Resource" id="Resource_3ay0b"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHE_SELFIE"
-image = ExtResource("7_m1d5n")
 hint = "A reminder for you, unlocked in the unknown number intro phone conversation."
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ashe_selfie.png"
 
 [sub_resource type="Resource" id="Resource_t5hq4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK1"
-image = ExtResource("12_yefge")
 hint = "Lose To Boa In Poker (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/shirt_irrelevant/special2.png"
 
 [sub_resource type="Resource" id="Resource_10do2"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK2"
-image = ExtResource("13_cm23t")
 hint = "Lose To Boa In Poker (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/shirt_irrelevant/special3.png"
 
 [sub_resource type="Resource" id="Resource_ey563"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK3"
-image = ExtResource("14_yjpjy")
 hint = "Beat Boa In Poker (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/shirt_irrelevant/special5.png"
 
 [sub_resource type="Resource" id="Resource_vowtd"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK4"
-image = ExtResource("15_sr0ot")
 hint = "Beat Boa In Poker (2)"
 video = "res://data/background_lists/boa_poker_new/video/boa2.ogv"
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/shirt_irrelevant/9.png"
 
 [sub_resource type="Resource" id="Resource_obf38"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK5"
-image = ExtResource("16_y2g20")
 hint = "Beat Boa In Poker (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/with_shirt/11.png"
 
 [sub_resource type="Resource" id="Resource_ukekf"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK6"
-image = ExtResource("17_dq1fp")
 hint = "Beat Boa In Poker (4)"
 video = "res://data/background_lists/boa_poker_new/video/boa1.ogv"
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/shirt_irrelevant/4.png"
 
 [sub_resource type="Resource" id="Resource_muuf5"]
 script = ExtResource("3_wccuy")
 wallpaperId = "BOA_POK7"
-image = ExtResource("18_dlrwp")
 hint = "Beat Boa In Poker (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/boa_poker_new/shirt_irrelevant/rew1.png"
 
 [sub_resource type="Resource" id="Resource_f01mg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_MARKET_REW_1"
-image = ExtResource("32_5qpvs")
 hint = "Lisa market date (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_market_new/rew3.png"
 
 [sub_resource type="Resource" id="Resource_a8155"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_MARKET_REW_2"
-image = ExtResource("33_mx83n")
 hint = "Lisa market date (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_market_new/rew1.png"
 
 [sub_resource type="Resource" id="Resource_fegc8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_MARKET_REW_3"
-image = ExtResource("34_bwfcr")
 hint = "Lisa market date (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_market_new/rew2.png"
 
 [sub_resource type="Resource" id="Resource_ocj37"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK1"
-image = ExtResource("8_1yf3e")
 hint = "Ashely Park (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashe_park_new/rew2.png"
 
 [sub_resource type="Resource" id="Resource_p7fpl"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK2"
-image = ExtResource("9_gutbg")
 hint = "Ashely Park (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashe_park_new/rew1.png"
 
 [sub_resource type="Resource" id="Resource_6tmel"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK3"
-image = ExtResource("10_dospk")
 hint = "Ashely Park (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashe_park_new/rew3.png"
 
 [sub_resource type="Resource" id="Resource_xuy0b"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHEPARK5"
-image = ExtResource("15_i6byd")
 hint = "Ashely Park (5)"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ashepark_reward5.png"
 
 [sub_resource type="Resource" id="Resource_mt54f"]
 script = ExtResource("3_wccuy")
 wallpaperId = "chad_pool_img1"
-image = ExtResource("19_v5ci5")
 hint = "Chat with chad about lisa (1)"
 video = ""
+wallpaperImagePath = "res://data/game_stages/phone_message/chad_unblock_lisa/pool1.png"
 
 [sub_resource type="Resource" id="Resource_yd80y"]
 script = ExtResource("3_wccuy")
 wallpaperId = "chad_pool_img2"
-image = ExtResource("20_yxqy0")
 hint = "Chat with chad about lisa (2)"
 video = "res://data/game_stages/phone_message/chad_unblock_lisa/videos/pool.ogv"
+wallpaperImagePath = "res://data/game_stages/phone_message/chad_unblock_lisa/pool2.png"
 
 [sub_resource type="Resource" id="Resource_8265s"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_SHOP_1"
-image = ExtResource("38_0i5lc")
 hint = "Ana Shop (1)"
 video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+wallpaperImagePath = "res://data/background_lists/ana_shop_meeting/undress_8.png"
 
 [sub_resource type="Resource" id="Resource_xvhwn"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_SHOP_2"
-image = ExtResource("39_uemvh")
 hint = "Ana Shop (2)"
 video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+wallpaperImagePath = "res://data/background_lists/ana_shop_meeting/undress_9.png"
 
 [sub_resource type="Resource" id="Resource_kcxj0"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_SHOP_3"
-image = ExtResource("40_ao66a")
 hint = "Ana Shop (3)"
 video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+wallpaperImagePath = "res://data/background_lists/ana_shop_meeting/undress_10.png"
 
 [sub_resource type="Resource" id="Resource_7rwqr"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_SHOP_4"
-image = ExtResource("41_m4fkv")
 hint = "Ana Shop (4)"
 video = "res://data/background_lists/ana_shop_meeting/video/out.ogv"
+wallpaperImagePath = "res://data/background_lists/ana_shop_meeting/undress_11.png"
 
 [sub_resource type="Resource" id="Resource_b4gnm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ashe_middlefinger"
-image = ExtResource("21_vn4i6")
 hint = "Insist on more money"
 video = ""
+wallpaperImagePath = "res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger.png"
 
 [sub_resource type="Resource" id="Resource_rej7w"]
 script = ExtResource("3_wccuy")
 wallpaperId = "middlefinger-alt-art"
-image = ExtResource("22_l4qir")
 hint = "Insist on more money - Alternate art"
 video = ""
+wallpaperImagePath = "res://data/game_stages/phone_message/ashely_introduce_amy/middlefinger-altart.png"
 
 [sub_resource type="Resource" id="Resource_adreg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward1"
-image = ExtResource("23_mmxrp")
 hint = "Attempt to train Lisa the old-fashioned way (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward1.png"
 
 [sub_resource type="Resource" id="Resource_qud3p"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward2"
-image = ExtResource("24_0vmbd")
 hint = "Attempt to train Lisa the old-fashioned way (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward2.png"
 
 [sub_resource type="Resource" id="Resource_pkb4d"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward3"
-image = ExtResource("25_wkv0p")
 hint = "Attempt to train Lisa the old-fashioned way (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward3.png"
 
 [sub_resource type="Resource" id="Resource_ehi18"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward4"
-image = ExtResource("26_tgh7g")
 hint = "Attempt to train Lisa the old-fashioned way (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward4.png"
 
 [sub_resource type="Resource" id="Resource_q0qi1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward5"
-image = ExtResource("27_6asmi")
 hint = "Attempt to train Lisa the old-fashioned way (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward5.png"
 
 [sub_resource type="Resource" id="Resource_ujgt3"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward6"
-image = ExtResource("28_wudfs")
 hint = "Attempt to train Lisa the old-fashioned way (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward6.png"
 
 [sub_resource type="Resource" id="Resource_onh7g"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward7"
-image = ExtResource("29_dx0vj")
 hint = "Attempt to train Lisa the old-fashioned way (7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward7.png"
 
 [sub_resource type="Resource" id="Resource_afmye"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_training_reward8"
-image = ExtResource("30_5ybm3")
 hint = "Attempt to train Lisa the old-fashioned way (8)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_reward8.png"
 
 [sub_resource type="Resource" id="Resource_iisrb"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_POK_PARK_1"
-image = ExtResource("35_slt3q")
 hint = "Lisa Poker At Park (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_59.png"
 
 [sub_resource type="Resource" id="Resource_gbs4u"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_POK_PARK_2"
-image = ExtResource("36_epf1q")
 hint = "Lisa Poker At Park (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_61.png"
 
 [sub_resource type="Resource" id="Resource_ly74e"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_POK_PARK_3"
-image = ExtResource("37_6elky")
 hint = "Lisa Poker At Park (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_park_training/lisa_park_training_63.png"
 
 [sub_resource type="Resource" id="Resource_2p44g"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_1"
-image = ExtResource("42_hsrdh")
 hint = "Ashely Theater (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/5.1.png"
 
 [sub_resource type="Resource" id="Resource_n7u40"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_2"
-image = ExtResource("43_ckjru")
 hint = "Ashely Theater (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/11.png"
 
 [sub_resource type="Resource" id="Resource_kcr3r"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_3"
-image = ExtResource("44_i2bfr")
 hint = "Ashely Theater (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/12.png"
 
 [sub_resource type="Resource" id="Resource_yf5vf"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_4"
-image = ExtResource("45_ou3xw")
 hint = "Ashely Theater (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/24.png"
 
 [sub_resource type="Resource" id="Resource_d61as"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_5"
-image = ExtResource("46_h7cln")
 hint = "Ashely Theater (5)"
 video = "res://data/background_lists/ashely_theater/video/hold.ogv"
+wallpaperImagePath = "res://data/background_lists/ashely_theater/28.png"
 
 [sub_resource type="Resource" id="Resource_ni0pm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_6"
-image = ExtResource("47_mcnna")
 hint = "Ashely Theater (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/31.png"
 
 [sub_resource type="Resource" id="Resource_7sf0i"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_7"
-image = ExtResource("48_qtf6q")
 hint = "Ashely Theater (7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/36.png"
 
 [sub_resource type="Resource" id="Resource_fw6s1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_8"
-image = ExtResource("49_xs5aa")
 hint = "Ashely Theater (8)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/39.png"
 
 [sub_resource type="Resource" id="Resource_8g046"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_9"
-image = ExtResource("50_6qe2x")
 hint = "Ashely Theater (9)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/43.png"
 
 [sub_resource type="Resource" id="Resource_upc6u"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_10"
-image = ExtResource("51_o7prm")
 hint = "Ashely Theater (10)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/48.png"
 
 [sub_resource type="Resource" id="Resource_5g4f1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_11"
-image = ExtResource("52_ab3h0")
 hint = "Ashely Theater (11)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/49.png"
 
 [sub_resource type="Resource" id="Resource_yfylc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_THEATER_12"
-image = ExtResource("53_32fyo")
 hint = "Ashely Theater (12)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_theater/53.png"
 
 [sub_resource type="Resource" id="Resource_pi3fw"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_PHONE_INTRO_SELFIE"
-image = ExtResource("54_2mfvm")
 hint = "Dont Remember Anna"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ana_phone_intro_selfie.png"
 
 [sub_resource type="Resource" id="Resource_h5nu6"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_PHONE_INTRO_SELFIE_ANGRY"
-image = ExtResource("55_scl6i")
 hint = "Remember Anna"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ana_phone_intro_selfie_angry.png"
 
 [sub_resource type="Resource" id="Resource_yahl5"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_PHONE_INTRO_SELFIE_ANGRY2"
-image = ExtResource("56_gg6uf")
 hint = "Remember Anna - 2"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ana_phone_intro_selfie_angry2.png"
 
 [sub_resource type="Resource" id="Resource_8yd2g"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_REST1"
-image = ExtResource("57_en8fl")
 hint = "Anna Restaraunt - 1"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_burger/rew1.webp"
 
 [sub_resource type="Resource" id="Resource_87fm1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_REST2"
-image = ExtResource("58_7l0vy")
 hint = "Anna Restaraunt - 2"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_burger/rew2.webp"
 
 [sub_resource type="Resource" id="Resource_8nq41"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_REST3"
-image = ExtResource("59_nrw2d")
 hint = "Anna Restaraunt - 3"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_burger/rew3.webp"
 
 [sub_resource type="Resource" id="Resource_q4st3"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_REST4"
-image = ExtResource("60_o3vsx")
 hint = "Anna Restaraunt - 4"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_burger/rew4.webp"
 
 [sub_resource type="Resource" id="Resource_ioju6"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_REST5"
-image = ExtResource("61_bg2q2")
 hint = "Anna Restaraunt - 5"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_burger/rew5.webp"
 
 [sub_resource type="Resource" id="Resource_m87j4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_REST6"
-image = ExtResource("62_b6t61")
 hint = "Anna Restaraunt - 6"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_burger/rew6.webp"
 
 [sub_resource type="Resource" id="Resource_xtbqc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_LYRIC"
-image = ExtResource("63_wjeyn")
 hint = "Ask Ana About Her Cats"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ana_lyric.png"
 
 [sub_resource type="Resource" id="Resource_rbg3e"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_LYRIC2"
-image = ExtResource("64_xtbqc")
 hint = "Ask Ana About Her Cats"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ana_lyric2.png"
 
 [sub_resource type="Resource" id="Resource_uhg8y"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANA_LYRIC3"
-image = ExtResource("65_rbg3e")
 hint = "Ask Ana About Her Cats"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ana_lyric3.png"
 
 [sub_resource type="Resource" id="Resource_2y4tb"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_SELFIE1"
-image = ExtResource("66_uhg8y")
 hint = "Beat Ashely In Poker"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/ashely_selfie1.png"
 
 [sub_resource type="Resource" id="Resource_83f3t"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER1"
-image = ExtResource("67_ohb7o")
 hint = "Ashely Bar (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/002.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_4n05t"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER2"
-image = ExtResource("68_ra4yy")
 hint = "Ashely Bar (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/007.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_n0wjw"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER3"
-image = ExtResource("69_52v4g")
 hint = "Ashely Poker (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/101.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_52v4g"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER4"
-image = ExtResource("70_awamq")
 hint = "Ashely Poker (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/121.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_awamq"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER5"
-image = ExtResource("71_dcuae")
 hint = "Ashely Poker (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/128.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_dcuae"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER6"
-image = ExtResource("72_0a0r8")
 hint = "Ashely Poker (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/203.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_0a0r8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER7"
-image = ExtResource("73_hdlif")
 hint = "Ashely Poker (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/309_1.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_hdlif"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER8"
-image = ExtResource("74_7cecp")
 hint = "Ashely Poker (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/312.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_4f550"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER9"
-image = ExtResource("75_pb515")
 hint = "Ashely Poker (7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/314.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_knobw"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER10"
-image = ExtResource("76_0rt81")
 hint = "Ashely Poker (8)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/315.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_m2101"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER11"
-image = ExtResource("77_7m82i")
 hint = "Ashely Poker (9) - - (Unlocked if you complete Poker Hint 2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/318.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_7cecp"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER12"
-image = ExtResource("78_0omye")
 hint = "Ashely Poker (10)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/405_1.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_pb515"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER13"
-image = ExtResource("79_r6xvj")
 hint = "Ashely Poker (11) - (Unlocked if you complete Poker Hint 3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/500.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_0rt81"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER14"
-image = ExtResource("80_28l3e")
 hint = "Ashely Poker (12) - (Unlocked if you do NOT complete Poker Hint 3)"
 video = "res://data/background_lists/ashely_bar_poker/video/tease.ogv"
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/500_1.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_n7ryt"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER15"
-image = ExtResource("81_uqf1j")
 hint = "Ashely Poker (13) - (Unlocked if you do NOT complete Poker Hint 3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/500_2.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_0omye"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER16"
-image = ExtResource("82_0rt81")
 hint = "Ashely Poker (14) - (Unlocked if you complete Poker Hint 3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/504.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_r6xvj"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER17"
-image = ExtResource("83_7m82i")
 hint = "Ashely Poker (15) - (Unlocked if you complete Poker Hint 3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/505.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_fgyo1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER18"
-image = ExtResource("84_r6xvj")
 hint = "Ashely Poker (16) - (Unlocked if you complete Poker Hint 3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/511.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_exlo8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER19"
-image = ExtResource("85_28l3e")
 hint = "Ashely Poker (17) - (Unlocked if you do NOT complete Poker Hint 3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/512.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_o20yg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER20"
-image = ExtResource("86_uqf1j")
 hint = "Ashely Poker (18)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/516.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_ydr00"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER21"
-image = ExtResource("87_uqf1j")
 hint = "Ashely Poker (19)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/518.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_cjv6e"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER22"
-image = ExtResource("88_n7ryt")
 hint = "Ashely Poker (20)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/519.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_uqf1j"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER23"
-image = ExtResource("89_sb8ak")
 hint = "Ashely Poker (21)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/606.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_ebdyc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER24"
-image = ExtResource("90_oj0ec")
 hint = "Ashely Poker (22)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/607.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_sb8ak"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER25"
-image = ExtResource("91_htvw4")
 hint = "Ashely Poker (23)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/608.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_oj0ec"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER26"
-image = ExtResource("92_6bv1m")
 hint = "Ashely Poker (24)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/612.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_htvw4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER27"
-image = ExtResource("93_tn5ie")
 hint = "Ashely Poker (25)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/613.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_6bv1m"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER28"
-image = ExtResource("94_2l4i8")
 hint = "Ashely Poker (26)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l_0.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_2l4i8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER30"
-image = ExtResource("96_nfupu")
 hint = "Ashely Poker (28) - (Unlocked by being far ahead when you lose your shirt)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l_8.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_tn5ie"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER29"
-image = ExtResource("95_h1i8o")
 hint = "Ashely Poker (27) - (Unlocked by being even farther ahead than the previous image,  when you lose your shirt)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l_7.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_h1i8o"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER31"
-image = ExtResource("97_htvw4")
 hint = "Ashely Poker (29) - (Unlocked when you complete Poker Hint 4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l12_v1_2.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_nfupu"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER32"
-image = ExtResource("98_6bv1m")
 hint = "Ashely Poker (30) - (Unlocked when you complete Poker Hint 4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l12_v1_4.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_7q6mc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER33"
-image = ExtResource("99_pob4n")
 hint = "Ashely Poker (31) - - (Unlocked when you complete Poker Hint 5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l13_2.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_xf6lt"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER34"
-image = ExtResource("100_4ads7")
 hint = "Ashely Poker (32) - - (Unlocked when you complete Poker Hint 5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l13_3.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_arjys"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER35"
-image = ExtResource("101_yfefg")
 hint = "Ashely Poker (33) - - (Unlocked when you complete Poker Hint 7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l16.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_8jsgg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER36"
-image = ExtResource("102_xj6uu")
 hint = "Ashely Poker (34) - - (Unlocked when you complete Poker Hint 1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l17_1.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_jh3f8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER37"
-image = ExtResource("103_guorf")
 hint = "Ashely Poker (35) - (Unlocked when you complete Poker Hint 1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l17_2.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_eh5vm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER38"
-image = ExtResource("104_hfumm")
 hint = "Ashely Poker (36) - - (Unlocked when you complete Poker Hint 1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l17_3.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_deyor"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ASHELY_POKER39"
-image = ExtResource("105_hoyv7")
 hint = "Ashely Poker (37) - - (Unlocked when you complete Poker Hint 1)"
 video = "res://data/background_lists/ashely_bar_poker/video/kiss.ogv"
+wallpaperImagePath = "res://data/background_lists/ashely_bar_poker/l17_4.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_yfefg"]
 script = ExtResource("3_wccuy")
 wallpaperId = "lisa_beach1"
-image = ExtResource("106_4ads7")
 hint = "Talk To Lisa About The Beach"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/beach1.png"
 
 [sub_resource type="Resource" id="Resource_xj6uu"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_1"
-image = ExtResource("107_guorf")
 hint = "Get The Good Ending At The Beach With Lisa (1)"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/lisabeach_wall1.png"
 
 [sub_resource type="Resource" id="Resource_guorf"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_2"
-image = ExtResource("108_hfumm")
 hint = "Get The Good Ending At The Beach With Lisa (2)"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/lisabeach_wall2.png"
 
 [sub_resource type="Resource" id="Resource_n1vug"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_3"
-image = ExtResource("109_hoyv7")
 hint = "Get The Good Ending At The Beach With Lisa (3)"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/lisabeach_wall3.png"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_hoyv7"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_4"
-image = ExtResource("110_hfumm")
 hint = "Lisa At The Beach (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/200.webp"
 
 [sub_resource type="Resource" id="Resource_lngf8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_5"
-image = ExtResource("111_hoyv7")
 hint = "Lisa At The Beach (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/201.webp"
 
 [sub_resource type="Resource" id="Resource_weqau"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_6"
-image = ExtResource("112_7q6mc")
 hint = "Lisa At The Beach (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/205.webp"
 
 [sub_resource type="Resource" id="Resource_j80pk"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_7"
-image = ExtResource("113_xf6lt")
 hint = "Lisa At The Beach (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/208.webp"
 
 [sub_resource type="Resource" id="Resource_m75yf"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_8"
-image = ExtResource("114_m75yf")
 hint = "Lisa At The Beach (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/210.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_rasxk"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_9"
-image = ExtResource("115_rasxk")
 hint = "Lisa At The Beach (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/213.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_edwk8"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_10"
-image = ExtResource("116_edwk8")
 hint = "Lisa At The Beach (7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/216.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_oi4e0"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_11"
-image = ExtResource("117_oi4e0")
 hint = "Lisa At The Beach (8)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/219.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_p4wa1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_12"
-image = ExtResource("118_p4wa1")
 hint = "Lisa At The Beach (9)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/221.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_fd0vm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_13"
-image = ExtResource("119_fd0vm")
 hint = "Lisa At The Beach (10)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/223.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_u7xa6"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_14"
-image = ExtResource("120_u7xa6")
 hint = "Lisa At The Beach (11)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/227.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_scoiv"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_15"
-image = ExtResource("121_xwrbd")
 hint = "Lisa At The Beach (12)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/230.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_msx3w"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_16"
-image = ExtResource("122_j6l20")
 hint = "Lisa At The Beach (13)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/240.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_pm8hm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_17"
-image = ExtResource("123_h88py")
 hint = "Lisa At The Beach (14)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/242.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_xwrbd"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_18"
-image = ExtResource("124_p4wa1")
 hint = "Lisa At The Beach (15)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/248.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_j6l20"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_19"
-image = ExtResource("125_fd0vm")
 hint = "Lisa At The Beach (16)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/251.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_h88py"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_20"
-image = ExtResource("126_u7xa6")
 hint = "Lisa At The Beach (17)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/255.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_4pamu"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_21"
-image = ExtResource("127_xwrbd")
 hint = "Lisa At The Beach (18)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_beach/new2.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_h7cln"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_22"
-image = ExtResource("128_82mex")
 hint = "Lisa At The Boardwalk (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/102.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_h44hn"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_23"
-image = ExtResource("129_5y00m")
 hint = "Lisa At The Boardwalk (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/105.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_0gn2n"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_24"
-image = ExtResource("130_w05yg")
 hint = "Lisa At The Boardwalk (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/106.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_l2t2k"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_25"
-image = ExtResource("131_afth5")
 hint = "Lisa At The Boardwalk (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/108.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_gpdk4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_26"
-image = ExtResource("132_ksahr")
 hint = "Lisa At The Boardwalk (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/111.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_vh3qa"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_27"
-image = ExtResource("133_jopn4")
 hint = "Lisa At The Boardwalk (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/116_4.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_2lid5"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_28"
-image = ExtResource("134_j1bep")
 hint = "Lisa At The Boardwalk (7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/122.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_i1u4a"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_29"
-image = ExtResource("135_mgx5a")
 hint = "Lisa At The Boardwalk (8)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/123.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_unm8p"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_30"
-image = ExtResource("136_08mmx")
 hint = "Lisa At The Boardwalk (9)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/129.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_g7dh3"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_31"
-image = ExtResource("137_258rc")
 hint = "Lisa At The Boardwalk (10)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_boardwalk/131.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_08mmx"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_32"
-image = ExtResource("138_ksahr")
 hint = "Lisa At Beach - Early Departure (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_early_departure/400.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_258rc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_33"
-image = ExtResource("139_jopn4")
 hint = "Lisa At Beach - Early Departure (2)"
 video = "res://data/background_lists/lisa_beach_early_departure/video/foot_on_lap.ogv"
+wallpaperImagePath = "res://data/background_lists/lisa_beach_early_departure/402.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_qex3r"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_34"
-image = ExtResource("140_j1bep")
 hint = "Lisa At Beach - Early Departure (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_early_departure/403.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_ir0bo"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_35"
-image = ExtResource("141_mgx5a")
 hint = "Lisa At Beach - Early Departure (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_early_departure/409.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_j1bep"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_36"
-image = ExtResource("142_jopn4")
 hint = "Lisa At Beach - Night (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/500.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_jwbuy"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_37"
-image = ExtResource("143_h7cln")
 hint = "Lisa At Beach - Night (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/502.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_jrt1e"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_38"
-image = ExtResource("144_h44hn")
 hint = "Lisa At Beach - Night (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/506.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_2s5ix"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_39"
-image = ExtResource("145_0gn2n")
 hint = "Lisa At Beach - Night (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/510.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_s3603"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_40"
-image = ExtResource("146_l2t2k")
 hint = "Lisa At Beach - Night (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/511.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_hluk6"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_41"
-image = ExtResource("147_gpdk4")
 hint = "Lisa At Beach - Night (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/503.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_atw5o"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_BEACH_42"
-image = ExtResource("148_h44hn")
 hint = "Lisa At Beach - Night (7)"
 video = "res://data/background_lists/lisa_beach_night/video/shower.ogv"
+wallpaperImagePath = "res://data/background_lists/lisa_beach_night/shower.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_pb6nr"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS1"
-image = ExtResource("148_s3603")
 hint = "Class With Anna (1)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/001.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_gjdli"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS2"
-image = ExtResource("149_hluk6")
 hint = "Class With Anna (2)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/010_1.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_67fqk"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS3"
-image = ExtResource("150_atw5o")
 hint = "Class With Anna (3)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/017.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_m8el1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS4"
-image = ExtResource("151_0u550")
 hint = "Class With Anna (4)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/036.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_88wlh"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS5"
-image = ExtResource("152_wgbvn")
 hint = "Class With Anna (5)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/035.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_y58y4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS6"
-image = ExtResource("153_v7pem")
 hint = "Class With Anna (6)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/102.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_is76j"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS7"
-image = ExtResource("154_15tl8")
 hint = "Class With Anna (7)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/103.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_lae08"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS8"
-image = ExtResource("155_1sfev")
 hint = "Class With Anna (8)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/106.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_tf6xf"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS9"
-image = ExtResource("156_6r2ts")
 hint = "Class With Anna (9)"
 video = "res://data/background_lists/anna_class/videos/lake.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_class/200.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_kpmrj"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS10"
-image = ExtResource("157_leckg")
 hint = "Class With Anna (10)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/201.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_26sa2"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS11"
-image = ExtResource("158_rosnl")
 hint = "Class With Anna (11)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/300.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_wyqog"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS12"
-image = ExtResource("159_f5osu")
 hint = "Class With Anna (12)"
 video = "res://data/background_lists/anna_class/videos/kiss.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_class/502_kiss.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_x605a"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS13"
-image = ExtResource("160_h60do")
 hint = "Class With Anna (13)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/601.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_xp60g"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS14"
-image = ExtResource("161_t3uu6")
 hint = "Class With Anna (14)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/701.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_uybey"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS15"
-image = ExtResource("162_7udci")
 hint = "Class With Anna (15)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/704.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_thsml"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS16"
-image = ExtResource("163_y58y4")
 hint = "Class With Anna (16)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1001.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_2vtmp"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS17"
-image = ExtResource("164_is76j")
 hint = "Class With Anna (17)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1003.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_oblfm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS18"
-image = ExtResource("165_lae08")
 hint = "Class With Anna (18)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1100.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_gt7xa"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS19"
-image = ExtResource("166_tf6xf")
 hint = "Class With Anna (19)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1104.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_j1bg4"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS20"
-image = ExtResource("167_kpmrj")
 hint = "Class With Anna (20)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1105.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_i27lp"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS21"
-image = ExtResource("168_26sa2")
 hint = "Class With Anna (21)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1106.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_8nogi"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS22"
-image = ExtResource("169_wyqog")
 hint = "Class With Anna (22)"
 video = "res://data/background_lists/anna_class/videos/rain_lay.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_class/1107.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_r4usm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS23"
-image = ExtResource("170_x605a")
 hint = "Class With Anna (23)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1202.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_1fuix"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS24"
-image = ExtResource("171_xp60g")
 hint = "Class With Anna (24) - What was in the desk??"
 video = ""
+wallpaperImagePath = "res://data/wallpapers/Magazine.png"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_2j3la"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS25"
-image = ExtResource("172_uybey")
 hint = "Class With Anna (25)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1205.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_5nvfq"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS26"
-image = ExtResource("173_wcrto")
 hint = "Class With Anna (26)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1304.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_n8ckm"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS27"
-image = ExtResource("174_nhpew")
 hint = "Class With Anna (27)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1306.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_2xsms"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS28"
-image = ExtResource("175_k87pw")
 hint = "Class With Anna (28)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1307.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_06b87"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS29"
-image = ExtResource("176_qv10a")
 hint = "Class With Anna (29)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1310.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_sl0tc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS30"
-image = ExtResource("177_n35fa")
 hint = "Class With Anna (30)"
 video = "res://data/background_lists/anna_class/videos/shirt_fall.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_class/1312.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_j7cwj"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS31"
-image = ExtResource("178_1dmnq")
 hint = "Class With Anna (31)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1314.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_pet2c"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS32"
-image = ExtResource("179_34qh2")
 hint = "Class With Anna (32)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1316.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_vol3i"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS33"
-image = ExtResource("180_77ke4")
 hint = "Class With Anna (33)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/1318.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_k7wo7"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS34"
-image = ExtResource("181_6vo3m")
 hint = "Class With Anna (34)"
 video = "res://data/background_lists/anna_class/videos/pool_back.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_class/1320.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_rsp0n"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS35"
-image = ExtResource("182_k28yx")
 hint = "Class With Anna (35)"
 video = "res://data/background_lists/anna_class/videos/pool_sit.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_class/1321.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_wcrto"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS36"
-image = ExtResource("183_kpmrj")
 hint = "Class With Anna (36)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/901.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_nhpew"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS37"
-image = ExtResource("184_26sa2")
 hint = "Class With Anna (37)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/600.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_k87pw"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS38"
-image = ExtResource("185_wyqog")
 hint = "Class With Anna (38)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/801.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_qv10a"]
 script = ExtResource("3_wccuy")
 wallpaperId = "ANNA_CLASS39"
-image = ExtResource("186_x605a")
 hint = "Class With Anna (39)"
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_class/803.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_cd1j1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_1"
-image = ExtResource("187_34qh2")
-hint = "Lisa - Poker 1"
+hint = "Lisa - Poker 1 - unlocks in intro"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0005.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_fbft0"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_2"
-image = ExtResource("188_77ke4")
-hint = "Lisa - Poker 2"
+hint = "Lisa - Poker 2 - unlocks in intro"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0006.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_bionc"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_3"
-image = ExtResource("189_6vo3m")
-hint = "Lisa - Poker 3"
+hint = "Lisa - Poker 3 - Game 1 - Lisa first loss. You are very far ahead"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0008.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_dsmwd"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_4"
-image = ExtResource("190_k28yx")
-hint = "Lisa - Poker 4"
+hint = "Lisa - Poker 4 - Lisa second loss. You are winning."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0011.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_plrw3"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_5"
-image = ExtResource("191_thsml")
-hint = "Lisa - Poker 5"
+hint = "Lisa - Poker 5 - Game 1 - Your first loss. You are far ahead."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0012.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_oug3i"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_6"
-image = ExtResource("192_2vtmp")
-hint = "Lisa - Poker 6"
+hint = "Lisa - Poker 6 - Game 1 - Lisa third loss. Close."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0013.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_uswms"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_7"
-image = ExtResource("193_oblfm")
-hint = "Lisa - Poker 7"
+hint = "Lisa - Poker 7 - Game 1 - Win"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0016.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_xvpdt"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_13"
+hint = "Lisa - Poker 7.1"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0030.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_b6dqn"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_8"
-image = ExtResource("194_gt7xa")
-hint = "Lisa - Poker 8"
+hint = "Lisa - Poker 8 - Game 1 - Lisa first loss. Close game, Lisa is winning"
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0017.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_nvrcb"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_9"
-image = ExtResource("195_j1bg4")
-hint = "Lisa - Poker 9"
+hint = "Lisa - Poker 9 - Game 1 - Lisa second loss. Lisa is ahead."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0020.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_3fvb1"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_10"
-image = ExtResource("196_i27lp")
-hint = "Lisa - Poker 10"
+hint = "Lisa - Poker 10 - Game 1 - You lost."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0021.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_0eesw"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_11"
-image = ExtResource("197_8nogi")
-hint = "Lisa - Poker 11"
+hint = "Lisa - Poker 11 - Game 1 - You lost."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0026.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_b7yq5"]
 script = ExtResource("3_wccuy")
 wallpaperId = "LISA_SP_12"
-image = ExtResource("198_r4usm")
-hint = "Lisa - Poker 12"
+hint = "Lisa - Poker 12 - Game 1 - You lost."
 video = ""
-metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
-
-[sub_resource type="Resource" id="Resource_xvpdt"]
-script = ExtResource("3_wccuy")
-wallpaperId = ""
-hint = ""
-video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0029.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_vpfqg"]
 script = ExtResource("3_wccuy")
-wallpaperId = "LISA_SP_13"
-hint = ""
+wallpaperId = "LISA_SP_14"
+hint = "Lisa - Poker 13 - Game 1 - You lost."
 video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0002.webp"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [sub_resource type="Resource" id="Resource_8qtut"]
 script = ExtResource("3_wccuy")
-wallpaperId = "LISA_SP_14"
+wallpaperId = "LISA_SP_15"
+hint = "Lisa - Poker 14 - Game 2 - Player first loss. Player about tied. "
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0003.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_suw7l"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_16"
+hint = "Lisa - Poker 15 - Game 2 - Player loses shirt. Slightly ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0006.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_s060x"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_17"
+hint = "Lisa - Poker 16 - Game 2 - Player loses shirt. Slightly ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0007.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_a38vh"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_18"
+hint = "Lisa - Poker 17 - Game 2 - Player loses pants. Player is behind."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0010.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3j848"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_19"
+hint = "Lisa - Poker 18 - Game 2 - Player loses pants. Player is about even."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0011.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_il7qn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_20"
+hint = "Lisa - Poker 19 - Game 2 - Win"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0014.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hkkae"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_21"
+hint = "Lisa - Poker 20 - Game 2 - Win"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0016.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_j4tan"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_22"
+hint = "Lisa - Poker 21 - Game 2 - Player loses all. Lisa lost shirt."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0017.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jpooq"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_23"
+hint = "Lisa - Poker 22 - Game 2 - Player loses all. Lisa lost shirt."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0019.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hvqn0"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_24"
+hint = "Lisa - Poker 23 - Game 2 - Player loses pants. Player is about even."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0029.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_34gm3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_25"
+hint = "Lisa - Poker 24 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0032.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_q3jgu"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_26"
+hint = "Lisa - Poker 25 - Game 3 - Lisa loses shorts. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0038.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_evi6l"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_31"
+hint = "Lisa - Poker 29 - Game 2 - Lisa first loss. She is behind"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0001.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_n1tuu"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_32"
+hint = "Lisa - Poker 30 - Game 2 - Lisa first loss. She is behind"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0004.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_x6vnm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_33"
+hint = "Lisa - Poker 31 - Game 2 - Lisa third loss. Player even or ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0005.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_uq4i2"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_34"
+hint = "Lisa - Poker 32 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0007.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_5ogng"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_35"
+hint = "Lisa - Poker 33 - Game 2 - Lisa third loss. Player even or ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0011.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_dky6n"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_36"
+hint = "Lisa - Poker 34 - Game 2 - Player loses shirt. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0012.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_06qh4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_37"
+hint = "Lisa - Poker 35 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0018.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_28hdy"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_38"
+hint = "Lisa - Poker 36 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0019.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jnf4v"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_39"
+hint = "Lisa - Poker 37 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0020.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_eh28o"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_40"
+hint = "Lisa - Poker 38 - Game 2 - Lisa third loss. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0022.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_kd2mc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_41"
+hint = "Lisa - Poker 39 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0024.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_w3jg6"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_42"
+hint = "Lisa - Poker 40 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0025.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_inx2y"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_43"
+hint = "Lisa - Poker 41 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0026.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ri6et"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_44"
+hint = "Lisa - Poker 42 - Game 2 - Lisa second loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0030.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_boeua"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_45"
+hint = "Lisa - Poker 43 - Game 2 - Lisa third loss. Player is ahead"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0033.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_y6qaa"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_46"
+hint = "Lisa - Poker 44 - Game 2 - Lisa third loss. Player is ahead"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0035.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3qind"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_47"
+hint = "Lisa - Poker 45 - Game 2 - Lisa third loss. Player is ahead"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0038.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_pivxh"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_48"
+hint = "Lisa - Poker 46 - Game 2 - Lisa loses pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0039.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_gnifm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_49"
+hint = "Lisa - Poker 47 - Game 2 - Lisa third loss. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0042.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_47wt7"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_50"
+hint = "Lisa - Poker 48 - Game 2 - Lisa third loss. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0043.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_mdxdd"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_51"
+hint = "Lisa - Poker 49 - Game 2 - Lisa third loss. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0044.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_a87bn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_52"
+hint = "Lisa - Poker 50 - Win Game 2"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0045.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_b6ltv"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_53"
+hint = "Lisa - Poker 51 - Win Game 2"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0046.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_85wcs"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_54"
+hint = "Lisa - Poker 52 - Win Game 2"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0047.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_22i2j"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_55"
+hint = "Lisa - Poker 53 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0049.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_srhln"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_56"
+hint = "Lisa - Poker 54 - Win Game 2"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0052.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_7b5cj"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_57"
+hint = "Lisa - Poker 55 - Game 2 - Lisa third loss. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0054.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_dccfo"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_58"
+hint = "Lisa - Poker 56 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0056.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_e2k0g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_59"
+hint = "Lisa - Poker 57 - Game 3 - Lisa loses top. Player is close or behind."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0057.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_rkqaj"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_60"
+hint = "Lisa - Poker 58 - Game 3 - Lisa loses top. Player is close or behind."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0058.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_t0ate"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_61"
+hint = "Lisa - Poker 59 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0059.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_i8fdg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_62"
+hint = "Lisa - Poker 60 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0061.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_u1ncr"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_63"
+hint = "Lisa - Poker 61 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0063.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wgy15"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_64"
+hint = "Lisa - Poker 62 - Game 3 - Lisa loses top. Player is close or behind."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0064.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ugcu8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_65"
+hint = "Lisa - Poker 63 - Game 3 - Lisa loses shorts. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0065.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3v0nx"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_66"
+hint = "Lisa - Poker 64 - Game 3 - Lisa loses top. Player is close or behind."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0067.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jol0b"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_67"
+hint = "Lisa - Poker 65 - Game 3 - Lisa loses shorts. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0069.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3i8xs"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_68"
+hint = "Lisa - Poker 66 - Game 3 - Lisa loses shorts. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0071.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_uqoi3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_69"
+hint = "Lisa - Poker 67 - Game 3 - Win"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0072.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_pwfwn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_70"
+hint = "Lisa - Poker 68 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0073.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_brslo"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_71"
+hint = "Lisa - Poker 69 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0074.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_nb0yv"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_72"
+hint = "Lisa - Poker 70 - Game 3 - Lisa loses top. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0075.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_xbvaq"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_73"
+hint = "Lisa - Poker 71 - Game 3 - Lisa loses top. Its close."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0077.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_kcjig"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_74"
+hint = "Lisa - Poker 72 - Game 3 - Lisa loses bra. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0079.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_mf6or"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_75"
+hint = "Lisa - Poker 73 - Game 3 - Lisa loses shorts. Player lost pants."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0086.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_526sc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_76"
+hint = "Lisa - Poker 74 - Game 3 - Lisa loses top. Its close."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0091.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_35k7o"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_77"
+hint = "Lisa - Poker 75 - Game 3 - Lisa loses top. Its close."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0096.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wjeyn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_78"
+hint = "Lisa - Poker 76 - Game 3 - Lisa loses top. Its close."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0097.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ohb7o"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_79"
+hint = "Lisa - Poker 77 - Game 3 - Lisa loses bra. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0098.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ra4yy"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_80"
+hint = "Lisa - Poker 78 - Game 3 - Lisa loses bra. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0099.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_7m82i"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_81"
+hint = "Lisa - Poker 79 - Game 3 - Lisa loses bra. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0100.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_28l3e"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_82"
+hint = "Lisa - Poker 80 - Game 3 - Lisa loses bra. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0101.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3wcif"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_83"
+hint = "Lisa - Poker 81 - Game 3 - Lisa loses bra. Player is ahead."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0105.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_pob4n"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_84"
+hint = "Lisa - Poker 82 - Win Game 3"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0113.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_4ads7"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_85"
+hint = "Lisa - Poker 83 - Win Game 3"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0118.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hfumm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_86"
+hint = "Lisa - Poker 84 - Win Game 3"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0119.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_82mex"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_87"
+hint = "Lisa - Poker 85 - Win Game 3"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0120.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_tef7n"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_28"
+hint = "Lisa - Poker 26 - Selection after winning"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0043.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_v4uff"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_29"
+hint = "Lisa - Poker 27 - Selection after winning"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0046.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_yukkx"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_30"
+hint = "Lisa - Poker 28 - Selection after winning"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_extra/lisa_sp_extra_0047.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_5y00m"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_1"
+hint = "One of the endings of Lisa's poker"
+video = "res://data/background_lists/lisa_poker_reward/video/mas_full.ogv"
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0056.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_w05yg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_2"
+hint = "One of the endings of Lisa's poker"
+video = "res://data/background_lists/lisa_poker_reward/video/mas_full.ogv"
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0060.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_afth5"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_3"
+hint = "One of the endings of Lisa's poker"
+video = "res://data/background_lists/lisa_poker_reward/video/mas_full.ogv"
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0067.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ksahr"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_4"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0002.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jopn4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_5"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0033.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_mgx5a"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_6"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0035.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_0u550"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_7"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0036.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wgbvn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_8"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0041.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_v7pem"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_9"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0042.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_15tl8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_10"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0051.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_1sfev"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_11"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0048.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_6r2ts"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_12"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0049.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_leckg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_POK_REW_13"
+hint = "One of the endings of Lisa's poker"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0068.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_5dkgw"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_88"
+hint = "Lose. Badly."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/selfie_1.png"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_afctq"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_89"
+hint = "Lose, but not too badly."
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/selfie_2.png"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_eovb3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_SP_90"
+hint = "Lose, but it's close"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_poker_final/selfie_3.png"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_rosnl"]
+script = ExtResource("3_wccuy")
+wallpaperId = "AMY_FAVOR_1"
+hint = "Amy's Favor"
+video = ""
+wallpaperImagePath = "res://data/wallpapers/amy_txt_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_f5osu"]
+script = ExtResource("3_wccuy")
+wallpaperId = "AMY_FAVOR_2"
+hint = "Amy's Favor"
+video = ""
+wallpaperImagePath = "res://data/wallpapers/amy_txt_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_h60do"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_HOLIDAY_1"
+hint = "Ashely's Christmas Event"
+video = ""
+wallpaperImagePath = "res://data/wallpapers/ashely_kitchen_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_t3uu6"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_HOLIDAY_2"
+hint = "Ashely's Christmas Event"
+video = ""
+wallpaperImagePath = "res://data/wallpapers/ashely_kitchen_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_7udci"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ASHELY_HOLIDAY_3"
+hint = "Ashely's Christmas Event"
+video = ""
+wallpaperImagePath = "res://data/wallpapers/ashely_kitchen_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_n35fa"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_1"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0001.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_1dmnq"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_2"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0002.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_34qh2"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_3"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0004.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_77ke4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_4"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0005.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_6vo3m"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_5"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0008.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_k28yx"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_6"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0009.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_d726a"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_7"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0011.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_tcmp8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_8"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0014.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3e3t0"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_9"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0015.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_55y78"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_10"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0016.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_4vynu"]
+script = ExtResource("3_wccuy")
+wallpaperId = "LISA_HOLIDAY_11"
+hint = "Lisa's Holiday Event"
+video = ""
+wallpaperImagePath = "res://data/background_lists/lisa_winter/lisa_winter_0019.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_uyuhc"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_BALLET_1"
+hint = "Anna's Ballet Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/ballet/ballet_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_p6h64"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_BALLET_2"
+hint = "Anna's Ballet Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/ballet/ballet_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_fjw03"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_BALLET_3"
+hint = "Anna's Ballet Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/ballet/ballet_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_024we"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_CLOWN_1"
+hint = "Anna's Clown Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/clown/clown_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_71fte"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_CLOWN_2"
+hint = "Anna's Clown Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/clown/clown_2.png"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wuhr4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_1"
+hint = "Anna's Daisy Dukes"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_l30lr"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_2"
+hint = "Anna's Daisy Dukes"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hutly"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_4"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_adcra"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_5"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_5.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_q0dkn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_6"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_6.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_fknw6"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_7"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_7.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_tif7j"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_9"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_9.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_0teg7"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_10"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_10.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ny6gi"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_11"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_11.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_xospg"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_DAISY_12"
+hint = "Anna's Daisy Dukes (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/daisyduke/daisy_12.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_gpvpw"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FAIRY_1"
+hint = "Anna's Fairy Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/fairy/fairy_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_i8u2k"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FAIRY_2"
+hint = "Anna's Fairy Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/fairy/fairy_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_kfyf2"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FAIRY_3"
+hint = "Anna's Fairy Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/fairy/fairy_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ea47b"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FAIRY_4"
+hint = "Anna's Fairy Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/fairy/fairy_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_aqcyv"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_1"
+hint = "Anna's Formal Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wu7u6"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_4"
+hint = "Anna's Formal Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_gr0nm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_2"
+hint = "Anna's Formal Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_oj73w"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_6"
+hint = "Anna's Formal Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_6.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ert2g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_7"
+hint = "Anna's Formal Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_7.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ajtj3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_8"
+hint = "Anna's Formal Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_8.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_lj3nk"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_FORMAL_9"
+hint = "Anna's Formal Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/formal/formal_9.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_lfpj4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_1"
+hint = "Anna's Vamp Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_kjy3g"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_4"
+hint = "Anna's Vamp Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_j1nho"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_6"
+hint = "Anna's Vamp Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_6.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_dlqem"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_3"
+hint = "Anna's Vamp Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_we3sn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_8"
+hint = "Anna's Vamp Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_8.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_uqxoj"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_9"
+hint = "Anna's Vamp Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_9.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_xdgx7"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_10"
+hint = "Anna's Vamp Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_10.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_y81i1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_GOTH_11"
+hint = "Anna's Vamp Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/goth/goth_11.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_qeqec"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_1"
+hint = "Anna's Lion Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ci8ht"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_3"
+hint = "Anna's Lion Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3g3xa"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_4"
+hint = "Anna's Lion Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_2ca8r"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_5"
+hint = "Anna's Lion Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_5.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_j2swp"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_2"
 hint = ""
 video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_kuduq"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_7"
+hint = "Anna's Lion Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_7.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wwr8s"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_6"
+hint = "Anna's Lion Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_6.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_d70c7"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_13"
+hint = "Anna's Lion Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_13.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_v62yw"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_14"
+hint = "Anna's Lion Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_14.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_1dr04"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LION_16"
+hint = "Anna's Lion Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/lion/lion_16.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_wm1ua"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_1"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_yl3h8"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_3"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_cov31"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_5"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_5.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_t301v"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_6"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_6.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_sv3nn"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_8"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_8.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_viy4l"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_7"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_7.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_fvjji"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NURSE_9"
+hint = "Anna's Nurse Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/nurse/nurse_9.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_pq3xb"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_PUNK_1"
+hint = "Anna's Punk Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/punk/punk_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_ipm0a"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_PUNK_3"
+hint = "Anna's Punk Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/punk/punk_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_0wvu5"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_PUNK_4"
+hint = "Anna's Punk Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/punk/punk_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_fmt8m"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_PUNK_5"
+hint = "Anna's Punk Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/punk/punk_5.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_7oj42"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_PUNK_6"
+hint = "Anna's Punk Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/punk/punk_6.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_1vfxm"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_PUNK_7"
+hint = "Anna's Punk Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/punk/punk_7.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_msb0m"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_1"
+hint = "Anna's Swimming Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_1.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_8esb4"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_2"
+hint = "Anna's Swimming Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_vxig3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_4"
+hint = "Anna's Swimming Outfit"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_4.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hl3yh"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_3"
+hint = "Anna's Swimming Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_3.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_rvn4b"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_5"
+hint = "Anna's Swimming Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_5.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_qqiws"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_7"
+hint = "Anna's Swimming Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_7.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_w4u4n"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_SWIM_9"
+hint = "Anna's Swimming Outfit (Favorite)"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/swim/swim_9.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_p00yk"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NIGHT_2"
+hint = "Anna Night"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/night_2.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jyuov"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NIGHT_5"
+hint = "Anna Night"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/night_5.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_hy8x0"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NIGHT_10"
+hint = "Anna Night"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/night_10.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_gh8ir"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_MUSIC_VIDEO_1"
+hint = "Anna Music"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_music_video/ana_music_video_0010.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_fmga5"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_MUSIC_VIDEO_2"
+hint = "Anna Music"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_music_video/ana_music_video_0013.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_dqh15"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_MUSIC_VIDEO_3"
+hint = "Anna Music"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_music_video/ana_music_video_0015.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_t1vtt"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_MUSIC_VIDEO_4"
+hint = "Anna Music"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_music_video/ana_music_video_0024.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_nh5n3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_MUSIC_VIDEO_5"
+hint = "Anna Music"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_music_video/ana_music_video_0025.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_u21a5"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LOVE_16"
+hint = "Anna Love"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/anna_night_love_0016.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_1wu8a"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LOVE_32"
+hint = "Anna Love"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/anna_night_love_0032.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_y40n3"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LOVE_51"
+hint = "Anna Love"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/anna_night_love_0051.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_37vsv"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LOVE_29"
+hint = "Anna Love"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/anna_night_love_0029.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_3kkdj"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LOVE_17"
+hint = "Anna Love"
+video = "res://data/background_lists/anna_night/video/anna_night_vid_1.ogv"
+wallpaperImagePath = "res://data/background_lists/anna_night/home/anna_night_love_0017.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_vcr4b"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_LOVE_3"
+hint = "Anna Love"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/anna_night_love_0003.webp"
+metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
+
+[sub_resource type="Resource" id="Resource_jfwx1"]
+script = ExtResource("3_wccuy")
+wallpaperId = "ANNA_NIGHT_AFTER_1"
+hint = "Anna Night After"
+video = ""
+wallpaperImagePath = "res://data/background_lists/anna_night/home/night_new_4.png"
 metadata/_custom_type_script = "uid://ch5xf2lfvgdoy"
 
 [resource]
 script = ExtResource("1_ogmi2")
-wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4"), SubResource("Resource_xtbqc"), SubResource("Resource_rbg3e"), SubResource("Resource_uhg8y"), SubResource("Resource_2y4tb"), SubResource("Resource_83f3t"), SubResource("Resource_4n05t"), SubResource("Resource_n0wjw"), SubResource("Resource_52v4g"), SubResource("Resource_awamq"), SubResource("Resource_dcuae"), SubResource("Resource_0a0r8"), SubResource("Resource_hdlif"), SubResource("Resource_4f550"), SubResource("Resource_knobw"), SubResource("Resource_m2101"), SubResource("Resource_7cecp"), SubResource("Resource_pb515"), SubResource("Resource_0rt81"), SubResource("Resource_n7ryt"), SubResource("Resource_0omye"), SubResource("Resource_r6xvj"), SubResource("Resource_fgyo1"), SubResource("Resource_exlo8"), SubResource("Resource_o20yg"), SubResource("Resource_ydr00"), SubResource("Resource_cjv6e"), SubResource("Resource_uqf1j"), SubResource("Resource_ebdyc"), SubResource("Resource_sb8ak"), SubResource("Resource_oj0ec"), SubResource("Resource_htvw4"), SubResource("Resource_6bv1m"), SubResource("Resource_2l4i8"), SubResource("Resource_tn5ie"), SubResource("Resource_h1i8o"), SubResource("Resource_nfupu"), SubResource("Resource_7q6mc"), SubResource("Resource_xf6lt"), SubResource("Resource_arjys"), SubResource("Resource_8jsgg"), SubResource("Resource_jh3f8"), SubResource("Resource_eh5vm"), SubResource("Resource_deyor"), SubResource("Resource_yfefg"), SubResource("Resource_xj6uu"), SubResource("Resource_guorf"), SubResource("Resource_n1vug"), SubResource("Resource_hoyv7"), SubResource("Resource_lngf8"), SubResource("Resource_weqau"), SubResource("Resource_j80pk"), SubResource("Resource_m75yf"), SubResource("Resource_rasxk"), SubResource("Resource_edwk8"), SubResource("Resource_oi4e0"), SubResource("Resource_p4wa1"), SubResource("Resource_fd0vm"), SubResource("Resource_u7xa6"), SubResource("Resource_scoiv"), SubResource("Resource_msx3w"), SubResource("Resource_pm8hm"), SubResource("Resource_xwrbd"), SubResource("Resource_j6l20"), SubResource("Resource_h88py"), SubResource("Resource_4pamu"), SubResource("Resource_h7cln"), SubResource("Resource_h44hn"), SubResource("Resource_0gn2n"), SubResource("Resource_l2t2k"), SubResource("Resource_gpdk4"), SubResource("Resource_vh3qa"), SubResource("Resource_2lid5"), SubResource("Resource_i1u4a"), SubResource("Resource_unm8p"), SubResource("Resource_g7dh3"), SubResource("Resource_08mmx"), SubResource("Resource_258rc"), SubResource("Resource_qex3r"), SubResource("Resource_ir0bo"), SubResource("Resource_j1bep"), SubResource("Resource_jwbuy"), SubResource("Resource_jrt1e"), SubResource("Resource_2s5ix"), SubResource("Resource_s3603"), SubResource("Resource_hluk6"), SubResource("Resource_atw5o"), SubResource("Resource_pb6nr"), SubResource("Resource_gjdli"), SubResource("Resource_67fqk"), SubResource("Resource_m8el1"), SubResource("Resource_88wlh"), SubResource("Resource_y58y4"), SubResource("Resource_is76j"), SubResource("Resource_lae08"), SubResource("Resource_tf6xf"), SubResource("Resource_kpmrj"), SubResource("Resource_26sa2"), SubResource("Resource_wyqog"), SubResource("Resource_x605a"), SubResource("Resource_xp60g"), SubResource("Resource_uybey"), SubResource("Resource_thsml"), SubResource("Resource_2vtmp"), SubResource("Resource_oblfm"), SubResource("Resource_gt7xa"), SubResource("Resource_j1bg4"), SubResource("Resource_i27lp"), SubResource("Resource_8nogi"), SubResource("Resource_r4usm"), SubResource("Resource_1fuix"), SubResource("Resource_2j3la"), SubResource("Resource_5nvfq"), SubResource("Resource_n8ckm"), SubResource("Resource_2xsms"), SubResource("Resource_06b87"), SubResource("Resource_sl0tc"), SubResource("Resource_j7cwj"), SubResource("Resource_pet2c"), SubResource("Resource_vol3i"), SubResource("Resource_k7wo7"), SubResource("Resource_rsp0n"), SubResource("Resource_wcrto"), SubResource("Resource_nhpew"), SubResource("Resource_k87pw"), SubResource("Resource_qv10a"), SubResource("Resource_cd1j1"), SubResource("Resource_fbft0"), SubResource("Resource_bionc"), SubResource("Resource_dsmwd"), SubResource("Resource_plrw3"), SubResource("Resource_oug3i"), SubResource("Resource_uswms"), SubResource("Resource_b6dqn"), SubResource("Resource_nvrcb"), SubResource("Resource_3fvb1"), SubResource("Resource_0eesw"), SubResource("Resource_b7yq5"), SubResource("Resource_xvpdt"), SubResource("Resource_vpfqg"), SubResource("Resource_8qtut")])
+wallpapers = Array[ExtResource("3_wccuy")]([SubResource("Resource_fr55m"), SubResource("Resource_6bfou"), SubResource("Resource_367e1"), SubResource("Resource_jgui8"), SubResource("Resource_3ay0b"), SubResource("Resource_t5hq4"), SubResource("Resource_10do2"), SubResource("Resource_ey563"), SubResource("Resource_vowtd"), SubResource("Resource_obf38"), SubResource("Resource_ukekf"), SubResource("Resource_muuf5"), SubResource("Resource_f01mg"), SubResource("Resource_a8155"), SubResource("Resource_fegc8"), SubResource("Resource_ocj37"), SubResource("Resource_p7fpl"), SubResource("Resource_6tmel"), SubResource("Resource_xuy0b"), SubResource("Resource_mt54f"), SubResource("Resource_yd80y"), SubResource("Resource_8265s"), SubResource("Resource_xvhwn"), SubResource("Resource_kcxj0"), SubResource("Resource_7rwqr"), SubResource("Resource_b4gnm"), SubResource("Resource_rej7w"), SubResource("Resource_adreg"), SubResource("Resource_qud3p"), SubResource("Resource_pkb4d"), SubResource("Resource_ehi18"), SubResource("Resource_q0qi1"), SubResource("Resource_ujgt3"), SubResource("Resource_onh7g"), SubResource("Resource_afmye"), SubResource("Resource_iisrb"), SubResource("Resource_gbs4u"), SubResource("Resource_ly74e"), SubResource("Resource_2p44g"), SubResource("Resource_n7u40"), SubResource("Resource_kcr3r"), SubResource("Resource_yf5vf"), SubResource("Resource_d61as"), SubResource("Resource_ni0pm"), SubResource("Resource_7sf0i"), SubResource("Resource_fw6s1"), SubResource("Resource_8g046"), SubResource("Resource_upc6u"), SubResource("Resource_5g4f1"), SubResource("Resource_yfylc"), SubResource("Resource_pi3fw"), SubResource("Resource_h5nu6"), SubResource("Resource_yahl5"), SubResource("Resource_8yd2g"), SubResource("Resource_87fm1"), SubResource("Resource_8nq41"), SubResource("Resource_q4st3"), SubResource("Resource_ioju6"), SubResource("Resource_m87j4"), SubResource("Resource_xtbqc"), SubResource("Resource_rbg3e"), SubResource("Resource_uhg8y"), SubResource("Resource_2y4tb"), SubResource("Resource_83f3t"), SubResource("Resource_4n05t"), SubResource("Resource_n0wjw"), SubResource("Resource_52v4g"), SubResource("Resource_awamq"), SubResource("Resource_dcuae"), SubResource("Resource_0a0r8"), SubResource("Resource_hdlif"), SubResource("Resource_4f550"), SubResource("Resource_knobw"), SubResource("Resource_m2101"), SubResource("Resource_7cecp"), SubResource("Resource_pb515"), SubResource("Resource_0rt81"), SubResource("Resource_n7ryt"), SubResource("Resource_0omye"), SubResource("Resource_r6xvj"), SubResource("Resource_fgyo1"), SubResource("Resource_exlo8"), SubResource("Resource_o20yg"), SubResource("Resource_ydr00"), SubResource("Resource_cjv6e"), SubResource("Resource_uqf1j"), SubResource("Resource_ebdyc"), SubResource("Resource_sb8ak"), SubResource("Resource_oj0ec"), SubResource("Resource_htvw4"), SubResource("Resource_6bv1m"), SubResource("Resource_2l4i8"), SubResource("Resource_tn5ie"), SubResource("Resource_h1i8o"), SubResource("Resource_nfupu"), SubResource("Resource_7q6mc"), SubResource("Resource_xf6lt"), SubResource("Resource_arjys"), SubResource("Resource_8jsgg"), SubResource("Resource_jh3f8"), SubResource("Resource_eh5vm"), SubResource("Resource_deyor"), SubResource("Resource_yfefg"), SubResource("Resource_xj6uu"), SubResource("Resource_guorf"), SubResource("Resource_n1vug"), SubResource("Resource_hoyv7"), SubResource("Resource_lngf8"), SubResource("Resource_weqau"), SubResource("Resource_j80pk"), SubResource("Resource_m75yf"), SubResource("Resource_rasxk"), SubResource("Resource_edwk8"), SubResource("Resource_oi4e0"), SubResource("Resource_p4wa1"), SubResource("Resource_fd0vm"), SubResource("Resource_u7xa6"), SubResource("Resource_scoiv"), SubResource("Resource_msx3w"), SubResource("Resource_pm8hm"), SubResource("Resource_xwrbd"), SubResource("Resource_j6l20"), SubResource("Resource_h88py"), SubResource("Resource_4pamu"), SubResource("Resource_h7cln"), SubResource("Resource_h44hn"), SubResource("Resource_0gn2n"), SubResource("Resource_l2t2k"), SubResource("Resource_gpdk4"), SubResource("Resource_vh3qa"), SubResource("Resource_2lid5"), SubResource("Resource_i1u4a"), SubResource("Resource_unm8p"), SubResource("Resource_g7dh3"), SubResource("Resource_08mmx"), SubResource("Resource_258rc"), SubResource("Resource_qex3r"), SubResource("Resource_ir0bo"), SubResource("Resource_j1bep"), SubResource("Resource_jwbuy"), SubResource("Resource_jrt1e"), SubResource("Resource_2s5ix"), SubResource("Resource_s3603"), SubResource("Resource_hluk6"), SubResource("Resource_atw5o"), SubResource("Resource_pb6nr"), SubResource("Resource_gjdli"), SubResource("Resource_67fqk"), SubResource("Resource_m8el1"), SubResource("Resource_88wlh"), SubResource("Resource_y58y4"), SubResource("Resource_is76j"), SubResource("Resource_lae08"), SubResource("Resource_tf6xf"), SubResource("Resource_kpmrj"), SubResource("Resource_26sa2"), SubResource("Resource_wyqog"), SubResource("Resource_x605a"), SubResource("Resource_xp60g"), SubResource("Resource_uybey"), SubResource("Resource_thsml"), SubResource("Resource_2vtmp"), SubResource("Resource_oblfm"), SubResource("Resource_gt7xa"), SubResource("Resource_j1bg4"), SubResource("Resource_i27lp"), SubResource("Resource_8nogi"), SubResource("Resource_r4usm"), SubResource("Resource_1fuix"), SubResource("Resource_2j3la"), SubResource("Resource_5nvfq"), SubResource("Resource_n8ckm"), SubResource("Resource_2xsms"), SubResource("Resource_06b87"), SubResource("Resource_sl0tc"), SubResource("Resource_j7cwj"), SubResource("Resource_pet2c"), SubResource("Resource_vol3i"), SubResource("Resource_k7wo7"), SubResource("Resource_rsp0n"), SubResource("Resource_wcrto"), SubResource("Resource_nhpew"), SubResource("Resource_k87pw"), SubResource("Resource_qv10a"), SubResource("Resource_cd1j1"), SubResource("Resource_fbft0"), SubResource("Resource_bionc"), SubResource("Resource_dsmwd"), SubResource("Resource_plrw3"), SubResource("Resource_oug3i"), SubResource("Resource_uswms"), SubResource("Resource_xvpdt"), SubResource("Resource_b6dqn"), SubResource("Resource_nvrcb"), SubResource("Resource_3fvb1"), SubResource("Resource_0eesw"), SubResource("Resource_b7yq5"), SubResource("Resource_vpfqg"), SubResource("Resource_8qtut"), SubResource("Resource_suw7l"), SubResource("Resource_s060x"), SubResource("Resource_a38vh"), SubResource("Resource_3j848"), SubResource("Resource_il7qn"), SubResource("Resource_hkkae"), SubResource("Resource_j4tan"), SubResource("Resource_jpooq"), SubResource("Resource_hvqn0"), SubResource("Resource_34gm3"), SubResource("Resource_q3jgu"), SubResource("Resource_evi6l"), SubResource("Resource_n1tuu"), SubResource("Resource_x6vnm"), SubResource("Resource_uq4i2"), SubResource("Resource_5ogng"), SubResource("Resource_dky6n"), SubResource("Resource_06qh4"), SubResource("Resource_28hdy"), SubResource("Resource_jnf4v"), SubResource("Resource_eh28o"), SubResource("Resource_kd2mc"), SubResource("Resource_w3jg6"), SubResource("Resource_inx2y"), SubResource("Resource_ri6et"), SubResource("Resource_boeua"), SubResource("Resource_y6qaa"), SubResource("Resource_3qind"), SubResource("Resource_pivxh"), SubResource("Resource_gnifm"), SubResource("Resource_47wt7"), SubResource("Resource_mdxdd"), SubResource("Resource_a87bn"), SubResource("Resource_b6ltv"), SubResource("Resource_85wcs"), SubResource("Resource_22i2j"), SubResource("Resource_srhln"), SubResource("Resource_7b5cj"), SubResource("Resource_dccfo"), SubResource("Resource_e2k0g"), SubResource("Resource_rkqaj"), SubResource("Resource_t0ate"), SubResource("Resource_i8fdg"), SubResource("Resource_u1ncr"), SubResource("Resource_wgy15"), SubResource("Resource_ugcu8"), SubResource("Resource_3v0nx"), SubResource("Resource_jol0b"), SubResource("Resource_3i8xs"), SubResource("Resource_uqoi3"), SubResource("Resource_pwfwn"), SubResource("Resource_brslo"), SubResource("Resource_nb0yv"), SubResource("Resource_xbvaq"), SubResource("Resource_kcjig"), SubResource("Resource_mf6or"), SubResource("Resource_526sc"), SubResource("Resource_35k7o"), SubResource("Resource_wjeyn"), SubResource("Resource_ohb7o"), SubResource("Resource_ra4yy"), SubResource("Resource_7m82i"), SubResource("Resource_28l3e"), SubResource("Resource_3wcif"), SubResource("Resource_pob4n"), SubResource("Resource_4ads7"), SubResource("Resource_hfumm"), SubResource("Resource_82mex"), SubResource("Resource_tef7n"), SubResource("Resource_v4uff"), SubResource("Resource_yukkx"), SubResource("Resource_5y00m"), SubResource("Resource_w05yg"), SubResource("Resource_afth5"), SubResource("Resource_ksahr"), SubResource("Resource_jopn4"), SubResource("Resource_mgx5a"), SubResource("Resource_0u550"), SubResource("Resource_wgbvn"), SubResource("Resource_v7pem"), SubResource("Resource_15tl8"), SubResource("Resource_1sfev"), SubResource("Resource_6r2ts"), SubResource("Resource_leckg"), SubResource("Resource_5dkgw"), SubResource("Resource_afctq"), SubResource("Resource_eovb3"), SubResource("Resource_rosnl"), SubResource("Resource_f5osu"), SubResource("Resource_h60do"), SubResource("Resource_t3uu6"), SubResource("Resource_7udci"), SubResource("Resource_n35fa"), SubResource("Resource_1dmnq"), SubResource("Resource_34qh2"), SubResource("Resource_77ke4"), SubResource("Resource_6vo3m"), SubResource("Resource_k28yx"), SubResource("Resource_d726a"), SubResource("Resource_tcmp8"), SubResource("Resource_3e3t0"), SubResource("Resource_55y78"), SubResource("Resource_4vynu"), SubResource("Resource_uyuhc"), SubResource("Resource_p6h64"), SubResource("Resource_fjw03"), SubResource("Resource_024we"), SubResource("Resource_71fte"), SubResource("Resource_wuhr4"), SubResource("Resource_l30lr"), SubResource("Resource_hutly"), SubResource("Resource_adcra"), SubResource("Resource_q0dkn"), SubResource("Resource_fknw6"), SubResource("Resource_tif7j"), SubResource("Resource_0teg7"), SubResource("Resource_ny6gi"), SubResource("Resource_xospg"), SubResource("Resource_gpvpw"), SubResource("Resource_i8u2k"), SubResource("Resource_kfyf2"), SubResource("Resource_ea47b"), SubResource("Resource_aqcyv"), SubResource("Resource_wu7u6"), SubResource("Resource_gr0nm"), SubResource("Resource_oj73w"), SubResource("Resource_ert2g"), SubResource("Resource_ajtj3"), SubResource("Resource_lj3nk"), SubResource("Resource_lfpj4"), SubResource("Resource_kjy3g"), SubResource("Resource_j1nho"), SubResource("Resource_dlqem"), SubResource("Resource_we3sn"), SubResource("Resource_uqxoj"), SubResource("Resource_xdgx7"), SubResource("Resource_y81i1"), SubResource("Resource_qeqec"), SubResource("Resource_ci8ht"), SubResource("Resource_3g3xa"), SubResource("Resource_2ca8r"), SubResource("Resource_j2swp"), SubResource("Resource_kuduq"), SubResource("Resource_wwr8s"), SubResource("Resource_d70c7"), SubResource("Resource_v62yw"), SubResource("Resource_1dr04"), SubResource("Resource_wm1ua"), SubResource("Resource_yl3h8"), SubResource("Resource_cov31"), SubResource("Resource_t301v"), SubResource("Resource_sv3nn"), SubResource("Resource_viy4l"), SubResource("Resource_fvjji"), SubResource("Resource_pq3xb"), SubResource("Resource_ipm0a"), SubResource("Resource_0wvu5"), SubResource("Resource_fmt8m"), SubResource("Resource_7oj42"), SubResource("Resource_1vfxm"), SubResource("Resource_msb0m"), SubResource("Resource_8esb4"), SubResource("Resource_vxig3"), SubResource("Resource_hl3yh"), SubResource("Resource_rvn4b"), SubResource("Resource_qqiws"), SubResource("Resource_w4u4n"), SubResource("Resource_p00yk"), SubResource("Resource_jyuov"), SubResource("Resource_hy8x0"), SubResource("Resource_gh8ir"), SubResource("Resource_fmga5"), SubResource("Resource_dqh15"), SubResource("Resource_t1vtt"), SubResource("Resource_nh5n3"), SubResource("Resource_u21a5"), SubResource("Resource_1wu8a"), SubResource("Resource_y40n3"), SubResource("Resource_37vsv"), SubResource("Resource_3kkdj"), SubResource("Resource_vcr4b"), SubResource("Resource_jfwx1")])

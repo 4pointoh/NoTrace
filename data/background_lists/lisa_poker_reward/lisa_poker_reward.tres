@@ -1,0 +1,493 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=141 format=3 uid="uid://co5p4efuqmmpp"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_nok6l"]
+[ext_resource type="Texture2D" uid="uid://dc6rtjgsod3tr" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0001.webp" id="2_maksv"]
+[ext_resource type="Texture2D" uid="uid://c514awmngd5iq" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0002.webp" id="3_u216u"]
+[ext_resource type="Texture2D" uid="uid://bkj2thl3ki0xc" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0003.webp" id="4_nwbn6"]
+[ext_resource type="Texture2D" uid="uid://cr75p6tfprj5j" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0004.webp" id="5_6wh5v"]
+[ext_resource type="Texture2D" uid="uid://dkr7gc2cj5ec7" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0005.webp" id="6_yqd7p"]
+[ext_resource type="Texture2D" uid="uid://tfxau7j8272p" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0006.webp" id="7_bf027"]
+[ext_resource type="Texture2D" uid="uid://bcae7wjh5fn5b" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0007.webp" id="8_8n04m"]
+[ext_resource type="Texture2D" uid="uid://yf6ti70lelis" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0008.webp" id="9_o17r5"]
+[ext_resource type="Texture2D" uid="uid://dld7wxpuioq14" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0009.webp" id="10_6xiy4"]
+[ext_resource type="Texture2D" uid="uid://7humudol1lhp" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0010.webp" id="11_d8fh7"]
+[ext_resource type="Texture2D" uid="uid://bxhmxss1rt88y" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0011.webp" id="12_y1oan"]
+[ext_resource type="Texture2D" uid="uid://cyioe4saaclem" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0012.webp" id="13_dwf1l"]
+[ext_resource type="Texture2D" uid="uid://coi11s1vgeopo" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0013.webp" id="14_5j2ap"]
+[ext_resource type="Texture2D" uid="uid://dl0ab6e1uerdn" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0014.webp" id="15_wvsc3"]
+[ext_resource type="Texture2D" uid="uid://dlx8qnc51amy1" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0015.webp" id="16_ntlcd"]
+[ext_resource type="Texture2D" uid="uid://djgo8ls8j4ds2" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0016.webp" id="17_4yjuq"]
+[ext_resource type="Texture2D" uid="uid://bqpgqeync1561" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0017.webp" id="18_6dbvh"]
+[ext_resource type="Texture2D" uid="uid://b87qk3gf2dayk" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0018.webp" id="19_kw4pv"]
+[ext_resource type="Texture2D" uid="uid://dn0vcl5rrbbp8" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0019.webp" id="20_fpsfv"]
+[ext_resource type="Texture2D" uid="uid://binec33vq6kdl" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0020.webp" id="21_6vbly"]
+[ext_resource type="Texture2D" uid="uid://drerhxqhy4ugm" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0021.webp" id="22_s6gi4"]
+[ext_resource type="Texture2D" uid="uid://813o3oi6l400" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0022.webp" id="23_dfmfx"]
+[ext_resource type="Texture2D" uid="uid://bmyq5p7ridvj5" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0023.webp" id="24_vwmnd"]
+[ext_resource type="Texture2D" uid="uid://bj0r5dlh4trmv" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0024.webp" id="25_fsqht"]
+[ext_resource type="Texture2D" uid="uid://cmp1jsw24wpd6" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0025.webp" id="26_0a6y6"]
+[ext_resource type="Texture2D" uid="uid://ktd0gm88brpf" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0026.webp" id="27_gi4su"]
+[ext_resource type="Texture2D" uid="uid://drbykumbqqhv5" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0027.webp" id="28_k46s5"]
+[ext_resource type="Texture2D" uid="uid://di626qlmhb0bj" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0028.webp" id="29_cfuak"]
+[ext_resource type="Texture2D" uid="uid://bv117ijrfngpw" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0029.webp" id="30_id5w5"]
+[ext_resource type="Texture2D" uid="uid://b824kijfn1ppg" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0030.webp" id="31_yl6vd"]
+[ext_resource type="Texture2D" uid="uid://op5sn5lwg6fh" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0031.webp" id="32_8u4lv"]
+[ext_resource type="Texture2D" uid="uid://bagx20n6i5xex" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0032.webp" id="33_18e5q"]
+[ext_resource type="Texture2D" uid="uid://be7oi0ies3shx" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0033.webp" id="34_6ou5l"]
+[ext_resource type="Texture2D" uid="uid://bc8q2gi4kcflv" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0034.webp" id="35_w6gnv"]
+[ext_resource type="Texture2D" uid="uid://c2f1km1danycu" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0035.webp" id="36_7q6cu"]
+[ext_resource type="Texture2D" uid="uid://b4eg8owki67ge" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0036.webp" id="37_hfdav"]
+[ext_resource type="Texture2D" uid="uid://bt06n1647nr4t" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0037.webp" id="38_l1siu"]
+[ext_resource type="Texture2D" uid="uid://deusbjkrgmxxw" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0038.webp" id="39_okr7q"]
+[ext_resource type="Texture2D" uid="uid://cow8noqi7h5d6" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0039.webp" id="40_ikdis"]
+[ext_resource type="Texture2D" uid="uid://jn5svvtmwe3x" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0040.webp" id="41_yji4l"]
+[ext_resource type="Texture2D" uid="uid://do283ot2q8pj2" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0041.webp" id="42_li8nv"]
+[ext_resource type="Texture2D" uid="uid://m0pahaduop7h" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0042.webp" id="43_r042d"]
+[ext_resource type="Texture2D" uid="uid://dddmngrodjrxd" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0043.webp" id="44_btqb4"]
+[ext_resource type="Texture2D" uid="uid://db6b4j6a1avh3" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0044.webp" id="45_fmlcr"]
+[ext_resource type="Texture2D" uid="uid://ht6kriw0ri6p" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0045.webp" id="46_y1xwe"]
+[ext_resource type="Texture2D" uid="uid://1l0hxwiejtxt" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0046.webp" id="47_68a5r"]
+[ext_resource type="Texture2D" uid="uid://cewusxm3e1ect" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0047.webp" id="48_v3ipn"]
+[ext_resource type="Texture2D" uid="uid://djkpvt7equfr8" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0048.webp" id="49_cu56n"]
+[ext_resource type="Texture2D" uid="uid://bw68j64qbkg7" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0049.webp" id="50_2122l"]
+[ext_resource type="Texture2D" uid="uid://bevpj6j7sstlu" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0050.webp" id="51_1ckd6"]
+[ext_resource type="Texture2D" uid="uid://da1abtmfkww1w" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0051.webp" id="52_tljor"]
+[ext_resource type="Texture2D" uid="uid://byi4q3y2o52nq" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0052.webp" id="53_fjorc"]
+[ext_resource type="Texture2D" uid="uid://wb0jjric2wby" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0053.webp" id="54_fic43"]
+[ext_resource type="Texture2D" uid="uid://bmudty71vrra8" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0054.webp" id="55_k7aks"]
+[ext_resource type="Texture2D" uid="uid://tfwl15fwovq5" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0055.webp" id="56_hojpd"]
+[ext_resource type="Texture2D" uid="uid://cmdw4po7lpgjm" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0056.webp" id="57_4xvdq"]
+[ext_resource type="Texture2D" uid="uid://sibcxnc1onw1" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0057.webp" id="58_u3mq3"]
+[ext_resource type="Texture2D" uid="uid://dbc65rljop8ir" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0058.webp" id="59_w1xbb"]
+[ext_resource type="Texture2D" uid="uid://2f857yxhwjvg" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0059.webp" id="60_0ark3"]
+[ext_resource type="Texture2D" uid="uid://cg7yscojberrp" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0060.webp" id="61_6xl7p"]
+[ext_resource type="Texture2D" uid="uid://c0b4psh5ibe5h" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0061.webp" id="62_cof2a"]
+[ext_resource type="Texture2D" uid="uid://b6n02uw3yqid7" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0062.webp" id="63_pa65f"]
+[ext_resource type="Texture2D" uid="uid://flxpl03mkoqe" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0063.webp" id="64_vqalo"]
+[ext_resource type="Texture2D" uid="uid://bqgiqp7w444yj" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0064.webp" id="65_wp35r"]
+[ext_resource type="Texture2D" uid="uid://bvvbx8darqd" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0065.webp" id="66_mhok5"]
+[ext_resource type="Texture2D" uid="uid://hwvd866oevt1" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0066.webp" id="67_fk73o"]
+[ext_resource type="Texture2D" uid="uid://dfv3he5rulr0b" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0067.webp" id="68_3yx35"]
+[ext_resource type="Texture2D" uid="uid://82xfq62af0r2" path="res://data/background_lists/lisa_poker_reward/lisa_poker_reward_0068.webp" id="69_2ga44"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="70_lertg"]
+[ext_resource type="Texture2D" uid="uid://hc8sn66ki8rd" path="res://data/background_lists/lisa_poker_reward/car.webp" id="70_maksv"]
+
+[sub_resource type="Resource" id="Resource_2xi5k"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0001.webp"
+images = ExtResource("2_maksv")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ovvea"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0002.webp"
+images = ExtResource("3_u216u")
+wallpaperId = "LISA_POK_REW_4"
+
+[sub_resource type="Resource" id="Resource_sw0dn"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0003.webp"
+images = ExtResource("4_nwbn6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_gfc6f"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0004.webp"
+images = ExtResource("5_6wh5v")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ktxde"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0005.webp"
+images = ExtResource("6_yqd7p")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_kwb6s"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0006.webp"
+images = ExtResource("7_bf027")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_d88y4"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0007.webp"
+images = ExtResource("8_8n04m")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ujm6a"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0008.webp"
+images = ExtResource("9_o17r5")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_fmdc3"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0009.webp"
+images = ExtResource("10_6xiy4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_3jajn"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0010.webp"
+images = ExtResource("11_d8fh7")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_6fqrj"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0011.webp"
+images = ExtResource("12_y1oan")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_tu8hl"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0012.webp"
+images = ExtResource("13_dwf1l")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_4g08v"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0013.webp"
+images = ExtResource("14_5j2ap")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_r0xis"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0014.webp"
+images = ExtResource("15_wvsc3")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_4y8af"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0015.webp"
+images = ExtResource("16_ntlcd")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_6tvh4"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0016.webp"
+images = ExtResource("17_4yjuq")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_elrnk"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0017.webp"
+images = ExtResource("18_6dbvh")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_4d37o"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0018.webp"
+images = ExtResource("19_kw4pv")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_wrsj6"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0019.webp"
+images = ExtResource("20_fpsfv")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_d7ldp"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0020.webp"
+images = ExtResource("21_6vbly")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_vpp8b"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0021.webp"
+images = ExtResource("22_s6gi4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_mrnek"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0022.webp"
+images = ExtResource("23_dfmfx")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_phusw"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0023.webp"
+images = ExtResource("24_vwmnd")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_mcqky"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0024.webp"
+images = ExtResource("25_fsqht")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hh5q7"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0025.webp"
+images = ExtResource("26_0a6y6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_uyj5p"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0026.webp"
+images = ExtResource("27_gi4su")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_bqhqb"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0027.webp"
+images = ExtResource("28_k46s5")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_b4hhh"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0028.webp"
+images = ExtResource("29_cfuak")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_1wmj6"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0029.webp"
+images = ExtResource("30_id5w5")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_puj16"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0030.webp"
+images = ExtResource("31_yl6vd")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_d8ose"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0031.webp"
+images = ExtResource("32_8u4lv")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hu4hv"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0032.webp"
+images = ExtResource("33_18e5q")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hw12u"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0033.webp"
+images = ExtResource("34_6ou5l")
+wallpaperId = "LISA_POK_REW_5"
+
+[sub_resource type="Resource" id="Resource_6yyw0"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0034.webp"
+images = ExtResource("35_w6gnv")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_mo4v7"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0035.webp"
+images = ExtResource("36_7q6cu")
+wallpaperId = "LISA_POK_REW_6"
+
+[sub_resource type="Resource" id="Resource_x8i2t"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0036.webp"
+images = ExtResource("37_hfdav")
+wallpaperId = "LISA_POK_REW_7"
+
+[sub_resource type="Resource" id="Resource_ct185"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0037.webp"
+images = ExtResource("38_l1siu")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_dohdk"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0038.webp"
+images = ExtResource("39_okr7q")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_6cl4m"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0039.webp"
+images = ExtResource("40_ikdis")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_enxch"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0040.webp"
+images = ExtResource("41_yji4l")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_a1qoi"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0041.webp"
+images = ExtResource("42_li8nv")
+wallpaperId = "LISA_POK_REW_8"
+
+[sub_resource type="Resource" id="Resource_w668m"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0042.webp"
+images = ExtResource("43_r042d")
+wallpaperId = "LISA_POK_REW_9"
+
+[sub_resource type="Resource" id="Resource_4qr5t"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0043.webp"
+images = ExtResource("44_btqb4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_81us8"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0044.webp"
+images = ExtResource("45_fmlcr")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_2c0mt"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0045.webp"
+images = ExtResource("46_y1xwe")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_65wqa"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0046.webp"
+images = ExtResource("47_68a5r")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_1swii"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0047.webp"
+images = ExtResource("48_v3ipn")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hgmeg"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0048.webp"
+images = ExtResource("49_cu56n")
+wallpaperId = "LISA_POK_REW_11"
+
+[sub_resource type="Resource" id="Resource_t2rbh"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0049.webp"
+images = ExtResource("50_2122l")
+wallpaperId = "LISA_POK_REW_12"
+
+[sub_resource type="Resource" id="Resource_icsje"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0050.webp"
+images = ExtResource("51_1ckd6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_041ob"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0051.webp"
+images = ExtResource("52_tljor")
+wallpaperId = "LISA_POK_REW_10"
+
+[sub_resource type="Resource" id="Resource_um60p"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0052.webp"
+images = ExtResource("53_fjorc")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hwry7"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0053.webp"
+images = ExtResource("54_fic43")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_3mj6g"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0054.webp"
+images = ExtResource("55_k7aks")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_lak1c"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0055.webp"
+images = ExtResource("56_hojpd")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_gq4me"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0056.webp"
+images = ExtResource("57_4xvdq")
+wallpaperId = "LISA_POK_REW_3"
+
+[sub_resource type="Resource" id="Resource_ge7ea"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0057.webp"
+images = ExtResource("58_u3mq3")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_id782"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0058.webp"
+images = ExtResource("59_w1xbb")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_m1loy"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0059.webp"
+images = ExtResource("60_0ark3")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_0anb3"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0060.webp"
+images = ExtResource("61_6xl7p")
+wallpaperId = "LISA_POK_REW_2"
+
+[sub_resource type="Resource" id="Resource_lt5qn"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0061.webp"
+images = ExtResource("62_cof2a")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_i310d"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0062.webp"
+images = ExtResource("63_pa65f")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_o4gda"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0063.webp"
+images = ExtResource("64_vqalo")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_lsd00"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0064.webp"
+images = ExtResource("65_wp35r")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_knx05"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0065.webp"
+images = ExtResource("66_mhok5")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_0k6jb"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0066.webp"
+images = ExtResource("67_fk73o")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ovghx"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0067.webp"
+images = ExtResource("68_3yx35")
+wallpaperId = "LISA_POK_REW_1"
+
+[sub_resource type="Resource" id="Resource_ury1v"]
+script = ExtResource("1_nok6l")
+name = "lisa_poker_reward_0068.webp"
+images = ExtResource("69_2ga44")
+wallpaperId = "LISA_POK_REW_13"
+
+[sub_resource type="Resource" id="Resource_u216u"]
+script = ExtResource("1_nok6l")
+name = "car"
+images = ExtResource("70_maksv")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("70_lertg")
+name = "lisa_poker_reward"
+images = Array[ExtResource("1_nok6l")]([SubResource("Resource_2xi5k"), SubResource("Resource_ovvea"), SubResource("Resource_sw0dn"), SubResource("Resource_gfc6f"), SubResource("Resource_ktxde"), SubResource("Resource_kwb6s"), SubResource("Resource_d88y4"), SubResource("Resource_ujm6a"), SubResource("Resource_fmdc3"), SubResource("Resource_3jajn"), SubResource("Resource_6fqrj"), SubResource("Resource_tu8hl"), SubResource("Resource_4g08v"), SubResource("Resource_r0xis"), SubResource("Resource_4y8af"), SubResource("Resource_6tvh4"), SubResource("Resource_elrnk"), SubResource("Resource_4d37o"), SubResource("Resource_wrsj6"), SubResource("Resource_d7ldp"), SubResource("Resource_vpp8b"), SubResource("Resource_mrnek"), SubResource("Resource_phusw"), SubResource("Resource_mcqky"), SubResource("Resource_hh5q7"), SubResource("Resource_uyj5p"), SubResource("Resource_bqhqb"), SubResource("Resource_b4hhh"), SubResource("Resource_1wmj6"), SubResource("Resource_puj16"), SubResource("Resource_d8ose"), SubResource("Resource_hu4hv"), SubResource("Resource_hw12u"), SubResource("Resource_6yyw0"), SubResource("Resource_mo4v7"), SubResource("Resource_x8i2t"), SubResource("Resource_ct185"), SubResource("Resource_dohdk"), SubResource("Resource_6cl4m"), SubResource("Resource_enxch"), SubResource("Resource_a1qoi"), SubResource("Resource_w668m"), SubResource("Resource_4qr5t"), SubResource("Resource_81us8"), SubResource("Resource_2c0mt"), SubResource("Resource_65wqa"), SubResource("Resource_1swii"), SubResource("Resource_hgmeg"), SubResource("Resource_t2rbh"), SubResource("Resource_icsje"), SubResource("Resource_041ob"), SubResource("Resource_um60p"), SubResource("Resource_hwry7"), SubResource("Resource_3mj6g"), SubResource("Resource_lak1c"), SubResource("Resource_gq4me"), SubResource("Resource_ge7ea"), SubResource("Resource_id782"), SubResource("Resource_m1loy"), SubResource("Resource_0anb3"), SubResource("Resource_lt5qn"), SubResource("Resource_i310d"), SubResource("Resource_o4gda"), SubResource("Resource_lsd00"), SubResource("Resource_knx05"), SubResource("Resource_0k6jb"), SubResource("Resource_ovghx"), SubResource("Resource_ury1v"), SubResource("Resource_u216u")])

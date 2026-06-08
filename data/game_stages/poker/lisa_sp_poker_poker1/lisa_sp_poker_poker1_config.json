@@ -1,0 +1,47 @@
+{
+	"settings": {
+		"max_lives": 10
+	},
+	"participants": {
+		"LISA": {
+			"clothing_stack": [
+				{
+					"id": "ROUND 1",
+					"lives_threshold": 8
+				},
+				{
+					"id": "ROUND 2",
+					"lives_threshold": 5
+				},
+				{
+					"id": "ROUND 3",
+					"lives_threshold": 3
+				},
+				{
+					"id": "ROUND 4",
+					"lives_threshold": 0
+				}
+			]
+		},
+		"PLAYER": {
+			"clothing_stack": [
+				{
+					"id": "ROUND 1",
+					"lives_threshold": 8
+				},
+				{
+					"id": "ROUND 2",
+					"lives_threshold": 5
+				},
+				{
+					"id": "ROUND 3",
+					"lives_threshold": 2
+				},
+				{
+					"id": "ROUND 4",
+					"lives_threshold": 0
+				}
+			]
+		}
+	}
+}

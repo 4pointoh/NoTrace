@@ -1,0 +1,684 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=195 format=3 uid="uid://dkdti5lxuggf1"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_i5qhr"]
+[ext_resource type="Texture2D" uid="uid://c8o1767yqpwx3" path="res://data/background_lists/anna_night/home/anna_night_love_0001.webp" id="2_d7gv6"]
+[ext_resource type="Texture2D" uid="uid://c4hwjhajaspmh" path="res://data/background_lists/anna_night/home/anna_night_love_0002.webp" id="3_1ux8n"]
+[ext_resource type="Texture2D" uid="uid://dyd7n5tf2pmg4" path="res://data/background_lists/anna_night/home/anna_night_love_0003.webp" id="4_ykysc"]
+[ext_resource type="Texture2D" uid="uid://dqa1hee2exaud" path="res://data/background_lists/anna_night/home/anna_night_love_0004.webp" id="5_neaij"]
+[ext_resource type="Texture2D" uid="uid://cp35e0efhcwk8" path="res://data/background_lists/anna_night/home/anna_night_love_0005.webp" id="6_43hm4"]
+[ext_resource type="Texture2D" uid="uid://cfjwc57qutt5m" path="res://data/background_lists/anna_night/home/anna_night_love_0006.webp" id="7_merun"]
+[ext_resource type="Texture2D" uid="uid://dnhbs5ag8lb3p" path="res://data/background_lists/anna_night/home/anna_night_love_0007.webp" id="8_n167k"]
+[ext_resource type="Texture2D" uid="uid://b1l85qrqlrnaf" path="res://data/background_lists/anna_night/home/anna_night_love_0008.webp" id="9_ljqpp"]
+[ext_resource type="Texture2D" uid="uid://bmh4wtcyuovjo" path="res://data/background_lists/anna_night/home/anna_night_love_0009.webp" id="10_xuxns"]
+[ext_resource type="Texture2D" uid="uid://dudyek10uaikp" path="res://data/background_lists/anna_night/home/anna_night_love_0010.webp" id="11_rcp00"]
+[ext_resource type="Texture2D" uid="uid://capk8ayrdaelt" path="res://data/background_lists/anna_night/home/anna_night_love_0011.webp" id="12_11vgm"]
+[ext_resource type="Texture2D" uid="uid://bl6ry52wtk7fm" path="res://data/background_lists/anna_night/home/anna_night_love_0012.webp" id="13_35krx"]
+[ext_resource type="Texture2D" uid="uid://dnxy3uw6uxpfe" path="res://data/background_lists/anna_night/home/anna_night_love_0013.webp" id="14_376ue"]
+[ext_resource type="Texture2D" uid="uid://ccb41kqd80uud" path="res://data/background_lists/anna_night/home/anna_night_love_0014.webp" id="15_6btj4"]
+[ext_resource type="Texture2D" uid="uid://b7mcxgvyk4chs" path="res://data/background_lists/anna_night/home/anna_night_love_0015.webp" id="16_dutx6"]
+[ext_resource type="Texture2D" uid="uid://cpwkcrcxgvduk" path="res://data/background_lists/anna_night/home/anna_night_love_0016.webp" id="17_ydsk4"]
+[ext_resource type="Texture2D" uid="uid://cl800p14jio0x" path="res://data/background_lists/anna_night/home/anna_night_love_0017.webp" id="18_b77ti"]
+[ext_resource type="Texture2D" uid="uid://oipbotia0dk7" path="res://data/background_lists/anna_night/home/anna_night_love_0018.webp" id="19_s7n7d"]
+[ext_resource type="Texture2D" uid="uid://d0qhlbcf8pkao" path="res://data/background_lists/anna_night/home/anna_night_love_0019.webp" id="20_kpc0b"]
+[ext_resource type="Texture2D" uid="uid://cyfhex2ud1oct" path="res://data/background_lists/anna_night/home/anna_night_love_0020.webp" id="21_0mhvv"]
+[ext_resource type="Texture2D" uid="uid://qxslgdh4tjlw" path="res://data/background_lists/anna_night/home/anna_night_love_0021.webp" id="22_phmdq"]
+[ext_resource type="Texture2D" uid="uid://dlqbtqiiirmyc" path="res://data/background_lists/anna_night/home/anna_night_love_0022.webp" id="23_nyhm0"]
+[ext_resource type="Texture2D" uid="uid://b6b1k03nv43oj" path="res://data/background_lists/anna_night/home/anna_night_love_0023.webp" id="24_u5s66"]
+[ext_resource type="Texture2D" uid="uid://dc46pkj8087kl" path="res://data/background_lists/anna_night/home/anna_night_love_0024.webp" id="25_y2xvt"]
+[ext_resource type="Texture2D" uid="uid://ddyshuhkdujo6" path="res://data/background_lists/anna_night/home/anna_night_love_0025.webp" id="26_aplqy"]
+[ext_resource type="Texture2D" uid="uid://bg7iy808fyaed" path="res://data/background_lists/anna_night/home/anna_night_love_0026.webp" id="27_rk6uq"]
+[ext_resource type="Texture2D" uid="uid://epsiksamk3ar" path="res://data/background_lists/anna_night/home/anna_night_love_0027.webp" id="28_pemqy"]
+[ext_resource type="Texture2D" uid="uid://b3pg3qfg4wt4i" path="res://data/background_lists/anna_night/home/anna_night_love_0028.webp" id="29_3tpo3"]
+[ext_resource type="Texture2D" uid="uid://cw41mabf0m7cy" path="res://data/background_lists/anna_night/home/anna_night_love_0029.webp" id="30_sojqg"]
+[ext_resource type="Texture2D" uid="uid://c0jqw4h1nomgq" path="res://data/background_lists/anna_night/home/anna_night_love_0030.webp" id="31_8ojc2"]
+[ext_resource type="Texture2D" uid="uid://c6xteatov7f5a" path="res://data/background_lists/anna_night/home/anna_night_love_0031.webp" id="32_2xlkx"]
+[ext_resource type="Texture2D" uid="uid://byney72htcb7e" path="res://data/background_lists/anna_night/home/anna_night_love_0032.webp" id="33_sry7f"]
+[ext_resource type="Texture2D" uid="uid://bcwbqw0snnfc1" path="res://data/background_lists/anna_night/home/anna_night_love_0033.webp" id="34_46reu"]
+[ext_resource type="Texture2D" uid="uid://dn6hp7n2pn3dp" path="res://data/background_lists/anna_night/home/anna_night_love_0034.webp" id="35_q0g2u"]
+[ext_resource type="Texture2D" uid="uid://8of63ps10fcn" path="res://data/background_lists/anna_night/home/anna_night_love_0035.webp" id="36_dscwp"]
+[ext_resource type="Texture2D" uid="uid://dsx0f5rxifns5" path="res://data/background_lists/anna_night/home/anna_night_love_0036.webp" id="37_eq72y"]
+[ext_resource type="Texture2D" uid="uid://c3dptmods5api" path="res://data/background_lists/anna_night/home/anna_night_love_0037.webp" id="38_2ucsl"]
+[ext_resource type="Texture2D" uid="uid://bjutd00hwl84p" path="res://data/background_lists/anna_night/home/anna_night_love_0038.webp" id="39_62u3m"]
+[ext_resource type="Texture2D" uid="uid://bn14061a0vjuh" path="res://data/background_lists/anna_night/home/anna_night_love_0039.webp" id="40_kl73g"]
+[ext_resource type="Texture2D" uid="uid://30hwl7aas4yh" path="res://data/background_lists/anna_night/home/anna_night_love_0040.webp" id="41_80uyj"]
+[ext_resource type="Texture2D" uid="uid://c1f0kt3smmxpn" path="res://data/background_lists/anna_night/home/anna_night_love_0041.webp" id="42_b2vhb"]
+[ext_resource type="Texture2D" uid="uid://blsyotsjqbi2" path="res://data/background_lists/anna_night/home/anna_night_love_0042.webp" id="43_iojtn"]
+[ext_resource type="Texture2D" uid="uid://rlqmhx6bfiou" path="res://data/background_lists/anna_night/home/anna_night_love_0043.webp" id="44_hgf2n"]
+[ext_resource type="Texture2D" uid="uid://wgh2r15mhdpd" path="res://data/background_lists/anna_night/home/anna_night_love_0044.webp" id="45_p1l6q"]
+[ext_resource type="Texture2D" uid="uid://bmjadsh3h5tc5" path="res://data/background_lists/anna_night/home/anna_night_love_0045.webp" id="46_q8rf7"]
+[ext_resource type="Texture2D" uid="uid://csaqcxmeviupr" path="res://data/background_lists/anna_night/home/anna_night_love_0046.webp" id="47_dn1xy"]
+[ext_resource type="Texture2D" uid="uid://dpyyhkty6j5rn" path="res://data/background_lists/anna_night/home/anna_night_love_0047.webp" id="48_7j4pp"]
+[ext_resource type="Texture2D" uid="uid://bwk4jh66rm5bq" path="res://data/background_lists/anna_night/home/anna_night_love_0048.webp" id="49_8gma4"]
+[ext_resource type="Texture2D" uid="uid://b5wwm0ftwec8q" path="res://data/background_lists/anna_night/home/anna_night_love_0049.webp" id="50_33wyi"]
+[ext_resource type="Texture2D" uid="uid://cg8n5o2kkipkm" path="res://data/background_lists/anna_night/home/anna_night_love_0050.webp" id="51_plsrm"]
+[ext_resource type="Texture2D" uid="uid://ktuca7cnijuj" path="res://data/background_lists/anna_night/home/anna_night_love_0051.webp" id="52_6dxub"]
+[ext_resource type="Texture2D" uid="uid://bk2ji003dny2t" path="res://data/background_lists/anna_night/home/anna_night_love_0052.webp" id="53_xhxsx"]
+[ext_resource type="Texture2D" uid="uid://dt5c3qit54u58" path="res://data/background_lists/anna_night/home/anna_night_love_0053.webp" id="54_8k65i"]
+[ext_resource type="Texture2D" uid="uid://5s0klr04hib4" path="res://data/background_lists/anna_night/home/anna_night_love_0054.webp" id="55_a2ial"]
+[ext_resource type="Texture2D" uid="uid://yywj5flihbmr" path="res://data/background_lists/anna_night/home/anna_night_love_0055.webp" id="56_10616"]
+[ext_resource type="Texture2D" uid="uid://donu4lvuyreiv" path="res://data/background_lists/anna_night/home/anna_night_love_0056.webp" id="57_ci2e6"]
+[ext_resource type="Texture2D" uid="uid://ch1jsocr7vbma" path="res://data/background_lists/anna_night/home/anna_night_love_0057.webp" id="58_jpn2k"]
+[ext_resource type="Texture2D" uid="uid://djjiedraq11yv" path="res://data/background_lists/anna_night/home/anna_night_love_0058.webp" id="59_nqwow"]
+[ext_resource type="Texture2D" uid="uid://dvmcsq56evpo" path="res://data/background_lists/anna_night/home/anna_night_love_0059.webp" id="60_udin4"]
+[ext_resource type="Texture2D" uid="uid://tgkhg87tadp2" path="res://data/background_lists/anna_night/home/extra_1.webp" id="61_ecusa"]
+[ext_resource type="Texture2D" uid="uid://b0qx6v82db7sa" path="res://data/background_lists/anna_night/home/night_0.webp" id="62_6bi68"]
+[ext_resource type="Texture2D" uid="uid://d3ptppq61jv33" path="res://data/background_lists/anna_night/home/night_1.webp" id="63_jwu62"]
+[ext_resource type="Texture2D" uid="uid://6rgc55fjoywm" path="res://data/background_lists/anna_night/home/night_10.webp" id="64_2i64p"]
+[ext_resource type="Texture2D" uid="uid://b0mpfr28kstwi" path="res://data/background_lists/anna_night/home/night_10_1.png" id="65_7v7gm"]
+[ext_resource type="Texture2D" uid="uid://cpwygf6m6d3ys" path="res://data/background_lists/anna_night/home/night_10_2.png" id="66_aggug"]
+[ext_resource type="Texture2D" uid="uid://dlafb82blr7ce" path="res://data/background_lists/anna_night/home/night_10_3.png" id="67_ygrf6"]
+[ext_resource type="Texture2D" uid="uid://dflnt7qxt1wy" path="res://data/background_lists/anna_night/home/night_10_4.png" id="68_5a4uk"]
+[ext_resource type="Texture2D" uid="uid://djd8qktobkjyc" path="res://data/background_lists/anna_night/home/night_11.webp" id="69_4vrlb"]
+[ext_resource type="Texture2D" uid="uid://brtn1p0bm01sa" path="res://data/background_lists/anna_night/home/night_12.webp" id="70_hvr25"]
+[ext_resource type="Texture2D" uid="uid://bwgvaymbqcenk" path="res://data/background_lists/anna_night/home/night_13.webp" id="71_olswr"]
+[ext_resource type="Texture2D" uid="uid://crxx6o3x7s288" path="res://data/background_lists/anna_night/home/night_14.webp" id="72_hxygb"]
+[ext_resource type="Texture2D" uid="uid://c3po6636o8m37" path="res://data/background_lists/anna_night/home/night_15.webp" id="73_ybgrk"]
+[ext_resource type="Texture2D" uid="uid://daujcla17yuhr" path="res://data/background_lists/anna_night/home/night_16.webp" id="74_44w1v"]
+[ext_resource type="Texture2D" uid="uid://djtirm47h4gh2" path="res://data/background_lists/anna_night/home/night_17.webp" id="75_ticf2"]
+[ext_resource type="Texture2D" uid="uid://cbpg4rprc2o6p" path="res://data/background_lists/anna_night/home/night_19.webp" id="76_rsbep"]
+[ext_resource type="Texture2D" uid="uid://kjxrnfgrevpq" path="res://data/background_lists/anna_night/home/night_2.webp" id="77_p34ah"]
+[ext_resource type="Texture2D" uid="uid://c8iyqp8tcrcbe" path="res://data/background_lists/anna_night/home/night_20.webp" id="78_oqci6"]
+[ext_resource type="Texture2D" uid="uid://dl4kpjx4g6vrp" path="res://data/background_lists/anna_night/home/night_21.webp" id="79_odecq"]
+[ext_resource type="Texture2D" uid="uid://cl11jtm1s1os4" path="res://data/background_lists/anna_night/home/night_22.webp" id="80_8gli1"]
+[ext_resource type="Texture2D" uid="uid://sj8e1mq1eug0" path="res://data/background_lists/anna_night/home/night_23.webp" id="81_imqhy"]
+[ext_resource type="Texture2D" uid="uid://bpkyd3q1vgqop" path="res://data/background_lists/anna_night/home/night_24.webp" id="82_cwvr3"]
+[ext_resource type="Texture2D" uid="uid://dvsahkl337vym" path="res://data/background_lists/anna_night/home/night_25.webp" id="83_alk1r"]
+[ext_resource type="Texture2D" uid="uid://cq6sxob30rppn" path="res://data/background_lists/anna_night/home/night_26.webp" id="84_8s4qp"]
+[ext_resource type="Texture2D" uid="uid://dtisb7euyh207" path="res://data/background_lists/anna_night/home/night_27.webp" id="85_u8atb"]
+[ext_resource type="Texture2D" uid="uid://1sbg6buv5qbs" path="res://data/background_lists/anna_night/home/night_28.webp" id="86_5dru4"]
+[ext_resource type="Texture2D" uid="uid://d1gaac0msws4e" path="res://data/background_lists/anna_night/home/night_29.webp" id="87_7agcp"]
+[ext_resource type="Texture2D" uid="uid://btfdyrl0d7wle" path="res://data/background_lists/anna_night/home/night_3.webp" id="88_tygl1"]
+[ext_resource type="Texture2D" uid="uid://b3pfyyish7njs" path="res://data/background_lists/anna_night/home/night_4.webp" id="89_kc2n5"]
+[ext_resource type="Texture2D" uid="uid://cxg27u0a4pdq0" path="res://data/background_lists/anna_night/home/night_5.webp" id="90_xhwjp"]
+[ext_resource type="Texture2D" uid="uid://3dywlxoptfjv" path="res://data/background_lists/anna_night/home/night_6.webp" id="91_wf4hi"]
+[ext_resource type="Texture2D" uid="uid://bq737ilsahrlw" path="res://data/background_lists/anna_night/home/night_7.webp" id="92_mso3j"]
+[ext_resource type="Texture2D" uid="uid://d2g38xsuu37p4" path="res://data/background_lists/anna_night/home/night_8.webp" id="93_cye2x"]
+[ext_resource type="Texture2D" uid="uid://dwxhaih1lcp3g" path="res://data/background_lists/anna_night/home/night_9.webp" id="94_m6eka"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="95_x5ab2"]
+[ext_resource type="Texture2D" uid="uid://dnee6lum7i4sr" path="res://data/background_lists/anna_night/home/night_new_1.png" id="95_ykysc"]
+[ext_resource type="Texture2D" uid="uid://b7shw1eutadyj" path="res://data/background_lists/anna_night/home/night_new_2.webp" id="96_neaij"]
+[ext_resource type="Texture2D" uid="uid://c4jn3qlpcxiq" path="res://data/background_lists/anna_night/home/night_new_5.png" id="97_43hm4"]
+
+[sub_resource type="Resource" id="Resource_edrgo"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0001.webp"
+images = ExtResource("2_d7gv6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_wvjem"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0002.webp"
+images = ExtResource("3_1ux8n")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_efstl"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0003.webp"
+images = ExtResource("4_ykysc")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_8jh75"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0004.webp"
+images = ExtResource("5_neaij")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_mq1lu"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0005.webp"
+images = ExtResource("6_43hm4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_4hljf"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0006.webp"
+images = ExtResource("7_merun")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_sjqb1"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0007.webp"
+images = ExtResource("8_n167k")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_nhlq7"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0008.webp"
+images = ExtResource("9_ljqpp")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_r2eok"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0009.webp"
+images = ExtResource("10_xuxns")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_wswuk"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0010.webp"
+images = ExtResource("11_rcp00")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_qaywd"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0011.webp"
+images = ExtResource("12_11vgm")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_gyjj6"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0012.webp"
+images = ExtResource("13_35krx")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_c0ptg"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0013.webp"
+images = ExtResource("14_376ue")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_omugx"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0014.webp"
+images = ExtResource("15_6btj4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_6amjn"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0015.webp"
+images = ExtResource("16_dutx6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_oyuvm"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0016.webp"
+images = ExtResource("17_ydsk4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_tqcyk"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0017.webp"
+images = ExtResource("18_b77ti")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_derpx"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0018.webp"
+images = ExtResource("19_s7n7d")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_vgylh"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0019.webp"
+images = ExtResource("20_kpc0b")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_rxuui"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0020.webp"
+images = ExtResource("21_0mhvv")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_8mopx"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0021.webp"
+images = ExtResource("22_phmdq")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hel0c"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0022.webp"
+images = ExtResource("23_nyhm0")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ngbdt"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0023.webp"
+images = ExtResource("24_u5s66")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_06wgx"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0024.webp"
+images = ExtResource("25_y2xvt")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_w1qml"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0025.webp"
+images = ExtResource("26_aplqy")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_8x01j"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0026.webp"
+images = ExtResource("27_rk6uq")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_g285a"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0027.webp"
+images = ExtResource("28_pemqy")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_o2ftg"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0028.webp"
+images = ExtResource("29_3tpo3")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_duthj"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0029.webp"
+images = ExtResource("30_sojqg")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_oyk6e"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0030.webp"
+images = ExtResource("31_8ojc2")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_eei7h"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0031.webp"
+images = ExtResource("32_2xlkx")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_xveug"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0032.webp"
+images = ExtResource("33_sry7f")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_fvubk"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0033.webp"
+images = ExtResource("34_46reu")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_a6ffd"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0034.webp"
+images = ExtResource("35_q0g2u")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_vre8i"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0035.webp"
+images = ExtResource("36_dscwp")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_fbgkv"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0036.webp"
+images = ExtResource("37_eq72y")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_of4wf"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0037.webp"
+images = ExtResource("38_2ucsl")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_nq56n"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0038.webp"
+images = ExtResource("39_62u3m")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_t5ghb"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0039.webp"
+images = ExtResource("40_kl73g")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_mai7u"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0040.webp"
+images = ExtResource("41_80uyj")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_yn1mu"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0041.webp"
+images = ExtResource("42_b2vhb")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_uyy2p"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0042.webp"
+images = ExtResource("43_iojtn")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_7umm3"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0043.webp"
+images = ExtResource("44_hgf2n")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_8e6ks"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0044.webp"
+images = ExtResource("45_p1l6q")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_s4ixn"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0045.webp"
+images = ExtResource("46_q8rf7")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_t3i82"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0046.webp"
+images = ExtResource("47_dn1xy")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_u5mh4"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0047.webp"
+images = ExtResource("48_7j4pp")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_etp6h"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0048.webp"
+images = ExtResource("49_8gma4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_7k4m8"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0049.webp"
+images = ExtResource("50_33wyi")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_jxtsc"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0050.webp"
+images = ExtResource("51_plsrm")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_rv5lp"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0051.webp"
+images = ExtResource("52_6dxub")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_dysem"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0052.webp"
+images = ExtResource("53_xhxsx")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_db2ti"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0053.webp"
+images = ExtResource("54_8k65i")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_63w31"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0054.webp"
+images = ExtResource("55_a2ial")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_fd3nd"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0055.webp"
+images = ExtResource("56_10616")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_viwgn"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0056.webp"
+images = ExtResource("57_ci2e6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_xcbf6"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0057.webp"
+images = ExtResource("58_jpn2k")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_5q23s"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0058.webp"
+images = ExtResource("59_nqwow")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_wnqha"]
+script = ExtResource("1_i5qhr")
+name = "anna_night_love_0059.webp"
+images = ExtResource("60_udin4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_7w40e"]
+script = ExtResource("1_i5qhr")
+name = "extra_1.webp"
+images = ExtResource("61_ecusa")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hybc6"]
+script = ExtResource("1_i5qhr")
+name = "night_0.webp"
+images = ExtResource("62_6bi68")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_8w3rf"]
+script = ExtResource("1_i5qhr")
+name = "night_1.webp"
+images = ExtResource("63_jwu62")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_xiyl3"]
+script = ExtResource("1_i5qhr")
+name = "night_10.webp"
+images = ExtResource("64_2i64p")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_soh84"]
+script = ExtResource("1_i5qhr")
+name = "night_10_1.png"
+images = ExtResource("65_7v7gm")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_hat4p"]
+script = ExtResource("1_i5qhr")
+name = "night_10_2.png"
+images = ExtResource("66_aggug")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ymokk"]
+script = ExtResource("1_i5qhr")
+name = "night_10_3.png"
+images = ExtResource("67_ygrf6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_dxdan"]
+script = ExtResource("1_i5qhr")
+name = "night_10_4.png"
+images = ExtResource("68_5a4uk")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_nuqkf"]
+script = ExtResource("1_i5qhr")
+name = "night_11.webp"
+images = ExtResource("69_4vrlb")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_gh1m2"]
+script = ExtResource("1_i5qhr")
+name = "night_12.webp"
+images = ExtResource("70_hvr25")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_yfxbj"]
+script = ExtResource("1_i5qhr")
+name = "night_13.webp"
+images = ExtResource("71_olswr")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_vqnlj"]
+script = ExtResource("1_i5qhr")
+name = "night_14.webp"
+images = ExtResource("72_hxygb")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_p1ayy"]
+script = ExtResource("1_i5qhr")
+name = "night_15.webp"
+images = ExtResource("73_ybgrk")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_wdcof"]
+script = ExtResource("1_i5qhr")
+name = "night_16.webp"
+images = ExtResource("74_44w1v")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ck005"]
+script = ExtResource("1_i5qhr")
+name = "night_17.webp"
+images = ExtResource("75_ticf2")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_mh3tx"]
+script = ExtResource("1_i5qhr")
+name = "night_19.webp"
+images = ExtResource("76_rsbep")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_7tk64"]
+script = ExtResource("1_i5qhr")
+name = "night_2.webp"
+images = ExtResource("77_p34ah")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_p75v2"]
+script = ExtResource("1_i5qhr")
+name = "night_20.webp"
+images = ExtResource("78_oqci6")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_epiqq"]
+script = ExtResource("1_i5qhr")
+name = "night_21.webp"
+images = ExtResource("79_odecq")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_3eyao"]
+script = ExtResource("1_i5qhr")
+name = "night_22.webp"
+images = ExtResource("80_8gli1")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_ikfsf"]
+script = ExtResource("1_i5qhr")
+name = "night_23.webp"
+images = ExtResource("81_imqhy")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_fcn1x"]
+script = ExtResource("1_i5qhr")
+name = "night_24.webp"
+images = ExtResource("82_cwvr3")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_pwa06"]
+script = ExtResource("1_i5qhr")
+name = "night_25.webp"
+images = ExtResource("83_alk1r")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_qumlq"]
+script = ExtResource("1_i5qhr")
+name = "night_26.webp"
+images = ExtResource("84_8s4qp")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_jrc7b"]
+script = ExtResource("1_i5qhr")
+name = "night_27.webp"
+images = ExtResource("85_u8atb")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_i2l5m"]
+script = ExtResource("1_i5qhr")
+name = "night_28.webp"
+images = ExtResource("86_5dru4")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_o2dv6"]
+script = ExtResource("1_i5qhr")
+name = "night_29.webp"
+images = ExtResource("87_7agcp")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_fq520"]
+script = ExtResource("1_i5qhr")
+name = "night_3.webp"
+images = ExtResource("88_tygl1")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_txyd3"]
+script = ExtResource("1_i5qhr")
+name = "night_4.webp"
+images = ExtResource("89_kc2n5")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_n2jcc"]
+script = ExtResource("1_i5qhr")
+name = "night_5.webp"
+images = ExtResource("90_xhwjp")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_te45y"]
+script = ExtResource("1_i5qhr")
+name = "night_6.webp"
+images = ExtResource("91_wf4hi")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_08ak2"]
+script = ExtResource("1_i5qhr")
+name = "night_7.webp"
+images = ExtResource("92_mso3j")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_172al"]
+script = ExtResource("1_i5qhr")
+name = "night_8.webp"
+images = ExtResource("93_cye2x")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_rxdp2"]
+script = ExtResource("1_i5qhr")
+name = "night_9.webp"
+images = ExtResource("94_m6eka")
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_merun"]
+script = ExtResource("1_i5qhr")
+name = "night_new_1"
+images = ExtResource("95_ykysc")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_n167k"]
+script = ExtResource("1_i5qhr")
+name = "night_new_2"
+images = ExtResource("96_neaij")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_ljqpp"]
+script = ExtResource("1_i5qhr")
+name = "night_new_3"
+images = ExtResource("97_43hm4")
+wallpaperId = ""
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("95_x5ab2")
+name = "anna_night"
+images = Array[ExtResource("1_i5qhr")]([SubResource("Resource_edrgo"), SubResource("Resource_wvjem"), SubResource("Resource_efstl"), SubResource("Resource_8jh75"), SubResource("Resource_mq1lu"), SubResource("Resource_4hljf"), SubResource("Resource_sjqb1"), SubResource("Resource_nhlq7"), SubResource("Resource_r2eok"), SubResource("Resource_wswuk"), SubResource("Resource_qaywd"), SubResource("Resource_gyjj6"), SubResource("Resource_c0ptg"), SubResource("Resource_omugx"), SubResource("Resource_6amjn"), SubResource("Resource_oyuvm"), SubResource("Resource_tqcyk"), SubResource("Resource_derpx"), SubResource("Resource_vgylh"), SubResource("Resource_rxuui"), SubResource("Resource_8mopx"), SubResource("Resource_hel0c"), SubResource("Resource_ngbdt"), SubResource("Resource_06wgx"), SubResource("Resource_w1qml"), SubResource("Resource_8x01j"), SubResource("Resource_g285a"), SubResource("Resource_o2ftg"), SubResource("Resource_duthj"), SubResource("Resource_oyk6e"), SubResource("Resource_eei7h"), SubResource("Resource_xveug"), SubResource("Resource_fvubk"), SubResource("Resource_a6ffd"), SubResource("Resource_vre8i"), SubResource("Resource_fbgkv"), SubResource("Resource_of4wf"), SubResource("Resource_nq56n"), SubResource("Resource_t5ghb"), SubResource("Resource_mai7u"), SubResource("Resource_yn1mu"), SubResource("Resource_uyy2p"), SubResource("Resource_7umm3"), SubResource("Resource_8e6ks"), SubResource("Resource_s4ixn"), SubResource("Resource_t3i82"), SubResource("Resource_u5mh4"), SubResource("Resource_etp6h"), SubResource("Resource_7k4m8"), SubResource("Resource_jxtsc"), SubResource("Resource_rv5lp"), SubResource("Resource_dysem"), SubResource("Resource_db2ti"), SubResource("Resource_63w31"), SubResource("Resource_fd3nd"), SubResource("Resource_viwgn"), SubResource("Resource_xcbf6"), SubResource("Resource_5q23s"), SubResource("Resource_wnqha"), SubResource("Resource_7w40e"), SubResource("Resource_hybc6"), SubResource("Resource_8w3rf"), SubResource("Resource_xiyl3"), SubResource("Resource_soh84"), SubResource("Resource_hat4p"), SubResource("Resource_ymokk"), SubResource("Resource_dxdan"), SubResource("Resource_nuqkf"), SubResource("Resource_gh1m2"), SubResource("Resource_yfxbj"), SubResource("Resource_vqnlj"), SubResource("Resource_p1ayy"), SubResource("Resource_wdcof"), SubResource("Resource_ck005"), SubResource("Resource_mh3tx"), SubResource("Resource_7tk64"), SubResource("Resource_p75v2"), SubResource("Resource_epiqq"), SubResource("Resource_3eyao"), SubResource("Resource_ikfsf"), SubResource("Resource_fcn1x"), SubResource("Resource_pwa06"), SubResource("Resource_qumlq"), SubResource("Resource_jrc7b"), SubResource("Resource_i2l5m"), SubResource("Resource_o2dv6"), SubResource("Resource_fq520"), SubResource("Resource_txyd3"), SubResource("Resource_n2jcc"), SubResource("Resource_te45y"), SubResource("Resource_08ak2"), SubResource("Resource_172al"), SubResource("Resource_rxdp2"), SubResource("Resource_merun"), SubResource("Resource_n167k"), SubResource("Resource_ljqpp")])

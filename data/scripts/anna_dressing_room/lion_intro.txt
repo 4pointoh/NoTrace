@@ -1,0 +1,52 @@
+# Sample script demonstrating every directive.
+# a: = Anna message    p: = player message (waits for click)
+# img: <res path>      pos: tl | tr | bl | br
+
+img: res://data/background_lists/anna_night/changing_room/studio_4.webp
+pos: bl
+a: That one?!
+a: Out of all these choices, that's the one you pick?!
+p: ... I thought it was cute
+a: It is cute!
+a: It's super cute, and fluffy, and soft!
+p: So what's the problem again?
+a: Well I just thought you might find one of the other choices more... attractive?
+p: Well we could do the clown costume
+a: Lion onesie it is!
+a: This will only take a sec...
+delay: 4
+a: Okay it's on! 
+a: Ready?
+p: Yep
+img: res://data/background_lists/anna_night/lion/lion_1.webp
+a: rawr 🦁
+a: do I look fierce?
+p: I'm shivering in fear
+a: You should be!!
+a: See this?
+img: res://data/background_lists/anna_night/lion/lion_3.webp
+a: When my tail is raised like that, it means I'm agitated.
+a: You don't want to know what happens when I get agitated!
+p: Don't tell me you have full tail control in that thing
+a: Just a little movie magic!
+a: Look I can lower it...
+img: res://data/background_lists/anna_night/lion/lion_4.webp
+a: This position indicates I'm calm and that you are at no risk of attack
+a: The lion is showing you they're comfortable turning their back to you, and that you aren't a threat
+p: Are these real facts, or are you just making this up?
+p: If I'm ever facing down a lion, this might be critical information. 
+a: 100% certified fact.
+a: Ready for the next one?
+p: Go for it
+img: res://data/background_lists/anna_night/lion/lion_5.webp
+a: This pose is play time mode!
+a: I might pounce on you! But your soft meat body will probably survive. 
+p: Hey it's not that soft, I go to the gym.
+p: ... at least once monthly...
+a: Oh I'm sure you're fine then, their nine-inch razor sharp claws should bounce right off your six-pack abs. 
+delay: 4
+a: Ummm... so those were the main poses...
+a: There were a few more... but they get a bit...
+a: Let's say.... "educational" after that.
+a: Maybe if we have time later!
+a: I'm going to strip down out of this and change back to my other clothes, if we have time, you can pick another outfit. 

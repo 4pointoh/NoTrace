@@ -2,11 +2,14 @@ extends Node2D
 
 signal newMessageSelect(stage : GameStage)
 signal newStageSelect(stage : GameStage)
+signal showTimeline(stage : GameStage)
 signal beginDialogue(key : String)
 signal conversationComplete()
 
 var availableMessages
 var inConversation
+
+var showingApps = true
 
 @onready var appOpenSound = load("res://data/assets/phone/sounds/app_open.wav")
 @onready var appBackSound = load("res://data/assets/phone/sounds/back.wav")
@@ -15,7 +18,11 @@ func _init():
 	GlobalGameStage.wallpaperChange.connect(setWallpaper)
 	
 func setup():
-	$PhoneBox/Wallpaper.texture = GlobalGameStage.currentWallpaper.image
+	if GlobalGameStage.shouldRandomizeWallpaper():
+		$PhoneBox/Wallpaper.texture = load(GlobalGameStage.getRandomUnlockedWallpaper())
+	else:
+		$PhoneBox/Wallpaper.texture = load(GlobalGameStage.currentWallpaper.wallpaperImagePath)
+		
 	show()
 	$AnimationPlayer.play("phone_up")
 	$PhoneBox/Back.visible = false
@@ -42,7 +49,7 @@ func setNotificationIcons():
 		$PhoneBox/NotificationIconEvents.visible = false
 
 func setWallpaper(wallaper):
-	$PhoneBox/Wallpaper.texture = wallaper.image
+	$PhoneBox/Wallpaper.texture = load(wallaper.wallpaperImagePath)
 
 func _on_messages_pressed():
 	playAppOpenSound()
@@ -90,10 +97,16 @@ func toggleAppIcons():
 		app.visible = !app.visible
 	$PhoneBox/NotificationIconEvents.visible = false
 	$PhoneBox/NotificationIconMessages.visible = false
+	%ToggleAppViewBg.visible = !%ToggleAppViewBg.visible
 
 func startConversation():
 	%Back.visible = false
 	%MessagesApp.startConversation()
+
+func loadPreparedMessages(processNextAction = true):
+	%MessagesApp.loadPreparedMessages()
+	if processNextAction:
+		%MessagesApp.processNextAction()
 
 func _on_messages_app_new_message_select(stage):
 	playAppOpenSound()
@@ -133,3 +146,22 @@ func _on_real_date_icon_pressed():
 	%RealDateApp.visible = true
 	%Back.visible = true
 	%AnimationPlayer.play("realdate_up")
+
+func _on_continue_app_selected_timeline(stage: GameStage) -> void:
+	playAppOpenSound()
+	showTimeline.emit(stage)
+
+
+func _on_toggle_app_view_pressed() -> void:
+	showingApps = !showingApps
+	if showingApps:
+		var apps = get_tree().get_nodes_in_group("App")
+		for app in apps:
+			app.visible = true
+		setNotificationIcons()
+	else:
+		var apps = get_tree().get_nodes_in_group("App")
+		for app in apps:
+			app.visible = false
+		%NotificationIconEvents.hide()
+		%NotificationIconMessages.hide()

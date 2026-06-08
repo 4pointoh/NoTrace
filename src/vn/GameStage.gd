@@ -26,6 +26,7 @@ class_name GameStage
 
 # Poker
 @export var isPokerMatch : bool
+@export var isStripPoker : bool
 @export var playerStartingMoney: int
 @export var cpuStartingMoney: int
 @export var startingAnte : int
@@ -44,6 +45,11 @@ class_name GameStage
 @export var proPlusCheats: int
 @export var proPlusMaxCheats: int
 @export var pokerScript : Script
+@export var useNewPokerSystem : bool
+@export var pokerConfigJsonPath : String
+@export var pokerCSVPath : String
+@export var sceneLeadsToAPokerMatch : bool
+@export var pokerMatchGameStage : Array[GameStage]
 
 # Phone
 @export var isPhoneScreen : bool

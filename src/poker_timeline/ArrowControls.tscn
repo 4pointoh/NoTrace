@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjr65eojeubry"]
+
+[ext_resource type="Script" uid="uid://bav31a15xwn5v" path="res://src/poker_timeline/arrow_controls.gd" id="1_14ny3"]
+[ext_resource type="Texture2D" uid="uid://cibxt1erllx6s" path="res://data/assets/poker/art/arrow_up.png" id="1_no5sg"]
+[ext_resource type="Texture2D" uid="uid://8ouuulg6m0ps" path="res://data/assets/poker/art/arrow_left.png" id="2_jlt14"]
+[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_svuqm"]
+[ext_resource type="Texture2D" uid="uid://dxe3s1x2rnvyy" path="res://data/assets/poker/art/arrow_right.png" id="3_m66ab"]
+[ext_resource type="Texture2D" uid="uid://b4c8mqbbkd5w4" path="res://data/assets/poker/art/arrow_down.png" id="4_14ny3"]
+[ext_resource type="Texture2D" uid="uid://c7x7ye40jnpws" path="res://data/assets/poker/art/zoom_in.png" id="5_m66ab"]
+[ext_resource type="Texture2D" uid="uid://dygyqjbcjokk7" path="res://data/assets/poker/art/zoom_out.png" id="6_14ny3"]
+
+[node name="ArrowControls" type="Node2D"]
+script = ExtResource("1_14ny3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 73.0
+offset_top = -16.0
+offset_right = 263.0
+offset_bottom = 183.0
+texture = ExtResource("2_svuqm")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 266.0
+offset_top = 110.0
+offset_right = 402.0
+offset_bottom = 183.0
+texture = ExtResource("2_svuqm")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Up" type="TextureButton" parent="."]
+offset_left = 133.0
+offset_top = -5.0
+offset_right = 201.0
+offset_bottom = 68.0
+focus_mode = 0
+texture_normal = ExtResource("1_no5sg")
+texture_hover = ExtResource("1_no5sg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Left" type="TextureButton" parent="."]
+offset_left = 83.0
+offset_top = 46.0
+offset_right = 151.0
+offset_bottom = 119.0
+focus_mode = 0
+texture_normal = ExtResource("2_jlt14")
+texture_hover = ExtResource("2_jlt14")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Right" type="TextureButton" parent="."]
+offset_left = 184.0
+offset_top = 46.0
+offset_right = 252.0
+offset_bottom = 119.0
+focus_mode = 0
+texture_normal = ExtResource("3_m66ab")
+texture_hover = ExtResource("3_m66ab")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="down" type="TextureButton" parent="."]
+offset_left = 133.0
+offset_top = 97.0
+offset_right = 201.0
+offset_bottom = 170.0
+focus_mode = 0
+texture_normal = ExtResource("4_14ny3")
+texture_hover = ExtResource("4_14ny3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ZoomIn" type="TextureButton" parent="."]
+offset_left = 271.0
+offset_top = 119.0
+offset_right = 326.0
+offset_bottom = 172.0
+focus_mode = 0
+texture_normal = ExtResource("5_m66ab")
+texture_hover = ExtResource("5_m66ab")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ZoomOut" type="TextureButton" parent="."]
+offset_left = 343.0
+offset_top = 119.0
+offset_right = 398.0
+offset_bottom = 172.0
+focus_mode = 0
+texture_normal = ExtResource("6_14ny3")
+texture_hover = ExtResource("6_14ny3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="ZoomIn" to="." method="_on_zoom_in_pressed"]
+[connection signal="pressed" from="ZoomOut" to="." method="_on_zoom_out_pressed"]

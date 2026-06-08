@@ -59,3 +59,41 @@ static func getResultForDialogue(dialogueKey : String, altKey : String = ''):
 		alreadyActivatedDialogues.append(altKey)
 	
 	return updateResult
+
+
+static func evaluate_ambient_dialogue(_pokerInfo: PokerInfo) -> PokerUpdateActionResult:
+	## Main entry point for ambient dialogue evaluation.
+	## Called by poker_game.gd when the CSV system returns no event.
+	var updateResult = PokerUpdateActionResult.new()
+	
+	var ambientDialogue = getAmbientDialogue(_pokerInfo)
+	
+	if ambientDialogue.size() > 0:
+		updateResult = getResultForDialogue(ambientDialogue[0], ambientDialogue[1])
+	
+	return updateResult
+
+
+static func getAmbientDialogue(_pokerInfo: PokerInfo) -> Array:
+	## Define ambient dialogue triggers here.
+	## Each dialogue is an array: ['DIALOGUE_KEY', 'tracking_key']
+	## Use hasSeen('tracking_key') to prevent repeat triggers.
+	## Use randf() < 0.2 for random chance triggers.
+	##
+	## Example:
+	##   if !hasSeen('early_taunt') and _pokerInfo.totalRounds < 5 and _pokerInfo.cpuLifeAdvantage > 2:
+	##       ambient_talks.append(['EARLY_TAUNT_DIALOGUE', 'early_taunt'])
+	
+	var ambient_talks = []
+	
+	# Add ambient dialogue conditions here
+	# Example:
+	# if !hasSeen('close_game'):
+	#     if _pokerInfo.totalRounds > 10 and abs(_pokerInfo.playerLifeAdvantage) < 2:
+	#         ambient_talks.append(['CLOSE_GAME_COMMENT', 'close_game'])
+	
+	ambient_talks.shuffle()
+	if ambient_talks.size() > 0:
+		return ambient_talks[0]
+	else:
+		return []

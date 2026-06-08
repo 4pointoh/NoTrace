@@ -1,0 +1,43 @@
+{
+	"settings": {
+		"max_lives": 20
+	},
+	"participants": {
+		"LISA": {
+			"clothing_stack": [
+				{
+					"id": "TOP",
+					"lives_threshold": 15
+				},
+				{
+					"id": "SHORTS",
+					"lives_threshold": 10
+				},
+				{
+					"id": "BRA",
+					"lives_threshold": 5
+				},
+				{
+					"id": "GAME OVER",
+					"lives_threshold": 0
+				}
+			]
+		},
+		"PLAYER": {
+			"clothing_stack": [
+				{
+					"id": "SHIRT",
+					"lives_threshold": 13
+				},
+				{
+					"id": "PANTS",
+					"lives_threshold": 8
+				},
+				{
+					"id": "BOXERS",
+					"lives_threshold": 0
+				}
+			]
+		}
+	}
+}

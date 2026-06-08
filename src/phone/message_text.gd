@@ -3,13 +3,13 @@ extends NinePatchRect
 func setMessage(isPlayerMessage, text, contactName = ""):
 	if isPlayerMessage:
 		texture = load("res://data/assets/phone/art/message_text_bg2_shadow.png")
-	elif contactName == "Lisa":
+	elif contactName.contains("Lisa"):
 		texture = load("res://data/assets/phone/art/message_text_bg3_shadow.png")
-	elif contactName == "Ashely":
+	elif contactName.contains("Ashely"):
 		texture = load("res://data/assets/phone/art/message_text_bg5_shadow.png")
-	elif contactName == "Amy":
+	elif contactName.contains("Amy"):
 		texture = load("res://data/assets/phone/art/message_text_bg6_shadow.png")
-	elif contactName == "Anna":
+	elif contactName.contains("Anna") or contactName.contains("Ana"):
 		texture = load("res://data/assets/phone/art/message_text_bg7_shadow.png")
 	else:
 		texture = load("res://data/assets/phone/art/message_text_bg1_shadow.png")
