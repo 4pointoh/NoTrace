@@ -1,17 +1,16 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://b1o0ks3x6sgcm"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://b1o0ks3x6sgcm"]
 
 [ext_resource type="Resource" uid="uid://dboy5jqitpnhm" path="res://data/game_stages/vn/activate_christmas_1/d_activate_christmas_1.tres" id="1_tv2a2"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_6miic"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_ndkb6"]
 [ext_resource type="Texture2D" uid="uid://bbldebsbon1ak" path="res://data/assets/stage_art/christmas_hover.png" id="4_8k7c7"]
 [ext_resource type="Texture2D" uid="uid://cbv8jlo8pfujc" path="res://data/assets/stage_art/christmas.png" id="5_wyglc"]
-[ext_resource type="Texture2D" uid="uid://jkspkaa1stm" path="res://data/background_lists/home/backgrounds/phone_christmas.png" id="6_hehqi"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="7_5whsh"]
 
 [sub_resource type="Resource" id="Resource_my211"]
 script = ExtResource("7_5whsh")
 name = "dsds"
-images = ExtResource("6_hehqi")
+imagePath = "res://data/background_lists/home/backgrounds/phone_christmas.png"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

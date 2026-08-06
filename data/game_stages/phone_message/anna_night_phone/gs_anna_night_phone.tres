@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://diqi2h5hdqj4w"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://diqi2h5hdqj4w"]
 
 [ext_resource type="Resource" uid="uid://dvaf5htucojs5" path="res://data/game_stages/phone_message/anna_night_phone/d_anna_night_phone.tres" id="1_gcb63"]
 [ext_resource type="Texture2D" uid="uid://buvcu733sur8r" path="res://data/characters/anna/phone_icons/default.png" id="1_td3jy"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_brini"]
 [ext_resource type="Script" uid="uid://tkyyllgbesqo" path="res://data/game_stages/phone_message/anna_night_phone/AnnaNightPhone.gd" id="3_0kx73"]
-[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="5_fes7w"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_uj233"]
 
 [sub_resource type="Resource" id="Resource_pd8fe"]
 script = ExtResource("6_uj233")
 name = "g"
-images = ExtResource("5_fes7w")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.webp"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://b2dacasrsnwxb"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://b2dacasrsnwxb"]
 
 [ext_resource type="Resource" uid="uid://cwsejb04kv4ee" path="res://data/game_stages/vn/ashely_bar_before_poker/d_ashely_bar_before_poker.tres" id="1_sxb52"]
 [ext_resource type="Resource" uid="uid://vdc3u66kp7o5" path="res://data/game_stages/poker/ashely_bar_poker/gs_ashely_bar_poker.tres" id="2_aga3w"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_ni1ft"]
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_24hn2"]
 [ext_resource type="Texture2D" uid="uid://clmuiejto1t2g" path="res://data/assets/stage_art/bar_poker_hover.png" id="4_epq6r"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_gbeb0"]
 [ext_resource type="Texture2D" uid="uid://bphwk143g63x1" path="res://data/assets/stage_art/bar_poker.png" id="5_uinhm"]
@@ -12,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_lqlwk"]
 script = ExtResource("5_gbeb0")
 name = "iejdsi"
-images = ExtResource("4_24hn2")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.png"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

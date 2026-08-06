@@ -26,6 +26,10 @@ var altStartPlayerLives : int = 0
 var altStartOppLives : int = 0
 var altStartSceneData : PokerNodeData
 
+# cacheItems requests from the stage we're leaving; each must be
+# load_threaded_get'd eventually or ResourceLoader pins the resource forever.
+var pendingCacheItems : Array[String] = []
+
 var annaCorrectChoices = 0
 var lisaMassagePoints = 0
 
@@ -181,9 +185,17 @@ func advanceGameStage():
 	else:
 		nextStage = null
 
+	# Collect the previous stage's cache requests so ResourceLoader releases
+	# them; the resources stay alive only if something still uses them.
+	for item in pendingCacheItems:
+		if ResourceLoader.load_threaded_get_status(item) != ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+			ResourceLoader.load_threaded_get(item)
+	pendingCacheItems.clear()
+
 	if currentStage.cacheItems.size() > 0:
 		for item in currentStage.cacheItems:
-			ResourceLoader.load_threaded_request(item)
+			if ResourceLoader.load_threaded_request(item) == OK:
+				pendingCacheItems.append(item)
 
 func softCompleteCurrentStage():
 	if !completedStagesSOFT.has(currentStage.name):
@@ -450,6 +462,43 @@ func getWallpaper(wallpaperResourceId):
 func unlockWallpaperWithDelay(wallpaperResourceId, delay, customMessage = ''):
 	await get_tree().create_timer(delay).timeout
 	unlockWallpaper(wallpaperResourceId, customMessage)
+
+# Core: unlocks every wallpaper tagged on a BackgroundList or BackgroundLists
+# resource. Unlocks are silent (skipNotify). Returns the count newly unlocked.
+func unlockAllWallpapersInList(listResource) -> int:
+	var lists : Array = []
+	if listResource is BackgroundLists:
+		lists = listResource.backgroundLists
+	elif listResource is BackgroundList:
+		lists = [listResource]
+	else:
+		return 0
+
+	var count := 0
+	for bgList in lists:
+		if bgList == null:
+			continue
+		for bg in bgList.images:
+			if bg and bg.wallpaperId != "" and not unlockedWallpapers.has(bg.wallpaperId):
+				unlockWallpaper(bg.wallpaperId, '', true)
+				count += 1
+	return count
+
+# Generic helper: unlocks every wallpaper tagged on a scene's background lists.
+# Defaults to the current stage; pass a DialogueData to target another scene.
+# Silent (skipNotify). Returns the count newly unlocked.
+func unlockAllSceneWallpapers(dialogueData: DialogueData = null) -> int:
+	if dialogueData == null:
+		dialogueData = currentStage.dialogue if currentStage else null
+	if dialogueData == null:
+		return 0
+
+	var listPath = dialogueData.backgroundList
+	if typeof(listPath) != TYPE_STRING or not listPath.ends_with(".tres"):
+		return 0
+
+	var res = ResourceLoader.load(listPath, '', ResourceLoader.CACHE_MODE_REUSE)
+	return unlockAllWallpapersInList(res)
 
 func setCurrentWallpaper(wallpaper):
 	currentWallpaper = wallpaper

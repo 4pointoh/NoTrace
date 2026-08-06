@@ -12,10 +12,14 @@ var isSkipping = false
 
 func setBackground(newBackground):
 	if background && (newBackground.name == background.name) && (!shouldFade || !shouldFadeQuick):
-		return 
-	
+		return
+
 	background = newBackground
-	
+
+	# Start loading now so fade transitions hide the load time.
+	if background.imagePath != '':
+		BackgroundCache.prefetch(background.imagePath)
+
 	if shouldFade:
 		is_fading.emit()
 		shouldFade = false
@@ -31,7 +35,7 @@ func setBackground(newBackground):
 		fadeTransitionSlow()
 		$FadeTimer.start(2.5)
 	else:
-		$BackgroundImage.texture = background.images
+		$BackgroundImage.texture = background.getTexture()
 
 func enableZoomPan():
 	var mat = ShaderMaterial.new()
@@ -156,8 +160,9 @@ func checkForVideo():
 	#	fadeVideo()
 
 func _on_fade_timer_timeout():
-	if(!$BackgroundImage.texture == background.images):
-		$BackgroundImage.texture = background.images
+	var newTexture = background.getTexture()
+	if($BackgroundImage.texture != newTexture):
+		$BackgroundImage.texture = newTexture
 		checkForVideo()
 
 func fadeTransition():

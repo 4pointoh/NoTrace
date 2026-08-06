@@ -26,19 +26,20 @@ func create_background_list_from_directory(directory_path: String, output_path: 
 			continue
 
 		if file_name.ends_with(".png") or file_name.ends_with(".webp"):
-			var full_path: String = directory_path + "/" + file_name
+			var full_path: String = directory_path.path_join(file_name)
 
-			# Instead of using ImageTexture.load(), do this:
-			# load() returns a Resource, which should be a Texture2D for a PNG file.
+			# Verify the file imports as a texture, but only store its path:
+			# textures are loaded on demand at runtime (see Background.getTexture).
 			var tex: Texture2D = load(full_path)
 			if tex == null:
 				push_warning("Failed to load file as texture: %s" % full_path)
 				continue
+			full_path = tex.resource_path
 
 			# Create a new Background resource
 			var bg: Background = Background.new()
 			bg.name = file_name
-			bg.images = tex  # Assign the loaded texture
+			bg.imagePath = full_path
 
 			# Add it to the list
 			background_list.images.append(bg)

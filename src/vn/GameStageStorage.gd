@@ -1,3 +1,7 @@
+# OBSOLETE: Background textures are no longer serialized into .tres files
+# (Backgrounds store imagePath strings, loaded on demand via BackgroundCache),
+# so the texture warm-up below would silently load nothing. Its only call site
+# (Main.gd) is commented out. Do not re-enable; use BackgroundCache instead.
 extends RefCounted
 class_name GameStageStorage
 

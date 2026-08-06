@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://cimglmax4gxww"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://cimglmax4gxww"]
 
 [ext_resource type="Resource" uid="uid://7554yhn84cu2" path="res://data/game_stages/vn/lisa_sp_poker_poker1_after/d_lisa_sp_poker_poker1_after.tres" id="1_iwfiw"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_1c40m"]
 [ext_resource type="Resource" uid="uid://bedmeqf4mpqac" path="res://data/game_stages/poker/lisa_sp_poker_poker2/gs_lisa_sp_poker_poker2.tres" id="2_pv23y"]
-[ext_resource type="Texture2D" uid="uid://c47q2ycboyter" path="res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0015.webp" id="4_pv23y"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_3a0gr"]
 
 [sub_resource type="Resource" id="Resource_s6ws0"]
 script = ExtResource("5_3a0gr")
 name = "ff"
-images = ExtResource("4_pv23y")
+imagePath = "res://data/background_lists/lisa_poker_pre/lisa_poker_pre_0015.webp"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

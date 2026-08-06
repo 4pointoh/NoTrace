@@ -361,6 +361,10 @@ func _set_dialogue(dict):
 			var idx2 = dict['background']
 			if idx2 != -1:
 				background = backgrounds[idx2]
+				# warm the next few images so advancing dialogue doesn't hitch
+				for aheadIdx in range(idx2 + 1, mini(idx2 + 3, backgrounds.size())):
+					if backgrounds[aheadIdx]:
+						BackgroundCache.prefetch(backgrounds[aheadIdx].imagePath)
 			else:
 				background = null
 

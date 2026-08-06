@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=14 format=3 uid="uid://cvprhvmgjxmja"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=13 format=3 uid="uid://cvprhvmgjxmja"]
 
 [ext_resource type="Resource" uid="uid://s5xilm0y8w5y" path="res://data/game_stages/vn/anna_night/d_anna_night.tres" id="1_8y4in"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_3ccya"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_bnnnt"]
 [ext_resource type="AudioStream" uid="uid://cp31e8ud0dadk" path="res://data/assets/general/sounds/bg_music/Velvet Static(3).mp3" id="2_vhfdc"]
-[ext_resource type="Texture2D" uid="uid://2dmyrnvuoi84" path="res://data/background_lists/home/backgrounds/intro_bg11_night.webp" id="3_fx3xm"]
 [ext_resource type="AudioStream" uid="uid://dkv0nod5722cy" path="res://data/assets/general/sound_effects/knock_knock.mp3" id="3_nm8y6"]
 [ext_resource type="AudioStream" uid="uid://prqcci1gq5ty" path="res://data/assets/general/sounds/bg_music/Marble Morning.mp3" id="3_oqdnt"]
 [ext_resource type="Texture2D" uid="uid://cjqswkc7ctmln" path="res://data/assets/stage_art/anna_night_hover.png" id="3_qypbr"]
@@ -16,7 +15,7 @@
 [sub_resource type="Resource" id="Resource_qypbr"]
 script = ExtResource("4_bedir")
 name = "f"
-images = ExtResource("3_fx3xm")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11_night.webp"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://dgxmr0vv6wk70"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://dgxmr0vv6wk70"]
 
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_137lu"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_wp1uu"]
 [ext_resource type="Resource" uid="uid://541ph2d0am1r" path="res://data/game_stages/phone_message/lisa_blocked/d_lisa_blocked.tres" id="2_ewvwh"]
 [ext_resource type="Script" uid="uid://dyw56bj8bh3ol" path="res://data/game_stages/phone_message/lisa_blocked/scripts/lisa_blocked.gd" id="3_h8kb1"]
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="5_0awnf"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_5g4uu"]
 
 [sub_resource type="Resource" id="Resource_y1v5a"]
 script = ExtResource("6_5g4uu")
 name = "Home"
-images = ExtResource("5_0awnf")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.png"
 
 [resource]
 script = ExtResource("1_137lu")

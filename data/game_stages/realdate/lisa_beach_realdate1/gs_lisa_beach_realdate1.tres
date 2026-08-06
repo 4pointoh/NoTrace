@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://blhj2wgni6ug6"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://blhj2wgni6ug6"]
 
 [ext_resource type="Texture2D" uid="uid://cop81iptyptf4" path="res://data/characters/lisa/lisa_beach/character_art/hoodie_excited.png" id="1_8ba7u"]
 [ext_resource type="Resource" uid="uid://bnug611rw640o" path="res://data/game_stages/realdate/lisa_beach_realdate1/d_lisa_beach_realdate1.tres" id="1_xnneb"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_rcnh7"]
 [ext_resource type="Resource" uid="uid://tub72po8buxr" path="res://data/game_stages/vn/lisa_beach_boardwalk/gs_lisa_beach_boardwalk.tres" id="3_8ba7u"]
-[ext_resource type="Texture2D" uid="uid://vsmaijc4x6oa" path="res://data/background_lists/lisa_beach_intro/009.webp" id="4_0jjgf"]
 [ext_resource type="Resource" uid="uid://b6g7w1segax6q" path="res://data/game_stages/vn/lisa_beach_beach/gs_lisa_beach_beach.tres" id="4_nktnu"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_8ba7u"]
 [ext_resource type="AudioStream" uid="uid://dms45y2qtq0jn" path="res://data/assets/general/sounds/bg_music/new/Untitled(10).mp3" id="8_nktnu"]
@@ -12,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_nktnu"]
 script = ExtResource("5_8ba7u")
 name = "f"
-images = ExtResource("4_0jjgf")
+imagePath = "res://data/background_lists/lisa_beach_intro/009.webp"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]

@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://c0wm4eui5pnas"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://c0wm4eui5pnas"]
 
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_dp704"]
 [ext_resource type="Resource" uid="uid://tnuqta4ylr6t" path="res://data/game_stages/phone_message/lisa_beach_message/d_lisa_beach_message.tres" id="1_iey2k"]
 [ext_resource type="Script" uid="uid://c6cb11cdofeal" path="res://data/game_stages/phone_message/lisa_beach_message/lisa_beach_message_script.gd" id="2_dp704"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_dyyt8"]
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="5_4fnl4"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_b8i1j"]
 
 [sub_resource type="Resource" id="Resource_fn2ri"]
 script = ExtResource("6_b8i1j")
 name = "sdsd"
-images = ExtResource("5_4fnl4")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.png"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]

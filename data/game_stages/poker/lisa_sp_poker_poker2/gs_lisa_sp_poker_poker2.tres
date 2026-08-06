@@ -1,18 +1,17 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://bedmeqf4mpqac"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://bedmeqf4mpqac"]
 
 [ext_resource type="Resource" uid="uid://biwe7lgds8ujq" path="res://data/game_stages/poker/lisa_sp_poker_poker2/d_lisa_sp_poker_poker2.tres" id="1_pfg0x"]
 [ext_resource type="Resource" uid="uid://5kdp36raq6lp" path="res://data/game_stages/vn/lisa_sp_poker_poker2_after/gs_lisa_sp_poker_poker2_after.tres" id="2_ncr33"]
 [ext_resource type="Script" uid="uid://xrssovlrpypq" path="res://data/game_stages/poker/lisa_sp_poker_poker2/lisa_sp_poker_poker2_poker_script.gd" id="2_rd0xg"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="3_s3mra"]
 [ext_resource type="AudioStream" uid="uid://bbsepoia352yk" path="res://data/assets/general/sounds/bg_music/new_new/campus.mp3" id="4_1hsrx"]
-[ext_resource type="Texture2D" uid="uid://bslp5ftf77gg7" path="res://data/background_lists/lisa_poker_final/lisa_poker_1_0001.webp" id="5_neig0"]
 [ext_resource type="AudioStream" uid="uid://b3moks4867nfp" path="res://data/assets/general/sounds/bg_music/Untitled(20).mp3" id="6_jy7rm"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_up80x"]
 
 [sub_resource type="Resource" id="Resource_1hsrx"]
 script = ExtResource("6_up80x")
 name = "ss"
-images = ExtResource("5_neig0")
+imagePath = "res://data/background_lists/lisa_poker_final/lisa_poker_1_0001.webp"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

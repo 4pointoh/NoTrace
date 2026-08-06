@@ -143,6 +143,12 @@ func _input(event):
 
 	if event.is_action_pressed('DebuButton'):
 		testFunction()
+	
+	if event.is_action_pressed('unlock'):
+		# Hard-wired to Ashely's poker pics only (excludes the shared home_bgl in bgs.tres).
+		var ashelyPics = load("res://data/background_lists/ashely_bar_poker/ashely_bar_poker.tres")
+		var unlockedCount = GlobalGameStage.unlockAllWallpapersInList(ashelyPics)
+		print("Unlocked %d Ashely poker wallpaper(s)" % unlockedCount)
 
 	if event.is_action_pressed('quick_skip'):
 		if !inTransition and !isUiHidden and !inChoice:

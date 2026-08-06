@@ -47,15 +47,28 @@ func setupFromData(data: PokerNodeData, stage : GameStage) -> void:
 		cacheForStage = stage
 		backgroundListsCache = NodeDataService.getBackgroundListsForNode(stage)
 
-	var previewImage 
-	if data.starting_background_override:
-		previewImage = load(data.starting_background_override)
-	else:
-		previewImage = NodeDataService.getImagePreviewForDialogueKey(data.dialogue_key, stage, backgroundListsCache)
-		if previewImage != null:
-			previewImage = previewImage.images
+	var allKeys = []
+	allKeys.append_array(data.related_dialogue_keys)
+	allKeys.append(data.dialogue_key)
+	var seenAll = hasSeenAllDialogueKeys(allKeys, stage.name)
+	var seenSome = hasSeenSomeDialogueKeys(allKeys, stage.name)
 
-	if previewImage != null:
+	# Resolve which preview this node has, but only decode the actual texture
+	# for seen nodes; unseen nodes show the locked thumbnail below.
+	var hasPreview := false
+	var previewImage : Texture2D = null
+	if data.starting_background_override:
+		hasPreview = true
+		if seenAll or seenSome:
+			previewImage = load(data.starting_background_override)
+	else:
+		var previewBackground = NodeDataService.getImagePreviewForDialogueKey(data.dialogue_key, stage, backgroundListsCache)
+		if previewBackground != null:
+			hasPreview = true
+			if seenAll or seenSome:
+				previewImage = previewBackground.getTexture()
+
+	if hasPreview:
 		%Wallpaper.texture = previewImage
 	else:
 		%Wallpaper.texture = null
@@ -77,15 +90,11 @@ func setupFromData(data: PokerNodeData, stage : GameStage) -> void:
 	else:
 		%AltRoutePositioner.hide()
 
-	var allKeys = []
-	allKeys.append_array(data.related_dialogue_keys)
-	allKeys.append(data.dialogue_key)
-
-	if hasSeenAllDialogueKeys(allKeys, stage.name):
+	if seenAll:
 		get("theme_override_styles/titlebar").set("bg_color", Color.GREEN)
 		%NodeTitle.text = 'Scene Seen!'
 		%ColorRect.color = Color.GREEN
-	elif hasSeenSomeDialogueKeys(allKeys, stage.name):
+	elif seenSome:
 		get("theme_override_styles/titlebar").set("bg_color", Color.YELLOW)
 		%NodeTitle.text = 'Scene Partially Seen'
 		%ColorRect.color = Color.YELLOW
@@ -93,9 +102,9 @@ func setupFromData(data: PokerNodeData, stage : GameStage) -> void:
 		get("theme_override_styles/titlebar").set("bg_color", Color.RED)
 		%ColorRect.color = Color.RED
 		%NodeTitle.text = 'Not Seen'
-	
+
 		# TODO - Uncomment for full release
-		if %Wallpaper.texture != null:
+		if hasPreview:
 			%Wallpaper.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
 func getClothingLabel(clothingItem: String) -> Label:

@@ -1,18 +1,17 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://dhj5oultfelu6"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://dhj5oultfelu6"]
 
 [ext_resource type="Resource" uid="uid://ccpoe7p135pu2" path="res://data/game_stages/phone_message/lisa_winter/d_lisa_winter.tres" id="1_464rc"]
 [ext_resource type="Texture2D" uid="uid://cn7r7wq35aibl" path="res://data/characters/lisa/phone_icons/default.png" id="1_uq2qh"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_d3mty"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="3_hhuhl"]
 [ext_resource type="Script" uid="uid://cymvb3lcip80o" path="res://data/game_stages/phone_message/lisa_winter/LisaWinterPhone.gd" id="4_13rf4"]
-[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="5_13rf4"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="6_82irk"]
 [ext_resource type="AudioStream" uid="uid://7i78iqq2kcc3" path="res://data/assets/general/sounds/bg_music/jingle.mp3" id="7_hhuhl"]
 
 [sub_resource type="Resource" id="Resource_lxtdo"]
 script = ExtResource("6_82irk")
 name = "s"
-images = ExtResource("5_13rf4")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.webp"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

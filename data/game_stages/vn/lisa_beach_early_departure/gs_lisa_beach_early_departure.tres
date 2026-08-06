@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://hxrtoblns0ou"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://hxrtoblns0ou"]
 
 [ext_resource type="Resource" uid="uid://ccwsvg53gjr34" path="res://data/game_stages/vn/lisa_beach_early_departure/d_lisa_beach_early_departure.tres" id="1_y7s1y"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_1b134"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_bx76d"]
-[ext_resource type="Texture2D" uid="uid://nn8xgvfvfk0b" path="res://data/background_lists/lisa_beach_early_departure/400.webp" id="4_0onjx"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_d0trm"]
 
 [sub_resource type="Resource" id="Resource_j2y6o"]
 script = ExtResource("5_d0trm")
 name = "r"
-images = ExtResource("4_0onjx")
+imagePath = "res://data/background_lists/lisa_beach_early_departure/400.webp"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]

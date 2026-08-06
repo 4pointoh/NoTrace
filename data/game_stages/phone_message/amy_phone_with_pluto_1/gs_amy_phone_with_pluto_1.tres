@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://dil8gop2qtuk4"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://dil8gop2qtuk4"]
 
 [ext_resource type="Resource" uid="uid://bqhyop6m8rvp7" path="res://data/game_stages/phone_message/amy_phone_with_pluto_1/d_amy_phone_with_pluto_1.tres" id="1_cj03n"]
 [ext_resource type="Script" uid="uid://ctndq1nn2wmcq" path="res://data/game_stages/phone_message/amy_phone_with_pluto_1/AmyPlutoPhone1.gd" id="2_3tvq2"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_m3ajg"]
-[ext_resource type="Texture2D" uid="uid://bvupaoaemfsyk" path="res://data/background_lists/home/backgrounds/intro_bg11.webp" id="4_7tms1"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_b4l1a"]
 
 [sub_resource type="Resource" id="Resource_vbmsv"]
 script = ExtResource("5_b4l1a")
 name = "sdsd"
-images = ExtResource("4_7tms1")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.webp"
 wallpaperId = ""
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 

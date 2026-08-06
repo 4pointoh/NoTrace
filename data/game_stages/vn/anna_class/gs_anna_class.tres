@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=31 format=3 uid="uid://imr2rwudeh8a"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=30 format=3 uid="uid://imr2rwudeh8a"]
 
 [ext_resource type="Script" uid="uid://boffrfxcwbivm" path="res://data/game_stages/vn/anna_class/AnnaClassChoices.gd" id="1_6evmw"]
 [ext_resource type="Resource" uid="uid://brk0kgvi2vxdu" path="res://data/game_stages/vn/anna_class/d_anna_class.tres" id="1_peirj"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_cm4pi"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="3_2uh4o"]
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="3_t2w6o"]
 [ext_resource type="AudioStream" uid="uid://b6vmlmq2tnwwo" path="res://data/assets/general/sounds/bg_music/Neon Lights and Endless Nights.mp3" id="4_1uq3b"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="4_6evmw"]
 [ext_resource type="Texture2D" uid="uid://cbtl3m440t6sg" path="res://data/assets/stage_art/university_hover.png" id="4_ony1k"]
@@ -33,7 +32,7 @@
 [sub_resource type="Resource" id="Resource_1572o"]
 script = ExtResource("4_6evmw")
 name = "esfdf"
-images = ExtResource("3_t2w6o")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.png"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]

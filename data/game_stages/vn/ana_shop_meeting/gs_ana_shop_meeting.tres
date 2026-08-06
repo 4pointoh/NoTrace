@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3 uid="uid://decl88ymi2qlj"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=9 format=3 uid="uid://decl88ymi2qlj"]
 
 [ext_resource type="Resource" uid="uid://bdcjg0ghacpej" path="res://data/game_stages/vn/ana_shop_meeting/d_ana_shop_meeting.tres" id="1_fmkle"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_gg6xc"]
 [ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="2_4bstm"]
-[ext_resource type="Texture2D" uid="uid://bbg1h4hmw0tpl" path="res://data/background_lists/ana_shop_meeting/shop1.png" id="4_111i0"]
 [ext_resource type="Texture2D" uid="uid://bossnqtdmsdq2" path="res://data/assets/stage_art/grocery_hover.png" id="4_sk0q6"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_3oeps"]
 [ext_resource type="Texture2D" uid="uid://cstmdfs7pjpq5" path="res://data/assets/stage_art/grocery.png" id="5_5n6eu"]
@@ -12,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_gn4f0"]
 script = ExtResource("5_3oeps")
 name = "shop"
-images = ExtResource("4_111i0")
+imagePath = "res://data/background_lists/ana_shop_meeting/shop1.png"
 
 [resource]
 script = ExtResource("1_gg6xc")

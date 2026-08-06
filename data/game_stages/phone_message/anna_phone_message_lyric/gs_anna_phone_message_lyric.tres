@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://ch3gpsx3c2r4t"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://ch3gpsx3c2r4t"]
 
 [ext_resource type="Resource" uid="uid://db2vansenryh7" path="res://data/game_stages/phone_message/anna_phone_message_lyric/d_anna_phone_message_lyric.tres" id="1_11wj1"]
 [ext_resource type="Texture2D" uid="uid://buvcu733sur8r" path="res://data/characters/anna/phone_icons/default.png" id="1_bekdy"]
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="2_wseh4"]
 [ext_resource type="Script" uid="uid://bc3bd87ypbhr1" path="res://data/game_stages/phone_message/anna_phone_message_lyric/anna_phone_lyric_script.gd" id="3_6ee1s"]
-[ext_resource type="Texture2D" uid="uid://cqcvg3hy55yo3" path="res://data/background_lists/home/backgrounds/intro_bg11.png" id="4_6ee1s"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_f5vqw"]
 
 [sub_resource type="Resource" id="Resource_x6l5u"]
 script = ExtResource("5_f5vqw")
 name = "df"
-images = ExtResource("4_6ee1s")
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.png"
 metadata/_custom_type_script = "uid://bji2uyb4i8p78"
 
 [resource]
