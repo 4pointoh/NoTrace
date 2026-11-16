@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=4 format=3]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_bg"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2_list"]
+
+[sub_resource type="Resource" id="picture_01"]
+script = ExtResource("1_bg")
+name = "FORFEIT_NAKED_RUN__TOP_OFF_01"
+imagePath = "res://data/background_lists/ashely_poker2/FORFEIT_NAKED_RUN__TOP_OFF/01.webp"
+
+[resource]
+script = ExtResource("2_list")
+name = "FORFEIT_NAKED_RUN__TOP_OFF"
+images = Array[ExtResource("1_bg")]([SubResource("picture_01")])

@@ -22,6 +22,7 @@ var opponentNamePlural: String
 var currentStage: PokerEnums.PokerStageFiveCardDraw
 var nextPokerAction
 var dialoguePause: bool = false
+var matchEnded: bool = false
 var cheatsLeft: int
 
 var mostRecentKeyEventRowId: String
@@ -298,6 +299,11 @@ func processClearBoard():
 	%PokerDisplay.processClearBoard()
 
 func processDeal():
+	# Fresh 52-card deck every round. Otherwise the deck runs dry mid-round and
+	# nextCard() refills it with cards that are already in someone's hand.
+	deck.resetDeck()
+	if GlobalGameStage.currentStage.pokerScript:
+		deck.stack(GlobalGameStage.currentStage.pokerScript.stackedDeck())
 	playerCards = deck.deal(5)
 	cpuCards = deck.deal(5)
 	%PokerDisplay.processDeal(playerCards, cpuCards)
@@ -430,7 +436,37 @@ func processRoundComplete():
 func processGameComplete():
 	%PokerDisplay.processGameComplete()
 
+# Debug keys, only when the game runs from the Godot editor: never in an exported game, debug or
+# release, so there's nothing to remove before launch. F10 wins the match, F11 loses it, through
+# the same ending as a real one. (Not F7/F8: the editor uses those to pause and stop the game.)
+# Pressed while someone's talking, it waits for that dialogue to end, which would otherwise
+# resume the match.
+var debugEnding := "" # "win" or "lose", waiting for the dialogue to end
+
+func _unhandled_key_input(event):
+	if !OS.has_feature("editor") or !event.pressed or event.echo or matchEnded:
+		return
+	if event.keycode == KEY_F10:
+		debugEnding = "win"
+	elif event.keycode == KEY_F11:
+		debugEnding = "lose"
+	else:
+		return
+	get_viewport().set_input_as_handled()
+	if !dialoguePause:
+		debugEnd()
+
+func debugEnd():
+	if debugEnding == "win":
+		cpuLives = 0
+		playerLives = max(playerLives, 1)
+	else:
+		playerLives = 0
+	debugEnding = ""
+	endMatch()
+
 func endMatch():
+	matchEnded = true
 	if(playerLives <= 0):
 		GlobalGameStage.addLossToPokerStageHistory()
 		gameLost.emit()
@@ -439,9 +475,7 @@ func endMatch():
 		gameWon.emit()
 	
 	isAlternateStart = false
-	GlobalGameStage.isStartingPokerFromNode = false
-	GlobalGameStage.altStartPlayerLives = 0
-	GlobalGameStage.altStartOppLives = 0
+	GlobalGameStage.clearAltStart()
 	
 	print(GlobalGameStage.pokerStageHistory)
 
@@ -536,6 +570,9 @@ func startDialogue():
 
 func removeDialoguePause():
 	dialoguePause = false
+	if debugEnding != "" and !matchEnded:
+		debugEnd()
+		return
 	processStageComplete()
 
 func _on_button_pressed():
@@ -590,7 +627,7 @@ func _on_poker_mode_select_selected_mode(mode: int) -> void:
 
 func setCheats(mode: int):
 	if mode == 0:
-		cheatsLeft = GlobalGameStage.currentStage.cheatCount
+		cheatsLeft = GlobalGameStage.currentStage.currentCheatCount()
 	elif mode == 1:
 		cheatsLeft = GlobalGameStage.currentStage.proPlusCheats
 	elif mode == 2:

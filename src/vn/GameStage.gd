@@ -23,6 +23,20 @@ class_name GameStage
 @export var endOnlyOnSpecificDialogueKey : bool = false
 @export var endingDialogueKeys : Array[String]
 @export var choicesScript : Script
+## For a stage played many times with different dialogue each time (eg: the result of each match in
+## a race): quick skip passes over only the lines already read, not everything once it's been played.
+@export var skipsOnlySeenDialogue : bool = false
+
+# Display
+## Starts this stage in the landscape frame (1920x1080). Every stage of the landscape story ticks it.
+## Left off, the stage runs in the original portrait frame (896x1152), as every older stage does,
+## replayed or not. Dialogue can still change frame mid-stage: landscape_next, portrait_next, and
+## the reveal_landscape set-piece. A stage that ends in landscape takes the story there, and the
+## phone is landscape from then on.
+@export var isLandscape : bool
+## What the reveal_landscape set-piece shows and plays: its title card, the atmosphere it leaves,
+## the focus point it holds on and its music. Left empty: the default title, petals, no music.
+@export var reveal : LandscapeRevealConfig
 
 # Poker
 @export var isPokerMatch : bool
@@ -35,8 +49,14 @@ class_name GameStage
 @export var maxRaise : int
 @export var pokerType : PokerEnums.PokerType = PokerEnums.PokerType.FIVE_CARD_DRAW
 @export var cheatCount : int
+## While one of these flags is set, each match gets that many cheats instead of cheatCount: flag ->
+## cheats (Ashely Poker II's replay modes, data/game_stages/vn/ashely2_replay). See currentCheatCount().
+@export var cheatCountByFlag : Dictionary[String, int]
 @export var playerLives : int
 @export var cpuLives : int
+## Where the story goes when this match is lost. Left empty, a lost match is played again, as every
+## older match does.
+@export var pokerLossGameStage : GameStage
 @export var cpuRandomDiscardChance: int
 @export var playerLivesWithEvents : Array[int]
 @export var cpuLivesWithEvents : Array[int]
@@ -50,6 +70,9 @@ class_name GameStage
 @export var pokerCSVPath : String
 @export var sceneLeadsToAPokerMatch : bool
 @export var pokerMatchGameStage : Array[GameStage]
+## Picking this event again on the phone, once it has been played, starts this stage instead, in place of
+## the poker timeline (Ashely Poker II: its replay menu, which picks the cheats and gives the hints).
+@export var replayGameStage : GameStage
 
 # Phone
 @export var isPhoneScreen : bool
@@ -98,6 +121,14 @@ var soundEffectIndex: int = -1
 @export var dateTitle: String
 @export var dateBusinessButtonLabel: String
 @export var maxProgress : int
+
+## The cheats each match of this stage gets in its regular mode: cheatCount, unless one of
+## cheatCountByFlag's flags is set.
+func currentCheatCount() -> int:
+	for flag in cheatCountByFlag:
+		if GlobalGameStage.hasFlag(flag):
+			return cheatCountByFlag[flag]
+	return cheatCount
 
 #Hints
 @export var oneStarHints : Array[String]

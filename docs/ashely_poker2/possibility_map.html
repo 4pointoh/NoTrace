@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashely Poker II — Possibility Map</title>
+<!--
+  Ashely Poker II — Possibility Map (local standalone copy)
+
+  Self-contained: no network, no CDN, no build step. Open this file directly in a
+  browser (double-click, or drag it into a tab) and everything works offline.
+
+  Companion files in this folder:
+    DESIGN.md        — the written design doc + render checklist (§8)
+    scene_model.json — the canonical scene model, byte-identical to the baseline inlined below
+
+  To recompute with a changed model: edit scene_model.json, then use "Load a .json from
+  disk…" at the bottom of the page (file:// blocks fetch(), hence the picker). Use
+  "Download as scene_model.json" to write in-page edits back to disk.
+
+  This is a local mirror of the published artifact
+  https://claude.ai/code/artifact/62cb1513-1fe7-4c3d-9fa3-5e3413114158
+  and does not depend on it continuing to exist.
+-->
+<style>
+  :root { color-scheme: light dark; }
+  img { max-width: 100%; }
+</style>
+<style>
+  :root {
+    --ground: #f7f5ef;
+    --panel: #fffdf8;
+    --panel-2: #f0ede4;
+    --ink: #26291f;
+    --ink-soft: #5c6052;
+    --ink-faint: #8b8f7e;
+    --line: #ddd9cb;
+    --felt: #2e7d5a;
+    --felt-soft: #e2efe7;
+    --crimson: #a8433c;
+    --crimson-soft: #f3e2e0;
+    --chip: #96762a;
+    --chip-soft: #efe7d2;
+    --warn: #9a5b13;
+    --warn-soft: #f5e8d3;
+    --shadow: 0 1px 3px rgba(38,41,31,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #151814;
+      --panel: #1d211c;
+      --panel-2: #232822;
+      --ink: #e6e4d8;
+      --ink-soft: #a8ac9a;
+      --ink-faint: #767a6a;
+      --line: #343a32;
+      --felt: #58bd8e;
+      --felt-soft: #1f3129;
+      --crimson: #dd8078;
+      --crimson-soft: #382220;
+      --chip: #cfa952;
+      --chip-soft: #332c1a;
+      --warn: #d99a4e;
+      --warn-soft: #322718;
+      --shadow: 0 1px 3px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #151814; --panel: #1d211c; --panel-2: #232822;
+    --ink: #e6e4d8; --ink-soft: #a8ac9a; --ink-faint: #767a6a; --line: #343a32;
+    --felt: #58bd8e; --felt-soft: #1f3129;
+    --crimson: #dd8078; --crimson-soft: #382220;
+    --chip: #cfa952; --chip-soft: #332c1a;
+    --warn: #d99a4e; --warn-soft: #322718;
+    --shadow: 0 1px 3px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --ground: #f7f5ef; --panel: #fffdf8; --panel-2: #f0ede4;
+    --ink: #26291f; --ink-soft: #5c6052; --ink-faint: #8b8f7e; --line: #ddd9cb;
+    --felt: #2e7d5a; --felt-soft: #e2efe7;
+    --crimson: #a8433c; --crimson-soft: #f3e2e0;
+    --chip: #96762a; --chip-soft: #efe7d2;
+    --warn: #9a5b13; --warn-soft: #f5e8d3;
+    --shadow: 0 1px 3px rgba(38,41,31,.08);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font: 16px/1.55 Georgia, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0 20px 80px;
+  }
+  main { max-width: 1100px; margin: 0 auto; }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+  h1 { font-size: 2rem; font-weight: 700; margin: 40px 0 4px; }
+  h2 { font-size: 1.3rem; margin: 48px 0 10px; border-bottom: 2px solid var(--line); padding-bottom: 8px; }
+  h3 { font-size: 1.02rem; margin: 20px 0 8px; }
+  p { max-width: 70ch; }
+  .sub { color: var(--ink-soft); margin-top: 0; }
+  .eyebrow {
+    font: 600 .68rem/1 ui-monospace, Consolas, monospace;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint);
+    display: block; margin-bottom: 6px;
+  }
+
+  /* stat tiles */
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+  .stat {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+    padding: 12px 18px; min-width: 150px; box-shadow: var(--shadow);
+  }
+  .stat b { display: block; font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+  .stat span { font: .74rem/1.3 ui-monospace, Consolas, monospace; color: var(--ink-soft); letter-spacing: .04em; text-transform: uppercase; }
+
+  /* legend + chips */
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 12px 0 20px; font-size: .88rem; color: var(--ink-soft); }
+  .swatch { display: inline-block; width: 22px; height: 4px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+  .chip {
+    display: inline-block; font: 500 .72rem/1.5 ui-monospace, Consolas, monospace;
+    border-radius: 4px; padding: 1px 7px; white-space: nowrap;
+  }
+  .chip.dim   { background: var(--chip-soft); color: var(--chip); }
+  .chip.flag  { background: var(--panel-2); color: var(--ink-soft); border: 1px dashed var(--line); }
+  .chip.win   { background: var(--felt-soft); color: var(--felt); }
+  .chip.lose  { background: var(--crimson-soft); color: var(--crimson); }
+  .chip.pool  { background: var(--panel-2); color: var(--ink-faint); border: 1px solid var(--line); }
+  .chip.warn  { background: var(--warn-soft); color: var(--warn); }
+
+  /* lattice */
+  .lattice-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 10px; }
+  .lattice-wrap svg { display: block; }
+
+  /* round cards */
+  .round-card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 18px 20px; margin: 18px 0; }
+  .round-card > header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+  .round-card .lives { font: .78rem ui-monospace, Consolas, monospace; color: var(--ink-faint); }
+  .branch-title { font: 700 .78rem/1 ui-monospace, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; margin: 16px 0 6px; }
+  .branch-title.win  { color: var(--felt); }
+  .branch-title.lose { color: var(--crimson); }
+
+  table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+  .tbl-wrap { overflow-x: auto; }
+  th {
+    text-align: left; font: 600 .68rem/1.4 ui-monospace, Consolas, monospace;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint);
+    border-bottom: 1px solid var(--line); padding: 6px 10px 6px 0;
+  }
+  td { border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-variant-numeric: tabular-nums; text-align: right; }
+  th.num { text-align: right; }
+  .note { color: var(--ink-soft); font-size: .82rem; font-style: italic; }
+  .keylist { font: .74rem/1.7 ui-monospace, Consolas, monospace; color: var(--ink-soft); }
+
+  /* shot list */
+  .shot-group-h td { background: var(--panel-2); font: 600 .72rem/1.5 ui-monospace, Consolas, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); padding: 6px 10px; }
+  #shotTable { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 12px 16px; }
+
+  button {
+    font: 600 .82rem ui-monospace, Consolas, monospace;
+    background: var(--felt); color: #fff; border: none; border-radius: 5px;
+    padding: 7px 14px; cursor: pointer;
+  }
+  :root[data-theme="dark"] button, body button.dk { color: #10231a; }
+  button.secondary { background: var(--panel-2); color: var(--ink); border: 1px solid var(--line); }
+  button:focus-visible { outline: 2px solid var(--chip); outline-offset: 2px; }
+
+  /* editor */
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+  summary { cursor: pointer; font-weight: 700; }
+  textarea {
+    width: 100%; min-height: 420px; font: .8rem/1.5 ui-monospace, Consolas, monospace;
+    background: var(--ground); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 12px;
+    tab-size: 2;
+  }
+  #jsonError { color: var(--crimson); font: .82rem ui-monospace, Consolas, monospace; white-space: pre-wrap; margin: 8px 0; }
+  .toolbar { display: flex; gap: 10px; margin: 10px 0; flex-wrap: wrap; }
+  .warnbox { background: var(--warn-soft); border: 1px solid var(--warn); border-radius: 6px; padding: 10px 14px; margin: 14px 0; font-size: .88rem; }
+  .warnbox ul { margin: 6px 0 0; padding-left: 20px; }
+  code { font: .84em ui-monospace, Consolas, monospace; background: var(--panel-2); padding: 1px 5px; border-radius: 3px; }
+  .howto { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 20px 14px; box-shadow: var(--shadow); }
+  .howto p { margin: 10px 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .edge { transition: stroke-opacity .15s; }
+  }
+</style>
+<style>
+  /* ---- local-copy chrome (not in the hosted artifact) ---- */
+  #themeToggle {
+    position: fixed; top: 12px; right: 14px; z-index: 10;
+    font: 600 .74rem ui-monospace, Consolas, monospace;
+    background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 5px; padding: 6px 11px; cursor: pointer; box-shadow: var(--shadow);
+  }
+  .localnote {
+    background: var(--panel-2); border: 1px solid var(--line); border-left: 3px solid var(--chip);
+    border-radius: 6px; padding: 10px 14px; font-size: .86rem; color: var(--ink-soft);
+    max-width: none;
+  }
+  .fakebtn {
+    display: inline-block;
+    font: 600 .82rem ui-monospace, Consolas, monospace;
+    background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 5px; padding: 7px 14px; cursor: pointer;
+  }
+  .fakebtn:hover { border-color: var(--chip); }
+  @media print {
+    #themeToggle, details, .toolbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<button id="themeToggle" type="button" aria-label="Toggle light/dark theme">◐ theme</button>
+<main>
+  <span class="eyebrow">No Trace of Luck — production planning</span>
+  <h1 id="sceneTitle">Ashely Poker II — Possibility Map</h1>
+  <p class="sub">Forfeit race (v3): matches repeat until someone hits their 4th loss-of-stake.
+  Your wins buy ladder rungs (columns below); her wins fire a fixed punishment track that
+  interleaves anywhere without changing your position. She forfeits after giving up her 4th
+  item; you forfeit after her final punishment. Edit the definition at the bottom to recompute.</p>
+
+  <p class="localnote">Offline local copy — self-contained, no network needed. The baseline model is
+  inlined below and is byte-identical to <code>scene_model.json</code> next to this file. Edits made
+  here live in the browser only: use <em>Download as scene_model.json</em> to write them back to disk.</p>
+
+  <div class="stats" id="statRow"></div>
+
+  <div id="warnings"></div>
+
+  <h2>How to read this</h2>
+  <div class="howto">
+    <p><strong>Appearance dims</strong> <span class="chip dim">her top off</span> are the states that must stay
+    consistent in <em>all later art</em>. The strip ladder is a chain (top → shorts → bra → panties), so
+    states grow one per <em>win</em> instead of exploding. Her wins add no state at all — the loss
+    track is pure interleaving, which is why match count (4–7) doesn't touch the art budget.</p>
+    <p><strong>Ladder rungs</strong> carry <code>sharedId</code>: the same rung fired in a different match reuses the
+    same render set, <em>per outfit variant</em>. A butt touch with her top off is one render set whether it
+    happens in Match 2 or Match 3. Only genuinely distinct outfit variants add art.</p>
+    <p><strong>The pyramid rule:</strong> rung <em>k</em> of a per-state ladder can co-exist with at most
+    4−<em>k</em> strip-ladder picks (slots are finite) — and since the strip ladder needs 3 picks just to
+    reach shorts-off (top, walk, shorts), variants shrink hard as content escalates: butt touch ×3,
+    breast ×2, BJ ×2, sex ×1. The most explicit art is the <em>cheapest</em> to keep consistent.</p>
+    <p><strong>Narrative flags</strong> <span class="chip flag">truth1</span> gate rungs but never show in ambient art —
+    they cost dialogue, not renders. <strong>Pooled</strong> <span class="chip pool">pooled</span> events are framed so
+    outfit doesn't show (close-ups, money) — one render set total.</p>
+  </div>
+
+  <h2>State lattice</h2>
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--felt)"></span>Your win-pick changes her state</span>
+    <span>Columns = your win count. Her wins fire punishments <em>between</em> columns without moving you — they never change appearance.</span>
+  </div>
+  <div class="lattice-wrap" id="latticeWrap"></div>
+
+  <h2>Rounds &amp; options</h2>
+  <div id="rounds"></div>
+
+  <h2>Shot list — every render set required</h2>
+  <p class="sub">One row = one render set (a short CG sequence). Ladder rungs are deduped across
+  matches — the row notes which matches can fire it. Keys follow your dialogue start-key convention.</p>
+  <div class="toolbar">
+    <button id="copyCsv">Copy shot list as CSV</button>
+    <span id="copyMsg" class="note" role="status"></span>
+  </div>
+  <div class="tbl-wrap" id="shotTable"></div>
+
+  <h2>Scene definition</h2>
+  <details open>
+    <summary>Edit the model (JSON)</summary>
+    <p class="note">Fields: <code>dims</code> (appearance state; <code>requires</code> = unlock chain) ·
+    <code>rounds</code> = your win slots; options with <code>requires</code> (dims), <code>requiresFlags</code>,
+    <code>requiresNotFlags</code>, <code>sets</code> (dims turned on), <code>flags</code> (flags gained),
+    <code>artDeps</code> (dims/flags whose value changes the art — empty = pooled),
+    <code>sharedId</code> (dedupe art across win slots), <code>est</code> (images per render set) ·
+    <code>lossTrack</code> = her fixed punishment sequence · <code>lossForfeitCount</code> = her win # that
+    ends the scene · <code>loseEnding</code> = the you-forfeit ending · <code>final</code> = her forfeit
+    after your 4th win.</p>
+    <div id="jsonError"></div>
+    <textarea id="jsonEditor" spellcheck="false" aria-label="Scene definition JSON"></textarea>
+    <div class="toolbar">
+      <button id="applyJson">Apply &amp; recompute</button>
+      <button id="resetJson" class="secondary">Reset to baseline</button>
+      <button id="downloadJson" class="secondary">Download as scene_model.json</button>
+      <label for="loadJson" class="fakebtn">Load a .json from disk…</label>
+      <input type="file" id="loadJson" accept=".json,application/json" hidden>
+      <span id="loadMsg" class="note" role="status"></span>
+    </div>
+  </details>
+</main>
+
+<script>
+'use strict';
+
+/* ---------------- v2 baseline scene definition ---------------- */
+const WIN_MENU = [
+  { id: "S1_TOP", sharedId: "S1_TOP", label: "Her top comes off (no bra)", sets: ["top"], artDeps: [], est: 4 },
+  { id: "S2_WALK", sharedId: "S2_WALK", label: "Walk around the park — topless", requires: ["top"], requiresNot: ["shorts"],
+    requiresNotFlags: ["walk"], flags: ["walk"], artDeps: [], est: 5,
+    notes: "Strip rung 2 — no outfit change, so it consumes a slot for free. Elderly couple (Janet & Ted) cameo. Railroaded: always topless with shorts on." },
+  { id: "S3_SHORTS", sharedId: "S3_SHORTS", label: "Her shorts come off", sets: ["shorts"], requiresFlags: ["walk"], artDeps: [], est: 4,
+    notes: "Gated on the walk — keeps the strip route at exactly 4 picks." },
+  { id: "S4_PANTIES", sharedId: "S4_PANTIES", label: "Her panties come off", sets: ["panties"], artDeps: [], est: 6,
+    notes: "Strip route finale (always your 4th win). Deterministic entering state — strip scenes never multiply." },
+
+  { id: "X1_BUTT",   sharedId: "X1_BUTT",   label: "A butt touch", flags: ["butt"], artDeps: ["top", "shorts"], est: 3,
+    notes: "Sexy rung 1 — varies by how stripped she is when it fires." },
+  { id: "X2_BREAST", sharedId: "X2_BREAST", label: "A breast touch", requiresFlags: ["butt"], flags: ["breast"],
+    artDeps: ["top", "shorts"], est: 4,
+    notes: "MR2 lives in the TOPLESS variant: you reach, she stops you — 'only my hands get to touch me' — then a close-range self-touch tease (breasts/upper body, waistline grazes), and she stops cold. Blue-balls control assertion; rung still counts. Dressed variant = the actual touch." },
+  { id: "X3_BJ",     sharedId: "X3_BJ",     label: "A blowjob", requiresFlags: ["breast"], flags: ["bj"],
+    artDeps: ["top", "shorts"], est: 5 },
+  { id: "X4_SEX",    sharedId: "X4_SEX",    label: "Sex", requiresFlags: ["bj"], flags: ["sex"],
+    artDeps: ["top", "shorts"], est: 8,
+    notes: "Sexy route ending — the pyramid rule means this only ever renders fully dressed. The cold one (2026-10-12): she pays it like a debt, shorter, no warm ending." },
+
+  { id: "L1_TRUTH", sharedId: "L1_TRUTH", label: "A truth", flags: ["truth1"],
+    artDeps: ["top"], est: 2,
+    notes: "Love rung 1. Two renders: benign truth (dressed, close framing) and the 'what's your bra size' taunt (topless — feeds mini-route 1)." },
+  { id: "L2_NICE", sharedId: "L2_NICE", label: "Say two nice things about me", requiresFlags: ["truth1"],
+    flags: ["love2"], artDeps: [], est: 3, pool: "irrelevant",
+    notes: "She tries 'you're hot' — refused (she trashes your looks weekly). Grits her teeth, lands two surprisingly real ones." },
+  { id: "L3_SMILE", sharedId: "L3_SMILE", label: "Show me a real smile", requiresFlags: ["love2"],
+    flags: ["love3"], artDeps: [], est: 3, pool: "irrelevant",
+    notes: "Smug goading smile first → refused: 'drop the tough-girl bullshit.' Protests. Then the real one." },
+  { id: "L4_KISS", sharedId: "L4_KISS", label: "A real kiss — she melts", requiresFlags: ["love3"], flags: ["kiss"],
+    artDeps: ["top", "shorts"], est: 12,
+    notes: "Love route ending. The slot economy forces her fully dressed here — the model verifies that (1 variant). Continues into sex in the grass (2026-10-12): the long, warm one." },
+
+  { id: "MR1_KISS", sharedId: "MR1_KISS", label: "Kiss her (mini-route 1)", requires: ["top"], requiresNot: ["shorts"],
+    requiresFlags: ["truth1"], flags: ["mr1_kiss"], artDeps: [], est: 3,
+    notes: "Mini-route 1 step 3 (top → truth → kiss). Railroaded: topless, shorts on." },
+  { id: "MR1_FINGER", sharedId: "MR1_FINGER", label: "Heavy kiss — fingers in her shorts (mini-route 1 finale)",
+    requiresNot: ["shorts"], requiresFlags: ["mr1_kiss"], flags: ["mr1_done"], artDeps: [], est: 5,
+    notes: "Only reachable as your 4th win via top → truth → kiss. Topless, shorts on. Her-forfeit ending variant." },
+
+  { id: "MR3_INSPECT", sharedId: "MR3_INSPECT", label: "Her inspection (mini-route 3 — intercepts a touch after the dick pic)",
+    flags: ["mr3_done"], artDeps: [], est: 4, pool: "irrelevant",
+    notes: "REAL GATE (in-game, not modeled here): fires once, hijacking your first touch pick after P2. 'Fair's fair — the professor got a preview.' Hand in your shorts, annoyed verdict: 'Fuck... you're huge.' Plays with it a little, withdraws: 'That was your prize. Deal with it.' CONSUMES the pick — no rung progress." }
+];
+
+const STRAWMAN = {
+  title: "Ashely — Park Stakes: Forfeit Race (v4, no bra)",
+  tableEst: 2,
+  dims: [
+    { id: "top",     label: "her top off",     who: "her" },
+    { id: "shorts",  label: "her shorts off",  who: "her", requires: ["top"] },
+    { id: "panties", label: "her panties off", who: "her", requires: ["shorts"] }
+  ],
+  rounds: [
+    { id: "W1", name: "Win 1", lives: "", win: WIN_MENU },
+    { id: "W2", name: "Win 2", lives: "", win: WIN_MENU },
+    { id: "W3", name: "Win 3", lives: "", win: WIN_MENU },
+    { id: "W4", name: "Win 4", lives: "her forfeit", win: WIN_MENU }
+  ],
+  lossTrack: [
+    { id: "P1_ASS_KISS", label: "Kiss her ass. Literally.", est: 3, artDeps: ["shorts"],
+      notes: "Two variants by her shorts state. Frame from behind / below mid-back so top-on vs topless doesn't split it into 3." },
+    { id: "P2_DICK_PIC", label: "Send a dick pic — SHE picks the contact", est: 3, artDeps: [], pool: "irrelevant",
+      notes: "You plan a dead number; she scrolls your contacts ('Hmm... this Lisa girl? ...no.') and lands on your old physics professor. Art: Ashely going through your phone, delighted. Future hook: professor phone chat after the date." },
+    { id: "P3A_YOUR_WALK", label: "Your turn — walk the park in your underwear", requiresFlags: ["walk"],
+      est: 4, artDeps: [], pool: "irrelevant",
+      notes: "Only picked if HER walk happened — the callback. Same path, Janet & Ted encore ('No you don't, Janet.'). Frame Ashely out or face-only so her state doesn't split the set." },
+    { id: "P3B_BENCH_GIRL", label: "Ask that girl for her number... then say 'just kidding'", requiresNotFlags: ["walk"],
+      est: 5, artDeps: [], pool: "irrelevant",
+      notes: "Alternate P3. You refuse to be an asshole, take the number for real; she knew you wouldn't — the struggle WAS the punishment. Jealousy beat ('Whatever. Next match.'). New side character: bench girl. UNLOCK STRETCH: if you then WIN the scene (her forfeit), a sexy bench-girl phone convo unlocks afterwards — lose exactly 3, then take your 4th win." }
+  ],
+  lossForfeitCount: 4,
+  loseEnding: {
+    label: "The naked run — you forfeit", artDeps: ["top"], est: 4,
+    notes: "P4: strip naked and run the park. 'That's illegal.' (Topless counter: 'I'm topless, aren't I?' / 'legal for women here'.) Art: expressive devious Ashely daring you — NO nude player art. She is SEATED, so shorts state never shows — exactly a dressed + topless pair."
+  },
+  final: {
+    label: "Her forfeit — your 4th win (themed if one ladder completed, mixed wrap otherwise)",
+    artDeps: ["top", "shorts", "panties"], est: 3
+  }
+};
+
+let SCENE = JSON.parse(JSON.stringify(STRAWMAN));
+
+/* ---------------- model ---------------- */
+function dimIndex(scene) {
+  const m = {};
+  (scene.dims || []).forEach(d => m[d.id] = d);
+  return m;
+}
+
+function stateKey(st) {
+  const dims = Object.keys(st.dims).filter(k => st.dims[k]).sort().join(',');
+  const flags = [...st.flags].sort().join(',');
+  return dims + '|' + flags;
+}
+
+function initialState(scene) {
+  const dims = {};
+  (scene.dims || []).forEach(d => dims[d.id] = false);
+  return { dims, flags: new Set() };
+}
+
+function isAvailable(opt, st, dimIdx, errors) {
+  for (const d of (opt.requires || [])) {
+    if (!(d in st.dims)) { errors.push('Unknown dim "' + d + '" in requires of ' + opt.id); return false; }
+    if (!st.dims[d]) return false;
+  }
+  for (const d of (opt.requiresNot || [])) if (st.dims[d]) return false;
+  for (const f of (opt.requiresFlags || [])) if (!st.flags.has(f)) return false;
+  for (const f of (opt.requiresNotFlags || [])) if (st.flags.has(f)) return false;
+  for (const d of (opt.sets || [])) {
+    if (!(d in st.dims)) { errors.push('Unknown dim "' + d + '" in sets of ' + opt.id); return false; }
+    if (st.dims[d]) return false; // already off — can't take it off again
+    const dim = dimIdx[d];
+    for (const r of (dim.requires || [])) {
+      if (!st.dims[r] && !(opt.sets || []).includes(r)) return false; // unlock chain not satisfied
+    }
+  }
+  return true;
+}
+
+function applyOpt(opt, st) {
+  const dims = Object.assign({}, st.dims);
+  (opt.sets || []).forEach(d => dims[d] = true);
+  const flags = new Set(st.flags);
+  (opt.flags || []).forEach(f => flags.add(f));
+  return { dims, flags };
+}
+
+// projection of a state onto artDeps (mixed dim/flag ids)
+function project(st, deps, dimIdx) {
+  return deps.map(d => d + '=' + (d in dimIdx ? (st.dims[d] ? 1 : 0) : (st.flags.has(d) ? 1 : 0))).join(' ');
+}
+
+function variantLabel(st, deps, dimIdx, opt) {
+  if (!deps.length) return opt && opt.pool ? 'pooled (' + opt.pool + ')' : 'single set';
+  const on = deps.filter(d => (d in dimIdx) ? st.dims[d] : st.flags.has(d));
+  if (!on.length) return 'fully dressed';
+  const txt = on.map(d => (d in dimIdx) ? dimIdx[d].label.replace(/^her /, '').replace(/^your /, 'your ') : d).join(' + ');
+  return txt;
+}
+
+function keySuffix(st, deps, dimIdx) {
+  if (!deps.length) return '';
+  const onDims = deps.filter(d => (d in dimIdx) && st.dims[d]).map(d => d.toUpperCase());
+  const onFlags = deps.filter(d => !(d in dimIdx) && st.flags.has(d)).map(d => d.toUpperCase());
+  let sfx = '';
+  if (onDims.length) sfx += '__' + onDims.join('_') + '_OFF';
+  if (onFlags.length) sfx += '__W_' + onFlags.join('_');
+  return sfx || '__DRESSED';
+}
+
+function compute(scene) {
+  const dimIdx = dimIndex(scene);
+  const errors = [];
+  const warnings = [];
+
+  // reachability: cols[i] = Map(stateKey -> state) entering round i; last = after final round
+  const cols = [new Map()];
+  const init = initialState(scene);
+  cols[0].set(stateKey(init), init);
+
+  const edges = [];
+
+  scene.rounds.forEach((round, ri) => {
+    const next = new Map();
+    const roundEdges = [];
+    for (const st of cols[ri].values()) {
+      let anyWin = false, anyLose = false;
+      for (const branch of ['win', 'lose']) {
+        for (const opt of (round[branch] || [])) {
+          if (!isAvailable(opt, st, dimIdx, errors)) continue;
+          if (branch === 'win') anyWin = true; else anyLose = true;
+          const ns = applyOpt(opt, st);
+          const nk = stateKey(ns);
+          if (!next.has(nk)) next.set(nk, ns);
+          roundEdges.push({ from: st, to: ns, opt, branch });
+        }
+      }
+      if (!anyWin) warnings.push(round.name + ': a reachable state has NO win option available (player wins and gets no choice). State: ' + describeState(st, scene));
+      if ((round.lose || []).length && !anyLose) warnings.push(round.name + ': a reachable state has NO lose option available. State: ' + describeState(st, scene));
+    }
+    edges.push(roundEdges);
+    cols.push(next);
+  });
+
+  /* ---- shot list with cross-match dedupe ---- */
+  const shotMap = new Map();   // mapKey -> shot row
+  const shots = [];            // insertion-ordered rows
+  const sharedSeen = new Map(); // sharedId|branch -> eligible anywhere?
+
+  function addShot(mapKey, row, roundName) {
+    if (shotMap.has(mapKey)) {
+      const r = shotMap.get(mapKey);
+      if (roundName && !r.rounds.includes(roundName)) r.rounds.push(roundName);
+      return;
+    }
+    row.rounds = roundName ? [roundName] : [];
+    shotMap.set(mapKey, row);
+    shots.push(row);
+  }
+
+  function processBranch(branch, groupSharedLabel) {
+    scene.rounds.forEach((round, ri) => {
+      for (const opt of (round[branch] || [])) {
+        const deps = opt.artDeps || [];
+        const eligible = [...cols[ri].values()].filter(st => isAvailable(opt, st, dimIdx, []));
+        if (opt.sharedId) {
+          const sk = branch + '|' + opt.sharedId;
+          sharedSeen.set(sk, (sharedSeen.get(sk) || false) || eligible.length > 0);
+        } else if (!eligible.length) {
+          warnings.push(round.name + ' / ' + opt.id + ' (' + branch + '): never available on any reachable path — dead option.');
+          continue;
+        }
+        for (const st of eligible) {
+          const p = project(st, deps, dimIdx);
+          const shared = !!opt.sharedId;
+          const mapKey = (shared ? 'S|' + branch + '|' + opt.sharedId : 'R|' + round.id + '|' + branch + '|' + opt.id) + '|' + p;
+          addShot(mapKey, {
+            group: shared ? groupSharedLabel : round.name + ' — ' + (branch === 'win' ? 'you won, you pick' : 'she won, she picks'),
+            branch, optId: opt.id, optLabel: opt.label,
+            variant: variantLabel(st, deps, dimIdx, opt),
+            key: (shared ? branch.toUpperCase() + '_' + opt.sharedId : round.id + '_' + branch.toUpperCase() + '_' + opt.id) + keySuffix(st, deps, dimIdx),
+            est: opt.est != null ? opt.est : 4,
+            pooled: deps.length === 0
+          }, round.name);
+        }
+      }
+    });
+  }
+
+  processBranch('win', 'Win picks — ladder rungs (art shared across matches)');
+  processBranch('lose', 'Loss picks — shared across matches');
+
+  // dead shared options
+  for (const [sk, ok] of sharedSeen) {
+    if (!ok) warnings.push('Shared option ' + sk.split('|')[1] + ' is never available on any reachable path — dead rung.');
+  }
+
+  // her punishment track — one per match she wins, order fixed, interleaves anywhere.
+  // A punishment can fire while she is in ANY state reachable before your final win.
+  const statesPool = new Map();
+  scene.rounds.forEach((r, ri) => { for (const [k, st] of cols[ri]) if (!statesPool.has(k)) statesPool.set(k, st); });
+  (scene.lossTrack || []).forEach((p, pi) => {
+    const deps = p.artDeps || [];
+    for (const st of statesPool.values()) {
+      if (!isAvailable(p, st, dimIdx, [])) continue;
+      addShot('P|' + p.id + '|' + project(st, deps, dimIdx), {
+        group: 'Her punishments — one per match she wins, fixed order',
+        branch: 'lose', optId: p.id, optLabel: (pi + 1) + '. ' + p.label,
+        variant: variantLabel(st, deps, dimIdx, p),
+        key: 'LOSE_' + p.id + keySuffix(st, deps, dimIdx),
+        est: p.est != null ? p.est : 3,
+        pooled: deps.length === 0
+      }, null);
+    }
+  });
+  if (scene.loseEnding) {
+    const deps = scene.loseEnding.artDeps || [];
+    for (const st of statesPool.values()) {
+      addShot('LE|' + project(st, deps, dimIdx), {
+        group: 'Scene end — you forfeit (her win #' + (scene.lossForfeitCount || ((scene.lossTrack || []).length + 1)) + ')',
+        branch: 'final', optId: 'FORFEIT', optLabel: scene.loseEnding.label || 'You forfeit',
+        variant: variantLabel(st, deps, dimIdx, null),
+        key: 'FORFEIT' + keySuffix(st, deps, dimIdx),
+        est: scene.loseEnding.est != null ? scene.loseEnding.est : 4,
+        pooled: deps.length === 0
+      }, null);
+    }
+  }
+
+  // table / ambient art — shared across matches by state
+  const tableDeps = scene.tableArtDeps || (scene.dims || []).filter(d => d.who === 'her').map(d => d.id);
+  scene.rounds.forEach((round, ri) => {
+    for (const st of cols[ri].values()) {
+      const p = project(st, tableDeps, dimIdx);
+      addShot('T|' + p, {
+        group: 'Table / ambient — shared across all matches',
+        branch: 'table', optId: 'TABLE', optLabel: 'Match ambient (table idle, reactions)',
+        variant: variantLabel(st, tableDeps, dimIdx, null),
+        key: 'TABLE' + keySuffix(st, tableDeps, dimIdx),
+        est: round.tableEst != null ? round.tableEst : (scene.tableEst != null ? scene.tableEst : 2),
+        pooled: tableDeps.length === 0
+      }, round.name);
+    }
+  });
+
+  // final scene
+  if (scene.final) {
+    const deps = scene.final.artDeps || [];
+    for (const st of cols[cols.length - 1].values()) {
+      const p = project(st, deps, dimIdx);
+      addShot('F|' + p, {
+        group: 'Scene end — ' + (scene.final.label || 'wrap-up'),
+        branch: 'final', optId: 'FINAL', optLabel: scene.final.label || 'Wrap-up',
+        variant: variantLabel(st, deps, dimIdx, null),
+        key: 'FINAL' + keySuffix(st, deps, dimIdx),
+        est: scene.final.est != null ? scene.final.est : 3,
+        pooled: deps.length === 0
+      }, null);
+    }
+  }
+
+  return { cols, edges, shots, warnings, errors, dimIdx };
+}
+
+function describeState(st, scene) {
+  const dimIdx = dimIndex(scene);
+  const on = Object.keys(st.dims).filter(k => st.dims[k]).map(k => dimIdx[k].label);
+  const f = [...st.flags];
+  let s = on.length ? on.join(', ') : 'fully dressed';
+  if (f.length) s += ' [' + f.join(', ') + ']';
+  return s;
+}
+
+function dimOnlyKey(st) {
+  return Object.keys(st.dims).filter(k => st.dims[k]).sort().join(',');
+}
+
+function dimNodeLabel(st, scene) {
+  const dimIdx = dimIndex(scene);
+  const her = Object.keys(st.dims).filter(k => st.dims[k] && dimIdx[k].who !== 'you');
+  const you = Object.keys(st.dims).filter(k => st.dims[k] && dimIdx[k].who === 'you').map(k => dimIdx[k].label);
+  return {
+    main: her.length ? her.join(' + ') + ' off' : 'fully dressed',
+    sub: you.length ? '(' + you.join(', ') + ')' : ''
+  };
+}
+
+/* ---------------- rendering ---------------- */
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function render() {
+  const model = compute(SCENE);
+  document.getElementById('sceneTitle').textContent = SCENE.title || 'Possibility Map';
+  renderStats(model);
+  renderWarnings(model);
+  renderLattice(model);
+  renderRounds(model);
+  renderShots(model);
+  window.__model = model;
+}
+
+function renderStats(model) {
+  const finalStates = model.cols[model.cols.length - 1].size;
+  const dimStates = new Set([...model.cols[model.cols.length - 1].values()].map(dimOnlyKey)).size;
+  const renderSets = model.shots.length;
+  const images = model.shots.reduce((a, s) => a + s.est, 0);
+  const pooled = model.shots.filter(s => s.pooled).length;
+  const el = document.getElementById('statRow');
+  el.innerHTML =
+    stat(dimStates, 'appearance states at end') +
+    stat(finalStates, 'full states incl. flags') +
+    stat(renderSets, 'render sets needed') +
+    stat('~' + images, 'estimated images') +
+    stat(pooled, 'of those pooled / reusable');
+}
+function stat(v, label) { return '<div class="stat"><b>' + esc(v) + '</b><span>' + esc(label) + '</span></div>'; }
+
+function renderWarnings(model) {
+  const el = document.getElementById('warnings');
+  const all = [...model.errors, ...model.warnings];
+  el.innerHTML = all.length
+    ? '<div class="warnbox"><strong>⚠ Check these:</strong><ul>' + all.map(w => '<li>' + esc(w) + '</li>').join('') + '</ul></div>'
+    : '';
+}
+
+function renderLattice(model) {
+  const scene = SCENE;
+  const colW = 250, nodeH = 50, nodeW = 190, vGap = 22, topPad = 56, leftPad = 16;
+
+  const colNodes = model.cols.map(col => {
+    const m = new Map();
+    for (const st of col.values()) {
+      const k = dimOnlyKey(st);
+      if (!m.has(k)) m.set(k, st);
+    }
+    return [...m.entries()].sort((a, b) => a[0].split(',').filter(Boolean).length - b[0].split(',').filter(Boolean).length || a[0].localeCompare(b[0]));
+  });
+
+  const maxRows = Math.max(...colNodes.map(c => c.length));
+  const H = topPad + maxRows * (nodeH + vGap) + 20;
+  const W = leftPad + model.cols.length * colW;
+
+  const pos = colNodes.map((nodes, ci) => {
+    const m = new Map();
+    nodes.forEach(([k], ri) => m.set(k, { x: leftPad + ci * colW, y: topPad + ri * (nodeH + vGap) }));
+    return m;
+  });
+
+  let svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" font-family="ui-monospace, Consolas, monospace">';
+  svg += '<defs>' +
+    '<marker id="arrW" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--felt)"/></marker>' +
+    '<marker id="arrL" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--crimson)"/></marker>' +
+    '</defs>';
+
+  model.cols.forEach((col, ci) => {
+    const label = ci < scene.rounds.length
+      ? 'BEFORE ' + scene.rounds[ci].name.toUpperCase() + (scene.rounds[ci].lives ? ' · ' + scene.rounds[ci].lives : '')
+      : 'HER FORFEIT';
+    svg += '<text x="' + (leftPad + ci * colW) + '" y="22" font-size="11" letter-spacing="1" fill="var(--ink-faint)">' + esc(label) + '</text>';
+    if (ci < model.edges.length) {
+      const same = model.edges[ci].filter(e => dimOnlyKey(e.from) === dimOnlyKey(e.to)).length;
+      if (same) svg += '<text x="' + (leftPad + ci * colW) + '" y="38" font-size="10" fill="var(--ink-faint)">+' + same + ' events w/ no outfit change</text>';
+    }
+  });
+
+  model.edges.forEach((es, ci) => {
+    const grouped = new Map();
+    es.forEach(e => {
+      const fk = dimOnlyKey(e.from), tk = dimOnlyKey(e.to);
+      if (fk === tk) return;
+      const gk = fk + '>' + tk + '>' + e.branch;
+      if (!grouped.has(gk)) grouped.set(gk, { fk, tk, branch: e.branch, labels: new Set() });
+      grouped.get(gk).labels.add(e.opt.label);
+    });
+    let i = 0;
+    for (const g of grouped.values()) {
+      const p1 = pos[ci].get(g.fk), p2 = pos[ci + 1].get(g.tk);
+      if (!p1 || !p2) continue;
+      const x1 = p1.x + nodeW, y1 = p1.y + nodeH / 2;
+      const x2 = p2.x, y2 = p2.y + nodeH / 2;
+      const bend = 0.5 + (i % 3 - 1) * 0.08;
+      const cx1 = x1 + (x2 - x1) * bend, cx2 = x2 - (x2 - x1) * bend;
+      const color = g.branch === 'win' ? 'var(--felt)' : 'var(--crimson)';
+      const marker = g.branch === 'win' ? 'url(#arrW)' : 'url(#arrL)';
+      const lbl = [...g.labels].join(' / ');
+      svg += '<path class="edge" d="M' + x1 + ' ' + y1 + ' C' + cx1 + ' ' + y1 + ' ' + cx2 + ' ' + y2 + ' ' + x2 + ' ' + y2 + '" fill="none" stroke="' + color + '" stroke-width="2" stroke-opacity=".75" marker-end="' + marker + '"><title>' + esc(lbl) + '</title></path>';
+      const mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - 5 + (i % 3 - 1) * 12;
+      svg += '<text x="' + mx + '" y="' + my + '" font-size="9.5" text-anchor="middle" fill="' + color + '" paint-order="stroke" stroke="var(--panel)" stroke-width="3">' + esc(lbl.length > 34 ? lbl.slice(0, 32) + '…' : lbl) + '</text>';
+      i++;
+    }
+  });
+
+  colNodes.forEach((nodes, ci) => {
+    nodes.forEach(([k, st]) => {
+      const p = pos[ci].get(k);
+      const lab = dimNodeLabel(st, scene);
+      svg += '<g><rect x="' + p.x + '" y="' + p.y + '" width="' + nodeW + '" height="' + nodeH + '" rx="7" fill="var(--panel-2)" stroke="var(--line)"/>' +
+        '<text x="' + (p.x + 12) + '" y="' + (p.y + (lab.sub ? 21 : 29)) + '" font-size="12.5" font-weight="600" fill="var(--ink)">' + esc(lab.main) + '</text>' +
+        (lab.sub ? '<text x="' + (p.x + 12) + '" y="' + (p.y + 38) + '" font-size="10.5" fill="var(--ink-soft)">' + esc(lab.sub) + '</text>' : '') +
+        '</g>';
+    });
+  });
+
+  svg += '</svg>';
+  document.getElementById('latticeWrap').innerHTML = svg;
+}
+
+function renderRounds(model) {
+  const el = document.getElementById('rounds');
+  const dimIdx = model.dimIdx;
+  let html = '';
+  SCENE.rounds.forEach((round, ri) => {
+    const entering = [...model.cols[ri].values()];
+    html += '<div class="round-card"><header><h3 style="margin:0">' + esc(round.name) + '</h3><span class="lives">' + esc(round.lives || '') + ' · ' + entering.length + ' possible entering state(s)</span></header>';
+    for (const branch of ['win', 'lose']) {
+      const opts = round[branch] || [];
+      if (!opts.length) continue;
+      html += '<div class="branch-title ' + branch + '">' + (branch === 'win' ? 'Your pick at this win' : 'She wins — she picks one') + '</div>';
+      html += '<div class="tbl-wrap"><table><tr><th>Option</th><th>Needs</th><th>Changes</th><th>Art</th><th class="num">Variants here</th><th>Status</th></tr>';
+      for (const opt of opts) {
+        const eligible = entering.filter(st => isAvailable(opt, st, dimIdx, []));
+        const deps = opt.artDeps || [];
+        const variants = new Map();
+        eligible.forEach(st => { const p = project(st, deps, dimIdx); if (!variants.has(p)) variants.set(p, st); });
+        const needs = [
+          ...(opt.requires || []).map(d => '<span class="chip dim">' + esc(dimIdx[d] ? dimIdx[d].label : d) + '</span>'),
+          ...(opt.requiresFlags || []).map(f => '<span class="chip flag">' + esc(f) + '</span>'),
+          ...(opt.requiresNotFlags || []).map(f => '<span class="chip flag">not ' + esc(f) + '</span>')
+        ].join(' ') || '<span class="note">—</span>';
+        const changes = [
+          ...(opt.sets || []).map(d => '<span class="chip dim">' + esc(dimIdx[d] ? dimIdx[d].label : d) + '</span>'),
+          ...(opt.flags || []).map(f => '<span class="chip flag">+' + esc(f) + '</span>')
+        ].join(' ') || '<span class="note">—</span>';
+        const artCls = deps.length
+          ? 'per-state: ' + deps.map(d => '<span class="chip dim">' + esc(d) + '</span>').join(' ')
+          : '<span class="chip pool">pooled' + (opt.pool ? ' · ' + esc(opt.pool) : '') + '</span>';
+        const status = eligible.length
+          ? (opt.sharedId ? '<span class="chip win">shared art</span>' : '<span class="chip win">reachable</span>')
+          : '<span class="chip pool">not reachable this match</span>';
+        html += '<tr><td><strong>' + esc(opt.label) + '</strong>' + (opt.notes ? '<br><span class="note">' + esc(opt.notes) + '</span>' : '') + '</td>' +
+          '<td>' + needs + '</td><td>' + changes + '</td><td>' + artCls + '</td>' +
+          '<td class="num">' + (eligible.length ? variants.size : 0) + '</td>' +
+          '<td>' + status + '</td></tr>';
+      }
+      html += '</table></div>';
+    }
+    html += '</div>';
+  });
+
+  // her punishment track card
+  const track = SCENE.lossTrack || [];
+  if (track.length) {
+    const statesPool = new Map();
+    SCENE.rounds.forEach((r, ri) => { for (const [k, st] of model.cols[ri]) if (!statesPool.has(k)) statesPool.set(k, st); });
+    const forfeitAt = SCENE.lossForfeitCount || (track.length + 1);
+    html += '<div class="round-card"><header><h3 style="margin:0">Her punishments (you lose a match)</h3><span class="lives">fixed order · interleaves anywhere · you forfeit at her win #' + forfeitAt + '</span></header>';
+    html += '<div class="branch-title lose">Predetermined — one per match she wins</div>';
+    html += '<div class="tbl-wrap"><table><tr><th>#</th><th>Punishment</th><th>Art</th><th class="num">Variants</th></tr>';
+    track.forEach((p, pi) => {
+      const deps = p.artDeps || [];
+      const variants = new Map();
+      for (const st of statesPool.values()) {
+        if (!isAvailable(p, st, dimIdx, [])) continue;
+        const pr = project(st, deps, dimIdx); if (!variants.has(pr)) variants.set(pr, st);
+      }
+      const gates = [
+        ...(p.requiresFlags || []).map(f => '<span class="chip flag">' + esc(f) + '</span>'),
+        ...(p.requiresNotFlags || []).map(f => '<span class="chip flag">not ' + esc(f) + '</span>')
+      ].join(' ');
+      const artCls = deps.length
+        ? 'per-state: ' + deps.map(d => '<span class="chip dim">' + esc(d) + '</span>').join(' ')
+        : '<span class="chip pool">pooled' + (p.pool ? ' · ' + esc(p.pool) : '') + '</span>';
+      html += '<tr><td class="num">' + (pi + 1) + '</td><td><strong>' + esc(p.label) + '</strong>' + (gates ? ' ' + gates : '') + (p.notes ? '<br><span class="note">' + esc(p.notes) + '</span>' : '') + '</td>' +
+        '<td>' + artCls + '</td><td class="num">' + variants.size + '</td></tr>';
+    });
+    if (SCENE.loseEnding) {
+      const deps = SCENE.loseEnding.artDeps || [];
+      const variants = new Map();
+      for (const st of statesPool.values()) { const pr = project(st, deps, dimIdx); if (!variants.has(pr)) variants.set(pr, st); }
+      const artCls = deps.length
+        ? 'per-state: ' + deps.map(d => '<span class="chip dim">' + esc(d) + '</span>').join(' ')
+        : '<span class="chip pool">pooled</span>';
+      html += '<tr><td class="num">' + forfeitAt + '</td><td><strong>' + esc(SCENE.loseEnding.label || 'You forfeit') + '</strong> <span class="chip lose">ending</span>' +
+        (SCENE.loseEnding.notes ? '<br><span class="note">' + esc(SCENE.loseEnding.notes) + '</span>' : '') + '</td>' +
+        '<td>' + artCls + '</td><td class="num">' + variants.size + '</td></tr>';
+    }
+    html += '</table></div></div>';
+  }
+
+  el.innerHTML = html;
+}
+
+function renderShots(model) {
+  const groups = new Map();
+  model.shots.forEach(s => {
+    if (!groups.has(s.group)) groups.set(s.group, []);
+    groups.get(s.group).push(s);
+  });
+  let html = '<table><tr><th>Event</th><th>State variant</th><th>Key / pool</th><th class="num">Est. images</th></tr>';
+  for (const [g, list] of groups) {
+    const sub = list.reduce((a, s) => a + s.est, 0);
+    html += '<tr class="shot-group-h"><td colspan="3">' + esc(g) + '</td><td class="num">' + sub + '</td></tr>';
+    for (const s of list) {
+      const roundsNote = s.rounds && s.rounds.length ? '<br><span class="note">fires in: ' + esc(s.rounds.join(', ')) + '</span>' : '';
+      html += '<tr><td>' + esc(s.optLabel) + '</td><td>' + esc(s.variant) + (s.pooled ? ' <span class="chip pool">pooled</span>' : '') + roundsNote + '</td>' +
+        '<td class="keylist">' + esc(s.key) + '</td><td class="num">' + s.est + '</td></tr>';
+    }
+  }
+  const total = model.shots.reduce((a, s) => a + s.est, 0);
+  html += '<tr><td colspan="3"><strong>Total (' + model.shots.length + ' render sets)</strong></td><td class="num"><strong>~' + total + '</strong></td></tr>';
+  html += '</table>';
+  document.getElementById('shotTable').innerHTML = html;
+}
+
+/* ---------------- editor ---------------- */
+const editor = document.getElementById('jsonEditor');
+editor.value = JSON.stringify(STRAWMAN, null, 2);
+
+document.getElementById('applyJson').addEventListener('click', () => {
+  const errEl = document.getElementById('jsonError');
+  try {
+    const parsed = JSON.parse(editor.value);
+    if (!Array.isArray(parsed.rounds)) throw new Error('"rounds" must be an array');
+    if (!Array.isArray(parsed.dims)) throw new Error('"dims" must be an array');
+    SCENE = parsed;
+    errEl.textContent = '';
+    render();
+  } catch (e) {
+    errEl.textContent = 'Not applied — ' + e.message;
+  }
+});
+
+document.getElementById('resetJson').addEventListener('click', () => {
+  editor.value = JSON.stringify(STRAWMAN, null, 2);
+  SCENE = JSON.parse(JSON.stringify(STRAWMAN));
+  document.getElementById('jsonError').textContent = '';
+  render();
+});
+
+document.getElementById('copyCsv').addEventListener('click', () => {
+  const rows = [['group', 'event', 'state_variant', 'fires_in', 'key', 'est_images']];
+  window.__model.shots.forEach(s => rows.push([s.group, s.optLabel, s.variant, (s.rounds || []).join(' '), s.key, s.est]));
+  const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+  const ok = () => {
+    document.getElementById('copyMsg').textContent = 'Copied ' + (rows.length - 1) + ' rows.';
+    setTimeout(() => document.getElementById('copyMsg').textContent = '', 2500);
+  };
+  // navigator.clipboard is not always granted on file:// — fall back to execCommand,
+  // and to a downloaded .csv if even that is blocked.
+  const legacy = () => {
+    const ta = document.createElement('textarea');
+    ta.value = csv;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    let done = false;
+    try { done = document.execCommand('copy'); } catch (e) { done = false; }
+    ta.remove();
+    if (done) { ok(); return; }
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ashely_poker2_shotlist.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    document.getElementById('copyMsg').textContent = 'Clipboard blocked — downloaded the CSV instead.';
+    setTimeout(() => document.getElementById('copyMsg').textContent = '', 4000);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(csv).then(ok, legacy);
+  } else {
+    legacy();
+  }
+});
+
+/* ---------------- local-copy additions (not in the hosted artifact) ---------------- */
+
+/* theme toggle — the hosted runtime used to supply this; offline we own it */
+(function () {
+  const KEY = 'ashely2_map_theme';
+  const root = document.documentElement;
+  let stored = null;
+  try { stored = localStorage.getItem(KEY); } catch (e) {}
+  if (stored === 'light' || stored === 'dark') { root.dataset.theme = stored; root.style.colorScheme = stored; }
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const cur = root.dataset.theme || (sysDark ? 'dark' : 'light');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    root.style.colorScheme = next;
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+  });
+})();
+
+/* load a scene model from disk — file:// blocks fetch(), so use a file picker */
+document.getElementById('loadJson').addEventListener('change', (ev) => {
+  const file = ev.target.files && ev.target.files[0];
+  if (!file) return;
+  const msg = document.getElementById('loadMsg');
+  const reader = new FileReader();
+  reader.onload = () => {
+    const errEl = document.getElementById('jsonError');
+    try {
+      const parsed = JSON.parse(reader.result);
+      if (!Array.isArray(parsed.rounds)) throw new Error('"rounds" must be an array');
+      if (!Array.isArray(parsed.dims)) throw new Error('"dims" must be an array');
+      editor.value = JSON.stringify(parsed, null, 2);
+      SCENE = parsed;
+      errEl.textContent = '';
+      render();
+      msg.textContent = 'Loaded ' + file.name;
+      setTimeout(() => msg.textContent = '', 3000);
+    } catch (e) {
+      errEl.textContent = 'Not loaded — ' + e.message;
+      msg.textContent = '';
+    }
+  };
+  reader.onerror = () => { msg.textContent = 'Could not read that file.'; };
+  reader.readAsText(file);
+  ev.target.value = '';
+});
+
+/* write the edited model back out to disk */
+document.getElementById('downloadJson').addEventListener('click', () => {
+  let text;
+  try {
+    text = JSON.stringify(JSON.parse(editor.value), null, 2);
+  } catch (e) {
+    document.getElementById('jsonError').textContent = 'Not downloaded — ' + e.message;
+    return;
+  }
+  const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'scene_model.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+render();
+</script>
+</body>
+</html>

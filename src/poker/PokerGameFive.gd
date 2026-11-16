@@ -327,6 +327,8 @@ func processAnte():
 	waitForHuman = false
 
 func processDeal():
+	# Fresh 52-card deck every round, so cards still in play can't be dealt twice.
+	deck.resetDeck()
 	playerCards.append(deck.nextCard())
 	playerCards.append(deck.nextCard())
 	cpuCards.append(deck.nextCard())
@@ -458,7 +460,6 @@ func processRoundComplete():
 		nextPokerStage = PokerEnums.PokerStage.GAME_COMPLETE
 	else:
 		isPlayerTurn = !isPlayerTurn
-		deck.shuffle()
 		nextPokerStage = PokerEnums.PokerStage.CLEAR_BOARD
 	waitForHuman = false
 

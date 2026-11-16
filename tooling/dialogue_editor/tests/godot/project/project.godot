@@ -1,0 +1,14 @@
+config_version=5
+
+[application]
+
+config/name="dnf"
+config/features=PackedStringArray("4.4")
+
+[autoload]
+
+GlobalGameStage="*res://src/vn/GlobalGameStage.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_nodes/plugin.cfg", "res://addons/dn_review/plugin.cfg", "res://addons/dn_test/plugin.cfg", "res://addons/dn_fix/plugin.cfg")

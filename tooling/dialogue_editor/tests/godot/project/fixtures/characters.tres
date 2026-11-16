@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CharacterList" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+name = "smile"
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+name = "frown"
+
+[sub_resource type="Resource" id="c1"]
+script = ExtResource("2")
+name = "You"
+editorName = "You"
+states = Array[ExtResource("3")]([SubResource("s1"), SubResource("s2")])
+
+[sub_resource type="Resource" id="c2"]
+script = ExtResource("2")
+name = "Ashely"
+editorName = "Ashely"
+states = Array[ExtResource("3")]([SubResource("s1"), SubResource("s2")])
+
+[resource]
+script = ExtResource("1")
+characters = Array[ExtResource("2")]([SubResource("c1"), SubResource("c2")])

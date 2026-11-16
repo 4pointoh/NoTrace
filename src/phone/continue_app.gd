@@ -31,7 +31,10 @@ func reset():
 		
 func handlePressed(gameStage):
 	gs = gameStage
-	if GlobalGameStage.hasCompletedStage(gameStage.name) && gameStage.sceneLeadsToAPokerMatch:
+	if GlobalGameStage.hasCompletedStage(gameStage.name) && gameStage.replayGameStage:
+		# Its own replay menu, in place of the poker timeline (Ashely Poker II picks its cheats there).
+		selected.emit(gameStage.replayGameStage)
+	elif GlobalGameStage.hasCompletedStage(gameStage.name) && gameStage.sceneLeadsToAPokerMatch:
 		%PokerSelectionContainer.show()
 		%FromTimeline.show()
 		%FromBeginning.show()

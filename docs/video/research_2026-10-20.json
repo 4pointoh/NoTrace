@@ -1,0 +1,1020 @@
+{
+ "found": [
+  {
+   "key": "h3-model",
+   "summary": "Self-hosting MiniMax H3 in ComfyUI is practical on a single GPU. Native support came in ComfyUI v0.30.0 (PR #15224, merged 2026-08-03). The current version is v0.42.1. The official I2V template loads four files: the pruned INT8 ConvRot FL2VA DiT (20.97 GB), the Qwen3-VL-32B NVFP4-AWQ text encoder (15.69 GB), the INT8 video VAE (2.81 GB) and the fp32 audio VAE (0.61 GB). Its defaults are res_multistep + simple, 20 steps, and shift 12 / audio shift 3. MiniMax and SGLang examples use 50 steps. Your 30 steps is not an official default. Comfy-Org has no NVFP4 DiT; community NVFP4 DiTs (12.5 GB) only help on Blackwell. In ComfyUI's code, NVFP4 and MXFP8 run natively only on compute capability 10 or higher (B200, RTX 5090, RTX PRO 6000). On H100, L40S, 4090 and A100 the weights stay 4-bit and are dequantized for each matmul. That is fine for the text encoder, but a reason to use INT8 ConvRot for the DiT, which needs PyTorch cu130.\n\nYour Civitai clips almost certainly came from the stock base weights, not an NSFW finetune. Civitai model 2821932 / version 3216500 is CivitaiOfficial's 'MiniMax H3 – Comfy' page. Its primary file is the full 66.28 GB bf16 DiT. ComfyUI has an open, still unfixed bug where full (unpruned) checkpoints flicker in brightness every 17 frames, while pruned ones are clean. That matters for loops.\n\nWorkload: 768x1024 at 10 s (243 frames) is 55,296 video tokens, about 1.5x the standard 1344x768 5 s benchmark (37,296). The game frame 896x1152 costs exactly the same as that benchmark. Measured points:\n- 4090D, 1344x768, 107 frames: 13.7 s per step (INT8)\n- 5090: 5.2 s per step at 864x480\n- 3090 Ti, about 1 MP for 10 s: 52–55 s per step\n- 5070 Ti 16 GB, 1280x736, 15 s: about 80 s per step\n- 4×H200 (SGLang), 1344x768, 5 s, 50 steps: 74–84 s\n\nMy extrapolation for 768x1024 at 10 s and 20 steps: about 3–5 min on an H100 or H200, 7–12 min on a 5090 or PRO 6000, and about 11 min on a 4090 or A100.\n\nMemory: VRAM is not the limit, because dynamic VRAM streams weights and 16 GB cards finish 1 MP / 15 s clips. System RAM is the limit: plan at least 64 GB for the INT8 stack and 96–128 GB for bf16, or use --fast-disk.\n\nLicense: no clause bans adult content. But the community license excludes the US, EU, UK and South Korea for use, distribution and display of outputs. That is the real blocker for a game sold worldwide.\n\nLoops: I found no official guidance. One Civitai workflow says giving the same image as first and last frame loops cleanly.",
+   "facts": [
+    {
+     "fact": "Comfy-Org/MiniMax-H3 diffusion_models (identical sizes for fl2va and ref2va): bf16 66.28 GB; int8_convrot 34.04 GB; pruned_bf16 40.23 GB; pruned_fp8_scaled 20.96 GB; pruned_int8_convrot 20.97 GB; pruned_w6a8 15.98 GB. The repo has no NVFP4 or MXFP8 diffusion model. Repo last modified 2026-09-29.",
+     "source": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/tree/main?recursive=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Comfy-Org text encoders: qwen3vl_32b_minimax_h3_bf16 51.51 GB, _int8_convrot 27.14 GB, _nvfp4_awq 15.69 GB. The NVFP4 file is converted from cybermotaz/Qwen3-VL-32B-Instruct-NVFP4. README: 'This nvfp4 text encoder does not require Blackwell GPU to use.' VAEs: video fp16 5.21 GB, video int8_convrot 2.81 GB, audio fp32 0.61 GB. Turbo LoRAs 1.96 GB each. Fun ControlNet patches 2.30–8.38 GB.",
+     "source": "https://huggingface.co/Comfy-Org/MiniMax-H3 (README + API tree)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Comfy-Org README: 'For diffusion models prefer int8_convrot if you are able to use pytorch with cu130. fp8_scaled should only be used if you cannot use int8_convrot.' kijai on ComfyUI #15419: 'Update to cu130 minimum to use the int8 models.'",
+     "source": "https://huggingface.co/Comfy-Org/MiniMax-H3 ; https://github.com/Comfy-Org/ComfyUI/issues/15419",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MiniMaxAI/MiniMax-H3 (created 2026-07-28, not gated, license date 2026-08-02) holds BF16, CFG-distilled checkpoints in both diffusers and original layouts. The repo totals about 498 GB. Per variant: transformer about 66.3 GB (13 shards), Qwen3-VL-32B text encoder about 66.7 GB (14 shards), video VAE source 10.4 GB, audio VAE 0.605 GB. Transformer: 50 layers, hidden 5376, 56 heads, FFN 14336. Scheduler shift 12.0 (video) / 3.0 (audio).",
+     "source": "https://huggingface.co/api/models/MiniMaxAI/MiniMax-H3/tree/main?recursive=true ; transformer/config.json ; scheduler/scheduler_config.json",
+     "confidence": "verified"
+    },
+    {
+     "fact": "GGUF derivatives: unsloth/MiniMax-H3-GGUF fl2va_pruned Q2_K 6.72 GB, Q3_K 8.76, Q4_K 11.42, Q5_0 13.92, Q6_K 16.59, Q8_0 21.44 GB, plus text-encoder GGUF Q2_K_M 13.10 GB and Q4_K_M 18.22 GB (updated 2026-10-16). Abiray/MiniMax-H3-Pruned-GGUF: Q3_K_M 8.90 to Q8_0 21.58 GB. Uncensored ('heretic') text encoders: nif0 GGUF Q4_K_M 14.93 GB; coolthor nvfp4 15.68 GB (gated).",
+     "source": "https://huggingface.co/unsloth/MiniMax-H3-GGUF ; https://huggingface.co/Abiray/MiniMax-H3-Pruned-GGUF ; https://huggingface.co/nif0/Qwen3-VL-32B-Instruct-ultra-uncensored-heretic-H3-GGUF",
+     "confidence": "verified"
+    },
+    {
+     "fact": "NVFP4 and W4A8 DiT derivatives: MATLOWAI/minimax-h3-nvfp4 pruned 12.53 GB; Abiray pruned nvfp4 12.53 GB; rockerBOO pruned nvfp4 20.07 GB and full 34.42 GB; Kijai and AX1Y2JP pruned w4a8_mixed 12.54 GB. The MATLOWAI card says the NVFP4 file is for Blackwell + cu130 only: 'Any other GPU: no. ComfyUI falls back to dequantised matmuls, which is slower than int8_convrot.' It measured 0.84x wall time vs W4A8 at 29k tokens on an RTX PRO 6000.",
+     "source": "https://huggingface.co/MATLOWAI/minimax-h3-nvfp4",
+     "confidence": "verified"
+    },
+    {
+     "fact": "ComfyUI source: supports_nvfp4_compute() returns False when CUDA compute capability major < 10. supports_mxfp8_compute() also needs major >= 10 and torch >= 2.10. FP8 compute needs sm89+ (Ada) or sm90+. Disabled formats are dequantized to the compute dtype ('emulated ops' in the load log). So NVFP4 is native only on B200 (sm100) and RTX 5090 / RTX PRO 6000 (sm120). It is emulated on H100/H200 (sm90), L40S/4090 (sm89) and A100 (sm80). FP8 is native on L40S/4090/H100 and emulated on A100/3090.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/model_management.py ; comfy/ops.py get_disabled_quant_formats ; QUANTIZATION.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Native MiniMax H3 support is ComfyUI PR #15224 by kijai, merged 2026-08-03 and shipped in v0.30.0 (released 2026-08-03). It added EmptyMiniMaxH3LatentAV, MiniMaxH3ImageToVideo, MiniMaxH3ReferenceToVideo, MiniMaxH3SigmaShift (shown as 'ModelSamplingMiniMaxH3') and CLIPLoader type 'minimax'. Later additions: MiniMaxH3AddGuide v0.34.0; Fun ControlNet and sparse attention v0.35.0; FastH3 v0.36.0; w6a8 v0.38.0 (2026-09-29). Latest release is v0.42.1 (2026-10-19).",
+     "source": "https://github.com/Comfy-Org/ComfyUI/pull/15224 ; GitHub releases v0.30.0–v0.42.1 ; https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Official templates: video_minimax_h3_i2v, _t2v, _r2v, _i2v_continuation, _multiframe_reference, _fun_controlnet_union, plus FastH3. The I2V template loads minimax_h3_fl2va_pruned_int8_convrot, qwen3vl_32b_minimax_h3_nvfp4_awq (type minimax), video_vae_int8_convrot and audio_vae_fp32. It uses res_multistep + simple at 20 base steps. An optional lightx2v 8-step turbo LoRA is off by default. Default canvas is 0.4 MP.",
+     "source": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_i2v.json",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Steps and shift per the ComfyUI docs: 20 steps by default (turbo off); 8 with turbo for T2V/I2V. Simple shots: 12–16 steps often enough. High-frequency detail improves up to ~50. Audio needs 12+. Sampler res_multistep + simple; shift 12 / audio_shift 3 from the model definition. MiniMax/SGLang examples use num_inference_steps 50 with flow_shift 12.0 and audio_flow_shift 3.0. So 30 steps is not an official default.",
+     "source": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3 ; https://docs.sglang.io/cookbook/diffusion/MiniMax/MiniMax-H3",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Fewer-step options: lightx2v FL2VA Turbo 8-step and 4-step v1.0 768p LoRAs (1.96 GB ComfyUI files) were trained at 1344x768 with shift 6 / 3; the 544p turbo versions use 12 / 3. FastH3 8-step V2 (FastVideo) pruned int8 is 22.13 GB, with steps fixed at 8 and shift 10/3. DMAD 4-step uses lcm, shift 12 / audio 2. Also: Kijai PDMD 2- and 4-step LoRAs, and alibaba-pai Acc 8-step LoRAs (1.37 GB). Turbo shortens the schedule, not per-step time, and the docs say it softens fine detail.",
+     "source": "https://github.com/ModelTC/Minimax-H3-Turbo ; https://huggingface.co/lightx2v/Minimax-h3-Turbo ; https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo ; https://huggingface.co/Kijai/MiniMax-H3-experimental",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Canvas rules from nodes_minimax_h3.py: MAX_PIXELS = 768*1344 = 1,032,192; sizes are multiples of 32; frame grid is 17k+5 (124, 141, …, 192, …, 243); latent T = ((frames-5)//17)*5+2. Video tokens: 768x1024 at 124 f = 28,416, at 243 f = 55,296. 864x1152 (3:4, 0.995 MP, under the cap) at 243 f = 69,984. 896x1152 (the game frame) equals the cap exactly and has the same tokens as 1344x768: 37,296 at 124 f.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_minimax_h3.py (token math computed locally)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MiniMaxH3ImageToVideo stretches first_frame to the canvas with no crop, but center-cover-crops last_frame. It anchors them at frame 0 and frame_count-1. An off-aspect image used as both frames therefore yields different pixels at the two ends. MiniMaxH3AddGuide (v0.34.0+) can anchor an image or a 17k+5-frame clip at any frame_idx, including negative values counted from the end.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_minimax_h3.py",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Your Civitai workflow's UNET 'minimaxh3/civitai/2821932/3216500' is CivitaiOfficial's 'MiniMax H3' base-model page, version 'Comfy MiniMax H3'. Its files hash-match the Comfy-Org repo (fl2va/ref2va int8_convrot, pruned int8, all three text encoders, both VAEs). The version's primary file is a 66.28 GB bf16 Diffusion Model, i.e. the full unpruned DiT. So your clips were very likely made with the unmodified base weights, not an NSFW finetune. The text encoder was nvfp4_awq and the video VAE fp16.",
+     "source": "https://civitai.com/api/v1/models/2821932 ; C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/video/P49XGK3F1CSQSVH29TH3HNKTZ0.prompt.json",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Full (unpruned) H3 checkpoints in ComfyUI show a brightness dip and frame stutter every 17 frames: full INT8 and full BF16 both pulse, pruned INT8 is clean. The cause is traced to model.py casting time_embedder output to the compute dtype ('t_emb = self.time_embedder(t_vals).to(dtype)'). That line is still present on master as of 2026-10-20.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/issues/15426 ; https://github.com/MiniMax-AI/MiniMax-H3/issues/85 ; comfy/ldm/minimax/model.py line 751",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Your FL2VA prompt opens with the I2VA instruction ('For the target video, at 0.00 seconds … <Picture 1> … is fully referenced.') even though last_frame is wired. The official guide's FL2VA line is: 'How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot N) aligns with the S.SS-second mark of the target video.'",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Speed (consumer GPUs, ComfyUI or SGLang):\n- RTX 3090, 864x480, 124 f, 20 steps, pruned int8: 9.0 s/it (6.57 with Sage).\n- RTX 3090, 1344x768, 362 f: 188 s/step with comfy-kitchen attention, 420 s/step with PyTorch attention.\n- RTX 3090 Ti, '1 MP 10 s': 52–55 s/it.\n- RTX 5070 Ti 16 GB, 1280x736, 362 f, 20 steps: ~79–83 s/step, 26–29 min total.\n- RTX 5090 (60 GB RAM), 864x480, 124 f, 20 steps, bf16 streamed: 5.2 s/step, 141–146 s per request.\n- RTX 4090 D, 1344x768, 107 f, 20 NFE (SGLang): int8+FA 303 s, bf16 406 s.\n- RTX PRO 6000, 1920x1088, 15 s, 20 steps: 54 min with Sage vs 1 h 34 min without.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/issues/15263 ; https://github.com/Comfy-Org/ComfyUI/issues/15665 ; https://docs.sglang.io/cookbook/diffusion/MiniMax/MiniMax-H3",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Speed (datacenter GPUs, SGLang):\n- 4×H200, 1344x768, 5 s, 50 steps, bf16: 74–84 s end to end (denoise 71.7–79 s), peak 94.3 GB per GPU with Ulysses4.\n- 4×H100: TP2+Ulysses2 is the fastest topology, 66 GB peak per GPU.\n- 1×B200 (VDN-H3 hybrid attention, not dense), 1344x768, 345 f: 7.45 s/NFE bf16 at 156 GB peak.\n- 1×RTX PRO 6000 (VDN-H3): 20.27 s/NFE.\nI found no ComfyUI benchmark for a single H100, A100 or L40S. A third-party L40S figure: 960x544 10 s in ~7.2 min, 38.9 GB VRAM peak, 46.7 GB RAM.",
+     "source": "https://docs.sglang.io/cookbook/diffusion/MiniMax/MiniMax-H3 ; https://acecloud.ai/blog/minimax-h3-gpu-requirements/",
+     "confidence": "verified"
+    },
+    {
+     "fact": "My estimate for 768x1024, 243 frames, 20 steps (about 5.7 PFLOP per step), scaled from the measured points: H100/H200 ~10–14 s/step (≈3.5–5 min per clip); B200 ~5–7 s/step (≈2 min); RTX 5090 / PRO 6000 ~20–36 s/step (≈7–12 min); RTX 4090 int8 ~33 s/step (≈11 min); A100 ~30 s/step (≈10 min); L40S ~28–45 s/step (≈9–15 min). Add about 30–60 s for text encode and VAE decode, plus 1–3 min for the first model load. A 5 s clip (124 f) costs roughly 0.35–0.5x as much. 8-step turbo costs about 0.4x of 20 steps.",
+     "source": "Inference from the benchmark points above (SGLang cookbook, ComfyUI issues #15263, #15665)",
+     "confidence": "uncertain"
+    },
+    {
+     "fact": "VRAM: dynamic VRAM streams weights, so card size mainly sets speed. 16 GB cards finish 1280x736 / 15 s; 24 GB cards run pruned int8 (3090 peaked 19.6–23.7 GB at 1280–1344x704–768, 192 f). Resident fits: 32 GB = pruned int8 DiT; 48 GB = pruned int8 or full int8 (34 GB); 80 GB = pruned bf16 (40 GB); 96 GB = full bf16 (66 GB; peaked ~75 of 96 GB at 1920x1088 15 s without Sage); 141/180 GB = everything, including the 51.5 GB bf16 text encoder. GPU-side peak for the int8+nvfp4 stack at 864x480 / 124 f was ~26–32 GiB.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/issues/16150 ; https://github.com/Comfy-Org/ComfyUI/issues/16587 ; https://github.com/Comfy-Org/ComfyUI/issues/15263 ; https://github.com/Comfy-Org/ComfyUI/issues/15665",
+     "confidence": "likely"
+    },
+    {
+     "fact": "System RAM: by default ComfyUI keeps a host copy of every model file. A 5070 Ti with the int8 DiT + nvfp4 TE + fp16 VAE stack showed 45.4 GiB RSS, or 12.6 GiB with --fast-disk. A 3090 with 32 GB RAM was OOM-killed at 29.9 GB, and ran in 7.5 GB with --disable-pinned-memory. An RTX 5090 with 60 GB RAM on the unpruned bf16 stack was OOM-killed at load (55.6 GB anonymous memory) and needed --fast-disk. ComfyUI v0.35.0 (PR #15927) respects the container cgroup memory limit.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/issues/16587 ; https://docs.sglang.io/cookbook/diffusion/MiniMax/MiniMax-H3 (RTX 5090 physical desktop) ; v0.35.0 release notes",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Version regressions:\n- RTX 5090 on ComfyUI v0.41.0, same workflow: PyTorch 2.12.0+cu130 ran ~16.8 s/it; 2.14.1+cu130 ran ~62.9 s/it.\n- Around 2026-10-12, users reported 2x-slower H3; --disable-comfy-compiler fixed it for some.\n- v0.35.0 crashed some 16 GB cards; --vram-headroom 1 and/or --disable-comfy-compiler stabilized them.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/issues/16150 ; https://github.com/Comfy-Org/ComfyUI/issues/17015 ; https://github.com/Comfy-Org/ComfyUI/issues/16969",
+     "confidence": "likely"
+    },
+    {
+     "fact": "License territory: 'Applicable Territory' means worldwide excluding the 'Excluded Territories': the EU, the UK, the Republic of Korea and the USA. The grant is 'Solely within the Applicable Territory'. Section V.4: 'You may not use, reproduce, modify, distribute, or display the MiniMax H3 Works or any of their Outputs or results outside the Applicable Territory.' AUP item 1 bans 'Use outside the Applicable Territory'. People in those regions must apply: https://platform.minimax.io/h3-license (a JS page; I could not read its fields).",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE ; https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/QA-about-License.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Adult content: neither the license nor the AUP bans sexual content explicitly. Relevant AUP items: #2 (comply with applicable law and third-party rights); #6 (no use that 'exploits or harms … minors'); #12 (no public posting 'without clearly and prominently disclosing that such information and/or content is machine-generated'); #13 (no impersonation without consent); #15 (no use that 'violates or disregards the social, ethical, or moral standards of other countries or regions', which is vague). The README's porn moderation applies only to the hosted H3-Context-IR API, not the local weights.",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE ; https://huggingface.co/MiniMaxAI/MiniMax-H3 (README 'Safety Guardrails')",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Commercial use: Section IV.1 requires separate written authorization above US$20M yearly revenue (email api@minimax.io). IV.2: 'You shall prominently display \"MiniMax H3\" on the user interface of commercial product or service that uses MiniMax H3 or MiniMax H3 Works.' VI.4: 'MiniMax claims no rights over the Outputs you generate.' V.3 bars using outputs to improve other AI models. Comfy's docs say users outside the excluded territories and under $20M are covered with a 'Powered by MiniMax H3' credit, 'the same territory rule applies to where your outputs are used'. Otherwise Comfy, the 'only official reseller', sells licenses from $5,000/month (Professional: up to 10 users, ~46,250 video-seconds included).",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE ; https://docs.comfy.org/tutorials/video/minimax/minimax-h3 ; https://comfy.org/minimax/license",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Loops: the ComfyUI docs give no looping guidance, and I found no official MiniMax guidance. The Civitai 'Fast FLF Loop Workflow — MiniMax H3' (KiwahKiwah, 2026-08-08) says that feeding the same image as first and last frame 'renders a clip that loops cleanly back to its start'. It was tested on an RTX 5080 16 GB with 64 GB RAM, using Sage + EasyCache at 15 steps: 337 s first run, 234 s warm (resolution not stated in the text). It warns EasyCache skips about half the steps and hurts detailed or character content. I found no independent reports.",
+     "source": "https://civitai.com/models/2843813/fast-flf-loop-workflow-minimax-h3 ; https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+     "confidence": "likely"
+    },
+    {
+     "fact": "NSFW-flagged community H3 finetunes on Civitai: 'H3 Eros Max' (int8 21.71 GB / bf16 40.22 GB), 'PinkCherry MiniMax H3 hybrid' (int8 21.06 / bf16 40.3 GB), 'RedCraft Hybrid H3' W6A8 22.51 GB, '10eros_Max_Int8_ref2va' 20.97 GB. They are Model Derivatives under the same license.",
+     "source": "https://civitai.com/api/v1/models?baseModels=MiniMax%20H3&types=Checkpoint&sort=Most%20Downloaded",
+     "confidence": "verified"
+    }
+   ],
+   "recommendations": [
+    "Use the stack the official I2V template uses: minimax_h3_fl2va_pruned_int8_convrot (20.97 GB) + qwen3vl_32b_minimax_h3_nvfp4_awq (15.69 GB, works on any NVIDIA GPU) + video_vae_int8_convrot or fp16 + audio_vae_fp32. That is about 40 GB of downloads. Avoid the full (unpruned) bf16/int8 files that Civitai used: ComfyUI's 17-frame brightness pulse would show as a visible flicker in a loop. Use pruned_bf16 only on 80 GB+ cards if you want unquantized weights.",
+    "Do not pay for NVFP4 DiT files unless the pod is Blackwell (B200, RTX 5090, RTX PRO 6000) with PyTorch cu130. On H100, L40S or A100, ComfyUI dequantizes them and int8_convrot is faster.",
+    "Pin the environment: ComfyUI 0.38–0.42 (0.38+ is needed for w6a8), PyTorch 2.12.0+cu130 (2.14.x measured about 3.7x slower on a 5090), and current comfy-kitchen. Try --disable-comfy-compiler if steps stall.",
+    "Give the pod at least 64 GB RAM for the int8 stack and 96–128 GB for bf16, or launch with --fast-disk or --disable-pinned-memory. ComfyUI's default host copy alone is about 45 GiB for the int8 stack.",
+    "Render portrait at 768x1024 for drafts and 864x1152 for finals. Both are 3:4 like your 1152x1536 art, multiples of 32, and under the 1,032,192 px cap. Prefer 124–192 frames (5–8 s) over 243: a 5 s clip costs about 0.35–0.5x a 10 s one, which matters when you need many attempts.",
+    "Start at 20 steps (official ComfyUI default); 12–16 is often enough for simple static-camera motion, so 30 is not required. For fast iteration try the lightx2v FL2VA turbo 8-step 768p LoRA at 6–8 steps with ModelSamplingMiniMaxH3 set to 6/3, or FastH3 8-step (shift 10/3). Then re-render the keeper at 20 steps with the same seed.",
+    "For loops, give the same image to first_frame and last_frame, sized exactly to the canvas (e.g. 768x1024), so the stretched first frame and center-cropped last frame are identical. Use the guide's FL2VA instruction line ('Picture 1 … aligns with the 0.00-second mark …; Picture 2 (from Shot 1) aligns with the 10.13-second mark') instead of the I2VA line your Civitai prompt used. Drop the final frame before looping so the seam frame is not shown twice.",
+    "Untested idea that could replace your crossfade trick: make a bridge clip whose first anchor is the last 5 frames of clip A and whose end anchor (MiniMaxH3AddGuide, frame_idx negative) is the first 5 frames of A. Multi-frame anchors carry motion across the seam, not just pose, so A→bridge→A could loop without a transition effect. Test it before relying on it.",
+    "Before shipping, settle the license. If you, the Runpod datacenter, or your players are in the US, EU, UK or South Korea, the community license does not cover that use or display of outputs. You would need the MiniMax application (platform.minimax.io/h3-license) or Comfy's paid license. Credit 'MiniMax H3' in the game UI and disclose AI-generated content."
+   ],
+   "unknowns": [
+    "I found no ComfyUI H3 per-step benchmark on a single H100, H200, A100 or L40S; my per-GPU times are extrapolations (±40%). To settle it, rent each GPU for one session and run the official I2V template at 768x1024, 243 frames, 20 steps, fixed seed. Record s/it from the console and 'Prompt executed in'.",
+    "Whether int8_convrot's comfy-kitchen kernels are fully accelerated on Hopper (sm90) and Ampere (sm80) in ComfyUI. There are reports for sm86/89/120 and GB10, none for H100 or A100. Check the 'Native ops:' line in the load log, and compare int8_convrot vs pruned_bf16 s/it on the same pod.",
+    "Whether giving the same image as first and last frame gives a seamless loop or a stall (motion that freezes or decelerates at both ends). The only claim is one Civitai workflow description, with no independent reports. Test 5–10 seeds with a static-camera prompt; check the frame difference at the seam and look for a velocity jump.",
+    "Whether the base FL2VA weights reliably produce the explicit motion you need, or a finetune (Eros Max, PinkCherry) does better. Your Civitai success with the stock bf16 weights suggests the base works; an A/B test at a fixed seed would settle it.",
+    "Exactly which bf16 file Civitai's orchestrator loaded as '3216500.safetensors'. The primary file has no published hash, so fl2va_bf16 vs ref2va_bf16 cannot be confirmed; fl2va is implied by the use of MiniMaxH3ImageToVideo.",
+    "How the license applies to GPUs in an excluded country's datacenter, and to a game sold to US/EU players; this is a legal question. The MiniMax application form's fields and turnaround, and whether Comfy's $5,000/month license covers adult content, are unknown (the form page is JavaScript-only). Ask a lawyer and email api@minimax.io or model@minimax.io.",
+    "Whether ComfyUI's dequantized NVFP4 text-encoder path adds meaningful time on non-Blackwell GPUs. The text encoder runs once per prompt, so probably seconds, but I found no measurement. Time the CLIP encode step in the console on the pod."
+   ]
+  },
+  {
+   "key": "civitai",
+   "summary": "The biggest correction: Civitai model 2821932 / version 3216500 is not a NSFW finetune. It is CivitaiOfficial's \"MiniMax H3\" base-model page (type Checkpoint, base \"MiniMax H3\"), and version 3216500 \"Comfy\" (published 2026-08-10) is a mirror of the Comfy-Org repack. I matched the file hashes against the Hugging Face (HF) repo: FL2VA/REF2VA DiTs at bf16 66.28 GB, int8_convrot 34.04 GB and pruned int8 20.97 GB; Qwen3-VL text encoders at bf16 51.51 / int8 27.14 / nvfp4_awq 15.69 GB; video VAE 5.21 GB; audio VAE 0.61 GB. It has no trigger words. So the user's two good clips came from plain base H3 (most likely the FL2VA bf16 primary file), with no LoRA, on Civitai's own ComfyUI workers. Downloading from Civitai needs a login or API token (verified: 307 redirect, reason=download-auth). The same files on HF Comfy-Org are ungated and free to download.\n\nCivitai's on-site \"Comfy\" H3 (engine minimax-h3-comfy) costs 35 Buzz per second standard and 12 Buzz per second with turbo. That is 175 / 350 / 525 Buzz for 5 / 10 / 15 s. Resolution (up to 1344 px, multiples of 32), steps (1-60) and EasyCache do not change the price. NSFW output needs Yellow Buzz. Green and Blue Buzz are SFW-only, and civitai.com says \"Unrestricted content creation has moved to civitai.red\". Membership prices imply about $1 per 1,000 Buzz, so a 5 s clip is about $0.18 standard or $0.06 turbo, and the user's 10 s / 30-step clip cost about $0.35. Yellow Buzz is bought with crypto. Most of the popular NSFW LoRAs can be used on-site; the big merged checkpoints cannot.\n\nThe community ecosystem is large: 1,305 H3 resources on Civitai (879 LoRAs, 426 flagged NSFW). The most relevant ones:\n- **General NSFW LoRAs:** Mystic XXX v5 (0.3 GB) and HMNSFW AIO v2.5 (0.09 GB).\n- **Squeeze/jiggle LoRAs:** Boob Physics (its author says base H3 is \"severely lacking in touching and squeezing physics\"), Breast Play & Jiggle (best at 0.7-0.8; 1.0 can add finger artifacts) and SoftBreastMotion (0.9).\n- **Checkpoints:** Eros Max (21.7 / 40.2 GB), DaSiWa (12.5-21 GB) and PinkCherry.\n- **Looping:** the \"Live Wallpaper\" REF2VA LoRA (locked-off camera), and FLF loop workflows that feed the same image as both the first and last frame.\n\nRepeated failure reports: turbo LoRAs give a plastic or oily look, worse audio and broken anatomy; output below about 0.7-1 MP looks noisy; faces drift; I2V can stray from the first frame (Eros Max's author suggests REF2VA instead). Nobody publishes a success rate.\n\nPeople self-host mainly on Runpod (templates from Hearmeman, jalberty2018, YAW and huchukato, including a serverless worker). One report gives a PRO 6000 at about $2/hr with roughly 15 minutes of boot time.\n\nLicensing risk: the H3 license excludes the US, EU, UK and South Korea, and also covers displaying Outputs in those places.",
+   "facts": [
+    {
+     "fact": "Civitai model 2821932 is 'MiniMax H3' by user CivitaiOfficial, type 'Checkpoint', baseModels ['MiniMax H3'], tag 'base model', 13,704 downloads, 1,197 thumbs-up (as of 2026-10-20). Its description calls it the open weights by MiniMax (all credit to MiniMax). It is not a community finetune.",
+     "source": "https://civitai.com/api/v1/models/2821932",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Version 3216500 is named 'Comfy', created 2026-08-10, AIR urn:air:minimaxh3:diffusionmodel:civitai:2821932@3216500, trainedWords [] (no trigger words), and has no author notes or recommended settings. The page text says Comfy is 'the only version that takes LoRAs', with control over steps and a turbo LoRA. The other versions on the page (Api 2K, Max, HeyGen) are commercially hosted services that 'expect refusals' on content the providers decline.",
+     "source": "https://civitai.com/api/v1/model-versions/3216500",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Version 3216500 files, matched by SHA256 to Comfy-Org/MiniMax-H3: fl2va_int8_convrot 34.04 GB (7AD4C73E6E37), ref2va_int8_convrot 34.04 GB, fl2va_pruned_int8_convrot 20.97 GB (E889202C41DA), ref2va_pruned_int8_convrot 20.97 GB, two bf16 DiTs at 66.28 GB each (primary file id 3086249; hash still 'Pending'), Qwen3-VL text encoders bf16 51.51 / int8 27.14 / nvfp4_awq 15.69 GB, video VAE fp16 5.21 GB, audio VAE fp32 0.61 GB, plus a 1.96 GB and a 0.31 GB 'Enhancement LoRA' that match no HF file (probably the turbo LoRA used on-site). All are SafeTensors.",
+     "source": "https://civitai.com/api/v1/model-versions/3216500 ; https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/tree/main?recursive=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The user's workflow path 'minimaxh3/civitai/2821932/3216500.safetensors' most likely points to the version's primary file, a 66.28 GB bf16 DiT, probably FL2VA because Civitai's imageToVideo operation uses the FL2VA weights. The text encoder came from HF Comfy-Org (qwen3vl_32b_minimax_h3_nvfp4_awq). No LoRA and no shift node were used.",
+     "source": "C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/video/P49XGK3F1CSQSVH29TH3HNKTZ0.prompt.json ; https://developer.civitai.com/orchestration/recipes/minimax-h3-comfy.md",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Civitai downloads of version 3216500 need authentication: an unauthenticated request to /api/download/models/3216500 returns 307 to /login?...&reason=download-auth. The Breast Play & Jiggle and Live Wallpaper LoRAs do the same. Mystic XXX v5 downloaded without auth. Whether a token is needed depends on the model, so always pass a Civitai API token.",
+     "source": "https://civitai.com/api/download/models/3216500",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The HF Comfy-Org/MiniMax-H3 repo is not gated (gated: false; 25.9M downloads; created 2026-07-30, last modified 2026-09-29). Files resolve to a public CDN with no token. The repo also ships turbo LoRAs (fl2v 4-step 768p and 8-step, ref2v 4-step; 1.96 GB each), fp8_scaled and w6a8 (15.98 GB) pruned DiTs, and an int8 video VAE (2.81 GB). Its README says to prefer int8_convrot (needs PyTorch cu130) and that the nvfp4 text encoder does not need a Blackwell GPU.",
+     "source": "https://huggingface.co/Comfy-Org/MiniMax-H3/raw/main/README.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Civitai on-site / API pricing for open-weights H3 (engine 'minimax-h3-comfy'): standard is 35 Buzz/s (5 s = 175, 10 s = 350, 15 s = 525); turbo is 12 Buzz/s (60 / 120 / 180). Resolution, steps (1-60, default 20), 'fast' (EasyCache) and the number of reference images are not billed. Width/height can be 32-1344 in multiples of 32 (default 864x480); duration is an integer from 4 to 15 s; output is H.264 at 24 fps with AAC audio. The hosted 'minimax-h3' engine (2K only) costs 170 Buzz/s. Failed or content-rejected jobs are not charged.",
+     "source": "https://developer.civitai.com/orchestration/recipes/minimax-h3-comfy.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Operations on Civitai's H3 Comfy engine: imageToVideo (FL2VA weights; text-only, firstFrame and/or lastFrame), referenceToVideo (REF2VA weights; 1-9 images; firstFrame plus images currently fails, so put the start frame in images[0] and say 'opens exactly on <Image 1>'), and controlVideo. LoRAs are passed as an AIR-to-strength map. A 4 s turbo clip at default size finishes in under a minute. Turbo can copy the layout of a busy reference image.",
+     "source": "https://developer.civitai.com/orchestration/recipes/minimax-h3-comfy.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Civitai Buzz currencies: Blue (earned) and Green (purchased) are for SFW workflows only; Yellow (purchased) covers SFW and NSFW. Setting allowMatureContent:true forces payment in Yellow. If a workflow paid with Blue or Green produces mature output, it is withheld or upgraded to Yellow depending on upgradeMode.",
+     "source": "https://developer.civitai.com/orchestration/guide/submitting-work.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "civitai.com/pricing (fetched 2026-10-20) says 'Unrestricted content creation has moved to civitai.red'. civitai.com memberships are Bronze $10/mo = 10,000 Green Buzz, Silver $25 = 25,000, Gold $50 = 50,000, which implies about $1 per 1,000 Buzz. Green Buzz is SFW-only.",
+     "source": "https://civitai.com/pricing",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Yellow Buzz is bought with cryptocurrency (card purchase on civitai.com ended May 2025). Buzz gift codes (Kinguin, Coinbase Commerce) were discontinued (page updated 2026-04-01). Third-party sources say the rate is $1 = 1,000 Yellow Buzz plus about a $1 flat crypto fee, and that Yellow memberships ended on civitai.red in Sept 2026. I could not open civitai.red's own pricing page (403).",
+     "source": "https://education.civitai.com/civitais-guide-to-buybuzz-io/ ; https://education.civitai.com/civitais-guide-to-on-site-currency-buzz-%E2%9A%A1/ ; https://www.earngenix.com/blog/civitai-red-vs-civitai-com",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Estimated Civitai cost per H3 Comfy clip at $1 = 1,000 Buzz: 4 s standard about $0.14, 5 s about $0.175, 10 s about $0.35; 5 s turbo about $0.06. The user's 10 s, 30-step, 960x704 clip probably cost about 350 Buzz (about $0.35), since steps are not billed.",
+     "source": "https://developer.civitai.com/orchestration/recipes/minimax-h3-comfy.md",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Resolutions of the 200 most recent public posts on version 3216500: 704x960 (106), 1280x704 (26), 704x1280 (9), 960x704 (8), 768x1376 (8). That suggests the on-site 3:4 portrait preset is 704x960 (about 0.68 MP) and 4:3 is 960x704 (the user's clip). The API accepts custom sizes such as 864x1152 at the same price.",
+     "source": "https://civitai.com/api/v1/images?modelVersionId=3216500&limit=200&nsfw=X&sort=Newest",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Civitai has 1,305 resources with base model 'MiniMax H3' as of 2026-10-20: 879 LoRAs, 326 workflows, 31 checkpoints, 31 ComfyWorkflows, 3 text encoders; 426 are flagged NSFW.",
+     "source": "https://civitai.com/api/v1/models?baseModels=MiniMax%20H3&limit=100&sort=Most%20Downloaded&nsfw=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Top NSFW H3 LoRAs: [MMH3] Mystic XXX (id 2856467; v5.0 2026-10-19; FL2VA 0.3 GB plus REF2VA 0.14 GB; strength 0.2-1; musubi-tuner; 112,779 downloads; the author found V5 better than V4 in about 70% of 100+ test videos). HMNSFW AIO (2834417, HearmemanAI; V2.5 0.09 GB; trained on about 1,000 videos for 40+ h; Euler/simple, 12 steps, shift 6, turbo LoRA at 0.5, LoRA strength 0.5-0.9; 'occasional bad seed'). MiniMax H3 NSFW Unlocked (2925727; V2.1 0.3 GB; strength 0.3-1, start at 0.5).",
+     "source": "https://civitai.com/api/v1/models/2856467 ; https://civitai.com/api/v1/models/2834417 ; https://civitai.com/api/v1/models/2925727",
+     "confidence": "verified"
+    },
+    {
+     "fact": "LoRAs relevant to a hand squeezing a breast: Boob Physics MiniMax H3 (1626704; 0.16 GB; author: 'MiniMax H3 is already pretty good at jiggle physics and bounce, but was severely lacking in touching and squeezing physics'; may add tan lines). Breast Play & Jiggle (2856004; v2.0 0.3 GB; 62 hand-captioned videos in v1; strength 0.7-0.8, '1.0 ... can add artifacts to fingers'; trained for FL2V). SoftBreastMotion (2949319; 0.15 GB; weight 0.9; also reduces the oily look).",
+     "source": "https://civitai.com/api/v1/models/1626704 ; https://civitai.com/api/v1/models/2856004 ; https://civitai.com/api/v1/models/2949319",
+     "confidence": "verified"
+    },
+    {
+     "fact": "NSFW-leaning H3 checkpoints: H3 Eros Max (2851079; beta6 2026-10-09; int8 21.71 GB / bf16 40.22 GB; a merge of 20+ LoRAs plus reference, viggle and turbo deltas; 8-12 steps at shift 10/3; the author says I2V 'still has issues with starting image style first-frame continuity' and to use reference mode instead). DaSiWa MiniMax H3 (2877206; Hybrid v4 int4 12.54/16.76 GB, int8 20.97 GB; non-distilled: res_multistep/euler simple, shift 10-12 video / 3-5 audio, 20-25 steps; the author says it has written MiniMax authorization). PinkCherry hybrid (2838593; v1.8 int8 21.06 / bf16 40.3 GB; Euler/simple, 30 steps or 12 with lightx2v turbo; at least 0.7 MP).",
+     "source": "https://civitai.com/api/v1/models/2851079 ; https://civitai.com/api/v1/models/2877206 ; https://civitai.com/api/v1/models/2838593",
+     "confidence": "verified"
+    },
+    {
+     "fact": "On-site availability, judging by the API's 'covered' flag: base Comfy, Mystic XXX, HMNSFW, NSFW Unlocked, Breast Play & Jiggle, Boob Physics, SoftBreastMotion, Live Wallpaper and the turbo LoRAs are covered:true. The Eros Max, DaSiWa, PinkCherry and ConvRot checkpoints are covered:false, so they are probably not runnable in Civitai's generator.",
+     "source": "https://civitai.com/api/v1/models/2856467 ; https://civitai.com/api/v1/models/2851079",
+     "confidence": "likely"
+    },
+    {
+     "fact": "LoRA compatibility with native ComfyUI: Comfy's docs say LoRAs trained on full (unpruned) builds contain adaln tensors that pruned builds lack, so those weights are skipped (shape mismatch). Turbo LoRAs have no adaln tensors and work on either build, but each turbo file is mode-specific (FL2V vs REF2V). An open bug (#16420, still present in v0.39.0) means LoRA keys targeting adaln_proj fail on W4A8 quantized H3; attention/MLP-only LoRAs load fine. Comfy also recommends pruned checkpoints when both exist.",
+     "source": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3 ; https://github.com/Comfy-Org/ComfyUI/issues/16420",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Comfy's H3 guidance: base templates need ComfyUI 0.30.0+ (FastH3 0.36.0+, w6a8 0.38.0+). Max side 1344 (768x1344 cap); open weights target about 1 MP (768 px short edge) at 24 fps. The frame grid is 17k+5 (5 s = 124 frames; the user's 243 frames = k 14). The trained range is about 124-362 frames (about 5-15 s). Default 20 steps res_multistep/simple, shift 12, audio_shift 3. Simple shots often need only 12-16 steps; detail improves up to about 50; audio needs 12+. The 4-step turbo 'can barely apply references'.",
+     "source": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Looping options found: (a) Fast FLF Loop Workflow (2843813): put the same image in both first and last frame for a clean loop; Sage Attention + EasyCache; 15 steps; tested on RTX 5080 16 GB with 64 GB RAM, 234 s per run when warm vs 337 s cold. EasyCache skips about half the steps and hurts character detail, so turn it off for finals. (b) Minimax H3 Loop (FL2V) (2929812): one-pass loop with 'no stitching or crossfades'; start with a simple cyclic motion prompt; audio does not loop seamlessly. (c) The huchukato NSFW pack has a 'Loop Trim' group inside FL2VA. (d) Infinitizer / Under the Bridge (2873520): REF2VA bridge with 39 context frames; 'Turbo LoRAs can kill this process', use 20+ steps and a fixed seed. (e) OBVPM Timeline (2956151): loops by bridging the last clip back to the first from saved latents, with no re-encode flicker.",
+     "source": "https://civitai.com/api/v1/models/2843813 ; https://civitai.com/api/v1/models/2929812 ; https://civitai.com/api/v1/models/2873520 ; https://civitai.com/api/v1/models/2956151 ; https://civitai.com/api/v1/models/2835850",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Live Wallpaper LoRA for H3 REF2VA (Civitai 1264662, version 2026-09-23; HF Alissonerdx/Minimax-H3-ComfyUI): r32 0.31 GB (keeps faces more faithfully) and r64 0.62 GB (follows camera instructions better); strength 1.0. Prompts must start with 'live_wallpaper: Animate <Picture 1> with ...' and end with '... while preserving the original subject and composition.' <Picture 2> = midpoint and <Picture 3> = ending frame. Fixed-camera wording: 'a locked-off camera with no zoom, pan, tilt, tracking, or reframing'. 52.9% of the r64 captions were locked-off camera.",
+     "source": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/raw/main/docs/live-wallpaper.md ; https://civitai.com/api/v1/models/1264662",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Common failure reports: 4-step turbo causes 'audio, plastic skin, lack of motion detail' (Eros Max author); 'turbo loras ... ruin anatomy' (ComfyUI #15665 commenter); the 'oily/plastic look from acceleration LoRAs, blurry distant faces' (workflow 2906001); 'H3 looks worse at lower resolutions ... anything less than 1 megapixel looks pretty rough' (YAW author); T2V genital deformity in early NSFW LoRAs (HMNSFW V2 notes); dedicated workflows exist for oily skin and identity drift (3001722) and for keeping the same face across clips (3002052). I found no published success-rate figures.",
+     "source": "https://civitai.com/api/v1/models/2851079 ; https://github.com/Comfy-Org/ComfyUI/issues/15665 ; https://civitai.com/api/v1/models/2906001 ; https://civitai.com/articles/33477 ; https://civitai.com/api/v1/models/2834417",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Prompt advice from NSFW creators: describe the action literally and in time order; longer, more detailed prompts usually do better; use an LLM prompt enhancer (Eros Max author: 'Prompt is the entire key to quality and success'). HMNSFW: 'Your prompt is EVERYTHING'; copy prompts from the workflows embedded in example videos. huchukato: turn off the enhancer for hand-written spec prompts, because it can drop <Picture N> bindings.",
+     "source": "https://civitai.com/api/v1/models/2851079 ; https://civitai.com/api/v1/models/2834417 ; https://civitai.com/api/v1/models/2835850",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Self-hosting reports. jalberty2018 Runpod templates (FL2VA template v7b5g03csk, Ref2VA 6qtfx7lxgc) were tested on: RTX 3090 24 GB + pruned INT8 with 50 GB pod RAM (0.9 MP, 15 s); L40S 48 GB + full INT8 with 80 GB RAM (0.9 MP, 20 s); RTX 5090 32 GB with 70 GB RAM (1.0 MP, 15 s); RTX PRO 6000 96 GB (2 MP, 15 s). The YAW author (Civitai article 33477): PRO 6000 at 'just over $2 an hour', '$20 ... ~10 hours', about 15 minutes of pod init, and 2K 12 s takes over 30 minutes on a PRO 6000. HearmemanAI's Runpod template link resolves to template id dunz9ocpnc.",
+     "source": "https://github.com/jalberty2018/run-comfyui-minimax/blob/main/README.md ; https://civitai.com/articles/33477 ; https://civitai.com/api/v1/models/2831989 ; https://get.runpod.io/minimax-template",
+     "confidence": "verified"
+    },
+    {
+     "fact": "huchukato's Runpod Serverless H3 worker (GitHub huchukato/runpod-minimax-h3, pushed 2026-10-20; also on the Runpod Hub) needs a 96 GB-class GPU (BLACKWELL_96 pool), a network volume of at least 160 GB (example US-NE-1) and CUDA 13.0+ hosts. It auto-downloads about 100 GB of models and uses an 'uncensored' Heretic Qwen3-VL nvfp4 text encoder from Momoking. The same author dropped NVFP4 DiTs after 'noticeable quality loss'.",
+     "source": "https://github.com/huchukato/runpod-minimax-h3 ; https://civitai.com/api/v1/models/2835850",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Speed data points from ComfyUI issues: RTX 5070 Ti 16 GB, 1280x736, 362 frames, 20 steps = 26 min 20 s (about 79 s per step) on 0.30.2. Later versions (0.32-0.33) had a 4x slowdown tied to a v.clone() change; one 5090 user went from 50 s/it to 23 s/it after removing it. A 3090 Ti does about 52-55 s/it at 1 MP, 10 s. A 5090 with 64 GB RAM has OOM'd on default templates. VHS's 'Display animated previews when sampling' option was blamed for OOMs. One workflow author calls ComfyUI 0.40 'breaks a lot of workflows'.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/issues/15665 ; https://github.com/Comfy-Org/ComfyUI/issues/16705 ; https://civitai.com/api/v1/models/2881362",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MiniMax H3 Community License (dated 2026-08-02): 'Applicable Territory' means worldwide excluding the 'Excluded Territories' (the EU, UK, Republic of Korea and USA). Section V.4: 'You may not use, reproduce, modify, distribute, or display the MiniMax H3 Works or any of their Outputs or results outside the Applicable Territory.' Commercial terms: prominently display 'MiniMax H3' in the UI of a commercial product that uses it, and get written authorization above $20M yearly revenue. The AUP has no explicit ban on adult content, but forbids bypassing safety guardrails, anything involving minors, and undisclosed machine-generated public content. MiniMax offers a license application for excluded regions (platform.minimax.io/h3-license).",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/LICENSE ; https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/docs/QA-about-License.md",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Two-stage tip: the SEED HUNTER workflow (2881362) makes 3 low-res preview generations, then finalizes the chosen one with a latent upscaler (LBH-123-AI Minimax_h3_latent_Upscaler) plus seamless continuation and RIFE interpolation to 48-60 fps. It recommends Kijai's DMAD 4-step LoRA at 8 steps, strength 1.0, and Kijai's int8 video VAE ('much faster').",
+     "source": "https://civitai.com/api/v1/models/2881362",
+     "confidence": "verified"
+    }
+   ],
+   "recommendations": [
+    "Correct the assumption: 2821932/3216500 is just Civitai's mirror of the base open weights. To reproduce the user's two good clips, use the HF Comfy-Org files: minimax_h3_fl2va_bf16 (or pruned_int8_convrot to save memory), qwen3vl_32b_minimax_h3_nvfp4_awq, video VAE fp16, audio VAE fp32. These need no Civitai token. Use a Civitai API token only for Civitai-hosted LoRAs.",
+    "For this volume, test Civitai's on-site/API generator first, before building a Runpod workflow. Roughly: $0.06 per 5 s turbo draft, $0.175 per 5 s standard final; resolution and up to 60 steps are free. Ten attempts per usable 5 s loop is about $1.75. The catches are buying Yellow Buzz with crypto and using civitai.red for NSFW. Self-hosting probably only pays off if a 96 GB pod is kept busy (a PRO 6000 at about $2/hr has to produce more than about 11 standard clips per hour to beat Civitai). That figure is my inference, not measured.",
+    "Try a single-pass loop before the two-clip splice: in FL2VA, use the same 3:4 still as both first_frame and last_frame, with a short cyclic motion prompt, a locked-off camera and 4-5 s. Drop the duplicated last frame before encoding to Theora (.ogv). The user already runs FL2VA on Civitai, so this costs one clip per attempt instead of two.",
+    "For identity-preserving subtle motion, also try REF2VA plus the Live Wallpaper LoRA (r32 for faces, strength 1.0). Use the exact 'live_wallpaper: Animate <Picture 1> ... locked-off camera with no zoom, pan, tilt, tracking, or reframing ... while preserving the original subject and composition.' wording. Passing the same still as <Picture 3> (ending frame) to get a loop is my untested inference.",
+    "For the hand-squeeze shot, add a physics LoRA. Boob Physics (its author says base H3 lacks squeeze physics), Breast Play & Jiggle at 0.7-0.8 (higher strength adds finger artifacts) or SoftBreastMotion at 0.9, optionally on top of Mystic XXX or HMNSFW at about 0.5. All are usable on-site (covered:true) and attention/MLP-style, so they should load with the native LoraLoaderModelOnly. Avoid W4A8 DiTs when using LoRAs (bug #16420).",
+    "Resolution for the portrait scene: 864x1152 (exactly 3:4, which is the 1152x1536 art scaled by 0.75, about 1.0 MP, multiples of 32) through Civitai's API at no extra cost. Use 768x1024 when self-hosting to iterate faster. The on-site 3:4 preset appears to be 704x960 (0.68 MP), which community reports call noticeably worse below about 0.7-1 MP.",
+    "Use turbo only for drafts and seed hunting. Render finals without turbo at 20-30+ steps, because creators repeatedly report plastic/oily skin, weak audio and anatomy breakage with 4-step turbo. Keep the seed fixed when refining.",
+    "Flag the licensing question to the user before committing. The H3 license excludes the US, EU, UK and South Korea, including displaying Outputs there, and requires 'MiniMax H3' attribution in commercial product UIs. That could affect running weights on US/EU Runpod data centers and selling the game to players there. Suggest they read the license, consider MiniMax's authorization form (platform.minimax.io/h3-license) or get legal advice. Civitai's own 'allowCommercialUse' flags do not override MiniMax's license.",
+    "If self-hosting on Runpod, start from an existing community template rather than building from scratch: Hearmeman template dunz9ocpnc, jalberty2018 FL2VA v7b5g03csk, or the huchukato serverless worker (96 GB GPU, at least 160 GB volume). Plan for 50-80 GB of pod RAM. Pin a known-good ComfyUI version (0.36-0.39; users report 0.40 breaking workflows) and torch cu130 for int8_convrot."
+   ],
+   "unknowns": [
+    "Exactly which file Civitai's generator loads for 'minimaxh3/civitai/2821932/3216500.safetensors': the bf16 FL2VA primary file (hash still 'Pending') or a quant. Running whatif=true or comparing a Civitai output against local FL2VA bf16 with the same seed and settings would settle it.",
+    "Current Yellow Buzz price and payment methods on civitai.red (403 to my fetcher), and whether Blue Buzz from a membership can still pay for NSFW. The user can check by logging into civitai.red's Buzz purchase page.",
+    "Whether Civitai's on-site UI lets you set custom width/height for H3 Comfy or only presets (704x960 for 3:4). The developer API allows custom sizes; a whatif=true API call or a look at the site's generator form would settle it.",
+    "Real generation time per 5 s, 0.8-1 MP, 20-30 step clip on Runpod GPUs (PRO 6000, H100, 5090). There are no clean community benchmarks at that size, so my cost-per-clip comparison is extrapolated. One timed test run on a pod would settle it.",
+    "Whether FL2VA with identical first and last frames gives good subtle motion, or stalls or ping-pongs for this content. Community workflows say it loops cleanly, but nobody reports quality numbers for NSFW character motion. A batch of about 10 seeds on Civitai turbo (about $0.60) would answer it cheaply.",
+    "The 'Live Wallpaper' REF2VA LoRA is only documented for SFW art. Its behaviour with NSFW content, and with Picture 1 = Picture 3 as a loop trick, is untested.",
+    "Whether the 'uncensored' Heretic/abliterated Qwen3-VL text encoders actually improve NSFW prompt adherence over the stock encoder. They are community claims with no A/B data; their HF repos show 0 downloads, possibly gated or removed.",
+    "How the MiniMax H3 license territory clause applies to a user, a Runpod data center or an on-site Civitai generation in the US/EU, and to selling a game containing H3 outputs to US/EU players. That needs a legal reading or MiniMax's answer through its authorization form.",
+    "Community success rates: no source publishes a usable-clip percentage. Civitai article comments and Reddit (blocked to my tools) might have anecdotes."
+   ]
+  },
+  {
+   "key": "runpod",
+   "summary": "Recommendation: use a Runpod Pod, not serverless, for the stage where the user makes many tries and reviews them. Pick a Secure Cloud RTX PRO 6000 (96 GB, $2.49/hr on-demand, $1.69 on Community Cloud, billed per second) and a CUDA-13 ComfyUI image. The 96 GB card holds the user's full bf16 FL2VA model (66.3 GB), and Blackwell runs the nvfp4 text encoder natively. Serverless costs $3.49/hr on the same GPU (40% more). Every cold worker has to reload 40-90 GB of weights, and that load counts as billed execution time. The default execution timeout is 600 s, so it has to be raised. Video output returns as base64 unless S3 is configured, and /run payloads are capped at 10 MB.\n\nThe official Runpod \"ComfyUI - CUDA 13.0\" template (wgd3p4n4o6, verified live) now ships ComfyUI 0.30.0. That is the minimum version for H3, but the current release is 0.42.1, so the user should update ComfyUI. The alternative is the community Hearmeman H3 template (ComfyUI 0.42.1, cu130, 122k pulls), which downloads H3 models at boot.\n\nCost model, partly estimated. One RTX PRO 6000 benchmark measured bf16 at 12.76 s/step (1344x768, 124 frames). From that I estimate 6-10 min per 30-step, 10-second 960x704 clip (about $0.25-0.42 on a pod), or roughly 2-3 min with the 8-step turbo LoRA (about $0.08-0.12).\n\nStorage options:\n- A 100 GB network volume costs about $7/month (high-performance tier $14). It is pinned to one data center, and RTX PRO 6000 stock shows LOW in all five data centers that list it.\n- Re-downloading to the container disk each session also works. `hf download` uses hf-xet, and `HF_XET_HIGH_PERFORMANCE=1` replaces the deprecated hf_transfer.\n\nKey finding: Civitai model 2821932 version 3216500 is a mirror of the Comfy-Org/MiniMax-H3 files. The SHA-256 of its int8 files matches the HF files exactly, and its bf16 file has the same byte size as the HF bf16 FL2VA. So no Civitai token is needed, and the exact file set is about 62 GB (pruned bf16) or 88 GB (full bf16).\n\nToS: Runpod's Terms (last updated March 24, 2026) list \"pornography or graphic adult content\" among unauthorized Content. They make no private-versus-public distinction and say Runpod \"will not actively monitor\" content. That is an account-termination risk.\n\nMiniMax H3 license: it excludes the US, EU, UK and South Korea, and it bars use or display of the model or its Outputs outside the permitted territory.\n\nMCP check: the Runpod MCP is authenticated, and the account has 0 pods and 0 network volumes.",
+   "facts": [
+    {
+     "fact": "Official Runpod ComfyUI pod templates, live catalog read on 2026-10-20: 'ComfyUI - CUDA 12.8' id cw3nka7d08, image runpod/comfyui:1.3.3-comfyuiv0.30.0-cuda12.8, CUDA 12.8-12.9. 'ComfyUI - CUDA 13.0' id wgd3p4n4o6 (the plugin docs give the older id 2lv7ev3wfp), image runpod/comfyui:1.3.3-comfyuiv0.30.0-cuda13.0, CUDA 13.0-13.4. Both have a 150 GB container disk, a 50 GB /workspace volume, and ports 8188/8080/8888/22.",
+     "source": "Runpod MCP list-public-templates (source=official)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Native MiniMax H3 needs ComfyUI 0.30.0 or later (base T2V/I2V/R2V). Multiframe needs 0.34+, Fun ControlNet and sparse attention need 0.35+, FastH3 needs 0.36+, pruned_w6a8 needs 0.38+. The latest ComfyUI is v0.42.1 (2026-10-19). v0.30.0 is from 2026-08-03.",
+     "source": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3.md ; https://api.github.com/repos/comfyanonymous/ComfyUI/releases",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MiniMaxH3ImageToVideo (first_frame and last_frame optional; length step 17, so 17k+5 frames; trained range about 124-362) is a core node in comfy_extras/nodes_minimax_h3.py, added by PR #15224 on 2026-08-03. CLIPLoader type 'minimax' is core. 'Fix sampler issues for audio with minimax, support more samplers' (#15243, 2026-08-06) landed after v0.30.0, so the official template's 0.30.0 may mishandle the user's res_multistep sampler.",
+     "source": "https://github.com/comfyanonymous/ComfyUI/blob/master/comfy_extras/nodes_minimax_h3.py ; GitHub commits API",
+     "confidence": "likely"
+    },
+    {
+     "fact": "The official template image's floating tags (cuda12.8/cuda13.0) stopped at 1.4.7 (2026-08-27). Newer pinned tags exist, e.g. runpod/comfyui:1.4.1-comfyuiv0.35.0-cuda13.0 (2026-10-19, 4.4 GB compressed). The cuda12.8 images are about 5.7 GB compressed.",
+     "source": "https://hub.docker.com/v2/repositories/runpod/comfyui/tags",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Community H3 pod templates: 'One Click - ComfyUI MiniMax H3' dunz9ocpnc, hearmeman/comfyui-minimax-template:v10 (updated 2026-10-19, 9.0 GB, 122k pulls, base image comfy0.42.1 with torch 2.11 cu130, CUDA 13.0+, env download_minimax_h3=true, minimax_quant int8|fp8|nvfp4|bf16). Its README says first boot takes 10-30 min, with at least 90 GB for the int8 profile and 180-200 GB for bf16. Also: 'OneClick - ComfyUI - MiniMax H3 Uncensored - CU13' bii5d425kp (huchukato/comfyui-qwenvl-runpod:cu13-mmh3), and ashleykleynhans ComfyUI v0.42.1 (jv061dyevn, cu128).",
+     "source": "Runpod MCP list-public-templates (community) ; https://github.com/Hearmeman24/comfyui-minimax",
+     "confidence": "verified"
+    },
+    {
+     "fact": "ls250824/run-comfyui-minimax tested configurations: RTX 3090/4090 24 GB, pruned INT8 ConvRot, 50 GB RAM, 0.9 MP for 15 s. L40S 48 GB, full INT8 ConvRot, 80 GB RAM, 0.9 MP for 20 s. RTX PRO 6000 96 GB, full FP8 scaled, 70 GB RAM, 2 MP for 15 s.",
+     "source": "https://hub.docker.com/r/ls250824/run-comfyui-minimax",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Comfy-Org/MiniMax-H3 file sizes: fl2va_bf16 66.28 GB; fl2va_pruned_bf16 40.23 GB; pruned_fp8_scaled 20.96 GB; pruned_int8_convrot 20.97 GB; pruned_w6a8 15.98 GB. Text encoder qwen3vl_32b bf16 51.5 GB / int8_convrot 27.1 GB / nvfp4_awq 15.69 GB. Video VAE fp16 5.21 GB, audio VAE fp32 0.61 GB, turbo LoRAs 1.96 GB each. The repo is Xet-backed.",
+     "source": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/tree/main?recursive=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Civitai model 2821932 version 3216500 ('MiniMax H3' / 'Comfy', published 2026-08-10) mirrors the Comfy-Org files. Its fileId 3085684 SHA-256 equals HF fl2va_int8_convrot (7ad4c73e...) and fileId 3086408 equals ref2va_pruned_int8_convrot (9255f52b...). Its primary bf16 file is 66,280,487,368 bytes, the same as HF fl2va_bf16 (its hash is still pending). So the user's 'finetune' is very likely stock FL2VA bf16.",
+     "source": "https://civitai.com/api/v1/model-versions/3216500 ; HF tree API",
+     "confidence": "likely"
+    },
+    {
+     "fact": "hf_transfer is deprecated (HF_HUB_ENABLE_HF_TRANSFER no longer works). All HF transfers go through hf-xet, and HF_XET_HIGH_PERFORMANCE=1 is the replacement for maximum throughput (huggingface_hub v2.2.0 docs).",
+     "source": "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Runpod storage pricing: container disk $0.10/GB/mo while running, not charged while stopped, erased on stop. Volume disk $0.10/GB/mo running and $0.20/GB/mo stopped, deleted on terminate. Network volume $0.07/GB/mo under 1 TB and $0.05 over, billed hourly from creation whether attached or not. High-performance tier $0.14/GB/mo (pricing page). Pods bill per second, and deploying needs a balance covering at least one hour.",
+     "source": "https://docs.runpod.io/pods/pricing ; https://www.runpod.io/pricing",
+     "confidence": "verified"
+    },
+    {
+     "fact": "A network volume is pinned to one data center (size 10-4096 GB, grow-only, tier immutable). It attaches only to Secure Cloud pods, mounts at /workspace on pods and /runpod-volume on serverless, is NVMe/MooseFS-FUSE backed at 200-400 MB/s (up to 10 GB/s peak), and high-performance gives up to 3x throughput / 4x IOPS. A stopped pod's GPU can be taken by someone else, so it may restart with zero GPUs. The fix is a network volume plus a new pod.",
+     "source": "https://docs.runpod.io/storage/network-volumes ; https://docs.runpod.io/pods/troubleshooting/zero-gpus ; MCP lookup-concept network-volume",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Official ComfyUI template readiness: about 22 s with a cached image and no volume, about 4 min onto a network volume (first boot copies ComfyUI into /workspace). Readiness progresses 404 -> 502 -> 200 on /system_stats. The image pull on a host that has never seen the image takes about 30-90 s (Runpod blog).",
+     "source": "Runpod plugin guide runpod-templates/comfyui (verified 2026-08-25) ; https://runpod.io/blog/cut-vllm-cold-starts-runpod-serverless",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Official template security: the ComfyUI 8188 proxy URL is public and unauthenticated. FileBrowser 8080 defaults to admin/adminadmin12. The template preinstalls ComfyUI-Manager, ComfyUI-RunpodDirect, KJNodes and Civicomfy.",
+     "source": "Runpod plugin guide runpod-templates/comfyui ; https://docs.runpod.io/pods/configuration/expose-ports",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Live GPU prices (pod secure/community, serverless per hour). 48 GB: L40S $1.09/$0.79, serverless $1.75; A6000/A40 serverless $1.22. 80 GB: A100 $1.79/$1.39, serverless $2.72; H100 SXM $3.99/$2.69, PCIe $2.89/$1.99, serverless $4.79. 94 GB H100 NVL $3.19. 96 GB: RTX PRO 6000 $2.49/$1.69, serverless $3.49 (= $0.00097/s). 141 GB: H200 $5.29/$3.59, serverless $5.93 (= $0.00165/s). 180 GB: B200 $7.99, serverless $8.64. 32 GB: RTX 5090 $1.19/$0.69, serverless $1.58.",
+     "source": "Runpod MCP list-gpu-types ; https://www.runpod.io/pricing",
+     "confidence": "verified"
+    },
+    {
+     "fact": "GPU availability snapshot 2026-10-20 in data centers with network volumes: RTX PRO 6000 shows LOW in EU-CZ-1, EU-RO-1, US-CO-1, US-NC-2 and US-NE-1. H100 SXM shows LOW in AP-JP-1, EUR-IS-3, US-MO-1 and US-NE-1. Only CA-MTL-4 lists HIGH_PERFORMANCE volumes.",
+     "source": "Runpod MCP list-data-centers include=GPU_AVAILABILITY",
+     "confidence": "verified"
+    },
+    {
+     "fact": "RTX PRO 6000 Max-Q benchmark at 1344x768, 124 frames, 20 steps: bf16 12.76 s/step on cu130 and 14.65 on cu128. nvfp4 8.47 s/step on cu130 and 19.8 on cu128 (emulated). Pruned int8_convrot 22.7 s/step on cu128. RTX 5090 (ComfyUI 0.30.1): 243 frames at 864x480, 10 steps, nvfp4, 175 s, 26.9 GB peak VRAM.",
+     "source": "https://huggingface.co/ModelsLab/MiniMax-H3-ref2va-NVFP4 ; https://ai-muninn.com/en/blog/minimax-h3-nvfp4-rtx5090",
+     "confidence": "likely"
+    },
+    {
+     "fact": "worker-comfyui latest is 5.11.0 (2026-09-21): ComfyUI 0.34.0, torch 2.11.0+cu128. Input images go as base64 in input.images [{name,image}]. Output arrives in output.images [{filename,type:'base64'|'s3_url',data}]. S3 is set through BUCKET_ENDPOINT_URL, BUCKET_ACCESS_KEY_ID and BUCKET_SECRET_ACCESS_KEY.",
+     "source": "https://github.com/runpod-workers/worker-comfyui (handler.py, docs/configuration.md, Dockerfile)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "worker-comfyui can return native SaveVideo mp4s. ComfyUI's PreviewVideo.as_dict() returns {'images': [...], 'animated': (True,)}, and the handler processes the 'images' key (the 'animated' key only triggers a warning). It ignores other keys such as VHS 'gifs'.",
+     "source": "https://github.com/comfyanonymous/ComfyUI/blob/master/comfy_api/latest/_ui.py ; worker-comfyui handler.py",
+     "confidence": "verified"
+    },
+    {
+     "fact": "worker-comfyui reads network-volume models via extra_model_paths.yaml (base_path /runpod-volume) with keys checkpoints, clip, clip_vision, vae, unet, loras and so on. It has no diffusion_models or text_encoders keys, but ComfyUI maps unet to diffusion_models and clip to text_encoders. So H3 files belong in /runpod-volume/models/unet, /clip and /vae.",
+     "source": "worker-comfyui src/extra_model_paths.yaml ; ComfyUI folder_paths.py map_legacy",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Serverless limits: /run payload 10 MB with results kept 30 min; /runsync 20 MB with results kept 1 min. Docs say to put results that exceed these in cloud storage. Execution timeout defaults to 600 s (range 5 s to 7 days, per-request executionTimeout override). Idle timeout defaults to 5 s and is billed. Max workers default to 3. FlashBoot is on by default. Default spend limit is $80/hr. An endpoint idle for 7 days drops to max workers 0.",
+     "source": "https://docs.runpod.io/serverless/endpoints/endpoint-configurations ; https://docs.runpod.io/serverless/endpoints/operation-reference ; https://docs.runpod.io/serverless/workers/handler-functions ; https://docs.runpod.io/serverless/pricing",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Serverless billing runs from worker start to stop, rounded up to the second. It includes cold start (handler ready, mostly model load), execution and idle timeout. Image pull and cached-model download are not billed. FlashBoot pauses containers with weights in VRAM and resumes in about 200 ms, but snapshots are per host and image, so bursty low-volume endpoints often miss them. A Runpod-measured 32 GB vLLM model took a 324 s median cold start from a network volume (91 s optimized).",
+     "source": "https://docs.runpod.io/serverless/pricing ; https://runpod.io/blog/serverless-gpu-cold-starts-flashboot ; https://runpod.io/blog/cut-vllm-cold-starts-runpod-serverless",
+     "confidence": "verified"
+    },
+    {
+     "fact": "HF model caching (--model-reference) is beta: one cached model per endpoint, and all quantizations in a repo get downloaded. Comfy-Org/MiniMax-H3 totals about 525 GB, so caching it is impractical unless the user makes a trimmed copy of the repo.",
+     "source": "Runpod plugin guide runpodctl/model-caching ; https://docs.runpod.io/serverless/endpoints/model-caching",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Hub serverless workers for H3 exist: huchukato/runpod-minimax-h3 v1.1.3 (2026-10-20, 142 deploys) needs BLACKWELL_96, CUDA 13+, and a network volume of at least 160 GB with about 100 GB auto-download. It takes a custom job-input schema rather than raw workflows. Chsengni/runpod-minimax-h3-selflift (about 93 GB) is another. Hearmeman24/ComfyGen is a CLI for ComfyUI on Runpod serverless that uploads outputs to S3 and downloads models to the volume.",
+     "source": "Runpod MCP list-hub-repos ; https://github.com/huchukato/runpod-minimax-h3 ; https://github.com/Hearmeman24/ComfyGen",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Runpod Terms of Service (Last Updated March 24, 2026), section 6: 'Among unauthorized Content submitted to the Service includes: intoxicants of any sort; illegal drugs or other illegal products; alcoholic beverages; games of chance; and pornography or graphic adult content, images, or other adult products. Postings of any unauthorized products or content may result in immediate termination of your account and a lifetime ban from use of the Site.' Section 7: 'Your Content is not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).' Also: 'Runpod will not actively monitor Content being hosted by Runpod, although Runpod, at its sole discretion, may elect to electronically monitor its network...' There is no separate AUP and no private-versus-public distinction. Content is anything you 'upload, post, email, transmit or otherwise make available' through the Service.",
+     "source": "https://www.runpod.io/legal/terms-of-service",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MiniMax H3 Community License (dated August 2, 2026): 'Excluded Territories' are the EU, UK, Republic of Korea and USA. Section V.4: 'You may not use, reproduce, modify, distribute, or display the MiniMax H3 Works or any of their Outputs or results outside the Applicable Territory.' The license does not say whether this is measured by where the user lives, where the model is hosted, or where outputs are shown. The AUP has no adult-content clause beyond minors.",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/LICENSE",
+     "confidence": "verified"
+    },
+    {
+     "fact": "runpodctl latest is v3.0.1 (2026-10-15), with Windows amd64 and arm64 .exe builds. v3.0.0 moved most commands to REST v2 (breaking refactor). Relevant commands: send/receive (one-time-code encrypted transfer, preinstalled on pods), ssh info and add-key (no interactive shell), pod create/stop/delete, serverless run/status/logs, network-volume CRUD (no high-performance tier flag).",
+     "source": "https://github.com/runpod/runpodctl/releases ; Runpod plugin guide runpodctl",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Basic proxied SSH (ssh.runpod.io) does not support SCP or SFTP. Full SSH over an exposed TCP port with a public IP does, and official templates preconfigure it. The HTTP proxy has a 100 s Cloudflare timeout and is public.",
+     "source": "https://docs.runpod.io/pods/configuration/use-ssh ; https://docs.runpod.io/pods/configuration/expose-ports",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The Runpod MCP in this session is authenticated: list-pods and list-network-volumes both returned empty. The agent-setup guide installs it with 'claude plugin marketplace add runpod/runpod-plugins-official' and 'claude plugin install runpod@runpod', then /mcp sign-in. The MCP covers infrastructure CRUD, jobs and logs but not SSH or file transfer. Runpod has no public endpoint for H3 (only Hailuo 02/2.3 and Speech).",
+     "source": "https://docs.runpod.io/agent-setup.md ; Runpod MCP list-pods / list-network-volumes / list-public-endpoints",
+     "confidence": "verified"
+    }
+   ],
+   "recommendations": [
+    "Use a Pod for the many-tries, review-between-batches phase. Pick a Secure Cloud RTX PRO 6000 96 GB ($2.49/hr, per-second billing). Queue a batch of seeds or prompt variants in the ComfyUI UI or the /prompt API, review the results, and queue the next batch. The models stay loaded in VRAM between runs. Terminate the pod when the session ends, and keep anything worth keeping on a network volume or download it.",
+    "Image: start from the official 'ComfyUI - CUDA 13.0' template (wgd3p4n4o6) and upgrade ComfyUI from 0.30.0 to at least 0.42.1. Alternatively, use the community Hearmeman H3 template (dunz9ocpnc), which ships 0.42.1 on cu130. Its default int8 profile does not match the user's workflow (bf16 DiT plus nvfp4 text encoder), so either set minimax_quant=bf16 (180-200 GB) or download files by hand.",
+    "Download only the needed files from HF, not Civitai, because the Civitai version is a mirror. Run: HF_XET_HIGH_PERFORMANCE=1 hf download Comfy-Org/MiniMax-H3 diffusion_models/minimax_h3_fl2va_bf16.safetensors (or _pruned_bf16, 40 GB) text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors vae/minimax_h3_video_vae_fp16.safetensors vae/minimax_h3_audio_vae_fp32.safetensors loras/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors --local-dir <ComfyUI>/models. That is about 62-90 GB.",
+    "Storage: create a 100-120 GB standard network volume ($7-8.40/month) in a data center that currently has RTX PRO 6000 stock (US-NE-1, US-NC-2, US-CO-1, EU-RO-1 or EU-CZ-1), and terminate pods instead of stopping them. If usage will be rare, skip the volume and re-download to the container disk each session. That avoids the data-center lock and loads faster from local NVMe.",
+    "Use the 8-step turbo LoRA for drafts (an estimated 2-3 min per 10 s clip, about $0.10) and full 20-30-step bf16 only for keepers (an estimated 6-10 min, about $0.25-0.42). Measure the real s/step in the first session before budgeting.",
+    "Keep it private: do not share the pod ID. The 8188 proxy URL is public and has no login. Prefer SSH port-forwarding over exposed TCP 22, change the FileBrowser password, and pull outputs with scp (full SSH) or runpodctl receive (Windows binary v3.0.1).",
+    "Move to serverless later only for fire-and-forget scripted batches. Setup: worker-comfyui 5.11.0 (ComfyUI 0.34.0, cu128) with a network volume (models in /runpod-volume/models/unet, clip and vae), executionTimeout of at least 1800 s, max workers 1, idle timeout 60-300 s, and an S3-compatible bucket for mp4 output. Use bf16 or fp8 rather than int8_convrot on cu128. Expect several minutes of billed model load on each cold worker.",
+    "Before committing, settle the ToS risk, since Runpod's ToS names 'pornography or graphic adult content' as unauthorized Content. Either ask Runpod support for a written position on private, non-published adult fiction workloads, or accept the account-termination risk.",
+    "Flag the MiniMax H3 license to the user. It excludes the US, EU, UK and South Korea and bars displaying Outputs outside the permitted territory. That may matter more than the Runpod setup, both for where the user lives and for shipping the clips in a game."
+   ],
+   "unknowns": [
+    "Real time per clip for the user's exact workflow (960x704, 243 frames, 30 steps, res_multistep, bf16 DiT) on a Runpod RTX PRO 6000 Server Edition or H100. My 6-10 min figure is scaled from one Max-Q benchmark. To settle it, run one pod session and read ComfyUI's s/step log, with and without the 8-step turbo LoRA.",
+    "Whether ComfyUI 0.30.0 in the official template handles res_multistep with H3 audio. The sampler fix #15243 landed in 0.31.0. To settle it, run one job on the stock template, or simply upgrade first.",
+    "Load time of 40-90 GB of weights from a Runpod network volume (MooseFS FUSE). Docs give 200-400 MB/s, while a Runpod blog implies about 1 GB/s for a 7B model, which puts the range at roughly 1-5 min. To settle it, time the first prompt after boot, from volume versus container disk.",
+    "Whether FlashBoot keeps ComfyUI's loaded H3 weights for a low-traffic endpoint with gaps of several minutes between jobs. Snapshots are per host and image. To settle it, deploy worker-comfyui and compare delayTime plus executionTime of a job 5-15 min after the previous one.",
+    "Typical mp4 size of a 10 s 960x704 SaveVideo output, and whether worker-comfyui's base64 result exceeds the /run payload limit. To settle it, check the file size of one output, or configure S3 from the start.",
+    "Whether Runpod's own S3-compatible network-volume API (s3api-<DC>.runpod.io) works as worker-comfyui's BUCKET_ENDPOINT_URL, including presigned URLs from rp_upload. If not, use Cloudflare R2 or Backblaze B2.",
+    "How Runpod enforces the adult-content ToS clause on private pods and serverless that are never published. The ToS makes no private-versus-public distinction and says Runpod does not actively monitor. Only Runpod support can answer this in writing.",
+    "How the MiniMax H3 license's territorial restriction is measured (user's residence, hosting data center, or where outputs are displayed), and whether the user or the game's audience is in an excluded territory. This needs the user's location and MiniMax or legal clarification.",
+    "Whether the Civitai primary bf16 file (fileId 3086249) is byte-identical to the HF fl2va_bf16. Sizes match, but Civitai's hash is still pending. Settle it by hashing after download, or by trusting the matching int8 hashes.",
+    "Exact upgrade steps for ComfyUI inside the official template's venv (path and whether pinned torch breaks). The template docs give no update method. Test git checkout v0.42.1 plus pip install -r requirements.txt in a throwaway pod."
+   ]
+  },
+  {
+   "key": "loops",
+   "summary": "I checked the source code and ran local tests in the scratchpad. The game repo was not touched, and I opened no explicit media.\n\n1) THE ENCODER IS THE MAIN BLOCKER. The user's ffmpeg (gyan.dev git essentials build, 2025-05-15) writes broken Theora. A 120-frame 896x1152 test file gave 118 'error in unpack_block_qpis' errors when decoded. The cause is libtheora's assembly code on Win64 builds. BtbN switched that code off on 2025-08-09 and gyan.dev did so later. A BtbN n9.0.2 build (2026-10-20) produced a clean file with 0 errors. This is probably why the user's conversion website works and local ffmpeg doesn't.\n\n2) LOOP SEAMS. Rules that hold for any I2V model:\n- Use the same still as first and last anchor, then drop the duplicate last frame.\n- Make the H3 canvas the same aspect as the still (768x1024 for 3:4). The ComfyUI H3 node stretches the first frame but center-crops the last one, so a mismatched canvas gives two different anchors.\n- Close the cycle with keyframes: H3's MiniMaxH3AddGuide node (ComfyUI, merged 2026-08-13) can anchor a still or a 22-frame clip at any frame.\n- With post-processing only: the rotate-plus-crossfade trick, ping-pong for symmetric motion, or interpolation bridges.\nI tested every ffmpeg command below for exact frame counts.\n\n3) GODOT 4.4.1. With loop on, 4.4.1 restarts by closing and reopening the file. Seeking is not implemented and get_length() returns 0. Godot 4.5 added seeking and loops with seek(0); the Theora code has barely changed through 4.7.2. In a headless benchmark on this Ryzen AI 9 HX 370, the frame where the loop restarts took 11.2-11.7 ms on the main thread in 4.4.1 and 6.6-8.0 ms in 4.7.2. Each keyframe costs 8-11 ms and other frames about 1-3 ms. Detailed full-frame motion used about 16-17% of one core; subtle motion about 5.6%. The headless run leaves out GPU upload. .ogv files need no import step, and Theora has no alpha channel.\n\n4) SIZES. These come from synthetic stand-in clips at 896x1152, 24 fps, GOP 64 (KiB per second of video):\n\n| Content | q5 | q6 | q7 | q8 | q10 |\n|---|---|---|---|---|---|\n| Detailed full-frame motion | 607 | 906 | 1273 | 1596 | 2444 |\n| Subtle local motion on a static frame | 30 | 39 | 51 | 78 | 152 |\n\n- 768x1024 is about 0.7x the size of 896x1152.\n- Leaving out -pix_fmt yuv420p makes ffmpeg write yuv444p, which was 2.6x bigger.\n- A larger GOP helps subtle loops a lot: g12 / g64 / g240 gave 187 / 51 / 34 KiB/s.\n- 48 fps is about 1.5x the 24 fps size, and 60 fps about 1.7x.\n- Upscaling 768 to 896 before encoding adds no detail. Encode at the native size and let Godot scale it.",
+   "facts": [
+    {
+     "fact": "VERIFIED LOCALLY: the user's ffmpeg (C:/Users/samwo/Videos/ffmpeg.exe, 'ffmpeg version 2025-05-15-git-12b853530a-essentials_build-www.gyan.dev') writes broken Theora. Encoding testsrc2 896x1152 at 24 fps with -q:v 7 -g:v 64, then decoding with ffmpeg -v error -f null, gave 118 'error in unpack_block_qpis' errors over 120 frames. The same command with BtbN 'n9.0.2-29-g6dfaba896f-20261020' (win64 gpl shared) gave 0 errors.",
+     "source": "C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/theoratest (t_q7.ogv = old build, n_q7.ogv = new build)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Root cause: libtheora's assembly optimizations break the Win64 callee-saved register convention. FFmpeg issue #20185 (2025-08-08) calls it a regression in 7.1 and master, with 7.0.2 working. BtbN disabled libtheora asm on win64 on 2025-08-09 (PR #513). gyan.dev agreed to rebuild without asm on 2025-08-21 (codexffmpeg #196). Later regressions: the 2025-09-25 gyan full build (fixed by 2025-09-28, #200) and the 2026-07-27 gyan full build (fixed 2026-07-30).",
+     "source": "https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/20185 ; https://github.com/BtbN/FFmpeg-Builds/pull/513 ; https://github.com/GyanD/codexffmpeg/issues/196 ; https://github.com/GyanD/codexffmpeg/issues/200",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Godot docs (master, commit afce4b51f, 2026-03-21) say: 'On Windows, make sure to use 32-bit builds of FFmpeg. Windows 64-bit builds have known issues with Theora encoding, which result in artifacts.' The docs also recommend '-q:v 6 -q:a 6 -g:v 64', say -q:v 6 is a good compromise, call the default GOP of 12 too low, and say GOP 64-512 usually compresses best. They note seek times jump just past powers of two starting at 64.",
+     "source": "https://github.com/godotengine/godot-docs/blob/master/tutorials/animation/playing_videos.rst ; https://github.com/godotengine/godot-docs/issues/11859",
+     "confidence": "verified"
+    },
+    {
+     "fact": "FFmpeg's libtheora encoder maps -q:v (clipped to 0-10) to Theora quality q*6.3 (0-63); -b:v instead sets target_bitrate. It pads the coded frame to a multiple of 16 with pic_x = pic_y = 0. The pixel format follows the input: 420, 422 or 444.",
+     "source": "https://github.com/FFmpeg/FFmpeg/blob/master/libavcodec/libtheoraenc.c (lines ~193-242)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "VERIFIED LOCALLY: without -pix_fmt yuv420p, an RGB/FFV1 source encodes to yuv444p Theora. That file was 3270 KiB/s against 1273 KiB/s for yuv420p on the same content (2.6x larger).",
+     "source": "C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/theoratest",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MEASURED, synthetic stand-ins (not real H3 clips), 896x1152, 24 fps, yuv420p, -g:v 64. Detailed full-frame zoom: q5 607, q6 906, q7 1273, q8 1596, q10 2444 KiB/s. Subtle local motion over a static detailed frame: q5 30, q6 39, q7 51, q8 78, q10 152 KiB/s. At 768x1024 the same content is about 0.69-0.75x (875 vs 1273 KiB/s; 38 vs 51 KiB/s). Per-frame random grain is a worst case at 5.3-17 MiB/s. GOP effect at q7: subtle g12 187 / g64 51 / g240 34 KiB/s; heavy g12 1320 / g240 1268 KiB/s. Frame-rate effect for the same motion at q7: 24 fps 123, 48 fps 186, 60 fps 211 KiB/s.",
+     "source": "C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/theoratest",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Godot 4.4.1 source: VideoStreamPlayer with loop=true calls play() at end of stream. Theora stop() runs clear() and then set_file(file_name), which reopens the file and re-reads headers. VideoStreamPlaybackTheora::seek() only prints 'Seeking in Theora videos is not implemented yet', and get_length() returns 0. Playback time comes from OS wall-clock ticks, so time_scale is ignored.",
+     "source": "https://github.com/godotengine/godot/blob/4.4.1-stable/modules/theora/video_stream_theora.cpp ; https://github.com/godotengine/godot/blob/4.4.1-stable/scene/gui/video_stream_player.cpp",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Godot 4.5 'Theora rework' by berarma: PR #102360 (merged 2025-05-22, milestone 4.5) adds seek and get_length and loops via stop() -> seek(0), aiming at seamless loops. Other 4.5 PRs: #106825 (sync to scene tree and time_scale), #101219 (speed_scale), #106779 (UV offset when cropping), #107188 (MovieWriter can write .ogv), #107190 (libtheora 1.2.0). From 4.6 through 4.7.2 (latest stable, 2026-08-18) the Theora module only got refactors, plus an error print for files with no video stream (2026-05-26).",
+     "source": "https://github.com/godotengine/godot/pull/102360 ; https://github.com/godotengine/godot/pull/106825 ; https://github.com/godotengine/godot/commits/master/modules/theora",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Godot 4.4 already contains PR #101958 (milestone 4.4, merged 2025-02-17). It fixes TH_DUPFRAME duplicate frames, frames playing ahead of time, audio and stream buffering, and cropping to picture size; before it, the main workaround was keyframe interval 1. It also has the YUV422/444 fix (cherry-picked 2025-02-14) and PR #103176 (libtheora optimizations off on x86_64 Windows GCC), which fixed frame skips and lag spikes from 4.4 RC (issue #103106).",
+     "source": "https://github.com/godotengine/godot/pull/101958 ; https://github.com/godotengine/godot/pull/103176 ; https://github.com/godotengine/godot/commits/4.4.1-stable/thirdparty/misc/yuv2rgb.h",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MEASURED, headless Godot on an AMD Ryzen AI 9 HX 370 with 896x1152 24 fps Theora (CPU decode and YUV->RGBA only, GPU upload excluded). Godot 4.4.1: the loop-restart frame took 11.2-11.7 ms on the main thread, keyframes 8.7-10.5 ms, other frames about 1-3 ms. Detailed motion used about 2.0 s CPU per 12 s (16-17% of one core); subtle motion 0.67 s per 12 s (5.6%). Godot 4.7.2 on the same files: loop restart 6.6-8.0 ms, the same as an ordinary keyframe; per-frame cost unchanged.",
+     "source": "C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/godotbench/bench.gd (4.7.2 copy in ..._47)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Code reading of both 4.4.1 and 4.5+: update() calls stop() on the first tick after the last packet, without waiting for the last frame's end time. So the last frame stays on screen only until the next process tick (about 16.7 ms at 60 Hz) instead of 41.7 ms at 24 fps. The loop comes out about one frame short.",
+     "source": "https://github.com/godotengine/godot/blob/4.4.1-stable/modules/theora/video_stream_theora.cpp (update(), 'if (!video_ready && video_done && audio_done) stop()')",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Loop history: PR #77856 (Godot 4.1) fixed the one-frame blank or background flash when restarting on 'finished'. PR #77857 (4.2) added the VideoStreamPlayer.loop property. Docs: a non-zero 'Video Delay Compensation' setting can make loops drop frames; set it to 0.",
+     "source": "https://github.com/godotengine/godot/pull/77856 ; https://github.com/godotengine/godot/pull/77857 ; https://docs.godotengine.org/en/4.4/tutorials/animation/playing_videos.html",
+     "confidence": "verified"
+    },
+    {
+     "fact": ".ogv files are not imported. ResourceFormatLoaderTheora opens the file directly as a VideoStreamTheora resource (extension 'ogv'). A video importer that would call external FFmpeg (PR #108600) is still open on the 4.x milestone. Theora has no alpha channel; the docs only offer a chroma-key canvas_item shader.",
+     "source": "https://github.com/godotengine/godot/blob/4.4.1-stable/modules/theora/video_stream_theora.cpp ; https://github.com/godotengine/godot/pull/108600",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Open issue #111835 (4.5 and 4.5.1; 4.4.1 not affected): a black flash on scene change when a VideoStreamPlayer starts in _ready. Maintainers suggest putting a preview or first-frame texture underneath. Issue #92050 (open): VideoStreamPlayer draws nothing while stopped. Open PR #109209: most per-frame CPU time goes to YUV->RGBA conversion, and libyuv would be about 100% faster.",
+     "source": "https://github.com/godotengine/godot/issues/111835 ; https://github.com/godotengine/godot/issues/92050 ; https://github.com/godotengine/godot/pull/109209",
+     "confidence": "verified"
+    },
+    {
+     "fact": "ComfyUI MiniMaxH3ImageToVideo node: first_frame is resized with crop 'disabled' (plain stretch to the canvas) and last_frame with 'center' (aspect-preserving cover crop), anchored at frame_count-1. Length snaps up to the 17k+5 grid (124 is about 5 s; the trained range is about 124-362; 243 = 10.125 s). Keyframe latents are re-injected every step and never denoised. If the still's aspect differs from the canvas, the two anchors end up as different images.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_minimax_h3.py",
+     "confidence": "verified"
+    },
+    {
+     "fact": "MiniMaxH3AddGuide (Comfy-Org/ComfyUI PR #15439, merged 2026-08-13) anchors a still, a clip (snapped to 5, 22 or 39... frames) and/or audio at any frame_idx; negative values count from the end, and several nodes can be chained. The PR's own examples: the first 22 frames of an existing video at frame 0 makes a continuation, and a still at frame 60 of 124 forces the clip to hit that frame. This is what a VACE-style loop bridge or a 3-keyframe I->J->I cycle would need in H3.",
+     "source": "https://github.com/Comfy-Org/ComfyUI/pull/15439",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The official H3 prompt guide covers FL2VA (alignment line 'Picture 1 ... aligns with the 0.00-second mark ...; Picture 2 ... aligns with the S.SS-second mark') and the 'Static Shot' camera type, but says nothing about looping. Third-party guide (deAPI, 2026-08-19): pass the same image twice, end with 'every element returns to the exact arrangement of Picture 1', keep a static shot, set non_diegetic_music to N/A. It shows a 240-frame example and lists 'clip barely moves' when words describe the image rather than the action.",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md ; https://deapi.ai/blog/minimax-h3-image-to-video-prompting-guide-alignment-lines-keyframes-and-3-example-prompts",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Civitai 'Fast FLF Loop Workflow - MiniMax H3' v1.0 (published 2026-08-08, workflow page not marked NSFW) puts the same image in first and last frame. On an RTX 5080 16GB with 64GB RAM, using SageAttention + EasyCache at 15 steps, it reports 234 s warm and 337 s cold at 1.0 MP. EasyCache skips about half the steps and hurts detailed character content.",
+     "source": "https://civitai.com/api/v1/models/2843813",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Wan practice: the Wan 2.2 loop tutorial (Next Diffusion, 2025-09-09) puts the same image in the First-Last Frame node, runs RIFE plus Color Match, and drops the final frame 'to prevent duplication'. Wan 2.1 VACE 'Loop Anything' (nomadoor) feeds the last 15 frames, 51 gray frames and the first 15 frames so VACE fills the gap; its known flaw is washed-out first generated frames, fixed with color match. I found no primary source that measures motion stalls with identical anchors.",
+     "source": "https://www.nextdiffusion.ai/tutorials/wan-2-2-looping-animations-in-comfyui ; https://scrapbox.io/work4ai/VACE_Extension%E3%81%A7%E5%8B%95%E7%94%BB%E3%82%92%E6%BB%91%E3%82%89%E3%81%8B%E3%81%AB%E3%83%AB%E3%83%BC%E3%83%97%E3%81%95%E3%81%9B%E3%82%8B",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Kijai's WanVideoLoopArgs implements Mobius latent-shift looping: it rolls the latent along time by shift_skip (default 6) each step and un-rolls the prediction. This is training-free cyclic generation. I found no H3 equivalent.",
+     "source": "https://github.com/kijai/ComfyUI-WanVideoWrapper/blob/main/nodes_sampler.py (lines ~1726-1852, ~2513) ; https://arxiv.org/abs/2502.20307",
+     "confidence": "verified"
+    },
+    {
+     "fact": "FFmpeg docs: xfade needs both inputs at constant frame rate with the same resolution, pixel format, frame rate and timebase. Offset is measured from the start of the first input; duration is 0-60 s; the default transition 'fade' is a linear crossfade. The reverse filter buffers the whole clip in memory. minterpolate gives no output from a 2-frame input; a local test needed tpad clone padding.",
+     "source": "https://github.com/FFmpeg/FFmpeg/blob/master/doc/filters.texi",
+     "confidence": "verified"
+    },
+    {
+     "fact": "VERIFIED LOCALLY (synthetic 120-frame 24 fps clips): rotate+crossfade single-clip loop gave 108 frames, first frame = A[12] and last frame matching A[11], so the seam is one natural step. Two-clip A->B->A crossfade loop gave 216 frames (LA+LB-2D). Ping-pong gave 238 (N+N-2). minterpolate bridge replacing the last 6 frames gave 120. Wrap-padded 2x interpolation of a 108-frame loop gave exactly 216 frames, with a seam step of 22.4 dB PSNR against 22.3-23.5 dB for normal steps.",
+     "source": "C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/looptest",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Interpolation tools: ComfyUI-Frame-Interpolation (Fannovel16, updated 2026-03-29) has RIFE 4.0-4.9, FILM, AMT, IFRNet, GMFSS and others; it recommends FILM when you only have 2-3 frames. The VFI_MAMBA node in the user's earlier workflow comes from FuouM/FM_nodes and needs mamba-ssm, which has no prebuilt Windows wheel. Practical-RIFE recommends model 4.25 by default. rife-ncnn-vulkan (Vulkan, any GPU, no Python; last release 20221029, about 411 MB Windows zip) takes '-0 a.png -1 b.png -o out.png -s <0..1>'.",
+     "source": "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation ; https://github.com/FuouM/FM_nodes ; https://github.com/hzwer/Practical-RIFE ; https://github.com/nihui/rife-ncnn-vulkan",
+     "confidence": "verified"
+    }
+   ],
+   "recommendations": [
+    "FIX THE ENCODER FIRST. Replace C:/Users/samwo/Videos/ffmpeg.exe with a current BtbN win64 build or a current gyan.dev essentials build; the 2025-05-15 build writes broken Theora. A tested working copy is at C:/Users/samwo/AppData/Local/Temp/claude/C--Users-samwo-OneDrive-Documents--stuff-godot2-proj-no-trace/01ada204-8b62-4981-96c5-81b32c349af3/scratchpad/dl_ffmpeg_btbn/ffmpeg-n9.0-latest-win64-gpl-shared-9.0/bin/ffmpeg.exe (temporary, in the scratchpad). Check every output with: ffmpeg -v error -i out.ogv -f null -   It must print nothing; the broken build prints 'error in unpack_block_qpis'.",
+    "THEORA SETTINGS FOR GAME LOOPS: ffmpeg -i loop_master.mkv -vf format=yuv420p -c:v libtheora -q:v 7 -g:v 240 -an loop.ogv\n- Use q7 (q6 if size matters, q8 for close-ups).\n- Always force yuv420p; otherwise RGB sources become 444 and come out 2.6x bigger.\n- GOP 120-240 suits loops of 10 s or less: fewer 8-11 ms keyframe decodes and smaller subtle-motion files. Godot 4.4 never seeks, so a long GOP costs nothing there.\n- Keep H3's native 768x1024 (3:4) and let Godot scale it (VideoStreamPlayer expand=true, or match the stills' cover/crop). Upscaling first adds no detail and costs about 30-40% more size and CPU.\n- Keep width and height multiples of 16.\n- Drop audio (-an). Play loop ambience from a separate AudioStreamPlayer with loop on: in 4.4 an audio track gets its resampler flushed at every restart, and H3 audio won't loop anyway.",
+    "H3 GENERATION FOR LOOPS:\n- Use FL2VA with the same still in first_frame and last_frame, and write a cyclic, static-shot prompt that ends with everything returning to Picture 1, with non_diegetic_music N/A.\n- Set the canvas to the still's aspect (768x1024 for 3:4 art) or pre-crop the still to the canvas. The node stretches first_frame but center-crops last_frame, so a mismatched aspect breaks the loop.\n- Pick a length on the 17k+5 grid (124/141/.../243), then drop the duplicate final frame: -vf trim=end_frame=<N-1>.\n- If the motion stalls near the ends, add a MiniMaxH3AddGuide mid keyframe J (an InvokeAI variant of the still, e.g. the squeezed pose) at frame_idx about N/2, so the clip runs I -> J -> I. Alternatively make two FL2VA clips I->J and J->I and join them.\n- This needs your own ComfyUI on Runpod; Civitai's generator likely doesn't expose AddGuide.",
+    "BEST POST-PROCESS LOOP COMMANDS (tested; 24 fps, crossfade D = 0.5 s = 12 frames, L = clip length in seconds, N = frame count):\n(a) Single clip, rotate + crossfade. The seam becomes a natural frame step and output length is L-D:\nffmpeg -i clip.mp4 -filter_complex \"[0:v]settb=AVTB,fps=24,format=yuv420p,split[m][h];[h]trim=end_frame=12,setpts=PTS-STARTPTS[head];[m]trim=start_frame=12,setpts=PTS-STARTPTS[body];[body][head]xfade=transition=fade:duration=0.5:offset=<L-1.0>[v]\" -map \"[v]\" -an -c:v ffv1 loop.mkv\n(b) The user's two-clip A->B->A method, without a raw file boundary at the loop point (output length LA+LB-2D):\nffmpeg -i A.mp4 -i B.mp4 -filter_complex \"[0:v]settb=AVTB,fps=24,format=yuv420p,split[a1][a2];[1:v]settb=AVTB,fps=24,format=yuv420p[b];[a1]trim=start_frame=12,setpts=PTS-STARTPTS[abody];[a2]trim=end_frame=12,setpts=PTS-STARTPTS[ahead];[abody][b]xfade=transition=fade:duration=0.5:offset=<LA-1.0>[ab];[ab][ahead]xfade=transition=fade:duration=0.5:offset=<LA+LB-1.5>[v]\" -map \"[v]\" -an -c:v ffv1 loop.mkv\n(c) Ping-pong, for symmetric motion such as a squeeze and release or breathing:\nffmpeg -i clip.mp4 -filter_complex \"[0:v]format=yuv420p,split[f][r];[r]reverse,trim=start_frame=1:end_frame=<N-1>,setpts=PTS-STARTPTS[rv];[f][rv]concat=n=2:v=1:a=0[v]\" -map \"[v]\" -an -c:v ffv1 loop.mkv\nKeep crossfades short (0.3-0.6 s) and place them where motion is slow; a crossfade between two different motions shows as double exposure.",
+    "KEYFRAME-PAIR JOIN (clip1 I->J, clip2 J->I with N2 frames). Drop clip2's first frame (duplicate of J) and last frame (duplicate of I):\nffmpeg -i IJ.mp4 -i JI.mp4 -filter_complex \"[0:v]settb=AVTB,fps=24,format=yuv420p[c1];[1:v]settb=AVTB,fps=24,format=yuv420p,trim=start_frame=1:end_frame=<N2-1>,setpts=PTS-STARTPTS[c2];[c1][c2]concat=n=2:v=1:a=0[v]\" -map \"[v]\" -an -c:v ffv1 loop.mkv\nIf a pause or jolt shows at J or I, cut 3-6 frames on each side of the join and regenerate them with RIFE or FILM: rife-ncnn-vulkan -0 a.png -1 b.png -o t.png -s 0.25 (repeat for each timestep), or the RIFE VFI / FILM VFI nodes on the pod. ffmpeg's minterpolate (needs tpad=start=2:stop=2:start_mode=clone:stop_mode=clone around a 2-frame pair) is only a fallback; it warps hands.",
+    "H3 BRIDGE (an untested idea, but supported by the AddGuide PR): for clips that don't loop, generate a 124-frame bridge. Put AddGuide with the clip's last 22 frames at frame_idx 0 and its first 22 frames at frame_idx -22, then assemble A[22:N-22] + bridge. This is the H3 equivalent of the Wan VACE 'Loop Anything' method and keeps motion continuous across the seam. It costs one extra generation per clip.",
+    "FRAME INTERPOLATION / UPSCALING: optional.\n- 24 fps on a 60 Hz screen alternates 2 and 3 refreshes per frame, which can judder on slow motion; 48 fps shrinks the steps.\n- Measured cost: about 1.5x the file size and twice the decode work. A/B test 24 vs 48 in the game before committing.\n- Wrap-pad any interpolation pass, or the seam loses its in-between frame. Append the first 2 frames, interpolate, then trim to exactly 2N:\nffmpeg -i loop.mkv -filter_complex \"[0:v]split[a][b];[b]trim=end_frame=2,setpts=PTS-STARTPTS[h];[a][h]concat=n=2:v=1:a=0,minterpolate=fps=48:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,trim=end_frame=<2N>[v]\" -map \"[v]\" -c:v ffv1 loop48.mkv\nFor real use, apply the same idea with RIFE 4.25 or VFIMamba on the pod.\n- Skip AI upscaling (SeedVR2, FlashVSR) unless the clips look clearly softer than the stills; it needs the same circular padding for temporal context.",
+    "GODOT 4.4.1 INTEGRATION:\n- VideoStreamPlayer: loop=true, autoplay or play(), expand=true.\n- Put a TextureRect with the clip's first frame (the still) underneath, so nothing flashes before the first decode or on scene changes.\n- Keep Project Settings > Audio > Video Delay Compensation at 0.\n- Expect an ~11 ms main-thread spike at each restart and the loop running about one frame short. Hide the seam at a low-motion moment.\n- If loops still hitch, upgrading to 4.5+ (restart via seek(0), measured 6.6-8 ms) is the engine-side fix. Note 4.5's open black-flash-on-scene-change issue.\n- Leave .ogv files as plain files in res://; there is no import step."
+   ],
+   "unknowns": [
+    "Real H3 clip sizes in Theora: my numbers come from synthetic stand-ins. To settle: encode one real 768x1024 H3 loop at q6/q7/q8 with g64 and g240 using the fixed ffmpeg, and record KiB/s.",
+    "Does H3 FL2VA with identical first and last anchors stall the motion near the ends (ease-in/ease-out pause) or hardly move at all? No primary source measures this. To settle: 3-5 seeds of the same prompt with first=last=I, with and without an AddGuide mid keyframe J, and judge the loop in-game.",
+    "Does the AddGuide 22-frame bridge reproduce the anchored frames closely enough after the VAE round trip for a cut-free seam? To settle: run the bridge once and compute ffmpeg PSNR between the bridge's anchored regions and the source frames (above ~35 dB should be invisible).",
+    "Will the measured ~11 ms Godot 4.4.1 restart spike plus the shortened last frame be visible on the user's display with vsync and normal game load? The benchmark was headless and left out GPU upload. To settle: play a loop in the actual game with the Godot profiler and a frame-time graph, at 24 fps and 48 fps.",
+    "Is 48 fps worth 1.5x the file size and twice the decode? It depends on the motion and the monitor refresh rate. To settle: in-game A/B of the same clip at 24 and 48 fps on the user's 60 Hz or high-refresh screen.",
+    "Does Civitai's hosted generator expose MiniMaxH3AddGuide or allow first=last with an arbitrary canvas? Not checked. A self-hosted ComfyUI on Runpod definitely does (node present in Comfy-Org/ComfyUI master).",
+    "Mobius-style latent-shift looping for H3: there's a Wan implementation (WanVideoLoopArgs), but none for H3. H3's nested video+audio latent and 17k+5 temporal grid may not tolerate a circular roll. Would need a custom node test.",
+    "Whether gyan.dev's current builds (2026-10-19) are clean: BtbN n9.0.2 tested clean; gyan has regressed twice before. To settle: run the decode-check command on any new build before trusting it."
+   ]
+  },
+  {
+   "key": "godot-game",
+   "summary": "I read the repo only. I changed nothing, ran no Godot, and opened no video. There are 26 .ogv files (117.7 MB) and none has a .import file, so the repo doesn't record their resolution.\n\nHow video plays today. There is one VideoStreamPlayer, inside src/vn/Background.tscn. It sits above the still and below the black Fade rect. The only trigger is checkForVideo() (Background.gd:200-264), a hard-coded `if background.name == '<name>'` → load(ogv) table. It runs only from _on_fade_timer_timeout (266-276), at the black point of a fade, and only when the texture changed. So the dialogue must put a fade_next, fade_next_quick or fade_next_slow signal before the line. The usual pattern also adds a video_pause signal, which hides the dialogue box for 6 s (Main.gd:568-577).\n\nClips never loop here. loop is unset (false). fadeVideo() plays for 5.5 s (fadeVideoSlow: 7 s), fades out over 1 s, then sets the stream to null (179-198).\n\n- **Sizing, portrait:** the player is 863x1147 at scale 1.04, which is 897.5x1192.9, with expand=true, so any clip is stretched to that size. The still is drawn at about 894.7x1193. Clips must be 3:4.\n- **Sizing, landscape:** refreshPresentation sizes the video to the still's covering rect (69-77), and the landscape camera moves the video with the still.\n- **Quick skip:** skipping into a video line shows the still only (201-202). Nothing stops a video when the picture or stage changes.\n\nAshely II today. Its win, lose, ending and match dialogues contain no signals at all (the intro has 2 fade_next), so no picture there would ever trigger a video. The art packager rewrites every list .tres with only name and imagePath (package.py:341-358, 653). It renames pictures it takes off the board to \"<KEY>_NN (off the board)\" (57, 651). That makes picture names fragile ids.\n\nThe engine is Godot 4.4.1. Its loop does a full stop and a file reopen at each restart (video_stream_player.cpp:161-166, 305-316; video_stream_theora.cpp:454-473). The seamless-loop work (PR #102360) only landed in 4.5. A colour-shift bug when the frame is cropped (#106311, fixed in 4.5 by #106779) reproduces on 4.4.1, so clip dimensions should be multiples of 16.\n\nAnswer to (2): an Ashely II line needs code as well as data. Data alone can't do it, because the trigger table and the timed fade are both in Background.gd.",
+   "facts": [
+    {
+     "fact": "The only VideoStreamPlayer for backgrounds is a child of Background.tscn. It is 863x1147 with scale 1.04 (897.5x1192.9 drawn), expand=true, with no loop, volume or bus set, so it uses the defaults: loop=false, 0 dB on the Master bus. Node order is BackgroundImage, FullscreenAnim, VideoStreamPlayer, Fade, so the clip draws over its still and under the black fade.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.tscn:103-127",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The still is a TextureRect of 897x1193 with expand_mode 4 (EXPAND_FIT_HEIGHT) and stretch_mode 4 (STRETCH_KEEP_ASPECT, anchored top-left). A 1152x1536 still draws at about 894.7x1193 in the 896x1152 frame, so about 41 px fall below the bottom. A 3:4 clip lines up with it to within about 3 px. Any other aspect is stretched, because expand=true ignores the clip's aspect.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.tscn:103-120; project.godot:28-30",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Video is triggered by picture NAME, in a hard-coded if-chain in checkForVideo(): for example 'poker_kiss.webp' plays ashely_bar_poker/video/kiss.ogv, and 'anna_night_love_0017.webp' plays anna_night_vid_1.ogv with fadeVideo(45). checkForVideo returns at once if Background.isSkipping is set.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:200-264",
+     "confidence": "verified"
+    },
+    {
+     "fact": "checkForVideo is called from only one place: _on_fade_timer_timeout, and only when the new texture differs from the old one. That timer only starts when setBackground runs with shouldFade (0.4 s), shouldFadeQuick (0.25 s) or shouldFadeSlow (2.5 s). A picture put up without a fade goes straight to showPicture and never plays its video.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:92-117, 266-276",
+     "confidence": "verified"
+    },
+    {
+     "fact": "No existing clip loops. fadeVideo(playDuration=5.5) calls play(), awaits an unowned SceneTree timer, fades modulate to transparent over 1 s, then resetVideoPlayer hides it and nulls the stream. fadeVideoSlow does the same with 7 s. The 'finished' signal is not used.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:179-198",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Nothing stops or resets the background video when the picture changes (setBackground, showPicture, showNow), when a stage begins (Main.beginStage), or when quick skip starts. The only reset is the tween that ends fadeVideo. If two video pictures come within about 6.9 s of each other, the first clip's timer fades out and nulls the second clip.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:119-133,179-198; src/vn/Main.gd:341-379",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The dialogue pattern is a signal chain before the video line, e.g. fade_next → reposition_max_lower → video_pause → the line (ashely_bar_poker nodes 3_123 → 3_136 → 3_149 → 1_711). Anna night uses video_pause_46 for its 46 s clip. videoPause(6) hides the dialogue box, mutes its blip and sets isVideoPause, which suppresses the is_fading UI hide. It does not call disableDialogueProgression, so a held quick-skip on already-seen dialogue can still advance (DialogueManager.gd:113-119; dialogueBox.gd:327-332).",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/data/game_stages/poker/ashely_bar_poker/d_ashely_bar_poker.tres:15547-15691; src/vn/Main.gd:499-506,568-577,808-826",
+     "confidence": "verified"
+    },
+    {
+     "fact": "In landscape, refreshPresentation sizes the video to the still's cover-crop rect, computed from the still texture's size, and background_camera.gd moves the video with the still (scale and position). A clip must therefore share its still's aspect ratio in landscape too. Portrait restores the authored 863x1147 at scale 1.04.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:34-82; src/cinematic/background_camera.gd:41-46,114-117",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The zoom/pan shader mode (enableZoomPan, used during poker play and dates) scales the still to 1.1 and offsets it by (-50,-50), but leaves the video where it is, so a clip would be misaligned over a live poker table. When a poker match pauses for dialogue, Main calls disableZoomPan and sets shouldFade=true, so the first picture of a match dialogue always fades and could trigger a video.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:84-90,141-176; src/vn/Main.gd:708-723",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Looping video already exists elsewhere in the game, with loop=true: the phone wallpaper gallery (Wallpaper.video path, plays on its own player, stopped and nulled by a 'Stop Video' button), phone video messages (autoplay+loop), and the credits (autoplay+loop). So the loop property works in this Godot 4.4 project.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/phone/wallpaper_app.tscn:135-142; src/phone/wallpaper_app.gd:133-156; src/phone/video_message.tscn:12-18; src/vn/credits.tscn:49-56; resources/wallpapers/Wallpaper.gd:7",
+     "confidence": "verified"
+    },
+    {
+     "fact": "ana_music_video.gd plays no video file. It is a Node2D overlay that runs a 165 s timeline of WebP stills (Sprite2D crossfade, scroll and zoom tweens), slide-in lyrics and an mp3. The 'anna_music_video' signal starts it (Main.gd:525,547-557). It hides the dialogue and disables progression, then ends on sceneEnd (END_TIME or the Skip button).",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/ana_music_video.gd:1-74,248-264,280-466,553-554",
+     "confidence": "verified"
+    },
+    {
+     "fact": "There are 26 .ogv files, 117.7 MB in total, each with only a .ogv.uid sidecar (no .import, so no recorded resolution). Name-triggered background clips and sizes: boa2 7.0 MB (boa_strip_vid2); foot_on_lap 2.2 MB (402_vid); ashely_theater hold 8.6 MB (28_vid.png, 7 s); ashely_bar_poker kiss 1.4 MB (poker_kiss.webp); shower 2.1 MB (beach_shower); anna_class feet 0.78, lake 1.96, kiss 2.39, rain_lay 3.29, shirt_fall 2.52, pool_back 2.66, pool_sit 4.36 MB; lisa_poker_reward mas_1/2/3 at 1.27/1.46/1.41 MB; anna_night_vid_1 19.4 MB (46 s); anna_night_love_0012_vid 1.21 MB; 0032_vid 2.37 MB.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/data (find *.ogv); src/vn/Background.gd:200-264",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The other clips are not triggered by a picture name. Wallpaper-gallery only: tease.ogv 1.5 MB, mas_full 3.45 MB, boa1 6.6 MB (its trigger is commented out). Phone: ana_shop_meeting/out.ogv 10.5 MB (video_message.tscn default plus 4 wallpapers) and chad_unblock_lisa/pool.ogv 17.9 MB (two phone scripts plus a wallpaper). Credits: credits_vid_1 0.82 MB. Unused: chads_party/intro_bg10_vid 9.1 MB (trigger commented out) and anna_night_vid_1_old 1.34 MB.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/resources/wallpapers/all_wallpapers.tres; data/game_stages/phone_message/chad_unblock_lisa/scripts/chad_unblock_lisa.gd:184; src/vn/credits.tscn:12",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The Ashely II dialogue files contain no signal nodes, apart from the intro's 2 fade_next plus walk_on/walk_off. Every Ashely II picture change today is an instant showPicture with no fade, so a video would never trigger. The win stage has skipsOnlySeenDialogue = true.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/data/game_stages/vn/ashely2_*/d_*.tres; data/game_stages/vn/ashely2_win/gs_ashely2_win.tres",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The art packager regenerates each Ashely II BackgroundList .tres on every run, writing only name and imagePath per picture. Any extra field added by hand (wallpaperId, focusPoints, or a new video field) would be wiped. Names are <KEY>_NN, and a picture taken off the board becomes '<KEY>_NN (off the board)'. Slot file paths (<KEY>/NN.webp) stay stable. The packager only deletes renamed PNGs and their .import files, so an .ogv placed next to a still would survive.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/tooling/art_sort/package.py:57,341-358,646-653,732-735",
+     "confidence": "verified"
+    },
+    {
+     "fact": "setBackground returns early when the new picture has the same name as the one on screen (the condition (!shouldFade || !shouldFadeQuick) is almost always true). A clip therefore can't be restarted by repeating its picture. Lines with no picture (background -1) don't call setBackground (Main.gd:791), so a looping clip would keep playing across them.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/Background.gd:93-94; addons/dialogue_nodes/objects/dialogueBox.gd:356-369; src/vn/Main.gd:784-792",
+     "confidence": "verified"
+    },
+    {
+     "fact": "BackgroundCache only holds Texture2D stills: at most 8 (MAX_CACHED), with the dialogue prefetching the next 2 pictures. Videos bypass it and are loaded with load() at the fade's black point. In 4.4.1, loading an .ogv only creates a VideoStreamTheora that stores the path. The playback object opens the file and reads it in 4 KB chunks, and each frame is decoded into an RGBA8 image (about 3.1 MB at 768x1024). File size therefore barely affects RAM, and preloading isn't needed.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/src/vn/BackgroundCache.gd:8-62; https://github.com/godotengine/godot/blob/4.4.1-stable/modules/theora/video_stream_theora.cpp (lines 42,121-128,289,521-540)",
+     "confidence": "verified"
+    },
+    {
+     "fact": "In Godot 4.4.1, loop=true restarts by calling play(), which does playback->stop() (clear() plus set_file(), reopening the file and re-parsing its headers), then playback->play() and update(0). That is a full restart, not a seamless wrap. The 4.5 PR #102360 (merged 2025-05-22) adds seeking, get_length and 'playing seamless loops'. PR #101958 (merged 2025-02-17, in 4.4) fixed many Theora timing and buffering bugs and removed the threaded streaming.",
+     "source": "https://github.com/godotengine/godot/blob/4.4.1-stable/scene/gui/video_stream_player.cpp (lines 159-168, 305-321); https://github.com/godotengine/godot/pull/102360; https://github.com/godotengine/godot/pull/101958",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Issue #106311 ('Ogg Theora Video looks glitchy', reported reproducible on 4.4.1) was fixed only in 4.5 by PR #106779 ('Fix UV channel offset when cropping region', merged 2025-05-26). On 4.4.1, frame sizes that need cropping, which I infer means not a multiple of 16, risk shifted colours. The 4.4.1 release does include the cherry-picked 'Theora: Fix YUV422/444 to RGB' and 'VideoStreamPlayer: stop video on exit tree'.",
+     "source": "https://github.com/godotengine/godot/issues/106311; https://github.com/godotengine/godot/pull/106779; gh compare 4.4-stable...4.4.1-stable",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Godot 4.4 docs: VideoStreamPlayer.loop defaults to false; for Theora, get_stream_length() always returns 0 and setting stream_position (seeking) has no effect. Recommended encode: ffmpeg -i in.mp4 -q:v 6 -q:a 6 -g:v 64 out.ogv (q:v 1-10, 6 is the compromise; GOP 64-512 compresses best). Desktop: at most 1080p, preferably 30 fps. Decoding runs on the CPU. 'All FFmpeg releases before Feb 20th, 2025 could produce bad video streams.' A non-zero Video Delay Compensation setting can make loops non-seamless; this project.godot doesn't set it.",
+     "source": "https://docs.godotengine.org/en/4.4/tutorials/animation/playing_videos.html; https://docs.godotengine.org/en/4.4/classes/class_videostreamplayer.html",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The local ffmpeg is 'version 2025-05-15-git-12b853530a-essentials_build-www.gyan.dev', which is newer than the Feb 20, 2025 Theora fixes. It is configured with libtheora, libvorbis, libvpx and libx264.",
+     "source": "C:/Users/samwo/Videos/ffmpeg.exe -version",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Both export presets use export_filter=all_resources with no exclude filter. A .ogv is a recognised resource (no import step), so new clips under data/ ship without extra export settings.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/export_presets.cfg:9-11,83-85",
+     "confidence": "likely"
+    },
+    {
+     "fact": "The web dialogue editor builds its signal picker from the match statement in Main.gd (plus DialogueManager.gd and related files), and warns on unknown signals. A new signal name (e.g. a hypothetical 'video_loop') must be added to Main.gd to be accepted. The existing fade_next, fade_next_quick, fade_next_slow and video_pause are already listed.",
+     "source": "C:/Users/samwo/OneDrive/Documents/~stuff/godot2/proj/no_trace/tooling/dialogue_editor/README.md:72,221",
+     "confidence": "verified"
+    }
+   ],
+   "recommendations": [
+    "Answer to (2): a code change is needed, because data alone can't loop a clip. The minimum hack in the existing style: add `if background.name == 'WIN_X2_BREAST__TOP_OFF_05'` with loop=true and no timed fade in Background.gd checkForVideo, add a fade_next_quick signal before that line in the dialogue, and add code that stops the clip when the next picture lands. Without that stop, a looping clip stays on screen over every later picture and stage.",
+    "Better design (a proposal, not implemented): find a clip by convention, as the still's imagePath with .ogv in place of .webp (e.g. ashely_poker2/WIN_X2_BREAST__TOP_OFF/05.ogv next to 05.webp), using ResourceLoader.exists. Do the check in Background.showPicture, so it works with or without a fade and in both frames. Set loop=true for these clips. Stop the clip, or fade it 0.3-0.5 s, whenever the picture changes, in showNow, and in Main.beginStage. Then no picture-name ids and no hand-added .tres fields are needed: the packager rewrites the list files and renames off-board pictures, but keeps slot paths and leaves .ogv files alone.",
+    "With a looping background, don't use video_pause: the player reads the lines over the moving picture and can press H to hide the UI. Lines with no picture keep the clip running. Keep fade_next_quick before the line only if the fade-to-black look is wanted.",
+    "Handle quick skip on purpose. Today a line reached while skipping never starts its clip, because checkForVideo runs only at the picture change. With a looping background, either start the clip when skipping stops (Main.disableSkipping) or accept the still-only result.",
+    "Replace the unowned `await create_timer()` in fadeVideo with a stored Tween or a generation counter. Otherwise one clip's leftover timer can fade out and null the next clip.",
+    "Render clips at exactly 3:4 portrait with both sides multiples of 16, e.g. 768x1024 (the model card's 768 px short side). The existing H3 workflow used 960x704, which is landscape and must be swapped. The player stretches whatever it gets to about 897x1193, and on 4.4.1 sizes that need cropping risk shifted colours (#106311).",
+    "Inference, untested: use the game still itself, downscaled to 768x1024, as both first_frame and last_frame in MiniMaxH3ImageToVideo. The clip then opens on exactly the still under it, so it appears with no jump, and its loop seam lands back on that same image. This may make the user's two-clip xfade splice unnecessary, or it can be combined with it.",
+    "Encode with the local ffmpeg, with no audio: ffmpeg -i clip.mp4 -an -vf \"scale=768:1024:flags=lanczos,format=yuv420p\" -c:v libtheora -q:v 6 -g:v 64 out.ogv (raise -q:v to 7-8 if it looks blocky). Strip the audio because the background player plays at 0 dB on Master and ignores the game's volume setting. If H3's audio is wanted, keep it with -c:a libvorbis -q:a 6 and set $VideoStreamPlayer.volume_db from GlobalGameStage.getBgVolume() in code.",
+    "Keep 24 fps unless a test shows the 48 fps interpolated pass is clearly better. The Godot docs prefer 30 fps or less, and 48 fps roughly doubles decode work and file size.",
+    "To show a clip in the phone gallery too, add a Wallpaper entry in resources/wallpapers/all_wallpapers.tres with video = the .ogv path. The Background still needs a wallpaperId, which the packager drops on its next run, so the unlock would need adding to the packager or to the stage's unlockWallpapersOnSceneEnd.",
+    "Before relying on loop=true, test it in a scratch scene on Godot 4.4.1 with a 3-5 s clip. In 4.4.1 each restart reopens the file and re-parses its headers. If the seam visibly hitches, either bake the loop into a longer file or upgrade to 4.5 or later, where PR #102360 targets seamless loops."
+   ],
+   "unknowns": [
+    "Resolution, fps, duration and pixel format of the existing 26 .ogv files. The repo has no .import data and I didn't open the files. Settle it by having the user run `C:/Users/samwo/Videos/ffmpeg.exe -hide_banner -i <file>.ogv` (header only) on, say, ashely_bar_poker/video/kiss.ogv.",
+    "Whether loop=true on Godot 4.4.1 shows a visible hitch or black frame at the seam. Restart is a full stop plus reopen (verified in source), but nobody has watched it. Settle it with a 3-5 s 768x1024 test clip in a throwaway scene, at 24 and 48 fps.",
+    "Whether the 1.04 scale on the background player (an overhang of about 3 px wide by 41 px below the frame, matching the still) causes any visible offset against a 3:4 clip at 768x1024 versus 1152x1536. Settle it with a side-by-side screenshot test in the harness (godot2/landscape-test), using a non-explicit test clip.",
+    "Whether H3's FL2VA mode with identical first and last frames gives useful motion or a near-static clip. That is an H3 question outside this repo. Settle it with a few test generations.",
+    "Whether the user would rather keep video_pause-style holds (dialogue hidden while a clip plays) or have the lines run over a looping background. That is a design choice to ask the user.",
+    "Exact per-loop CPU cost on the user's machine at 768x1024, 24 fps. Docs say desktop CPUs handle 1440p60, so it is probably negligible; settle it with Godot's profiler during the test scene."
+   ]
+  },
+  {
+   "key": "alternatives",
+   "summary": "The user is mostly right. As of 20 Oct 2026, MiniMax H3 is where open-weights NSFW video work is happening, and the best evidence is creator activity on Civitai. Its public API lists 872 H3 LoRAs, all first published since Aug 2026 (213 in Aug, 384 in Sep, 275 in Oct 1-20). Over the same months, new Wan 2.2 I2V LoRAs fell to 7, 10 and 3, LTX-2.3 to 38, 13 and 0, and LTX-2.5 got only 43 in total. Several big Wan NSFW LoRAs are adding H3 versions.\n\nThe H3 LoRAs already include ones that fit this project exactly: \"Breast Play & Jiggle for MiniMax H3\" (its v2 is first-last-frame), \"Live Wallpaper Style\" (an H3 Ref2VA version for subtle, seamless loops, Sep 23) and \"H3 Eros Max\". The vendor tests I found also favour H3. Floyo (Aug 2026, one generation per model on an H100) ranked it first for motion and temporal consistency.\n\n\"The only real way\" overstates it, though. Wan 2.2 I2V-A14B is Apache 2.0 and its NSFW ecosystem is mature: \"WAN 2.2 Enhanced NSFW\" has 410k downloads and DR34ML4Y has 515k. It has first-last-frame support built into ComfyUI and is much faster: 26.7 s for a 720p I2V clip on a 5090 using LightX2V's own 4-step NVFP4 build, against 2685 s at 40 steps. Its weaknesses are a native 16 fps / 81 frames (about 5 s) and less natural motion than H3. The DR34ML4Y author, who has trained the same LoRA on H3, Wan and LTX, still calls Wan 2.2 I2V their best NSFW I2V; their H3 version is only a preview from Oct 17.\n\nThe other models don't suit this job:\n- **LTX-2.5:** about 3x faster than H3 (28.7 s vs 81.2 s for about 5 s on a 5090), but it has few NSFW LoRAs and its Gemma text encoder handles NSFW poorly.\n- **HunyuanVideo 1.5:** 8.3B parameters, no first-last-frame mode, and its NSFW community has gone quiet.\n- **Kandinsky 6.0:** MIT licence, weights out Sep 2026, but first-frame I2V only and no community around it yet.\n- **Wan 2.5, 2.6, 2.7 and 3.0, and FLUX 3 Video:** API-only or not released.\n\nTwo findings matter more than the model choice:\n\n**Licence.** H3's licence excludes the US, EU, UK and South Korea. It forbids using or distributing the model \"or any of their Outputs\" outside the allowed territory, and it requires commercial products to display \"MiniMax H3\" prominently. Wan 2.2 (Apache 2.0) has neither problem.\n\n**Looping.** H3's first-last-frame mode is built for loops: put the same image in as both the first and last frame. A community workflow does exactly that. However, node-pack authors report that these clips \"almost always end in a locked, barely-moving tail\", so the frozen end has to be cut off before the loop point.",
+   "facts": [
+    {
+     "fact": "Civitai's public API returns 872 MiniMax H3 LoRAs (371 flagged NSFW), all first published Aug-Oct 2026: 213 in Aug, 384 in Sep, 275 in Oct 1-20. Counts were taken 2026-10-20.",
+     "source": "https://civitai.com/api/v1/models?baseModels=MiniMax%20H3&types=LORA&sort=Newest&nsfw=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "New Civitai LoRAs per month, by first-publish date: Wan 2.2 I2V-A14B (562 total) went from 90 in Aug 2025 to 7, 10 and 3 in Aug, Sep and Oct 2026. LTX 2.3 (388 total) peaked at 87 in Apr 2026 and fell to 13 in Sep 2026. LTX 2.5 has 43 in total, 14 NSFW. 'Hunyuan Video' has 799 in total, about 1-7 a month in 2026. The public API may undercount, but the trend is clear.",
+     "source": "https://civitai.com/api/v1/models?baseModels=Wan%20Video%202.2%20I2V-A14B&types=LORA&sort=Newest&nsfw=true",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Top H3 NSFW LoRAs by downloads: [MMH3] Mystic XXX (112,779, v5.0 for FL2VA and Ref2VA, updated 2026-10-19), HMNSFW AIO (73,180), MiniMax H3 NSFW Unlocked (46,369, v2.1 on 2026-10-18). Top H3 NSFW checkpoint: H3 Eros Max (53,625 downloads).",
+     "source": "https://civitai.com/api/v1/models?baseModels=MiniMax%20H3&types=LORA&sort=Most%20Downloaded&nsfw=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "'Breast Play & Jiggle for MiniMax H3' (Civitai 2856004, 23,781 downloads). v1.0 (2026-08-13) was trained because base H3's breast motion was 'stiff' (62 videos, strength 0.7-0.8, 8 steps with Lightx2v). v2.0 (2026-08-29) is trained for first-last-frame and shifts toward breast play. Its previews used 8 turbo steps with res_2s/beta57.",
+     "source": "https://civitai.com/api/v1/models/2856004",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The 'Live Wallpaper Style' LoRA (Civitai 1264662, 45,908 downloads) has versions for H3 Ref2VA (2026-09-23, 'subtle, seamless motion'; optional midpoint and end-frame references; describe a locked-off camera for no movement), LTX 2.3 (2026-05-31), Wan 2.2 I2V A14B (2025-07-31, strength 2.0 with LightX2V) and Wan 2.2 TI2V-5B (with a loop workflow).",
+     "source": "https://civitai.com/api/v1/models/1264662",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The user's own generation used Civitai model 2821932 version 3216500. That is CivitaiOfficial's unmodified 'MiniMax H3' Comfy repack (published 2026-08-10), not a finetune. The workflow loads no LoRA nodes, and its first and last frames are two different images.",
+     "source": "https://civitai.com/api/v1/models/2821932",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The MiniMax H3 Community License (dated 2026-08-02) grants rights only in the 'Applicable Territory', which is worldwide excluding the EU, UK, South Korea and USA. Section V.4 says you may not 'use, reproduce, modify, distribute, or display the MiniMax H3 Works or any of their Outputs or results outside the Applicable Territory.' Section IV.2 says commercial products 'shall prominently display \"MiniMax H3\"'. Yearly revenue over $20M needs written permission. The acceptable-use policy does not mention sexual content between adults, but it does ban circumventing safety guardrails.",
+     "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/LICENSE",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Wan 2.2 I2V-A14B is Apache 2.0, with 27B parameters in total and 14B active per step (two experts, high noise and low noise). Defaults are sample_fps=16, frame_num=81 (about 5 s), 40 steps and guide scale 3.5, at 480p or 720p. The official single-GPU command says 80 GB of VRAM.",
+     "source": "https://raw.githubusercontent.com/Wan-Video/Wan2.2/main/wan/configs/shared_config.py",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Wan 2.2 ComfyUI files: the i2v high-noise and low-noise 14B models are 14.29 GB each in fp8_scaled and 28.58 GB each in fp16.",
+     "source": "https://huggingface.co/api/models/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models",
+     "confidence": "verified"
+    },
+    {
+     "fact": "ComfyUI ships an official Wan 2.2 first-last-frame template (WanFirstLastFrameToVideo node, same i2v high/low models).",
+     "source": "https://docs.comfy.org/tutorials/video/wan/wan2_2",
+     "confidence": "verified"
+    },
+    {
+     "fact": "LightX2V benchmark on an RTX 5090: Wan 2.2 I2V at 720p takes 2685 s at 40 steps and 26.7 s with LightWan2.2 at 4 steps; at 480p, 787 s vs 10.7 s. This uses LightX2V's own framework with NVFP4 and sparse attention, so ComfyUI with a LoRA will be slower.",
+     "source": "https://huggingface.co/lightx2v/LightWan2.2-A14B",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Single RTX 5090 (2026-09-11): H3 at 1344x768, 124 frames, 14 steps with Spectrum took 81.22 s end to end, peaking at 31,811 MiB. LTX-2.5 distilled at 1280x704, 121 frames, 8+3 steps took 28.67 s, peaking at 31,736 MiB. The same author reports H3 doing 15 s at 1344x768 in 518 s.",
+     "source": "https://ai-muninn.com/en/blog/ltx25-vs-minimax-h3-rtx5090",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Floyo's vendor test (Aug 2026; one generation per model with no re-rolls; H100; 10 s and 20 s clips) ranked H3 best for motion, fidelity and temporal consistency (fidelity 4/4) vs Wan 2.2 (3/4, 'very stable') and LTX 2.3 (3/4, more background drift). 10 s render times: H3 about 10-14 min, Wan about 18 min, LTX about 8 min.",
+     "source": "https://www.floyo.ai/comparison/minimax-h3-vs-wan-2-2-vs-ltx-2-3",
+     "confidence": "likely"
+    },
+    {
+     "fact": "The DR34ML4Y All-In-One NSFW LoRA (515k downloads) has versions for Wan 2.2, LTX 2.3 and H3 (H3_P1, 2026-10-17, a preview). Its author calls the Wan 2.2 I2V 14B HIGH v2 'the best I2V NSFW experience we've cooked up so far' and warns that turbo LoRAs pull the model away from NSFW concepts.",
+     "source": "https://civitai.com/api/v1/models/1811313",
+     "confidence": "verified"
+    },
+    {
+     "fact": "'Fast FLF Loop Workflow' for H3 (Civitai 2843813, 2026-08-08) loads the same image into both the first-frame and last-frame inputs to make a loop. It cuts steps to 15 and adds Sage Attention and EasyCache. On an RTX 5080 (16 GB) at 1.0 MP: about 337 s for the first run and 234 s back to back. The author suggests bypassing EasyCache for final renders.",
+     "source": "https://civitai.com/api/v1/models/2843813",
+     "confidence": "verified"
+    },
+    {
+     "fact": "An H3 continuation node pack (Herrgotts-H3-Infinite-Continuation-Suite) says FL2VA clips 'almost always end in a locked, barely-moving tail': the model lands on the last frame and holds it. Its defaults are a 12-frame minimum lock and a 3-frame safety margin when cutting.",
+     "source": "https://comfy.icu/node/H3ContinuousAnalyzeHandover",
+     "confidence": "likely"
+    },
+    {
+     "fact": "HunyuanVideo 1.5 (released 2025-11-20): 8.3B parameters, 480p/720p plus 1080p super-resolution, 121 frames by default at 24 fps. Minimum VRAM is 14 GB with offloading. The 480p I2V step-distilled model generates 'within 75 seconds' on an RTX 4090. The model card does not mention first-last-frame. The Tencent Hunyuan Community License excludes the EU, UK and South Korea.",
+     "source": "https://huggingface.co/tencent/HunyuanVideo-1.5",
+     "confidence": "verified"
+    },
+    {
+     "fact": "LTX-2.5 (Lightricks, HF repo created 2026-07-23, 8,628 likes) is a 22B audio-video DiT. The distilled version runs 8 steps at CFG 1, conditioning on a frame index is supported, and frame counts follow 8n+1. Files in ComfyUI int8: transformer 20.03 GiB and Gemma4-12B text encoder 14.32 GiB. The LTX-2.x Community License requires a paid licence at $10M+ revenue and has no clause on sexual content (it bans impersonation and deepfakes).",
+     "source": "https://huggingface.co/Lightricks/LTX-2.5",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The official LTX-2.5 Cinemagraph LoRA (trigger CINEMAGRAPH_MOTION; static camera; seamless loops; 512x704, 25 frames, 30 steps) is explicitly out of scope for character movement. It suits ambient motion like water or neon, not a hand moving.",
+     "source": "https://huggingface.co/Lightricks/LTX-2.5-22b-LoRA-Cinemagraph",
+     "confidence": "verified"
+    },
+    {
+     "fact": "The newest open Wan checkpoints on HF (Wan-AI org) are Wan2.2-Animate-2-14B (2026-07/08) and Wan-Dancer-14B (2026-07-10). There are no open weights for Wan 2.5, 2.6, 2.7 or 3.0. Civitai lists those as base models, but none has any LoRAs.",
+     "source": "https://huggingface.co/api/models?author=Wan-AI&sort=createdAt&direction=-1",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Kandinsky 6.0 (kandinskylab; HF repos created 2026-09-09; MIT) comes as Pro (29-30B) and Lite (3B). It makes 5 s at 24 fps (121 frames), generates at 864x480 with a separate super-resolution step to 1080p, and supports first-frame I2V only. Downloads are a few hundred per repo and there is no NSFW ecosystem.",
+     "source": "https://huggingface.co/kandinskylab/Kandinsky-6.0-Pro-5s-Diffusers",
+     "confidence": "verified"
+    },
+    {
+     "fact": "There are uncensored LTX 2.3 finetunes: TenStrip/LTX2.3-10Eros (bf16 46.14 GB, fp8 29.16 GB, v1-v1.5) and SulphurAI/Sulphur-2-base ('uncensored video generation model based on LTX 2.3', 2026-05-03, 2,183 likes). There are also many H3 hybrids and merges on HF, such as WarmBloodAban/Minimax-h3_Singularity (Ref2VA int8 34.0 GB, pruned w4a8 11.77 GB, about 667k downloads last month).",
+     "source": "https://huggingface.co/api/models?pipeline_tag=text-to-video&sort=likes&direction=-1",
+     "confidence": "verified"
+    },
+    {
+     "fact": "H3 ComfyUI file sizes (Comfy-Org): FL2VA pruned fp8_scaled 20.96 GB, pruned int8 20.97 GB, pruned w6a8 15.98 GB, bf16 66.28 GB. Text encoder in NVFP4 is 15.69 GB, video VAE 5.21 GB, audio VAE 0.61 GB. There is an official FL2V turbo LoRA in 4-step and 8-step versions (1.96 GB).",
+     "source": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/tree/main?recursive=true",
+     "confidence": "verified"
+    },
+    {
+     "fact": "Runpod on-demand pod prices from the pricing page (Community / Secure, $/hr): RTX 4090 24 GB 0.34/0.89; RTX 5090 32 GB 0.69/1.19; L40S 48 GB 0.79/1.09; RTX 6000 Ada 48 GB 0.74/0.99; RTX PRO 6000 96 GB 1.69/2.49; A100 80 GB 1.19-1.39/1.79; H100 SXM 2.69/3.99. The Community figures came from the page's structured data.",
+     "source": "https://www.runpod.io/pricing",
+     "confidence": "likely"
+    },
+    {
+     "fact": "Closed hosted options (footnote only). Civitai's own generator runs H3: a Sep 2026 contest notice put it at half price, 35 Buzz/s Standard and 12 Buzz/s Turbo; I saw this only in a search snippet because the article returned 403. Grok Imagine 'Spicy' mode launched Aug 2025, but secondary sources disagree on whether it was removed or heavily restricted in 2026.",
+     "source": "https://civitai.com/articles/35315",
+     "confidence": "uncertain"
+    }
+   ],
+   "recommendations": [
+    "Keep H3 as the main model. It leads on motion quality, it is where the NSFW community is building (LoRAs, merges, loop workflows), it runs at 24 fps natively and has a first-last-frame mode. 'The only way' is wrong, though: Wan 2.2 I2V-A14B is a mature, Apache-2.0, much faster fallback that runs in the same ComfyUI.",
+    "Before using H3 clips in a game you distribute, check the licence. It does not cover the US, EU, UK or South Korea, Section V.4 also restricts its outputs there, and commercial products must show 'MiniMax H3' in their interface. If the user or their storefront or players are in those regions, Wan 2.2 (Apache 2.0) is the clean choice. HunyuanVideo 1.5 excludes the EU/UK/Korea but not the US. LTX-2.x is free under $10M revenue. This is not legal advice; ask the user where they are.",
+    "For loops, replace the ping-pong splice with H3's first-last-frame mode using the same still as both first and last frame (Civitai 'Fast FLF Loop Workflow', 2843813). Then measure and cut the frozen tail (FL2VA lands on the last frame and holds it), and crossfade about 4-8 frames at the seam to hide VAE colour drift. Alternative: render A→B and B→A as two first-last-frame clips so motion never reverses.",
+    "Try the LoRAs built for this shot type: 'Live Wallpaper Style' (H3 Ref2VA version, also Wan 2.2) and 'Breast Play & Jiggle for MiniMax H3' (v2.0 is first-last-frame). Use turbo LoRAs only for drafts, since the DR34ML4Y author reports they weaken NSFW concepts. Do finals at about 20-30 full steps.",
+    "Run a cheap A/B on the same Runpod pod: the same source still, 4-6 seeds on H3 FL2VA vs Wan 2.2 I2V first-last-frame (fp8 + LightX2V 4-step), judged on subtle hand motion and seam quality at the game's 896x1152 portrait size. Wan's native 16 fps needs frame interpolation (RIFE or the VFI pass the user already used) before encoding to Theora.",
+    "Skip LTX-2.5, HunyuanVideo 1.5 and Kandinsky 6 for this job: little NSFW ecosystem (LTX-2.5 has 43 Civitai LoRAs; Kandinsky has none), no first-last-frame mode (Hunyuan 1.5, Kandinsky), or a cinemagraph LoRA that excludes character motion (LTX). LTX-2.5 is worth keeping in mind only as a fast refiner.",
+    "GPU sizing for comparison: H3 peaks at about 31.8 GB VRAM on a 5090 at 1344x768, which is tight, so a 48 GB L40S or RTX 6000 Ada ($0.74-1.09/hr) gives headroom for the user's 960x704x243-frame, 30-step jobs. Wan 2.2 fp8 (two 14.3 GB experts loaded in turn) fits a 24-32 GB card."
+   ],
+   "unknowns": [
+    "Where the user and their customers are, which decides whether H3's territory exclusion and display requirement apply. Ask the user. A lawyer can settle whether Section V.4 covers distributing outputs (pre-rendered clips in a game).",
+    "Head-to-head quality of H3 vs Wan 2.2 on this exact shot type (static POV, subtle hand motion, explicit, portrait). I found no controlled comparison. Settle it with an A/B of 4-6 seeds per model on one pod using the same source still.",
+    "How long the frozen tail is when H3 FL2VA gets identical first and last frames, and whether the motion goes flat. Settle it by rendering 3 seeds and plotting frame-to-frame pixel difference, or by running the Herrgott handover-analyzer node.",
+    "Real render time for the user's own settings (960x704, 243 frames, 30 steps, res_multistep) on L40S vs 5090 vs H100. Published numbers use different settings (81 s for 124 frames at 14 steps; 518 s for 15 s). A single timed run per GPU type would settle it.",
+    "Whether the Civitai public API undercounts Wan 2.2 LoRAs (it returned only 562 for I2V-A14B, which seems low). The trend is consistent across bases, but absolute totals may need a logged-in API key or the website filters.",
+    "Civitai's current Buzz price and NSFW policy for H3 on its own generator (the article returned 403), and whether Grok Imagine's adult mode still exists in Oct 2026 (sources conflict). Check the pages directly if a hosted fallback matters."
+   ]
+  }
+ ],
+ "critique": {
+  "contradictions": [
+   "THEORA ENCODER. godot-game says to encode with the local ffmpeg and calls it newer than the Feb 20, 2025 Theora fixes. loops says the same gyan.dev 2025-05-15 build writes broken Theora. loops tested it: 118 'error in unpack_block_qpis' errors over 120 frames, against 0 for BtbN n9.0.2. The cause is upstream FFmpeg issue #20185, a Win64 libtheora asm regression that came after February 2025. loops is far better supported. godot-game's encode command is fine, but only with a fixed build.",
+   "FULL vs PRUNED DiT. runpod and civitai recommend downloading the full minimax_h3_fl2va_bf16 (66.28 GB) to a 96 GB RTX PRO 6000 to reproduce the user's Civitai workflow. h3-model says to avoid all full checkpoints because of ComfyUI's 17-frame brightness pulse. h3-model is better supported on the full files: ComfyUI issue #15426 is still OPEN as of 2026-10-20. Its other claim, that pruned files are clean, is weak. It rests on one commenter. The original reporter (2026-08-08, v0.30.0) saw the pulse with the fp8_scaled DiT, which exists only as a pruned file in Comfy-Org, and a second root cause (VAE encode_temporal chunking) has been proposed in the thread.",
+   "H100 TIME PER CLIP. h3-model extrapolates about 3.5-5 min for a 768x1024, 243-frame, 20-step clip on a single H100. alternatives cites Floyo's vendor test: about 10-14 min for a 10 s, 0.9 MP clip on an H100 (Aug 2026, steps and precision not stated). Neither is solid. The 4xH100 vllm-omni CI numbers I found point to about 5-8 min in ComfyUI. h3-model is probably about 1.3-1.6x optimistic, and Floyo probably ran early, slow ComfyUI builds (0.32-0.33 had a known 4x slowdown).",
+   "VRAM vs RAM. alternatives says the 31.8 GB peak on a 5090 is 'tight' and recommends a 48 GB L40S. runpod recommends a 96 GB PRO 6000 so the full bf16 DiT stays resident. h3-model says dynamic VRAM streams weights, so card size mostly sets speed, and that system RAM is the real limit (64 GB+ for the int8 stack). h3-model is better supported: 16 GB and 24 GB cards finish 1 MP / 15 s clips in issues #15665, #16587 and #15263. Nobody checked how much system RAM a Runpod pod gets per GPU.",
+   "ComfyUI VERSION PIN. civitai says to pin 0.36-0.39 because one workflow author says 0.40 'breaks a lot of workflows'. h3-model says 0.38-0.42 with torch 2.12.0+cu130. runpod says to upgrade to at least 0.42.1, and the Hearmeman template ships 0.42.1 with torch 2.11 cu130. The civitai claim is an anecdote about custom-node workflows. h3-model's torch evidence (2.14.1 measured about 3.7x slower than 2.12.0 on a 5090, issue #16150) is stronger. Best supported: 0.42.x on torch 2.11/2.12 cu130, avoiding 2.14.x.",
+   "CIVITAI PRICE. civitai treats 35 Buzz/s standard and 12 Buzz/s turbo as the normal price (about $0.175 per 5 s clip) and builds its break-even of '11 clips/hour on a PRO 6000' on it. alternatives says, from a search snippet, that this is a contest half price. alternatives is right. Civitai article 35315 (2026-09-16, read via civarchive) says: 'Until Friday, October 23, 2026 11:59 PM, H3 (Comfy) generation is 50% off: 35 Buzz per second Standard, 12 Turbo'. From Oct 24 the implied price is 70/24 Buzz/s: about $0.35 per 5 s standard clip and $0.12 turbo. That roughly doubles civitai's cost figures and halves the break-even.",
+   "LICENSE SCOPE ON CIVITAI. civitai says 'Civitai's own allowCommercialUse flags do not override MiniMax's license'. h3-model, runpod and alternatives treat the territory exclusion as binding on any H3 use by a US/EU/UK/Korean user. None of them found that Civitai has its own agreement with MiniMax. Civitai PR #5010 (merged 2026-09-21) changed the site notice to: 'Generation, training and LoRA distribution on Civitai are covered by Civitai's own license agreement with MiniMax. If you download these weights and run them yourself, your use is instead governed by the MiniMax H3 Community License'. So on-site and self-hosted use sit under different terms.",
+   "LOOP BY SAME FIRST/LAST FRAME. h3-model, civitai and loops cite one Civitai workflow (2843813) that says giving the same image as both frames 'loops cleanly'. alternatives cites the Herrgott continuation node pack (comfy.icu description), which says FL2VA clips 'almost always end in a locked, barely-moving tail'. Both are single, unmeasured sources, so this is unresolved and needs a seed test.",
+   "FAST FLF LOOP RESOLUTION. h3-model says the resolution is not stated. loops and alternatives say 1.0 MP. This is minor; the Civitai API description was read differently.",
+   "RTX PRO 6000 STOCK. runpod lists PRO 6000 as LOW in EU-CZ-1, EU-RO-1, US-CO-1, US-NC-2 and US-NE-1. My live read later the same day (list-data-centers / get-gpu-type) shows PRO 6000 Server Edition in EU-CZ-1, EU-NL-1, EU-RO-1, EUR-IS-2, US-MO-2, US-NC-2 and US-PA-1, all LOW. Its CUDA 13.0 hosts were unavailable; only 13.2 was available. Stock changes by the hour, so a network volume pinned to one data center is a real availability risk.",
+   "RUNPOD IMAGE TAGS (internal inconsistency in runpod). It says the floating cuda tags 'stopped at 1.4.7 (2026-08-27)', yet names a 'newer' pinned tag 1.4.1-comfyuiv0.35.0-cuda13.0 dated 2026-10-19, and gives the template image as 1.3.3-comfyuiv0.30.0. The version numbers don't line up. Re-check the tags before pinning one."
+  ],
+  "weak_claims": [
+   "All per-GPU minutes-per-clip figures are extrapolations, not measurements on the target GPU: h3-model's per-GPU table (it says ±40% itself), runpod's '6-10 min per 30-step clip on PRO 6000', which is scaled from one Max-Q card benchmark (ModelsLab HF card), and runpod's '2-3 min with turbo'. No one has a single-GPU ComfyUI H3 s/it measured on an H100, A100, L40S or PRO 6000 Server Edition at the user's settings.",
+   "'Pruned checkpoints are clean of the 17-frame pulse' (h3-model). This rests on one commenter in #15426. The original reporter saw it with the fp8_scaled DiT, which is pruned. The issue is still open, so it matters for loops whichever file is used.",
+   "'$1 = 1,000 Buzz' (civitai). This comes from Green Buzz membership prices. NSFW needs Yellow Buzz, whose price and crypto fee come only from third-party pages (earngenix); civitai.red returned 403. Combined with the promo ending Oct 23, every Civitai cost figure is shaky.",
+   "'Same image as first and last frame loops cleanly'. This is one Civitai workflow description with no measurements. The opposite 'locked tail' claim is one node-pack description. Neither has seam or motion numbers.",
+   "The user's clips came from the FL2VA bf16 primary file. This is inferred from a size match; the hash is still pending on Civitai. Whether those clips show the 17-frame pulse is unknown and was never checked.",
+   "civitai's 'covered:true means runnable on Civitai's generator' reads meaning into an API flag. It was not checked in the generator UI.",
+   "Runpod ToS 'account-termination risk' (runpod). It quotes the literal text correctly, but the wording is framed around Content that is 'posted' or 'made available'. No enforcement against private generation is documented (see gaps_researched).",
+   "Floyo's H100 test (alternatives) used one generation per model with steps and precision not stated. It is a vendor marketing comparison.",
+   "alternatives' Civitai LoRA-count trend (Wan versus H3) uses public API counts that may undercount, as the researcher notes.",
+   "'#106311 colour shift needs sizes in multiples of 16' (godot-game). That 16 is the threshold is inferred, not tested on 4.4.1.",
+   "loops' Theora KiB/s table comes from synthetic stand-in clips, not H3 output. The relative effects (GOP, yuv420p, fps) are solid; the absolute sizes are not.",
+   "runpod's claim that 'ComfyUI 0.30.0 in the official template may mishandle res_multistep audio' is inferred from a commit date (#15243) and was not tested.",
+   "h3-model's 'system RAM ≥64 GB for the int8 stack' is well sourced from issues, but no one checked whether Runpod pods for a given GPU (5090, L40S, PRO 6000) actually get that much RAM. The catalog API (list-gpu-types) returns no RAM field.",
+   "civitai says LoRAs trained on full builds have their adaln tensors skipped on pruned builds. Combined with h3-model's advice to use pruned files, this could weaken NSFW LoRAs such as Mystic XXX and Breast Play & Jiggle. Nobody checked which of the recommended LoRAs include adaln keys."
+  ],
+  "gaps_researched": [
+   {
+    "question": "Does Runpod's ToS actually forbid private adult/NSFW video generation on pods, and is it enforced? (This decides whether Runpod is viable at all.)",
+    "answer": "The literal text bans it; enforcement against private use is not evidenced. Verified: the ToS (Last Updated March 24, 2026), Section 6, lists 'pornography or graphic adult content, images, or other adult products' among unauthorized Content and says 'Postings of any unauthorized products or content may result in immediate termination of your account and a lifetime ban'. Section 7 adds 'Your Content is not obscene, lewd, lascivious ... (as determined by us)'. There is no separate AUP and no 'NSFW' clause.\n\nContext that cuts the other way:\n- The ban is framed around Content 'submitted to', 'posted' on or 'made available' through the Service.\n- Section 2 says 'the Service does not include your applications or Your Content'.\n- Section 7 says Runpod 'will not actively monitor Content'.\n- Section 7 also asks customers to keep 'age-restricted content on our Site' from minors and to stop minors seeing 'harmful or inappropriate material on your site', which assumes such content exists.\n- Runpod's own blog (published 2024-12-03, updated 2026-09-13) spotlights AnonAI, a customer with 'No limits, safeguards, or restrictions in place', and adds '(note: potential adult themes may be displayed, proceed with discretion.)'.\n- Runpod's Hub lists 'MiniMax H3 Uncensored' templates and workers (per the runpod researcher).\n- Runpod's security docs say hosts may not inspect pod data.\n\nI found no report of an account ban for private NSFW generation; Reddit was not reachable, and third-party analyses (cling-ai, now 410) also found no explicit rule.\n\nConclusion (medium confidence): there is a real but unquantified contractual risk, and no evidence of enforcement for private, unpublished generation. To reduce it, never expose outputs on the public port-8188 proxy URL or share links from the pod, pull files down over SSH, and don't publish anything from Runpod. If the user wants certainty, they can ask support for a written answer.",
+    "sources": [
+     "https://www.runpod.io/legal/terms-of-service",
+     "https://www.runpod.io/blog/anonai-private-chatbot-scaling-runpod",
+     "https://docs.runpod.io/references/security-and-compliance",
+     "Runpod MCP search-docs (site namespace, ToS sections 6-7), 2026-10-20"
+    ]
+   },
+   {
+    "question": "License position: how does the H3 territory exclusion apply to self-hosting on Runpod versus generating on Civitai, is there any affordable licensed route for a US/EU/UK/KR user, and which Runpod data centers sit outside the excluded territories?",
+    "answer": "Verified from the LICENSE:\n- The grant is 'Solely within the Applicable Territory'.\n- 'Licensee/you' is 'the natural or legal person exercising rights and/or using the MiniMax H3 Works'.\n- V.4 bars using or displaying Outputs outside the territory.\n- V.2 requires anyone providing a hosted service to bind their users to the same restrictions.\n- Disputes go under Hong Kong law and courts.\nQA-about-License.md does not say how territory is measured (residence, server or display), and offers only 'Organizations in these regions can apply for a formal license', with no price and no path for individuals.\n\nComfy's license page ('Updated August 2026'):\n- Professional costs from $5,000/month, with about 46,250 video-seconds, $0.036/s overage and up to 10 users. Enterprise is by contract.\n- The license 'is for running H3 locally on your own hardware'; rented cloud GPUs are not addressed.\n- Licenses for the US, EU, UK and Korea are acquired through MiniMax.\n- It has no adult-content clause.\n\nNEW, verified in Civitai's own GitHub: Civitai holds a separate agreement with MiniMax. PR #5010 (merged 2026-09-21) sets the site notice to: 'Generation, training and LoRA distribution on Civitai are covered by Civitai's own license agreement with MiniMax. If you download these weights and run them yourself, your use is instead governed by the MiniMax H3 Community License Agreement, whose grant excludes the European Union, the United Kingdom, the Republic of Korea and the United States of America.' PR #6023 (merged 2026-10-15) splits the license panel into 'On Civitai' and 'Downloaded weights'. It says the change is 'Display only' and the 'wording is a placeholder pending sign-off'.\n\nWhat this means for the user (inference, not legal advice):\n- If the user lives in the US, EU, UK or Korea, self-hosting on Runpod is not covered by any free license, wherever the GPU sits. Civitai on-site generation is, by Civitai's account, licensed. The terms of Civitai's agreement are not public, so whether it covers selling a game that contains the outputs is unknown.\n- Whatever the user's location, selling the game to US or EU players runs into V.4 ('display ... Outputs outside the Applicable Territory') on the community-license route.\n- If the user is outside the excluded territories, these Runpod data centers outside the US/EU/UK/KR had relevant GPUs in my live read on 2026-10-20:\n  - EUR-IS-2 (Iceland): RTX PRO 6000, L40S, 4090, all LOW; no network volumes.\n  - EUR-IS-3: H100 SXM; standard volumes.\n  - EUR-IS-4/5: H200.\n  - EUR-NO-1 (Norway): RTX 5090; standard volumes.\n  - CA-MTL-1: H100 SXM; high-performance volumes.\n  - CA-MTL-3: A100.\n  - AP-JP-1: H200.\n  - AP-IN-1: H100.\n  - OC-AU-1: L40S.\nIceland and Norway are in the EEA but not the EU. Whether 'European Union' in the license reaches them is untested.",
+    "sources": [
+     "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/LICENSE",
+     "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/docs/QA-about-License.md",
+     "https://comfy.org/minimax/license",
+     "https://github.com/civitai/civitai/pull/5010",
+     "https://github.com/civitai/civitai/pull/6023",
+     "Runpod MCP list-data-centers include=GPU_AVAILABILITY, 2026-10-20"
+    ]
+   },
+   {
+    "question": "Cost per clip: is Civitai's 35 Buzz/s the normal price, and what does real datacenter-GPU timing look like (to settle the 3.5-5 min vs 10-14 min H100 contradiction)?",
+    "answer": "(a) Civitai: 35 and 12 Buzz/s is a temporary 50% discount. Article 35315, 'Civitai H3 Contest: 2 Million Buzz and Half-Price H3 Generation' (2026-09-16, read via civarchive), says: 'Until Friday, October 23, 2026 11:59 PM, H3 (Comfy) generation is 50% off: 35 Buzz per second Standard, 12 Turbo'. The developer recipe page lists 35/12 without mentioning the promo. Implied full price from Oct 24 is 70 and 24 Buzz/s (my inference): 5 s standard = 350 Buzz (about $0.35 if $1 = 1,000), 5 s turbo = 120 (about $0.12), 10 s standard = 700 (about $0.70). The user's earlier 10 s clip at full price would be about $0.70.\n\n(b) Timing:\n- vllm-omni nightly CI (tests/dfx/perf/tests/test_minimax_h3_vllm_omni.json): 4xH100, full bf16 FL2VA, 1344x768, 209 frames (62,496 video tokens), 8 steps, 24 fps. Baseline end-to-end is 38.1 s at 46.3 GB peak per GPU. The latest run is 50.1 s (2026-10-18, flagged as a 31% regression; issue #9090).\n- HF Comfy-Org discussion #26 (2026-08-16): RTX 5090, ComfyUI 0.33, pruned int8 + nvfp4 text encoder, 1344x768, 56 frames, 20 steps = 48.3 s; 4 turbo steps = 16.2 s.\n- Floyo: H100, 0.9 MP, 10 s = about 10-14 min (Aug 2026, settings unknown).\n\nMy inference from these: a single H100 in an optimized stack runs about 11-14 s per step at 768x1024 / 243 frames (55,296 tokens), and ComfyUI is probably 1.2-1.5x slower. That gives about 5-8 min per 10 s clip at 20 steps, and about 2-3 min per 5 s (124-frame) clip. h3-model's 3.5-5 min is optimistic; Floyo is an upper bound.\n\nCost at today's live prices (H100 PCIe $2.89 secure / $1.99 community; PRO 6000 $2.49 / $1.69; L40S $1.09 / $0.79; RTX 5090 $1.19 / $0.69), counting compute only: a 5 s 20-step clip is about $0.10-0.20 on an H100 PCIe or PRO 6000, against about $0.35 on Civitai after Oct 23. A pod only wins while it is kept busy, because review time between batches is billed. No source gives a success rate, so cost per USABLE clip is still unknown.",
+    "sources": [
+     "https://civarchive.com/articles/35315",
+     "https://developer.civitai.com/orchestration/recipes/minimax-h3-comfy.md",
+     "https://github.com/vllm-project/vllm-omni/blob/aa3fd1d9b7f5c7191dec11975ac0aa7c4c4a18c5/tests/dfx/perf/tests/test_minimax_h3_vllm_omni.json",
+     "https://github.com/vllm-project/vllm-omni/issues/9090",
+     "https://huggingface.co/Comfy-Org/MiniMax-H3/discussions/26",
+     "https://www.floyo.ai/comparison/minimax-h3-vs-wan-2-2-vs-ltx-2-3",
+     "Runpod MCP list-gpu-types, 2026-10-20"
+    ]
+   }
+  ],
+  "still_open": [
+   "Where the user lives and where the game is sold. This single fact decides whether self-hosting H3 is licensed at all. The researchers cannot answer it; ask the user.",
+   "What Civitai's private agreement with MiniMax actually grants: commercial use of outputs, distribution inside a sold game, and US/EU players. PR #6023 calls the notice wording a placeholder pending sign-off. Ask Civitai support, or MiniMax at api@minimax.io.",
+   "Whether MiniMax's excluded-territory application (platform.minimax.io/h3-license) is open to individuals; the QA doc says 'organizations'. Also its price and turnaround.",
+   "System RAM per GPU on Runpod pods (for example, whether an RTX 5090 or L40S pod has 64 GB or more). The catalog API returns no RAM field; check the deploy page or a pod's spec before choosing the card. This decides whether a cheap 5090 pod can run the stack without --fast-disk.",
+   "Real ComfyUI s/it on Runpod GPUs at the user's settings, and whether int8_convrot kernels are accelerated on Hopper (sm90) and Ampere (sm80). One timed session per candidate GPU would settle it.",
+   "Success rate per usable clip. No source publishes one, so cost per USABLE clip, which is what the user cares about, cannot be computed yet.",
+   "Whether the user's two existing Civitai clips show the 17-frame brightness pulse. This can be checked numerically without viewing: ffmpeg -i clip.mp4 -vf signalstats,metadata=print:key=lavfi.signalstats.YAVG -f null - and look for dips every 17 frames. If they are clean, Civitai's pipeline differs from stock ComfyUI. If they pulse, crossfade or loop seams will expose it.",
+   "Whether the recommended NSFW and squeeze LoRAs contain adaln keys that pruned builds drop. This matters if pruned files are used to dodge the pulse.",
+   "Whether using 'uncensored/heretic' text encoders (as in huchukato's worker) counts as 'circumventing safety guardrails' under H3's AUP.",
+   "Same-image first/last loop behaviour: a clean loop, or a frozen tail. This needs a seed test. Cheapest on Civitai turbo before the promo ends Oct 23, otherwise one pod session.",
+   "Current Yellow Buzz price and payment route on civitai.red after Oct 23, 2026 (the page returns 403 to fetchers).",
+   "Whether a network volume is worth it, given PRO 6000 stock moves between data centers within hours and CUDA 13.0 hosts were unavailable on 2026-10-20 (only 13.2)."
+  ]
+ }
+}

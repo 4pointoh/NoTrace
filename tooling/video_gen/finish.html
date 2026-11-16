@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upscale Before and After</title>
+<style>
+:root {
+	--bg: #121316; --panel: #1c1e23; --line: #2c2f36; --text: #e7e8ea; --dim: #9a9ea8;
+	--keep: #3fb26b; --reject: #d9534f; --star: #e3b341; --accent: #6ea8ff; --pick: #b98cff; --warn: #e0913a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 3; background: var(--bg); border-bottom: 1px solid var(--line);
+	padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0; }
+header a { color: var(--accent); }
+.stats { color: var(--dim); }
+button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px;
+	padding: 4px 10px; cursor: pointer; font: inherit; }
+button:disabled { opacity: .45; cursor: default; }
+.filters button.on, .modes button.on, button.toggle.on { border-color: var(--accent); color: var(--accent); }
+main { padding: 8px 16px 60px; }
+.what { color: var(--dim); font-size: 13px; max-width: 980px; margin: 8px 0 4px; }
+section { border-top: 1px solid var(--line); padding: 14px 0 18px; }
+section h2 { font-size: 15px; margin: 0 0 8px; }
+section h2 .sub { color: var(--dim); font-weight: normal; font-size: 12px; margin-left: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.card { background: var(--panel); border: 2px solid var(--line); border-radius: 8px; overflow: hidden; cursor: pointer; }
+.card.waiting { cursor: default; opacity: .6; }
+.card.better { border-color: var(--keep); }
+.card.same { border-color: var(--dim); }
+.card.worse { border-color: var(--reject); }
+.card .frame { position: relative; aspect-ratio: 3 / 4; background: #000; }
+.card .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+.card .frame .state { position: absolute; left: 8px; bottom: 8px; background: rgba(0,0,0,.7); border-radius: 4px;
+	padding: 1px 6px; font-size: 12px; }
+.card .meta { padding: 6px 8px; display: grid; gap: 3px; font-size: 12px; }
+.card .meta b { font-size: 13px; word-break: break-word; }
+.card .meta span { color: var(--dim); }
+.tag { display: inline-block; font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--dim); }
+.tag.loop { border-color: var(--accent); color: var(--accent); }
+.tag.better { border-color: var(--keep); color: var(--keep); }
+.tag.worse { border-color: var(--reject); color: var(--reject); }
+.empty { color: var(--dim); padding: 40px 0; }
+
+/* the comparison, over the page */
+#view { position: fixed; inset: 0; z-index: 10; background: #0b0c0e; display: none; flex-direction: column; }
+#view.open { display: flex; }
+#view .bar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 8px 14px; border-bottom: 1px solid var(--line); }
+#view .bar .name { font-weight: 600; }
+#view .bar .info { color: var(--dim); font-size: 12px; }
+#view .bar .right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+#view .stage { flex: 1; display: flex; gap: 14px; align-items: center; justify-content: center; min-height: 0; padding: 10px; }
+.pane { position: relative; height: 100%; aspect-ratio: 3 / 4; max-width: calc((100vw - 60px) / 2); background: #000; overflow: hidden; }
+#view.single .pane { max-width: calc(100vw - 40px); }
+.pane video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block;
+	transform-origin: var(--ox, 50%) var(--oy, 50%); }
+#view.zoom .pane video { transform: scale(var(--z, 2.5)); }
+.pane .label { position: absolute; top: 8px; z-index: 2; background: rgba(0,0,0,.7); border-radius: 4px; padding: 2px 8px; font-size: 12px; }
+.pane .label.l { left: 8px; } .pane .label.r { right: 8px; }
+.pane .line { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--accent); z-index: 2; pointer-events: none; }
+#view .judge { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 8px 14px 12px; border-top: 1px solid var(--line); }
+#view .judge button.on.better { background: var(--keep); border-color: var(--keep); color: #fff; }
+#view .judge button.on.same { background: var(--dim); border-color: var(--dim); color: #111; }
+#view .judge button.on.worse { background: var(--reject); border-color: var(--reject); color: #fff; }
+#view .judge textarea { flex: 1 1 320px; min-height: 30px; resize: vertical; background: var(--bg); color: var(--text);
+	border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; font: inherit; font-size: 12px; }
+#view .keys { color: var(--dim); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+	<h1>Upscale: before and after</h1>
+	<span class="stats" id="stats"></span>
+	<span class="filters" id="filters">
+		<button data-f="all" class="on">All</button>
+		<button data-f="open">Not judged</button>
+		<button data-f="judged">Judged</button>
+		<button data-f="loops">Loops</button>
+	</span>
+	<a href="/plan">Plan</a>
+	<a href="/redo">Rework before / after</a>
+</header>
+<main>
+	<p class="what">Each clip as it was picked (864×1152, <b>before</b>), next to the version the game now plays
+	(<b>after</b>: SeedVR2 7B, at the art size 1152×1536, with the colours Godot shows). Click a clip to compare it.
+	Side by side, Wipe (move the mouse over the picture) or Flip (click, or F, to swap). Z zooms in where the mouse is.
+	If an upscale looks worse than its clip, mark it and the game can get the original instead.</p>
+	<div id="list"></div>
+</main>
+
+<div id="view">
+	<div class="bar">
+		<span class="name" id="vName"></span>
+		<span class="info" id="vInfo"></span>
+		<span class="right">
+			<span class="modes" id="modes">
+				<button data-m="side">1 Side by side</button>
+				<button data-m="wipe">2 Wipe</button>
+				<button data-m="flip">3 Flip</button>
+			</span>
+			<button class="toggle" id="zoomBtn">Z Zoom</button>
+			<button id="playBtn">Space Pause</button>
+			<button id="prevBtn">← Previous</button>
+			<button id="nextBtn">Next →</button>
+			<button id="closeBtn">Esc Close</button>
+		</span>
+	</div>
+	<div class="stage" id="stage"></div>
+	<div class="judge">
+		<span>The upscaled version is</span>
+		<button class="better" data-v="better">B Better</button>
+		<button class="same" data-v="same">S About the same</button>
+		<button class="worse" data-v="worse">W Worse: keep the original</button>
+		<textarea id="vNote" placeholder="Note (optional)"></textarea>
+		<span class="keys">, . step a frame</span>
+	</div>
+</div>
+
+<script>
+let data = { slots: [], review: {} };
+let filter = 'all';
+let mode = localGet('finish.mode') || 'side';
+let zoom = false;
+let current = null; // the file being compared
+let order = [];     // the files shown, in page order, for previous / next
+let before = null, after = null, syncTimer = null, flipped = false;
+
+function localGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function localSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function el(tag, attrs, ...kids) {
+	const e = document.createElement(tag);
+	for (const [k, v] of Object.entries(attrs || {})) {
+		if (k === 'class') e.className = v; else if (k.startsWith('on')) e[k] = v; else e.setAttribute(k, v);
+	}
+	for (const k of kids) if (k != null) e.append(k);
+	return e;
+}
+function slotName(slot) {
+	return slot.game_art.map(a => a.replace(/^ashely_poker2\//, '').replace(/\.webp$/, '')).join(' = ');
+}
+function verdictOf(f) { return (data.review[f.file] || {}).verdict || ''; }
+
+async function load() {
+	const r = await fetch('/api/finish');
+	data = await r.json();
+	render();
+	if (current) { // keep the open comparison's file fresh (its after may just have arrived)
+		const f = allFiles().find(x => x.file === current.file);
+		if (f && !current.after && f.after) open(f);
+	}
+}
+function allFiles() { return data.slots.flatMap(s => s.files.map(f => Object.assign(f, { slot: s }))); }
+
+function render() {
+	const files = allFiles();
+	const ready = files.filter(f => f.after).length;
+	const judged = files.filter(f => verdictOf(f)).length;
+	const worse = files.filter(f => verdictOf(f) === 'worse').length;
+	document.getElementById('stats').textContent =
+		`${ready} of ${files.length} finished · ${judged} judged` + (worse ? ` · ${worse} worse` : '');
+	const list = document.getElementById('list');
+	list.textContent = '';
+	order = [];
+	for (const slot of data.slots) {
+		const shown = slot.files.filter(f => filter === 'all' || (filter === 'open' && !verdictOf(f))
+			|| (filter === 'judged' && verdictOf(f)) || (filter === 'loops' && f.loop));
+		if (!shown.length) continue;
+		const grid = el('div', { class: 'grid' });
+		for (const f of shown) {
+			order.push(f);
+			const v = verdictOf(f);
+			grid.append(el('div', { class: 'card' + (f.after ? '' : ' waiting') + (v ? ' ' + v : ''),
+				onclick: () => f.after && open(f) },
+				el('div', { class: 'frame' }, el('img', { src: '/' + f.thumb, loading: 'lazy', alt: '' }),
+					el('span', { class: 'state' }, f.after ? 'compare' : 'upscaling…')),
+				el('div', { class: 'meta' },
+					el('b', {}, f.clip),
+					el('span', {}, [f.seconds ? f.seconds + ' s' : '', f.mb ? f.mb + ' MB in game' : ''].filter(Boolean).join(' · ')),
+					el('span', {}, f.loop ? el('span', { class: 'tag loop' }, f.intro ? 'loop, with intro' : 'loop') : el('span', { class: 'tag' }, 'plays once'),
+						' ', v ? el('span', { class: 'tag ' + v }, v) : null))));
+		}
+		list.append(el('section', {}, el('h2', {}, slotName(slot), el('span', { class: 'sub' },
+			slot.files.length > 1 ? `${slot.files.length} picks` : '')), grid));
+	}
+	if (!order.length) list.append(el('div', { class: 'empty' }, 'Nothing here.'));
+}
+
+// ---------------------------------------------------------------- the comparison
+
+function video(src) {
+	const v = el('video', { src: '/' + src, muted: '', loop: '', playsinline: '', preload: 'auto' });
+	v.muted = true;
+	return v;
+}
+function stopVideos() {
+	clearInterval(syncTimer);
+	for (const v of [before, after]) if (v) { v.pause(); v.removeAttribute('src'); v.load(); }
+	before = after = null;
+}
+function open(f) {
+	stopVideos();
+	current = f;
+	flipped = false;
+	document.getElementById('view').classList.add('open');
+	document.getElementById('vName').textContent = `${slotName(f.slot)} · ${f.clip}`;
+	document.getElementById('vInfo').textContent = [f.loop ? (f.intro ? 'loop with intro' : 'loop') : 'plays once',
+		f.seconds && f.seconds + ' s', f.game && 'game file ' + f.game, f.mb && f.mb + ' MB'].filter(Boolean).join(' · ');
+	const r = data.review[f.file] || {};
+	document.getElementById('vNote').value = r.note || '';
+	for (const b of document.querySelectorAll('#view .judge button')) b.classList.toggle('on', b.dataset.v === (r.verdict || ''));
+	before = video(f.before);
+	after = video(f.after);
+	layout();
+	Promise.all([before, after].map(v => new Promise(ok => v.readyState >= 3 ? ok() : v.addEventListener('canplay', ok, { once: true }))))
+		.then(() => { if (before && after) { after.currentTime = before.currentTime = 0; before.play(); after.play(); } });
+	syncTimer = setInterval(sync, 400);
+	updatePlay();
+}
+function close() {
+	stopVideos();
+	current = null;
+	document.getElementById('view').classList.remove('open');
+	document.getElementById('stage').textContent = '';
+}
+function sync() {
+	if (!before || !after || before.paused) return;
+	if (Math.abs(after.currentTime - before.currentTime) > 0.06) after.currentTime = before.currentTime;
+}
+function layout() {
+	// Moving a video to another pane pauses it; one that was playing carries on after.
+	const wasPlaying = before && !before.paused;
+	const view = document.getElementById('view');
+	const stage = document.getElementById('stage');
+	stage.textContent = '';
+	view.classList.toggle('single', mode !== 'side');
+	view.classList.toggle('zoom', zoom);
+	for (const b of document.querySelectorAll('#modes button')) b.classList.toggle('on', b.dataset.m === mode);
+	document.getElementById('zoomBtn').classList.toggle('on', zoom);
+	if (!before) return;
+	const track = pane => pane.addEventListener('mousemove', e => {
+		const box = pane.getBoundingClientRect();
+		const x = (e.clientX - box.left) / box.width, y = (e.clientY - box.top) / box.height;
+		for (const v of [before, after]) { v.style.setProperty('--ox', x * 100 + '%'); v.style.setProperty('--oy', y * 100 + '%'); }
+		if (mode === 'wipe') wipeAt(pane, x);
+	});
+	if (mode === 'side') {
+		const a = el('div', { class: 'pane' }, before, el('span', { class: 'label l' }, 'before'));
+		const b = el('div', { class: 'pane' }, after, el('span', { class: 'label l' }, 'after'));
+		stage.append(a, b);
+		track(a); track(b);
+		after.style.clipPath = '';
+	} else if (mode === 'wipe') {
+		const pane = el('div', { class: 'pane' }, before, after, el('div', { class: 'line' }),
+			el('span', { class: 'label l' }, 'before'), el('span', { class: 'label r' }, 'after'));
+		stage.append(pane);
+		track(pane);
+		wipeAt(pane, 0.5);
+	} else {
+		const pane = el('div', { class: 'pane', onclick: flip }, before, after, el('span', { class: 'label l', id: 'flipLabel' }, ''));
+		stage.append(pane);
+		track(pane);
+		after.style.clipPath = '';
+		showFlip();
+	}
+	if (wasPlaying) { after.currentTime = before.currentTime; before.play().catch(() => {}); after.play().catch(() => {}); }
+}
+function wipeAt(pane, x) {
+	after.style.clipPath = `inset(0 0 0 ${x * 100}%)`;
+	const line = pane.querySelector('.line');
+	if (line) line.style.left = `calc(${x * 100}% - 1px)`;
+}
+function flip() { if (mode !== 'flip') return; flipped = !flipped; showFlip(); }
+function showFlip() {
+	after.style.visibility = flipped ? 'hidden' : 'visible';
+	const label = document.getElementById('flipLabel');
+	if (label) label.textContent = flipped ? 'before' : 'after';
+}
+function togglePlay() {
+	if (!before) return;
+	if (before.paused) { after.currentTime = before.currentTime; before.play(); after.play(); }
+	else { before.pause(); after.pause(); after.currentTime = before.currentTime; }
+	updatePlay();
+}
+function updatePlay() { document.getElementById('playBtn').textContent = before && before.paused ? 'Space Play' : 'Space Pause'; }
+function stepFrame(n) {
+	if (!before) return;
+	before.pause(); after.pause();
+	const t = Math.max(0, before.currentTime + n / 24);
+	before.currentTime = t; after.currentTime = t;
+	updatePlay();
+}
+function move(n) {
+	const i = order.findIndex(f => f.file === current.file);
+	for (let j = i + n; j >= 0 && j < order.length; j += n) if (order[j].after) return open(order[j]);
+}
+async function judge(verdict) {
+	if (!current) return;
+	const r = data.review[current.file] || {};
+	verdict = r.verdict === verdict ? '' : verdict; // a second click takes it back
+	await save({ file: current.file, verdict });
+	for (const b of document.querySelectorAll('#view .judge button')) b.classList.toggle('on', b.dataset.v === verdict);
+}
+async function save(item) {
+	const r = await fetch('/api/finish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item) });
+	if (!r.ok) { alert('Not saved: ' + r.status); return; }
+	data.review[item.file] = Object.assign(data.review[item.file] || {}, item);
+	render();
+}
+
+document.getElementById('filters').onclick = e => {
+	if (!e.target.dataset.f) return;
+	filter = e.target.dataset.f;
+	for (const b of document.querySelectorAll('#filters button')) b.classList.toggle('on', b === e.target);
+	render();
+};
+document.getElementById('modes').onclick = e => { if (e.target.dataset.m) { mode = e.target.dataset.m; localSet('finish.mode', mode); layout(); } };
+document.getElementById('zoomBtn').onclick = () => { zoom = !zoom; layout(); };
+document.getElementById('playBtn').onclick = togglePlay;
+document.getElementById('prevBtn').onclick = () => move(-1);
+document.getElementById('nextBtn').onclick = () => move(1);
+document.getElementById('closeBtn').onclick = close;
+for (const b of document.querySelectorAll('#view .judge button')) b.onclick = () => judge(b.dataset.v);
+document.getElementById('vNote').onchange = e => current && save({ file: current.file, note: e.target.value });
+document.addEventListener('keydown', e => {
+	if (!current || e.target.tagName === 'TEXTAREA') return;
+	const k = e.key.toLowerCase();
+	if (k === 'escape') close();
+	else if (k === ' ') { e.preventDefault(); togglePlay(); }
+	else if (k === '1' || k === '2' || k === '3') { mode = ['side', 'wipe', 'flip'][+k - 1]; localSet('finish.mode', mode); layout(); }
+	else if (k === 'z') { zoom = !zoom; layout(); }
+	else if (k === 'f') flip();
+	else if (k === 'arrowleft') move(-1);
+	else if (k === 'arrowright') move(1);
+	else if (k === ',') stepFrame(-1);
+	else if (k === '.') stepFrame(1);
+	else if (k === 'b') judge('better');
+	else if (k === 's') judge('same');
+	else if (k === 'w') judge('worse');
+});
+load();
+setInterval(() => { if (!document.hidden) load(); }, 30000);
+</script>
+</body>
+</html>

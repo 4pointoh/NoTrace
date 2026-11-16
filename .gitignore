@@ -13,3 +13,9 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Python caches (tooling/)
+__pycache__/
+
+# Affinity Photo's lock files, left while a file is open
+*~lock~

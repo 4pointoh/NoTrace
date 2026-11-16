@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=10 format=3]
+
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/amy_meetup_intro/d_amy_meetup_intro.tres" id="dialogue"]
+[ext_resource type="Resource" path="res://data/game_stages/dates/amy_meetup_date/gs_amy_meetup_date.tres" id="date"]
+[ext_resource type="Texture2D" uid="uid://ce8ohyf43o75i" path="res://data/assets/stage_art/poker_hall.png" id="button"]
+[ext_resource type="Texture2D" uid="uid://bb2ohpt8wrurh" path="res://data/assets/stage_art/poker_hall_hover.png" id="buttonHover"]
+[ext_resource type="AudioStream" uid="uid://c0oxbg76msm8o" path="res://data/assets/general/sounds/phone_music/Side Street.mp3" id="music"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/amy_meetup_intro/reveal_amy_meetup.tres" id="reveal"]
+
+[sub_resource type="Resource" id="start"]
+script = ExtResource("bg")
+name = "home"
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.webp"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "amy_meetup_intro"
+displayName = "Amy Meetup - Intro"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("date")
+isCompletable = false
+startingBackground = SubResource("start")
+repositionDialogueBoxTo = 5
+isLandscape = false
+reveal = ExtResource("reveal")
+startingMusic = ExtResource("music")
+stageButtonTexture = ExtResource("button")
+stageButtonHover = ExtResource("buttonHover")
+stageButtonLabel = "Amy - Meetup"

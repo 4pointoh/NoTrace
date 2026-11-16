@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3]
+
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/amy_meetup_after/d_amy_meetup_after.tres" id="dialogue"]
+[ext_resource type="Resource" uid="uid://ba44jtm247lwj" path="res://data/game_stages/special/phone/gs_phone.tres" id="phone"]
+
+[sub_resource type="Resource" id="start"]
+script = ExtResource("bg")
+name = "amy_meetup_AFTER_CLOSE"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/AFTER_CLOSE.png"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "amy_meetup_after"
+displayName = "Amy Meetup - After"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("phone")
+isCompletable = true
+startingBackground = SubResource("start")
+markStagesCompleteOnSceneEnd = Array[String](["amy_meetup_intro"])
+repositionDialogueBoxTo = 5
+isLandscape = true

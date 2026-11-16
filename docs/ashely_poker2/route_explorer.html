@@ -1,0 +1,1474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashely II Routes</title>
+<!--
+  Ashely Poker II's race, to click through: the stake menus, what each choice leads to, every scene
+  and ending, and what you have seen so far. The rules are a copy of
+  data/scripts/ashely_poker2/ashely2_race.gd (between ENGINE START and ENGINE END below); keep the two
+  in step. The pictures come straight from the game's folders (data/background_lists/ashely_poker2/),
+  so open this file where it is, in the project. What you have seen is kept in this browser.
+-->
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f3efe6; --panel: #fffdf8; --panel-2: #f1ebdf; --ink: #1c2321; --ink-2: #5d6965; --line: #ded5c4;
+  --accent: #1f8a7e; --accent-ink: #ffffff;
+  --shadow: 0 1px 2px rgb(0 0 0 / .05), 0 10px 28px rgb(60 45 15 / .07);
+  --strip: #1f9a8c; --sexy: #d8466e; --love: #c98410; --mr: #7258d8; --her: #4170d0; --end: #6e7c78; --good: #2f8f55;
+  --seen-bg: #e2f2e7; --seen-ink: #1f6b3f; --veil: rgb(18 22 20 / .9);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0e1214; --panel: #161c1f; --panel-2: #1d2529; --ink: #ecf0ee; --ink-2: #93a19c; --line: #2a3438;
+    --accent: #3cc2b1; --accent-ink: #062420;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 32px rgb(0 0 0 / .35);
+    --strip: #3cc2b1; --sexy: #f0628a; --love: #f0b04a; --mr: #9d85f5; --her: #6e97f0; --end: #8d9b97; --good: #4cc27c;
+    --seen-bg: #173222; --seen-ink: #8fe0ad; --veil: rgb(4 6 6 / .92);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e1214; --panel: #161c1f; --panel-2: #1d2529; --ink: #ecf0ee; --ink-2: #93a19c; --line: #2a3438;
+  --accent: #3cc2b1; --accent-ink: #062420;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 32px rgb(0 0 0 / .35);
+  --strip: #3cc2b1; --sexy: #f0628a; --love: #f0b04a; --mr: #9d85f5; --her: #6e97f0; --end: #8d9b97; --good: #4cc27c;
+  --seen-bg: #173222; --seen-ink: #8fe0ad; --veil: rgb(4 6 6 / .92);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+button { font: inherit; color: inherit; }
+.serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif; }
+.muted { color: var(--ink-2); }
+.mono { font-family: Consolas, "SF Mono", Menlo, monospace; font-size: 12px; }
+
+/* --- header */
+header {
+  position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+}
+.bar { max-width: 1320px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.brand { display: flex; flex-direction: column; line-height: 1.15; }
+.brand b { font-size: 20px; font-weight: 600; letter-spacing: .2px; }
+.brand span { font-size: 12px; color: var(--ink-2); }
+.tabs { display: flex; gap: 4px; background: var(--panel-2); padding: 4px; border-radius: 12px; }
+.tab { border: 0; background: transparent; padding: 7px 14px; border-radius: 9px; cursor: pointer; color: var(--ink-2); font-weight: 600; }
+.tab[aria-selected="true"] { background: var(--panel); color: var(--ink); box-shadow: var(--shadow); }
+.tab small { font-weight: 500; opacity: .8; margin-left: 4px; }
+@media (max-width: 700px) { header { position: static; } }
+.proposals { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px; }
+.proposals > span { color: var(--ink-2); font-size: 12px; text-transform: uppercase; letter-spacing: .8px; }
+.switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+.switch input { appearance: none; width: 34px; height: 20px; border-radius: 20px; background: var(--line); position: relative; margin: 0; cursor: pointer; transition: background .15s; flex: none; }
+.switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--panel); transition: left .15s; box-shadow: 0 1px 2px rgb(0 0 0 / .3); }
+.switch input:checked { background: var(--mr); }
+.switch input:checked::after { left: 17px; }
+.switch input:focus-visible { outline: 2px solid var(--mr); outline-offset: 2px; }
+.switch select { font: inherit; font-size: 13px; color: var(--ink); background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 3px 6px; cursor: pointer; }
+.switch select:focus-visible { outline: 2px solid var(--mr); outline-offset: 2px; }
+
+main { max-width: 1320px; margin: 0 auto; padding: 18px 16px 60px; }
+.banner { background: color-mix(in srgb, var(--sexy) 14%, var(--panel)); border: 1px solid color-mix(in srgb, var(--sexy) 40%, var(--line)); padding: 10px 14px; border-radius: 12px; margin-bottom: 16px; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+.pad { padding: 20px; }
+h2 { margin: 0 0 4px; font-size: 26px; font-weight: 600; }
+h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .9px; color: var(--ink-2); font-weight: 700; }
+p { margin: 0 0 10px; }
+
+.btn {
+  border: 1px solid var(--line); background: var(--panel-2); padding: 9px 16px; border-radius: 11px; cursor: pointer;
+  font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: transform .08s, background .15s, border-color .15s;
+}
+.btn:hover { border-color: color-mix(in srgb, var(--ink) 30%, var(--line)); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible, .opt:focus-visible, .node:focus-visible, .hist button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.her { background: var(--her); border-color: var(--her); color: #fff; }
+.btn.ghost { background: transparent; }
+.btn.small { padding: 5px 10px; font-size: 13px; border-radius: 9px; }
+.btn[disabled] { opacity: .45; cursor: default; }
+
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; letter-spacing: .3px; padding: 2px 8px; border-radius: 99px; background: var(--panel-2); color: var(--ink-2); white-space: nowrap; }
+.pill.new { background: color-mix(in srgb, var(--love) 22%, var(--panel)); color: var(--love); }
+.pill.seen { background: var(--seen-bg); color: var(--seen-ink); }
+.pill.proposal { background: color-mix(in srgb, var(--mr) 18%, var(--panel)); color: var(--mr); }
+.pill.warn { background: color-mix(in srgb, var(--sexy) 16%, var(--panel)); color: var(--sexy); }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; background: var(--end); }
+.c-strip { --c: var(--strip); } .c-sexy { --c: var(--sexy); } .c-love { --c: var(--love); } .c-mr { --c: var(--mr); }
+.c-her { --c: var(--her); } .c-end { --c: var(--end); } .c-start { --c: var(--accent); }
+.dot[class*="c-"] { background: var(--c); }
+.pill.ladder { background: color-mix(in srgb, var(--c) 16%, var(--panel)); color: var(--c); }
+
+/* pictures */
+.pic { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; background: var(--panel-2); }
+.noart {
+  width: 100%; height: 100%; display: grid; place-items: center; text-align: center; padding: 8px;
+  background: repeating-linear-gradient(135deg, var(--panel-2) 0 10px, color-mix(in srgb, var(--panel-2) 70%, var(--line)) 10px 20px);
+  color: var(--ink-2); font-size: 12px; font-weight: 600;
+}
+
+/* --- play */
+.play { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 20px; align-items: start; }
+@media (max-width: 960px) { .play { grid-template-columns: minmax(0, 1fr); } }
+.stagehead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-bottom: 4px; }
+.kicker { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--c, var(--ink-2)); }
+.match { display: grid; grid-template-columns: minmax(180px, 300px) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 640px) { .match { grid-template-columns: minmax(0, 1fr); } }
+.frame { aspect-ratio: 3 / 4; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); position: relative; background: var(--panel-2); }
+.score { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; align-items: center; margin: 14px 0 18px; }
+.pips { display: flex; gap: 6px; }
+.pip { width: 26px; height: 8px; border-radius: 8px; background: var(--line); }
+.pip.on { background: var(--c); }
+.choices { display: grid; gap: 10px; }
+.choice { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.choice .hint { font-size: 13px; color: var(--ink-2); }
+
+.menu { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 14px; }
+.opt {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; text-align: left; cursor: pointer;
+  border: 1px solid var(--line); border-left: 4px solid var(--c); background: var(--panel); border-radius: 14px; padding: 10px; transition: transform .1s, box-shadow .15s, border-color .15s;
+}
+.opt:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--c) 50%, var(--line)); border-left-color: var(--c); }
+.opt .thumb { width: 96px; aspect-ratio: 3 / 4; border-radius: 9px; overflow: hidden; }
+.opt .label { display: block; font-size: 17px; font-weight: 600; line-height: 1.25; margin: 2px 0 4px; }
+.opt .plays { display: block; font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }
+.opt .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.opt .tags .pill { white-space: normal; }
+.opt.mystery { cursor: default; }
+.opt.mystery:hover { transform: none; box-shadow: none; border-color: var(--line); border-left-color: var(--c); }
+.opt.mystery .noart { font-size: 40px; font-family: Georgia, serif; }
+.unlock { padding: 10px 0; border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+.unlockhead { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.need { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; align-items: center; margin-top: 4px; }
+.req { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; align-items: start; text-align: left; border: 0; background: none; padding: 4px; border-radius: 8px; cursor: pointer; font-size: 13px; color: var(--ink-2); }
+.req:hover { background: var(--panel-2); }
+.req.done { color: var(--ink); }
+.req .box { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+.req.done .box { background: var(--good); border-color: var(--good); color: #fff; }
+.lastcall { margin-top: 14px; padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--love) 12%, var(--panel)); border: 1px solid color-mix(in srgb, var(--love) 35%, var(--line)); font-size: 14px; }
+details.off { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; }
+details.off summary { cursor: pointer; font-weight: 600; color: var(--ink-2); }
+.offlist { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
+.offlist li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: baseline; font-size: 14px; }
+.offlist li.out { opacity: .6; }
+.offlist .why { color: var(--ink-2); }
+
+/* a scene: its picture large on the left, what it is and what comes next on the right */
+.scene { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(250px, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 760px) { .scene { grid-template-columns: minmax(0, 1fr); } }
+.scene .info { display: grid; gap: 4px; align-content: start; }
+.big { position: relative; width: min(100%, calc((100vh - 150px) * 3 / 4)); margin: 0 auto; }
+.big .frame { cursor: zoom-in; }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 6px; margin: 8px 0 4px; }
+.thumbs button { aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 2px solid transparent; padding: 0; cursor: pointer; background: var(--panel-2); opacity: .65; }
+.thumbs button.on { border-color: var(--accent); opacity: 1; }
+.thumbs button:hover { opacity: 1; }
+.big .pic { object-fit: contain; object-position: center; }
+.navbtn {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgb(0 0 0 / .45); color: #fff; font-size: 22px; line-height: 40px; display: grid; place-items: center;
+}
+.navbtn.prev { left: 10px; } .navbtn.next { right: 10px; }
+.count { position: absolute; bottom: 10px; right: 10px; background: rgb(0 0 0 / .55); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 99px; }
+.strip { display: flex; gap: 6px; overflow-x: auto; padding: 4px 2px 8px; scrollbar-width: thin; }
+.strip button { flex: none; width: 58px; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 2px solid transparent; padding: 0; cursor: pointer; background: var(--panel-2); opacity: .7; }
+.strip button.on { border-color: var(--accent); opacity: 1; }
+.strip button:hover { opacity: 1; }
+.foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.runchips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.outcome { margin: 12px 0; padding: 12px 14px; border-radius: 12px; background: var(--panel-2); }
+
+/* sidebar */
+.side { display: grid; gap: 14px; }
+.side .card { padding: 16px; }
+.status { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.status .num { font-size: 28px; font-weight: 600; line-height: 1; }
+.status .num small { font-size: 14px; color: var(--ink-2); font-weight: 500; }
+.ladders { display: grid; gap: 12px; }
+.lrow .lname { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+.lrow .lname small { color: var(--ink-2); font-weight: 600; margin-left: auto; }
+.nodes { display: flex; align-items: flex-start; position: relative; }
+.nodes::before { content: ""; position: absolute; left: 22px; right: 22px; top: 21px; height: 2px; background: var(--line); }
+.node { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; background: none; border: 0; padding: 0; cursor: pointer; position: relative; min-width: 0; }
+.node .ring { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--line); background: var(--panel-2); position: relative; }
+.node .ring .pic { object-position: center 18%; }
+.node .ring .noart { font-size: 0; }
+.node .cap { font-size: 10.5px; line-height: 1.15; color: var(--ink-2); text-align: center; max-width: 72px; }
+.node.taken .ring { border-color: var(--c); box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 30%, transparent); }
+.node.taken .cap { color: var(--ink); font-weight: 600; }
+.node.next .ring { border: 2px dashed var(--c); animation: glow 1.8s ease-in-out infinite; }
+.node.later .ring { opacity: .8; }
+.node.out .ring { filter: grayscale(1); opacity: .3; }
+.node.out .cap { text-decoration: line-through; opacity: .6; }
+.node .tick { position: absolute; top: -2px; right: calc(50% - 26px); width: 16px; height: 16px; border-radius: 50%; background: var(--c); color: #fff; font-size: 10px; display: grid; place-items: center; font-weight: 800; }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 0%, transparent); } 50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--c) 28%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .node.next .ring { animation: none; } .opt, .btn { transition: none; } }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 11.5px; color: var(--ink-2); margin-top: 10px; }
+.hist { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: h; }
+.hist button { width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; border-radius: 9px; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; align-items: center; font-size: 13.5px; }
+.hist button:hover { background: var(--panel-2); }
+.hist button.on { background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
+.hist .when { color: var(--ink-2); font-size: 11.5px; }
+
+/* --- scenes */
+.progress { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 18px; }
+.meter { flex: 1 1 260px; height: 10px; border-radius: 10px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--good); border-radius: 10px; }
+.filters { display: flex; gap: 6px; }
+.filters .btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.group { margin: 26px 0 10px; display: flex; align-items: baseline; gap: 10px; }
+.group h3 { margin: 0; color: var(--c); }
+.group span { font-size: 13px; color: var(--ink-2); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 14px; }
+.scard { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; border-top: 3px solid var(--c); }
+.scard .cover { aspect-ratio: 3 / 4; position: relative; cursor: zoom-in; border: 0; padding: 0; background: var(--panel-2); width: 100%; display: block; }
+.scard.unseen .cover .pic { filter: grayscale(.85) brightness(.75); }
+.scard.unseen .cover:hover .pic { filter: none; }
+.scard .flag { position: absolute; top: 8px; left: 8px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.scard .body { padding: 10px 12px 12px; display: grid; gap: 4px; flex: 1; align-content: start; }
+.scard .t { font-weight: 600; line-height: 1.25; }
+.scard .reach { font-size: 12px; color: var(--ink-2); }
+.scard .act { margin-top: 6px; }
+.grid.removed .scard { opacity: .5; }
+
+/* --- routes */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px; }
+.stat { padding: 14px 16px; }
+.stat b { display: block; font-size: 28px; font-weight: 600; line-height: 1.1; }
+.stat span { font-size: 13px; color: var(--ink-2); }
+.endings { display: grid; gap: 12px; }
+.ending { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 12px; border-left: 4px solid var(--c); }
+@media (max-width: 640px) { .ending { grid-template-columns: 64px minmax(0, 1fr); } .ending .go { grid-column: 1 / -1; } }
+.ending .thumb { aspect-ratio: 3 / 4; border-radius: 9px; overflow: hidden; border: 0; padding: 0; cursor: zoom-in; width: 100%; }
+.share { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-2); margin: 4px 0 8px; }
+.share .meter { flex: 0 1 220px; height: 7px; }
+.share .meter i { background: var(--c); }
+.sets { display: flex; flex-wrap: wrap; gap: 6px; }
+.set { display: inline-flex; flex-wrap: wrap; gap: 3px; align-items: center; padding: 3px 6px; border-radius: 9px; background: var(--panel-2); font-size: 12px; }
+.set em { font-style: normal; color: var(--ink-2); margin-left: 4px; }
+.chip { display: inline-block; padding: 1px 7px; border-radius: 7px; font-size: 12px; font-weight: 600; background: color-mix(in srgb, var(--c) 17%, var(--panel)); color: var(--c); }
+.freq { display: grid; gap: 6px; }
+.frow { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr) 64px; gap: 12px; align-items: center; font-size: 13.5px; }
+@media (max-width: 640px) { .frow { grid-template-columns: minmax(0, 1fr) 56px; } .frow .meter { display: none; } }
+.frow .meter { height: 8px; }
+.frow .meter i { background: var(--c); }
+.frow .pct { text-align: right; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.explain { max-width: 820px; color: var(--ink-2); margin-bottom: 18px; }
+
+/* --- lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--veil); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 8px; padding: 14px; color: #fff; }
+.lightbox[hidden] { display: none; }
+.lightbox .top { display: flex; align-items: center; gap: 12px; max-width: 1100px; width: 100%; margin: 0 auto; }
+.lightbox .top b { font-size: 17px; }
+.lightbox .top .btn { margin-left: auto; background: rgb(255 255 255 / .12); border-color: transparent; color: #fff; }
+.lightbox .stage { position: relative; display: grid; place-items: center; min-height: 0; }
+.lightbox .stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; }
+.lightbox .stage .noart { max-width: 360px; aspect-ratio: 3 / 4; height: auto; border-radius: 10px; }
+.lightbox .strip { justify-content: center; max-width: 1100px; width: 100%; margin: 0 auto; }
+</style>
+</head>
+<body>
+<header><div class="bar" id="bar"></div></header>
+<main id="main"></main>
+<div class="lightbox" id="lightbox" hidden></div>
+
+<script>
+'use strict';
+
+// ENGINE START
+// A copy of data/scripts/ashely_poker2/ashely2_race.gd. A race is its story flags, as the game keeps
+// them; `finalStake` is only for the proposed BJ ending (the game would keep it as a flag too).
+const PICK = 'ashely2_race_pick_';
+const PUNISHMENT = 'ashely2_race_punishment_';
+const BRA_SIZE_TRUTH = 'ashely2_race_bra_size_truth';
+const STAKES_TO_FINISH = 4;
+const STRIP = [['S1_TOP', 'Your top comes off'], ['S2_WALK', 'Walk around the park, topless'], ['S3_SHORTS', 'Your shorts come off'], ['S4_PANTIES', 'Your panties come off']];
+const SEXY = [['X1_BUTT', 'Let me touch your butt'], ['X2_BREAST', 'Let me touch your breasts'], ['X3_BJ', 'A blowjob'], ['X4_SEX', 'Sex']];
+const LOVE = [['L1_TRUTH', 'Tell me a truth'], ['L2_NICE', 'Say two nice things about me'], ['L3_SMILE', 'Show me a real smile'], ['L4_KISS', 'A real kiss']];
+// Proposed: the blowjob becomes the sexy finale, and the sex scene goes.
+const SEXY_BJ_FINALE = [['X1_BUTT', 'Let me touch your butt'], ['X2_BREAST', 'Let me touch your breasts'], ['X3_UNDER', 'Let me touch you under your clothes'], ['X4_BJ', 'A blowjob']];
+
+function newRace() {
+  return { flags: new Set(), finalStake: '' };
+}
+
+// rules: the proposals. In the game since 2026-10-19 (ashely2_race.gd): bj 'unlocks', love and outfits
+// (IN_GAME_RULES); the MR1 follow-up menu (mr1) is not.
+//   bj: 'last' (the blowjob is an ending when it is your last stake), 'finale' (SEXY_BJ_FINALE), or
+//       'finale2' (the same, but once her top is off, rung 3 is her topless blowjob, which ends the race),
+//       or 'unlocks' (like 'finale2', but the sex scene and the topless blowjob are finales unlocked
+//       across races: rules.unlocked = { sex, toplessBlowjob })
+//   love: "two nice things" isn't offered beside an MR1 kiss
+//   outfits: scenes play the version for what she's wearing (the sorter's lanes from 2026-10-14):
+//            "kiss my ass" dressed, nice things and the smile topless, the truth in her panties
+//   mr1: the MR1 follow-up menu
+function makeEngine(rules = {}) {
+  const sexy = ['finale', 'finale2', 'unlocks'].includes(rules.bj) ? SEXY_BJ_FINALE : SEXY;
+  const unlocked = rules.unlocked || {};
+  const picked = (s, option) => s.flags.has(PICK + option);
+  const punished = (s, punishment) => s.flags.has(PUNISHMENT + punishment);
+  const countStartingWith = (s, prefix) => {
+    let n = 0;
+    for (const flag of s.flags) if (flag.startsWith(prefix)) n++;
+    return n;
+  };
+  const yourWins = s => countStartingWith(s, PICK);
+  const herWins = s => countStartingWith(s, PUNISHMENT);
+  const isOver = s => yourWins(s) >= STAKES_TO_FINISH || herWins(s) >= STAKES_TO_FINISH;
+  const appearance = s => picked(s, 'S4_PANTIES') ? 'NAKED' : picked(s, 'S3_SHORTS') ? 'PANTIES' : picked(s, 'S1_TOP') ? 'TOP_OFF' : 'DRESSED';
+  const withFlags = (s, ...flags) => {
+    const next = { flags: new Set(s.flags), finalStake: s.finalStake };
+    for (const flag of flags) next.flags.add(flag);
+    return next;
+  };
+
+  // The scene a stake plays, for what she has on. Mini-route 3: the first touch you ask for after
+  // the dick pic is hers instead.
+  function stakeKey(s, option) {
+    if (['X1_BUTT', 'X2_BREAST', 'X3_UNDER'].includes(option) && punished(s, 'P2') && !picked(s, 'MR3_INSPECT')) return 'WIN_MR3_INSPECT';
+    switch (option) {
+      case 'X1_BUTT': return 'WIN_X1_BUTT__' + appearance(s);
+      case 'X2_BREAST': case 'X3_BJ': return `WIN_${option}__${picked(s, 'S1_TOP') ? 'TOP_OFF' : 'DRESSED'}`;
+      case 'X4_SEX': return 'WIN_X4_SEX__DRESSED';
+      case 'X3_UNDER': return 'WIN_X3_UNDER__' + (picked(s, 'S1_TOP') ? 'TOP_OFF' : 'DRESSED');
+      case 'X4_BJ': return 'WIN_X4_BJ';
+      case 'L1_TRUTH':
+        // Proposed: in her panties (always your 4th stake), the truth is "ever had sex in a park?".
+        if ((rules.bj === 'unlocks' || rules.outfits) && appearance(s) === 'PANTIES') return 'WIN_L1_TRUTH__PANTIES';
+        return 'WIN_L1_TRUTH__' + (picked(s, 'S1_TOP') ? 'TOP_OFF' : 'DRESSED');
+      case 'L2_NICE': case 'L3_SMILE':
+        // Proposed: their topless versions.
+        if (rules.outfits && appearance(s) !== 'DRESSED') return `WIN_${option}__TOP_OFF`;
+        break;
+    }
+    return 'WIN_' + option;
+  }
+
+  // The stake menu after a match you won, in the game's order: [{ key, label, option }].
+  function stakeMenu(s) {
+    const win = yourWins(s) + 1;
+    if (rules.mr1 && win === 4 && picked(s, 'MR1_KISS') && !picked(s, 'S3_SHORTS')) {
+      return [
+        { key: 'WIN_MR1_FINGER', label: 'Kiss me like you mean it', option: 'MR1_FINGER' },
+        { key: 'WIN_MR1_NICE', label: 'Say two nice things about me', option: 'MR1_NICE' },
+        { key: 'WIN_S3_SHORTS', label: 'Your shorts come off', option: 'S3_SHORTS' },
+      ];
+    }
+    const menu = [];
+    for (const ladder of [STRIP, sexy, LOVE]) {
+      for (const [option, label] of ladder) {
+        if (!picked(s, option)) {
+          if (toplessBlowjob(s, option)) menu.push({ key: 'WIN_X3_BJ__TOP_OFF', label: 'A blowjob', option: 'X3_BJ' });
+          else menu.push({ key: stakeKey(s, option), label, option });
+          break;
+        }
+      }
+    }
+    // Mini-route 1: topless, shorts still on, after she answered the bra-size truth.
+    if (win === 3 && picked(s, 'S1_TOP') && !picked(s, 'S3_SHORTS') && s.flags.has(BRA_SIZE_TRUTH)) menu.push({ key: 'WIN_MR1_KISS', label: 'Kiss me', option: 'MR1_KISS' });
+    if (win === 4 && picked(s, 'MR1_KISS') && !picked(s, 'S3_SHORTS')) menu.push({ key: 'WIN_MR1_FINGER', label: 'Kiss me like you mean it', option: 'MR1_FINGER' });
+    // Proposed: once unlocked, the sex scene is a second sexy finale beside the blowjob.
+    const blowjob = menu.findIndex(entry => entry.option === 'X4_BJ');
+    if (rules.bj === 'unlocks' && unlocked.sex && blowjob >= 0) menu.splice(blowjob + 1, 0, { key: 'WIN_X4_SEX__DRESSED', label: 'Sex', option: 'X4_SEX' });
+    if (rules.love && menu.some(entry => entry.option.startsWith('MR1_'))) return menu.filter(entry => entry.option !== 'L2_NICE');
+    return menu;
+  }
+
+  // Proposed: once her top is off, the sexy ladder's third rung is her topless blowjob. It is always
+  // your 4th stake (her top, the butt and the breasts came first), so it ends the race on itself.
+  function toplessBlowjob(s, option) {
+    return (rules.bj === 'finale2' || (rules.bj === 'unlocks' && unlocked.toplessBlowjob)) && option === 'X3_UNDER' && picked(s, 'S1_TOP');
+  }
+
+  function takeStake(s, key) {
+    const option = key.replace(/^WIN_/, '').split('__')[0];
+    const next = withFlags(s, PICK + option);
+    if (option === 'L1_TRUTH' && picked(s, 'S1_TOP')) next.flags.add(BRA_SIZE_TRUTH);
+    if (rules.bj === 'last' && yourWins(next) >= STAKES_TO_FINISH) next.finalStake = key;
+    return next;
+  }
+
+  function punishmentKey(s) {
+    switch (herWins(s) + 1) {
+      case 1:
+        // Proposed: a dressed version (the shorts-on pictures show her topless).
+        if (rules.outfits && appearance(s) === 'DRESSED') return 'LOSE_P1_ASS_KISS__DRESSED';
+        return 'LOSE_P1_ASS_KISS__' + (picked(s, 'S3_SHORTS') ? 'SHORTS_OFF' : 'SHORTS_ON');
+      case 2: return 'LOSE_P2_DICK_PIC';
+      case 3: return picked(s, 'S2_WALK') ? 'LOSE_P3A_YOUR_WALK' : 'LOSE_P3B_BENCH_GIRL';
+    }
+    return '';
+  }
+
+  // A match she won: her punishment and the race after it, or, on her fourth win, your forfeit
+  // (key '': the ending plays next).
+  function loseMatch(s) {
+    if (herWins(s) + 1 >= STAKES_TO_FINISH) return { key: '', state: withFlags(s, PUNISHMENT + 'P4_FORFEIT') };
+    const key = punishmentKey(s);
+    return { key, state: withFlags(s, PUNISHMENT + key.split('_')[1]) };
+  }
+
+  function endingKey(s) {
+    if (herWins(s) >= STAKES_TO_FINISH) return 'FORFEIT_NAKED_RUN__' + (picked(s, 'S1_TOP') ? 'TOP_OFF' : 'DRESSED');
+    if (picked(s, 'S4_PANTIES')) return 'FINAL__NAKED';
+    // A finished ladder's last scene was the finale already: she forfeits over its picture.
+    for (const finale of ['X4_SEX', 'X4_BJ', 'L4_KISS', 'MR1_FINGER']) if (picked(s, finale)) return 'THE_END__' + finale;
+    if (rules.bj === 'last' && s.finalStake.startsWith('WIN_X3_BJ__')) return 'THE_END__' + s.finalStake.replace(/^WIN_/, '');
+    if ((rules.bj === 'finale2' || rules.bj === 'unlocks') && picked(s, 'X3_BJ')) return 'THE_END__X3_BJ__TOP_OFF';
+    return 'FINAL__' + appearance(s);
+  }
+
+  // What the race leaves behind: that you won it, and the bench girl's number if you met her.
+  function outcome(s) {
+    const won = yourWins(s) >= STAKES_TO_FINISH;
+    return { won, benchGirl: won && punished(s, 'P3B') };
+  }
+
+  // One match: { t: 'win', key } (the stake you picked) or { t: 'lose' }. Null if not allowed.
+  function apply(s, action) {
+    if (isOver(s)) return null;
+    if (action.t === 'win') {
+      const item = stakeMenu(s).find(entry => entry.key === action.key);
+      return item ? { state: takeStake(s, action.key), scene: action.key, item } : null;
+    }
+    const lost = loseMatch(s);
+    return { state: lost.state, scene: lost.key || null };
+  }
+
+  const stateKey = s => [...s.flags].sort().join(',') + (s.finalStake ? '|' + s.finalStake : '');
+
+  const ladders = { strip: STRIP, sexy, love: LOVE };
+  return { ladders, toplessBlowjob, picked, punished, yourWins, herWins, isOver, appearance, stakeKey, stakeMenu, takeStake, punishmentKey, loseMatch, endingKey, outcome, apply, stateKey };
+}
+// ENGINE END
+
+// --- what the race can do: every state, how many races pass through it, the shortest way to each scene
+
+const OPTION_ORDER = ['S1_TOP', 'S2_WALK', 'S3_SHORTS', 'S4_PANTIES', 'X1_BUTT', 'X2_BREAST', 'X3_BJ', 'X3_UNDER', 'X4_SEX', 'X4_BJ', 'L1_TRUTH', 'L2_NICE', 'L3_SMILE', 'L4_KISS', 'MR1_KISS', 'MR1_NICE', 'MR1_FINGER', 'MR3_INSPECT'];
+
+function analyze(engine) {
+  const start = newRace();
+  const startKey = engine.stateKey(start);
+  const nodes = new Map([[startKey, { key: startKey, state: start, parent: null, edges: [] }]]);
+  const order = [];
+  const queue = [startKey];
+  // Every match adds one win to someone, so breadth-first order is also the order races run in.
+  while (queue.length) {
+    const node = nodes.get(queue.shift());
+    order.push(node);
+    const s = node.state;
+    node.over = engine.isOver(s);
+    node.appearance = engine.appearance(s);
+    if (node.over) {
+      node.ending = engine.endingKey(s);
+      node.outcome = engine.outcome(s);
+      continue;
+    }
+    const moves = engine.stakeMenu(s).map(entry => ({ t: 'win', key: entry.key })).concat([{ t: 'lose' }]);
+    for (const action of moves) {
+      const result = engine.apply(s, action);
+      const to = engine.stateKey(result.state);
+      if (!nodes.has(to)) {
+        nodes.set(to, { key: to, state: result.state, parent: { from: node.key, action }, edges: [] });
+        queue.push(to);
+      }
+      node.edges.push({ action, scene: result.scene, to });
+    }
+  }
+
+  const pathsTo = new Map([[startKey, 1]]);
+  for (const node of order) {
+    const paths = pathsTo.get(node.key) || 0;
+    for (const edge of node.edges) pathsTo.set(edge.to, (pathsTo.get(edge.to) || 0) + paths);
+  }
+  const racesFrom = new Map();
+  for (let i = order.length - 1; i >= 0; i--) {
+    const node = order[i];
+    racesFrom.set(node.key, node.over ? 1 : node.edges.reduce((n, edge) => n + racesFrom.get(edge.to), 0));
+  }
+  const total = racesFrom.get(startKey);
+  const routeTo = key => {
+    const actions = [];
+    for (let node = nodes.get(key); node.parent; node = nodes.get(node.parent.from)) actions.unshift(node.parent.action);
+    return actions;
+  };
+
+  // How many races include each scene, and the shortest race to it.
+  const sceneRaces = {};
+  const routes = { INTRO_WAGER: { actions: [], view: 'intro' } };
+  const count = (key, n) => { sceneRaces[key] = (sceneRaces[key] || 0) + n; };
+  count('INTRO_WAGER', total);
+  count('TABLE__' + nodes.get(startKey).appearance, total);
+  routes['TABLE__' + nodes.get(startKey).appearance] = { actions: [], view: 'match' };
+  const endings = {};
+  const pickSets = new Set();
+  for (const node of order) {
+    const paths = pathsTo.get(node.key);
+    if (node.over) {
+      count(node.ending, paths);
+      routes[node.ending] ??= { actions: routeTo(node.key), view: 'ending' };
+      if (node.outcome.benchGirl) {
+        count('PHONE_BENCH_GIRL', paths);
+        routes.PHONE_BENCH_GIRL ??= { actions: routeTo(node.key), view: 'ending' };
+      }
+      const set = OPTION_ORDER.filter(option => node.state.flags.has(PICK + option)).join(' ');
+      pickSets.add(set);
+      const ending = endings[node.ending] ??= { races: 0, sets: new Map() };
+      ending.races += paths;
+      ending.sets.set(set, (ending.sets.get(set) || 0) + paths);
+      continue;
+    }
+    for (const edge of node.edges) {
+      const child = nodes.get(edge.to);
+      const through = paths * racesFrom.get(edge.to);
+      if (edge.scene) {
+        count(edge.scene, through);
+        routes[edge.scene] ??= { actions: [...routeTo(node.key), edge.action], view: 'scene' };
+      }
+      // Her outfit only ever comes off, so a race first sits at a new table once.
+      if (!child.over && child.appearance !== node.appearance) {
+        const table = 'TABLE__' + child.appearance;
+        count(table, through);
+        routes[table] ??= { actions: [...routeTo(node.key), edge.action], view: 'match' };
+      }
+    }
+  }
+  return { total, states: nodes.size, sceneRaces, routes, endings, pickSets: pickSets.size };
+}
+
+function replay(engine, actions) {
+  let state = newRace();
+  const steps = [];
+  for (let i = 0; i < actions.length; i++) {
+    const result = engine.apply(state, actions[i]);
+    if (!result) return { state, steps, invalidAt: i };
+    steps.push({ action: actions[i], before: state, after: result.state, scene: result.scene, item: result.item || null });
+    state = result.state;
+  }
+  return { state, steps, invalidAt: -1 };
+}
+
+// --- the scenes: every dialogue key the race can play, in the order the board lists them
+
+const GROUPS = [
+  { id: 'start', name: 'The start', note: 'the wager, and the table behind every match' },
+  { id: 'strip', name: 'Strip ladder' },
+  { id: 'sexy', name: 'Sexy ladder' },
+  { id: 'love', name: 'Love ladder' },
+  { id: 'mr', name: 'Mini-routes', note: 'special picks that only open in one situation' },
+  { id: 'her', name: 'Her punishments', note: 'one per match she wins, in a fixed order' },
+  { id: 'won', name: 'Endings: she forfeits', note: 'your 4th stake ends the race' },
+  { id: 'lost', name: 'Endings: you forfeit', note: 'her 4th win' },
+  { id: 'after', name: 'After the race', note: 'what a race can leave behind' },
+];
+
+const SCENE_LIST = [
+  { key: 'INTRO_WAGER', group: 'start', title: 'The wager', desc: 'Park establishing shot; her “whoever forfeits first” pitch.' },
+  { key: 'TABLE__DRESSED', group: 'start', title: 'The table, dressed', desc: 'Behind every match while she’s dressed. The game picks one of these at random.' },
+  { key: 'TABLE__TOP_OFF', group: 'start', title: 'The table, topless', desc: 'Behind every match while she’s topless, shorts on. She covers herself.' },
+  { key: 'TABLE__PANTIES', group: 'start', title: 'The table, in her panties', desc: 'Behind every match once her shorts are off.' },
+
+  { key: 'WIN_S1_TOP', group: 'strip', title: 'Her top comes off', desc: 'Fingers at the hem → mid-removal → first covered topless beat.' },
+  { key: 'WIN_S2_WALK', group: 'strip', title: 'Her topless walk', desc: 'Mock bow, chin-up strut down the stone path; passing Janet & Ted, unbothered wave.' },
+  { key: 'WIN_S3_SHORTS', group: 'strip', title: 'Her shorts come off', desc: 'Hesitation → shorts off → panties-only defiance. Always after the walk.' },
+  { key: 'WIN_S4_PANTIES', group: 'strip', title: 'Her panties come off', desc: 'Hesitation in the fingers → peel → bare, proud, furious blush. Always your 4th stake.' },
+
+  { key: 'WIN_X1_BUTT__DRESSED', group: 'sexy', title: 'Butt touch, dressed', desc: '“Ugh, fine” turn → the touch → the swat.' },
+  { key: 'WIN_X1_BUTT__TOP_OFF', group: 'sexy', title: 'Butt touch, topless', desc: 'Same; your hand may sneak under the waistband.' },
+  { key: 'WIN_X1_BUTT__PANTIES', group: 'sexy', title: 'Butt touch, in her panties', desc: 'Same, panties round. Always your 4th stake.' },
+  { key: 'WIN_X2_BREAST__DRESSED', group: 'sexy', title: 'Breast touch, dressed', desc: '“One hand, thirty seconds”: over, then under her top; she pulls your wrist out.' },
+  { key: 'WIN_X2_BREAST__TOP_OFF', group: 'sexy', title: 'Breast touch, topless: she blocks you', desc: 'Mini-route 2. Your reach is intercepted (“only MY hands touch me”), her self-touch show, then she stops cold. Still counts as the rung.' },
+  { key: 'WIN_X3_BJ__DRESSED', group: 'sexy', removedBy: 'bjFinaleAny', title: 'Blowjob, dressed', desc: 'Kneeling at the bench; she swallows; “not a word”. The stalling handjob is in here.' },
+  { key: 'WIN_X3_BJ__TOP_OFF', group: 'sexy', removedBy: 'bjFinaleOnly', unlock: 'toplessBlowjob', title: 'Blowjob, topless', desc: 'Same, plus the stalling-handjob beat before she gives in. Always your 4th stake.' },
+  { key: 'WIN_X3_UNDER__DRESSED', group: 'sexy', proposal: 'bjFinaleAny', title: 'Under her clothes, dressed', desc: 'Replaces the blowjob as the sexy ladder’s 3rd rung.' },
+  { key: 'WIN_X3_UNDER__TOP_OFF', group: 'sexy', proposal: 'underTopless', title: 'Under her clothes, topless', desc: 'The same rung once her top is off (always your 4th stake), until the topless blowjob is unlocked.' },
+  { key: 'WIN_X4_SEX__DRESSED', group: 'sexy', removedBy: 'bjFinale', unlock: 'sex', title: 'Sex: the cold one', desc: 'She pays it like a debt, annoyed and on her terms: the hedges, her on top, composure never cracks, and it ends cold. Her forfeit.' },
+  { key: 'WIN_X4_BJ', group: 'sexy', proposal: 'bjFinaleAny', folder: 'WIN_X3_BJ__DRESSED', title: 'Blowjob: the sexy finale', desc: 'In the game its scene is WIN_X3_BJ__DRESSED. The blowjob is the sexy ladder’s last rung and her forfeit. With the unlocks, the sex scene sits beside it once unlocked. It needs all four of your stakes, so she’s always dressed: these are the dressed blowjob’s pictures.' },
+
+  { key: 'WIN_L1_TRUTH__DRESSED', group: 'love', title: 'A truth, dressed', desc: 'The confession about the money; one eye-contact slip.' },
+  { key: 'WIN_L1_TRUTH__TOP_OFF', group: 'love', title: 'A truth, topless: her bra size', desc: 'The bra-size taunt, laughing answer. Opens mini-route 1.' },
+  { key: 'WIN_L1_TRUTH__PANTIES', group: 'love', proposal: 'pantiesTruth', title: 'A truth, in her panties: sex in a park', desc: '“Have you ever had sex in a park?” Your 4th stake after her top, the walk and her shorts. With the sex in the grass done too, it unlocks the sex scene.' },
+  { key: 'WIN_L2_NICE__TOP_OFF', group: 'love', proposal: 'outfits', title: 'Two nice things, topless', desc: 'The topless version, about 1 race in 6.' },
+  { key: 'WIN_L2_NICE', group: 'love', title: 'Two nice things', desc: '“Say something nice”: counterfeit smirk → refused → sincere. Its pictures show her dressed.' },
+  { key: 'WIN_L3_SMILE__TOP_OFF', group: 'love', proposal: 'outfits', title: 'A real smile, topless', desc: 'The topless version (always your 4th stake).' },
+  { key: 'WIN_L3_SMILE', group: 'love', title: 'A real smile', desc: 'Performance smile → protest → the real one. Its pictures show her dressed.' },
+  { key: 'WIN_L4_KISS', group: 'love', title: 'A real kiss, then the grass', desc: 'The kiss where she melts, then she takes it further: pulls you down into the grass → sex, the long, warm one; foreheads together after. Her forfeit.' },
+
+  { key: 'WIN_MR1_KISS', group: 'mr', title: 'MR1: “Kiss me”', desc: 'Pulled across the table into a kiss; hands in hair. Only at your 3rd stake, topless, after the bra-size truth.' },
+  { key: 'WIN_MR1_FINGER', group: 'mr', title: 'MR1: “Kiss me like you mean it”', desc: 'The kiss turns heavy, your hand inside her shorts, she grabs your wrist. Her forfeit.' },
+  { key: 'WIN_MR1_NICE', group: 'mr', proposal: 'mr1', noArt: true, title: 'MR1: two nice things', desc: 'Proposed: an MR1 version of “Say two nice things about me”, with its own dialogue. Open question: its own closing beat, or the topless wrap? Here it ends on the topless wrap.' },
+  { key: 'WIN_MR3_INSPECT', group: 'mr', title: 'MR3: her inspection', desc: 'After the dick pic, the next touch you ask for is hers instead: her hand in your shorts → verdict face → withdrawal. Uses up the win without moving the sexy ladder.' },
+
+  { key: 'LOSE_P1_ASS_KISS__DRESSED', group: 'her', proposal: 'outfits', title: '“Kiss my ass”, dressed', desc: 'Her 1st win while she’s still dressed, about 7 races in 10. A new lane on the board: the shorts-on pictures show her topless.' },
+  { key: 'LOSE_P1_ASS_KISS__SHORTS_ON', group: 'her', title: '“Kiss my ass”, shorts on', desc: 'Her 1st win. Literally: she leads you to the table and bends over it.' },
+  { key: 'LOSE_P1_ASS_KISS__SHORTS_OFF', group: 'her', title: '“Kiss my ass”, in her panties', desc: 'Her 1st win, once her shorts are off.' },
+  { key: 'LOSE_P2_DICK_PIC', group: 'her', title: 'The dick pic', desc: 'Her 2nd win. Told in text only (the game shows its placeholder). Opens mini-route 3.' },
+  { key: 'LOSE_P3A_YOUR_WALK', group: 'her', title: 'Your walk of shame', desc: 'Her 3rd win, if her walk happened. Janet & Ted encore; her cackling.' },
+  { key: 'LOSE_P3B_BENCH_GIRL', group: 'her', title: 'The bench girl', desc: 'Her 3rd win, if her walk didn’t happen. She dares you to ask June for her number → June says yes; her jealous “Whatever.”' },
+
+  { key: 'FINAL__DRESSED', group: 'won', title: 'She forfeits, dressed', desc: 'A mixed set of stakes while she’s still dressed: the teasing “you win” wrap.' },
+  { key: 'FINAL__TOP_OFF', group: 'won', title: 'She forfeits, topless', desc: 'The “you win” wrap, topless with shorts on.' },
+  { key: 'FINAL__PANTIES', group: 'won', title: 'She forfeits, in her panties', desc: 'The “you win” wrap, panties only.' },
+  { key: 'FINAL__NAKED', group: 'won', title: 'She forfeits, naked', desc: 'The strip ladder’s end: coy nude composition.' },
+  { key: 'THE_END__X4_SEX', group: 'won', removedBy: 'bjFinale', unlock: 'sex', from: 'WIN_X4_SEX__DRESSED', title: 'She forfeits after the sex', desc: 'The sexy ladder’s ending, over the sex scene’s last picture.' },
+  { key: 'THE_END__X4_BJ', group: 'won', proposal: 'bjFinaleAny', from: 'WIN_X3_BJ__DRESSED', title: 'She forfeits after the blowjob finale', desc: 'The sexy ladder’s ending, over the blowjob’s last picture.' },
+  { key: 'THE_END__L4_KISS', group: 'won', from: 'WIN_L4_KISS', title: 'She forfeits after the grass', desc: 'The love ladder’s ending, over the kiss scene’s last picture.' },
+  { key: 'THE_END__MR1_FINGER', group: 'won', from: 'WIN_MR1_FINGER', title: 'She forfeits after MR1', desc: 'Mini-route 1’s ending, over its last picture.' },
+  { key: 'THE_END__X3_BJ__DRESSED', group: 'won', proposal: 'bjLast', from: 'WIN_X3_BJ__DRESSED', title: 'She forfeits after the blowjob', desc: 'Proposed: when the dressed blowjob is your last stake, its own ending over its last picture.' },
+  { key: 'THE_END__X3_BJ__TOP_OFF', group: 'won', proposal: 'bjToplessEnd', unlock: 'toplessBlowjob', from: 'WIN_X3_BJ__TOP_OFF', title: 'She forfeits after the topless blowjob', desc: 'The topless blowjob is always your last stake; this gives it its own ending.' },
+
+  { key: 'FORFEIT_NAKED_RUN__DRESSED', group: 'lost', title: 'You forfeit: the naked-run dare', desc: 'Her 4th win. The devious dare that makes you fold.' },
+  { key: 'FORFEIT_NAKED_RUN__TOP_OFF', group: 'lost', title: 'You forfeit, she’s topless', desc: 'Same, plus her “I’m topless, aren’t I?” legal argument.' },
+
+  { key: 'PHONE_BENCH_GIRL', group: 'after', noArt: true, title: 'June’s phone scene', desc: 'Unlocked when you win the race after meeting June (her 3rd win was the bench girl). Not in the game yet.' },
+];
+const SCENES = Object.fromEntries(SCENE_LIST.map(scene => [scene.key, scene]));
+
+// The three ladders under the rules switched on (the proposed blowjob finale changes the sexy one).
+const ladders = () => [['strip', 'Strip'], ['sexy', 'Sexy'], ['love', 'Love']].map(([id, name]) => ({ id, name, rungs: engine.ladders[id] }));
+const OPTION_SHORT = {
+  S1_TOP: 'Top', S2_WALK: 'Walk', S3_SHORTS: 'Shorts', S4_PANTIES: 'Panties', X1_BUTT: 'Butt', X2_BREAST: 'Breasts', X3_BJ: 'Blowjob', X4_SEX: 'Sex',
+  X3_UNDER: 'Under clothes', X4_BJ: 'Blowjob',
+  L1_TRUTH: 'Truth', L2_NICE: 'Nice things', L3_SMILE: 'Smile', L4_KISS: 'Kiss', MR1_KISS: 'MR1 kiss', MR1_NICE: 'MR1 nice things', MR1_FINGER: 'MR1 finale', MR3_INSPECT: 'Inspection',
+};
+const optionLadder = option => option.startsWith('S') ? 'strip' : option.startsWith('X') ? 'sexy' : option.startsWith('L') ? 'love' : 'mr';
+const optionOf = key => key.replace(/^WIN_/, '').split('__')[0];
+const sceneColor = key => {
+  const scene = SCENES[key];
+  if (!scene) return 'end';
+  if (['strip', 'sexy', 'love', 'mr'].includes(scene.group)) return scene.group;
+  if (scene.group === 'her' || scene.group === 'lost') return 'her';
+  if (scene.group === 'start') return 'start';
+  return 'end';
+};
+const APPEARANCE = { DRESSED: 'Dressed', TOP_OFF: 'Topless', PANTIES: 'In her panties', NAKED: 'Naked' };
+const ordinal = n => n + ({ 1: 'st', 2: 'nd', 3: 'rd' }[n] || 'th');
+const esc = text => String(text).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const titleOf = key => SCENES[key]?.title || key;
+
+// --- pictures, straight from the game's folders
+
+const PIC_ROOT = '../../data/background_lists/ashely_poker2/';
+const placeholderOf = key => PIC_ROOT + 'placeholders/' + key + '.png';
+const numbered = (folder, n) => PIC_ROOT + folder + '/' + String(n).padStart(2, '0') + '.webp';
+const probes = new Map();
+
+// A folder's pictures (01.webp, 02.webp, ... up to the first missing one), or null while looking.
+function folderPictures(folder) {
+  if (probes.has(folder)) return probes.get(folder);
+  probes.set(folder, null);
+  const found = [];
+  const BATCH = 12;
+  const look = from => Promise.all(Array.from({ length: BATCH }, (_, i) => new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = numbered(folder, from + i);
+  }))).then(ok => {
+    for (let i = 0; i < BATCH; i++) {
+      if (!ok[i]) return done();
+      found.push(numbered(folder, from + i));
+    }
+    return look(from + BATCH);
+  });
+  const done = () => { probes.set(folder, found); scheduleRender(); };
+  look(1);
+  return null;
+}
+
+// What a scene shows: { urls } (null while looking), with placeholder: true for its stand-in.
+function scenePictures(key) {
+  const scene = SCENES[key];
+  if (!scene || scene.noArt) return { urls: [] };
+  const folder = scene.from || scene.folder || key;
+  const list = folderPictures(folder);
+  if (list === null) return { urls: null };
+  if (!list.length) return { urls: [placeholderOf(folder)], placeholder: true };
+  return { urls: scene.from ? [list[list.length - 1]] : list };
+}
+
+function noArt(text = 'No art yet') {
+  return `<div class="noart">${esc(text)}</div>`;
+}
+// A scene's cover picture, falling back to its placeholder, then to a plain tile.
+function cover(key) {
+  const scene = SCENES[key];
+  if (!scene || scene.noArt) return noArt(scene?.proposal ? 'Proposed: no art' : 'No art yet');
+  if (scene.from) {
+    const pictures = scenePictures(key);
+    if (!pictures.urls) return noArt('…');
+    return img(pictures.urls[0], [placeholderOf(scene.from)]);
+  }
+  const folder = scene.folder || key;
+  return img(numbered(folder, 1), [placeholderOf(folder)]);
+}
+function img(src, fallbacks = [], alt = '') {
+  return `<img class="pic" loading="lazy" decoding="async" alt="${esc(alt)}" src="${esc(src)}" data-fb="${esc(fallbacks.join('|'))}" onerror="pictureFailed(this)">`;
+}
+function pictureFailed(el) {
+  const fallbacks = (el.dataset.fb || '').split('|').filter(Boolean);
+  if (fallbacks.length) {
+    el.dataset.fb = fallbacks.slice(1).join('|');
+    el.src = fallbacks[0];
+    return;
+  }
+  el.outerHTML = noArt();
+}
+
+// --- the explorer's state, kept in this browser
+
+const STORE = 'ashely2-route-explorer:v1';
+const ui = { tab: 'play', rules: { bj: 'unlocks', love: true, mr1: false, outfits: true }, actions: [], view: 'intro', seen: {}, progress: {}, filter: 'all', viewer: { key: '', i: 0 }, picsMissing: false };
+let lightbox = null;
+let engine;
+let engineUnlocks = '';
+let analysis;
+
+// Proposed: finales unlocked across races. Each needs all of its requirements, met in any races.
+// In the game a locked finale shows on the menu as a plain [?]: this list is only for you.
+const UNLOCKS = [
+  { id: 'sex', title: 'The sex scene', where: 'beside the dressed blowjob, at the top of the sexy ladder', needs: [
+    { id: 'parkTruth', scene: 'WIN_L1_TRUTH__PANTIES', text: 'Heard “have you ever had sex in a park?”: a truth once her top and shorts are off' },
+    { id: 'warmSex', scene: 'THE_END__L4_KISS', text: 'Finished the sex in the grass (the love ladder)' },
+  ] },
+  { id: 'toplessBlowjob', title: 'The topless blowjob', where: 'rung 3 of the sexy ladder, once her top is off', needs: [
+    { id: 'dressedBlowjob', scene: 'THE_END__X4_BJ', text: 'Finished the dressed blowjob ending' },
+    { id: 'toplessTruth', scene: 'WIN_L1_TRUTH__TOP_OFF', also: ['WIN_L1_TRUTH__PANTIES'], text: 'Asked for a truth while she’s topless (shorts on, or in her panties)' },
+  ] },
+];
+const unlockedNow = () => Object.fromEntries(UNLOCKS.map(unlock => [unlock.id, unlock.needs.every(need => ui.progress[need.id])]));
+// A race that plays a requirement's scene meets it, while the unlocks are switched on.
+function earn(key) {
+  if (ui.rules.bj !== 'unlocks') return;
+  for (const unlock of UNLOCKS) for (const need of unlock.needs) if (need.scene === key || need.also?.includes(key)) ui.progress[need.id] = true;
+}
+
+function loadStore() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
+    if (saved) for (const field of ['tab', 'rules', 'actions', 'view', 'seen', 'progress', 'filter']) if (saved[field] !== undefined) ui[field] = saved[field];
+    // Settings saved before the game took on these rules (2026-10-19) start on the game's rules.
+    if (saved && saved.rulesVersion !== 2) ui.rules = { ...IN_GAME_RULES };
+    // The blowjob switch was on/off before it had three settings.
+    if (typeof ui.rules.bj === 'boolean') ui.rules.bj = ui.rules.bj ? 'last' : '';
+    // The love rule was a three-way choice before; only "no nice things beside an MR1 kiss" stayed.
+    ui.rules.love = ui.rules.love === true || ui.rules.love === 'mr1';
+  } catch (e) { /* nothing kept: start fresh */ }
+}
+function saveStore() {
+  try {
+    localStorage.setItem(STORE, JSON.stringify({ rulesVersion: 2, tab: ui.tab, rules: ui.rules, actions: ui.actions, view: ui.view, seen: ui.seen, progress: ui.progress, filter: ui.filter }));
+  } catch (e) { /* not kept: fine */ }
+}
+
+function useRules() {
+  engineUnlocks = JSON.stringify(unlockedNow());
+  engine = makeEngine({ ...ui.rules, unlocked: unlockedNow() });
+  analysis = analyze(engine);
+  const run = replay(engine, ui.actions);
+  if (run.invalidAt >= 0) {
+    ui.actions = ui.actions.slice(0, run.invalidAt);
+    ui.view = 'match';
+  }
+  settleView();
+}
+const PROPOSALS = {
+  mr1: rules => rules.mr1,
+  bjLast: rules => rules.bj === 'last',
+  bjFinale: rules => rules.bj === 'finale' || rules.bj === 'finale2',
+  bjFinaleAny: rules => ['finale', 'finale2', 'unlocks'].includes(rules.bj),
+  bjFinaleOnly: rules => rules.bj === 'finale',
+  underTopless: rules => rules.bj === 'finale' || rules.bj === 'unlocks',
+  bjToplessEnd: rules => ['last', 'finale2', 'unlocks'].includes(rules.bj),
+  unlocks: rules => rules.bj === 'unlocks',
+  outfits: rules => !!rules.outfits,
+  pantiesTruth: rules => rules.bj === 'unlocks' || !!rules.outfits,
+};
+const proposalOn = name => !!PROPOSALS[name]?.(ui.rules);
+// The rules the game plays (ashely2_race.gd, 2026-10-19): a scene they bring in is no longer "proposed".
+const IN_GAME_RULES = { bj: 'unlocks', love: true, mr1: false, outfits: true };
+const inGame = name => !!PROPOSALS[name]?.(IN_GAME_RULES);
+const proposalPill = scene => scene?.proposal && !inGame(scene.proposal) ? '<span class="pill proposal">proposed</span>' : '';
+// A scene the race has under the rules switched on: not a proposal that's off, nor one a proposal removes.
+const isActive = scene => (!scene.proposal || proposalOn(scene.proposal)) && !(scene.removedBy && proposalOn(scene.removedBy));
+const activeScenes = () => SCENE_LIST.filter(isActive);
+const removedScenes = () => SCENE_LIST.filter(scene => scene.removedBy && proposalOn(scene.removedBy));
+const current = () => replay(engine, ui.actions);
+
+// Keep the view one the race can be in.
+function settleView() {
+  const run = current();
+  const over = engine.isOver(run.state);
+  const last = run.steps[run.steps.length - 1];
+  if (!['intro', 'match', 'menu', 'scene', 'ending'].includes(ui.view)) ui.view = 'intro';
+  if (ui.view === 'intro' && ui.actions.length) ui.view = 'match';
+  if (over && (ui.view === 'match' || ui.view === 'menu')) ui.view = last?.scene ? 'scene' : 'ending';
+  if (!over && ui.view === 'ending') ui.view = 'match';
+  if (ui.view === 'scene' && (!last || !last.scene)) ui.view = over ? 'ending' : 'match';
+}
+
+function see(key) {
+  if (!key) return;
+  ui.seen[key] = (ui.seen[key] || 0) + 1;
+  earn(key);
+}
+function seeTable() {
+  see('TABLE__' + engine.appearance(current().state));
+}
+function showScene(key) {
+  ui.viewer = { key, i: 0 };
+}
+function toEnding() {
+  const run = current();
+  ui.view = 'ending';
+  const key = engine.endingKey(run.state);
+  for (const step of run.steps) earn(step.scene);
+  see(key);
+  showScene(key);
+  if (engine.outcome(run.state).benchGirl) see('PHONE_BENCH_GIRL');
+}
+
+const actions = {
+  tab(name) { ui.tab = name; window.scrollTo(0, 0); },
+  newRace() { ui.actions = []; ui.view = 'intro'; ui.tab = 'play'; see('INTRO_WAGER'); showScene('INTRO_WAGER'); },
+  firstMatch() { ui.view = 'match'; seeTable(); },
+  win() { ui.view = 'menu'; },
+  pick(key) {
+    if (!engine.apply(current().state, { t: 'win', key })) return;
+    ui.actions.push({ t: 'win', key });
+    ui.view = 'scene';
+    see(key);
+    showScene(key);
+  },
+  lose() {
+    ui.actions.push({ t: 'lose' });
+    const last = current().steps.at(-1);
+    if (last.scene) {
+      ui.view = 'scene';
+      see(last.scene);
+      showScene(last.scene);
+    } else {
+      toEnding();
+    }
+  },
+  next() {
+    if (engine.isOver(current().state)) return toEnding();
+    ui.view = 'match';
+    seeTable();
+  },
+  back() {
+    const last = current().steps.at(-1);
+    if (ui.view === 'menu') ui.view = 'match';
+    else if (ui.view === 'match') ui.view = ui.actions.length ? 'scene' : 'intro';
+    else if (ui.view === 'scene') ui.view = ui.actions.pop().t === 'win' ? 'menu' : 'match';
+    else if (ui.view === 'ending') {
+      if (last?.scene) ui.view = 'scene';
+      else { ui.actions.pop(); ui.view = 'match'; }
+    }
+    if (ui.view === 'scene') showScene(current().steps.at(-1).scene);
+    if (ui.view === 'intro') showScene('INTRO_WAGER');
+  },
+  rewind(index) {
+    ui.actions = ui.actions.slice(0, Number(index) + 1);
+    const step = current().steps.at(-1);
+    if (step.scene) {
+      ui.view = 'scene';
+      see(step.scene);
+      showScene(step.scene);
+    } else {
+      toEnding();
+    }
+  },
+  rewindStart() { ui.actions = []; ui.view = 'intro'; showScene('INTRO_WAGER'); },
+  ending() { toEnding(); },
+  random() {
+    if (ui.view === 'intro') ui.view = 'match';
+    for (let guard = 0; guard < 20 && !engine.isOver(current().state); guard++) {
+      if (ui.view === 'menu' || (ui.view !== 'menu' && Math.random() < 0.5)) {
+        const menu = engine.stakeMenu(current().state);
+        ui.actions.push({ t: 'win', key: menu[Math.floor(Math.random() * menu.length)].key });
+      } else {
+        ui.actions.push({ t: 'lose' });
+      }
+      ui.view = 'match';
+    }
+    toEnding();
+  },
+  route(key) {
+    const route = analysis.routes[key];
+    if (!route) return;
+    ui.actions = route.actions.map(action => ({ ...action }));
+    ui.view = route.view;
+    ui.tab = 'play';
+    window.scrollTo(0, 0);
+    if (route.view === 'ending') toEnding();
+    else if (route.view === 'match') seeTable();
+    else {
+      const shown = route.view === 'intro' ? 'INTRO_WAGER' : current().steps.at(-1).scene;
+      see(shown);
+      showScene(shown);
+    }
+  },
+  view(arg) {
+    const pictures = scenePictures(ui.viewer.key).urls || [];
+    if (!pictures.length) return;
+    const i = arg.startsWith('=') ? Number(arg.slice(1)) : ui.viewer.i + Number(arg);
+    ui.viewer.i = (i + pictures.length) % pictures.length;
+  },
+  zoom(key, el) {
+    const pictures = scenePictures(key);
+    lightbox = { key, i: key === ui.viewer.key && el?.dataset.here ? ui.viewer.i : 0 };
+    if (!pictures.urls) lightbox.i = 0;
+  },
+  lb(arg) {
+    if (arg === 'close') { lightbox = null; return; }
+    const pictures = scenePictures(lightbox.key).urls || [];
+    if (!pictures.length) return;
+    const i = arg.startsWith('=') ? Number(arg.slice(1)) : lightbox.i + Number(arg);
+    lightbox.i = (i + pictures.length) % pictures.length;
+  },
+  filter(name) { ui.filter = name; },
+  toggleProgress(id) { ui.progress[id] = !ui.progress[id]; },
+  resetProgress() { ui.progress = {}; },
+  resetSeen() {
+    if (Object.keys(ui.seen).length) ui.seen = {};
+  },
+};
+
+// --- rendering
+
+function render() {
+  renderBar();
+  const main = document.getElementById('main');
+  const banner = ui.picsMissing ? `<div class="banner">The pictures didn’t load. Open this file where it lives, in the game project: <span class="mono">docs/ashely_poker2/route_explorer.html</span>. It reads them from <span class="mono">data/background_lists/ashely_poker2/</span>.</div>` : '';
+  main.innerHTML = banner + (ui.tab === 'scenes' ? renderScenes() : ui.tab === 'routes' ? renderRoutes() : renderPlay());
+  renderLightbox();
+}
+let renderQueued = false;
+function scheduleRender() {
+  if (renderQueued) return;
+  renderQueued = true;
+  requestAnimationFrame(() => { renderQueued = false; render(); });
+}
+
+function seenCount() {
+  const scenes = activeScenes();
+  return { seen: scenes.filter(scene => ui.seen[scene.key]).length, total: scenes.length };
+}
+
+function renderBar() {
+  const { seen, total } = seenCount();
+  const tab = (name, label, extra = '') => `<button class="tab" role="tab" aria-selected="${ui.tab === name}" data-act="tab" data-arg="${name}">${label}${extra}</button>`;
+  document.getElementById('bar').innerHTML = `
+    <div class="brand"><b class="serif">Ashely II · Routes</b><span>The race’s choices, as the game plays them</span></div>
+    <div class="tabs" role="tablist">${tab('play', 'Play')}${tab('scenes', 'Scenes', `<small>${seen}/${total}</small>`)}${tab('routes', 'Routes')}</div>
+    <div class="proposals"><span>Rules</span>
+      <label class="switch" title="Where the blowjob sits on the sexy ladder.">Blowjob
+        <select data-rule="bj" aria-label="Blowjob">${[['', 'rung 3 (the old ladder)'], ['last', 'rung 3, own ending when last'], ['finale', 'the sexy finale (no sex scene)'], ['finale2', 'the sexy finale, and topless it’s the finale at rung 3'], ['unlocks', 'the sexy finale; sex and the topless one unlock (in the game)']].map(([value, label]) => `<option value="${value}" ${ui.rules.bj === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label>
+      <label class="switch" title="“Say two nice things about me” isn’t offered beside “Kiss me” or “Kiss me like you mean it”, so those menus keep three choices (its pictures show her dressed)."><input type="checkbox" data-rule="love" ${ui.rules.love ? 'checked' : ''}>No “nice things” beside an MR1 kiss (in the game)</label>
+      <label class="switch" title="Scenes play the version for what she’s wearing, from the sorter’s new lanes: “kiss my ass” dressed, nice things and the smile topless, the truth in her panties."><input type="checkbox" data-rule="outfits" ${ui.rules.outfits ? 'checked' : ''}>Outfit fixes (in the game)</label>
+      <label class="switch" title="After the MR1 kiss, your 4th stake menu offers only: kiss me like you mean it, an MR1 version of two nice things, or her shorts."><input type="checkbox" data-rule="mr1" ${ui.rules.mr1 ? 'checked' : ''}>MR1 follow-up menu</label>
+    </div>`;
+}
+
+// The current race, shown as one card for where it stands, beside its state.
+function renderPlay() {
+  const run = current();
+  let card;
+  if (ui.view === 'intro') card = introCard();
+  else if (ui.view === 'match') card = matchCard(run);
+  else if (ui.view === 'menu') card = menuCard(run);
+  else if (ui.view === 'scene') card = sceneCard(run, run.steps.at(-1));
+  else card = endingCard(run);
+  return `<div class="play"><div class="card pad">${card}</div><div class="side">${sidebar(run)}</div></div>`;
+}
+
+function introCard() {
+  return sceneLayout('INTRO_WAGER', `
+    <div class="stagehead"><span class="kicker c-start">Before the first match</span></div>
+    <h2 class="serif">${esc(titleOf('INTRO_WAGER'))}</h2>
+    <p class="muted">${esc(SCENES.INTRO_WAGER.desc)} Matches repeat until you’ve taken four stakes (she forfeits) or she’s won four (you forfeit). Win a match and you pick a stake; lose one and she punishes you.</p>`, `
+    <div class="foot"><span></span><button class="btn primary" data-act="firstMatch">Start the first match →</button></div>`);
+}
+
+function matchCard(run) {
+  const s = run.state;
+  const yours = engine.yourWins(s);
+  const hers = engine.herWins(s);
+  const table = 'TABLE__' + engine.appearance(s);
+  const pictures = scenePictures(table).urls;
+  const tablePic = pictures?.length ? img(pictures[(run.steps.length) % pictures.length]) : cover(table);
+  const lost = engine.loseMatch(s);
+  const loseHint = lost.key ? `her ${ordinal(hers + 1)} win → ${titleOf(lost.key)}` : `her 4th win → your forfeit: ${titleOf(engine.endingKey(lost.state))}`;
+  const winHint = yours + 1 === STAKES_TO_FINISH ? 'your last stake: she forfeits after it' : `you pick your ${ordinal(yours + 1)} stake`;
+  return `
+    <div class="match">
+      <button class="frame" style="padding:0;cursor:zoom-in" data-act="zoom" data-arg="${table}" aria-label="See the table pictures">${tablePic}</button>
+      <div>
+        <div class="stagehead"><span class="kicker c-start">Match ${run.steps.length + 1}</span><span class="pill">${APPEARANCE[engine.appearance(s)]}</span></div>
+        <h2 class="serif">Who wins this one?</h2>
+        <div class="score">
+          <span>You</span>${pips(yours, 'c-strip')}
+          <span>Her</span>${pips(hers, 'c-her')}
+        </div>
+        <div class="choices">
+          <div class="choice"><button class="btn primary" data-act="win">You win the match</button><span class="hint">→ ${esc(winHint)}</span></div>
+          <div class="choice"><button class="btn her" data-act="lose">She wins the match</button><span class="hint">→ ${esc(loseHint)}</span></div>
+        </div>
+        <div class="foot"><button class="btn ghost small" data-act="back">← Back</button>
+          <button class="btn small" data-act="random" title="Play the rest of this race at random">Finish at random</button></div>
+      </div>
+    </div>`;
+}
+function pips(n, cls) {
+  return `<div class="pips ${cls}">${[0, 1, 2, 3].map(i => `<span class="pip ${i < n ? 'on' : ''}"></span>`).join('')}</div>`;
+}
+
+function menuCard(run) {
+  const s = run.state;
+  const win = engine.yourWins(s) + 1;
+  const menu = engine.stakeMenu(s);
+  const options = menu.map(entry => {
+    const ladder = optionLadder(entry.option);
+    const tags = [];
+    const rung = ladders().find(l => l.id === ladder)?.rungs.findIndex(([option]) => option === entry.option || (engine.toplessBlowjob(s, option) && entry.option === 'X3_BJ') || (option === 'X4_BJ' && entry.option === 'X4_SEX'));
+    if (rung >= 0) tags.push(`<span class="pill ladder c-${ladder}">${esc(ladders().find(l => l.id === ladder).name)} ${rung + 1}/4</span>`);
+    if (optionOf(entry.key) !== entry.option) tags.push(`<span class="pill warn">plays her inspection instead</span>`);
+    else if (ladder === 'mr') tags.push(`<span class="pill ladder c-mr">Mini-route</span>`);
+    if (proposalPill(SCENES[entry.key])) tags.push(proposalPill(SCENES[entry.key]));
+    tags.push(ui.seen[entry.key] ? `<span class="pill seen">seen</span>` : `<span class="pill new">new</span>`);
+    if (win === STAKES_TO_FINISH) {
+      const ending = engine.endingKey(engine.takeStake(s, entry.key));
+      tags.push(`<span class="pill ladder c-end">ends: ${esc(titleOf(ending))}</span>`);
+    }
+    return `
+      <button class="opt c-${sceneColor(entry.key)}" data-act="pick" data-arg="${entry.key}">
+        <span class="thumb">${cover(entry.key)}</span>
+        <span><span class="label serif">“${esc(entry.label)}”</span>
+          <span class="plays">plays: ${esc(titleOf(entry.key))}</span>
+          <span class="tags">${tags.join('')}</span></span>
+      </button>${lockedAfter(entry, s)}`;
+  }).join('');
+  const off = offMenu(s, menu);
+  const last = win === STAKES_TO_FINISH ? `<div class="lastcall">This is your last stake: whatever you pick, she forfeits after it, and the race ends.</div>` : '';
+  return `
+    <div class="stagehead"><span class="kicker c-strip">You won match ${run.steps.length + 1}</span></div>
+    <h2 class="serif">Your stake <span class="muted" style="font-size:18px">· your ${ordinal(win)} of 4</span></h2>
+    ${last}
+    <div class="menu">${options}</div>
+    <details class="off" ${off.length ? '' : 'hidden'}><summary>Not on the menu (${off.length})</summary>
+      <ul class="offlist">${off.map(item => `<li class="${item.out ? 'out' : ''}"><span class="chip c-${item.ladder}">${esc(item.label)}</span><span class="why">${esc(item.why)}</span></li>`).join('')}</ul>
+    </details>
+    <div class="foot"><button class="btn ghost small" data-act="back">← Back</button><span class="muted" style="font-size:13px">The menu shows each ladder’s next rung, plus any mini-route that’s open.</span></div>`;
+}
+
+// Proposed: a finale not unlocked yet sits on the menu as a plain [?] that can't be picked.
+function lockedAfter(entry, s) {
+  if (ui.rules.bj !== 'unlocks') return '';
+  const unlocked = unlockedNow();
+  const locked = (entry.option === 'X4_BJ' && !unlocked.sex) || (entry.option === 'X3_UNDER' && engine.picked(s, 'S1_TOP') && !unlocked.toplessBlowjob);
+  return locked ? `<div class="opt c-end mystery" aria-label="A locked stake"><span class="thumb"><span class="noart">?</span></span><span><span class="label serif">[?]</span></span></div>` : '';
+}
+
+// Why the other stakes aren't offered right now.
+function offMenu(s, menu) {
+  const out = [];
+  const offered = new Set(menu.map(entry => entry.option));
+  const winsLeft = STAKES_TO_FINISH - engine.yourWins(s);
+  const win = engine.yourWins(s) + 1;
+  for (const ladder of ladders()) {
+    const next = ladder.rungs.findIndex(([option]) => !engine.picked(s, option));
+    if (next < 0) continue;
+    ladder.rungs.forEach(([option, label], i) => {
+      if (i < next || engine.picked(s, option) || offered.has(option)) return;
+      if (i === next) {
+        const why = engine.toplessBlowjob(s, option) ? 'Once her top is off, this rung is her blowjob instead (proposed).'
+          : ui.rules.love && option === 'L2_NICE' ? 'Not beside an MR1 kiss (proposed).'
+          : 'Not offered after the MR1 kiss (the proposed MR1 menu).';
+        out.push({ ladder: ladder.id, label, why, out: engine.toplessBlowjob(s, option) || (!!ui.rules.mr1 && !(ui.rules.love && option === 'L2_NICE')) });
+        return;
+      }
+      const need = i - next + 1;
+      const reach = need > winsLeft ? ` Out of reach this race: it needs ${need} more stakes, and you have ${winsLeft} left.` : '';
+      out.push({ ladder: ladder.id, label, why: `Comes after “${ladder.rungs[i - 1][1]}”.${reach}`, out: need > winsLeft });
+    });
+  }
+  const bra = s.flags.has(BRA_SIZE_TRUTH);
+  const mr1Gone = win > 3 || engine.picked(s, 'S3_SHORTS') || (engine.picked(s, 'L1_TRUTH') && !bra);
+  if (!engine.picked(s, 'MR1_KISS') && !offered.has('MR1_KISS')) {
+    const needs = [];
+    if (!engine.picked(s, 'S1_TOP')) needs.push('her top off');
+    if (!bra) needs.push('then her bra-size truth (“Tell me a truth” while she’s topless)');
+    const missing = needs.length;
+    const out2 = mr1Gone || missing > 3 - win;
+    const when = win > 3 ? 'It was only open at your 3rd stake.' : win === 3 ? 'Only at your 3rd stake, which is this one.' : `Only at your 3rd stake; this is your ${ordinal(win)}.`;
+    const why = [when];
+    if (needs.length) why.push('Needs ' + needs.join(', ') + '.');
+    if (engine.picked(s, 'S3_SHORTS')) why.push('Her shorts must still be on.');
+    if (engine.picked(s, 'L1_TRUTH') && !bra) why.push('Her truth was the dressed one, so the bra-size truth can’t happen now.');
+    out.push({ ladder: 'mr', label: 'Kiss me', why: 'Mini-route 1. ' + why.join(' '), out: out2 });
+  }
+  if (!engine.picked(s, 'MR1_FINGER') && !offered.has('MR1_FINGER')) {
+    const hasKiss = engine.picked(s, 'MR1_KISS');
+    const kissOpen = offered.has('MR1_KISS');
+    out.push({ ladder: 'mr', label: 'Kiss me like you mean it', why: hasKiss ? 'Mini-route 1’s finale: at your 4th stake.' : 'Mini-route 1’s finale: at your 4th stake, after the MR1 kiss.', out: !hasKiss && !kissOpen && (mr1Gone || win >= 3) });
+  }
+  if (!engine.picked(s, 'MR3_INSPECT') && !(engine.picked(s, 'X1_BUTT') && engine.picked(s, 'X2_BREAST') && engine.picked(s, 'X3_UNDER'))) {
+    out.push(engine.punished(s, 'P2')
+      ? { ladder: 'mr', label: 'Her inspection', why: 'Mini-route 3 is waiting: the next touch you ask for becomes her inspection.', out: false }
+      : { ladder: 'mr', label: 'Her inspection', why: 'Mini-route 3: after her 2nd win (the dick pic), the next touch you ask for becomes her inspection.', out: engine.herWins(s) >= 2 });
+  }
+  return out;
+}
+
+function sceneCard(run, step) {
+  const key = step.scene;
+  const index = run.steps.indexOf(step);
+  const scene = SCENES[key];
+  const won = step.action.t === 'win';
+  const over = engine.isOver(run.state);
+  const kicker = won ? `Match ${index + 1} · your ${ordinal(engine.yourWins(step.after))} stake` : `Match ${index + 1} · her ${ordinal(engine.herWins(step.after))} win`;
+  const said = won ? `<p class="serif" style="font-size:18px;margin:6px 0 4px">You: “${esc(step.item.label)}”</p>` : '';
+  return sceneLayout(key, `
+    <div class="stagehead"><span class="kicker c-${sceneColor(key)}">${esc(kicker)}</span><span class="mono muted">${esc(key)}</span>${proposalPill(scene)}</div>
+    <h2 class="serif">${esc(titleOf(key))}</h2>
+    ${said}
+    <p class="muted">${esc(scene?.desc || '')}</p>`, `
+    <div class="foot"><button class="btn ghost small" data-act="back">← Back</button>
+      <button class="btn primary" data-act="next">${over ? 'To the ending →' : `Match ${index + 2} →`}</button></div>`);
+}
+
+function endingCard(run) {
+  const key = engine.endingKey(run.state);
+  const scene = SCENES[key];
+  const result = engine.outcome(run.state);
+  const picks = run.steps.filter(step => step.action.t === 'win');
+  const chips = run.steps.map(step => step.action.t === 'win'
+    ? `<span class="chip c-${optionLadder(optionOf(step.scene))}">${esc(OPTION_SHORT[optionOf(step.scene)] || step.scene)}</span>`
+    : `<span class="chip c-her">${step.scene ? esc(titleOf(step.scene)) : 'Her 4th win'}</span>`).join('');
+  const kept = result.won
+    ? `You won the race: she forfeited after your ${picks.length} stakes.${result.benchGirl ? ' You also keep June’s number: her phone scene unlocks (not in the game yet).' : ''}`
+    : 'You forfeited: she won four matches first.';
+  return sceneLayout(key, `
+    <div class="stagehead"><span class="kicker c-${sceneColor(key)}">The ending</span><span class="mono muted">${esc(key)}</span>${proposalPill(scene)}</div>
+    <h2 class="serif">${esc(titleOf(key))}</h2>
+    <p class="muted">${esc(scene?.desc || '')}</p>`, `
+    <div class="outcome">${esc(kept)}<div class="runchips">${chips}</div>${unlockNote(run, key)}</div>
+    <div class="foot"><button class="btn ghost small" data-act="back">← Back</button>
+      <button class="btn primary" data-act="newRace">Play another race</button></div>`);
+}
+
+// What a race did toward the proposed unlocks.
+function unlockNote(run, ending) {
+  if (ui.rules.bj !== 'unlocks') return '';
+  const played = new Set([...run.steps.map(step => step.scene), ending]);
+  const met = UNLOCKS.flatMap(unlock => unlock.needs.filter(need => played.has(need.scene) || need.also?.some(also => played.has(also))).map(need => ({ unlock, need })));
+  if (!met.length) return '';
+  const unlocked = unlockedNow();
+  return `<div style="margin-top:8px;font-size:14px">${met.map(({ unlock, need }) => `✓ ${esc(need.text)}. ${esc(unlock.title)}: ${unlocked[unlock.id] ? '<b>unlocked</b>' : 'still locked'}.`).join('<br>')}</div>`;
+}
+
+// A scene's card: its picture large on the left; on the right what it is (head), its pictures to
+// click through, and what comes next (foot).
+function sceneLayout(key, head, foot) {
+  const { urls, placeholder } = scenePictures(key);
+  let big;
+  let thumbs = '';
+  if (urls === null) big = `<div class="frame">${noArt('Loading…')}</div>`;
+  else if (!urls.length) big = `<div class="frame">${cover(key)}</div>`;
+  else {
+    const i = ui.viewer.key === key ? Math.min(ui.viewer.i, urls.length - 1) : 0;
+    const nav = urls.length > 1 ? `<button class="navbtn prev" data-act="view" data-arg="-1" aria-label="Previous picture">‹</button><button class="navbtn next" data-act="view" data-arg="1" aria-label="Next picture">›</button>` : '';
+    const label = placeholder ? 'placeholder: no art yet' : SCENES[key]?.from ? `last picture of ${SCENES[key].from}` : `${i + 1} / ${urls.length}`;
+    big = `<div class="frame" data-act="zoom" data-arg="${key}" data-here="1">${img(urls[i], [placeholderOf(SCENES[key]?.from || key)])}</div>${nav}<span class="count">${esc(label)}</span>`;
+    if (urls.length > 1) thumbs = `<div class="thumbs">${urls.map((url, n) => `<button class="${n === i ? 'on' : ''}" data-act="view" data-arg="=${n}" aria-label="Picture ${n + 1}">${img(url)}</button>`).join('')}</div>`;
+  }
+  return `<div class="scene"><div class="big">${big}</div><div class="info">${head}${thumbs}${foot}</div></div>`;
+}
+
+function sidebar(run) {
+  const s = run.state;
+  const over = engine.isOver(s);
+  const menu = over ? [] : engine.stakeMenu(s);
+  const offered = new Set(menu.map(entry => entry.option));
+  const winsLeft = STAKES_TO_FINISH - engine.yourWins(s);
+  const playedKey = option => run.steps.find(step => step.action.t === 'win' && optionOf(step.scene) === option)?.scene;
+  const node = (key, caption, status, color) => `
+    <button class="node ${status} c-${color}" data-act="zoom" data-arg="${key}" title="${esc(titleOf(key))} · ${status === 'taken' ? 'taken' : status === 'next' ? 'on the menu now' : status === 'out' ? 'out of reach this race' : 'later'}">
+      <span class="ring">${cover(key)}</span>${status === 'taken' ? '<span class="tick">✓</span>' : ''}<span class="cap">${esc(caption)}</span></button>`;
+  const ladderRows = ladders().map(ladder => {
+    // A rung as this race has it: once her top is off, the proposed topless blowjob takes rung 3.
+    const shown = option => engine.toplessBlowjob(s, option) || (option === 'X3_UNDER' && engine.picked(s, 'X3_BJ'))
+      ? { option: 'X3_BJ', key: 'WIN_X3_BJ__TOP_OFF' }
+      : option === 'X4_BJ' && engine.picked(s, 'X4_SEX') ? { option: 'X4_SEX', key: 'WIN_X4_SEX__DRESSED' }
+      : { option, key: engine.stakeKey(s, option) };
+    const next = ladder.rungs.findIndex(([option]) => !engine.picked(s, shown(option).option));
+    const taken = ladder.rungs.filter(([option]) => engine.picked(s, shown(option).option)).length;
+    const nodes = ladder.rungs.map(([option], i) => {
+      const rung = shown(option);
+      if (engine.picked(s, rung.option)) return node(playedKey(rung.option) || rung.key, OPTION_SHORT[rung.option], 'taken', ladder.id);
+      const status = over || i - next + 1 > winsLeft ? 'out' : offered.has(rung.option) ? 'next' : 'later';
+      return node(rung.key, OPTION_SHORT[rung.option], status, ladder.id);
+    }).join('');
+    return `<div class="lrow c-${ladder.id}"><div class="lname"><span class="dot c-${ladder.id}"></span>${ladder.name}<small>${taken}/4</small></div><div class="nodes">${nodes}</div></div>`;
+  }).join('');
+
+  const win = engine.yourWins(s) + 1;
+  const mr1Gone = over || win > 3 || engine.picked(s, 'S3_SHORTS') || (engine.picked(s, 'L1_TRUTH') && !s.flags.has(BRA_SIZE_TRUTH));
+  const mrStatus = option => {
+    if (engine.picked(s, option)) return 'taken';
+    if (offered.has(option)) return 'next';
+    if (over) return 'out';
+    if (option === 'MR1_KISS') return mr1Gone ? 'out' : 'later';
+    if (option === 'MR1_FINGER' || option === 'MR1_NICE') return engine.picked(s, 'MR1_KISS') || (!mr1Gone && win <= 3) ? 'later' : 'out';
+    return engine.picked(s, 'X1_BUTT') && engine.picked(s, 'X2_BREAST') ? 'out' : 'later';
+  };
+  const mrNodes = [['WIN_MR1_KISS', 'MR1_KISS', 'MR1 kiss'], ['WIN_MR1_FINGER', 'MR1_FINGER', 'MR1 finale']]
+    .concat(ui.rules.mr1 ? [['WIN_MR1_NICE', 'MR1_NICE', 'MR1 nice']] : [])
+    .concat([['WIN_MR3_INSPECT', 'MR3_INSPECT', 'Inspection']])
+    .map(([key, option, caption]) => node(key, caption, mrStatus(option), 'mr')).join('');
+
+  const hers = engine.herWins(s);
+  const herKeys = [
+    run.steps.find(step => step.scene?.startsWith('LOSE_P1'))?.scene || 'LOSE_P1_ASS_KISS__' + (engine.picked(s, 'S3_SHORTS') ? 'SHORTS_OFF' : 'SHORTS_ON'),
+    'LOSE_P2_DICK_PIC',
+    run.steps.find(step => step.scene?.startsWith('LOSE_P3'))?.scene || (engine.picked(s, 'S2_WALK') ? 'LOSE_P3A_YOUR_WALK' : 'LOSE_P3B_BENCH_GIRL'),
+    'FORFEIT_NAKED_RUN__' + (engine.picked(s, 'S1_TOP') ? 'TOP_OFF' : 'DRESSED'),
+  ];
+  const herNodes = herKeys.map((key, i) => node(key, ['Ass kiss', 'Dick pic', i === 2 && key.includes('P3A') ? 'Your walk' : 'Bench girl', 'Your forfeit'][i],
+    i < hers ? 'taken' : over ? 'out' : i === hers ? 'next' : 'later', 'her')).join('');
+
+  const history = run.steps.map((step, i) => {
+    const text = step.action.t === 'win'
+      ? `You won · <b>${esc(OPTION_SHORT[optionOf(step.scene)] || step.scene)}</b>`
+      : `She won · <b>${esc(step.scene ? titleOf(step.scene) : 'your forfeit')}</b>`;
+    const on = (ui.view === 'scene' || ui.view === 'ending') && i === run.steps.length - 1;
+    return `<li><button class="${on ? 'on' : ''}" data-act="rewind" data-arg="${i}"><span class="dot c-${step.action.t === 'win' ? optionLadder(optionOf(step.scene)) : 'her'}"></span><span><span class="when">Match ${i + 1}</span><br>${text}</span></button></li>`;
+  }).join('');
+  const end = over ? `<li><button class="${ui.view === 'ending' ? 'on' : ''}" data-act="ending"><span class="dot c-end"></span><span><span class="when">Ending</span><br><b>${esc(titleOf(engine.endingKey(s)))}</b></span></button></li>` : '';
+
+  return `
+    <div class="card">
+      <h3>This race</h3>
+      <div class="status">
+        <div><div class="num">${engine.yourWins(s)}<small>/4</small></div><span class="muted">your stakes</span></div>
+        <div><div class="num">${hers}<small>/4</small></div><span class="muted">her wins</span></div>
+      </div>
+      <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px"><span class="pill">${APPEARANCE[engine.appearance(s)]}</span>${s.flags.has(BRA_SIZE_TRUTH) ? '<span class="pill ladder c-mr">bra-size truth told</span>' : ''}${over ? '<span class="pill">race over</span>' : ''}</div>
+    </div>
+    ${ui.rules.bj === 'unlocks' ? unlocksPanel() : ''}
+    <div class="card">
+      <h3>The ladders</h3>
+      <div class="ladders">${ladderRows}
+        <div class="lrow c-mr"><div class="lname"><span class="dot c-mr"></span>Mini-routes</div><div class="nodes">${mrNodes}</div></div>
+        <div class="lrow c-her"><div class="lname"><span class="dot c-her"></span>Her wins<small>${hers}/4</small></div><div class="nodes">${herNodes}</div></div>
+      </div>
+      <div class="legend"><span>✓ taken</span><span>dashed: on the menu now</span><span>faded: out of reach</span><span>click one to see it</span></div>
+    </div>
+    <div class="card">
+      <h3>So far</h3>
+      <ol class="hist"><li><button class="${ui.view === 'intro' ? 'on' : ''}" data-act="rewindStart"><span class="dot c-start"></span><span><span class="when">Start</span><br>The wager</span></button></li>${history}${end}</ol>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn small" data-act="newRace">New race</button><button class="btn small" data-act="random" ${over ? 'disabled' : ''}>Finish at random</button></div>
+    </div>`;
+}
+
+// The proposed unlocks: what each needs, met or not. Click one to flip it, or play there.
+function unlocksPanel() {
+  const unlocked = unlockedNow();
+  return `
+    <div class="card">
+      <h3>Unlocks · carried between races</h3>
+      ${UNLOCKS.map(unlock => `
+        <div class="unlock">
+          <div class="unlockhead"><b>${esc(unlock.title)}</b><span class="pill ${unlocked[unlock.id] ? 'seen' : ''}">${unlocked[unlock.id] ? 'unlocked' : 'locked: [?]'}</span></div>
+          <div class="muted" style="font-size:12px;margin-bottom:4px">${esc(unlock.where)}</div>
+          ${unlock.needs.map(need => `
+            <div class="need"><button class="req ${ui.progress[need.id] ? 'done' : ''}" data-act="toggleProgress" data-arg="${need.id}" title="Mark it met or not"><span class="box">${ui.progress[need.id] ? '✓' : ''}</span>${esc(need.text)}</button>
+              <button class="btn small ghost" data-act="route" data-arg="${need.scene}" title="Play the shortest race there">Go</button></div>`).join('')}
+        </div>`).join('')}
+      <button class="btn small" data-act="resetProgress">Reset unlocks</button>
+    </div>`;
+}
+
+// Every scene, what you've seen of it, how often races reach it, and the shortest way there.
+function renderScenes() {
+  const { seen, total } = seenCount();
+  const inRace = new Set();
+  const run = current();
+  for (const step of run.steps) if (step.scene) inRace.add(step.scene);
+  if (ui.view !== 'intro' || run.steps.length) inRace.add('INTRO_WAGER');
+  if (engine.isOver(run.state) && ui.view === 'ending') inRace.add(engine.endingKey(run.state));
+  const filter = name => `<button class="btn small" aria-pressed="${ui.filter === name}" data-act="filter" data-arg="${name}">${{ all: 'All', unseen: 'Not seen yet', seen: 'Seen' }[name]}</button>`;
+  const groups = GROUPS.map(group => {
+    const scenes = activeScenes().filter(scene => scene.group === group.id)
+      .filter(scene => ui.filter === 'all' || (ui.filter === 'seen') === !!ui.seen[scene.key]);
+    if (!scenes.length) return '';
+    const color = { start: 'start', won: 'end', lost: 'her', after: 'end', her: 'her' }[group.id] || group.id;
+    return `
+      <div class="group c-${color}"><h3>${esc(group.name)}</h3><span>${esc(group.note || ladders().find(ladder => ladder.id === group.id).rungs.map(([option]) => OPTION_SHORT[option].toLowerCase()).join(' → '))}</span></div>
+      <div class="grid">${scenes.map(scene => sceneTile(scene, inRace)).join('')}</div>`;
+  }).join('');
+  const removed = removedScenes();
+  return `
+    <div class="progress">
+      <div><h2 class="serif" style="margin:0">${seen} of ${total} seen</h2><span class="muted">Everything the race can show, under the rules switched on above.</span></div>
+      <div class="meter"><i style="width:${total ? (100 * seen / total).toFixed(1) : 0}%"></i></div>
+      <div class="filters">${filter('all')}${filter('unseen')}${filter('seen')}</div>
+      <button class="btn small ghost" data-act="resetSeen" title="Forget what you’ve seen">Reset</button>
+    </div>
+    ${groups || '<p class="muted">Nothing here.</p>'}
+    ${removed.length ? `
+      <div class="group c-end"><h3>Not in these rules</h3><span>scenes the proposals switched on take out of the race</span></div>
+      <div class="grid removed">${removed.map(scene => sceneTile(scene, inRace, true)).join('')}</div>` : ''}`;
+}
+function sceneTile(scene, inRace, removed = false) {
+  const times = ui.seen[scene.key] || 0;
+  const races = analysis.sceneRaces[scene.key] || 0;
+  const share = analysis.total ? races / analysis.total : 0;
+  const locked = ui.rules.bj === 'unlocks' && scene.unlock && !unlockedNow()[scene.unlock];
+  const reach = removed ? 'taken out by a proposal' : locked ? 'locked: see Unlocks on the Play tab' : races ? `in ${formatShare(share)} of races` : 'can’t happen under these rules';
+  const flags = [times ? `<span class="pill seen">seen${times > 1 ? ' ×' + times : ''}</span>` : `<span class="pill">not seen</span>`];
+  if (inRace.has(scene.key)) flags.push('<span class="pill new">this race</span>');
+  if (proposalPill(scene)) flags.push(proposalPill(scene));
+  return `
+    <div class="scard c-${sceneColor(scene.key)} ${times ? '' : 'unseen'}">
+      <button class="cover" data-act="zoom" data-arg="${scene.key}" aria-label="See ${esc(scene.title)}">${cover(scene.key)}<span class="flag">${flags.join('')}</span></button>
+      <div class="body"><span class="t">${esc(scene.title)}</span><span class="mono muted">${esc(scene.key)}</span><span class="reach">${esc(reach)}</span>
+        <span class="act">${!removed && analysis.routes[scene.key] ? `<button class="btn small" data-act="route" data-arg="${scene.key}">${times ? 'Play there again' : 'Show me a way'}</button>` : ''}</span></div>
+    </div>`;
+}
+function formatShare(share) {
+  if (share === 0) return '0%';
+  if (share < 0.001) return '<0.1%';
+  if (share < 0.1) return (100 * share).toFixed(1) + '%';
+  return Math.round(100 * share) + '%';
+}
+
+// The whole space: how many races there are, where they end, and which pick sets earn each ending.
+function renderRoutes() {
+  const endingKeys = activeScenes().filter(scene => scene.group === 'won' || scene.group === 'lost').map(scene => scene.key);
+  const youWin = endingKeys.filter(key => SCENES[key].group === 'won').reduce((n, key) => n + (analysis.endings[key]?.races || 0), 0);
+  const endings = endingKeys.map(key => {
+    const ending = analysis.endings[key];
+    const races = ending?.races || 0;
+    const sets = ending ? [...ending.sets.entries()].sort((a, b) => b[1] - a[1]) : [];
+    const shown = sets.slice(0, 8).map(([set, n]) => `<span class="set">${set ? set.split(' ').map(option => `<span class="chip c-${optionLadder(option)}">${esc(OPTION_SHORT[option])}</span>`).join('') : '<span class="muted">no stakes</span>'}<em>${formatShare(n / analysis.total)}</em></span>`).join('');
+    const more = sets.length > 8 ? `<span class="muted" style="font-size:12px;align-self:center">+${sets.length - 8} more sets</span>` : '';
+    return `
+      <div class="card ending c-${sceneColor(key)}">
+        <button class="thumb" data-act="zoom" data-arg="${key}" aria-label="See ${esc(titleOf(key))}">${cover(key)}</button>
+        <div><div class="stagehead"><b class="serif" style="font-size:18px">${esc(titleOf(key))}</b>${proposalPill(SCENES[key])}${ui.seen[key] ? '<span class="pill seen">seen</span>' : ''}</div>
+          <div class="share"><span class="meter"><i style="width:${(100 * races / analysis.total).toFixed(2)}%"></i></span>${races ? `${races.toLocaleString()} races · ${formatShare(races / analysis.total)}` : 'no race ends here under these rules'}</div>
+          <div class="sets">${shown}${more}</div></div>
+        <div class="go">${analysis.routes[key] ? `<button class="btn small" data-act="route" data-arg="${key}">Play the shortest way</button>` : ''}</div>
+      </div>`;
+  }).join('');
+  const frequent = activeScenes().filter(scene => !['start', 'won', 'lost'].includes(scene.group))
+    .map(scene => ({ scene, share: (analysis.sceneRaces[scene.key] || 0) / analysis.total }))
+    .sort((a, b) => a.share - b.share)
+    .map(({ scene, share }) => `<div class="frow c-${sceneColor(scene.key)}"><span><span class="dot c-${sceneColor(scene.key)}"></span> ${esc(scene.title)}</span><span class="meter"><i style="width:${(100 * share).toFixed(2)}%"></i></span><span class="pct">${formatShare(share)}</span></div>`).join('');
+  return `
+    <p class="explain">A race ends at your 4th stake (she forfeits) or her 4th win (you forfeit). Each ladder only offers its next rung, so a ladder’s last scene needs all four of your stakes. Here a <b>race</b> is one order of wins, losses and picks; shares count every race as equally likely, which a player never is.</p>
+    <div class="stats">
+      <div class="card stat"><b>${analysis.total.toLocaleString()}</b><span>different races</span></div>
+      <div class="card stat"><b>${analysis.pickSets}</b><span>different sets of your stakes</span></div>
+      <div class="card stat"><b>${formatShare(youWin / analysis.total)}</b><span>of races end with her forfeit</span></div>
+      <div class="card stat"><b>${endingKeys.filter(key => analysis.endings[key]).length}</b><span>endings</span></div>
+    </div>
+    <div class="group c-end"><h3>Where races end</h3><span>with the sets of stakes that get there (share of all races)</span></div>
+    <div class="endings">${endings}</div>
+    <div class="group c-end" style="margin-top:34px"><h3>How often each scene comes up</h3><span>rarest first</span></div>
+    <div class="card pad freq">${frequent}</div>`;
+}
+
+function renderLightbox() {
+  const box = document.getElementById('lightbox');
+  if (!lightbox) {
+    box.hidden = true;
+    box.innerHTML = '';
+    return;
+  }
+  const { urls, placeholder } = scenePictures(lightbox.key);
+  const list = urls || [];
+  const i = Math.min(lightbox.i, Math.max(0, list.length - 1));
+  const picture = urls === null ? noArt('Loading…') : list.length ? `<img src="${esc(list[i])}" alt="" data-fb="${esc(placeholderOf(SCENES[lightbox.key]?.from || lightbox.key))}" onerror="pictureFailed(this)">` : noArt(SCENES[lightbox.key]?.proposal ? 'Proposed: no art' : 'No art yet');
+  const nav = list.length > 1 ? `<button class="navbtn prev" data-act="lb" data-arg="-1" aria-label="Previous picture">‹</button><button class="navbtn next" data-act="lb" data-arg="1" aria-label="Next picture">›</button>` : '';
+  const strip = list.length > 1 ? `<div class="strip">${list.map((url, n) => `<button class="${n === i ? 'on' : ''}" data-act="lb" data-arg="=${n}">${img(url)}</button>`).join('')}</div>` : '<div></div>';
+  box.hidden = false;
+  box.innerHTML = `
+    <div class="top"><b class="serif">${esc(titleOf(lightbox.key))}</b><span class="mono" style="opacity:.7">${esc(lightbox.key)}</span>
+      <span style="opacity:.8;font-size:13px">${placeholder ? 'placeholder' : list.length > 1 ? `${i + 1} / ${list.length}` : ''}</span>
+      <button class="btn small" data-act="lb" data-arg="close">Close (Esc)</button></div>
+    <div class="stage" data-act="lb" data-arg="close">${picture}${nav}</div>
+    ${strip}`;
+}
+
+// --- events
+
+document.addEventListener('click', event => {
+  const target = event.target.closest('[data-act]');
+  if (!target) return;
+  const name = target.dataset.act;
+  // A click on the picture itself shouldn't close the lightbox.
+  if (name === 'lb' && target.dataset.arg === 'close' && target.classList.contains('stage') && event.target.tagName === 'IMG') return;
+  if (!actions[name]) return;
+  event.preventDefault();
+  actions[name](target.dataset.arg, target);
+  if (JSON.stringify(unlockedNow()) !== engineUnlocks) useRules();
+  saveStore();
+  render();
+});
+document.addEventListener('change', event => {
+  const rule = event.target.dataset?.rule;
+  if (!rule) return;
+  ui.rules[rule] = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+  useRules();
+  saveStore();
+  render();
+});
+document.addEventListener('keydown', event => {
+  if (event.target.closest?.('input, textarea')) return;
+  if (lightbox) {
+    if (event.key === 'Escape') actions.lb('close');
+    else if (event.key === 'ArrowLeft') actions.lb('-1');
+    else if (event.key === 'ArrowRight') actions.lb('1');
+    else return;
+  } else if (ui.tab === 'play' && ['intro', 'scene', 'ending'].includes(ui.view)) {
+    if (event.key === 'ArrowLeft') actions.view('-1');
+    else if (event.key === 'ArrowRight') actions.view('1');
+    else return;
+  } else {
+    return;
+  }
+  event.preventDefault();
+  saveStore();
+  render();
+});
+
+function checkPictures() {
+  const probe = new Image();
+  probe.onerror = () => { ui.picsMissing = true; render(); };
+  probe.src = placeholderOf('INTRO_WAGER');
+}
+
+loadStore();
+useRules();
+if (!ui.actions.length && ui.view === 'intro') see('INTRO_WAGER');
+if (['intro', 'scene', 'ending'].includes(ui.view)) {
+  const run = current();
+  showScene(ui.view === 'intro' ? 'INTRO_WAGER' : ui.view === 'ending' ? engine.endingKey(run.state) : run.steps.at(-1).scene);
+}
+checkPictures();
+render();
+</script>
+</body>
+</html>

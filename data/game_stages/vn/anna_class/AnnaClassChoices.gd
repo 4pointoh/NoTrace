@@ -98,3 +98,55 @@ static func getChoicesForDialogueKey(dialogueKey: String) -> Dictionary[String, 
 		}
 	else:
 		return {}
+
+# --- what the route menus say you have seen (ChoiceScript.getChoiceMarks)
+
+# The scene as a tree of routes: the choices each one opens next. A route with none ends the scene.
+# "Stay Here" (ROUTE_1) reaches its two through the quiz, whatever you answer.
+# The menus above stay the ones that decide what is offered: landscape-test's choice_menu_test
+# checks this tree against them.
+const LEADS_TO = {
+	"START": ["ROUTE_1", "ROUTE_2"],
+	"ROUTE_1": ["ROUTE_3", "ROUTE_4"],
+	"ROUTE_4": ["ROUTE_5", "ROUTE_6_TRANSITION"],
+	"ROUTE_6_TRANSITION": ["ROUTE_6", "ROUTE_7"],
+	"ROUTE_6": ["ROUTE_9", "ROUTE_13"],
+	"ROUTE_2": ["ROUTE_10", "ROUTE_8"],
+	"ROUTE_10": ["ROUTE_12", "ROUTE_11"],
+}
+# The quiz ends one of three ways, each a scene of its own.
+const QUIZ_RESULTS = ["ROUTE_1_ALL_CORRECT", "ROUTE_1_ALL_INCORRECT", "ROUTE_1_SOME_INCORRECT"]
+const STAGE = "anna_class"
+
+# A scene counts as seen once it has been read to its end.
+static func seen(dialogueKey: String) -> bool:
+	return GlobalGameStage.hasCompletedDialogueKey(dialogueKey, STAGE)
+
+# What there is to find by taking a route: every ending it can lead to (itself, if it is one),
+# and for "Stay Here" the quiz's three results too.
+static func toFind(route: String) -> Array:
+	if !LEADS_TO.has(route):
+		return [route]
+	var finds := QUIZ_RESULTS.duplicate() if route == "ROUTE_1" else []
+	for next in LEADS_TO[route]:
+		finds.append_array(toFind(next))
+	return finds
+
+# The routes on the menu a dialogue ends with. None for the quiz's questions: a mark on an answer
+# would only read as a hint.
+static func routesAfter(dialogueKey: String) -> Array:
+	if dialogueKey in QUIZ_RESULTS:
+		return LEADS_TO["ROUTE_1"]
+	if dialogueKey == "ROUTE_1":
+		return []
+	return LEADS_TO.get(dialogueKey, [])
+
+# Each route on the menu: how much of what it leads to you have found, and whether its own scene
+# is new to you.
+static func getChoiceMarks(dialogueKey: String) -> Dictionary:
+	var marks := {}
+	for route in routesAfter(dialogueKey):
+		var finds := toFind(route)
+		var found := finds.filter(func(find): return seen(find))
+		marks[route] = { "seen": found.size(), "total": finds.size(), "new": !seen(route) }
+	return marks

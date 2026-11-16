@@ -170,6 +170,8 @@ func _on_fullscreen_pressed() -> void:
 
 func _on_windowed_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	# The window comes back at whatever shape it had before fullscreen, which may not match the current mode.
+	DisplayMode.refitWindow.call_deferred()
 
 func _on_borderless_windowed_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 

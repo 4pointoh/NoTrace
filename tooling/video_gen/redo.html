@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before and After</title>
+<style>
+:root {
+	--bg: #121316; --panel: #1c1e23; --line: #2c2f36; --text: #e7e8ea; --dim: #9a9ea8;
+	--keep: #3fb26b; --reject: #d9534f; --star: #e3b341; --accent: #6ea8ff; --pick: #b98cff; --warn: #e0913a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 3; background: var(--bg); border-bottom: 1px solid var(--line);
+	padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0; }
+header a { color: var(--accent); }
+.stats { color: var(--dim); }
+button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px;
+	padding: 4px 10px; cursor: pointer; font: inherit; }
+.filters button.on { border-color: var(--accent); color: var(--accent); }
+label.size { color: var(--dim); display: flex; gap: 6px; align-items: center; }
+main { padding: 8px 16px 60px; }
+section { border-top: 1px solid var(--line); padding: 16px 0 26px; }
+.head { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-start; margin-bottom: 8px; }
+.head .left { flex: 1 1 320px; display: grid; gap: 8px; }
+.head h2 { font-size: 16px; margin: 0; }
+.head h2 .sub { display: block; color: var(--dim); font-weight: normal; font-size: 12px; margin-top: 4px; }
+blockquote { margin: 0; padding: 8px 12px; border-left: 3px solid var(--pick); background: var(--panel); border-radius: 0 6px 6px 0; }
+blockquote .who { display: block; color: var(--dim); font-size: 12px; margin-bottom: 2px; }
+.judge { flex: 1 1 420px; max-width: 640px; display: grid; gap: 6px; }
+.judge .opts { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.judge .opts .label { color: var(--dim); font-size: 12px; margin-right: 4px; }
+.judge .opts button.on { background: var(--accent); border-color: var(--accent); color: #10131a; font-weight: 600; }
+.judge .opts button.fixed.on { background: var(--keep); border-color: var(--keep); color: #fff; }
+.judge .opts button.no.on { background: var(--reject); border-color: var(--reject); color: #fff; }
+.judge .opts.small button { font-size: 12px; padding: 2px 8px; }
+.judge .picks { color: var(--dim); font-size: 12px; }
+.judge .picks b { color: var(--pick); font-weight: 600; }
+textarea { width: 100%; min-height: 34px; resize: vertical; background: var(--bg); color: var(--text);
+	border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; font: inherit; font-size: 12px; }
+section.judged .head h2::before { content: '✓ '; color: var(--keep); }
+.row-title { font-size: 13px; color: var(--dim); margin: 16px 0 4px; }
+.row-title b { color: var(--text); font-size: 14px; }
+.row-title.before b { color: var(--dim); }
+.what { color: var(--dim); font-size: 12px; margin: 0 0 8px; max-width: 900px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--w, 260px), 1fr)); gap: 12px; }
+.card { background: var(--panel); border: 2px solid var(--line); border-radius: 8px; overflow: hidden; position: relative; }
+.card.keep { border-color: var(--keep); }
+.card.prod { border-color: var(--star); }
+.card.reject { border-color: var(--reject); opacity: .55; }
+.card.original { border-color: var(--dim); }
+.card.picked { outline: 3px solid var(--pick); outline-offset: -1px; }
+.card.waiting { border-style: dashed; display: grid; place-items: center; aspect-ratio: 3 / 4; color: var(--dim); font-size: 13px; text-align: center; padding: 12px; }
+.card .badge { position: absolute; top: 8px; left: 8px; z-index: 1; background: var(--pick); color: #14101c;
+	font-weight: 700; border-radius: 999px; min-width: 28px; height: 28px; display: grid; place-items: center; padding: 0 8px; }
+.card .frame { position: relative; aspect-ratio: 3 / 4; background: #000; display: block; }
+.card .frame img, .card .frame video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
+.card .meta { padding: 8px 10px; display: grid; gap: 6px; }
+.card .title { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; word-break: break-word; }
+.card .title span { color: var(--dim); font-weight: normal; font-size: 12px; white-space: nowrap; }
+.card .note { font-size: 12px; color: var(--text); background: var(--bg); border-radius: 6px; padding: 4px 6px; }
+.card .gen { color: var(--dim); font-size: 12px; }
+.card details { font-size: 12px; color: var(--dim); }
+.card details pre { white-space: pre-wrap; margin: 6px 0 0; font: 12px/1.35 ui-monospace, monospace; }
+.card .actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.card .actions .p.on { background: var(--pick); border-color: var(--pick); color: #14101c; }
+.card .actions .k.on { background: var(--keep); border-color: var(--keep); color: #fff; }
+.card .actions .r.on { background: var(--reject); border-color: var(--reject); color: #fff; }
+.card .actions .s { margin-left: auto; }
+.card .actions .s.on { background: var(--star); border-color: var(--star); color: #1a1a1a; }
+.tag { display: inline-block; font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--dim); }
+.tag.loop { border-color: var(--accent); color: var(--accent); }
+.tag.smooth { border-color: var(--keep); color: var(--keep); }
+.tag.bump { border-color: var(--warn); color: var(--warn); }
+.tag.jump { border-color: var(--reject); color: var(--reject); }
+.empty { color: var(--dim); padding: 40px 0; }
+</style>
+</head>
+<body>
+<header>
+	<h1>Before / after</h1>
+	<span class="stats" id="stats"></span>
+	<span class="filters" id="filters">
+		<button data-f="all" class="on">All</button>
+		<button data-f="open">Not judged</button>
+		<button data-f="judged">Judged</button>
+	</span>
+	<label class="size">Size <input type="range" id="size" min="180" max="520" value="260"></label>
+	<a href="/plan">Plan page</a>
+	<a href="/finish">Upscale before / after</a>
+	<a href="/">Review page</a>
+	<span class="stats">Hover a clip to play it. P pick, S star, K keep, R reject.</span>
+</header>
+<main id="main"><p class="empty">Loading…</p></main>
+<script>
+// One section per picture you wrote a note for on the plan page: your note, the clips it was about (before), and
+// each thing tried for it (after: clips of the listed keys made since the round started, from <library>/redo.json).
+// Your verdict and note save into that picture's plan.json entry (redo_verdict, redo_note); Pick changes its picks.
+const VERDICTS = [['fixed', 'Fixed'], ['better', 'Better, not fixed'], ['no', 'Not fixed']];
+const DECISIONS = [['use', 'Use as is'], ['combine', 'Combine'], ['loop', 'Make a loop'], ['redo', 'New renders'], ['none', 'No video']];
+let data = { clips: [], review: {}, pending: [], pictures: {} };
+let plan = {};
+let redo = { pictures: [] };
+let filter = 'all';
+let hovered = null;
+
+// Every card is a still; only the last few clips hovered hold a <video> (one per card ran the browser out of memory).
+const LIVE = 3;
+const videos = new Map();
+function thumb(path) { return '/thumbs/' + path.replace(/\.\w+$/, '.jpg'); }
+function drop(path) {
+	const video = videos.get(path);
+	video.pause();
+	video.removeAttribute('src');
+	video.load();
+	video.remove();
+	videos.delete(path);
+}
+function live(clip, frame) {
+	let video = videos.get(clip.path);
+	if (video) videos.delete(clip.path);
+	else {
+		video = el('video', { src: '/' + clip.path, poster: thumb(clip.path), loop: '', playsinline: '' });
+		video.muted = true;
+		video.addEventListener('click', () => { video.controls = !video.controls; video.muted = !video.controls; });
+	}
+	videos.set(clip.path, video);
+	if (video.parentNode !== frame) frame.append(video);
+	for (const [path, v] of videos) {
+		if (videos.size <= LIVE) break;
+		if (path !== clip.path && !v.controls) drop(path);
+	}
+	return video;
+}
+
+function store(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+function recall(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+function el(tag, attrs = {}, ...kids) {
+	const e = document.createElement(tag);
+	for (const [k, v] of Object.entries(attrs)) {
+		if (k === 'class') e.className = v;
+		else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+		else e.setAttribute(k, v);
+	}
+	for (const kid of kids) if (kid != null) e.append(kid);
+	return e;
+}
+
+async function load() {
+	const [clips, saved, r] = await Promise.all([fetch('/api/clips').then(x => x.json()), fetch('/api/plan').then(x => x.json()),
+		fetch('/api/redo').then(x => x.json())]);
+	data = clips;
+	plan = saved;
+	redo = r;
+	render();
+}
+
+// Saves in flight and a running count, so a refresh sent before a save can't bring back the state before it.
+let saving = 0, saves = 0, unsaved = false;
+async function save(url, body, redraw) {
+	saving++; saves++;
+	let ok = false;
+	try {
+		const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+		ok = r.ok;
+	} catch (e) {}
+	saving--;
+	if (unsaved !== !ok) { unsaved = !ok; redraw = true; }
+	if (redraw && !typing()) render();
+}
+function mark(path, fields) {
+	data.review[path] = { ...(data.review[path] || {}), ...fields };
+	return save('/api/review', { path, ...fields }, true);
+}
+// Same rules as the review page: starring keeps a clip; un-keeping or rejecting it takes the star away.
+function setVerdict(path, verdict) { return mark(path, verdict === 'keep' ? { verdict } : { verdict, production: false }); }
+function toggleStar(path) {
+	const r = data.review[path] || {};
+	return mark(path, r.production ? { production: false } : { production: true, verdict: 'keep' });
+}
+function decide(pic, fields, redraw = true) {
+	plan[pic] = { ...(plan[pic] || {}), ...fields };
+	return save('/api/plan', { picture: pic, ...fields }, redraw);
+}
+function togglePick(pic, path) {
+	const picks = [...((plan[pic] || {}).clips || [])];
+	const i = picks.indexOf(path);
+	if (i >= 0) picks.splice(i, 1); else picks.push(path);
+	return decide(pic, { clips: picks });
+}
+
+let noteTimer = null;
+function typing() { return document.activeElement && document.activeElement.tagName === 'TEXTAREA'; }
+function noteBox(value, placeholder, onSave) {
+	const box = el('textarea', { placeholder });
+	box.value = value || '';
+	box.addEventListener('input', () => { clearTimeout(noteTimer); noteTimer = setTimeout(() => onSave(box.value), 500); });
+	box.addEventListener('blur', () => { clearTimeout(noteTimer); onSave(box.value); });
+	return box;
+}
+
+function pictureName(pic) {
+	const game = (data.pictures || {})[pic];
+	if (game && game.length) return game.map(g => g.replace(/\.\w+$/, '')).join(' = ');
+	return pic.replace(/^sources\//, '').replace(/_\d+x\d+\.png$/, '');
+}
+function stem(path) { return path.split('/').pop().replace(/\.mp4$/, ''); }
+const rv = clip => data.review[clip.path] || {};
+
+function originalCard(pic) {
+	return el('div', { class: 'card original' },
+		el('a', { class: 'frame', href: '/' + pic, target: '_blank', title: 'Open the full picture' },
+			el('img', { src: '/' + pic, alt: '', loading: 'lazy', decoding: 'async' })),
+		el('div', { class: 'meta' }, el('div', { class: 'title' }, 'Original picture', el('span', {}, 'the clips start from this'))));
+}
+
+// A loop's biggest frame-to-frame step against the motion around it, measured when it was published.
+function jumpTag(clip) {
+	const j = clip.jump_check;
+	if (!j) return null;
+	if (j.crossfade) return el('span', { class: 'tag bump', title: 'A copy of a loop that jumped: its frames cross-fade into the original ones over half a second before the jump. No jump, but you may see the two poses blend.' }, 'cross-faded, not seamless');
+	const cls = j.max_ratio < 2.5 ? 'smooth' : j.max_ratio < 4 ? 'bump' : 'jump';
+	return el('span', { class: 'tag ' + cls, title: `Biggest frame-to-frame step: ${j.max_ratio}x the motion around it, at ${j.at_s} s. About 1-2x looks smooth; 4x or more is a visible jump.` },
+		cls === 'smooth' ? 'no jump' : `step ${j.max_ratio}x at ${j.at_s} s`);
+}
+
+function card(clip, pic) {
+	const r = rv(clip);
+	const picks = (plan[pic] || {}).clips || [];
+	const n = picks.indexOf(clip.path) + 1;
+	const frame = el('div', { class: 'frame' },
+		el('img', { src: thumb(clip.path), alt: '', loading: 'lazy', decoding: 'async' }), videos.get(clip.path));
+	const c = el('div', { class: 'card ' + (r.verdict || '') + (r.production ? ' prod' : '') + (n ? ' picked' : '') },
+		n ? el('div', { class: 'badge', title: 'Picked in the plan, in this order' }, '#' + n) : null);
+	c.addEventListener('mouseenter', () => { hovered = { clip, pic }; live(clip, frame).play().catch(() => {}); });
+	c.addEventListener('mouseleave', () => {
+		if (hovered && hovered.clip === clip) hovered = null;
+		const video = videos.get(clip.path);
+		if (video) video.pause();
+	});
+	const seconds = clip.frames && clip.fps ? (clip.frames / clip.fps).toFixed(1) + ' s' : '';
+	const isLoop = clip.key.startsWith('LOOP_');
+	c.append(frame, el('div', { class: 'meta' },
+		el('div', { class: 'title' }, stem(clip.path),
+			el('span', {}, el('span', { class: 'tag' + (isLoop ? ' loop' : '') }, isLoop ? 'seamless loop' : 'clip'), ' ', seconds)),
+		isLoop ? el('div', {}, jumpTag(clip), clip.repaired_from ? el('span', { class: 'gen' }, ' copy of ' + clip.repaired_from) : null) : null,
+		r.note ? el('div', { class: 'note', title: 'Your review note' }, r.note) : null,
+		el('div', { class: 'actions' },
+			el('button', { class: 'p' + (n ? ' on' : ''), title: 'Use this clip in the plan (P); pick several to set an order', onclick: () => togglePick(pic, clip.path) }, n ? `Picked #${n}` : 'Pick'),
+			el('button', { class: 'k' + (r.verdict === 'keep' ? ' on' : ''), onclick: () => setVerdict(clip.path, r.verdict === 'keep' ? '' : 'keep') }, 'Keep'),
+			el('button', { class: 'r' + (r.verdict === 'reject' ? ' on' : ''), onclick: () => setVerdict(clip.path, r.verdict === 'reject' ? '' : 'reject') }, 'Reject'),
+			el('button', { class: 's' + (r.production ? ' on' : ''), title: 'Production-ready: usable as is (S)', onclick: () => toggleStar(clip.path) }, r.production ? '★' : '☆')),
+		el('details', {}, el('summary', {}, 'How it was made'), clip.note ? el('pre', {}, clip.note) : null, el('pre', {}, clip.prompt || ''))));
+	return c;
+}
+
+function section(item, byPath) {
+	const pic = item.picture;
+	const entry = plan[pic] || {};
+	const picks = (entry.clips || []).filter(p => byPath[p]);
+	const s = el('section', { class: entry.redo_verdict ? 'judged' : '', id: 'p-' + stem(pic) });
+	const verdicts = el('div', { class: 'opts' }, el('span', { class: 'label' }, 'Did it work?'),
+		...VERDICTS.map(([key, label]) => el('button', { class: key + (entry.redo_verdict === key ? ' on' : ''),
+			onclick: () => decide(pic, { redo_verdict: entry.redo_verdict === key ? '' : key }) }, label)));
+	const decisions = el('div', { class: 'opts small' }, el('span', { class: 'label' }, 'Plan:'),
+		...DECISIONS.map(([key, label]) => el('button', { class: entry.decision === key ? 'on' : '',
+			onclick: () => decide(pic, { decision: entry.decision === key ? '' : key }) }, label)));
+	s.append(el('div', { class: 'head' },
+		el('div', { class: 'left' },
+			el('h2', {}, pictureName(pic), el('span', { class: 'sub' }, `${item.tries.length} thing${item.tries.length === 1 ? '' : 's'} tried`)),
+			el('blockquote', {}, el('span', { class: 'who' }, item.found || 'Your note'), item.note || (item.found ? 'See below.' : '(no note)'))),
+		el('div', { class: 'judge' }, verdicts,
+			noteBox(entry.redo_note, 'What\'s still off, or what to try next', value => decide(pic, { redo_note: value }, false)),
+			decisions,
+			el('div', { class: 'picks' }, picks.length
+				? el('span', {}, 'Picked for the game: ', ...picks.flatMap((p, i) => [i ? ', ' : '', el('b', {}, `#${i + 1}`), ' ' + stem(p)]))
+				: 'Nothing picked: press Pick on the clip(s) the game should use.'))));
+	const before = item.before.map(p => byPath[p]).filter(Boolean);
+	s.append(el('div', { class: 'row-title before' }, el('b', {}, 'Before'), before.length ? '' : ' · the original picture only'),
+		el('div', { class: 'grid' }, originalCard(pic), ...before.map(c => card(c, pic))));
+	for (const t of item.tries) {
+		const keys = new Set(t.keys);
+		const skip = new Set(t.exclude || []);
+		const all = data.clips.filter(c => keys.has(c.key) && (c.made_at || '') >= redo.since && !skip.has(c.path))
+			.sort((a, b) => a.path < b.path ? -1 : 1);
+		// cross-faded copies of loops that jumped get their own row under the loops they came from
+		const got = all.filter(c => !c.repaired_from), fixed = all.filter(c => c.repaired_from);
+		const waiting = Math.max(0, t.expect - got.length);
+		s.append(el('div', { class: 'row-title' }, el('b', {}, t.title), waiting ? ` · ${got.length} of ${t.expect} (rest still being made)` : ` · ${got.length}`));
+		if (t.what) s.append(el('p', { class: 'what' }, t.what));
+		s.append(el('div', { class: 'grid' }, ...got.map(c => card(c, pic)),
+			...Array.from({ length: waiting }, () => el('div', { class: 'card waiting' }, 'Still being made on the pod'))));
+		if (fixed.length) {
+			s.append(el('div', { class: 'row-title' }, el('b', {}, 'Cross-faded copies'), ` · ${fixed.length}`),
+				el('p', { class: 'what' }, 'Loops that jumped (yours included), with the regenerated frames fading into the original ones over half a second before the jump instead. No jump, but you may see two poses blend for a moment: a fallback, not a seamless loop.'),
+				el('div', { class: 'grid' }, ...fixed.map(c => card(c, pic))));
+		}
+	}
+	return s;
+}
+
+function render() {
+	const main = document.getElementById('main');
+	main.textContent = '';
+	const byPath = Object.fromEntries(data.clips.map(c => [c.path, c]));
+	const items = [...redo.pictures].sort((a, b) => pictureName(a.picture) < pictureName(b.picture) ? -1 : 1);
+	const judged = items.filter(it => (plan[it.picture] || {}).redo_verdict);
+	let expected = 0, have = 0;
+	for (const it of items) for (const t of it.tries) {
+		const keys = new Set(t.keys);
+		expected += t.expect;
+		have += Math.min(t.expect, data.clips.filter(c => keys.has(c.key) && (c.made_at || '') >= redo.since).length);
+	}
+	document.getElementById('stats').textContent = (unsaved ? '⚠ Last change not saved: is h3.py serve running? · ' : '') +
+		`${judged.length} of ${items.length} pictures judged · ${have} of ${expected} new clips made`;
+	let shown = 0;
+	for (const it of items) {
+		const done = !!(plan[it.picture] || {}).redo_verdict;
+		if (filter === 'open' && done) continue;
+		if (filter === 'judged' && !done) continue;
+		main.append(section(it, byPath));
+		shown++;
+	}
+	if (!shown) main.append(el('p', { class: 'empty' }, items.length ? 'Nothing matches this filter.' : 'No notes to show (redo.json is empty).'));
+	for (const [path, video] of videos) if (!video.isConnected) drop(path);
+}
+
+document.getElementById('filters').addEventListener('click', e => {
+	const b = e.target.closest('button');
+	if (!b) return;
+	filter = b.dataset.f;
+	store('redo-filter', filter);
+	for (const x of document.querySelectorAll('#filters button')) x.classList.toggle('on', x === b);
+	render();
+});
+const size = document.getElementById('size');
+size.addEventListener('input', () => { document.body.style.setProperty('--w', size.value + 'px'); store('redo-size', size.value); });
+document.addEventListener('keydown', e => {
+	// not while typing or with a modifier (Ctrl+S, Ctrl+R), and not on key repeat (P and S toggle)
+	if (!hovered || ['TEXTAREA', 'INPUT'].includes(e.target.tagName) || e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+	const k = e.key.toLowerCase(), path = hovered.clip.path;
+	if (k === 'p') togglePick(hovered.pic, path);
+	else if (k === 's') toggleStar(path);
+	else if (k === 'k') setVerdict(path, 'keep');
+	else if (k === 'r') setVerdict(path, 'reject');
+});
+const savedSize = recall('redo-size');
+if (savedSize) { size.value = savedSize; document.body.style.setProperty('--w', savedSize + 'px'); }
+const savedFilter = recall('redo-filter');
+if (savedFilter) { filter = savedFilter; for (const x of document.querySelectorAll('#filters button')) x.classList.toggle('on', x.dataset.f === filter); }
+load();
+// New clips arrive while the pods work: redraw when the library grows (not while typing or saving).
+setInterval(() => {
+	if (document.hidden || typing() || saving) return;
+	const sent = saves;
+	fetch('/api/clips').then(r => r.json()).then(d => {
+		if (saving || saves !== sent || typing()) return;
+		const notes = c => c.jump_check ? 1 : 0;
+		if (d.clips.length !== data.clips.length || d.clips.reduce((n, c) => n + notes(c), 0) !== data.clips.reduce((n, c) => n + notes(c), 0)) { data = d; render(); }
+	}).catch(() => {});
+}, 15000);
+</script>
+</body>
+</html>

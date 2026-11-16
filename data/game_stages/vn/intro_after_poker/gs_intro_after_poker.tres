@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3 uid="uid://w54iw46mgqvf"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3 uid="uid://w54iw46mgqvf"]
 
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_c7f2a"]
 [ext_resource type="Resource" uid="uid://m43djeiuybsq" path="res://data/game_stages/vn/intro_after_poker/d_intro_after_poker2.tres" id="1_ufa2a"]
 [ext_resource type="Resource" uid="uid://dojlfqurdseox" path="res://data/game_stages/vn/pre_first_phone/gs_pre_first_phone.tres" id="2_vsi7a"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundFocus.gd" id="4_lljoc"]
 [ext_resource type="AudioStream" uid="uid://d00qeaaslpb0r" path="res://data/assets/general/sounds/bg_music/after_poker.mp3" id="4_ydogh"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="5_vt0ss"]
 
@@ -11,6 +12,7 @@ script = ExtResource("5_vt0ss")
 name = "gggg"
 imagePath = "res://data/background_lists/chads_party/backgrounds/intro_1_8.png"
 wallpaperId = ""
+focusPoints = Array[ExtResource("4_lljoc")]([])
 
 [resource]
 script = ExtResource("1_c7f2a")
@@ -35,6 +37,8 @@ cacheItems = Array[String]([])
 repositionDialogueBoxTo = 0
 endOnlyOnSpecificDialogueKey = false
 endingDialogueKeys = Array[String]([])
+skipsOnlySeenDialogue = false
+isLandscape = false
 isPokerMatch = false
 isStripPoker = false
 playerStartingMoney = 0

@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=14 format=3]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_bg"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2_list"]
+
+[sub_resource type="Resource" id="picture_01"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_01"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/01.webp"
+
+[sub_resource type="Resource" id="picture_02"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_02"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/02.webp"
+wallpaperId = "ASHELY2_WIN_X1_BUTT__DRESSED_02"
+
+[sub_resource type="Resource" id="picture_03"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_03"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/03.webp"
+
+[sub_resource type="Resource" id="picture_04"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_04"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/04.webp"
+wallpaperId = "ASHELY2_WIN_X1_BUTT__DRESSED_04"
+
+[sub_resource type="Resource" id="picture_05"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_05"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/05.webp"
+
+[sub_resource type="Resource" id="picture_06"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_06"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/06.webp"
+
+[sub_resource type="Resource" id="picture_07"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_07"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/07.webp"
+
+[sub_resource type="Resource" id="picture_08"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_08"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/08.webp"
+wallpaperId = "ASHELY2_WIN_X1_BUTT__DRESSED_08"
+
+[sub_resource type="Resource" id="picture_09"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_09"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/09.webp"
+
+[sub_resource type="Resource" id="picture_10"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_10"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/10.webp"
+wallpaperId = "ASHELY2_WIN_X1_BUTT__DRESSED_10"
+
+[sub_resource type="Resource" id="picture_11"]
+script = ExtResource("1_bg")
+name = "WIN_X1_BUTT__DRESSED_11"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_X1_BUTT__DRESSED/11.webp"
+wallpaperId = "ASHELY2_WIN_X1_BUTT__DRESSED_11"
+
+[resource]
+script = ExtResource("2_list")
+name = "WIN_X1_BUTT__DRESSED"
+images = Array[ExtResource("1_bg")]([SubResource("picture_01"), SubResource("picture_02"), SubResource("picture_03"), SubResource("picture_04"), SubResource("picture_05"), SubResource("picture_06"), SubResource("picture_07"), SubResource("picture_08"), SubResource("picture_09"), SubResource("picture_10"), SubResource("picture_11")])

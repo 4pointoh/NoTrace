@@ -9,6 +9,8 @@ func _ready():
 	var allCheckpoints = load("res://resources/checkpoints/all_checkpoints.tres")
 	var i = 0
 	for checkpoint in allCheckpoints.checkpoints:
+		if checkpoint.hidden:
+			continue
 		i = i + 1
 		var button = stageButton.instantiate()
 		button.setCheckpoint(checkpoint, str(i))

@@ -50,12 +50,13 @@ func highlightSelection(selection: int):
 		%PokerProPlusMax.modulate = Color(.17, .95, 0, 1.0)
 	
 func setRegularModeText():
-	if GlobalGameStage.currentStage.cheatCount == 0:
+	var cheats = GlobalGameStage.currentStage.currentCheatCount()
+	if cheats == 0:
 		%NormalModeDescription.text = "No Cheats"
-	elif GlobalGameStage.currentStage.cheatCount == 1:
+	elif cheats == 1:
 		%NormalModeDescription.text = "1 Cheat"
-	elif GlobalGameStage.currentStage.cheatCount > 1:
-		%NormalModeDescription.text = str(GlobalGameStage.currentStage.cheatCount) + " Cheats"
+	elif cheats > 1:
+		%NormalModeDescription.text = str(cheats) + " Cheats"
 
 func setProPlusModeText():
 	if GlobalGameStage.currentStage.proPlusCheats == 0:

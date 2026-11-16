@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dwhc3k3px2stl" path="res://data/characters/ashely/ashely2/face.webp" id="1_face"]
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_character"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="3_state"]
+[ext_resource type="Texture2D" uid="uid://bk0bsrywtpjpw" path="res://data/characters/ashely/ashely2/character_art/hands_on_hips.webp" id="4_hands_on_hips"]
+
+[sub_resource type="Resource" id="Resource_hands_on_hips"]
+script = ExtResource("3_state")
+name = "hands_on_hips"
+image = ExtResource("4_hands_on_hips")
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("2_character")
+name = "Ashely"
+editorName = "ashely2"
+image = ExtResource("1_face")
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("3_state")]([SubResource("Resource_hands_on_hips")])

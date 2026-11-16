@@ -1,0 +1,17 @@
+{
+ "about": "Pictures whose videos the game plays as one cycle instead of the first pick alone: finish.py stitch builds each from the clips' finished parts (their luma lifts, then BT.601, Theora as encode does), cross-fading at every join, the last join into the first clip's own tail. The first clip must be a seamless loop, so the cycle wraps through its seam, and the first clip's intro (if it has one) still leads in from the still. finish.py gamelist lists the cycle for the picture in place of its picks.",
+ "stitches": [
+  {
+   "picture": "ashely_poker2/WIN_X1_BUTT__PANTIES/04.webp",
+   "clips": [
+    "ashely_poker2/WIN_X1_BUTT__PANTIES/04_1",
+    "ashely_poker2/WIN_X1_BUTT__PANTIES/04_2",
+    "ashely_poker2/WIN_X1_BUTT__PANTIES/04_3"
+   ],
+   "out": "ashely_poker2/WIN_X1_BUTT__PANTIES/04_cycle",
+   "transition": "fade",
+   "seconds": 0.75,
+   "why": "The user (2026-11-15): the three picks as one loop, a brief smooth passage of time between them, back to the first."
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=22 format=3]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_bg"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2_list"]
+
+[sub_resource type="Resource" id="picture_01"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_01"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/01.webp"
+
+[sub_resource type="Resource" id="picture_02"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_02"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/02.webp"
+
+[sub_resource type="Resource" id="picture_03"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_03"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/03.webp"
+wallpaperId = "ASHELY2_WIN_S1_TOP_03"
+
+[sub_resource type="Resource" id="picture_04"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_04"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/04.webp"
+wallpaperId = "ASHELY2_WIN_S1_TOP_04"
+
+[sub_resource type="Resource" id="picture_05"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_05"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/05.webp"
+wallpaperId = "ASHELY2_WIN_S1_TOP_05"
+
+[sub_resource type="Resource" id="picture_06"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_06"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/06.webp"
+
+[sub_resource type="Resource" id="picture_07"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_07"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/07.webp"
+
+[sub_resource type="Resource" id="picture_08"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_08"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/08.webp"
+
+[sub_resource type="Resource" id="picture_09"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_09"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/09.webp"
+
+[sub_resource type="Resource" id="picture_10"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_10"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/10.webp"
+
+[sub_resource type="Resource" id="picture_11"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_11"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/11.webp"
+
+[sub_resource type="Resource" id="picture_12"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_12"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/12.webp"
+
+[sub_resource type="Resource" id="picture_13"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_13"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/13.webp"
+
+[sub_resource type="Resource" id="picture_14"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_14"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/14.webp"
+wallpaperId = "ASHELY2_WIN_S1_TOP_14"
+
+[sub_resource type="Resource" id="picture_15"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_15"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/15.webp"
+
+[sub_resource type="Resource" id="picture_16"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_16"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/16.webp"
+
+[sub_resource type="Resource" id="picture_17"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_17"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/17.webp"
+
+[sub_resource type="Resource" id="picture_18"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_18"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/18.webp"
+
+[sub_resource type="Resource" id="picture_19"]
+script = ExtResource("1_bg")
+name = "WIN_S1_TOP_19"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_S1_TOP/19.webp"
+wallpaperId = "ASHELY2_WIN_S1_TOP_19"
+
+[resource]
+script = ExtResource("2_list")
+name = "WIN_S1_TOP"
+images = Array[ExtResource("1_bg")]([SubResource("picture_01"), SubResource("picture_02"), SubResource("picture_03"), SubResource("picture_04"), SubResource("picture_05"), SubResource("picture_06"), SubResource("picture_07"), SubResource("picture_08"), SubResource("picture_09"), SubResource("picture_10"), SubResource("picture_11"), SubResource("picture_12"), SubResource("picture_13"), SubResource("picture_14"), SubResource("picture_15"), SubResource("picture_16"), SubResource("picture_17"), SubResource("picture_18"), SubResource("picture_19")])

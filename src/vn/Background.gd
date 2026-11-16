@@ -2,6 +2,9 @@ extends Control
 
 signal is_fading
 signal is_fading_slow
+## The fade carrying a frame change the dialogue asked for (landscape_next / portrait_next) has
+## reached its black point, with the new picture under it. Main makes the change behind its own cover.
+signal frameChangeDue(mode)
 @export var background : Background
 var shouldFade = false
 var shouldFadeQuick = false
@@ -9,6 +12,93 @@ var shouldFadeSlow = false
 var isSkipping = false
 @onready var zoompan = load("res://src/phone/zoompan.gdshader")
 @onready var wavefromtop = load("res://src/vn/wavefromtop.gdshader")
+
+# Portrait layout exactly as authored in the scene, restored when leaving landscape.
+var portraitLayout = {}
+var zoomPanEnabled = false
+
+# Display mode to flip to when the next background lands (landscape_next / portrait_next
+# dialogue signals, which always come with a fade). It lands at that fade's black point, with
+# the new picture, so the window reshape is never seen.
+var pendingDisplayMode = null
+
+# Videos made for the pictures themselves (tooling/video_gen/finish.py), listed per picture's art
+# path in pick order. While a listed picture shows, its video plays over the still: a loop runs
+# into itself until the picture changes (after its intro, the frames from the still into the
+# loop); any other video plays once and fades back to the still.
+const PICTURE_VIDEO_LISTS = ["res://data/background_lists/ashely_poker2/video/videos.gd"]
+var pictureVideos = null # art path -> its videos, read from PICTURE_VIDEO_LISTS when first needed
+var pictureVideoArt = '' # the picture whose video is up
+# Which of a picture's videos plays. Run from the Godot editor, V cycles through them, to compare them in game.
+var pictureVideoChoice = {}
+var pictureVideoToken = 0 # bumped whenever the picture video changes, so stale waits stand down
+
+func _ready():
+	for node in [$BackgroundImage, $VideoStreamPlayer, $Fade, %UnhideUiMessage]:
+		portraitLayout[node] = { "position": node.position, "size": node.size, "scale": node.scale }
+	portraitLayout[%FullscreenAnim] = { "position": %FullscreenAnim.position }
+	portraitLayout["expand_mode"] = $BackgroundImage.expand_mode
+	portraitLayout["stretch_mode"] = $BackgroundImage.stretch_mode
+
+	DisplayMode.modeChanged.connect(_handle_display_mode_changed)
+
+func _handle_display_mode_changed(_mode):
+	if DisplayMode.isLandscape():
+		var base = Vector2(DisplayMode.getBaseSize())
+		$BackgroundImage.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		$Fade.position = Vector2.ZERO
+		$Fade.size = base
+		%FullscreenAnim.position = base / 2
+		%UnhideUiMessage.position = Vector2(20, base.y - 54)
+		refreshPresentation()
+	else:
+		# Size first: the portrait expand mode derives its minimum height from the
+		# current width, so restoring it while still 1920 wide would clamp the size.
+		for node in [$BackgroundImage, $VideoStreamPlayer, $Fade, %UnhideUiMessage]:
+			node.position = portraitLayout[node]["position"]
+			node.scale = portraitLayout[node]["scale"]
+			node.size = portraitLayout[node]["size"]
+		$BackgroundImage.expand_mode = portraitLayout["expand_mode"]
+		$BackgroundImage.stretch_mode = portraitLayout["stretch_mode"]
+		%FullscreenAnim.position = portraitLayout[%FullscreenAnim]["position"]
+		$Camera.pictureLaidOut(Vector2.ZERO)
+		if zoomPanEnabled:
+			applyZoomPanTransform()
+
+# How the current picture sits in the landscape frame: it fills it, cover-cropped. Tall art
+# loses its top and bottom here until it can be shown as a card over a blurred backdrop.
+func refreshPresentation():
+	if !DisplayMode.isLandscape():
+		return
+
+	var frame = Vector2(DisplayMode.getBaseSize())
+	$BackgroundImage.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	$BackgroundImage.position = Vector2.ZERO
+	$BackgroundImage.scale = Vector2.ONE
+	$BackgroundImage.size = frame
+
+	# A video plays over its own still, so it is cropped the same way. It cannot crop itself
+	# (it stretches to whatever size it is given), so it is sized to the still's covering rect.
+	var picture = $BackgroundImage.texture
+	var covering = frame
+	if picture != null:
+		covering = picture.get_size() * maxf(frame.x / picture.get_width(), frame.y / picture.get_height())
+	$VideoStreamPlayer.position = (frame - covering) / 2
+	$VideoStreamPlayer.scale = Vector2.ONE
+	$VideoStreamPlayer.size = covering
+
+	# The camera moves the picture from here (it stands down while zoom/pan is on).
+	$Camera.pictureLaidOut(frame)
+	if zoomPanEnabled:
+		applyZoomPanTransform()
+
+func applyZoomPanTransform():
+	$BackgroundImage.scale = Vector2(1.1,1.1)
+	if DisplayMode.isLandscape():
+		# Same 10% overscan as portrait, centered on the wider frame.
+		$BackgroundImage.position = -Vector2(DisplayMode.getBaseSize()) * 0.05
+	else:
+		$BackgroundImage.position = Vector2(-50.0,-50.0)
 
 func setBackground(newBackground):
 	if background && (newBackground.name == background.name) && (!shouldFade || !shouldFadeQuick):
@@ -35,7 +125,141 @@ func setBackground(newBackground):
 		fadeTransitionSlow()
 		$FadeTimer.start(2.5)
 	else:
-		$BackgroundImage.texture = background.getTexture()
+		showPicture(background.getTexture())
+
+func showPicture(texture):
+	$BackgroundImage.texture = texture
+	refreshPresentation()
+	updatePictureVideo()
+
+func videosFor(art : String) -> Array:
+	if pictureVideos == null:
+		pictureVideos = {}
+		for path in PICTURE_VIDEO_LISTS:
+			if ResourceLoader.exists(path):
+				pictureVideos.merge(load(path).VIDEOS)
+	return pictureVideos.get(art, [])
+
+func updatePictureVideo():
+	var art = background.imagePath if background else ''
+	if art == pictureVideoArt:
+		return
+	stopPictureVideo()
+	var videos = videosFor(art)
+	if videos.is_empty() or isSkipping:
+		return
+	pictureVideoArt = art
+	playPictureVideo(videos[pictureVideoChoice.get(art, 0) % videos.size()])
+
+# The intro plays in a player of its own over the loop's, which takes over when it ends.
+func introPlayer() -> VideoStreamPlayer:
+	var intro = $VideoStreamPlayer.get_node_or_null("IntroPlayer")
+	if intro == null:
+		intro = VideoStreamPlayer.new()
+		intro.name = "IntroPlayer"
+		intro.expand = true
+		intro.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		$VideoStreamPlayer.add_child(intro)
+		intro.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	return intro
+
+func playPictureVideo(video : Dictionary):
+	pictureVideoToken += 1
+	var token = pictureVideoToken
+	var player = $VideoStreamPlayer
+	player.modulate = Color.WHITE
+	player.stream = load(video.video)
+	player.loop = video.loop
+	player.visible = true
+	if video.has("intro"):
+		var intro = introPlayer()
+		intro.stream = load(video.intro)
+		intro.visible = true
+		intro.play()
+		await intro.finished
+		if token != pictureVideoToken:
+			return
+		# The intro holds its last frame until the loop has drawn its first.
+		player.play()
+		for i in 2:
+			await get_tree().process_frame
+		if token != pictureVideoToken:
+			return
+		intro.visible = false
+		intro.stream = null
+	else:
+		player.play()
+	if video.loop:
+		return
+	await player.finished
+	if token != pictureVideoToken:
+		return
+	var tween = get_tree().create_tween()
+	tween.tween_property(player, "modulate", Color.TRANSPARENT, 1).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished
+	if token == pictureVideoToken:
+		resetVideoPlayer()
+
+func stopPictureVideo():
+	if pictureVideoArt == '':
+		return
+	pictureVideoArt = ''
+	pictureVideoToken += 1
+	var intro = $VideoStreamPlayer.get_node_or_null("IntroPlayer")
+	if intro:
+		intro.stop()
+		intro.stream = null
+		intro.visible = false
+	$VideoStreamPlayer.stop()
+	$VideoStreamPlayer.loop = false
+	resetVideoPlayer()
+
+func _unhandled_key_input(event):
+	if !OS.has_feature("editor") or !(event is InputEventKey) or !event.pressed or event.echo:
+		return
+	if event.physical_keycode != KEY_V or background == null:
+		return
+	var art = background.imagePath
+	var videos = videosFor(art)
+	if videos.size() < 2:
+		return
+	pictureVideoChoice[art] = (pictureVideoChoice.get(art, 0) + 1) % videos.size()
+	stopPictureVideo()
+	updatePictureVideo()
+	var label = get_node_or_null("VideoChoiceLabel")
+	if label == null:
+		label = Label.new()
+		label.name = "VideoChoiceLabel"
+		label.position = Vector2(20, 20)
+		label.add_theme_font_size_override("font_size", 22)
+		label.add_theme_color_override("font_outline_color", Color.BLACK)
+		label.add_theme_constant_override("outline_size", 6)
+		add_child(label)
+	var choice = pictureVideoChoice[art]
+	label.text = "video %d of %d: %s" % [choice + 1, videos.size(), videos[choice].video.get_file()]
+	label.visible = true
+	var shown = label.text
+	await get_tree().create_timer(3).timeout
+	if label.text == shown:
+		label.visible = false
+
+# A picture put up at once by a set-piece that does its own fading (the reveal). Whatever the
+# dialogue had queued for the picture (a fade, a frame change, a fade still on its way to black)
+# is dropped: the set-piece replaces it.
+func showNow(newBackground : Background):
+	shouldFade = false
+	shouldFadeQuick = false
+	shouldFadeSlow = false
+	pendingDisplayMode = null
+	$FadeTimer.stop()
+	background = newBackground
+	showPicture(background.getTexture())
+
+# A frame change the dialogue asked for that has not landed yet, cleared as it is taken.
+func takePendingDisplayMode():
+	var mode = pendingDisplayMode
+	pendingDisplayMode = null
+	return mode
 
 func enableZoomPan():
 	var mat = ShaderMaterial.new()
@@ -45,8 +269,9 @@ func enableZoomPan():
 	$BackgroundImage.material.set_shader_parameter("zoom_amount", 0.07)
 	$BackgroundImage.material.set_shader_parameter("pan_speed", 0.3)
 	$BackgroundImage.material.set_shader_parameter("pan_amount", 0.025)
-	$BackgroundImage.scale = Vector2(1.1,1.1)
-	$BackgroundImage.position = Vector2(-50.0,-50.0)
+	zoomPanEnabled = true
+	$Camera.setSuspended(true)
+	applyZoomPanTransform()
 
 func enableWave():
 	var mat = ShaderMaterial.new()
@@ -67,9 +292,11 @@ func disableWave():
 	$BackgroundImage.material = null
 
 func disableZoomPan():
+	zoomPanEnabled = false
 	$BackgroundImage.material = null
 	$BackgroundImage.scale = Vector2(1.0,1.0)
 	$BackgroundImage.position = Vector2(0,0)
+	$Camera.setSuspended(false)
 
 # Plys for 3 seconds
 func fadeVideo(playDuration := 5.5):
@@ -161,8 +388,14 @@ func checkForVideo():
 
 func _on_fade_timer_timeout():
 	var newTexture = background.getTexture()
-	if($BackgroundImage.texture != newTexture):
-		$BackgroundImage.texture = newTexture
+	var changed = $BackgroundImage.texture != newTexture
+	# The black point of the fade: the one moment a frame change the dialogue asked for lands.
+	# (A picture that arrives while the fade is still darkening shows without one, and waits.)
+	var mode = takePendingDisplayMode()
+	showPicture(newTexture)
+	if mode != null and mode != DisplayMode.currentMode:
+		frameChangeDue.emit(mode)
+	if changed:
 		checkForVideo()
 
 func fadeTransition():

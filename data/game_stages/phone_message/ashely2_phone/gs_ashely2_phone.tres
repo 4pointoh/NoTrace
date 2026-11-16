@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/phone_message/ashely2_phone/d_ashely2_phone.tres" id="dialogue"]
+[ext_resource type="Script" path="res://data/game_stages/phone_message/ashely2_phone/ashely2_phone_script.gd" id="phoneScript"]
+[ext_resource type="Texture2D" path="res://data/characters/ashely/phone_icons/default.png" id="icon"]
+
+[sub_resource type="Resource" id="home"]
+script = ExtResource("bg")
+name = "home"
+imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.webp"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "ashely2_phone"
+displayName = "Ashely Poker II Setup"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+isCompletable = true
+startingBackground = SubResource("home")
+isLandscape = false
+isPhoneMessageEvent = true
+phoneScript = ExtResource("phoneScript")
+contactName = "Ashely"
+contactImage = ExtResource("icon")

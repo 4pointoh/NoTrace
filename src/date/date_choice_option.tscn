@@ -9,6 +9,7 @@
 script = ExtResource("1_kyolu")
 
 [node name="ChoiceButton" type="TextureButton" parent="."]
+focus_mode = 0
 unique_name_in_owner = true
 offset_right = 167.0
 offset_bottom = 167.0

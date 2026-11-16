@@ -2,6 +2,7 @@ extends Node2D
 
 signal choice_selected(index : int)
 signal skip_date_selected()
+signal help_selected()
 
 func _ready():
 	if GlobalGameStage.hasCompletedCurrentStageGlobally():
@@ -34,6 +35,15 @@ func setFlirtProgressNeeded(locked: bool):
 func setBusinessProgressNeeded(locked: bool):
 	%BusinessButton.setProgressNeeded(locked)
 
+func setTalkComplete(complete: bool):
+	%TalkButton.setComplete(complete)
+
+func setFlirtComplete(complete: bool):
+	%FlirtButton.setComplete(complete)
+
+func setBusinessComplete(complete: bool):
+	%BusinessButton.setComplete(complete)
+
 func _on_talk_button_clicked():
 	choice_selected.emit(0)
 	%AudioStreamPlayer.play()
@@ -52,3 +62,7 @@ func _on_small_talk_button_pressed():
 
 func _on_skip_button_pressed():
 	skip_date_selected.emit()
+
+func _on_help_button_pressed():
+	help_selected.emit()
+	%AudioStreamPlayer.play()

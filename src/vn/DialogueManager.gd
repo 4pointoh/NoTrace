@@ -19,19 +19,19 @@ signal dialogue_signal(value: String)
 signal dialogue_ended
 signal dialogue_proceeded
 
-var dbox_position_upper = Vector2(120,100)
-var dbox_position_upper_mid = Vector2(120,150)
-var dbox_position_max_upper = Vector2(120,10)
-var dbox_position_mid = Vector2(120, 680)
-var dbox_position_bottom = Vector2(120, 900)
-var dbox_position_bottom_left = Vector2(55, 890)
-var dbox_position_bottom_right = Vector2(200, 950)
-var dbox_position_max_lower = Vector2(55, 950)
+# Which marker the box is on, so a change of frame can put it in the same place in the other
+# layout. The placements themselves live in the scene: see Layouts and dialogue_layout.gd.
+var currentPlacement = "Default"
+var cardShowing = false
+var modeChangedFrame = -1
+# The box has one motion at a time: every move goes through moveBox(), which cancels the last.
+var boxTween : Tween
+# A layout change slides the box only once a dialogue is under way: at the start of one there
+# is nothing continuous on screen to slide from, so it snaps straight into place.
+var layoutSettled = false
 
 var currentBackground : Background
 var currentCharacterState : CharacterState
-
-var originalXPos
 
 enum DboxPosition{
 	NO_CHANGE,
@@ -46,15 +46,73 @@ enum DboxPosition{
 
 
 var elapsedQuickSkipTime = 0.0
+func _ready():
+	DisplayMode.modeChanged.connect(_handle_display_mode_changed)
+
+# Three marker layouts in the scene: Portrait, Landscape (wide art fills the frame) and
+# LandscapeCard (a portrait card sits to the left, so the box takes the column beside it).
+func currentLayout():
+	if !DisplayMode.isLandscape():
+		return $Layouts/Portrait
+	return $Layouts/LandscapeCard if cardShowing else $Layouts/Landscape
+
+func _handle_display_mode_changed(_mode):
+	modeChangedFrame = Engine.get_process_frames()
+	applyLayout(false)
+
+# Background reports whether its picture is a card. Between two landscape layouts the box
+# slides over; when this arrives as part of a frame change it snaps with everything else.
+func setCardPresentation(showing : bool):
+	if showing == cardShowing:
+		return
+	cardShowing = showing
+	applyLayout(uiVisible and layoutSettled and Engine.get_process_frames() != modeChangedFrame)
+
+func applyLayout(animated : bool):
+	var layout = currentLayout()
+	layout.applyFonts($DialoguePlayer)
+
+	var target = layout.placementOf(currentPlacement)
+	if !uiVisible:
+		target.x = layout.placementOf("HiddenUi").x
+	moveBox(target, .5 if animated else 0.0, Tween.TRANS_QUAD, Tween.EASE_OUT, animated)
+
+# Every move of the box, so two can never fight over it. A slide between layouts also animates
+# the size; any move that cuts one short finishes the size first, so it is never left half-way.
+func moveBox(target : Vector2, duration : float, transition := Tween.TRANS_QUAD, easing := Tween.EASE_IN_OUT, animateSize := false):
+	if boxTween:
+		boxTween.kill()
+	var boxSize = currentLayout().boxSize()
+	if !animateSize or duration <= 0.0:
+		$DialoguePlayer.size = boxSize
+	if duration <= 0.0:
+		$DialoguePlayer.position = target
+		return
+
+	boxTween = create_tween().set_parallel().set_trans(transition).set_ease(easing)
+	boxTween.tween_property($DialoguePlayer, "position", target, duration)
+	if animateSize:
+		boxTween.tween_property($DialoguePlayer, "size", boxSize, duration)
+	# A tween can end a rounding error short of its target (float32 start + delta * ease). Land
+	# exactly, so the box's resting place is always the marker's, not 0.0002 px away from it.
+	boxTween.finished.connect(settleBox.bind(target, boxSize))
+
+func settleBox(target : Vector2, boxSize : Vector2):
+	$DialoguePlayer.position = target
+	$DialoguePlayer.size = boxSize
+
+func moveDialogueBoxTo(placement : String):
+	currentPlacement = placement
+	moveBox(currentLayout().placementOf(placement), .6)
+
+func slideDialogueBoxIn(from : String, placement : String, duration : float, transition : Tween.TransitionType):
+	currentPlacement = placement
+	$DialoguePlayer.position = currentLayout().placementOf(from)
+	moveBox(currentLayout().placementOf(placement), duration, transition)
+
 func _process(delta):
 
-	var shouldSkip = false
-	if GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch: #soft complete is acceptable for non-poker scenes
-		shouldSkip = true
-	elif GlobalGameStage.hasCompletedCurrentDialogueKeyInCurrentGameStage(): #otherwise fall back to scene specific completion
-		shouldSkip = true
-	
-	if enableQuickSkip and shouldSkip:
+	if enableQuickSkip and GlobalGameStage.canSkipCurrentDialogue():
 		elapsedQuickSkipTime += delta
 		if elapsedQuickSkipTime > GlobalGameStage.skip_speed:
 			clickNext()
@@ -67,7 +125,7 @@ func setDialogueData(data : DialogueData):
 	$DialoguePlayer.set_data(data)
 	
 func startDialogue(startKey = null):
-	originalXPos = $DialoguePlayer.position.x
+	layoutSettled = false
 	if startKey:
 		GlobalGameStage.setDialogueKeySeen(startKey)
 		$DialoguePlayer.start(startKey)
@@ -75,16 +133,10 @@ func startDialogue(startKey = null):
 		$DialoguePlayer.start()
 	
 func tweenYouDialogue():
-	var Y_POS = 100
-	$DialoguePlayer.position = Vector2(-800,Y_POS)
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", Vector2(120,Y_POS), .6).set_trans(Tween.TRANS_QUAD)
-	
+	slideDialogueBoxIn("TweenYouFrom", "Upper", .6, Tween.TRANS_QUAD)
+
 func tweenLisaDialogue():
-	var Y_POS = 10
-	$DialoguePlayer.position = Vector2(1200,Y_POS)
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", Vector2(120,Y_POS), .4).set_trans(Tween.TRANS_BOUNCE)
+	slideDialogueBoxIn("TweenLisaFrom", "MaxUpper", .4, Tween.TRANS_BOUNCE)
 
 func setLisaBg():
 	$AudioStreamPlayer.stream = lisa_dialog_sound
@@ -156,38 +208,31 @@ func unmuteDialogueBox():
 	muted = false
 
 func setDialogueBoxUpper():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_upper, .6).set_trans(Tween.TRANS_QUAD)
+	moveDialogueBoxTo("Upper")
 
 func setDialogueBoxUpperMid():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_upper_mid, .6).set_trans(Tween.TRANS_QUAD)
-	
+	moveDialogueBoxTo("UpperMid")
+
 func setDialogueBoxMaxUpper():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_max_upper, .6).set_trans(Tween.TRANS_QUAD)
+	moveDialogueBoxTo("MaxUpper")
 
 func setDialogueBoxMid():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_mid, .6).set_trans(Tween.TRANS_QUAD)
-	
+	moveDialogueBoxTo("Mid")
+
 func setDialogueBoxBottom():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom, .6).set_trans(Tween.TRANS_QUAD)
+	moveDialogueBoxTo("Bottom")
 
 func setDialogueBoxBottomLeft():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_left, .6).set_trans(Tween.TRANS_QUAD)
+	moveDialogueBoxTo("BottomLeft")
 
 func setDialogueBoxBottomRight():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_bottom_right, .6).set_trans(Tween.TRANS_QUAD)
+	moveDialogueBoxTo("BottomRight")
 
 func setDialogueBoxMaxLower():
-	var tween = get_tree().create_tween()
-	tween.tween_property($DialoguePlayer, "position", dbox_position_max_lower, .6).set_trans(Tween.TRANS_QUAD)
+	moveDialogueBoxTo("MaxLower")
 
 func stopDialogue():
+	layoutSettled = false
 	$DialoguePlayer.stop()
 
 func _on_dialogue_player_dialogue_proceeded(node_type):
@@ -204,6 +249,10 @@ func _on_dialogue_player_dialogue_proceeded(node_type):
 	
 	getCurrentNodeInfo()
 	dialogue_proceeded.emit()
+	layoutSettled = true
+
+func getSpeakerName() -> String:
+	return $DialoguePlayer.speaker.text
 
 func getCurrentNodeInfo():
 	currentCharacterState = $DialoguePlayer.characterState
@@ -225,18 +274,16 @@ func _on_dialogue_player_dialogue_signal(value):
 	
 	dialogue_signal.emit(value)
 
+# Hides the box off the side of the frame, or brings it back. Both ends are worked out from the
+# placement the box was last given, never from where it happens to be: H can come in the middle
+# of a move, or the placement can change while the box is hidden (a new stage moving it), and
+# either way it comes back onto its marker.
 func toggleUi():
 	uiVisible = !uiVisible
-	var currentYPos = $DialoguePlayer.position.y
-	
-	var tween = get_tree().create_tween()
-	if uiVisible:
-		tween.tween_property($DialoguePlayer, "position", Vector2(originalXPos,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
-	else:
-		originalXPos = $DialoguePlayer.position.x
-		if originalXPos > 900:
-			originalXPos = 120
-		tween.tween_property($DialoguePlayer, "position", Vector2(1200,currentYPos), .4).set_trans(Tween.TRANS_QUAD)
+	var target = currentLayout().placementOf(currentPlacement)
+	if !uiVisible:
+		target.x = currentLayout().placementOf("HiddenUi").x
+	moveBox(target, .4)
 
 func hideUiFast():
 	visible = false
@@ -292,16 +339,8 @@ func _on_dialogue_player_visibility_changed():
 	if !$DialoguePlayer.visible:
 		return
 	
-	var shouldShow = false
-	
-	if GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent: #No skipping on phones
-		shouldShow = false
-	elif GlobalGameStage.hasCompletedStageGloballySoft() and !GlobalGameStage.currentStage.isPokerMatch: #soft complete is acceptable for non-poker scenes
-		shouldShow = true
-	elif GlobalGameStage.hasCompletedCurrentDialogueKeyInCurrentGameStage(): #otherwise fall back to scene specific completion
-		shouldShow = true
-	
-	%SkipLabel.visible = shouldShow
+	var onPhone = GlobalGameStage.currentStage.isPhoneScreen or GlobalGameStage.currentStage.isPhoneMessageEvent
+	%SkipLabel.visible = !onPhone and GlobalGameStage.canSkipCurrentDialogue() #No skipping on phones
 
 func setDialogueBoxPosition(pos: DboxPosition):
 	match pos:

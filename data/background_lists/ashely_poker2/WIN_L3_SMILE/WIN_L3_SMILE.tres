@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=12 format=3]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_bg"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2_list"]
+
+[sub_resource type="Resource" id="picture_01"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_01"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/01.webp"
+
+[sub_resource type="Resource" id="picture_02"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_02"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/02.webp"
+
+[sub_resource type="Resource" id="picture_03"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_03"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/03.webp"
+wallpaperId = "ASHELY2_WIN_L3_SMILE_03"
+
+[sub_resource type="Resource" id="picture_04"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_04"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/04.webp"
+
+[sub_resource type="Resource" id="picture_05"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_05"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/05.webp"
+wallpaperId = "ASHELY2_WIN_L3_SMILE_05"
+
+[sub_resource type="Resource" id="picture_06"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_06"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/06.webp"
+
+[sub_resource type="Resource" id="picture_07"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_07"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/07.webp"
+
+[sub_resource type="Resource" id="picture_08"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_08"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/08.webp"
+wallpaperId = "ASHELY2_WIN_L3_SMILE_08"
+
+[sub_resource type="Resource" id="picture_09"]
+script = ExtResource("1_bg")
+name = "WIN_L3_SMILE_09"
+imagePath = "res://data/background_lists/ashely_poker2/WIN_L3_SMILE/09.webp"
+wallpaperId = "ASHELY2_WIN_L3_SMILE_09"
+
+[resource]
+script = ExtResource("2_list")
+name = "WIN_L3_SMILE"
+images = Array[ExtResource("1_bg")]([SubResource("picture_01"), SubResource("picture_02"), SubResource("picture_03"), SubResource("picture_04"), SubResource("picture_05"), SubResource("picture_06"), SubResource("picture_07"), SubResource("picture_08"), SubResource("picture_09")])

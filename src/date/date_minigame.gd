@@ -64,42 +64,24 @@ func processDialogueComplete():
 		processNextActionOrGroup()
 
 func processNextActionOrGroup():
-	# Remove any topics with nothing left in them
-	var thisIsATopic = false 
-	
+	var thisIsATopic = false
+
 	if currentResult.nextGroup.size() > 0:
 		thisIsATopic = currentResult.nextGroup[0].type == DateAction.TYPES.TOPIC
 
+	# Remove any topics with nothing left in them
 	if thisIsATopic:
 		currentResult.nextGroup = currentResult.nextGroup.filter(func(action):
-			var groupResult = action.successFunc.call()
-
-			# Remove any questions asked by the partner which have already been asked
-			var filteredNextGroup = groupResult.nextGroup.filter(func(action2):
-				if action2.type == DateAction.TYPES.QUIZ or action2.type == DateAction.TYPES.PARTNER_QUESTION:
-					return not GlobalGameStage.hasDatePartnerAsked(action2.id)
-				return true
-			)
-
-			# If we filtered everything out, go back to topic selection
-			if(filteredNextGroup.is_empty()):
-				return false
-
-			return true
+			return action.successFunc.call().nextGroup.any(isStillOnOffer)
 		)
 
-	# Remove any questions asked by the partner which have already been asked
-	var filteredGroup = currentResult.nextGroup.filter(func(action):
-		if action.type == DateAction.TYPES.QUIZ or action.type == DateAction.TYPES.PARTNER_QUESTION:
-			return not GlobalGameStage.hasDatePartnerAsked(action.id)
-		return true
-	)
-	
+	var filteredGroup = currentResult.nextGroup.filter(isStillOnOffer)
+
 	# If we filtered everything out, go back to topic selection
-	if(filteredGroup.is_empty()):
-		currentResult = dateScript.group_topic_select()
-	else:
-		currentResult.nextGroup = filteredGroup
+	if(filteredGroup.is_empty() and !thisIsATopic):
+		goBack()
+		return
+	currentResult.nextGroup = filteredGroup
 
 	# If any of the next choices are progress locked, mark it as progress locked
 	if thisIsATopic:
@@ -141,6 +123,15 @@ func processNextActionOrGroup():
 		displayDialogueFirst(currentResult.nextGroup)
 	
 	print('hi')
+
+# What she has asked is not asked again, and nor are the questions the date is won on, once asked.
+# Anything else can be asked again, at the risk of annoying her.
+func isStillOnOffer(action : DateAction) -> bool:
+	if action.type == DateAction.TYPES.QUIZ or action.type == DateAction.TYPES.PARTNER_QUESTION:
+		return not GlobalGameStage.hasDatePartnerAsked(action.id)
+	if action.type == DateAction.TYPES.PLAYER_QUESTION and action.successFunc.call().incrementMainQuestionIndex:
+		return GlobalGameStage.getCurrentDateAskSuccessCount(action.id) == 0
+	return true
 
 func filterActionsToSingleRandomType():
 	var allAvailableActions = currentResult.nextGroup
@@ -376,7 +367,9 @@ func goBack():
 func _on_date_minigame_display_go_back():
 	goBack()
 
+# Skipped dates are cleared like finished ones, so the next date starts clean.
 func _on_date_minigame_display_date_skip_selected():
+	GlobalGameStage.resetDate()
 	dateComplete.emit(true, null)
 
 func _on_date_minigame_display_play_again() -> void:

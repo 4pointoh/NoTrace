@@ -1,0 +1,545 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+starts = {
+"START": &"0_1",
+"REPLAY_NO_CHEATS": &"0_2",
+"REPLAY_TWO_CHEATS": &"0_3",
+"REPLAY_FIVE_CHEATS": &"0_4",
+"HINT": &"0_5",
+"ANSWER": &"0_6",
+"HINT_SEX": &"0_8",
+"ANSWER_SEX": &"0_9",
+"HINT_TOPLESS_BJ": &"0_10",
+"ANSWER_TOPLESS_BJ": &"0_11",
+"TO_RACE": &"0_7"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(0, 0),
+"start_id": "START"
+},
+&"0_2": {
+"link": &"1_3",
+"offset": Vector2(0, 700),
+"start_id": "REPLAY_NO_CHEATS"
+},
+&"0_3": {
+"link": &"1_4",
+"offset": Vector2(0, 1400),
+"start_id": "REPLAY_TWO_CHEATS"
+},
+&"0_4": {
+"link": &"1_5",
+"offset": Vector2(0, 2100),
+"start_id": "REPLAY_FIVE_CHEATS"
+},
+&"0_5": {
+"link": &"1_6",
+"offset": Vector2(0, 2800),
+"start_id": "HINT"
+},
+&"0_6": {
+"link": &"1_10",
+"offset": Vector2(0, 3500),
+"start_id": "ANSWER"
+},
+&"0_7": {
+"link": "END",
+"offset": Vector2(0, 4200),
+"start_id": "TO_RACE"
+},
+&"0_8": {
+"link": &"1_17",
+"offset": Vector2(0, 4900),
+"start_id": "HINT_SEX"
+},
+&"0_9": {
+"link": &"1_21",
+"offset": Vector2(0, 5600),
+"start_id": "ANSWER_SEX"
+},
+&"0_10": {
+"link": &"1_25",
+"offset": Vector2(0, 6300),
+"start_id": "HINT_TOPLESS_BJ"
+},
+&"0_11": {
+"link": &"1_28",
+"offset": Vector2(0, 7000),
+"start_id": "ANSWER_TOPLESS_BJ"
+},
+&"1_28": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Alright, here's how.",
+"offset": Vector2(560, 7000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_29": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Keep me dressed and go all the way: my butt, my breasts, under my clothes... then the blowjob.",
+"offset": Vector2(920, 7000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_30": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And once my top's off, ask me for a truth.",
+"offset": Vector2(1280, 7000),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_31": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do both, in any games you like, and it's open.",
+"offset": Vector2(1640, 7000),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_25": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That one's for later, sugar.",
+"offset": Vector2(560, 6300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_26": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Get everything you can out of me while I'm dressed. And I mean everything.",
+"offset": Vector2(920, 6300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_27": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Then get to know me a little better once my top's off.",
+"offset": Vector2(1280, 6300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Fine. Two things, sugar.",
+"offset": Vector2(560, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_22": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "One: the true ending. A whole night in the grass with me.",
+"offset": Vector2(920, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_23": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Two: take my top, send me on my walk, take my shorts... then ask me for a truth.",
+"offset": Vector2(1280, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_24": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Do both, in any games you like, and it's open.",
+"offset": Vector2(1640, 5600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "That one? It's not on the menu. Not yet.",
+"offset": Vector2(560, 4900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ever wonder if I've done it out here? In the park?",
+"offset": Vector2(920, 4900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ask me sometime. When I'm wearing next to nothing.",
+"offset": Vector2(1280, 4900),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And it wouldn't hurt to have spent a whole night with me first.",
+"offset": Vector2(1640, 4900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ugh. Fine, I'll spell it out.",
+"offset": Vector2(560, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Every time you win a hand, pick the sweet one.",
+"offset": Vector2(920, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A truth. Then two nice things. Then a real smile. Then a real kiss.",
+"offset": Vector2(1280, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Nothing else in between, and don't let me win too many hands before you get there.",
+"offset": Vector2(1640, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "... And don't make it weird.",
+"offset": Vector2(2000, 3500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "A hint? Fine.",
+"offset": Vector2(560, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "You spend all day asking me to take things off.",
+"offset": Vector2(920, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ever think about asking for something [i]nice[/i] instead?",
+"offset": Vector2(1280, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "And sticking with it.",
+"offset": Vector2(1640, 2800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Five a match? You're not even trying to hide it, are you?",
+"offset": Vector2(560, 2100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Two cheats a match. I'll pretend I didn't notice.",
+"offset": Vector2(560, 1400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "No cheats? Bold. I like it.",
+"offset": Vector2(560, 700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "Ready to play, sugar?",
+"offset": Vector2(560, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "How do you want to do this?",
+"offset": Vector2(920, 0),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ashely2_intro/characters.tres"
+backgroundList = "res://data/game_stages/vn/ashely2_intro/bgs.tres"

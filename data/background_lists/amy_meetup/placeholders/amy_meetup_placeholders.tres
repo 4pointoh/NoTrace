@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=9 format=3]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_bg"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2_list"]
+
+[sub_resource type="Resource" id="Resource_intro_open"]
+script = ExtResource("1_bg")
+name = "amy_meetup_INTRO_OPEN"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/INTRO_OPEN.png"
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_intro_meet"]
+script = ExtResource("1_bg")
+name = "amy_meetup_INTRO_MEET"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/INTRO_MEET.png"
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_date_start"]
+script = ExtResource("1_bg")
+name = "amy_meetup_DATE_START"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/DATE_START.png"
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_date_mid"]
+script = ExtResource("1_bg")
+name = "amy_meetup_DATE_MID"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/DATE_MID.png"
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_date_end"]
+script = ExtResource("1_bg")
+name = "amy_meetup_DATE_END"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/DATE_END.png"
+wallpaperId = ""
+
+[sub_resource type="Resource" id="Resource_after_close"]
+script = ExtResource("1_bg")
+name = "amy_meetup_AFTER_CLOSE"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/AFTER_CLOSE.png"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("2_list")
+name = "amy_meetup_placeholders"
+images = Array[ExtResource("1_bg")]([SubResource("Resource_intro_open"), SubResource("Resource_intro_meet"), SubResource("Resource_date_start"), SubResource("Resource_date_mid"), SubResource("Resource_date_end"), SubResource("Resource_after_close")])

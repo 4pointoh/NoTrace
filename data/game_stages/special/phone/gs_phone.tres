@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="GameStage" load_steps=5 format=3 uid="uid://ba44jtm247lwj"]
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3 uid="uid://ba44jtm247lwj"]
 
 [ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="1_wwoi6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundFocus.gd" id="2_517l6"]
 [ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="3_3rio4"]
 [ext_resource type="AudioStream" uid="uid://dpyabqafcwdxe" path="res://data/assets/general/sounds/bg_music/home2.mp3" id="4_hcuow"]
 
@@ -9,6 +10,7 @@ script = ExtResource("3_3rio4")
 name = "room"
 imagePath = "res://data/background_lists/home/backgrounds/intro_bg11.png"
 wallpaperId = ""
+focusPoints = Array[ExtResource("2_517l6")]([])
 
 [resource]
 script = ExtResource("1_wwoi6")
@@ -31,6 +33,8 @@ cacheItems = Array[String]([])
 repositionDialogueBoxTo = 0
 endOnlyOnSpecificDialogueKey = false
 endingDialogueKeys = Array[String]([])
+skipsOnlySeenDialogue = false
+isLandscape = false
 isPokerMatch = false
 isStripPoker = false
 playerStartingMoney = 0

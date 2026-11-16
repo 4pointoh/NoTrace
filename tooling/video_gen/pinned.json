@@ -1,0 +1,29 @@
+{
+ "about": "Game pictures that play one particular clip instead of their source picture's picks. Game pictures made from the same source share its picks, so this is how copies of one still (more slots of the same image: tooling/art_sort, the slot added to packaged.json by hand) each get a video of their own. \"loop\": true plays the clip over and over even when it isn't a seamless loop (it jumps back at its end); false plays it once. finish.py gamelist lists them in video/videos.gd, after the picks and the stitched cycles.",
+ "pins": [
+  {
+   "picture": "ashely_poker2/WIN_L4_KISS/32.webp",
+   "clip": "ashely_poker2/WIN_L4_KISS/32_2",
+   "loop": true,
+   "why": "The user (2026-11-16): keep several of picture 32's videos, the same still once for each: 32_2, 32_3, 32_4, 32_6 in that order, all looping."
+  },
+  {
+   "picture": "ashely_poker2/WIN_L4_KISS/58.webp",
+   "clip": "ashely_poker2/WIN_L4_KISS/32_3",
+   "loop": true,
+   "why": "A copy of 32 (same image), for its 32_3."
+  },
+  {
+   "picture": "ashely_poker2/WIN_L4_KISS/59.webp",
+   "clip": "ashely_poker2/WIN_L4_KISS/32_4",
+   "loop": true,
+   "why": "A copy of 32, for its 32_4."
+  },
+  {
+   "picture": "ashely_poker2/WIN_L4_KISS/60.webp",
+   "clip": "ashely_poker2/WIN_L4_KISS/32_6",
+   "loop": true,
+   "why": "A copy of 32, for its 32_6."
+  }
+ ]
+}

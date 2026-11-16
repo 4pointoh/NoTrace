@@ -1,0 +1,1028 @@
+{
+  "title": "Ashely — Park Stakes: Forfeit Race (v4, no bra)",
+  "tableEst": 2,
+  "dims": [
+    {
+      "id": "top",
+      "label": "her top off",
+      "who": "her"
+    },
+    {
+      "id": "shorts",
+      "label": "her shorts off",
+      "who": "her",
+      "requires": [
+        "top"
+      ]
+    },
+    {
+      "id": "panties",
+      "label": "her panties off",
+      "who": "her",
+      "requires": [
+        "shorts"
+      ]
+    }
+  ],
+  "rounds": [
+    {
+      "id": "W1",
+      "name": "Win 1",
+      "lives": "",
+      "win": [
+        {
+          "id": "S1_TOP",
+          "sharedId": "S1_TOP",
+          "label": "Her top comes off (no bra)",
+          "sets": [
+            "top"
+          ],
+          "artDeps": [],
+          "est": 4
+        },
+        {
+          "id": "S2_WALK",
+          "sharedId": "S2_WALK",
+          "label": "Walk around the park — topless",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresNotFlags": [
+            "walk"
+          ],
+          "flags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Strip rung 2 — no outfit change, so it consumes a slot for free. Elderly couple (Janet & Ted) cameo. Railroaded: always topless with shorts on."
+        },
+        {
+          "id": "S3_SHORTS",
+          "sharedId": "S3_SHORTS",
+          "label": "Her shorts come off",
+          "sets": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "notes": "Gated on the walk — keeps the strip route at exactly 4 picks."
+        },
+        {
+          "id": "S4_PANTIES",
+          "sharedId": "S4_PANTIES",
+          "label": "Her panties come off",
+          "sets": [
+            "panties"
+          ],
+          "artDeps": [],
+          "est": 6,
+          "notes": "Strip route finale (always your 4th win). Deterministic entering state — strip scenes never multiply."
+        },
+        {
+          "id": "X1_BUTT",
+          "sharedId": "X1_BUTT",
+          "label": "A butt touch",
+          "flags": [
+            "butt"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 3,
+          "notes": "Sexy rung 1 — varies by how stripped she is when it fires."
+        },
+        {
+          "id": "X2_BREAST",
+          "sharedId": "X2_BREAST",
+          "label": "A breast touch",
+          "requiresFlags": [
+            "butt"
+          ],
+          "flags": [
+            "breast"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 4,
+          "notes": "MR2 lives in the TOPLESS variant: you reach, she stops you — 'only my hands get to touch me' — then a close-range self-touch tease (breasts/upper body, waistline grazes), and she stops cold. Blue-balls control assertion; rung still counts. Dressed variant = the actual touch."
+        },
+        {
+          "id": "X3_BJ",
+          "sharedId": "X3_BJ",
+          "label": "A blowjob",
+          "requiresFlags": [
+            "breast"
+          ],
+          "flags": [
+            "bj"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 5
+        },
+        {
+          "id": "X4_SEX",
+          "sharedId": "X4_SEX",
+          "label": "Sex",
+          "requiresFlags": [
+            "bj"
+          ],
+          "flags": [
+            "sex"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 8,
+          "notes": "Sexy route ending — the pyramid rule means this only ever renders fully dressed. The cold one (2026-10-12): she pays it like a debt, shorter, no warm ending."
+        },
+        {
+          "id": "L1_TRUTH",
+          "sharedId": "L1_TRUTH",
+          "label": "A truth",
+          "flags": [
+            "truth1"
+          ],
+          "artDeps": [
+            "top"
+          ],
+          "est": 2,
+          "notes": "Love rung 1. Two renders: benign truth (dressed, close framing) and the 'what's your bra size' taunt (topless — feeds mini-route 1)."
+        },
+        {
+          "id": "L2_NICE",
+          "sharedId": "L2_NICE",
+          "label": "Say two nice things about me",
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "love2"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "She tries 'you're hot' — refused (she trashes your looks weekly). Grits her teeth, lands two surprisingly real ones."
+        },
+        {
+          "id": "L3_SMILE",
+          "sharedId": "L3_SMILE",
+          "label": "Show me a real smile",
+          "requiresFlags": [
+            "love2"
+          ],
+          "flags": [
+            "love3"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "Smug goading smile first → refused: 'drop the tough-girl bullshit.' Protests. Then the real one."
+        },
+        {
+          "id": "L4_KISS",
+          "sharedId": "L4_KISS",
+          "label": "A real kiss — she melts",
+          "requiresFlags": [
+            "love3"
+          ],
+          "flags": [
+            "kiss"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 12,
+          "notes": "Love route ending. The slot economy forces her fully dressed here — the model verifies that (1 variant). Continues into sex in the grass (2026-10-12): the long, warm one."
+        },
+        {
+          "id": "MR1_KISS",
+          "sharedId": "MR1_KISS",
+          "label": "Kiss her (mini-route 1)",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "mr1_kiss"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "notes": "Mini-route 1 step 3 (top → truth → kiss). Railroaded: topless, shorts on."
+        },
+        {
+          "id": "MR1_FINGER",
+          "sharedId": "MR1_FINGER",
+          "label": "Heavy kiss — fingers in her shorts (mini-route 1 finale)",
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "mr1_kiss"
+          ],
+          "flags": [
+            "mr1_done"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Only reachable as your 4th win via top → truth → kiss. Topless, shorts on. Her-forfeit ending variant."
+        },
+        {
+          "id": "MR3_INSPECT",
+          "sharedId": "MR3_INSPECT",
+          "label": "Her inspection (mini-route 3 — intercepts a touch after the dick pic)",
+          "flags": [
+            "mr3_done"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "pool": "irrelevant",
+          "notes": "REAL GATE (in-game, not modeled here): fires once, hijacking your first touch pick after P2. 'Fair's fair — the professor got a preview.' Hand in your shorts, annoyed verdict: 'Fuck... you're huge.' Plays with it a little, withdraws: 'That was your prize. Deal with it.' CONSUMES the pick — no rung progress."
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "name": "Win 2",
+      "lives": "",
+      "win": [
+        {
+          "id": "S1_TOP",
+          "sharedId": "S1_TOP",
+          "label": "Her top comes off (no bra)",
+          "sets": [
+            "top"
+          ],
+          "artDeps": [],
+          "est": 4
+        },
+        {
+          "id": "S2_WALK",
+          "sharedId": "S2_WALK",
+          "label": "Walk around the park — topless",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresNotFlags": [
+            "walk"
+          ],
+          "flags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Strip rung 2 — no outfit change, so it consumes a slot for free. Elderly couple (Janet & Ted) cameo. Railroaded: always topless with shorts on."
+        },
+        {
+          "id": "S3_SHORTS",
+          "sharedId": "S3_SHORTS",
+          "label": "Her shorts come off",
+          "sets": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "notes": "Gated on the walk — keeps the strip route at exactly 4 picks."
+        },
+        {
+          "id": "S4_PANTIES",
+          "sharedId": "S4_PANTIES",
+          "label": "Her panties come off",
+          "sets": [
+            "panties"
+          ],
+          "artDeps": [],
+          "est": 6,
+          "notes": "Strip route finale (always your 4th win). Deterministic entering state — strip scenes never multiply."
+        },
+        {
+          "id": "X1_BUTT",
+          "sharedId": "X1_BUTT",
+          "label": "A butt touch",
+          "flags": [
+            "butt"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 3,
+          "notes": "Sexy rung 1 — varies by how stripped she is when it fires."
+        },
+        {
+          "id": "X2_BREAST",
+          "sharedId": "X2_BREAST",
+          "label": "A breast touch",
+          "requiresFlags": [
+            "butt"
+          ],
+          "flags": [
+            "breast"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 4,
+          "notes": "MR2 lives in the TOPLESS variant: you reach, she stops you — 'only my hands get to touch me' — then a close-range self-touch tease (breasts/upper body, waistline grazes), and she stops cold. Blue-balls control assertion; rung still counts. Dressed variant = the actual touch."
+        },
+        {
+          "id": "X3_BJ",
+          "sharedId": "X3_BJ",
+          "label": "A blowjob",
+          "requiresFlags": [
+            "breast"
+          ],
+          "flags": [
+            "bj"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 5
+        },
+        {
+          "id": "X4_SEX",
+          "sharedId": "X4_SEX",
+          "label": "Sex",
+          "requiresFlags": [
+            "bj"
+          ],
+          "flags": [
+            "sex"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 8,
+          "notes": "Sexy route ending — the pyramid rule means this only ever renders fully dressed. The cold one (2026-10-12): she pays it like a debt, shorter, no warm ending."
+        },
+        {
+          "id": "L1_TRUTH",
+          "sharedId": "L1_TRUTH",
+          "label": "A truth",
+          "flags": [
+            "truth1"
+          ],
+          "artDeps": [
+            "top"
+          ],
+          "est": 2,
+          "notes": "Love rung 1. Two renders: benign truth (dressed, close framing) and the 'what's your bra size' taunt (topless — feeds mini-route 1)."
+        },
+        {
+          "id": "L2_NICE",
+          "sharedId": "L2_NICE",
+          "label": "Say two nice things about me",
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "love2"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "She tries 'you're hot' — refused (she trashes your looks weekly). Grits her teeth, lands two surprisingly real ones."
+        },
+        {
+          "id": "L3_SMILE",
+          "sharedId": "L3_SMILE",
+          "label": "Show me a real smile",
+          "requiresFlags": [
+            "love2"
+          ],
+          "flags": [
+            "love3"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "Smug goading smile first → refused: 'drop the tough-girl bullshit.' Protests. Then the real one."
+        },
+        {
+          "id": "L4_KISS",
+          "sharedId": "L4_KISS",
+          "label": "A real kiss — she melts",
+          "requiresFlags": [
+            "love3"
+          ],
+          "flags": [
+            "kiss"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 12,
+          "notes": "Love route ending. The slot economy forces her fully dressed here — the model verifies that (1 variant). Continues into sex in the grass (2026-10-12): the long, warm one."
+        },
+        {
+          "id": "MR1_KISS",
+          "sharedId": "MR1_KISS",
+          "label": "Kiss her (mini-route 1)",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "mr1_kiss"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "notes": "Mini-route 1 step 3 (top → truth → kiss). Railroaded: topless, shorts on."
+        },
+        {
+          "id": "MR1_FINGER",
+          "sharedId": "MR1_FINGER",
+          "label": "Heavy kiss — fingers in her shorts (mini-route 1 finale)",
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "mr1_kiss"
+          ],
+          "flags": [
+            "mr1_done"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Only reachable as your 4th win via top → truth → kiss. Topless, shorts on. Her-forfeit ending variant."
+        },
+        {
+          "id": "MR3_INSPECT",
+          "sharedId": "MR3_INSPECT",
+          "label": "Her inspection (mini-route 3 — intercepts a touch after the dick pic)",
+          "flags": [
+            "mr3_done"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "pool": "irrelevant",
+          "notes": "REAL GATE (in-game, not modeled here): fires once, hijacking your first touch pick after P2. 'Fair's fair — the professor got a preview.' Hand in your shorts, annoyed verdict: 'Fuck... you're huge.' Plays with it a little, withdraws: 'That was your prize. Deal with it.' CONSUMES the pick — no rung progress."
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "name": "Win 3",
+      "lives": "",
+      "win": [
+        {
+          "id": "S1_TOP",
+          "sharedId": "S1_TOP",
+          "label": "Her top comes off (no bra)",
+          "sets": [
+            "top"
+          ],
+          "artDeps": [],
+          "est": 4
+        },
+        {
+          "id": "S2_WALK",
+          "sharedId": "S2_WALK",
+          "label": "Walk around the park — topless",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresNotFlags": [
+            "walk"
+          ],
+          "flags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Strip rung 2 — no outfit change, so it consumes a slot for free. Elderly couple (Janet & Ted) cameo. Railroaded: always topless with shorts on."
+        },
+        {
+          "id": "S3_SHORTS",
+          "sharedId": "S3_SHORTS",
+          "label": "Her shorts come off",
+          "sets": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "notes": "Gated on the walk — keeps the strip route at exactly 4 picks."
+        },
+        {
+          "id": "S4_PANTIES",
+          "sharedId": "S4_PANTIES",
+          "label": "Her panties come off",
+          "sets": [
+            "panties"
+          ],
+          "artDeps": [],
+          "est": 6,
+          "notes": "Strip route finale (always your 4th win). Deterministic entering state — strip scenes never multiply."
+        },
+        {
+          "id": "X1_BUTT",
+          "sharedId": "X1_BUTT",
+          "label": "A butt touch",
+          "flags": [
+            "butt"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 3,
+          "notes": "Sexy rung 1 — varies by how stripped she is when it fires."
+        },
+        {
+          "id": "X2_BREAST",
+          "sharedId": "X2_BREAST",
+          "label": "A breast touch",
+          "requiresFlags": [
+            "butt"
+          ],
+          "flags": [
+            "breast"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 4,
+          "notes": "MR2 lives in the TOPLESS variant: you reach, she stops you — 'only my hands get to touch me' — then a close-range self-touch tease (breasts/upper body, waistline grazes), and she stops cold. Blue-balls control assertion; rung still counts. Dressed variant = the actual touch."
+        },
+        {
+          "id": "X3_BJ",
+          "sharedId": "X3_BJ",
+          "label": "A blowjob",
+          "requiresFlags": [
+            "breast"
+          ],
+          "flags": [
+            "bj"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 5
+        },
+        {
+          "id": "X4_SEX",
+          "sharedId": "X4_SEX",
+          "label": "Sex",
+          "requiresFlags": [
+            "bj"
+          ],
+          "flags": [
+            "sex"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 8,
+          "notes": "Sexy route ending — the pyramid rule means this only ever renders fully dressed. The cold one (2026-10-12): she pays it like a debt, shorter, no warm ending."
+        },
+        {
+          "id": "L1_TRUTH",
+          "sharedId": "L1_TRUTH",
+          "label": "A truth",
+          "flags": [
+            "truth1"
+          ],
+          "artDeps": [
+            "top"
+          ],
+          "est": 2,
+          "notes": "Love rung 1. Two renders: benign truth (dressed, close framing) and the 'what's your bra size' taunt (topless — feeds mini-route 1)."
+        },
+        {
+          "id": "L2_NICE",
+          "sharedId": "L2_NICE",
+          "label": "Say two nice things about me",
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "love2"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "She tries 'you're hot' — refused (she trashes your looks weekly). Grits her teeth, lands two surprisingly real ones."
+        },
+        {
+          "id": "L3_SMILE",
+          "sharedId": "L3_SMILE",
+          "label": "Show me a real smile",
+          "requiresFlags": [
+            "love2"
+          ],
+          "flags": [
+            "love3"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "Smug goading smile first → refused: 'drop the tough-girl bullshit.' Protests. Then the real one."
+        },
+        {
+          "id": "L4_KISS",
+          "sharedId": "L4_KISS",
+          "label": "A real kiss — she melts",
+          "requiresFlags": [
+            "love3"
+          ],
+          "flags": [
+            "kiss"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 12,
+          "notes": "Love route ending. The slot economy forces her fully dressed here — the model verifies that (1 variant). Continues into sex in the grass (2026-10-12): the long, warm one."
+        },
+        {
+          "id": "MR1_KISS",
+          "sharedId": "MR1_KISS",
+          "label": "Kiss her (mini-route 1)",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "mr1_kiss"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "notes": "Mini-route 1 step 3 (top → truth → kiss). Railroaded: topless, shorts on."
+        },
+        {
+          "id": "MR1_FINGER",
+          "sharedId": "MR1_FINGER",
+          "label": "Heavy kiss — fingers in her shorts (mini-route 1 finale)",
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "mr1_kiss"
+          ],
+          "flags": [
+            "mr1_done"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Only reachable as your 4th win via top → truth → kiss. Topless, shorts on. Her-forfeit ending variant."
+        },
+        {
+          "id": "MR3_INSPECT",
+          "sharedId": "MR3_INSPECT",
+          "label": "Her inspection (mini-route 3 — intercepts a touch after the dick pic)",
+          "flags": [
+            "mr3_done"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "pool": "irrelevant",
+          "notes": "REAL GATE (in-game, not modeled here): fires once, hijacking your first touch pick after P2. 'Fair's fair — the professor got a preview.' Hand in your shorts, annoyed verdict: 'Fuck... you're huge.' Plays with it a little, withdraws: 'That was your prize. Deal with it.' CONSUMES the pick — no rung progress."
+        }
+      ]
+    },
+    {
+      "id": "W4",
+      "name": "Win 4",
+      "lives": "her forfeit",
+      "win": [
+        {
+          "id": "S1_TOP",
+          "sharedId": "S1_TOP",
+          "label": "Her top comes off (no bra)",
+          "sets": [
+            "top"
+          ],
+          "artDeps": [],
+          "est": 4
+        },
+        {
+          "id": "S2_WALK",
+          "sharedId": "S2_WALK",
+          "label": "Walk around the park — topless",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresNotFlags": [
+            "walk"
+          ],
+          "flags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Strip rung 2 — no outfit change, so it consumes a slot for free. Elderly couple (Janet & Ted) cameo. Railroaded: always topless with shorts on."
+        },
+        {
+          "id": "S3_SHORTS",
+          "sharedId": "S3_SHORTS",
+          "label": "Her shorts come off",
+          "sets": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "walk"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "notes": "Gated on the walk — keeps the strip route at exactly 4 picks."
+        },
+        {
+          "id": "S4_PANTIES",
+          "sharedId": "S4_PANTIES",
+          "label": "Her panties come off",
+          "sets": [
+            "panties"
+          ],
+          "artDeps": [],
+          "est": 6,
+          "notes": "Strip route finale (always your 4th win). Deterministic entering state — strip scenes never multiply."
+        },
+        {
+          "id": "X1_BUTT",
+          "sharedId": "X1_BUTT",
+          "label": "A butt touch",
+          "flags": [
+            "butt"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 3,
+          "notes": "Sexy rung 1 — varies by how stripped she is when it fires."
+        },
+        {
+          "id": "X2_BREAST",
+          "sharedId": "X2_BREAST",
+          "label": "A breast touch",
+          "requiresFlags": [
+            "butt"
+          ],
+          "flags": [
+            "breast"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 4,
+          "notes": "MR2 lives in the TOPLESS variant: you reach, she stops you — 'only my hands get to touch me' — then a close-range self-touch tease (breasts/upper body, waistline grazes), and she stops cold. Blue-balls control assertion; rung still counts. Dressed variant = the actual touch."
+        },
+        {
+          "id": "X3_BJ",
+          "sharedId": "X3_BJ",
+          "label": "A blowjob",
+          "requiresFlags": [
+            "breast"
+          ],
+          "flags": [
+            "bj"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 5
+        },
+        {
+          "id": "X4_SEX",
+          "sharedId": "X4_SEX",
+          "label": "Sex",
+          "requiresFlags": [
+            "bj"
+          ],
+          "flags": [
+            "sex"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 8,
+          "notes": "Sexy route ending — the pyramid rule means this only ever renders fully dressed. The cold one (2026-10-12): she pays it like a debt, shorter, no warm ending."
+        },
+        {
+          "id": "L1_TRUTH",
+          "sharedId": "L1_TRUTH",
+          "label": "A truth",
+          "flags": [
+            "truth1"
+          ],
+          "artDeps": [
+            "top"
+          ],
+          "est": 2,
+          "notes": "Love rung 1. Two renders: benign truth (dressed, close framing) and the 'what's your bra size' taunt (topless — feeds mini-route 1)."
+        },
+        {
+          "id": "L2_NICE",
+          "sharedId": "L2_NICE",
+          "label": "Say two nice things about me",
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "love2"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "She tries 'you're hot' — refused (she trashes your looks weekly). Grits her teeth, lands two surprisingly real ones."
+        },
+        {
+          "id": "L3_SMILE",
+          "sharedId": "L3_SMILE",
+          "label": "Show me a real smile",
+          "requiresFlags": [
+            "love2"
+          ],
+          "flags": [
+            "love3"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "pool": "irrelevant",
+          "notes": "Smug goading smile first → refused: 'drop the tough-girl bullshit.' Protests. Then the real one."
+        },
+        {
+          "id": "L4_KISS",
+          "sharedId": "L4_KISS",
+          "label": "A real kiss — she melts",
+          "requiresFlags": [
+            "love3"
+          ],
+          "flags": [
+            "kiss"
+          ],
+          "artDeps": [
+            "top",
+            "shorts"
+          ],
+          "est": 12,
+          "notes": "Love route ending. The slot economy forces her fully dressed here — the model verifies that (1 variant). Continues into sex in the grass (2026-10-12): the long, warm one."
+        },
+        {
+          "id": "MR1_KISS",
+          "sharedId": "MR1_KISS",
+          "label": "Kiss her (mini-route 1)",
+          "requires": [
+            "top"
+          ],
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "truth1"
+          ],
+          "flags": [
+            "mr1_kiss"
+          ],
+          "artDeps": [],
+          "est": 3,
+          "notes": "Mini-route 1 step 3 (top → truth → kiss). Railroaded: topless, shorts on."
+        },
+        {
+          "id": "MR1_FINGER",
+          "sharedId": "MR1_FINGER",
+          "label": "Heavy kiss — fingers in her shorts (mini-route 1 finale)",
+          "requiresNot": [
+            "shorts"
+          ],
+          "requiresFlags": [
+            "mr1_kiss"
+          ],
+          "flags": [
+            "mr1_done"
+          ],
+          "artDeps": [],
+          "est": 5,
+          "notes": "Only reachable as your 4th win via top → truth → kiss. Topless, shorts on. Her-forfeit ending variant."
+        },
+        {
+          "id": "MR3_INSPECT",
+          "sharedId": "MR3_INSPECT",
+          "label": "Her inspection (mini-route 3 — intercepts a touch after the dick pic)",
+          "flags": [
+            "mr3_done"
+          ],
+          "artDeps": [],
+          "est": 4,
+          "pool": "irrelevant",
+          "notes": "REAL GATE (in-game, not modeled here): fires once, hijacking your first touch pick after P2. 'Fair's fair — the professor got a preview.' Hand in your shorts, annoyed verdict: 'Fuck... you're huge.' Plays with it a little, withdraws: 'That was your prize. Deal with it.' CONSUMES the pick — no rung progress."
+        }
+      ]
+    }
+  ],
+  "lossTrack": [
+    {
+      "id": "P1_ASS_KISS",
+      "label": "Kiss her ass. Literally.",
+      "est": 3,
+      "artDeps": [
+        "shorts"
+      ],
+      "notes": "Two variants by her shorts state. Frame from behind / below mid-back so top-on vs topless doesn't split it into 3."
+    },
+    {
+      "id": "P2_DICK_PIC",
+      "label": "Send a dick pic — SHE picks the contact",
+      "est": 3,
+      "artDeps": [],
+      "pool": "irrelevant",
+      "notes": "You plan a dead number; she scrolls your contacts ('Hmm... this Lisa girl? ...no.') and lands on your old physics professor. Art: Ashely going through your phone, delighted. Future hook: professor phone chat after the date."
+    },
+    {
+      "id": "P3A_YOUR_WALK",
+      "label": "Your turn — walk the park in your underwear",
+      "requiresFlags": [
+        "walk"
+      ],
+      "est": 4,
+      "artDeps": [],
+      "pool": "irrelevant",
+      "notes": "Only picked if HER walk happened — the callback. Same path, Janet & Ted encore ('No you don't, Janet.'). Frame Ashely out or face-only so her state doesn't split the set."
+    },
+    {
+      "id": "P3B_BENCH_GIRL",
+      "label": "Ask that girl for her number... then say 'just kidding'",
+      "requiresNotFlags": [
+        "walk"
+      ],
+      "est": 5,
+      "artDeps": [],
+      "pool": "irrelevant",
+      "notes": "Alternate P3. You refuse to be an asshole, take the number for real; she knew you wouldn't — the struggle WAS the punishment. Jealousy beat ('Whatever. Next match.'). New side character: bench girl. UNLOCK STRETCH: if you then WIN the scene (her forfeit), a sexy bench-girl phone convo unlocks afterwards — lose exactly 3, then take your 4th win."
+    }
+  ],
+  "lossForfeitCount": 4,
+  "loseEnding": {
+    "label": "The naked run — you forfeit",
+    "artDeps": [
+      "top"
+    ],
+    "est": 4,
+    "notes": "P4: strip naked and run the park. 'That's illegal.' (Topless counter: 'I'm topless, aren't I?' / 'legal for women here'.) Art: expressive devious Ashely daring you — NO nude player art. She is SEATED, so shorts state never shows — exactly a dressed + topless pair."
+  },
+  "final": {
+    "label": "Her forfeit — your 4th win (themed if one ladder completed, mixed wrap otherwise)",
+    "artDeps": [
+      "top",
+      "shorts",
+      "panties"
+    ],
+    "est": 3
+  }
+}

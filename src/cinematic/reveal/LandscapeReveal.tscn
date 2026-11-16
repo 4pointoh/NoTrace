@@ -1,0 +1,193 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://src/cinematic/reveal/landscape_reveal.gd" id="1_reveal"]
+[ext_resource type="Texture2D" path="res://src/cinematic/reveal/vignette.png" id="2_vignette"]
+[ext_resource type="Texture2D" path="res://src/cinematic/reveal/seam_light.png" id="3_seam"]
+[ext_resource type="Texture2D" path="res://src/cinematic/atmosphere/petal.png" id="4_petal"]
+[ext_resource type="AudioStream" path="res://src/cinematic/reveal/reveal_build.wav" id="5_build"]
+[ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="6_font"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_add"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_life"]
+offsets = PackedFloat32Array(0, 0.15, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_title"]
+base_font = ExtResource("6_font")
+spacing_glyph = 18
+
+[node name="LandscapeReveal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_reveal")
+
+[node name="Vignette" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("2_vignette")
+expand_mode = 1
+
+[node name="WingLeft" type="ColorRect" parent="."]
+layout_mode = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WingRight" type="ColorRect" parent="."]
+layout_mode = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SeamLeft" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_add")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("3_seam")
+expand_mode = 1
+
+[node name="SeamRight" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_add")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("3_seam")
+expand_mode = 1
+
+[node name="EscapeLeft" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 14
+lifetime = 5.0
+texture = ExtResource("4_petal")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 540)
+direction = Vector2(-1, -0.1)
+spread = 28.0
+gravity = Vector2(0, 14)
+initial_velocity_min = 50.0
+initial_velocity_max = 130.0
+angular_velocity_min = -120.0
+angular_velocity_max = 120.0
+angle_max = 360.0
+scale_amount_min = 0.25
+scale_amount_max = 0.55
+color_ramp = SubResource("Gradient_life")
+
+[node name="EscapeRight" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 14
+lifetime = 5.0
+texture = ExtResource("4_petal")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 540)
+direction = Vector2(1, -0.1)
+spread = 28.0
+gravity = Vector2(0, 14)
+initial_velocity_min = 50.0
+initial_velocity_max = 130.0
+angular_velocity_min = -120.0
+angular_velocity_max = 120.0
+angle_max = 360.0
+scale_amount_min = 0.25
+scale_amount_max = 0.55
+color_ramp = SubResource("Gradient_life")
+
+[node name="Burst" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 150
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.95
+texture = ExtResource("4_petal")
+emission_shape = 3
+emission_rect_extents = Vector2(420, 540)
+spread = 180.0
+gravity = Vector2(0, 14)
+initial_velocity_min = 250.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -120.0
+angular_velocity_max = 120.0
+damping_min = 260.0
+damping_max = 520.0
+angle_max = 360.0
+scale_amount_min = 0.25
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_life")
+
+[node name="Bloom" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.92, 0.78, 0)
+
+[node name="Blackout" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4000.0
+offset_top = -4000.0
+offset_right = 4000.0
+offset_bottom = 4000.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TitleCard" type="Control" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.48
+anchor_right = 0.5
+anchor_bottom = 0.48
+mouse_filter = 2
+
+[node name="Subtitle" type="Label" parent="TitleCard"]
+unique_name_in_owner = true
+layout_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.6)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("FontVariation_title")
+theme_override_font_sizes/font_size = 30
+text = "NO TRACE OF LUCK"
+
+[node name="Title" type="Label" parent="TitleCard"]
+unique_name_in_owner = true
+layout_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.6)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = SubResource("FontVariation_title")
+theme_override_font_sizes/font_size = 124
+text = "PART TWO"
+
+[node name="RuleLeft" type="ColorRect" parent="TitleCard"]
+unique_name_in_owner = true
+layout_mode = 0
+mouse_filter = 2
+
+[node name="RuleRight" type="ColorRect" parent="TitleCard"]
+unique_name_in_owner = true
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Build" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_build")

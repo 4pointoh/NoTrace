@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/ashely2_replay/d_ashely2_replay.tres" id="dialogue"]
+[ext_resource type="Script" path="res://data/game_stages/vn/ashely2_replay/ashely2_replay_choices.gd" id="choices"]
+
+[sub_resource type="Resource" id="park"]
+script = ExtResource("bg")
+name = "ashely2_replay_park"
+imagePath = "res://data/background_lists/ashely_poker2/INTRO_PARK/02.webp"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "ashely2_replay"
+displayName = "Ashely Poker II - Replay"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+isCompletable = false
+startingBackground = SubResource("park")
+isLandscape = false
+endOnlyOnSpecificDialogueKey = true
+endingDialogueKeys = Array[String](["TO_RACE"])
+choicesScript = ExtResource("choices")

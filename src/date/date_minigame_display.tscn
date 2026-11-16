@@ -459,6 +459,7 @@ text = "Skip Date?"
 horizontal_alignment = 1
 
 [node name="Yes" type="Button" parent="SkipConfirmBg"]
+focus_mode = 0
 layout_mode = 0
 offset_left = 381.0
 offset_top = 92.0
@@ -469,6 +470,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_pse86")
 text = "Yes"
 
 [node name="No" type="Button" parent="SkipConfirmBg"]
+focus_mode = 0
 layout_mode = 0
 offset_left = 36.0
 offset_top = 92.0
@@ -479,11 +481,71 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_akv1d")
 text = "No
 "
 
+[node name="HelpBg" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 896.0
+offset_bottom = 1152.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="HelpPanel" type="NinePatchRect" parent="HelpBg"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 222.0
+offset_right = 848.0
+offset_bottom = 737.0
+texture = ExtResource("2_4gai5")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="HelpTitle" type="Label" parent="HelpBg/HelpPanel"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 800.0
+offset_bottom = 87.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_j5wfl")
+theme_override_font_sizes/font_size = 48
+text = "How Dates Work"
+horizontal_alignment = 1
+
+[node name="HelpText" type="RichTextLabel" parent="HelpBg/HelpPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 110.0
+offset_right = 760.0
+offset_bottom = 430.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("3_j5wfl")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+scroll_active = false
+
+[node name="HelpClose" type="Button" parent="HelpBg/HelpPanel"]
+focus_mode = 0
+layout_mode = 0
+offset_left = 300.0
+offset_top = 445.0
+offset_right = 500.0
+offset_bottom = 491.0
+theme_override_fonts/font = ExtResource("3_j5wfl")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_pse86")
+text = "Got It"
+
 [connection signal="clicked_continue" from="DateCompleteDisplay" to="." method="_on_date_complete_display_clicked_continue"]
 [connection signal="clicked_play_again" from="DateCompleteDisplay" to="." method="_on_date_complete_display_clicked_play_again"]
 [connection signal="back_button" from="DateChoiceDisplay" to="." method="_on_date_choice_display_back_button"]
 [connection signal="choice_selected" from="DateChoiceDisplay" to="." method="_on_date_choice_display_choice_selected"]
 [connection signal="choice_selected" from="DateSelectDisplay" to="." method="_on_date_select_display_choice_selected"]
 [connection signal="skip_date_selected" from="DateSelectDisplay" to="." method="_on_date_select_display_skip_date_selected"]
+[connection signal="help_selected" from="DateSelectDisplay" to="." method="_on_date_select_display_help_selected"]
 [connection signal="pressed" from="SkipConfirmBg/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="SkipConfirmBg/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="HelpBg/HelpPanel/HelpClose" to="." method="_on_help_close_pressed"]

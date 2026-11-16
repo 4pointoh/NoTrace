@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://coso3dbmucp0f"]
+[gd_scene load_steps=41 format=3 uid="uid://coso3dbmucp0f"]
 
 [ext_resource type="Script" uid="uid://bkbp76j8ll3qo" path="res://src/vn/Main.gd" id="1_ps8m3"]
 [ext_resource type="PackedScene" uid="uid://cmhnmn0imk4df" path="res://src/vn/Background.tscn" id="2_boj0x"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://enj1rk5nm578" path="res://src/poker_timeline/PokerTimeline.tscn" id="24_3lhh4"]
 [ext_resource type="PackedScene" uid="uid://jddtx26iom45" path="res://src/vn/AnnaDressingRoom.tscn" id="25_anna1"]
 [ext_resource type="PackedScene" uid="uid://ds454mryfvys" path="res://src/vn/AnaMusicVideo.tscn" id="26_anavid"]
+[ext_resource type="PackedScene" path="res://src/cinematic/CinematicLayer.tscn" id="27_cinematic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20bdf"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -185,6 +186,10 @@ offset_right = 896.0
 offset_bottom = 937.0
 
 [node name="CharacterManager" parent="." instance=ExtResource("6_qx8ua")]
+
+[node name="Cinematics" parent="." node_paths=PackedStringArray("background") instance=ExtResource("27_cinematic")]
+unique_name_in_owner = true
+background = NodePath("../Background")
 
 [node name="DialogueManager" parent="." instance=ExtResource("5_m0pi8")]
 

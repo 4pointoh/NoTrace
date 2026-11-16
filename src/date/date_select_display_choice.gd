@@ -4,6 +4,8 @@ extends Node2D
 @export var mainLabel : String
 
 var disabled = false
+var progressNeeded = false
+var complete = false
 
 signal clicked
 
@@ -25,28 +27,24 @@ func setCgsAvailable(available):
 		%PossibleMemoriesLabel.hide()
 
 func setProgressNeeded(needed):
-	if(needed):
-		var completeTexture = load("res://data/assets/date/art/grey_rounded_bottom.png")
-		$ChoiceButton/FooterBg.texture = completeTexture
-		$ChoiceButton/FooterText.text = 'Progress Needed!'
-		$ChoiceButton/FooterBg.show()
-		$ChoiceButton/FooterText.show()
-		disabled = true
-	else:
-		$ChoiceButton/FooterBg.hide()
-		$ChoiceButton/FooterText.hide()
-		disabled = false
-	
-func setComplete(complete):
+	progressNeeded = needed
+	updateFooter()
+
+# Nothing left to ask under this button
+func setComplete(isComplete):
+	complete = isComplete
+	updateFooter()
+
+func updateFooter():
+	disabled = progressNeeded or complete
 	if(complete):
-		var completeTexture = load("res://data/assets/date/art/green_rounded_bottom.png")
-		$ChoiceButton/FooterBg.texture = completeTexture
+		$ChoiceButton/FooterBg.texture = load("res://data/assets/date/art/green_rounded_bottom.png")
 		$ChoiceButton/FooterText.text = 'Complete!'
-		$ChoiceButton/FooterBg.show()
-		$ChoiceButton/FooterText.show()
-	else:
-		$ChoiceButton/FooterBg.hide()
-		$ChoiceButton/FooterText.hide()
+	elif(progressNeeded):
+		$ChoiceButton/FooterBg.texture = load("res://data/assets/date/art/grey_rounded_bottom.png")
+		$ChoiceButton/FooterText.text = 'Progress Needed!'
+	$ChoiceButton/FooterBg.visible = disabled
+	$ChoiceButton/FooterText.visible = disabled
 
 
 func _on_choice_button_pressed():
@@ -56,6 +54,8 @@ func _on_choice_button_pressed():
 
 
 func _on_choice_button_mouse_entered():
+	if(complete):
+		return
 	if(disabled):
 		%Locked.show()
 	else:

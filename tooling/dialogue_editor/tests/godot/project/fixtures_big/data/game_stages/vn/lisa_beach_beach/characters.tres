@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterList" load_steps=5 format=3 uid="uid://3en0gy71ny43"]
+
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_0kvov"]
+[ext_resource type="Resource" uid="uid://ce8silww1ttnp" path="res://data/characters/you/you.tres" id="2_yl1w2"]
+[ext_resource type="Resource" uid="uid://b76n8jvfnh0ra" path="res://data/characters/lisa/lisa_beach/lisa_beach.tres" id="3_fcqnm"]
+[ext_resource type="Script" uid="uid://bqps2npunixed" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="4_sbka3"]
+
+[resource]
+script = ExtResource("4_sbka3")
+characters = Array[ExtResource("1_0kvov")]([ExtResource("2_yl1w2"), ExtResource("3_fcqnm")])

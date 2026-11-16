@@ -53,6 +53,16 @@ func firstLoad():
 	$IntroTextTopBox/IntroTextTop.text = GlobalGameStage.currentStage.dateTitle
 	$AnimationPlayer.play("intro_in")
 	%DateSelectDisplay.setBusinessLabel(GlobalGameStage.currentStage.dateBusinessButtonLabel)
+	%HelpText.text = helpText(GlobalGameStage.currentStage)
+
+# What the Help button explains, in this date's own words
+func helpText(stage : GameStage) -> String:
+	var paragraphs = ["To complete the date successfully, you need to complete [color=#ffd166]%s[/color]." % stage.dateBusinessButtonLabel]
+	# A date that can't be lost keeps her mood locked
+	if !stage.cantLose:
+		paragraphs.append("Repeating a question might annoy her! If she gets too annoyed, the date ends.")
+	paragraphs.append("All other dialogue is optional, but may unlock special rewards if you ask the right things!")
+	return "\n\n".join(paragraphs)
 
 func setUi2(actions: Array[DateAction]):
 	currentActionType = actions[0].type
@@ -153,6 +163,12 @@ func setUiForTopicSelection():
 	%DateSelectDisplay.setTalkProgressNeeded(lockTalk)
 	%DateSelectDisplay.setFlirtProgressNeeded(lockFlirt)
 	%DateSelectDisplay.setBusinessProgressNeeded(lockBusiness)
+
+	# Topics with nothing left in them are gone from the list, so a button with none has been talked through
+	var buttonsWithTopics = allActions.map(func(action): return action.buttonIndex)
+	%DateSelectDisplay.setTalkComplete(!buttonsWithTopics.has(DateAction.BUTTON_INDEX.TALK))
+	%DateSelectDisplay.setFlirtComplete(!buttonsWithTopics.has(DateAction.BUTTON_INDEX.FLIRT))
+	%DateSelectDisplay.setBusinessComplete(!buttonsWithTopics.has(DateAction.BUTTON_INDEX.BUSINESS))
 
 	%DateChoiceDisplay.hide()
 	%DateSelectDisplay.showWithAnimation()
@@ -320,3 +336,9 @@ func _on_yes_pressed() -> void:
 
 func _on_no_pressed() -> void:
 	%SkipConfirmBg.hide()
+
+func _on_date_select_display_help_selected() -> void:
+	%HelpBg.show()
+
+func _on_help_close_pressed() -> void:
+	%HelpBg.hide()

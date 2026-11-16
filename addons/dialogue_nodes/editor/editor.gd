@@ -44,6 +44,12 @@ func _ready():
 	dialogue.dialogue_ended.connect(_on_dialogue_ended)
 	dialogue.option_selected.connect(_on_dialogue_option_selected)
 	
+	# moving nodes is a lesser edit: it doesn't stop a reload of a file
+	# changed outside Godot (see files.gd)
+	if graph.end_node_move.is_connected(graph._on_modified):
+		graph.end_node_move.disconnect(graph._on_modified)
+		graph.end_node_move.connect(_on_node_moved)
+	
 	var config = ConfigFile.new()
 	config.load('res://addons/dialogue_nodes/plugin.cfg')
 	version_number.text = config.get_value('plugin', 'version')
@@ -134,12 +140,12 @@ func get_data() -> DialogueData:
 
 
 func open_data(data : DialogueData):
-	# clear graph
-	workspace.remove_all_nodes()
+	# clear graph (a node losing focus as it goes reports an edit: ignore it)
+	workspace.loading_file = true
+	_clear_graph()
 	#await get_tree().idle_frame
 	
 	# add all start nodes with their trees
-	workspace.loading_file = true
 	for id in data.starts:
 		var start_node_name = data.starts[id]
 		var type = int(start_node_name.split('_')[0])
@@ -167,6 +173,28 @@ func open_data(data : DialogueData):
 	workspace.request_node = null
 	workspace.request_slot = null
 	workspace.loading_file = false
+
+
+# Free the shown file's nodes now rather than at the end of the frame: a big
+# graph (thousands of controls) built while the old one still exists can run
+# Godot out of resource ids and crash it.
+func _clear_graph():
+	graph.clear_connections()
+	for child in graph.get_children():
+		if child is GraphNode:
+			graph.remove_child(child)
+			child.free()
+	start_nodes.clear()
+	comment_nodes.clear()
+	_clear_variables()
+
+
+# Without reporting it as an edit: this only empties the panel.
+func _clear_variables():
+	for child in variables.var_container.get_children():
+		if child is HBoxContainer:
+			variables.var_container.remove_child(child)
+			child.free()
 
 
 func new_file(path):
@@ -205,6 +233,12 @@ func _on_node_added(node_name):
 			backgroundLists.file_selected.connect(node._on_backgrounds_loaded)
 			node._on_characters_loaded(characters.characterList)
 			node._on_backgrounds_loaded(backgroundLists.bgLists)
+			# the node scene doesn't report these edits, and a file that isn't
+			# marked modified may be reloaded from disk instead of saved
+			node.background.item_selected.connect(node._on_node_modified)
+			node.characterState.item_selected.connect(node._on_node_modified)
+			node.get_node('HBoxContainer5/ResetBackgroundList').pressed.connect(node._on_node_modified)
+			node.get_node('HBoxContainer4/ResetCharacterState').pressed.connect(node._on_node_modified)
 		'2':
 			comment_nodes.append(node_name)
 		'3', '4':
@@ -235,10 +269,8 @@ func _on_file_menu_pressed(id):
 				saveDialogue.popup_centered()
 		4:
 			files.close_file()
-			variables.remove_all_variables()
 		5:
 			files.close_all()
-			variables.remove_all_variables()
 
 
 func _on_file_popup_pressed(id):
@@ -259,13 +291,19 @@ func _on_file_popup_pressed(id):
 
 
 func _on_file_opened(dialogueData : DialogueData):
-	open_data(dialogueData)
+	# already in the graph: opening selected it (files.create_file), and
+	# building it again would take as long again
 	graph.show()
 	data.show()
 
 
 func _on_file_closed():
-	variables.remove_all_variables()
+	_clear_variables()
+
+
+func _on_node_moved():
+	if not workspace.loading_file:
+		files.modify_file(files.current, true)
 
 
 func _on_run_menu_pressed(id):

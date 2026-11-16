@@ -1,44 +1,155 @@
-[gd_scene load_steps=6 format=3 uid="uid://kirrjy5dcir7"]
+[gd_scene load_steps=11 format=3 uid="uid://kirrjy5dcir7"]
 
 [ext_resource type="Script" uid="uid://cjb2t7jp3ibb5" path="res://src/vn/choice_display.gd" id="1_nx0uj"]
-[ext_resource type="Texture2D" uid="uid://xvtogj4lsibc" path="res://data/assets/date/art/transparent_black_rounded_rect_8px9patch.png" id="2_efltf"]
 [ext_resource type="PackedScene" uid="uid://cej7ytg7puxsy" path="res://src/choice_display_button.tscn" id="2_le5ot"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_le5ot"]
+[ext_resource type="Shader" path="res://src/vn/choice_glass.gdshader" id="4_glass"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_slwwh"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_panel"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glass"]
+shader = ExtResource("4_glass")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glass"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edge"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.2)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 12
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 20
+
+[sub_resource type="Gradient" id="Gradient_rule"]
+colors = PackedColorArray(1, 0.82, 0.4, 0, 1, 0.82, 0.4, 0.85)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rule"]
+gradient = SubResource("Gradient_rule")
+width = 256
+height = 4
 
 [node name="ChoiceDisplay" type="Node2D"]
 script = ExtResource("1_nx0uj")
 choiceButton = ExtResource("2_le5ot")
 
-[node name="bg" type="NinePatchRect" parent="."]
-material = SubResource("ShaderMaterial_slwwh")
-offset_right = 824.0
-offset_bottom = 187.0
-texture = ExtResource("2_efltf")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-
-[node name="title" type="Label" parent="bg"]
+[node name="Panel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+offset_right = 824.0
+offset_bottom = 180.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_panel")
+
+[node name="Glass" type="Panel" parent="Panel"]
+material = SubResource("ShaderMaterial_glass")
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_glass")
+
+[node name="Edge" type="Panel" parent="Panel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_edge")
+
+[node name="Content" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="Panel/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Panel/Content/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="RuleLeft" type="TextureRect" parent="Panel/Content/Rows/Header"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_rule")
+expand_mode = 1
+
+[node name="GemLeft" type="Control" parent="Panel/Content/Rows/Header"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Shape" type="ColorRect" parent="Panel/Content/Rows/Header/GemLeft"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 815.0
-offset_bottom = 44.0
+offset_left = 1.5
+offset_top = 1.5
+offset_right = 8.5
+offset_bottom = 8.5
+rotation = 0.785398
+pivot_offset = Vector2(3.5, 3.5)
+mouse_filter = 2
+color = Color(1, 0.82, 0.4, 1)
+
+[node name="title" type="Label" parent="Panel/Content/Rows/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("3_le5ot")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 30
 text = "Title Here"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChoiceContainer" type="HBoxContainer" parent="bg"]
-unique_name_in_owner = true
+[node name="GemRight" type="Control" parent="Panel/Content/Rows/Header"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Shape" type="ColorRect" parent="Panel/Content/Rows/Header/GemRight"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 62.0
-offset_right = 818.0
-offset_bottom = 174.0
-alignment = 1
+offset_left = 1.5
+offset_top = 1.5
+offset_right = 8.5
+offset_bottom = 8.5
+rotation = 0.785398
+pivot_offset = Vector2(3.5, 3.5)
+mouse_filter = 2
+color = Color(1, 0.82, 0.4, 1)
+
+[node name="RuleRight" type="TextureRect" parent="Panel/Content/Rows/Header"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_rule")
+expand_mode = 1
+flip_h = true
+
+[node name="ChoiceContainer" type="BoxContainer" parent="Panel/Content/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+vertical = true

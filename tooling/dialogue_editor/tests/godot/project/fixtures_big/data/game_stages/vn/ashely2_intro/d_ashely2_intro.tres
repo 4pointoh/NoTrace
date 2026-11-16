@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+starts = {
+"START": &"0_1",
+"TO_MATCH": &"0_2"
+}
+nodes = {
+&"0_2": {
+"link": "END",
+"offset": Vector2(0, 700),
+"start_id": "TO_MATCH"
+},
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(0, 200),
+"start_id": "START"
+},
+&"1_1": {
+"background": 0,
+"backgroundList": 0,
+"characterState": -1,
+"dialogue": "(Placeholder) Ashely wants a rematch. Same park as last time.",
+"offset": Vector2(380, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 0
+},
+&"3_1": {
+"link": &"1_2",
+"offset": Vector2(760, 420),
+"signalValue": "fade_next"
+},
+&"1_2": {
+"background": 0,
+"backgroundList": 1,
+"characterState": -1,
+"dialogue": "(Placeholder) INTRO_WAGER: her pitch goes here. Whoever forfeits first, loses.",
+"offset": Vector2(1140, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) She sets out the race: first to four.",
+"offset": Vector2(1520, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"3_2": {
+"link": &"1_4",
+"offset": Vector2(1900, 420),
+"signalValue": "fade_next"
+},
+&"1_4": {
+"background": 1,
+"backgroundList": 3,
+"characterState": -1,
+"dialogue": "(Placeholder) The first match starts.",
+"offset": Vector2(2280, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Deal.",
+"offset": Vector2(2660, 160),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ashely2_intro/characters.tres"
+backgroundList = "res://data/game_stages/vn/ashely2_intro/bgs.tres"

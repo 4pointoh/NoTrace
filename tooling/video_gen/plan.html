@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clip Plan</title>
+<style>
+:root {
+	--bg: #121316; --panel: #1c1e23; --line: #2c2f36; --text: #e7e8ea; --dim: #9a9ea8;
+	--keep: #3fb26b; --reject: #d9534f; --star: #e3b341; --accent: #6ea8ff; --pick: #b98cff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 3; background: var(--bg); border-bottom: 1px solid var(--line);
+	padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0; }
+header a { color: var(--accent); }
+.stats { color: var(--dim); }
+button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px;
+	padding: 4px 10px; cursor: pointer; font: inherit; }
+.filters button.on, #summary-toggle.on { border-color: var(--accent); color: var(--accent); }
+label.size { color: var(--dim); display: flex; gap: 6px; align-items: center; }
+.q { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px;
+	padding: 4px 8px; font: inherit; width: 200px; }
+main { padding: 8px 16px 60px; }
+section { border-top: 1px solid var(--line); padding: 16px 0 22px; }
+.head { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: flex-start; margin-bottom: 12px; }
+.head h2 { font-size: 16px; margin: 0; flex: 1 1 280px; }
+.head h2 .count, .head h2 .slots { display: block; color: var(--dim); font-weight: normal; font-size: 12px; margin-top: 4px; }
+.decide { flex: 1 1 460px; max-width: 720px; display: grid; gap: 6px; }
+.decide .opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.decide .opts button.on { background: var(--accent); border-color: var(--accent); color: #10131a; font-weight: 600; }
+.decide .picks { color: var(--dim); font-size: 12px; }
+.decide .picks b { color: var(--pick); font-weight: 600; }
+.decide textarea, .card textarea { width: 100%; min-height: 34px; resize: vertical; background: var(--bg); color: var(--text);
+	border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; font: inherit; font-size: 12px; }
+section.done .head h2::before { content: '✓ '; color: var(--keep); }
+.row-title { font-size: 13px; color: var(--dim); margin: 14px 0 6px; }
+.row-title b { color: var(--text); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--w, 260px), 1fr)); gap: 12px; }
+.card { background: var(--panel); border: 2px solid var(--line); border-radius: 8px; overflow: hidden; position: relative; }
+.card.keep { border-color: var(--keep); }
+.card.prod { border-color: var(--star); }
+.card.reject { border-color: var(--reject); opacity: .55; }
+.card.original { border-color: var(--dim); }
+.card.picked { outline: 3px solid var(--pick); outline-offset: -1px; }
+.card .badge { position: absolute; top: 8px; left: 8px; z-index: 1; background: var(--pick); color: #14101c;
+	font-weight: 700; border-radius: 999px; min-width: 28px; height: 28px; display: grid; place-items: center; padding: 0 8px; }
+.card .frame { position: relative; aspect-ratio: 3 / 4; background: #000; display: block; }
+.card .frame img, .card .frame video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
+.card .meta { padding: 8px 10px; display: grid; gap: 6px; }
+.card .title { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; word-break: break-word; }
+.card .title span { color: var(--dim); font-weight: normal; font-size: 12px; white-space: nowrap; }
+.card .note { font-size: 12px; color: var(--text); background: var(--bg); border-radius: 6px; padding: 4px 6px; }
+.card .gen { color: var(--dim); font-size: 12px; }
+.card details { font-size: 12px; color: var(--dim); }
+.card details pre { white-space: pre-wrap; margin: 6px 0 0; font: 12px/1.35 ui-monospace, monospace; }
+.card .actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.card .actions .p.on { background: var(--pick); border-color: var(--pick); color: #14101c; }
+.card .actions .k.on { background: var(--keep); border-color: var(--keep); color: #fff; }
+.card .actions .r.on { background: var(--reject); border-color: var(--reject); color: #fff; }
+.card .actions .s { margin-left: auto; }
+.card .actions .s.on { background: var(--star); border-color: var(--star); color: #1a1a1a; }
+.tag { display: inline-block; font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--dim); }
+.tag.loop { border-color: var(--accent); color: var(--accent); }
+details.more > summary { cursor: pointer; color: var(--dim); font-size: 13px; margin: 14px 0 6px; }
+#summary { position: fixed; z-index: 4; top: 56px; right: 16px; bottom: 16px; width: min(560px, calc(100vw - 32px)); overflow: auto;
+	background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; box-shadow: 0 8px 30px #0008; }
+#summary h3 { font-size: 14px; margin: 14px 0 6px; }
+#summary ul { margin: 0; padding-left: 18px; }
+#summary li { margin: 4px 0; font-size: 13px; }
+#summary li a { color: var(--accent); cursor: pointer; }
+#summary .dim { color: var(--dim); }
+.empty { color: var(--dim); padding: 40px 0; }
+</style>
+</head>
+<body>
+<header>
+	<h1>Clip plan</h1>
+	<span class="stats" id="stats"></span>
+	<span class="filters" id="filters">
+		<button data-f="all" class="on">All</button>
+		<button data-f="undecided">Undecided</button>
+		<button data-f="decided">Decided</button>
+		<button data-f="star">Has ★</button>
+		<button data-f="nostar">No ★</button>
+	</span>
+	<input type="search" id="q" placeholder="Picture or clip name" class="q">
+	<label class="size">Size <input type="range" id="size" min="180" max="520" value="260"></label>
+	<button id="summary-toggle">Plan so far</button>
+	<a href="/">Review page</a>
+	<a href="/redo">Before / after</a>
+	<a href="/finish">Upscale before / after</a>
+	<span class="stats">Hover a clip to play it. P pick, S star, K keep, R reject.</span>
+</header>
+<aside id="summary" hidden></aside>
+<main id="main"><p class="empty">Loading…</p></main>
+<script>
+// One section per picture: the original, its production clips, its kept clips. For each picture you choose what
+// becomes of it and pick the clips that plan uses (in order); h3.py serve saves that to <library>/plan.json.
+const DECISIONS = [
+	['use', 'Use as is', 'A picked clip goes into the game as it is'],
+	['combine', 'Combine', 'The picked clips, in pick order, become one longer clip or seamless loop'],
+	['loop', 'Make a loop', 'The picked clip becomes a seamless loop'],
+	['redo', 'New renders', 'Nothing here works yet: say in the note what to try'],
+	['none', 'No video', 'This picture stays a still'],
+];
+let data = { clips: [], review: {}, pending: [], pictures: {} };
+let plan = {};
+let filter = 'all';
+let query = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+let hovered = null;  // { clip, pic } under the mouse, for the keys
+
+// As on the review page: every card is a still, and only the last few clips hovered hold a <video>
+// (a loaded <video> per card ran the browser out of memory).
+const LIVE = 3;
+const videos = new Map();
+function thumb(path) { return '/thumbs/' + path.replace(/\.\w+$/, '.jpg'); }
+function drop(path) {
+	const video = videos.get(path);
+	video.pause();
+	video.removeAttribute('src');
+	video.load();
+	video.remove();
+	videos.delete(path);
+}
+function live(clip, frame) {
+	let video = videos.get(clip.path);
+	if (video) videos.delete(clip.path);
+	else {
+		video = el('video', { src: '/' + clip.path, poster: thumb(clip.path), loop: '', playsinline: '' });
+		video.muted = true;
+		video.addEventListener('click', () => { video.controls = !video.controls; video.muted = !video.controls; });
+	}
+	videos.set(clip.path, video);
+	if (video.parentNode !== frame) frame.append(video);
+	for (const [path, v] of videos) {
+		if (videos.size <= LIVE) break;
+		if (path !== clip.path && !v.controls) drop(path);
+	}
+	return video;
+}
+
+function store(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+function recall(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+function el(tag, attrs = {}, ...kids) {
+	const e = document.createElement(tag);
+	for (const [k, v] of Object.entries(attrs)) {
+		if (k === 'class') e.className = v;
+		else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+		else e.setAttribute(k, v);
+	}
+	for (const kid of kids) if (kid != null) e.append(kid);
+	return e;
+}
+
+async function load() {
+	const [clips, saved] = await Promise.all([fetch('/api/clips').then(r => r.json()), fetch('/api/plan').then(r => r.json())]);
+	data = clips;
+	plan = saved;
+	render();
+}
+
+// Saves in flight and a running count, so a refresh sent before a save can't bring back the state before it.
+let saving = 0, saves = 0, unsaved = false;
+async function save(url, body, redraw) {
+	saving++; saves++;
+	let ok = false;
+	try {
+		const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+		ok = r.ok;
+	} catch (e) {}
+	saving--;
+	if (unsaved !== !ok) { unsaved = !ok; redraw = true; }
+	if (redraw && !typing()) render();
+}
+function mark(path, fields) {
+	data.review[path] = { ...(data.review[path] || {}), ...fields };
+	return save('/api/review', { path, ...fields }, true);
+}
+// Same rules as the review page: starring keeps a clip; un-keeping or rejecting it takes the star away.
+function setVerdict(path, verdict) { return mark(path, verdict === 'keep' ? { verdict } : { verdict, production: false }); }
+function toggleStar(path) {
+	const rv = data.review[path] || {};
+	return mark(path, rv.production ? { production: false } : { production: true, verdict: 'keep' });
+}
+function decide(pic, fields, redraw = true) {
+	plan[pic] = { ...(plan[pic] || {}), ...fields };
+	return save('/api/plan', { picture: pic, ...fields }, redraw);
+}
+function togglePick(pic, path) {
+	const picks = [...((plan[pic] || {}).clips || [])];
+	const i = picks.indexOf(path);
+	if (i >= 0) picks.splice(i, 1); else picks.push(path);
+	return decide(pic, { clips: picks });
+}
+
+let noteTimer = null;
+function typing() { return document.activeElement && document.activeElement.tagName === 'TEXTAREA'; }
+function noteBox(value, placeholder, onSave) {
+	const box = el('textarea', { placeholder });
+	box.value = value || '';
+	box.addEventListener('input', () => { clearTimeout(noteTimer); noteTimer = setTimeout(() => onSave(box.value), 500); });
+	box.addEventListener('blur', () => { clearTimeout(noteTimer); onSave(box.value); });
+	return box;
+}
+
+function pictureName(pic) {
+	const game = (data.pictures || {})[pic];
+	if (game && game.length) return game.map(g => g.replace(/\.\w+$/, '')).join(' = ');
+	if (!pic) return 'no picture recorded';
+	return pic.replace(/^sources\//, '').replace(/_\d+x\d+\.png$/, '') + (game ? ' (not in the game art)' : '');
+}
+function stem(path) { return path.split('/').pop().replace(/\.mp4$/, ''); }
+const rv = clip => data.review[clip.path] || {};
+
+function originalCard(pic) {
+	return el('div', { class: 'card original' },
+		el('a', { class: 'frame', href: '/' + pic, target: '_blank', title: 'Open the full picture' },
+			el('img', { src: '/' + pic, alt: '', loading: 'lazy', decoding: 'async' })),
+		el('div', { class: 'meta' }, el('div', { class: 'title' }, 'Original picture', el('span', {}, 'the clips start from this'))));
+}
+
+function card(clip, pic) {
+	const r = rv(clip);
+	const picks = (plan[pic] || {}).clips || [];
+	const n = picks.indexOf(clip.path) + 1;
+	const frame = el('div', { class: 'frame' },
+		el('img', { src: thumb(clip.path), alt: '', loading: 'lazy', decoding: 'async' }), videos.get(clip.path));
+	const c = el('div', { class: 'card ' + (r.verdict || '') + (r.production ? ' prod' : '') + (n ? ' picked' : '') },
+		n ? el('div', { class: 'badge', title: 'Picked, in this order' }, '#' + n) : null);
+	c.addEventListener('mouseenter', () => { hovered = { clip, pic }; live(clip, frame).play().catch(() => {}); });
+	c.addEventListener('mouseleave', () => {
+		if (hovered && hovered.clip === clip) hovered = null;
+		const video = videos.get(clip.path);
+		if (video) video.pause();
+	});
+	const seconds = clip.frames && clip.fps ? (clip.frames / clip.fps).toFixed(1) + ' s' : '';
+	const isLoop = clip.key.startsWith('LOOP_');
+	c.append(frame, el('div', { class: 'meta' },
+		el('div', { class: 'title' }, stem(clip.path),
+			el('span', {}, el('span', { class: 'tag' + (isLoop ? ' loop' : '') }, isLoop ? 'seamless loop' : 'clip'), ' ', seconds)),
+		r.note ? el('div', { class: 'note', title: 'Your review note' }, r.note) : null,
+		clip.note ? el('div', { class: 'gen' }, clip.note) : null,
+		el('div', { class: 'actions' },
+			el('button', { class: 'p' + (n ? ' on' : ''), title: 'Use this clip in the plan (P); pick several to set an order', onclick: () => togglePick(pic, clip.path) }, n ? `Picked #${n}` : 'Pick'),
+			el('button', { class: 'k' + (r.verdict === 'keep' ? ' on' : ''), onclick: () => setVerdict(clip.path, r.verdict === 'keep' ? '' : 'keep') }, 'Keep'),
+			el('button', { class: 'r' + (r.verdict === 'reject' ? ' on' : ''), onclick: () => setVerdict(clip.path, r.verdict === 'reject' ? '' : 'reject') }, 'Reject'),
+			el('button', { class: 's' + (r.production ? ' on' : ''), title: 'Production-ready: usable as is (S)', onclick: () => toggleStar(clip.path) }, r.production ? '★ Production' : '☆ Production')),
+		el('details', {}, el('summary', {}, 'Prompt'), el('pre', {}, clip.prompt || ''))));
+	return c;
+}
+
+function section(pic, all) {
+	const entry = plan[pic] || {};
+	const stars = all.filter(c => rv(c).production === true);
+	const keeps = all.filter(c => rv(c).verdict === 'keep' && rv(c).production !== true);
+	const unreviewed = all.filter(c => !rv(c).verdict);
+	const rejected = all.length - stars.length - keeps.length - unreviewed.length;
+	const game = (data.pictures || {})[pic] || [];
+	const picks = (entry.clips || []).filter(p => all.some(c => c.path === p));
+	const opts = el('div', { class: 'opts' }, ...DECISIONS.map(([key, label, hint]) =>
+		el('button', { class: entry.decision === key ? 'on' : '', title: hint,
+			onclick: () => decide(pic, { decision: entry.decision === key ? '' : key }) }, label)));
+	const s = el('section', { class: entry.decision ? 'done' : '' },
+		el('div', { class: 'head' },
+			el('h2', {}, pictureName(pic),
+				el('span', { class: 'count' }, `★ ${stars.length} production · ${keeps.length} kept · ${rejected} rejected` +
+					(unreviewed.length ? ` · ${unreviewed.length} not reviewed` : '')),
+				game.length > 1 ? el('span', { class: 'slots' }, 'The game uses this picture in ' + game.length + ' places') : null),
+			el('div', { class: 'decide' }, opts,
+				el('div', { class: 'picks' }, picks.length
+					? el('span', {}, 'Picked: ', ...picks.flatMap((p, i) => [i ? ', ' : '', el('b', {}, `#${i + 1}`), ' ' + stem(p)]))
+					: 'No clips picked yet: press Pick (or P) on the clips this plan uses, in order.'),
+				noteBox(entry.note, 'How to get to the final video (e.g. stitch #1 and #2 into one 20 s seamless loop)',
+					value => decide(pic, { note: value }, false)))),
+		el('div', { class: 'row-title' }, el('b', {}, '★ Production'), stars.length ? '' : ' · none yet'),
+		el('div', { class: 'grid' }, originalCard(pic), ...stars.map(c => card(c, pic))));
+	if (keeps.length) s.append(el('div', { class: 'row-title' }, el('b', {}, 'Keep'), ` · ${keeps.length}`),
+		el('div', { class: 'grid' }, ...keeps.map(c => card(c, pic))));
+	if (unreviewed.length) s.append(el('details', { class: 'more' }, el('summary', {}, `Not reviewed · ${unreviewed.length}`),
+		el('div', { class: 'grid' }, ...unreviewed.map(c => card(c, pic)))));
+	return s;
+}
+
+function groups() {
+	const byPic = {};
+	for (const clip of data.clips) (byPic[clip.picture] = byPic[clip.picture] || []).push(clip);
+	return Object.entries(byPic).map(([pic, all]) => [pic, pictureName(pic), all]).sort((a, b) => a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0);
+}
+
+function render() {
+	const main = document.getElementById('main');
+	main.textContent = '';
+	const all = groups();
+	const decided = all.filter(([pic]) => (plan[pic] || {}).decision);
+	const counts = DECISIONS.map(([key, label]) => [label, decided.filter(([pic]) => plan[pic].decision === key).length]).filter(x => x[1]);
+	document.getElementById('stats').textContent = (unsaved ? '⚠ Last change not saved: is h3.py serve running? · ' : '') +
+		`${decided.length} of ${all.length} pictures decided` + (counts.length ? ' (' + counts.map(([l, n]) => `${n} ${l.toLowerCase()}`).join(', ') + ')' : '');
+	let shown = 0;
+	for (const [pic, name, clips] of all) {
+		const entry = plan[pic] || {};
+		const starred = clips.some(c => rv(c).production === true);
+		if (filter === 'undecided' && entry.decision) continue;
+		if (filter === 'decided' && !entry.decision) continue;
+		if (filter === 'star' && !starred) continue;
+		if (filter === 'nostar' && starred) continue;
+		if (query && ![name, ...clips.map(c => c.key)].some(s => s.toLowerCase().includes(query))) continue;
+		main.append(section(pic, clips));
+		shown++;
+	}
+	if (!shown) main.append(el('p', { class: 'empty' }, data.clips.length ? 'Nothing matches this filter.' : 'No clips yet.'));
+	for (const [path, video] of videos) if (!video.isConnected) drop(path);
+	if (!document.getElementById('summary').hidden) summary();
+}
+
+// The plan so far, grouped by decision; a name jumps to its picture.
+function summary() {
+	const box = document.getElementById('summary');
+	box.textContent = '';
+	const all = groups();
+	box.append(el('div', { class: 'dim' }, 'Saved in plan.json next to review.json. `h3.py plan` prints it.'));
+	for (const [key, label] of DECISIONS) {
+		const rows = all.filter(([pic]) => (plan[pic] || {}).decision === key);
+		if (!rows.length) continue;
+		box.append(el('h3', {}, `${label} · ${rows.length}`), el('ul', {}, ...rows.map(([pic, name]) => {
+			const entry = plan[pic];
+			return el('li', {}, el('a', { onclick: () => { setQuery(name); render(); window.scrollTo(0, 0); } }, name),
+				(entry.clips || []).length ? ': ' + entry.clips.map(stem).join(' + ') : '',
+				entry.note ? el('div', { class: 'dim' }, entry.note) : null);
+		})));
+	}
+	const open = all.filter(([pic]) => !(plan[pic] || {}).decision).length;
+	box.append(el('h3', {}, `Not decided · ${open}`));
+}
+
+const q = document.getElementById('q');
+function setQuery(value) {
+	query = value.trim().toLowerCase();
+	q.value = value;
+	history.replaceState(null, '', query ? '#' + encodeURIComponent(query) : location.pathname);
+}
+q.value = query;
+q.addEventListener('input', () => { setQuery(q.value); render(); });
+document.getElementById('filters').addEventListener('click', e => {
+	const b = e.target.closest('button');
+	if (!b) return;
+	filter = b.dataset.f;
+	store('plan-filter', filter);
+	for (const x of document.querySelectorAll('#filters button')) x.classList.toggle('on', x === b);
+	render();
+});
+const toggle = document.getElementById('summary-toggle');
+toggle.addEventListener('click', () => {
+	const box = document.getElementById('summary');
+	box.hidden = !box.hidden;
+	toggle.classList.toggle('on', !box.hidden);
+	if (!box.hidden) summary();
+});
+const size = document.getElementById('size');
+size.addEventListener('input', () => { document.body.style.setProperty('--w', size.value + 'px'); store('plan-size', size.value); });
+document.addEventListener('keydown', e => {
+	// not while typing or with a modifier (Ctrl+S, Ctrl+R), and not on key repeat (P and S toggle)
+	if (!hovered || ['TEXTAREA', 'INPUT'].includes(e.target.tagName) || e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+	const k = e.key.toLowerCase(), path = hovered.clip.path;
+	if (k === 'p') togglePick(hovered.pic, path);
+	else if (k === 's') toggleStar(path);
+	else if (k === 'k') setVerdict(path, 'keep');
+	else if (k === 'r') setVerdict(path, 'reject');
+});
+const savedSize = recall('plan-size');
+if (savedSize) { size.value = savedSize; document.body.style.setProperty('--w', savedSize + 'px'); }
+const savedFilter = recall('plan-filter');
+if (savedFilter) { filter = savedFilter; for (const x of document.querySelectorAll('#filters button')) x.classList.toggle('on', x.dataset.f === filter); }
+load();
+setInterval(() => {
+	if (document.hidden || typing() || saving) return;
+	const sent = saves;
+	fetch('/api/clips').then(r => r.json()).then(d => {
+		if (saving || saves !== sent || typing()) return;
+		if (d.clips.length !== data.clips.length || Object.keys(d.pictures || {}).length !== Object.keys(data.pictures || {}).length) { data = d; render(); }
+	}).catch(() => {});
+}, 15000);
+</script>
+</body>
+</html>

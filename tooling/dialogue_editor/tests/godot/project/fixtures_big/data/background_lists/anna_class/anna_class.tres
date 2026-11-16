@@ -1,0 +1,735 @@
+[gd_resource type="Resource" script_class="BackgroundList" load_steps=147 format=3 uid="uid://dshwlfxubdjep"]
+
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="1_n6ul2"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="140_cqfto"]
+
+[sub_resource type="Resource" id="Resource_u47d5"]
+script = ExtResource("1_n6ul2")
+name = "000.webp"
+imagePath = "res://data/background_lists/anna_class/000.webp"
+
+[sub_resource type="Resource" id="Resource_whrrr"]
+script = ExtResource("1_n6ul2")
+name = "001.webp"
+imagePath = "res://data/background_lists/anna_class/001.webp"
+
+[sub_resource type="Resource" id="Resource_7o6xn"]
+script = ExtResource("1_n6ul2")
+name = "002.webp"
+imagePath = "res://data/background_lists/anna_class/002.webp"
+
+[sub_resource type="Resource" id="Resource_xnwck"]
+script = ExtResource("1_n6ul2")
+name = "003.webp"
+imagePath = "res://data/background_lists/anna_class/003.webp"
+
+[sub_resource type="Resource" id="Resource_1kax5"]
+script = ExtResource("1_n6ul2")
+name = "004.webp"
+imagePath = "res://data/background_lists/anna_class/004.webp"
+
+[sub_resource type="Resource" id="Resource_5a1iv"]
+script = ExtResource("1_n6ul2")
+name = "005.webp"
+imagePath = "res://data/background_lists/anna_class/005.webp"
+
+[sub_resource type="Resource" id="Resource_yxlw1"]
+script = ExtResource("1_n6ul2")
+name = "006.webp"
+imagePath = "res://data/background_lists/anna_class/006.webp"
+
+[sub_resource type="Resource" id="Resource_suw3l"]
+script = ExtResource("1_n6ul2")
+name = "007.webp"
+imagePath = "res://data/background_lists/anna_class/007.webp"
+
+[sub_resource type="Resource" id="Resource_8tum0"]
+script = ExtResource("1_n6ul2")
+name = "008.webp"
+imagePath = "res://data/background_lists/anna_class/008.webp"
+
+[sub_resource type="Resource" id="Resource_oo3dy"]
+script = ExtResource("1_n6ul2")
+name = "009.webp"
+imagePath = "res://data/background_lists/anna_class/009.webp"
+
+[sub_resource type="Resource" id="Resource_tkb1p"]
+script = ExtResource("1_n6ul2")
+name = "010.webp"
+imagePath = "res://data/background_lists/anna_class/010.webp"
+
+[sub_resource type="Resource" id="Resource_frkxv"]
+script = ExtResource("1_n6ul2")
+name = "010_1.webp"
+imagePath = "res://data/background_lists/anna_class/010_1.webp"
+
+[sub_resource type="Resource" id="Resource_cxngw"]
+script = ExtResource("1_n6ul2")
+name = "011.webp"
+imagePath = "res://data/background_lists/anna_class/011.webp"
+
+[sub_resource type="Resource" id="Resource_y3h7j"]
+script = ExtResource("1_n6ul2")
+name = "012.webp"
+imagePath = "res://data/background_lists/anna_class/012.webp"
+
+[sub_resource type="Resource" id="Resource_n1huf"]
+script = ExtResource("1_n6ul2")
+name = "013.webp"
+imagePath = "res://data/background_lists/anna_class/013.webp"
+
+[sub_resource type="Resource" id="Resource_grnhe"]
+script = ExtResource("1_n6ul2")
+name = "014.webp"
+imagePath = "res://data/background_lists/anna_class/014.webp"
+
+[sub_resource type="Resource" id="Resource_0f5ti"]
+script = ExtResource("1_n6ul2")
+name = "015.webp"
+imagePath = "res://data/background_lists/anna_class/015.webp"
+
+[sub_resource type="Resource" id="Resource_nr4fo"]
+script = ExtResource("1_n6ul2")
+name = "016.webp"
+imagePath = "res://data/background_lists/anna_class/016.webp"
+
+[sub_resource type="Resource" id="Resource_qddup"]
+script = ExtResource("1_n6ul2")
+name = "017.webp"
+imagePath = "res://data/background_lists/anna_class/017.webp"
+
+[sub_resource type="Resource" id="Resource_vadax"]
+script = ExtResource("1_n6ul2")
+name = "018.webp"
+imagePath = "res://data/background_lists/anna_class/018.webp"
+
+[sub_resource type="Resource" id="Resource_tqxyo"]
+script = ExtResource("1_n6ul2")
+name = "019.webp"
+imagePath = "res://data/background_lists/anna_class/019.webp"
+
+[sub_resource type="Resource" id="Resource_wvpjx"]
+script = ExtResource("1_n6ul2")
+name = "020.webp"
+imagePath = "res://data/background_lists/anna_class/020.webp"
+
+[sub_resource type="Resource" id="Resource_kh88i"]
+script = ExtResource("1_n6ul2")
+name = "021.webp"
+imagePath = "res://data/background_lists/anna_class/021.webp"
+
+[sub_resource type="Resource" id="Resource_3qgho"]
+script = ExtResource("1_n6ul2")
+name = "023.webp"
+imagePath = "res://data/background_lists/anna_class/023.webp"
+
+[sub_resource type="Resource" id="Resource_ooh1w"]
+script = ExtResource("1_n6ul2")
+name = "024.webp"
+imagePath = "res://data/background_lists/anna_class/024.webp"
+
+[sub_resource type="Resource" id="Resource_20ewd"]
+script = ExtResource("1_n6ul2")
+name = "025.webp"
+imagePath = "res://data/background_lists/anna_class/025.webp"
+
+[sub_resource type="Resource" id="Resource_6edwk"]
+script = ExtResource("1_n6ul2")
+name = "026.webp"
+imagePath = "res://data/background_lists/anna_class/026.webp"
+
+[sub_resource type="Resource" id="Resource_govgk"]
+script = ExtResource("1_n6ul2")
+name = "027.webp"
+imagePath = "res://data/background_lists/anna_class/027.webp"
+
+[sub_resource type="Resource" id="Resource_lye33"]
+script = ExtResource("1_n6ul2")
+name = "028.webp"
+imagePath = "res://data/background_lists/anna_class/028.webp"
+
+[sub_resource type="Resource" id="Resource_nugf6"]
+script = ExtResource("1_n6ul2")
+name = "028_1.webp"
+imagePath = "res://data/background_lists/anna_class/028_1.webp"
+
+[sub_resource type="Resource" id="Resource_4kcfb"]
+script = ExtResource("1_n6ul2")
+name = "029.webp"
+imagePath = "res://data/background_lists/anna_class/029.webp"
+
+[sub_resource type="Resource" id="Resource_2y0ei"]
+script = ExtResource("1_n6ul2")
+name = "030.webp"
+imagePath = "res://data/background_lists/anna_class/030.webp"
+
+[sub_resource type="Resource" id="Resource_slauj"]
+script = ExtResource("1_n6ul2")
+name = "031.webp"
+imagePath = "res://data/background_lists/anna_class/031.webp"
+
+[sub_resource type="Resource" id="Resource_lx0hn"]
+script = ExtResource("1_n6ul2")
+name = "032.webp"
+imagePath = "res://data/background_lists/anna_class/032.webp"
+
+[sub_resource type="Resource" id="Resource_dhvqa"]
+script = ExtResource("1_n6ul2")
+name = "034.webp"
+imagePath = "res://data/background_lists/anna_class/034.webp"
+
+[sub_resource type="Resource" id="Resource_wq21l"]
+script = ExtResource("1_n6ul2")
+name = "035.webp"
+imagePath = "res://data/background_lists/anna_class/035.webp"
+
+[sub_resource type="Resource" id="Resource_tv5ao"]
+script = ExtResource("1_n6ul2")
+name = "036_anna_feet.webp"
+imagePath = "res://data/background_lists/anna_class/036.webp"
+
+[sub_resource type="Resource" id="Resource_fttlr"]
+script = ExtResource("1_n6ul2")
+name = "037.webp"
+imagePath = "res://data/background_lists/anna_class/037.webp"
+
+[sub_resource type="Resource" id="Resource_5a82t"]
+script = ExtResource("1_n6ul2")
+name = "100.webp"
+imagePath = "res://data/background_lists/anna_class/100.webp"
+
+[sub_resource type="Resource" id="Resource_xr17i"]
+script = ExtResource("1_n6ul2")
+name = "1000.webp"
+imagePath = "res://data/background_lists/anna_class/1000.webp"
+
+[sub_resource type="Resource" id="Resource_gj0we"]
+script = ExtResource("1_n6ul2")
+name = "1001.webp"
+imagePath = "res://data/background_lists/anna_class/1001.webp"
+
+[sub_resource type="Resource" id="Resource_qx0o3"]
+script = ExtResource("1_n6ul2")
+name = "1002.webp"
+imagePath = "res://data/background_lists/anna_class/1002.webp"
+
+[sub_resource type="Resource" id="Resource_77w82"]
+script = ExtResource("1_n6ul2")
+name = "1003.webp"
+imagePath = "res://data/background_lists/anna_class/1003.webp"
+
+[sub_resource type="Resource" id="Resource_s0jvt"]
+script = ExtResource("1_n6ul2")
+name = "1004.webp"
+imagePath = "res://data/background_lists/anna_class/1004.webp"
+
+[sub_resource type="Resource" id="Resource_othgj"]
+script = ExtResource("1_n6ul2")
+name = "101.webp"
+imagePath = "res://data/background_lists/anna_class/101.webp"
+
+[sub_resource type="Resource" id="Resource_te2gh"]
+script = ExtResource("1_n6ul2")
+name = "102.webp"
+imagePath = "res://data/background_lists/anna_class/102.webp"
+
+[sub_resource type="Resource" id="Resource_27i18"]
+script = ExtResource("1_n6ul2")
+name = "103.webp"
+imagePath = "res://data/background_lists/anna_class/103.webp"
+
+[sub_resource type="Resource" id="Resource_ddarq"]
+script = ExtResource("1_n6ul2")
+name = "104.webp"
+imagePath = "res://data/background_lists/anna_class/104.webp"
+
+[sub_resource type="Resource" id="Resource_ldfuf"]
+script = ExtResource("1_n6ul2")
+name = "105.webp"
+imagePath = "res://data/background_lists/anna_class/105.webp"
+
+[sub_resource type="Resource" id="Resource_sjt1c"]
+script = ExtResource("1_n6ul2")
+name = "106.webp"
+imagePath = "res://data/background_lists/anna_class/106.webp"
+
+[sub_resource type="Resource" id="Resource_w2krl"]
+script = ExtResource("1_n6ul2")
+name = "107.webp"
+imagePath = "res://data/background_lists/anna_class/107.webp"
+
+[sub_resource type="Resource" id="Resource_rnn1o"]
+script = ExtResource("1_n6ul2")
+name = "108.webp"
+imagePath = "res://data/background_lists/anna_class/108.webp"
+
+[sub_resource type="Resource" id="Resource_073mo"]
+script = ExtResource("1_n6ul2")
+name = "109.webp"
+imagePath = "res://data/background_lists/anna_class/109.webp"
+
+[sub_resource type="Resource" id="Resource_36k6d"]
+script = ExtResource("1_n6ul2")
+name = "1100.webp"
+imagePath = "res://data/background_lists/anna_class/1100.webp"
+
+[sub_resource type="Resource" id="Resource_jrl3m"]
+script = ExtResource("1_n6ul2")
+name = "1101.webp"
+imagePath = "res://data/background_lists/anna_class/1101.webp"
+
+[sub_resource type="Resource" id="Resource_y2ioy"]
+script = ExtResource("1_n6ul2")
+name = "1102.webp"
+imagePath = "res://data/background_lists/anna_class/1102.webp"
+
+[sub_resource type="Resource" id="Resource_xrvuw"]
+script = ExtResource("1_n6ul2")
+name = "1103.webp"
+imagePath = "res://data/background_lists/anna_class/1103.webp"
+
+[sub_resource type="Resource" id="Resource_lghdi"]
+script = ExtResource("1_n6ul2")
+name = "1104.webp"
+imagePath = "res://data/background_lists/anna_class/1104.webp"
+
+[sub_resource type="Resource" id="Resource_5w3qd"]
+script = ExtResource("1_n6ul2")
+name = "1105.webp"
+imagePath = "res://data/background_lists/anna_class/1105.webp"
+
+[sub_resource type="Resource" id="Resource_qw0v4"]
+script = ExtResource("1_n6ul2")
+name = "1106.webp"
+imagePath = "res://data/background_lists/anna_class/1106.webp"
+
+[sub_resource type="Resource" id="Resource_6t3g2"]
+script = ExtResource("1_n6ul2")
+name = "1107_rain_lay.webp"
+imagePath = "res://data/background_lists/anna_class/1107.webp"
+
+[sub_resource type="Resource" id="Resource_rlm51"]
+script = ExtResource("1_n6ul2")
+name = "1108.webp"
+imagePath = "res://data/background_lists/anna_class/1108.webp"
+
+[sub_resource type="Resource" id="Resource_42l8s"]
+script = ExtResource("1_n6ul2")
+name = "1109.webp"
+imagePath = "res://data/background_lists/anna_class/1109.webp"
+
+[sub_resource type="Resource" id="Resource_7frmq"]
+script = ExtResource("1_n6ul2")
+name = "1200.webp"
+imagePath = "res://data/background_lists/anna_class/1200.webp"
+
+[sub_resource type="Resource" id="Resource_rwsvj"]
+script = ExtResource("1_n6ul2")
+name = "1201.webp"
+imagePath = "res://data/background_lists/anna_class/1201.webp"
+
+[sub_resource type="Resource" id="Resource_vvvu6"]
+script = ExtResource("1_n6ul2")
+name = "1202.webp"
+imagePath = "res://data/background_lists/anna_class/1202.webp"
+
+[sub_resource type="Resource" id="Resource_2apjr"]
+script = ExtResource("1_n6ul2")
+name = "1203.webp"
+imagePath = "res://data/background_lists/anna_class/1203.webp"
+
+[sub_resource type="Resource" id="Resource_ivmyp"]
+script = ExtResource("1_n6ul2")
+name = "1204.webp"
+imagePath = "res://data/background_lists/anna_class/1204.webp"
+
+[sub_resource type="Resource" id="Resource_1lnuy"]
+script = ExtResource("1_n6ul2")
+name = "1205.webp"
+imagePath = "res://data/background_lists/anna_class/1205.webp"
+
+[sub_resource type="Resource" id="Resource_y7ewg"]
+script = ExtResource("1_n6ul2")
+name = "1206.webp"
+imagePath = "res://data/background_lists/anna_class/1206.webp"
+
+[sub_resource type="Resource" id="Resource_4cu38"]
+script = ExtResource("1_n6ul2")
+name = "1300.webp"
+imagePath = "res://data/background_lists/anna_class/1300.webp"
+
+[sub_resource type="Resource" id="Resource_ivdtu"]
+script = ExtResource("1_n6ul2")
+name = "1302.webp"
+imagePath = "res://data/background_lists/anna_class/1302.webp"
+
+[sub_resource type="Resource" id="Resource_j8dbr"]
+script = ExtResource("1_n6ul2")
+name = "1303.webp"
+imagePath = "res://data/background_lists/anna_class/1303.webp"
+
+[sub_resource type="Resource" id="Resource_tbtyu"]
+script = ExtResource("1_n6ul2")
+name = "1304.webp"
+imagePath = "res://data/background_lists/anna_class/1304.webp"
+
+[sub_resource type="Resource" id="Resource_jm04f"]
+script = ExtResource("1_n6ul2")
+name = "1305.webp"
+imagePath = "res://data/background_lists/anna_class/1305.webp"
+
+[sub_resource type="Resource" id="Resource_khygc"]
+script = ExtResource("1_n6ul2")
+name = "1306.webp"
+imagePath = "res://data/background_lists/anna_class/1306.webp"
+
+[sub_resource type="Resource" id="Resource_lbrhg"]
+script = ExtResource("1_n6ul2")
+name = "1307.webp"
+imagePath = "res://data/background_lists/anna_class/1307.webp"
+
+[sub_resource type="Resource" id="Resource_dtfjp"]
+script = ExtResource("1_n6ul2")
+name = "1308.webp"
+imagePath = "res://data/background_lists/anna_class/1308.webp"
+
+[sub_resource type="Resource" id="Resource_fo5np"]
+script = ExtResource("1_n6ul2")
+name = "1309.webp"
+imagePath = "res://data/background_lists/anna_class/1309.webp"
+
+[sub_resource type="Resource" id="Resource_y8tl0"]
+script = ExtResource("1_n6ul2")
+name = "1310.webp"
+imagePath = "res://data/background_lists/anna_class/1310.webp"
+
+[sub_resource type="Resource" id="Resource_n18j8"]
+script = ExtResource("1_n6ul2")
+name = "1311.webp"
+imagePath = "res://data/background_lists/anna_class/1311.webp"
+
+[sub_resource type="Resource" id="Resource_8wuaq"]
+script = ExtResource("1_n6ul2")
+name = "1312.webp"
+imagePath = "res://data/background_lists/anna_class/1312.webp"
+
+[sub_resource type="Resource" id="Resource_idnxi"]
+script = ExtResource("1_n6ul2")
+name = "1313_shirt_fall.webp"
+imagePath = "res://data/background_lists/anna_class/1313.webp"
+
+[sub_resource type="Resource" id="Resource_wbi4s"]
+script = ExtResource("1_n6ul2")
+name = "1314.webp"
+imagePath = "res://data/background_lists/anna_class/1314.webp"
+
+[sub_resource type="Resource" id="Resource_cxo1d"]
+script = ExtResource("1_n6ul2")
+name = "1315.webp"
+imagePath = "res://data/background_lists/anna_class/1315.webp"
+
+[sub_resource type="Resource" id="Resource_n6fuo"]
+script = ExtResource("1_n6ul2")
+name = "1316.webp"
+imagePath = "res://data/background_lists/anna_class/1316.webp"
+
+[sub_resource type="Resource" id="Resource_63552"]
+script = ExtResource("1_n6ul2")
+name = "1317.webp"
+imagePath = "res://data/background_lists/anna_class/1317.webp"
+
+[sub_resource type="Resource" id="Resource_o7fyc"]
+script = ExtResource("1_n6ul2")
+name = "1318.webp"
+imagePath = "res://data/background_lists/anna_class/1318.webp"
+
+[sub_resource type="Resource" id="Resource_as0ea"]
+script = ExtResource("1_n6ul2")
+name = "1319.webp"
+imagePath = "res://data/background_lists/anna_class/1319.webp"
+
+[sub_resource type="Resource" id="Resource_52bkr"]
+script = ExtResource("1_n6ul2")
+name = "1320_pool_back.webp"
+imagePath = "res://data/background_lists/anna_class/1320.webp"
+
+[sub_resource type="Resource" id="Resource_x2g3o"]
+script = ExtResource("1_n6ul2")
+name = "1321_pool_sit.webp"
+imagePath = "res://data/background_lists/anna_class/1321.webp"
+
+[sub_resource type="Resource" id="Resource_mewye"]
+script = ExtResource("1_n6ul2")
+name = "200_lake.webp"
+imagePath = "res://data/background_lists/anna_class/200.webp"
+
+[sub_resource type="Resource" id="Resource_6rqjn"]
+script = ExtResource("1_n6ul2")
+name = "201.webp"
+imagePath = "res://data/background_lists/anna_class/201.webp"
+
+[sub_resource type="Resource" id="Resource_yuy8m"]
+script = ExtResource("1_n6ul2")
+name = "300.webp"
+imagePath = "res://data/background_lists/anna_class/300.webp"
+
+[sub_resource type="Resource" id="Resource_toydq"]
+script = ExtResource("1_n6ul2")
+name = "301.webp"
+imagePath = "res://data/background_lists/anna_class/301.webp"
+
+[sub_resource type="Resource" id="Resource_8j5kc"]
+script = ExtResource("1_n6ul2")
+name = "400.webp"
+imagePath = "res://data/background_lists/anna_class/400.webp"
+
+[sub_resource type="Resource" id="Resource_qjr4o"]
+script = ExtResource("1_n6ul2")
+name = "401.webp"
+imagePath = "res://data/background_lists/anna_class/401.webp"
+
+[sub_resource type="Resource" id="Resource_xej5f"]
+script = ExtResource("1_n6ul2")
+name = "500.webp"
+imagePath = "res://data/background_lists/anna_class/500.webp"
+
+[sub_resource type="Resource" id="Resource_fft3t"]
+script = ExtResource("1_n6ul2")
+name = "501.webp"
+imagePath = "res://data/background_lists/anna_class/501.webp"
+
+[sub_resource type="Resource" id="Resource_2mphg"]
+script = ExtResource("1_n6ul2")
+name = "502.webp"
+imagePath = "res://data/background_lists/anna_class/502.webp"
+
+[sub_resource type="Resource" id="Resource_nqxbs"]
+script = ExtResource("1_n6ul2")
+name = "503.webp"
+imagePath = "res://data/background_lists/anna_class/503.webp"
+
+[sub_resource type="Resource" id="Resource_rjyw1"]
+script = ExtResource("1_n6ul2")
+name = "504.webp"
+imagePath = "res://data/background_lists/anna_class/504.webp"
+
+[sub_resource type="Resource" id="Resource_tr2q4"]
+script = ExtResource("1_n6ul2")
+name = "600.webp"
+imagePath = "res://data/background_lists/anna_class/600.webp"
+
+[sub_resource type="Resource" id="Resource_xvad0"]
+script = ExtResource("1_n6ul2")
+name = "601.webp"
+imagePath = "res://data/background_lists/anna_class/601.webp"
+
+[sub_resource type="Resource" id="Resource_2u06g"]
+script = ExtResource("1_n6ul2")
+name = "602.webp"
+imagePath = "res://data/background_lists/anna_class/602.webp"
+
+[sub_resource type="Resource" id="Resource_rb6bf"]
+script = ExtResource("1_n6ul2")
+name = "603.webp"
+imagePath = "res://data/background_lists/anna_class/603.webp"
+
+[sub_resource type="Resource" id="Resource_lfus3"]
+script = ExtResource("1_n6ul2")
+name = "604.webp"
+imagePath = "res://data/background_lists/anna_class/604.webp"
+
+[sub_resource type="Resource" id="Resource_6lp1x"]
+script = ExtResource("1_n6ul2")
+name = "605.webp"
+imagePath = "res://data/background_lists/anna_class/605.webp"
+
+[sub_resource type="Resource" id="Resource_18ep7"]
+script = ExtResource("1_n6ul2")
+name = "606.webp"
+imagePath = "res://data/background_lists/anna_class/606.webp"
+
+[sub_resource type="Resource" id="Resource_bsiq0"]
+script = ExtResource("1_n6ul2")
+name = "607.webp"
+imagePath = "res://data/background_lists/anna_class/607.webp"
+
+[sub_resource type="Resource" id="Resource_8he40"]
+script = ExtResource("1_n6ul2")
+name = "700.webp"
+imagePath = "res://data/background_lists/anna_class/700.webp"
+
+[sub_resource type="Resource" id="Resource_28wpg"]
+script = ExtResource("1_n6ul2")
+name = "701.webp"
+imagePath = "res://data/background_lists/anna_class/701.webp"
+
+[sub_resource type="Resource" id="Resource_ix3wu"]
+script = ExtResource("1_n6ul2")
+name = "702.webp"
+imagePath = "res://data/background_lists/anna_class/702.webp"
+
+[sub_resource type="Resource" id="Resource_bcn36"]
+script = ExtResource("1_n6ul2")
+name = "703.webp"
+imagePath = "res://data/background_lists/anna_class/703.webp"
+
+[sub_resource type="Resource" id="Resource_wynmq"]
+script = ExtResource("1_n6ul2")
+name = "704.webp"
+imagePath = "res://data/background_lists/anna_class/704.webp"
+
+[sub_resource type="Resource" id="Resource_ru5kk"]
+script = ExtResource("1_n6ul2")
+name = "800.webp"
+imagePath = "res://data/background_lists/anna_class/800.webp"
+
+[sub_resource type="Resource" id="Resource_aawxg"]
+script = ExtResource("1_n6ul2")
+name = "801.webp"
+imagePath = "res://data/background_lists/anna_class/801.webp"
+
+[sub_resource type="Resource" id="Resource_b504l"]
+script = ExtResource("1_n6ul2")
+name = "802.webp"
+imagePath = "res://data/background_lists/anna_class/802.webp"
+
+[sub_resource type="Resource" id="Resource_e6f0g"]
+script = ExtResource("1_n6ul2")
+name = "803.webp"
+imagePath = "res://data/background_lists/anna_class/803.webp"
+
+[sub_resource type="Resource" id="Resource_pwguk"]
+script = ExtResource("1_n6ul2")
+name = "804.webp"
+imagePath = "res://data/background_lists/anna_class/804.webp"
+
+[sub_resource type="Resource" id="Resource_70d5x"]
+script = ExtResource("1_n6ul2")
+name = "805.webp"
+imagePath = "res://data/background_lists/anna_class/805.webp"
+
+[sub_resource type="Resource" id="Resource_ijnir"]
+script = ExtResource("1_n6ul2")
+name = "806.webp"
+imagePath = "res://data/background_lists/anna_class/806.webp"
+
+[sub_resource type="Resource" id="Resource_6qyq4"]
+script = ExtResource("1_n6ul2")
+name = "807.webp"
+imagePath = "res://data/background_lists/anna_class/807.webp"
+
+[sub_resource type="Resource" id="Resource_irw3a"]
+script = ExtResource("1_n6ul2")
+name = "808.webp"
+imagePath = "res://data/background_lists/anna_class/808.webp"
+
+[sub_resource type="Resource" id="Resource_vx2sd"]
+script = ExtResource("1_n6ul2")
+name = "809.webp"
+imagePath = "res://data/background_lists/anna_class/809.webp"
+
+[sub_resource type="Resource" id="Resource_yoxgk"]
+script = ExtResource("1_n6ul2")
+name = "900.webp"
+imagePath = "res://data/background_lists/anna_class/900.webp"
+
+[sub_resource type="Resource" id="Resource_lq26k"]
+script = ExtResource("1_n6ul2")
+name = "901.webp"
+imagePath = "res://data/background_lists/anna_class/901.webp"
+
+[sub_resource type="Resource" id="Resource_5th2v"]
+script = ExtResource("1_n6ul2")
+name = "classroom.webp"
+imagePath = "res://data/background_lists/anna_class/classroom.webp"
+
+[sub_resource type="Resource" id="Resource_047uh"]
+script = ExtResource("1_n6ul2")
+name = "entrance.webp"
+imagePath = "res://data/background_lists/anna_class/entrance.webp"
+
+[sub_resource type="Resource" id="Resource_smqy7"]
+script = ExtResource("1_n6ul2")
+name = "entrance_night.webp"
+imagePath = "res://data/background_lists/anna_class/entrance_night.webp"
+
+[sub_resource type="Resource" id="Resource_2k7om"]
+script = ExtResource("1_n6ul2")
+name = "fountain.webp"
+imagePath = "res://data/background_lists/anna_class/fountain.webp"
+
+[sub_resource type="Resource" id="Resource_dt5xd"]
+script = ExtResource("1_n6ul2")
+name = "gym.webp"
+imagePath = "res://data/background_lists/anna_class/gym.webp"
+
+[sub_resource type="Resource" id="Resource_tno84"]
+script = ExtResource("1_n6ul2")
+name = "hallway.webp"
+imagePath = "res://data/background_lists/anna_class/hallway.webp"
+
+[sub_resource type="Resource" id="Resource_4fetf"]
+script = ExtResource("1_n6ul2")
+name = "lockers.webp"
+imagePath = "res://data/background_lists/anna_class/lockers.webp"
+
+[sub_resource type="Resource" id="Resource_n1a1l"]
+script = ExtResource("1_n6ul2")
+name = "lockers_dark.webp"
+imagePath = "res://data/background_lists/anna_class/lockers_dark.webp"
+
+[sub_resource type="Resource" id="Resource_ov0pl"]
+script = ExtResource("1_n6ul2")
+name = "music_room.webp"
+imagePath = "res://data/background_lists/anna_class/music_room.webp"
+
+[sub_resource type="Resource" id="Resource_nr04j"]
+script = ExtResource("1_n6ul2")
+name = "pool.webp"
+imagePath = "res://data/background_lists/anna_class/pool.webp"
+
+[sub_resource type="Resource" id="Resource_ukp26"]
+script = ExtResource("1_n6ul2")
+name = "pool_dark.webp"
+imagePath = "res://data/background_lists/anna_class/pool_dark.webp"
+
+[sub_resource type="Resource" id="Resource_mrwyv"]
+script = ExtResource("1_n6ul2")
+name = "000_0"
+imagePath = "res://data/background_lists/anna_class/000_0.png"
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_v8j25"]
+script = ExtResource("1_n6ul2")
+name = "000_1"
+imagePath = "res://data/background_lists/anna_class/000_1.png"
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_rp4gc"]
+script = ExtResource("1_n6ul2")
+name = "000_2"
+imagePath = "res://data/background_lists/anna_class/000_2.png"
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_2wi5w"]
+script = ExtResource("1_n6ul2")
+name = "106_1"
+imagePath = "res://data/background_lists/anna_class/106_1.webp"
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_us0hx"]
+script = ExtResource("1_n6ul2")
+name = "106_2"
+imagePath = "res://data/background_lists/anna_class/106_2.webp"
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[sub_resource type="Resource" id="Resource_qr7du"]
+script = ExtResource("1_n6ul2")
+name = "502_kiss.webp"
+imagePath = "res://data/background_lists/anna_class/502_kiss.webp"
+metadata/_custom_type_script = "uid://bji2uyb4i8p78"
+
+[resource]
+script = ExtResource("140_cqfto")
+name = "anna_class"
+images = Array[ExtResource("1_n6ul2")]([SubResource("Resource_u47d5"), SubResource("Resource_whrrr"), SubResource("Resource_7o6xn"), SubResource("Resource_xnwck"), SubResource("Resource_1kax5"), SubResource("Resource_5a1iv"), SubResource("Resource_yxlw1"), SubResource("Resource_suw3l"), SubResource("Resource_8tum0"), SubResource("Resource_oo3dy"), SubResource("Resource_tkb1p"), SubResource("Resource_frkxv"), SubResource("Resource_cxngw"), SubResource("Resource_y3h7j"), SubResource("Resource_n1huf"), SubResource("Resource_grnhe"), SubResource("Resource_0f5ti"), SubResource("Resource_nr4fo"), SubResource("Resource_qddup"), SubResource("Resource_vadax"), SubResource("Resource_tqxyo"), SubResource("Resource_wvpjx"), SubResource("Resource_kh88i"), SubResource("Resource_3qgho"), SubResource("Resource_ooh1w"), SubResource("Resource_20ewd"), SubResource("Resource_6edwk"), SubResource("Resource_govgk"), SubResource("Resource_lye33"), SubResource("Resource_nugf6"), SubResource("Resource_4kcfb"), SubResource("Resource_2y0ei"), SubResource("Resource_slauj"), SubResource("Resource_lx0hn"), SubResource("Resource_dhvqa"), SubResource("Resource_wq21l"), SubResource("Resource_tv5ao"), SubResource("Resource_fttlr"), SubResource("Resource_5a82t"), SubResource("Resource_xr17i"), SubResource("Resource_gj0we"), SubResource("Resource_qx0o3"), SubResource("Resource_77w82"), SubResource("Resource_s0jvt"), SubResource("Resource_othgj"), SubResource("Resource_te2gh"), SubResource("Resource_27i18"), SubResource("Resource_ddarq"), SubResource("Resource_ldfuf"), SubResource("Resource_sjt1c"), SubResource("Resource_w2krl"), SubResource("Resource_rnn1o"), SubResource("Resource_073mo"), SubResource("Resource_36k6d"), SubResource("Resource_jrl3m"), SubResource("Resource_y2ioy"), SubResource("Resource_xrvuw"), SubResource("Resource_lghdi"), SubResource("Resource_5w3qd"), SubResource("Resource_qw0v4"), SubResource("Resource_6t3g2"), SubResource("Resource_rlm51"), SubResource("Resource_42l8s"), SubResource("Resource_7frmq"), SubResource("Resource_rwsvj"), SubResource("Resource_vvvu6"), SubResource("Resource_2apjr"), SubResource("Resource_ivmyp"), SubResource("Resource_1lnuy"), SubResource("Resource_y7ewg"), SubResource("Resource_4cu38"), SubResource("Resource_ivdtu"), SubResource("Resource_j8dbr"), SubResource("Resource_tbtyu"), SubResource("Resource_jm04f"), SubResource("Resource_khygc"), SubResource("Resource_lbrhg"), SubResource("Resource_dtfjp"), SubResource("Resource_fo5np"), SubResource("Resource_y8tl0"), SubResource("Resource_n18j8"), SubResource("Resource_8wuaq"), SubResource("Resource_idnxi"), SubResource("Resource_wbi4s"), SubResource("Resource_cxo1d"), SubResource("Resource_n6fuo"), SubResource("Resource_63552"), SubResource("Resource_o7fyc"), SubResource("Resource_as0ea"), SubResource("Resource_52bkr"), SubResource("Resource_x2g3o"), SubResource("Resource_mewye"), SubResource("Resource_6rqjn"), SubResource("Resource_yuy8m"), SubResource("Resource_toydq"), SubResource("Resource_8j5kc"), SubResource("Resource_qjr4o"), SubResource("Resource_xej5f"), SubResource("Resource_fft3t"), SubResource("Resource_2mphg"), SubResource("Resource_nqxbs"), SubResource("Resource_rjyw1"), SubResource("Resource_tr2q4"), SubResource("Resource_xvad0"), SubResource("Resource_2u06g"), SubResource("Resource_rb6bf"), SubResource("Resource_lfus3"), SubResource("Resource_6lp1x"), SubResource("Resource_18ep7"), SubResource("Resource_bsiq0"), SubResource("Resource_8he40"), SubResource("Resource_28wpg"), SubResource("Resource_ix3wu"), SubResource("Resource_bcn36"), SubResource("Resource_wynmq"), SubResource("Resource_ru5kk"), SubResource("Resource_aawxg"), SubResource("Resource_b504l"), SubResource("Resource_e6f0g"), SubResource("Resource_pwguk"), SubResource("Resource_70d5x"), SubResource("Resource_ijnir"), SubResource("Resource_6qyq4"), SubResource("Resource_irw3a"), SubResource("Resource_vx2sd"), SubResource("Resource_yoxgk"), SubResource("Resource_lq26k"), SubResource("Resource_5th2v"), SubResource("Resource_047uh"), SubResource("Resource_smqy7"), SubResource("Resource_2k7om"), SubResource("Resource_dt5xd"), SubResource("Resource_tno84"), SubResource("Resource_4fetf"), SubResource("Resource_n1a1l"), SubResource("Resource_ov0pl"), SubResource("Resource_nr04j"), SubResource("Resource_ukp26"), SubResource("Resource_mrwyv"), SubResource("Resource_v8j25"), SubResource("Resource_rp4gc"), SubResource("Resource_2wi5w"), SubResource("Resource_us0hx"), SubResource("Resource_qr7du")])

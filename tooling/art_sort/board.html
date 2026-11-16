@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Art Sort</title>
+<link rel="icon" href="data:,">
+<style>
+:root {
+	--bg: #141518; --panel: #1d1f23; --panel-2: #272a30; --line: #343840; --text: #e8e9eb; --muted: #9ba1aa;
+	--accent: #5aa9ff; --certain: #4cc38a; --likely: #e3b341; --unsure: #e5534b; --done: #3c8a62;
+	--thumb-h: 172px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, "Segoe UI", sans-serif; }
+body { display: grid; grid-template-rows: auto 1fr; }
+header { display: flex; align-items: center; gap: 8px 14px; padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+header h1 { font-size: 16px; margin: 0; font-weight: 600; }
+.muted { color: var(--muted); }
+#jump { flex-basis: 100%; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+#jump button { padding: 2px 10px; font: 12px ui-monospace, Consolas, monospace; }
+#jump button .muted { margin-left: 6px; }
+#jump select { padding: 2px 6px; font-size: 12px; max-width: 320px; }
+.spacer { flex: 1; }
+button, select, input[type=text] { background: var(--panel-2); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; font: inherit; }
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: #0b1220; border-color: var(--accent); font-weight: 600; }
+#saveState.failed { color: var(--unsure); font-weight: 600; }
+#banner { padding: 8px 16px; background: #1f3320; border-bottom: 1px solid var(--done); display: flex; gap: 12px; align-items: center; }
+#banner.error { background: #3a1d1d; border-color: var(--unsure); }
+#bannerText { flex: 1; word-break: break-all; }
+#bannerReport { flex-basis: 100%; margin: 0; max-height: 40vh; overflow: auto; font: 12px/1.5 ui-monospace, Consolas, monospace; white-space: pre-wrap; }
+#banner { flex-wrap: wrap; }
+#banner button { white-space: nowrap; }
+#banner[hidden] { display: none; }
+main { display: grid; grid-template-columns: 380px 1fr; min-height: 0; }
+#tray { border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; }
+#tray.drop-into { outline: 2px dashed var(--accent); outline-offset: -4px; }
+.tray-head { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.tray-head h2 { font-size: 14px; margin: 0; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.chip { padding: 2px 10px; border-radius: 999px; font-size: 12px; }
+.chip.on { background: var(--accent); color: #0b1220; border-color: var(--accent); }
+.tray-toggle { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 12px; cursor: pointer; }
+#trayGrid { overflow: auto; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; flex: 1; }
+#lanes { overflow: auto; padding: 0 16px 60px; }
+.stage-head { position: sticky; top: 0; background: var(--bg); padding: 14px 0 6px; z-index: 3; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.stage-head h2 { margin: 0; font-size: 15px; font-family: ui-monospace, Consolas, monospace; }
+.lane { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; margin: 8px 0; }
+.lane.done { border-color: var(--done); }
+/* A sequence with no pictures yet: still needs art. */
+.lane.empty { border-color: var(--unsure); box-shadow: 0 0 0 1px var(--unsure); }
+.lane.drop-into { border-color: var(--accent); }
+.lane.flash { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.lane-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px 6px; flex-wrap: wrap; }
+.lane-key { font-weight: 600; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+.badge { font-size: 12px; padding: 1px 8px; border-radius: 999px; background: var(--panel-2); color: var(--muted); border: 1px solid var(--line); }
+.badge.over { color: var(--likely); }
+.badge.ok { color: var(--certain); }
+.lane-context { color: var(--muted); font-size: 13px; flex-basis: 100%; }
+.lane-head button { padding: 2px 9px; font-size: 12px; }
+.lane.done .check { background: var(--done); border-color: var(--done); }
+.lane-body { display: flex; flex-wrap: wrap; gap: 10px; padding: 4px 10px 10px; min-height: calc(var(--thumb-h) + 14px); align-items: flex-start; }
+.lane-body:empty { min-height: 38px; }
+.lane-body:empty::after { content: "Drop images here"; color: var(--muted); align-self: center; }
+.add-lane { display: flex; gap: 6px; margin: 4px 0 10px; }
+.thumb { position: relative; height: var(--thumb-h); flex: none; cursor: grab; }
+.thumb img { height: 100%; display: block; border-radius: 6px; border: 2px solid transparent; background: var(--panel-2); }
+.thumb.auto img { border: 2px dashed var(--likely); }
+.thumb.dragging { opacity: .35; }
+.thumb .num { position: absolute; left: 4px; top: 4px; background: rgba(0,0,0,.72); border-radius: 4px; padding: 0 6px; font-size: 12px; font-weight: 600; }
+.thumb .dot { position: absolute; right: 6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(0,0,0,.6); }
+.dot.certain { background: var(--certain); } .dot.likely { background: var(--likely); } .dot.unsure, .dot.none { background: var(--unsure); }
+.thumb .label { position: absolute; left: 2px; right: 2px; bottom: 2px; font-size: 11px; background: rgba(0,0,0,.72); padding: 1px 5px; border-radius: 0 0 5px 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.thumb .warn { position: absolute; left: 4px; bottom: 22px; background: var(--unsure); color: #fff; border-radius: 4px; padding: 0 5px; font-size: 11px; }
+.thumb .copies { position: absolute; right: 4px; bottom: 22px; background: var(--accent); color: #0b1220; border-radius: 4px; padding: 0 5px; font-size: 11px; font-weight: 600; }
+.thumb.drop-before::before, .thumb.drop-after::after { content: ""; position: absolute; top: 0; bottom: 0; width: 4px; background: var(--accent); border-radius: 2px; }
+.thumb.drop-before::before { left: -7px; }
+.thumb.drop-after::after { right: -7px; }
+#preview { position: fixed; inset: 0; background: #0a0b0d; display: grid; grid-template-columns: 1fr 420px; z-index: 10; }
+#preview[hidden] { display: none; }
+.pv-main { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.pv-image { flex: 1; position: relative; min-height: 0; cursor: pointer; }
+.pv-image img { position: absolute; inset: 16px; margin: auto; max-width: calc(100% - 32px); max-height: calc(100% - 32px); }
+.pv-strip { flex: none; display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px 12px; border-top: 1px solid var(--line); background: rgba(0,0,0,.3); }
+.pv-strip .cell { position: relative; flex: none; height: 92px; cursor: pointer; }
+.pv-strip .cell img { height: 100%; display: block; border-radius: 5px; border: 2px solid transparent; opacity: .6; }
+.pv-strip .cell:hover img { opacity: 1; }
+.pv-strip .cell.current img { border-color: var(--accent); opacity: 1; }
+.pv-strip .num { position: absolute; left: 4px; top: 4px; background: rgba(0,0,0,.72); border-radius: 4px; padding: 0 5px; font-size: 11px; font-weight: 600; }
+.section { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--panel-2); display: flex; flex-direction: column; gap: 7px; }
+.section.done { border-color: var(--done); }
+.section.done .check { background: var(--done); border-color: var(--done); }
+.section .where { font-size: 12px; color: var(--muted); }
+.section .key { font: 600 17px ui-monospace, Consolas, monospace; word-break: break-all; }
+.section .badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.section .context { font-size: 14px; }
+.section .footer { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.section .auto-note { color: var(--likely); font-size: 12px; }
+.pv-side details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.pv-side details[open] summary { margin-bottom: 8px; }
+.pv-side { background: var(--panel); border-left: 1px solid var(--line); padding: 14px 16px; overflow: auto; display: flex; flex-direction: column; gap: 12px; }
+.pv-nav { display: flex; gap: 8px; align-items: center; }
+.pv-side h3 { margin: 0; font-size: 13px; font-family: ui-monospace, Consolas, monospace; word-break: break-all; }
+.pv-side dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; font-size: 13px; }
+.pv-side dt { color: var(--muted); }
+.pv-side dd { margin: 0; }
+.guess { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.guess .alts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.guess .alts button { font-size: 12px; padding: 2px 8px; }
+.pv-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.pv-actions .row { display: flex; gap: 6px; width: 100%; }
+.pv-actions .row[hidden] { display: none; }
+.pv-actions select { flex: 1; min-width: 0; }
+.prompt { font-size: 12px; color: var(--muted); white-space: pre-wrap; word-break: break-word; }
+.keys { font-size: 12px; color: var(--muted); }
+.thumb .says { position: absolute; right: 4px; top: 22px; font-size: 13px; }
+.dialogue-box { position: absolute; background: rgba(12,14,18,.84); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: .7em .9em; color: #f2f2f2; line-height: 1.35; pointer-events: none; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.45); }
+.dialogue-box[hidden], .play-hint[hidden] { display: none; }
+.dialogue-box p { margin: 0 0 .35em; }
+.dialogue-box p:last-child { margin-bottom: 0; }
+.dialogue-box .speaker { color: #8fc6ff; font-weight: 700; margin-right: .4em; }
+.dialogue-box .plate { display: inline-block; background: #2b5d8f; color: #fff; font-weight: 700; padding: .05em .6em; border-radius: 6px; margin-bottom: .3em; }
+.play-hint { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,.65); color: var(--muted); font-size: 12px; padding: 4px 12px; border-radius: 999px; pointer-events: none; white-space: nowrap; }
+#preview.playing { grid-template-columns: 1fr; }
+#preview.playing .pv-side, #preview.playing .pv-strip { display: none; }
+.dialogue-edit { display: flex; flex-direction: column; gap: 6px; }
+.dialogue-edit label { font-size: 13px; font-weight: 600; }
+.dialogue-edit textarea { width: 100%; min-height: 96px; resize: vertical; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 8px; font: 14px/1.4 system-ui, "Segoe UI", sans-serif; }
+.dialogue-edit textarea:focus { outline: none; border-color: var(--accent); }
+.dialogue-edit .row { display: flex; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+	<h1 id="title">Art Sort</h1>
+	<span id="stats" class="muted"></span>
+	<span class="spacer"></span>
+	<label class="muted">Size <input id="size" type="range" min="80" max="300" value="172"></label>
+	<span id="saveState" class="muted">Loading…</span>
+	<button id="export" class="primary">Export folders</button>
+	<button id="package" title="Puts every sequence's pictures into the Godot game, and placeholder dialogue over them where none is written yet. Close Godot first">Put in the game</button>
+	<nav id="jump" aria-label="Jump to a stage or sequence"></nav>
+</header>
+<div id="banner" hidden><span id="bannerText"></span><button id="openExport">Open folder</button><button id="closeBanner">Dismiss</button><pre id="bannerReport" hidden></pre></div>
+<main>
+	<section id="tray">
+		<div class="tray-head">
+			<div style="display:flex;align-items:center;gap:8px"><h2>Tray <span id="trayCount" class="muted"></span></h2><span class="spacer"></span><button id="trayPreview">Preview</button></div>
+			<div class="muted" style="font-size:12px">Not in any sequence yet. Click to look closer; drag onto a sequence.</div>
+			<div class="chips" id="filters"></div>
+			<label class="tray-toggle muted" title="Images not the scene's frame shape, eg wide renders. Ones only a few pixels off stay; Odd size lists those"><input type="checkbox" id="hideOdd"> Hide odd shapes <span id="oddCount"></span></label>
+		</div>
+		<div id="trayGrid"></div>
+	</section>
+	<section id="lanes"></section>
+</main>
+<div id="preview" hidden>
+	<div class="pv-main">
+		<div class="pv-image" id="pvStage" title="Click the left of the picture for the previous one, the right for the next">
+			<img id="pvImg" alt="">
+			<div id="pvBox" class="dialogue-box" hidden></div>
+			<div id="pvPlayHint" class="play-hint" hidden></div>
+		</div>
+		<div class="pv-strip" id="pvStrip"></div>
+	</div>
+	<aside class="pv-side">
+		<div class="pv-nav">
+			<button id="pvPrev" title="Previous (←)">←</button>
+			<span id="pvPos" class="muted"></span>
+			<button id="pvNext" title="Next (→)">→</button>
+			<span class="spacer"></span>
+			<button id="pvClose">Close (Esc)</button>
+		</div>
+		<div id="pvSection" class="section"></div>
+		<div class="dialogue-edit">
+			<label for="pvDialogue">Placeholder dialogue for this picture</label>
+			<textarea id="pvDialogue" spellcheck="true"></textarea>
+			<div class="muted" style="font-size:12px">One line per line; "Name: …" makes a speaker. PageUp / PageDown step pictures while you type.</div>
+			<div class="row"><button id="pvPlay">▶ Play from here (P)</button><label><input type="checkbox" id="pvShowBox" checked> Show the box (H)</label></div>
+		</div>
+		<div class="pv-actions">
+			<div class="row" id="pvOrder"><button id="pvEarlier">◀ Move earlier</button><button id="pvLaterInOrder">Move later ▶</button></div>
+			<div class="row"><select id="pvLane"></select><button id="pvMove">Move</button><button id="pvCopy">Copy</button></div>
+			<button id="pvAccept">Accept guess (Enter)</button>
+			<button id="pvLater">Maybe later (L)</button>
+			<button id="pvReject">Reject (R)</button>
+			<button id="pvTray">Back to tray (Del)</button>
+		</div>
+		<div id="pvGuess" class="guess"></div>
+		<details>
+			<summary>About this image</summary>
+			<h3 id="pvName"></h3>
+			<dl id="pvFacts"></dl>
+			<div class="muted" style="font-size:12px;margin-top:8px">Prompt</div>
+			<div id="pvPrompt" class="prompt"></div>
+		</details>
+		<div class="keys">Keys: ← → or click the picture to step · Shift+← → move it earlier or later · P play the dialogue · H hide the box · Enter accept the guess · 1–3 take an alternative · L maybe later · R reject · Del back to tray · Esc close</div>
+	</aside>
+</div>
+<script>
+'use strict';
+// The board for art_sort.py: the tray of unplaced images on the left, one lane per sequence on the
+// right. Every change is saved to the workspace's board.json straight away.
+const SPECIAL = { _later: 'Later / maybe', _rejected: 'Rejected' };
+const SET_ASIDE = 'set aside';
+const FILTERS = [['all', 'All'], ['unsure', 'Unsure'], ['likely', 'Likely'], ['certain', 'Certain'], ['size', 'Odd size']];
+let scene, library, board;
+let trayFilter = 'all';
+let hideOddShapes = false;
+let drag = null;
+let preview = null;	// { source: 'tray' | lane key, pos }
+
+const $ = id => document.getElementById(id);
+function el(tag, props = {}, ...children) {
+	const node = document.createElement(tag);
+	for (const [k, v] of Object.entries(props)) {
+		if (k === 'class') node.className = v;
+		else if (k === 'dataset') Object.assign(node.dataset, v);
+		else if (k.startsWith('on')) node.addEventListener(k.slice(2), v);
+		else node[k] = v;
+	}
+	for (const child of children) if (child != null) node.append(child);
+	return node;
+}
+
+// ------------------------------------------------------------ the model
+
+function sequences() {
+	const out = [];
+	for (const stage of scene.stages) {
+		for (const seq of stage.sequences) out.push({ stage: stage.name, seq });
+		for (const lane of board.extraLanes || []) if (lane.stage === stage.name) out.push({ stage: stage.name, seq: lane, extra: true });
+	}
+	return out;
+}
+function laneKeys() { return sequences().map(s => s.seq.key).concat(Object.keys(SPECIAL)); }
+function laneName(key) { return SPECIAL[key] || key; }
+function lane(key) { return board.lanes[key] || (board.lanes[key] = { items: [], done: false }); }
+function placements(image) {
+	const out = [];
+	for (const key of laneKeys()) if (lane(key).items.some(i => i.image === image)) out.push(key);
+	return out;
+}
+function placedSet() {
+	const set = new Set();
+	for (const key of laneKeys()) for (const item of lane(key).items) set.add(item.image);
+	return set;
+}
+function fitsFrame(size) {
+	if (!scene.frame) return true;
+	const want = scene.frame[0] / scene.frame[1];
+	return Math.abs(size[0] / size[1] - want) < 0.05 * want;
+}
+function shapeWarning(size) {
+	if (!scene.frame) return '';
+	if (!fitsFrame(size)) return `${size[0]}×${size[1]}`;
+	if (size[0] !== scene.frame[0] || size[1] !== scene.frame[1]) return `${size[0]}×${size[1]}`;
+	return '';
+}
+function confidence(name) { return library[name].guess ? library[name].guess.confidence : 'none'; }
+function passes(name, filter) {
+	if (filter === 'all') return true;
+	if (filter === 'size') return shapeWarning(library[name].size) !== '';
+	return confidence(name) === filter || (filter === 'unsure' && confidence(name) === 'none');
+}
+// The tray's images under a filter, minus the odd shapes while they are hidden.
+function trayImages(filter = trayFilter, hide = hideOddShapes) {
+	const placed = placedSet();
+	const rank = new Map(sequences().map((s, i) => [s.seq.key, i]));
+	return Object.keys(library).filter(n => !placed.has(n) && passes(n, filter) && !(hide && !fitsFrame(library[n].size))).sort((a, b) => {
+		const ga = library[a].guess, gb = library[b].guess;
+		const ra = ga && rank.has(ga.sequence) ? rank.get(ga.sequence) : 1e9, rb = gb && rank.has(gb.sequence) ? rank.get(gb.sequence) : 1e9;
+		if (ra !== rb) return ra - rb;
+		const oa = ga ? ga.order : [], ob = gb ? gb.order : [];
+		for (let i = 0; i < Math.max(oa.length, ob.length); i++) if (oa[i] !== ob[i]) return (oa[i] ?? 0) - (ob[i] ?? 0);
+		return a < b ? -1 : 1;
+	});
+}
+
+// Moves (or copies) one placement. `from` is { lane, index } or null for the tray.
+function place(image, from, toKey, toIndex, copy) {
+	if (toKey === '_rejected') return reject(image);
+	const items = lane(toKey).items;
+	if (toIndex == null) toIndex = items.length;
+	// A placement keeps what was written for it (its dialogue) wherever it goes, and so does a copy.
+	const moving = from && from.lane ? lane(from.lane).items[from.index] : null;
+	if (from && from.lane && !copy) {
+		lane(from.lane).items.splice(from.index, 1);
+		if (from.lane === toKey && from.index < toIndex) toIndex--;
+	}
+	items.splice(toIndex, 0, { ...moving, image, auto: false });
+	changed();
+}
+function reject(image) {
+	for (const key of laneKeys()) lane(key).items = lane(key).items.filter(i => i.image !== image);
+	lane('_rejected').items.push({ image, auto: false });
+	changed();
+}
+function removeAt(from) {
+	lane(from.lane).items.splice(from.index, 1);
+	changed();
+}
+
+// ------------------------------------------------------------ saving
+
+let saveTimer = null, saving = false, saveAgain = false, unsaved = false;
+function setSaveState(text, failed = false) { $('saveState').textContent = text; $('saveState').classList.toggle('failed', failed); }
+function changed() {
+	render();
+	scheduleSave();
+}
+function scheduleSave() {
+	unsaved = true;
+	setSaveState('Unsaved…');
+	clearTimeout(saveTimer);
+	saveTimer = setTimeout(save, 300);
+}
+async function save() {
+	if (saving) { saveAgain = true; return; }
+	saving = true;
+	setSaveState('Saving…');
+	try {
+		const response = await fetch('/api/board', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(board) });
+		if (!response.ok) throw new Error((await response.json()).error);
+		unsaved = false;
+		setSaveState('Saved');
+	} catch (e) {
+		setSaveState('Save failed: ' + e.message + ' (is the board still running?)', true);
+	} finally {
+		saving = false;
+		if (saveAgain) { saveAgain = false; save(); }
+	}
+}
+window.addEventListener('beforeunload', e => { if (unsaved) e.preventDefault(); });
+
+// ------------------------------------------------------------ drawing
+
+function thumb(image, where) {
+	const facts = library[image];
+	const node = el('div', { class: 'thumb', draggable: true, title: image, dataset: { image } },
+		el('img', { src: '/thumbs/' + encodeURIComponent(image) + '.jpg', alt: '', draggable: false }));
+	if (where.lane) {
+		node.dataset.lane = where.lane;
+		node.dataset.index = where.index;
+		node.append(el('span', { class: 'num', textContent: where.index + 1 }));
+		if (where.item.auto) node.classList.add('auto');
+		if (where.item.dialogue) node.append(el('span', { class: 'says', textContent: '💬', title: where.item.dialogue }));
+		const copies = placements(image).filter(k => !SPECIAL[k]).length;
+		if (copies > 1 && !SPECIAL[where.lane]) node.append(el('span', { class: 'copies', textContent: '×' + copies, title: 'In ' + copies + ' sequences' }));
+	} else {
+		const guess = facts.guess;
+		node.append(el('span', { class: 'dot ' + confidence(image) }));
+		node.append(el('span', { class: 'label', textContent: guess && guess.sequence ? guess.sequence : '?' }));
+		node.title = guess ? `${guess.sequence || 'row ' + guess.row} (${guess.confidence})` : image;
+	}
+	const warn = shapeWarning(facts.size);
+	if (warn) node.append(el('span', { class: 'warn', textContent: warn, title: 'Not the scene\'s ' + scene.frame.join('×') }));
+	node.addEventListener('click', () => openPreview(where.lane || 'tray', where.lane ? where.index : trayImages().indexOf(image)));
+	return node;
+}
+
+function badge(text, extraClass = '') { return el('span', { class: 'badge' + extraClass, textContent: text }); }
+function previewButton(key, count) {
+	return el('button', { textContent: 'Preview', disabled: count === 0, title: 'Look through this sequence large', onclick: () => openPreview(key, 0) });
+}
+function checkButton(key) {
+	return el('button', { class: 'check', textContent: lane(key).done ? '✓ Checked' : 'Mark checked', title: 'Checked lanes lose their "auto" dashes',
+		onclick: () => toggleChecked(key) });
+}
+function toggleChecked(key) {
+	const data = lane(key);
+	data.done = !data.done;
+	if (data.done) data.items.forEach(i => i.auto = false);
+	changed();
+}
+
+function laneNode(key, seq, stageName, extra) {
+	const data = lane(key);
+	const count = data.items.length;
+	const head = el('div', { class: 'lane-head' }, el('span', { class: 'lane-key', textContent: laneName(key) }));
+	if (seq) {
+		if (seq.designRow) head.append(badge('row ' + seq.designRow));
+		if (seq.state) head.append(badge(seq.state));
+		if (seq.kind === 'pool') head.append(badge('pool: order doesn\'t matter'));
+		const est = seq.estimate;
+		head.append(badge(est ? `${count} / ~${est}` : String(count), est && count > est ? ' over' : est && count === est ? ' ok' : ''));
+		head.append(el('span', { class: 'spacer' }));
+		if (extra && count === 0) head.append(el('button', { textContent: 'Remove', onclick: () => { board.extraLanes = board.extraLanes.filter(l => l.key !== key); delete board.lanes[key]; changed(); } }));
+		head.append(previewButton(key, count), checkButton(key));
+		if (seq.context) head.append(el('div', { class: 'lane-context', textContent: seq.context }));
+	} else {
+		head.append(badge(String(count)), el('span', { class: 'spacer' }), previewButton(key, count));
+	}
+	const body = el('div', { class: 'lane-body' });
+	data.items.forEach((item, index) => body.append(thumb(item.image, { lane: key, index, item })));
+	return el('div', { class: 'lane' + (data.done ? ' done' : '') + (seq && count === 0 ? ' empty' : ''), dataset: { key } }, head, body);
+}
+
+function render() {
+	$('title').textContent = (scene.title || 'Art Sort') + ' — art sort';
+	document.title = (scene.title || 'Art') + ' Sort';
+	const total = Object.keys(library).length;
+	const seqs = sequences();
+	const inSequences = new Set(seqs.flatMap(s => lane(s.seq.key).items.map(i => i.image)));
+	const checked = seqs.filter(s => lane(s.seq.key).done).length;
+	$('stats').textContent = `${total} images · ${inSequences.size} in sequences · ${trayImages('all', false).length} in tray · `
+		+ `${lane('_later').items.length} later · ${lane('_rejected').items.length} rejected · ${checked}/${seqs.length} sequences checked`;
+
+	$('filters').replaceChildren(...FILTERS.map(([id, label]) => el('button', { class: 'chip' + (id === trayFilter ? ' on' : ''),
+		textContent: `${label} ${trayImages(id).length}`, onclick: () => { trayFilter = id; render(); } })));
+	$('hideOdd').checked = hideOddShapes;
+	$('oddCount').textContent = `(${trayImages('all', false).filter(n => !fitsFrame(library[n].size)).length})`;
+	const tray = trayImages();
+	$('trayCount').textContent = tray.length;
+	$('trayGrid').replaceChildren(...tray.map(n => thumb(n, {})));
+
+	const sections = [];
+	for (const stage of scene.stages) {
+		const nodes = [el('div', { class: 'stage-head' }, el('h2', { textContent: stage.name }), el('span', { class: 'muted', textContent: stage.note || '' }))];
+		for (const s of seqs.filter(s => s.stage === stage.name)) nodes.push(laneNode(s.seq.key, s.seq, stage.name, s.extra));
+		const input = el('input', { type: 'text', placeholder: 'NEW_SEQUENCE_KEY' });
+		nodes.push(el('details', { class: 'muted' }, el('summary', { textContent: '+ Add a sequence to ' + stage.name }),
+			el('div', { class: 'add-lane' }, input, el('button', { textContent: 'Add', onclick: () => {
+				const key = input.value.trim().toUpperCase().replace(/[^A-Z0-9_]+/g, '_');
+				if (!key || laneKeys().includes(key)) { input.focus(); return; }
+				board.extraLanes = (board.extraLanes || []).concat([{ stage: stage.name, key, context: 'Added on the board' }]);
+				lane(key);
+				changed();
+			} }))));
+		sections.push(el('section', { class: 'stage-section', dataset: { stage: stage.name } }, ...nodes));
+	}
+	sections.push(el('section', { class: 'stage-section', dataset: { stage: SET_ASIDE } },
+		el('div', { class: 'stage-head' }, el('h2', { textContent: SET_ASIDE }), el('span', { class: 'muted', textContent: 'Not exported. Rejecting takes an image out of every sequence.' })),
+		...Object.keys(SPECIAL).map(key => laneNode(key, null))));
+	$('lanes').replaceChildren(...sections);
+	renderJump(seqs);
+	if (preview) showPreview();
+}
+
+// ------------------------------------------------------------ jumping to a stage or sequence
+
+// The bar under the header: a button per stage (with how many pictures it holds) and a list of
+// every sequence, for getting around a long board without scrolling.
+function renderJump(seqs) {
+	const count = keys => keys.reduce((n, key) => n + lane(key).items.length, 0);
+	const stageButton = (name, keys) => el('button', { title: 'Scroll to ' + name, onclick: () => jumpTo(name) },
+		name, el('span', { class: 'muted', textContent: count(keys) }));
+	const select = el('select', { title: 'Scroll to a sequence', onchange: () => { jumpTo(null, select.value); select.value = ''; } },
+		el('option', { value: '', textContent: 'Jump to a sequence…' }));
+	for (const stage of scene.stages) {
+		select.append(el('optgroup', { label: stage.name }, ...seqs.filter(s => s.stage === stage.name).map(s => {
+			const items = lane(s.seq.key).items.length;
+			return el('option', { value: s.seq.key, textContent: `${s.seq.key} · ${items}${s.seq.estimate ? ' / ~' + s.seq.estimate : ''}` });
+		})));
+	}
+	select.append(el('optgroup', { label: SET_ASIDE }, ...Object.keys(SPECIAL).map(k => el('option', { value: k, textContent: SPECIAL[k] }))));
+	$('jump').replaceChildren(el('span', { class: 'muted', textContent: 'Jump to' }),
+		...scene.stages.map(stage => stageButton(stage.name, seqs.filter(s => s.stage === stage.name).map(s => s.seq.key))),
+		stageButton(SET_ASIDE, Object.keys(SPECIAL)), select);
+}
+
+// Scrolls the lanes to a stage, or to one sequence (kept clear of its stage's sticky heading and
+// outlined for a moment, so the eye lands on it).
+function jumpTo(stageName, key) {
+	const lanes = $('lanes');
+	const target = key ? [...lanes.querySelectorAll('.lane')].find(n => n.dataset.key === key)
+		: [...lanes.querySelectorAll('.stage-section')].find(n => n.dataset.stage === stageName);
+	if (!target) return;
+	const clearance = key ? target.closest('.stage-section').querySelector('.stage-head').offsetHeight + 8 : 0;
+	const top = lanes.scrollTop + target.getBoundingClientRect().top - lanes.getBoundingClientRect().top - clearance;
+	lanes.scrollTo({ top, behavior: 'smooth' });
+	if (key) {
+		target.classList.add('flash');
+		setTimeout(() => target.classList.remove('flash'), 1400);
+	}
+}
+
+// ------------------------------------------------------------ dragging
+
+function dropIndex(body, e) {
+	const thumbs = [...body.querySelectorAll('.thumb')];
+	for (let i = 0; i < thumbs.length; i++) {
+		const r = thumbs[i].getBoundingClientRect();
+		if (e.clientY < r.top) return i;
+		if (e.clientY <= r.bottom && e.clientX < r.left + r.width / 2) return i;
+	}
+	return thumbs.length;
+}
+function clearMarks() {
+	document.querySelectorAll('.drop-before, .drop-after, .drop-into').forEach(n => n.classList.remove('drop-before', 'drop-after', 'drop-into'));
+}
+document.addEventListener('dragstart', e => {
+	const node = e.target.closest && e.target.closest('.thumb');
+	if (!node) return;
+	drag = { image: node.dataset.image, from: node.dataset.lane ? { lane: node.dataset.lane, index: +node.dataset.index } : null };
+	e.dataTransfer.effectAllowed = 'copyMove';
+	e.dataTransfer.setData('text/plain', drag.image);
+	node.classList.add('dragging');
+});
+document.addEventListener('dragend', () => { drag = null; clearMarks(); document.querySelectorAll('.dragging').forEach(n => n.classList.remove('dragging')); });
+document.addEventListener('dragover', e => {
+	if (!drag) return;
+	const laneEl = e.target.closest('.lane');
+	clearMarks();
+	if (laneEl) {
+		e.preventDefault();
+		e.dataTransfer.dropEffect = e.ctrlKey || e.altKey ? 'copy' : 'move';
+		laneEl.classList.add('drop-into');
+		const body = laneEl.querySelector('.lane-body');
+		const thumbs = body.querySelectorAll('.thumb');
+		const index = dropIndex(body, e);
+		if (index < thumbs.length) thumbs[index].classList.add('drop-before');
+		else if (thumbs.length) thumbs[thumbs.length - 1].classList.add('drop-after');
+	} else if (e.target.closest('#tray') && drag.from) {
+		e.preventDefault();
+		e.dataTransfer.dropEffect = 'move';
+		$('tray').classList.add('drop-into');
+	}
+});
+document.addEventListener('drop', e => {
+	if (!drag) return;
+	const laneEl = e.target.closest('.lane');
+	e.preventDefault();
+	if (laneEl) place(drag.image, drag.from, laneEl.dataset.key, dropIndex(laneEl.querySelector('.lane-body'), e), e.ctrlKey || e.altKey);
+	else if (e.target.closest('#tray') && drag.from) removeAt(drag.from);
+	clearMarks();
+});
+
+// ------------------------------------------------------------ the close look
+
+function contextList(source) {
+	if (source === 'tray') return trayImages().map(image => ({ image, from: null }));
+	return lane(source).items.map((item, index) => ({ image: item.image, from: { lane: source, index } }));
+}
+function openPreview(source, pos) {
+	preview = { source, pos: Math.max(0, pos) };
+	$('pvLane').value = '';	// a fresh look starts from each image's guess, not the last one's choice
+	showPreview();
+}
+function closePreview() {
+	preview = null;
+	$('preview').hidden = true;
+	render();	// the lanes' dialogue marks may have changed while typing
+}
+function current() {
+	const list = contextList(preview.source);
+	if (!list.length) return null;
+	preview.pos = Math.min(preview.pos, list.length - 1);
+	return { list, entry: list[preview.pos] };
+}
+function showPreview() {
+	const now = current();
+	if (!now) return closePreview();
+	const { list, entry } = now;
+	const facts = library[entry.image];
+	$('preview').hidden = false;
+	$('pvImg').src = '/library/' + encodeURIComponent(entry.image);
+	$('pvPos').textContent = `${preview.pos + 1} / ${list.length}`;
+	showSection(list, entry);
+	showStrip(list);
+	$('pvOrder').hidden = preview.source === 'tray';
+	$('pvEarlier').disabled = preview.pos === 0;
+	$('pvLaterInOrder').disabled = preview.pos === list.length - 1;
+	showDialogue(list);
+	$('pvName').textContent = entry.image;
+	const where = placements(entry.image);
+	const rows = [['Size', facts.size.join(' × ') + (shapeWarning(facts.size) ? '  (not ' + scene.frame.join('×') + ')' : '')],
+		['From', facts.source], ['Added', facts.added], ['Model', facts.model || '—'], ['In', where.length ? where.map(laneName).join(', ') : 'the tray']];
+	$('pvFacts').replaceChildren(...rows.flatMap(([k, v]) => [el('dt', { textContent: k }), el('dd', { textContent: v })]));
+	const guess = facts.guess;
+	const box = $('pvGuess');
+	box.replaceChildren();
+	if (guess) {
+		box.append(el('div', {}, el('span', { class: 'dot ' + guess.confidence, style: 'display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px' }),
+			el('b', { textContent: guess.sequence || ('row ' + guess.row + ' (no sequence)') }), ` — ${guess.confidence}`));
+		box.append(el('div', { class: 'muted', textContent: guess.why + (guess.beat != null ? ` · beat ${guess.beat + 1} of its beat sheet` : '') }));
+		if (guess.alternatives.length) box.append(el('div', { class: 'alts' }, el('span', { class: 'muted', textContent: 'Or:' }),
+			...guess.alternatives.map((alt, i) => el('button', { textContent: `${i + 1} ${alt.sequence} ${Math.round(alt.score * 100)}%`, onclick: () => act(() => place(entry.image, entry.from, alt.sequence)) }))));
+	} else {
+		box.append(el('span', { class: 'muted', textContent: 'No guess: this image has no generation metadata to go on.' }));
+	}
+	const select = $('pvLane');
+	const chosen = select.value;
+	select.replaceChildren();
+	for (const stage of scene.stages) {
+		const group = el('optgroup', { label: stage.name });
+		for (const s of sequences().filter(s => s.stage === stage.name)) group.append(el('option', { value: s.seq.key, textContent: s.seq.key }));
+		select.append(group);
+	}
+	select.append(el('optgroup', { label: SET_ASIDE }, ...Object.keys(SPECIAL).map(k => el('option', { value: k, textContent: SPECIAL[k] }))));
+	select.value = chosen && laneKeys().includes(chosen) ? chosen : (guess && guess.sequence) || (entry.from && entry.from.lane) || laneKeys()[0];
+	$('pvAccept').disabled = !(guess && guess.sequence);
+	$('pvTray').disabled = !entry.from;
+	$('pvPrompt').textContent = facts.prompt || '(none)';
+}
+// What is being looked through, so each picture is judged against what its sequence is for.
+function showSection(list, entry) {
+	const box = $('pvSection');
+	const source = preview.source;
+	const info = sequences().find(s => s.seq.key === source);
+	box.classList.toggle('done', !!info && lane(source).done);
+	if (source === 'tray') {
+		box.replaceChildren(el('div', { class: 'where', textContent: 'Tray' }), el('div', { class: 'key', textContent: 'Not in any sequence yet' }),
+			el('div', { class: 'context', textContent: `${FILTERS.find(f => f[0] === trayFilter)[1]} images in no sequence. Place each one, or set it aside.` }));
+		return;
+	}
+	if (!info) {
+		box.replaceChildren(el('div', { class: 'where', textContent: 'Set aside' }), el('div', { class: 'key', textContent: laneName(source) }),
+			el('div', { class: 'context', textContent: 'Never exported.' }));
+		return;
+	}
+	const { seq } = info;
+	const stage = scene.stages.find(s => s.name === info.stage);
+	const badges = el('div', { class: 'badges' });
+	if (seq.designRow) badges.append(badge('row ' + seq.designRow));
+	if (seq.state) badges.append(badge('her state: ' + seq.state));
+	if (seq.kind === 'pool') badges.append(badge('pool: order doesn\'t matter'));
+	box.replaceChildren(el('div', { class: 'where', textContent: info.stage + (stage.note ? ' — ' + stage.note : '') }),
+		el('div', { class: 'key', textContent: seq.key }), badges);
+	if (seq.context) box.append(el('div', { class: 'context', textContent: seq.context }));
+	box.append(el('div', { class: 'footer' },
+		el('span', { textContent: `Picture ${preview.pos + 1} of ${list.length}` + (seq.estimate ? ` · the design plans ~${seq.estimate}` : '') }),
+		el('span', { class: 'spacer' }), checkButton(source)));
+	if (lane(source).items[entry.from.index].auto) box.append(el('div', { class: 'auto-note', textContent: 'Placed here automatically; not checked yet.' }));
+}
+// The whole sequence (or tray) along the bottom, numbered, the current picture outlined.
+function showStrip(list) {
+	const strip = $('pvStrip');
+	strip.replaceChildren(...list.map((entry, i) => {
+		const cell = el('div', { class: 'cell' + (i === preview.pos ? ' current' : ''), title: entry.image, onclick: () => { preview.pos = i; showPreview(); } },
+			el('img', { src: '/thumbs/' + encodeURIComponent(entry.image) + '.jpg', alt: '' }));
+		if (entry.from) cell.append(el('span', { class: 'num', textContent: i + 1 }));
+		return cell;
+	}));
+	strip.children[preview.pos].scrollIntoView({ inline: 'center', block: 'nearest' });
+}
+// Moves the current picture one place earlier or later in its sequence; the view follows it.
+function shift(step) {
+	if (preview.source === 'tray') return;
+	const items = lane(preview.source).items;
+	const to = preview.pos + step;
+	if (to < 0 || to >= items.length) return;
+	[items[preview.pos], items[to]] = [items[to], items[preview.pos]];
+	items[to].auto = false;
+	preview.pos = to;
+	changed();
+}
+// ------------------------------------------------------------ placeholder dialogue
+
+// Dialogue belongs to a placement (one picture in one sequence), so a copy elsewhere can say
+// something else. Written as plain lines; "Name: text" gives the line a speaker.
+let showBox = true;
+try { showBox = localStorage.getItem('artSortBox') !== 'off'; } catch (_) {}
+
+function currentItem() {
+	const now = current();
+	return now && now.entry.from ? lane(now.entry.from.lane).items[now.entry.from.index] : null;
+}
+function dialogueLines(text) {
+	return (text || '').split('\n').map(line => line.trim()).filter(Boolean).map(line => {
+		const named = line.match(/^([^:]{1,24}):\s*(.+)$/);
+		return named ? { speaker: named[1].trim(), text: named[2] } : { speaker: '', text: line };
+	});
+}
+function showDialogue(list) {
+	const item = currentItem();
+	const input = $('pvDialogue');
+	input.disabled = !item;
+	input.placeholder = item ? 'Ashely: Fine. One hand, thirty seconds.\nShe holds up a single finger.' : 'Put this picture in a sequence to write its dialogue.';
+	const text = item && item.dialogue || '';
+	if (input.value !== text) input.value = text;
+	$('pvPlay').disabled = preview.source === 'tray';
+	$('pvShowBox').checked = showBox;
+	$('preview').classList.toggle('playing', !!preview.play);
+	const hint = $('pvPlayHint');
+	hint.hidden = !preview.play;
+	if (preview.play) {
+		const lines = dialogueLines(text).length;
+		hint.textContent = `${laneName(preview.source)} · picture ${preview.pos + 1} of ${list.length}` + (lines ? ` · line ${preview.play.line + 1} of ${lines}` : '')
+			+ (preview.play.end ? ' · the end · Esc to stop' : ' · click or → to go on, ← back, Esc to stop');
+	}
+	drawBox();
+}
+// The box sits over the bottom of the picture, sized to it, like the game's dialogue box. While
+// editing it shows all of a picture's lines; while playing, one line at a time.
+function drawBox() {
+	const box = $('pvBox'), img = $('pvImg'), stage = $('pvStage');
+	const item = currentItem();
+	let lines = dialogueLines(item && item.dialogue);
+	if (preview.play) lines = lines.slice(preview.play.line, preview.play.line + 1);
+	box.hidden = !lines.length || !(showBox || preview.play) || !img.naturalWidth;
+	if (box.hidden) return;
+	const picture = img.getBoundingClientRect(), area = stage.getBoundingClientRect();
+	const pad = picture.width * 0.03;
+	Object.assign(box.style, { left: picture.left - area.left + pad + 'px', width: picture.width - 2 * pad + 'px',
+		bottom: area.bottom - picture.bottom + pad + 'px', maxHeight: picture.height * 0.5 + 'px', fontSize: Math.max(13, picture.width * 0.03) + 'px' });
+	if (preview.play) {
+		const [line] = lines;
+		box.replaceChildren(...(line.speaker ? [el('div', { class: 'plate', textContent: line.speaker })] : []), el('div', { textContent: line.text }));
+	} else {
+		box.replaceChildren(...lines.map(line => el('p', {}, ...(line.speaker ? [el('span', { class: 'speaker', textContent: line.speaker })] : []), line.text)));
+	}
+}
+function toggleBox() {
+	showBox = !showBox;
+	try { localStorage.setItem('artSortBox', showBox ? 'on' : 'off'); } catch (_) {}
+	showPreview();
+}
+// Play: the sequence as the game would run it, line by line, picture by picture, full screen.
+function startPlay() {
+	if (preview.source === 'tray') return;
+	document.activeElement.blur();
+	preview.play = { line: 0, end: false };
+	showPreview();
+}
+function stopPlay() { preview.play = null; showPreview(); }
+function playStep(step) {
+	const last = contextList(preview.source).length - 1;
+	const linesHere = () => dialogueLines(currentItem().dialogue).length;
+	const play = preview.play;
+	if (step > 0) {
+		if (play.line < linesHere() - 1) play.line++;
+		else if (preview.pos < last) { preview.pos++; play.line = 0; }
+		else play.end = true;
+	} else {
+		play.end = false;
+		if (play.line > 0) play.line--;
+		else if (preview.pos > 0) { preview.pos--; play.line = Math.max(0, linesHere() - 1); }
+	}
+	showPreview();
+}
+$('pvDialogue').addEventListener('input', e => {
+	const item = currentItem();
+	if (!item) return;
+	if (e.target.value.trim()) item.dialogue = e.target.value;
+	else delete item.dialogue;
+	drawBox();
+	scheduleSave();
+});
+$('pvDialogue').addEventListener('keydown', e => {
+	if (e.key === 'Escape') e.target.blur();
+	else if (e.key === 'PageDown') $('pvNext').onclick();
+	else if (e.key === 'PageUp') $('pvPrev').onclick();
+	else return;
+	e.preventDefault();
+});
+$('pvPlay').onclick = startPlay;
+$('pvShowBox').onchange = toggleBox;
+$('pvImg').addEventListener('load', () => { if (preview) drawBox(); });
+window.addEventListener('resize', () => { if (preview) drawBox(); });
+
+// After an action the same position shows the next image, since the acted-on one usually left.
+function act(action) { action(); if (preview) showPreview(); }
+function acceptGuess(entry) {
+	const target = library[entry.image].guess && library[entry.image].guess.sequence;
+	if (!target) return;
+	if (entry.from && entry.from.lane === target) { lane(target).items[entry.from.index].auto = false; changed(); preview.pos++; }
+	else place(entry.image, entry.from, target);
+}
+$('pvPrev').onclick = () => { preview.pos = Math.max(0, preview.pos - 1); showPreview(); };
+$('pvNext').onclick = () => { preview.pos = Math.min(contextList(preview.source).length - 1, preview.pos + 1); showPreview(); };
+$('pvClose').onclick = closePreview;
+$('pvStage').addEventListener('click', e => {
+	const r = $('pvStage').getBoundingClientRect();
+	if (preview.play) playStep(1);
+	else if (e.clientX < r.left + r.width * 0.35) $('pvPrev').onclick();
+	else $('pvNext').onclick();
+});
+$('pvEarlier').onclick = () => shift(-1);
+$('pvLaterInOrder').onclick = () => shift(1);
+$('trayPreview').onclick = () => { if (trayImages().length) openPreview('tray', 0); };
+$('pvMove').onclick = () => { const { entry } = current(); act(() => place(entry.image, entry.from, $('pvLane').value)); };
+$('pvCopy').onclick = () => { const { entry } = current(); act(() => place(entry.image, entry.from, $('pvLane').value, null, true)); };
+$('pvAccept').onclick = () => { const { entry } = current(); act(() => acceptGuess(entry)); };
+$('pvLater').onclick = () => { const { entry } = current(); act(() => place(entry.image, entry.from, '_later')); };
+$('pvReject').onclick = () => { const { entry } = current(); act(() => reject(entry.image)); };
+$('pvTray').onclick = () => { const { entry } = current(); if (entry.from) act(() => removeAt(entry.from)); };
+document.addEventListener('keydown', e => {
+	if (!preview || ['SELECT', 'INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+	const now = current();
+	if (!now) return;
+	const { entry } = now;
+	const guess = library[entry.image].guess;
+	const key = e.key.toLowerCase();
+	if (preview.play) {
+		if (key === 'escape') stopPlay();
+		else if (key === 'arrowright' || key === ' ' || key === 'enter') playStep(1);
+		else if (key === 'arrowleft') playStep(-1);
+		else return;
+		e.preventDefault();
+		return;
+	}
+	if (key === 'escape') closePreview();
+	else if (key === 'p') startPlay();
+	else if (key === 'h') toggleBox();
+	else if (key === 'arrowleft' && e.shiftKey) shift(-1);
+	else if (key === 'arrowright' && e.shiftKey) shift(1);
+	else if (key === 'arrowleft') $('pvPrev').onclick();
+	else if (key === 'arrowright') $('pvNext').onclick();
+	else if (key === 'enter') act(() => acceptGuess(entry));
+	else if (key === 'l') act(() => place(entry.image, entry.from, '_later'));
+	else if (key === 'r') act(() => reject(entry.image));
+	else if ((key === 'delete' || key === 'backspace') && entry.from) act(() => removeAt(entry.from));
+	else if (/^[1-3]$/.test(key) && guess && guess.alternatives[+key - 1]) act(() => place(entry.image, entry.from, guess.alternatives[+key - 1].sequence));
+	else return;
+	e.preventDefault();
+});
+
+// ------------------------------------------------------------ export and start
+
+function banner(text, error = false, report = []) {
+	$('bannerText').textContent = text;
+	$('banner').classList.toggle('error', error);
+	$('openExport').hidden = error || report.length > 0;
+	$('bannerReport').textContent = report.join('\n');
+	$('bannerReport').hidden = report.length === 0;
+	$('banner').hidden = false;
+}
+$('closeBanner').onclick = () => { $('banner').hidden = true; };
+$('openExport').onclick = () => fetch('/api/open-export', { method: 'POST' });
+$('export').onclick = async () => {
+	if (unsaved) await save();
+	const response = await fetch('/api/export', { method: 'POST' });
+	const result = await response.json();
+	if (!response.ok) return banner('Export failed: ' + result.error, true);
+	banner(`Exported ${result.images} images into ${result.sequences} sequence folders: ${result.folder}`);
+};
+$('package').onclick = async () => {
+	if (unsaved) await save();
+	$('package').disabled = true;
+	try {
+		const response = await fetch('/api/package', { method: 'POST' });
+		const result = await response.json();
+		if (!response.ok) return banner('Not put in the game: ' + result.error, true);
+		banner(`In the game: ${result.pictures} pictures in ${result.sequences} sequences (${result.new} new), `
+			+ `${result.chains} dialogue chains written. Open Godot to import the new pictures.`, false, result.report);
+	} finally {
+		$('package').disabled = false;
+	}
+};
+$('hideOdd').addEventListener('change', e => {
+	hideOddShapes = e.target.checked;
+	try { localStorage.setItem('artSortHideOdd', hideOddShapes ? '1' : ''); } catch (_) {}
+	render();
+});
+$('size').addEventListener('input', e => {
+	document.documentElement.style.setProperty('--thumb-h', e.target.value + 'px');
+	try { localStorage.setItem('artSortThumb', e.target.value); } catch (_) {}
+});
+try {
+	const size = localStorage.getItem('artSortThumb');
+	if (size) { $('size').value = size; document.documentElement.style.setProperty('--thumb-h', size + 'px'); }
+	hideOddShapes = localStorage.getItem('artSortHideOdd') === '1';
+} catch (_) {}
+
+(async () => {
+	try {
+		const state = await (await fetch('/api/state')).json();
+		({ scene, library, board } = state);
+		setSaveState('Saved');
+		render();
+	} catch (e) {
+		setSaveState('Could not load the board: ' + e.message, true);
+	}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/ashely2_win/d_ashely2_win.tres" id="dialogue"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/ashely2_ending/gs_ashely2_ending.tres" id="ending"]
+[ext_resource type="Script" path="res://data/game_stages/vn/ashely2_win/ashely2_win_choices.gd" id="choices"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Tuesday at Ten.mp3" id="music_1"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Not a Sleeve in Sight.mp3" id="music_2"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Three Hours Till the Bus.mp3" id="music_3"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Just Dare.mp3" id="music_4"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Aces in the Grass.mp3" id="music_5"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/All Muscle, Sugar.mp3" id="music_6"]
+[ext_resource type="AudioStream" uid="uid://pchfw73p8sw7" path="res://data/assets/general/sounds/bg_music/ashely2/Park Stakes.mp3" id="music_true_ending"]
+
+[sub_resource type="Resource" id="table"]
+script = ExtResource("bg")
+name = "ashely2_TABLE__DRESSED"
+imagePath = "res://data/background_lists/ashely_poker2/TABLE__DRESSED/06.webp"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "ashely2_win"
+displayName = "Ashely Poker II - Won Match"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("ending")
+isCompletable = false
+startingBackground = SubResource("table")
+endOnlyOnSpecificDialogueKey = true
+endingDialogueKeys = Array[String](["NEXT_MATCH", "TO_ENDING"])
+choicesScript = ExtResource("choices")
+skipsOnlySeenDialogue = true
+randomMusic = Array[AudioStream]([ExtResource("music_1"), ExtResource("music_2"), ExtResource("music_3"), ExtResource("music_4"), ExtResource("music_5"), ExtResource("music_6")])
+musicList = Array[AudioStream]([ExtResource("music_true_ending")])

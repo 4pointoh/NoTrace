@@ -20,7 +20,8 @@ func reset():
 	hide()
 
 func setup():
-	wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
+	# The ones the phone offers: none still on placeholder art (GlobalGameStage.shownWallpapers).
+	wallpapers = GlobalGameStage.shownWallpapers()
 	wallpaperNotUnlockedImage = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 	$Previous.disabled = true
 	$Next.disabled = false

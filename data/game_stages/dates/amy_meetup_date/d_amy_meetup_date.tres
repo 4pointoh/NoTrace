@@ -1,0 +1,477 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+starts = {
+"START": &"0_1",
+"topic_tonight": &"0_2",
+"tonight_q1": &"0_3",
+"tonight_q2": &"0_4",
+"tonight_q3": &"0_5",
+"topic_favor": &"0_6",
+"favor_q1": &"0_7",
+"favor_q2": &"0_8",
+"favor_q3": &"0_9",
+"topic_her": &"0_10",
+"her_q1": &"0_11",
+"her_q2": &"0_12",
+"her_partner": &"0_13",
+"her_partner_c1": &"0_14",
+"her_partner_c2": &"0_15",
+"smalltalk_topic": &"0_16",
+"smalltalk": &"0_17",
+"repeat_generic": &"0_18",
+"asked_too_many_times": &"0_19",
+"asked_twice_in_a_row_generic": &"0_20",
+"LOST": &"0_21"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(0, 0),
+"start_id": "START"
+},
+&"1_1": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) The date begins. Pick a topic.",
+"offset": Vector2(380, 0),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_2": {
+"link": &"1_2",
+"offset": Vector2(0, 700),
+"start_id": "topic_tonight"
+},
+&"1_2": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) About tonight.",
+"offset": Vector2(380, 700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_3": {
+"link": &"1_3",
+"offset": Vector2(0, 1400),
+"start_id": "tonight_q1"
+},
+&"1_3": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Tonight answer 1.",
+"offset": Vector2(380, 1400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_4": {
+"link": &"1_4",
+"offset": Vector2(0, 2100),
+"start_id": "tonight_q2"
+},
+&"1_4": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Tonight answer 2.",
+"offset": Vector2(380, 2100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_5": {
+"link": &"1_5",
+"offset": Vector2(0, 2800),
+"start_id": "tonight_q3"
+},
+&"1_5": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Tonight answer 3.",
+"offset": Vector2(380, 2800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_6": {
+"link": &"1_6",
+"offset": Vector2(0, 3500),
+"start_id": "topic_favor"
+},
+&"1_6": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) About the favor.",
+"offset": Vector2(380, 3500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_7": {
+"link": &"1_7",
+"offset": Vector2(0, 4200),
+"start_id": "favor_q1"
+},
+&"1_7": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Favor answer 1.",
+"offset": Vector2(380, 4200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_8": {
+"link": &"1_8",
+"offset": Vector2(0, 4900),
+"start_id": "favor_q2"
+},
+&"1_8": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Favor answer 2.",
+"offset": Vector2(380, 4900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_9": {
+"link": &"1_9",
+"offset": Vector2(0, 5600),
+"start_id": "favor_q3"
+},
+&"1_9": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Favor answer 3.",
+"offset": Vector2(380, 5600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_10": {
+"link": &"1_10",
+"offset": Vector2(0, 6300),
+"start_id": "topic_her"
+},
+&"1_10": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) About her.",
+"offset": Vector2(380, 6300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_11": {
+"link": &"1_11",
+"offset": Vector2(0, 7000),
+"start_id": "her_q1"
+},
+&"1_11": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Her answer 1.",
+"offset": Vector2(380, 7000),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_12": {
+"link": &"1_12",
+"offset": Vector2(0, 7700),
+"start_id": "her_q2"
+},
+&"1_12": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Her answer 2.",
+"offset": Vector2(380, 7700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_13": {
+"link": &"1_13",
+"offset": Vector2(0, 8400),
+"start_id": "her_partner"
+},
+&"1_13": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) She asks you something.",
+"offset": Vector2(380, 8400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_14": {
+"link": &"1_14",
+"offset": Vector2(0, 9100),
+"start_id": "her_partner_c1"
+},
+&"1_14": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) She likes that answer.",
+"offset": Vector2(380, 9100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_15": {
+"link": &"1_15",
+"offset": Vector2(0, 9800),
+"start_id": "her_partner_c2"
+},
+&"1_15": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) She likes that answer too.",
+"offset": Vector2(380, 9800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_16": {
+"link": &"1_16",
+"offset": Vector2(0, 10500),
+"start_id": "smalltalk_topic"
+},
+&"1_16": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Small talk.",
+"offset": Vector2(380, 10500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_17": {
+"link": &"1_17",
+"offset": Vector2(0, 11200),
+"start_id": "smalltalk"
+},
+&"1_17": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Small talk answer.",
+"offset": Vector2(380, 11200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_18": {
+"link": &"1_18",
+"offset": Vector2(0, 11900),
+"start_id": "repeat_generic"
+},
+&"1_18": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) You asked that already.",
+"offset": Vector2(380, 11900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_19": {
+"link": &"1_19",
+"offset": Vector2(0, 12600),
+"start_id": "asked_too_many_times"
+},
+&"1_19": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) You keep asking that.",
+"offset": Vector2(380, 12600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_20": {
+"link": &"1_20",
+"offset": Vector2(0, 13300),
+"start_id": "asked_twice_in_a_row_generic"
+},
+&"1_20": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) Twice in a row?",
+"offset": Vector2(380, 13300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_21": {
+"link": &"1_21",
+"offset": Vector2(0, 14000),
+"start_id": "LOST"
+},
+&"1_21": {
+"background": -1,
+"backgroundList": -1,
+"characterState": -1,
+"dialogue": "(Placeholder) The date didn't go well.",
+"offset": Vector2(380, 14000),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/amy_meetup_intro/characters.tres"
+backgroundList = "res://data/game_stages/vn/amy_meetup_intro/bgs.tres"

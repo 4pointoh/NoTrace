@@ -21,10 +21,18 @@ var seenDialogueKeys : Dictionary = {} # Seen = has started the dialogue (true o
 var completedDialogueKeys : Dictionary = {} # Complete = has finished the dialogue (true on scene end)
 var randomizeWallpaper = false
 
+# A match started part-way through, from a node of the poker timeline: the next match opens there.
+# Cleared once that match ends, or when a save loads (a save never holds one).
 var isStartingPokerFromNode : bool = false
 var altStartPlayerLives : int = 0
 var altStartOppLives : int = 0
 var altStartSceneData : PokerNodeData
+
+func clearAltStart():
+	isStartingPokerFromNode = false
+	altStartPlayerLives = 0
+	altStartOppLives = 0
+	altStartSceneData = null
 
 # cacheItems requests from the stage we're leaving; each must be
 # load_threaded_get'd eventually or ResourceLoader pins the resource forever.
@@ -149,11 +157,20 @@ func setSkipSpeed(newVal):
 	skip_speed = newVal
 
 
-func advanceGameStage():
+# endFrame: the frame the stage being left ends in, when that is not the frame on screen (a frame
+# change the dialogue asked for that has not landed yet).
+func advanceGameStage(endFrame = null):
 	if !nextStage:
 		return
 
 	saveSaveData("user://autosave.dat")
+
+	# After the autosave, so loading it replays the stage being left in that stage's own frame.
+	keepStoryFrame(DisplayMode.currentMode if endFrame == null else endFrame)
+	for flag in flagsAtStageEnd:
+		if !completedStages.has(flag):
+			completedStages.append(flag)
+	flagsAtStageEnd.clear()
 
 	if currentStage.isCompletable:
 		completedStages.append(currentStage.name)
@@ -176,6 +193,7 @@ func advanceGameStage():
 	
 	currentStage.musicIndex = -1
 	currentStage.soundEffectIndex = -1
+	finishCurrentDialogueKey()
 	
 	previousStage = currentStage
 	currentStage = nextStage
@@ -204,6 +222,53 @@ func softCompleteCurrentStage():
 func setNextGameStage(stage):
 	nextStage = stage
 
+# Once the story has gone landscape it stays landscape (the phone follows it, see Main
+# stageDisplayMode). A stage that ends in landscape takes the story there; only one that began in
+# landscape and ended in portrait (portrait_next) takes it back. Stages that begin and end in
+# portrait, like older events, leave it alone. Kept in the save as a completedStages entry (no
+# save-format change), never in completedStagesGLOBAL, so a new game still starts in portrait.
+const LANDSCAPE_STORY = "landscape_story"
+# Whether the stage being played began in landscape.
+var stageStartedLandscape = false
+
+# Story flags a stage decides on as it plays (eg: the stake picked after a won match). They are
+# kept in completedStages like any other flag, but only written as the stage ends, after the
+# autosave, the moment markStagesCompleteOnSceneEnd lands too: loading that autosave replays the
+# stage from before they were set, so nothing is counted twice. hasFlag() sees them meanwhile.
+var flagsAtStageEnd : Array[String] = []
+
+func setFlagAtStageEnd(flag : String):
+	if !flagsAtStageEnd.has(flag):
+		flagsAtStageEnd.append(flag)
+
+func hasFlag(flag : String) -> bool:
+	return completedStages.has(flag) or flagsAtStageEnd.has(flag)
+
+func countFlagsStartingWith(prefix : String) -> int:
+	var flags = completedStages.filter(func(entry): return entry.begins_with(prefix))
+	return flags.size() + flagsAtStageEnd.filter(func(entry): return entry.begins_with(prefix) and !flags.has(entry)).size()
+
+func clearFlagsStartingWith(prefix : String):
+	for flag in completedStages.filter(func(entry): return entry.begins_with(prefix)):
+		completedStages.erase(flag)
+	flagsAtStageEnd = flagsAtStageEnd.filter(func(entry): return !entry.begins_with(prefix))
+
+# Main calls this as each stage begins: the frame it began in, and no flags carried over from a
+# stage that was left without ending (eg: by loading a save).
+func stageBegan(startedLandscape : bool):
+	stageStartedLandscape = startedLandscape
+	flagsAtStageEnd.clear()
+
+func keepStoryFrame(endFrame):
+	if endFrame == DisplayMode.MODES.LANDSCAPE:
+		if !storyIsLandscape():
+			completedStages.append(LANDSCAPE_STORY)
+	elif stageStartedLandscape:
+		completedStages.erase(LANDSCAPE_STORY)
+
+func storyIsLandscape() -> bool:
+	return completedStages.has(LANDSCAPE_STORY)
+
 func setNextCheckpoint(checkpoint : Checkpoint):
 	nextStage = PHONE_STAGE
 	completedStages = []
@@ -211,12 +276,14 @@ func setNextCheckpoint(checkpoint : Checkpoint):
 	for stageName in checkpoint.completedStages:
 		if !completedStages.has(stageName):
 			completedStages.append(stageName)
+	if checkpoint.storyIsLandscape:
+		completedStages.append(LANDSCAPE_STORY)
 
 	dateGirlsUnlocked = [CHARACTERS.ASHLEY, CHARACTERS.LISA, CHARACTERS.AMY, CHARACTERS.ANA]
 
-func setPhoneGameStage():
+func setPhoneGameStage(endFrame = null):
 	setNextGameStage(PHONE_STAGE)
-	advanceGameStage()
+	advanceGameStage(endFrame)
 
 func getAvailableMessages():
 	availableMessages = []
@@ -273,6 +340,7 @@ func getAvailableMessages():
 		addMessage(Flags.ANNA_NIGHT_PHONE)
 	if completedStages.has('anna_night'):
 		addMessage(Flags.ANNA_NIGHT_PHONE_AFTER)
+		addMessage(Flags.ASHELY2_PHONE)
 
 	return availableMessages
 
@@ -319,6 +387,8 @@ func getCompletedMessages():
 		availableMessages.append(Flags.ANNA_NIGHT_PHONE)
 	if completedStages.has(Flags.ANNA_NIGHT_PHONE_AFTER.name):
 		availableMessages.append(Flags.ANNA_NIGHT_PHONE_AFTER)
+	if completedStages.has(Flags.ASHELY2_PHONE.name):
+		availableMessages.append(Flags.ASHELY2_PHONE)
 
 	return availableMessages
 
@@ -364,6 +434,11 @@ func getAvailableSelectableEvents():
 	
 	if completedStages.has('anna_night_phone'):
 		addSelectableEvent(Flags.ANNA_NIGHT)
+
+	if completedStages.has('ashely2_phone'):
+		addSelectableEvent(Flags.ASHELY2_INTRO)
+	if completedStages.has('ashely2_ending') and amyMeetupInThisUpdate:
+		addSelectableEvent(Flags.AMY_MEETUP_INTRO)
 	
 	
 	return availableSelectableEvents
@@ -399,6 +474,10 @@ func getCompletedSelectableEvents():
 		completedSelectableEvents.append(Flags.UNLOCK_CHRISTMAS)
 	if completedStages.has(Flags.ANNA_NIGHT.name):
 		completedSelectableEvents.append(Flags.ANNA_NIGHT)
+	if completedStages.has(Flags.ASHELY2_INTRO.name):
+		completedSelectableEvents.append(Flags.ASHELY2_INTRO)
+	if completedStages.has(Flags.AMY_MEETUP_INTRO.name):
+		completedSelectableEvents.append(Flags.AMY_MEETUP_INTRO)
 	
 	return completedSelectableEvents
 
@@ -421,6 +500,21 @@ func hasCompletedCurrentStageGlobally():
 
 func hasCompletedStageGloballySoft():
 	return hasCompletedCurrentStageGlobally() or completedStagesSOFT.has(currentStage.name)
+
+## For testing: run from the Godot editor, Ctrl (quick skip) skips everything, read or not. It never
+## applies to an exported game, debug or release (the "editor" feature, as for the F9 / F10 / F11 keys).
+## Set it false here to test the real rule below. landscape-test's suites turn it off.
+var skipUnreadInEditor := false	# off for the release (2026-11-16): set true to skip everything while testing
+
+# Whether the dialogue playing now has been read before, so quick skip may pass over it. Once a stage
+# has been played its dialogue all counts as read, except a poker match's and a stage that plays
+# different dialogue each time (skipsOnlySeenDialogue): there only the lines already read do.
+func canSkipCurrentDialogue() -> bool:
+	if skipUnreadInEditor and OS.has_feature("editor"):
+		return true
+	if hasCompletedStageGloballySoft() and !currentStage.isPokerMatch and !currentStage.skipsOnlySeenDialogue:
+		return true
+	return hasCompletedCurrentDialogueKeyInCurrentGameStage()
 
 # Unlocked a wallpaper requires a resource to be created in All_Wallpapers resource
 # Then the text id value is passed in here
@@ -585,12 +679,18 @@ func getSaveDataInfo(saveName):
 	
 func loadSaveData(saveName):
 	lisaMassagePoints = 0
+	# Flags pending for the stage being left are dropped with it, and so is a match start from the timeline.
+	flagsAtStageEnd.clear()
+	clearAltStart()
 	var file = FileAccess.open(saveName, FileAccess.READ)
 	if file:
 		var saveVersion = file.get_var()
 		var completedStageTemp = file.get_var()
 		if(completedStageTemp):
 			completedStages.assign(completedStageTemp)
+		else:
+			# An empty list is not loaded (the current one is kept). Never keep its story frame.
+			completedStages.erase(LANDSCAPE_STORY)
 		currentMusic = file.get_var()
 		currentStage = load(file.get_var())
 		
@@ -934,8 +1034,15 @@ func getMusicAtIndex(index):
 		return null
 	return currentStage.musicList[index]
 
+## Amy's meetup is cut from this update and comes in the next one. While this is false, the phone
+## doesn't offer it after Ashely Poker II, and Ashely Poker II is the last event. To put it back, set it
+## true and untick "hidden" on its checkpoint (resources/checkpoints/all_checkpoints.tres).
+var amyMeetupInThisUpdate := false
+
 func isLastEventInThisUpdate(stage: GameStage):
-	var lastEvent = "res://data/game_stages/vn/anna_night/gs_anna_night.tres"
+	var lastEvent = "res://data/game_stages/vn/ashely2_intro/gs_ashely2_intro.tres"
+	if amyMeetupInThisUpdate:
+		lastEvent = "res://data/game_stages/vn/amy_meetup_intro/gs_amy_meetup_intro.tres"
 
 	if stage.resource_path == lastEvent:
 		return true
@@ -943,9 +1050,17 @@ func isLastEventInThisUpdate(stage: GameStage):
 		return false
 
 func setCurrentDialogueKey(key: String):
-	setDialogueKeyCompleted(currentDialogueKey)
+	if currentDialogueKey != '':
+		setDialogueKeyCompleted(currentDialogueKey)
 	currentDialogueKey = key
 	setDialogueKeySeen(key)
+
+# A stage is ending: the dialogue it ended on counts as read in that stage, and the next stage
+# starts with none (so it is never marked read under the next stage's name).
+func finishCurrentDialogueKey():
+	if currentDialogueKey != '':
+		setDialogueKeyCompleted(currentDialogueKey)
+	currentDialogueKey = ''
 
 func getWallpaperUnlocksForDialogueKey(dialogueKey: String):
 	if GlobalGameStage.currentStage.name == 'anna_class':
@@ -1051,8 +1166,22 @@ func hasCompletedDialogueKey(dialogueKey: String, stageName: String = ""):
 func hasCompletedCurrentDialogueKeyInCurrentGameStage():
 	return hasCompletedDialogueKey(currentDialogueKey, currentStage.name)
 
+## The wallpapers the phone offers (its Wallpapers app, the full-screen view, a random wallpaper), in this
+## order: every one in all_wallpapers.tres except those still on placeholder art (eg Amy's meetup, cut from
+## this update), which would show the placeholder, or a "?" nobody can unlock. Real art in their place,
+## and they show.
+var _shownWallpapers : WallpaperList = null
+func shownWallpapers() -> WallpaperList:
+	if _shownWallpapers == null:
+		_shownWallpapers = WallpaperList.new()
+		_shownWallpapers.wallpapers.assign(ALL_WALLPAPERS.wallpapers.filter(func(wallpaper): return !isPlaceholderWallpaper(wallpaper)))
+	return _shownWallpapers
+
+static func isPlaceholderWallpaper(wallpaper) -> bool:
+	return wallpaper.wallpaperImagePath.contains("/placeholders/")
+
 func getRandomUnlockedWallpaper():
-	var randomWallpaper = ALL_WALLPAPERS.wallpapers.filter(func(wallpaper):
+	var randomWallpaper = shownWallpapers().wallpapers.filter(func(wallpaper):
 		return unlockedWallpapers.has(wallpaper.wallpaperId)
 	)
 

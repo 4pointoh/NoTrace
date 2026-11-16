@@ -4,17 +4,13 @@
 [ext_resource type="Script" uid="uid://csej50jj2q2p3" path="res://src/choice_display_button.gd" id="2_06avw"]
 
 [node name="ChoiceDisplayButton" type="Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -393.0
-offset_bottom = -935.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 64)
+offset_right = 784.0
+offset_bottom = 64.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_8icq5")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 24
 text = "Hello"
 autowrap_mode = 3
 script = ExtResource("2_06avw")

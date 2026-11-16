@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmhnmn0imk4df"]
+[gd_scene load_steps=11 format=3 uid="uid://cmhnmn0imk4df"]
 
 [ext_resource type="Script" uid="uid://bwxf10dwhsliq" path="res://src/vn/Background.gd" id="1_jg27e"]
 [ext_resource type="Texture2D" uid="uid://di4x835kps6be" path="res://data/assets/general/art/newtitle.png" id="2_pwjtc"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="3_pwjtc"]
+[ext_resource type="Script" uid="uid://dg15w4063cihf" path="res://src/cinematic/background_camera.gd" id="4_camera"]
 
 [sub_resource type="Animation" id="Animation_xy1k7"]
 length = 0.001
@@ -147,5 +148,10 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_pwjtc")
 theme_override_font_sizes/font_size = 30
 text = "Press H To Un-Hide UI"
+
+[node name="Camera" type="Node" parent="." node_paths=PackedStringArray("image", "video")]
+script = ExtResource("4_camera")
+image = NodePath("../BackgroundImage")
+video = NodePath("../VideoStreamPlayer")
 
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=8 format=3]
+
+[ext_resource type="Script" uid="uid://bqsokwm2xwvt1" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" uid="uid://bji2uyb4i8p78" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/dates/amy_meetup_date/d_amy_meetup_date.tres" id="dialogue"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/amy_meetup_after/gs_amy_meetup_after.tres" id="after"]
+[ext_resource type="Script" path="res://data/game_stages/dates/amy_meetup_date/amy_meetup_date_date_script.gd" id="script"]
+[ext_resource type="AudioStream" uid="uid://w2tujw5fbas5" path="res://data/assets/general/sounds/bg_music/date1.mp3" id="music"]
+
+[sub_resource type="Resource" id="start"]
+script = ExtResource("bg")
+name = "amy_meetup_DATE_START"
+imagePath = "res://data/background_lists/amy_meetup/placeholders/DATE_START.png"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "amy_meetup_date"
+displayName = "Amy Meetup - Date"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+isCompletable = false
+startingBackground = SubResource("start")
+isLandscape = true
+startingMusic = ExtResource("music")
+isDate = true
+dateScript = ExtResource("script")
+dateWinGameStage = ExtResource("after")
+cantLose = true
+dateLossDialogueKey = "LOST"
+dateCharacter = "AMY"
+dateTitle = "Meetup With Amy"
+dateBusinessButtonLabel = "Favor"
+maxProgress = 100

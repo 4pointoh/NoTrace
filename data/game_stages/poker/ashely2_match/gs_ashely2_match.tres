@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="GameStage" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://src/vn/GameStage.gd" id="stage"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="bg"]
+[ext_resource type="Resource" path="res://data/game_stages/poker/ashely2_match/d_ashely2_match.tres" id="dialogue"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/ashely2_win/gs_ashely2_win.tres" id="won"]
+[ext_resource type="Resource" path="res://data/game_stages/vn/ashely2_lose/gs_ashely2_lose.tres" id="lost"]
+[ext_resource type="Script" path="res://data/game_stages/poker/ashely2_match/ashely2_match_poker_script.gd" id="pokerScript"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Tuesday at Ten.mp3" id="music_1"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Not a Sleeve in Sight.mp3" id="music_2"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Three Hours Till the Bus.mp3" id="music_3"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Just Dare.mp3" id="music_4"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/Aces in the Grass.mp3" id="music_5"]
+[ext_resource type="AudioStream" path="res://data/assets/general/sounds/bg_music/ashely2/All Muscle, Sugar.mp3" id="music_6"]
+
+[sub_resource type="Resource" id="table"]
+script = ExtResource("bg")
+name = "ashely2_TABLE__DRESSED"
+imagePath = "res://data/background_lists/ashely_poker2/TABLE__DRESSED/06.webp"
+wallpaperId = ""
+
+[resource]
+script = ExtResource("stage")
+name = "ashely2_match"
+displayName = "Ashely Poker II - Match"
+dialogue = ExtResource("dialogue")
+dialogueStartKey = "START"
+guaranteedNextGameStage = ExtResource("won")
+pokerLossGameStage = ExtResource("lost")
+isCompletable = false
+startingBackground = SubResource("table")
+isPokerMatch = true
+opponentName = "Ashely"
+pokerType = 0
+cheatCount = 1
+cheatCountByFlag = Dictionary[String, int]({
+"ashely2_replay_cheats_0": 0,
+"ashely2_replay_cheats_2": 2,
+"ashely2_replay_cheats_5": 5
+})
+playerLives = 5
+cpuLives = 5
+cpuRandomDiscardChance = 0
+pokerScript = ExtResource("pokerScript")
+useNewPokerSystem = false
+randomMusic = Array[AudioStream]([ExtResource("music_1"), ExtResource("music_2"), ExtResource("music_3"), ExtResource("music_4"), ExtResource("music_5"), ExtResource("music_6")])

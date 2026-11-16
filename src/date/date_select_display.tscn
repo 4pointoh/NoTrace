@@ -69,11 +69,12 @@ texture = ExtResource("6_diraq")
 mainLabel = "Poker Training"
 
 [node name="SkipButton" type="Button" parent="."]
+focus_mode = 0
 unique_name_in_owner = true
 offset_left = 629.0
-offset_top = 1011.0
+offset_top = 1052.0
 offset_right = 747.0
-offset_bottom = 1047.0
+offset_bottom = 1088.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("5_etjtp")
@@ -82,6 +83,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_76eq0")
 text = "Skip Date"
 
 [node name="SmallTalkButton" type="Button" parent="."]
+focus_mode = 0
 offset_left = 629.0
 offset_top = 970.0
 offset_right = 747.0
@@ -92,6 +94,19 @@ theme_override_fonts/font = ExtResource("5_etjtp")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_mdt76")
 text = "Small Talk"
+
+[node name="HelpButton" type="Button" parent="."]
+focus_mode = 0
+offset_left = 629.0
+offset_top = 1011.0
+offset_right = 747.0
+offset_bottom = 1047.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_etjtp")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_mdt76")
+text = "Help"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -108,3 +123,4 @@ stream = ExtResource("8_if36n")
 [connection signal="clicked" from="BusinessButton" to="." method="_on_business_button_clicked"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="pressed" from="SmallTalkButton" to="." method="_on_small_talk_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=5 format=3]
+
+[ext_resource type="Script" uid="uid://ia83r6pt8bfo" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1_lists"]
+[ext_resource type="Script" uid="uid://cxmmaw44660m8" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2_list"]
+[ext_resource type="Resource" path="res://data/background_lists/amy_meetup/placeholders/amy_meetup_placeholders.tres" id="3_placeholders"]
+[ext_resource type="Resource" uid="uid://cht80hoqypt6q" path="res://data/background_lists/home/home_bgl.tres" id="4_home"]
+
+[resource]
+script = ExtResource("1_lists")
+backgroundLists = Array[ExtResource("2_list")]([ExtResource("3_placeholders"), ExtResource("4_home")])

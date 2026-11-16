@@ -1,0 +1,407 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+starts = {
+"START": &"0_1",
+"LOST__DRESSED": &"0_2",
+"LOST__TOP_OFF": &"0_3",
+"LOST__PANTIES": &"0_4",
+"LOSE_P1_ASS_KISS__SHORTS_ON": &"0_5",
+"LOSE_P1_ASS_KISS__SHORTS_OFF": &"0_6",
+"LOSE_P2_DICK_PIC": &"0_7",
+"LOSE_P3A_YOUR_WALK": &"0_8",
+"LOSE_P3B_BENCH_GIRL": &"0_9",
+"NEXT_MATCH": &"0_10",
+"TO_ENDING": &"0_11",
+"LOSE_P1_ASS_KISS__DRESSED": &"0_12"
+}
+nodes = {
+&"0_1": {
+"link": "END",
+"offset": Vector2(0, 0),
+"start_id": "START"
+},
+&"0_2": {
+"link": &"1_1",
+"offset": Vector2(0, 700),
+"start_id": "LOST__DRESSED"
+},
+&"1_1": {
+"background": 5,
+"backgroundList": 4,
+"characterState": -1,
+"dialogue": "(Placeholder) Ashely wins the match.",
+"offset": Vector2(380, 700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_3": {
+"link": &"1_2",
+"offset": Vector2(0, 1400),
+"start_id": "LOST__TOP_OFF"
+},
+&"1_2": {
+"background": 5,
+"backgroundList": 5,
+"characterState": -1,
+"dialogue": "(Placeholder) Ashely wins the match.",
+"offset": Vector2(380, 1400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_4": {
+"link": &"1_3",
+"offset": Vector2(0, 2100),
+"start_id": "LOST__PANTIES"
+},
+&"1_3": {
+"background": 1,
+"backgroundList": 6,
+"characterState": -1,
+"dialogue": "(Placeholder) Ashely wins the match.",
+"offset": Vector2(380, 2100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_5": {
+"link": &"1_4",
+"offset": Vector2(0, 2800),
+"start_id": "LOSE_P1_ASS_KISS__SHORTS_ON"
+},
+&"1_4": {
+"background": 0,
+"backgroundList": 26,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__SHORTS_ON · picture 01. Her 1st win. \"Kiss my ass.\" Literally: she leads you to the table and bends over it. Brief, framed from behind below her mid-back. Its pictures show her topless, so they fit once her top is off; the dressed version is LOSE_P1_ASS_KISS__DRESSED (2026-10-14)",
+"offset": Vector2(380, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_6": {
+"link": &"1_5",
+"offset": Vector2(0, 3500),
+"start_id": "LOSE_P1_ASS_KISS__SHORTS_OFF"
+},
+&"1_5": {
+"background": 0,
+"backgroundList": 42,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__SHORTS_OFF · picture 01. Her 1st win, once her shorts are off. Same, panties round",
+"offset": Vector2(380, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_7": {
+"link": &"1_6",
+"offset": Vector2(0, 4200),
+"start_id": "LOSE_P2_DICK_PIC"
+},
+&"1_6": {
+"background": 26,
+"backgroundList": 2,
+"characterState": -1,
+"dialogue": "(Placeholder) Her scrolling YOUR contacts, delighted → the professor",
+"offset": Vector2(380, 4200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": 1
+},
+&"0_8": {
+"link": &"1_7",
+"offset": Vector2(0, 4900),
+"start_id": "LOSE_P3A_YOUR_WALK"
+},
+&"1_7": {
+"background": 0,
+"backgroundList": 27,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P3A_YOUR_WALK · picture 01. Her 3rd win, if her walk happened. Your walk of shame; Janet & Ted encore; her cackling (blocked on Janet & Ted)",
+"offset": Vector2(380, 4900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_9": {
+"link": &"1_8",
+"offset": Vector2(0, 5600),
+"start_id": "LOSE_P3B_BENCH_GIRL"
+},
+&"1_8": {
+"background": 0,
+"backgroundList": 28,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P3B_BENCH_GIRL · picture 01. Her 3rd win, if her walk didn't happen. She dares you to ask the bench girl (June) for her number → June says yes; Ashe's jealous \"Whatever.\"",
+"offset": Vector2(380, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_10": {
+"link": "END",
+"offset": Vector2(0, 6300),
+"start_id": "NEXT_MATCH"
+},
+&"0_11": {
+"link": "END",
+"offset": Vector2(0, 7000),
+"start_id": "TO_ENDING"
+},
+&"1_9": {
+"background": 1,
+"backgroundList": 26,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__SHORTS_ON · picture 02",
+"offset": Vector2(740, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_10": {
+"background": 2,
+"backgroundList": 26,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__SHORTS_ON · picture 03",
+"offset": Vector2(1100, 2800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_11": {
+"background": 1,
+"backgroundList": 28,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P3B_BENCH_GIRL · picture 02",
+"offset": Vector2(740, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_12": {
+"background": 2,
+"backgroundList": 28,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P3B_BENCH_GIRL · picture 03",
+"offset": Vector2(1100, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_13": {
+"background": 3,
+"backgroundList": 28,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P3B_BENCH_GIRL · picture 04",
+"offset": Vector2(1460, 5600),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_14": {
+"background": 4,
+"backgroundList": 28,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P3B_BENCH_GIRL · picture 05",
+"offset": Vector2(1820, 5600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_15": {
+"background": 1,
+"backgroundList": 42,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__SHORTS_OFF · picture 02",
+"offset": Vector2(740, 3500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_12": {
+"link": &"1_16",
+"offset": Vector2(0, 7700),
+"start_id": "LOSE_P1_ASS_KISS__DRESSED"
+},
+&"1_16": {
+"background": 0,
+"backgroundList": 41,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__DRESSED · picture 01. (new 2026-10-14) Her 1st win while she's still dressed, about 7 races in 10. \"Kiss my ass.\" Literally: she leads you to the table and bends over it. LOSE_P1_ASS_KISS__SHORTS_ON's pictures show her topless, so this is the same scene with her top on",
+"offset": Vector2(380, 7700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_17": {
+"background": 1,
+"backgroundList": 41,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__DRESSED · picture 02",
+"offset": Vector2(740, 7700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_18": {
+"background": 2,
+"backgroundList": 41,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__DRESSED · picture 03",
+"offset": Vector2(1100, 7700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_19": {
+"background": 3,
+"backgroundList": 41,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__DRESSED · picture 04",
+"offset": Vector2(1460, 7700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_20": {
+"background": 4,
+"backgroundList": 41,
+"characterState": -1,
+"dialogue": "(Placeholder) LOSE_P1_ASS_KISS__DRESSED · picture 05",
+"offset": Vector2(1820, 7700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ashely2_intro/characters.tres"
+backgroundList = "res://data/game_stages/vn/ashely2_intro/bgs.tres"

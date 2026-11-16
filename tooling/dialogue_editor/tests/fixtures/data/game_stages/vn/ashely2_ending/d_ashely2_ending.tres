@@ -1,0 +1,615 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://24y3gu2xwtmm" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+starts = {
+"START": &"0_1",
+"FORFEIT_NAKED_RUN__DRESSED": &"0_2",
+"FORFEIT_NAKED_RUN__TOP_OFF": &"0_3",
+"FINAL__DRESSED": &"0_4",
+"FINAL__TOP_OFF": &"0_5",
+"FINAL__PANTIES": &"0_6",
+"FINAL__NAKED": &"0_7",
+"THE_END__X4_SEX": &"0_8",
+"THE_END__L4_KISS": &"0_9",
+"THE_END__MR1_FINGER": &"0_10",
+"THE_END__X4_BJ": &"0_11",
+"THE_END__X3_BJ__TOP_OFF": &"0_12"
+}
+nodes = {
+&"0_1": {
+"link": "END",
+"offset": Vector2(0, 0),
+"start_id": "START"
+},
+&"0_2": {
+"link": &"1_1",
+"offset": Vector2(0, 700),
+"start_id": "FORFEIT_NAKED_RUN__DRESSED"
+},
+&"1_1": {
+"background": 0,
+"backgroundList": 29,
+"characterState": -1,
+"dialogue": "(Placeholder) FORFEIT_NAKED_RUN__DRESSED · picture 01. Her 4th win: your forfeit. The devious naked-run dare that makes you fold",
+"offset": Vector2(380, 700),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_3": {
+"link": &"1_2",
+"offset": Vector2(0, 1400),
+"start_id": "FORFEIT_NAKED_RUN__TOP_OFF"
+},
+&"1_2": {
+"background": 0,
+"backgroundList": 30,
+"characterState": -1,
+"dialogue": "(Placeholder) FORFEIT_NAKED_RUN__TOP_OFF · picture 01. Her 4th win, once her top is off. Same + the \"I'm topless, aren't I?\" legal argument",
+"offset": Vector2(380, 1400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_4": {
+"link": &"1_3",
+"offset": Vector2(0, 2100),
+"start_id": "FINAL__DRESSED"
+},
+&"1_3": {
+"background": 0,
+"backgroundList": 31,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__DRESSED · picture 01. \"You win\" wrap: teasing establishing shot",
+"offset": Vector2(380, 2100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_5": {
+"link": &"1_4",
+"offset": Vector2(0, 2800),
+"start_id": "FINAL__TOP_OFF"
+},
+&"1_4": {
+"background": 0,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 01. Same, per state",
+"offset": Vector2(380, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_6": {
+"link": &"1_5",
+"offset": Vector2(0, 3500),
+"start_id": "FINAL__PANTIES"
+},
+&"1_5": {
+"background": 0,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 01. Same, per state",
+"offset": Vector2(380, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_7": {
+"link": &"1_6",
+"offset": Vector2(0, 4200),
+"start_id": "FINAL__NAKED"
+},
+&"1_6": {
+"background": 0,
+"backgroundList": 34,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__NAKED · picture 01. Same, coy nude composition (may fold into the end of WIN_S4_PANTIES)",
+"offset": Vector2(380, 4200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_8": {
+"link": &"1_7",
+"offset": Vector2(0, 4900),
+"start_id": "THE_END__X4_SEX"
+},
+&"1_7": {
+"background": 9,
+"backgroundList": 18,
+"characterState": -1,
+"dialogue": "(Placeholder) She forfeits the race.",
+"offset": Vector2(380, 4900),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_9": {
+"link": &"1_8",
+"offset": Vector2(0, 5600),
+"start_id": "THE_END__L4_KISS"
+},
+&"1_8": {
+"background": 56,
+"backgroundList": 40,
+"characterState": -1,
+"dialogue": "(Placeholder) She forfeits the race.",
+"offset": Vector2(380, 5600),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_10": {
+"link": &"1_9",
+"offset": Vector2(0, 6300),
+"start_id": "THE_END__MR1_FINGER"
+},
+&"1_9": {
+"background": 2,
+"backgroundList": 24,
+"characterState": -1,
+"dialogue": "(Placeholder) She forfeits the race.",
+"offset": Vector2(380, 6300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_10": {
+"background": 1,
+"backgroundList": 29,
+"characterState": -1,
+"dialogue": "(Placeholder) FORFEIT_NAKED_RUN__DRESSED · picture 02",
+"offset": Vector2(740, 700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_11": {
+"background": 1,
+"backgroundList": 31,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__DRESSED · picture 02",
+"offset": Vector2(740, 2100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_12": {
+"background": 2,
+"backgroundList": 31,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__DRESSED · picture 03",
+"offset": Vector2(1100, 2100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_13": {
+"background": 3,
+"backgroundList": 31,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__DRESSED · picture 04",
+"offset": Vector2(1460, 2100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_14": {
+"background": 4,
+"backgroundList": 31,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__DRESSED · picture 05",
+"offset": Vector2(1820, 2100),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_15": {
+"background": 1,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 02",
+"offset": Vector2(740, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_16": {
+"background": 2,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 03",
+"offset": Vector2(1100, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_17": {
+"background": 3,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 04",
+"offset": Vector2(1460, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_18": {
+"background": 4,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 05",
+"offset": Vector2(1820, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_19": {
+"background": 5,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 06",
+"offset": Vector2(2180, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_20": {
+"background": 6,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 07",
+"offset": Vector2(2540, 2800),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_21": {
+"background": 7,
+"backgroundList": 32,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__TOP_OFF · picture 08",
+"offset": Vector2(2900, 2800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_22": {
+"background": 1,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 02",
+"offset": Vector2(740, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_23": {
+"background": 2,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 03",
+"offset": Vector2(1100, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_24": {
+"background": 3,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 04",
+"offset": Vector2(1460, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_25": {
+"background": 4,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 05",
+"offset": Vector2(1820, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_26",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_26": {
+"background": 5,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 06",
+"offset": Vector2(2180, 3500),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_27": {
+"background": 1,
+"backgroundList": 34,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__NAKED · picture 02",
+"offset": Vector2(740, 4200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_28": {
+"background": 2,
+"backgroundList": 34,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__NAKED · picture 03",
+"offset": Vector2(1100, 4200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_29": {
+"background": 3,
+"backgroundList": 34,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__NAKED · picture 04",
+"offset": Vector2(1460, 4200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_30": {
+"background": 4,
+"backgroundList": 34,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__NAKED · picture 05",
+"offset": Vector2(1820, 4200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"1_31": {
+"background": 6,
+"backgroundList": 33,
+"characterState": -1,
+"dialogue": "(Placeholder) FINAL__PANTIES · picture 07",
+"offset": Vector2(2540, 3500),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_11": {
+"link": &"1_32",
+"offset": Vector2(0, 7000),
+"start_id": "THE_END__X4_BJ"
+},
+&"1_32": {
+"background": 17,
+"backgroundList": 16,
+"characterState": -1,
+"dialogue": "(Placeholder) She forfeits the race.",
+"offset": Vector2(380, 7000),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+},
+&"0_12": {
+"link": &"1_33",
+"offset": Vector2(0, 7700),
+"start_id": "THE_END__X3_BJ__TOP_OFF"
+},
+&"1_33": {
+"background": 7,
+"backgroundList": 17,
+"characterState": -1,
+"dialogue": "(Placeholder) She forfeits the race.",
+"offset": Vector2(380, 7700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 640),
+"speaker": ""
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://data/game_stages/vn/ashely2_intro/characters.tres"
+backgroundList = "res://data/game_stages/vn/ashely2_intro/bgs.tres"

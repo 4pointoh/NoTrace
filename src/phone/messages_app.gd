@@ -127,6 +127,7 @@ func startConversation():
 	GlobalGameStage.softCompleteCurrentStage()
 	
 	lastAddedMessage = null
+	respondShouldBeVisible = false
 	$MessageScreen.visible = true
 	currentConversation = GlobalGameStage.currentStage.phoneScript.new()
 	contactName = GlobalGameStage.currentStage.contactName
@@ -507,23 +508,47 @@ func getSpedUpValue(val : float) -> float:
 
 	return val / (currentSpeedUp + 1.0) if currentSpeedUp > 1.0 else val
 
+# Cycle: 1.0x -> 1.5x -> 2.0x -> 2.5x -> Man. -> 1.0x. The label shows the
+# selected mode; the actual switch waits for a safe spot unless the
+# conversation is idle on the player's turn.
 func _on_speed_up_pressed() -> void:
-	if speedUpManual:
-		turnAutoOnNextSafeSpot = true
-	
-	if currentSpeedUp == maxSpeedUp:
-		turnManualOnNextSafeSpot = true
-		%SpeedUp.text = "Speed (Man.)"
-		currentSpeedUp = 1.0
-		$Respond.hide()
-		return
+	if isManualSelected():
+		selectAuto()
+	elif currentSpeedUp >= maxSpeedUp:
+		selectManual()
 	else:
-		currentSpeedUp += speedUpStep
+		currentSpeedUp = min(currentSpeedUp + speedUpStep, maxSpeedUp)
+		%SpeedUp.text = "Speed (" + str(currentSpeedUp) + "x)"
 
-	if currentSpeedUp > maxSpeedUp:
-		currentSpeedUp = maxSpeedUp
+func isManualSelected() -> bool:
+	return (speedUpManual and !turnAutoOnNextSafeSpot) or turnManualOnNextSafeSpot
 
-	%SpeedUp.text = "Speed (" + str(currentSpeedUp) + "x)"
+func selectManual():
+	currentSpeedUp = 1.0
+	%SpeedUp.text = "Speed (Man.)"
+	turnAutoOnNextSafeSpot = false
+	if speedUpManual:
+		return # still manual, a pending switch to auto was just cancelled
+
+	if respondShouldBeVisible:
+		# Waiting on the player's reply, nothing is mid-animation: switch now.
+		# The waiting reply goes out on the next Next press (advanceManual).
+		$Respond.hide()
+		enableManual()
+	else:
+		turnManualOnNextSafeSpot = true
+
+func selectAuto():
+	currentSpeedUp = 1.0
+	%SpeedUp.text = "Speed (1.0x)"
+	turnManualOnNextSafeSpot = false
+	if !speedUpManual:
+		return # still auto, a pending switch to manual was just cancelled
+
+	if respondShouldBeVisible:
+		enableAuto() # reply still waiting, brings the Respond button back
+	else:
+		turnAutoOnNextSafeSpot = true
 
 
 func _on_replay_past_messages_pressed() -> void:
@@ -551,10 +576,19 @@ func _on_wait_pressed() -> void:
 	%Wait.hide()
 
 func _on_next_pressed() -> void:
-	processNextAction()
+	advanceManual()
 
 func _input(event):
 	if event.is_action_pressed('advance_phone') and %Next.visible:
+		advanceManual()
+
+func advanceManual():
+	if respondShouldBeVisible:
+		# Manual was switched on while the player's reply (or choice) was
+		# waiting on the Respond button: handle that action, don't skip it.
+		respondShouldBeVisible = false
+		processActionManual()
+	else:
 		processNextAction()
 
 func enableManual():
@@ -563,12 +597,12 @@ func enableManual():
 	%SpeedUp.text = "Speed (Man.)"
 	%SpeedUpManual.show()
 	%Next.show()
-	
+
+# Keeps currentSpeedUp and the label: the speed button already set them, and
+# the player may have stepped past 1.0x while this switch was pending.
 func enableAuto():
 	speedUpManual = false
-	currentSpeedUp = 1.0
 	%Next.hide()
-	%SpeedUp.text = "Speed (1.0x)"
 	%SpeedUpManual.hide()
 	if respondShouldBeVisible:
 		$Respond.show()

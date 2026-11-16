@@ -29,6 +29,17 @@ func resetDeck():
 			
 	shuffle()
 
+## Puts these cards on top of the deck, the first one on top. A card is its value then its suit's
+## initial: "AS" is the ace of spades, "TH" the ten of hearts. The rest stay shuffled under them.
+func stack(codes : Array):
+	var top = []
+	for code in codes:
+		var index = cards.find_custom(func(card): return card.value + card.suit[0].to_upper() == code)
+		assert(index >= 0, "no " + code + " left in the deck to stack")
+		top.append(cards[index])
+		cards.remove_at(index)
+	cards = top + cards
+
 func nextCard():
 	if cards.is_empty():
 		resetDeck()

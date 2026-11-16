@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5aupfniotrg8"]
+[gd_scene load_steps=12 format=3 uid="uid://b5aupfniotrg8"]
 
 [ext_resource type="Script" uid="uid://bmg3p0ewr4rlh" path="res://src/vn/DialogueManager.gd" id="1_74qok"]
 [ext_resource type="Script" uid="uid://d27cs3spyfv8l" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_f3hio"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bm1gn7c1xnqhy" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_llgkf"]
 [ext_resource type="AudioStream" uid="uid://cu5y7ae0pqsdg" path="res://data/assets/general/sounds/sound.wav" id="5_75cai"]
 [ext_resource type="FontFile" uid="uid://im85rm1hu4m8" path="res://data/assets/general/art/PoetsenOne-Regular.ttf" id="5_xqga4"]
+[ext_resource type="Script" path="res://src/vn/dialogue_layout.gd" id="9_layout"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6l33"]
 bg_color = Color(0, 0, 0, 0.913725)
@@ -65,6 +66,379 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_75cai")
+
+[node name="Layouts" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Portrait" type="ReferenceRect" parent="Layouts"]
+layout_mode = 0
+offset_left = 0.0
+offset_right = 896.0
+offset_bottom = 1152.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 1)
+border_width = 3.0
+script = ExtResource("9_layout")
+fontSize = 20
+
+[node name="Default" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 935.0
+offset_right = 718.0
+offset_bottom = 1135.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="MaxUpper" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 10.0
+offset_right = 820.0
+offset_bottom = 210.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="Upper" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 100.0
+offset_right = 820.0
+offset_bottom = 300.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="UpperMid" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 150.0
+offset_right = 820.0
+offset_bottom = 350.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="Mid" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 680.0
+offset_right = 820.0
+offset_bottom = 880.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="Bottom" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 900.0
+offset_right = 820.0
+offset_bottom = 1100.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="BottomLeft" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 890.0
+offset_right = 755.0
+offset_bottom = 1090.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="BottomRight" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 950.0
+offset_right = 900.0
+offset_bottom = 1150.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="MaxLower" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 950.0
+offset_right = 755.0
+offset_bottom = 1150.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="HiddenUi" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 935.0
+offset_right = 1900.0
+offset_bottom = 1135.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="TweenYouFrom" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = -800.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = 300.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="TweenLisaFrom" type="ReferenceRect" parent="Layouts/Portrait"]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 10.0
+offset_right = 1900.0
+offset_bottom = 210.0
+mouse_filter = 2
+border_color = Color(1, 0.35, 0.6, 0.8)
+
+[node name="Landscape" type="ReferenceRect" parent="Layouts"]
+layout_mode = 0
+offset_left = 1300.0
+offset_right = 3220.0
+offset_bottom = 1080.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 1)
+border_width = 3.0
+script = ExtResource("9_layout")
+fontSize = 28
+speakerFontSize = 24
+
+[node name="Default" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 860.0
+offset_right = 1560.0
+offset_bottom = 1060.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="MaxUpper" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 20.0
+offset_right = 1560.0
+offset_bottom = 220.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="Upper" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 100.0
+offset_right = 1560.0
+offset_bottom = 300.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="UpperMid" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 170.0
+offset_right = 1560.0
+offset_bottom = 370.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="Mid" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 440.0
+offset_right = 1560.0
+offset_bottom = 640.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="Bottom" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 840.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="BottomLeft" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 860.0
+offset_right = 1280.0
+offset_bottom = 1060.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="BottomRight" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 860.0
+offset_right = 1840.0
+offset_bottom = 1060.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="MaxLower" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 870.0
+offset_right = 1560.0
+offset_bottom = 1070.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="HiddenUi" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 2000.0
+offset_top = 860.0
+offset_right = 3200.0
+offset_bottom = 1060.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="TweenYouFrom" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = 300.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="TweenLisaFrom" type="ReferenceRect" parent="Layouts/Landscape"]
+layout_mode = 0
+offset_left = 2000.0
+offset_top = 20.0
+offset_right = 3200.0
+offset_bottom = 220.0
+mouse_filter = 2
+border_color = Color(0.3, 0.75, 1, 0.8)
+
+[node name="LandscapeCard" type="ReferenceRect" parent="Layouts"]
+layout_mode = 0
+offset_left = 3420.0
+offset_right = 5340.0
+offset_bottom = 1080.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 1)
+border_width = 3.0
+script = ExtResource("9_layout")
+fontSize = 28
+speakerFontSize = 24
+
+[node name="CardSlotGuide" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 36.0
+offset_right = 940.0
+offset_bottom = 1044.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.5)
+
+[node name="Default" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 724.0
+offset_right = 1860.0
+offset_bottom = 1044.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="MaxUpper" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 36.0
+offset_right = 1860.0
+offset_bottom = 356.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="Upper" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 120.0
+offset_right = 1860.0
+offset_bottom = 440.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="UpperMid" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 200.0
+offset_right = 1860.0
+offset_bottom = 520.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="Mid" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 380.0
+offset_right = 1860.0
+offset_bottom = 700.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="Bottom" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 700.0
+offset_right = 1860.0
+offset_bottom = 1020.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="BottomLeft" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 724.0
+offset_right = 1840.0
+offset_bottom = 1044.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="BottomRight" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 724.0
+offset_right = 1880.0
+offset_bottom = 1044.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="MaxLower" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 740.0
+offset_right = 1860.0
+offset_bottom = 1060.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="HiddenUi" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 2000.0
+offset_top = 724.0
+offset_right = 2860.0
+offset_bottom = 1044.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="TweenYouFrom" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 120.0
+offset_right = 2960.0
+offset_bottom = 440.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
+
+[node name="TweenLisaFrom" type="ReferenceRect" parent="Layouts/LandscapeCard"]
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 36.0
+offset_right = 2960.0
+offset_bottom = 356.0
+mouse_filter = 2
+border_color = Color(1, 0.85, 0.3, 0.8)
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="dialogue_ended" from="DialoguePlayer" to="." method="_on_dialogue_player_dialogue_ended"]

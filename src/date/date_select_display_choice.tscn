@@ -18,6 +18,7 @@ shader_parameter/glow_intensity = 0.9
 script = ExtResource("1_h0k2b")
 
 [node name="ChoiceButton" type="TextureButton" parent="."]
+focus_mode = 0
 offset_right = 167.0
 offset_bottom = 167.0
 texture_normal = ExtResource("1_hbjvt")

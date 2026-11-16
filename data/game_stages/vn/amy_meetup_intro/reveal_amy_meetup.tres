@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LandscapeRevealConfig" load_steps=3 format=3]
+
+[ext_resource type="Script" uid="uid://dv4b4x61ipt26" path="res://src/cinematic/reveal/LandscapeRevealConfig.gd" id="1_config"]
+[ext_resource type="AudioStream" uid="uid://dmyw2p2ome5kk" path="res://data/assets/general/sounds/bg_music/new_new/First Day Horizons.mp3" id="2_music"]
+
+[resource]
+script = ExtResource("1_config")
+title = "PART TWO"
+subtitle = "NO TRACE OF LUCK"
+atmosphere = "petals"
+focusName = ""
+music = ExtResource("2_music")
+musicDownbeat = 1.0

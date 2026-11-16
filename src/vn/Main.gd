@@ -5,6 +5,8 @@ var inputDisabled = false
 var shouldFade = false
 var shouldFadeQuick = false
 var shouldFadeSlow = false
+# The next line shown is a dialogue's first: its picture fades in (see _on_dialogue_manager_dialogue_proceeded).
+var fadeIntoDialogue = false
 var isVideoPause = false
 var isFullscreenImage = false
 var currentStageIsLoaded = false
@@ -16,6 +18,11 @@ var imageToRestoreOnDialogueEnd : Background = null
 var fullscreenImageIndex
 var isUiHidden = false
 var onMainMenu = true
+# A frame change the dialogue asked for, while it lands behind the cover.
+var frameChangeInFlight = null
+# Music fades still running (fade_out_music, the reveal emptying the room), so a track meant to
+# start over them can stop them.
+var musicFades = []
 
 @export var pokerGameSceneTexasHoldEm : PackedScene
 @export var pokerGameSceneFiveCardDraw : PackedScene
@@ -30,6 +37,9 @@ var onMainMenu = true
 @export var anaMusicVideoScene : PackedScene
 @export var pokerTimeline : PackedScene
 @export var credits : PackedScene
+
+# Holds a scene authored for the portrait frame, so it shows as a centered panel in landscape.
+const PortraitFrame = preload("res://src/vn/portrait_frame.gd")
 
 var currentPokerGame
 var currentPhone
@@ -70,6 +80,27 @@ func _ready():
 		%SmallResolution.show()
 
 	$Credits.disabled = !GlobalGameStage.anaMusicVideoCompleted
+
+	# Authored for the portrait frame, with no landscape layout of their own: in landscape
+	# they are shown as a centered portrait panel over the wide scene.
+	for overlay in [$MainMenuContainer, $Notifier, $FullscreenImageBg, %NameEnter, $Continue, %ChoiceDisplay]:
+		DisplayMode.keepPortraitAuthored(overlay)
+	$Background.frameChangeDue.connect(changeFrameMidStage)
+	%Cinematics.frameChangeDue.connect(changeFrameMidStage)
+	%Cinematics.musicFadeRequested.connect(fadeOutMusic)
+	%Cinematics.musicRequested.connect(playBgMusicOverFade)
+	%Cinematics.revealStarted.connect(_on_reveal_started)
+	%Cinematics.revealFinished.connect(_on_reveal_finished)
+	DisplayMode.modeChanged.connect(_on_display_mode_changed)
+
+# The music and sound players are positional, at Main's origin, so how loud they are heard depends
+# on how far they are from the middle of the frame. The landscape frame's middle is further away,
+# which would play everything quieter there: keep them where they sit relative to the middle in
+# portrait (where this leaves them at the origin, as they always were).
+func _on_display_mode_changed(_mode):
+	var place = Vector2(DisplayMode.getBaseSize() - DisplayMode.portraitSize) / 2
+	$AudioStreamPlayer2D.position = place
+	$SoundEffectPlayer.position = place
 
 func _handle_notify(text, image):
 	$Notifier.play(text, image)
@@ -177,7 +208,9 @@ func _input(event):
 		if $MainMenuContainer.visible:
 			$MainMenuContainer.hide()
 			$DialogueManager.refocusDbox()
-		else:
+		# Saving or loading in the middle of the reveal would leave it running over the new scene.
+		# The reveal closes the menu as it starts, and it can't be opened again until it is done.
+		elif !%Cinematics.revealPlaying:
 			$MainMenuContainer.showMenu()
 			$MainMenuContainer.show()
 	
@@ -188,6 +221,7 @@ func _input(event):
 func disableSkipping():
 	isSkipping = false
 	$Background.isSkipping = false
+	$Background.updatePictureVideo() # the picture skipping stopped on starts its video
 	$DialogueManager.stopQuickSkip()
 
 func toggleUi():
@@ -244,7 +278,12 @@ func advanceGameStage():
 		playTransition(GlobalGameStage.currentStage.endTransition, GlobalGameStage.currentStage.endTransitionText)
 		await get_tree().create_timer(5.0).timeout
 	
-	GlobalGameStage.advanceGameStage()
+	GlobalGameStage.advanceGameStage(stageEndFrame())
+
+	if stageDisplayMode() != DisplayMode.currentMode:
+		disableInput()
+		inTransition = true
+		await changeFrameBehindBlack()
 
 	if !isSkipping and GlobalGameStage.currentStage.startTransition:
 		disableInput()
@@ -258,7 +297,54 @@ func advanceGameStage():
 		%Transition.move_out()
 	beginStage()
 	
+# The frame a stage starts in. Landscape stages say so (isLandscape). The phone, which the whole
+# story shares, follows the story: landscape once the story has gone landscape. Every other stage,
+# older events included (replayed or not), starts in the portrait frame it was made for.
+# Dialogue can still change frame mid-stage (landscape_next, portrait_next, reveal_landscape).
+func stageDisplayMode():
+	var stage = GlobalGameStage.currentStage
+	var followsStory = stage.isPhoneScreen or stage.isPhoneMessageEvent
+	var landscape = stage.isLandscape or (followsStory and GlobalGameStage.storyIsLandscape())
+	return DisplayMode.MODES.LANDSCAPE if landscape else DisplayMode.MODES.PORTRAIT
+
+func applyStageDisplayMode():
+	DisplayMode.setMode(stageDisplayMode())
+
+# The OS window only ever changes shape while the screen is black. Covers it with plain black,
+# lets that be drawn, then changes frame (to the current stage's unless told). The caller takes
+# the cover away (move_out), or plays a stage transition over it.
+func changeFrameBehindBlack(mode = null):
+	%Transition.cover()
+	# Black is on screen for a whole frame before the window reshapes, and for one after.
+	for i in 2:
+		await RenderingServer.frame_post_draw
+	DisplayMode.setMode(stageDisplayMode() if mode == null else mode)
+	await RenderingServer.frame_post_draw
+
+# A frame change in the middle of a stage, asked for at a black point with the new picture under
+# it: landscape_next / portrait_next at their fade's, the reveal at its own. That normally already
+# hides everything; the cover makes sure of it (a fade asked for while another was still playing
+# out never gets to black). The dialogue waits the few frames this takes, so a quick-skip cannot
+# end the stage or bring another picture in the middle of it.
+func changeFrameMidStage(mode):
+	frameChangeInFlight = mode
+	var wasPrevented = GlobalGameStage.preventSkipping
+	GlobalGameStage.preventSkipping = true
+	await changeFrameBehindBlack(mode)
+	GlobalGameStage.preventSkipping = wasPrevented
+	frameChangeInFlight = null
+	%Transition.uncover()
+
+# The frame the current stage ends in. A frame change the dialogue asked for that has not
+# landed yet still counts: it lands behind black with the next stage.
+func stageEndFrame():
+	var pending = $Background.takePendingDisplayMode()
+	return pending if pending != null else frameChangeInFlight
+
 func beginStage():
+	applyStageDisplayMode()
+	GlobalGameStage.stageBegan(DisplayMode.isLandscape())
+	%Cinematics.reset()
 
 	dontAutoAdvance = false
 	currentStageIsLoaded = false
@@ -305,7 +391,7 @@ func startNewPhone():
 	currentPhone.conversationComplete.connect(_on_phone_conversation_complete)
 	currentPhone.newStageSelect.connect(_on_phone_new_stage_select)
 	currentPhone.showTimeline.connect(_on_phone_show_timeline)
-	$Background.add_sibling(currentPhone)
+	$Background.add_sibling(PortraitFrame.new().holding(currentPhone))
 	currentPhone.setup()
 
 func startNewPoker():
@@ -315,8 +401,15 @@ func startNewPoker():
 	currentPokerGame.gameLost.connect(_on_poker_game_five_game_lost)
 	currentPokerGame.showTimeline.connect(_on_poker_game_show_timeline)
 	currentPokerGame.setup()
-	add_child(currentPokerGame)
-	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+	add_child(PortraitFrame.new().holding(currentPokerGame))
+	$Background.setBackground(stageStartingBackground())
+
+# The picture a stage opens on: its startingBackground, unless its poker script picks one from the
+# story (eg: what she still has on).
+func stageStartingBackground() -> Background:
+	var stage = GlobalGameStage.currentStage
+	var picked = stage.pokerScript.startingBackground() if stage.pokerScript else null
+	return picked if picked else stage.startingBackground
 
 func startNewRealDate():
 	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
@@ -324,7 +417,7 @@ func startNewRealDate():
 	currentRealDate.dateComplete.connect(_on_realdate_complete)
 	currentRealDate.showStart()
 	add_child(currentRealDate)
-	move_child(currentRealDate, $DialogueManager.get_index() - 1)
+	placeUnderCharacters(currentRealDate)
 
 func createPokerGame():
 	if(GlobalGameStage.currentStage.pokerType == PokerEnums.PokerType.TEXAS_HOLD_EM):
@@ -339,8 +432,14 @@ func startNewDate():
 	currentDate.dateComplete.connect(_on_date_complete)
 	currentDate.setWallpaper.connect(_on_date_set_wallpaper)
 	currentDate.initFromGameStage(GlobalGameStage.currentStage)
-	add_child(currentDate)
-	move_child(currentDate, $DialogueManager.get_index() - 1)
+	var frame = PortraitFrame.new().holding(currentDate)
+	add_child(frame)
+	placeUnderCharacters(frame)
+
+# Dates and real dates sit just under the characters, as they always have. A date is placed by
+# the PortraitFrame that holds it.
+func placeUnderCharacters(scene):
+	move_child(scene, $CharacterManager.get_index())
 
 func _on_start_pressed():
 	hideTitleStuff()
@@ -396,6 +495,9 @@ func _on_dialogue_manager_dialogue_signal(value):
 		var musicIndex = value.replace("play_music_", "")
 		playMusicAtIndex(int(musicIndex))
 		return
+	# atmosphere_<name>, atmosphere_off, reveal_landscape
+	if %Cinematics.handleSignal(value):
+		return
 
 	match(value):
 		"dont_auto_advance": setDontAutoAdvance()
@@ -405,6 +507,8 @@ func _on_dialogue_manager_dialogue_signal(value):
 		"fade_next": fadeNext() #sets up fade for the next background transition. Only fires if the background changes
 		"fade_next_quick": fadeNextQuick()
 		"fade_next_slow": fadeNextSlow()
+		"landscape_next": displayModeNext(DisplayMode.MODES.LANDSCAPE) #the next background change also flips to 1920x1080, behind a fade
+		"portrait_next": displayModeNext(DisplayMode.MODES.PORTRAIT)
 		"music_home": playMusicHome()
 		"music_whimsical": playMusicWhimsical()
 		"music_neon_lights": playMusicNeonLights()
@@ -432,6 +536,8 @@ func fadeOutMusic():
 	var tween = create_tween()
 	tween.tween_property($AudioStreamPlayer2D, "volume_db", -80, 3).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(stopAndResetMusicVolume)
+	musicFades = musicFades.filter(func(fade): return fade.is_valid())
+	musicFades.append(tween)
 	
 func stopAndResetMusicVolume():
 	$AudioStreamPlayer2D.stop()
@@ -513,12 +619,14 @@ func playSoundEffectAtIndex(index):
 	$SoundEffectPlayer.stream = sound
 	$SoundEffectPlayer.play()
 
-# New helper to play a music track at a specific index in the current stage's musicList
+# New helper to play a music track at a specific index in the current stage's musicList.
+# Over any fade still running: fade_out_music a line or two before (eg: Ashely II's intro, fading
+# home out before the park) would otherwise turn the new track down and stop it.
 func playMusicAtIndex(index):
 	var music = GlobalGameStage.getMusicAtIndex(index)
 	if music == null:
 		return
-	playBgMusic(music, true)
+	playBgMusicOverFade(music)
 
 func fadeNext():
 	$Background.shouldFade = true
@@ -529,6 +637,11 @@ func fadeNextQuick():
 func fadeNextSlow():
 	$Background.shouldFadeSlow = true
 
+# Always paired with a fade so the window reshape happens while the screen is black.
+func displayModeNext(mode):
+	$Background.pendingDisplayMode = mode
+	fadeNext()
+
 func disableInput():
 	inputDisabled = true
 	
@@ -537,6 +650,7 @@ func enableInput():
 
 func beginDialogue(startKey = null):
 	#currentStageIsLoaded = false
+	fadeIntoDialogue = true
 	GlobalGameStage.preventSkipping = false
 	if(startKey):
 		GlobalGameStage.setCurrentDialogueKey(startKey)
@@ -553,11 +667,12 @@ func _on_dialogue_manager_dialogue_ended():
 			GlobalGameStage.unlockWallpaper(unlock, '', true)
 
 	if GlobalGameStage.currentStage.endOnlyOnSpecificDialogueKey and GlobalGameStage.currentDialogueKey not in GlobalGameStage.currentStage.endingDialogueKeys:
-		var choices = GlobalGameStage.currentStage.choicesScript.getChoicesForDialogueKey(GlobalGameStage.currentDialogueKey)
+		var choicesScript = GlobalGameStage.currentStage.choicesScript
+		var choices = choicesScript.getChoicesForDialogueKey(GlobalGameStage.currentDialogueKey)
 		inChoice = true
 		disableSkipping()
 		%ChoiceDisplay.show()
-		%ChoiceDisplay.setChoices(choices)
+		%ChoiceDisplay.setChoices(choices, choicesScript.getChoiceMarks(GlobalGameStage.currentDialogueKey))
 	else:
 		$CharacterManager.hideCharacter()
 		
@@ -569,8 +684,13 @@ func _on_dialogue_manager_dialogue_ended():
 		# We're in a poker game and just completed some dialogue
 		if forcePhoneStage:
 			forcePhoneStage = false
-			GlobalGameStage.setPhoneGameStage()
-			beginStage()
+			GlobalGameStage.setPhoneGameStage(stageEndFrame())
+			if stageDisplayMode() != DisplayMode.currentMode:
+				await changeFrameBehindBlack()
+				beginStage()
+				%Transition.move_out()
+			else:
+				beginStage()
 		elif validPokerGameRunning():
 			if imageToRestoreOnDialogueEnd:
 				$Background.shouldFade = true
@@ -610,9 +730,17 @@ func _on_poker_game_five_game_paused():
 		beginDialogue(nextAction.dialogueStartKey)
 
 func _on_poker_game_five_game_lost():
-	remove_child(currentPokerGame)
+	# A match whose loss moves the story on, rather than being played again.
+	if GlobalGameStage.currentStage.pokerLossGameStage:
+		GlobalGameStage.clearAltStart()
+		currentPokerGame.queue_free()
+		GlobalGameStage.setNextGameStage(GlobalGameStage.currentStage.pokerLossGameStage)
+		advanceGameStage()
+		return
+
+	remove_child(PortraitFrame.around(currentPokerGame))
 	currentPokerGame.queue_free()
-	$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+	$Background.setBackground(stageStartingBackground())
 	playSceneMusic()
 	startNewPoker()
 
@@ -621,7 +749,7 @@ func _on_poker_game_five_game_won():
 		for stage in GlobalGameStage.currentStage.markStagesCompleteOnPokerWin:
 			GlobalGameStage.markStageComplete(stage)
 	
-	GlobalGameStage.isStartingPokerFromNode = false
+	GlobalGameStage.clearAltStart()
 
 	currentPokerGame.queue_free()
 	advanceGameStage()
@@ -653,16 +781,44 @@ func _on_date_set_wallpaper(wallpaper):
 
 func _on_dialogue_manager_dialogue_proceeded():
 	#$DialogueManager.refocusDbox()
-	
+	var firstLine = fadeIntoDialogue
+	fadeIntoDialogue = false
+
 	if GlobalGameStage.currentStage.isDate:
 		return #we manage our own backgrounds in the date
 		
 	if($DialogueManager.currentCharacterState):
 		$CharacterManager.setCharacter($DialogueManager.currentCharacterState)
 	
-	if($DialogueManager.currentBackground):
-		GlobalGameStage.unlockWallpaper($DialogueManager.currentBackground.wallpaperId, '', true)
-		$Background.setBackground($DialogueManager.currentBackground)
+	var newBackground = $DialogueManager.currentBackground
+	if newBackground:
+		GlobalGameStage.unlockWallpaper(newBackground.wallpaperId, '', true)
+	# reveal_landscape opens onto the picture of the line that follows it. Quick skip passes it
+	# only where it would pass the line.
+	if %Cinematics.takeRevealRequest():
+		%Cinematics.playReveal(newBackground, isSkipping and GlobalGameStage.canSkipCurrentDialogue())
+	elif newBackground:
+		# A dialogue's first line fades into its picture by default (a poker match ending used to cut
+		# straight to the next scene's picture), unless the dialogue already asked for its own fade.
+		# Only the first line: later picture changes keep their own fade_next signals, or cut.
+		if firstLine and $Background.background and newBackground.name != $Background.background.name \
+				and !$Background.shouldFade and !$Background.shouldFadeQuick and !$Background.shouldFadeSlow:
+			$Background.shouldFade = true
+		$Background.setBackground(newBackground)
+
+# The reveal takes the screen: the dialogue waits, hidden, until it hands it back.
+func _on_reveal_started():
+	$MainMenuContainer.hide()
+	inTransition = true
+	disableInput()
+	$DialogueManager.disableDialogueProgression()
+	$DialogueManager.hideUiFast()
+
+func _on_reveal_finished():
+	inTransition = false
+	enableInput()
+	$DialogueManager.enableDialogueProgression()
+	$DialogueManager.unhideUiFast()
 
 func _on_background_is_fading():
 	if isVideoPause: return
@@ -701,7 +857,10 @@ func _on_phone_begin_dialogue(key):
 	beginDialogue(key)
 
 func _on_phone_conversation_complete():
-	GlobalGameStage.setPhoneGameStage()
+	GlobalGameStage.setPhoneGameStage(stageEndFrame())
+	if stageDisplayMode() != DisplayMode.currentMode:
+		await changeFrameBehindBlack()
+		%Transition.move_out()
 
 func playBgMusic(stream, skipCheck = false, quiet = false):
 	if $AudioStreamPlayer2D.stream == stream && !skipCheck:
@@ -715,6 +874,14 @@ func playBgMusic(stream, skipCheck = false, quiet = false):
 	$AudioStreamPlayer2D.play()
 	GlobalGameStage.currentMusic = stream.get_path()
 
+# A track that may start while a fade-out is still running (the reveal empties the room, then
+# brings its own track in on the downbeat). Left running, the fade would turn it down and stop it.
+func playBgMusicOverFade(stream):
+	for fade in musicFades:
+		fade.kill()
+	musicFades.clear()
+	playBgMusic(stream, true)
+
 func _handle_bg_volume_change():
 	$AudioStreamPlayer2D.volume_db = GlobalGameStage.getBgVolume()
 
@@ -722,6 +889,9 @@ func _handle_save_loaded():
 	
 	# Used to skip the 'dialogue ended' event for this scene
 	currentStageIsLoaded = true
+
+	# A frame change the old stage asked for must not land in the loaded one.
+	$Background.takePendingDisplayMode()
 		
 	if is_instance_valid(currentPhone):
 		currentPhone.free()
@@ -756,11 +926,19 @@ func _handle_save_loaded():
 	if !$DialogueManager.uiVisible:
 		$DialogueManager.toggleUi()
 	
-	if GlobalGameStage.currentStage.startingBackground:
-		$Background.setBackground(GlobalGameStage.currentStage.startingBackground)
+	var startingBackground = stageStartingBackground()
+	if startingBackground:
+		$Background.setBackground(startingBackground)
 	
 	hideTitleStuff()
+
+	# A save made in the other frame changes it before the stage begins, behind black.
+	var frameChanges = stageDisplayMode() != DisplayMode.currentMode
+	if frameChanges:
+		await changeFrameBehindBlack()
 	beginStage()
+	if frameChanges:
+		%Transition.move_out()
 
 func _handle_play_particle(type : Heartsplosion.TYPES, animType : Heartsplosion.ANIM_TYPE):
 	if type == Heartsplosion.TYPES.NONE:
@@ -836,7 +1014,7 @@ func _on_prev_image_pressed() -> void:
 
 	fullscreenImageIndex = fullscreenImageIndex - 1
 
-	var wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
+	var wallpapers = GlobalGameStage.shownWallpapers()	# the phone's list, in its order (wallpaper_app.gd)
 
 	if GlobalGameStage.unlockedWallpapers.has(wallpapers.wallpapers[fullscreenImageIndex].wallpaperId):
 		$FullscreenImageBg/FullscreenImage.texture = load(wallpapers.wallpapers[fullscreenImageIndex].wallpaperImagePath)
@@ -844,7 +1022,7 @@ func _on_prev_image_pressed() -> void:
 		$FullscreenImageBg/FullscreenImage.texture = load("res://data/assets/phone/art/wallpaper_not_unlocked2.png")
 
 func _on_next_image_pressed() -> void:
-	var wallpapers = load("res://resources/wallpapers/all_wallpapers.tres")
+	var wallpapers = GlobalGameStage.shownWallpapers()	# the phone's list, in its order (wallpaper_app.gd)
 
 	if fullscreenImageIndex + 1 >= wallpapers.wallpapers.size():
 		return
@@ -895,6 +1073,7 @@ func _on_choice_display_choice_selected(key: String) -> void:
 	%ChoiceDisplay.hide()
 	beginDialogue(key)
 
+# Bespoke scenes open beside the phone, so inside its PortraitFrame: shown the way the phone is.
 func _handle_bespoke_event(eventName: String):
 	if eventName == 'Ashely Kitchen Phone':
 		print('starting bespoke event: Ashely Kitchen Phone')
@@ -926,14 +1105,14 @@ func _on_phone_show_timeline(stage):
 	currentPokerTimeline = pokerTimeline.instantiate()
 	currentPokerTimeline.setup(stage)
 	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
-	add_child(currentPokerTimeline)
+	add_child(PortraitFrame.new().holding(currentPokerTimeline))
 
 func _on_poker_game_show_timeline(mostRecentKeyEventRowId : String):
 	currentPokerTimeline = pokerTimeline.instantiate()
 	currentPokerTimeline.disableStartFromNode()
 	currentPokerTimeline.setup(GlobalGameStage.currentStage, mostRecentKeyEventRowId)
 	currentPokerTimeline.startFromNode.connect(startPokerFromNode)
-	add_child(currentPokerTimeline)
+	add_child(PortraitFrame.new().holding(currentPokerTimeline))
 
 
 func _on_credits_pressed() -> void:

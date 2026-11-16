@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BackgroundLists" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundLists.gd" id="1"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/BackgroundList.gd" id="2"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Background.gd" id="3"]
+
+[sub_resource type="Resource" id="b1"]
+script = ExtResource("3")
+name = "PIC_01"
+
+[sub_resource type="Resource" id="b2"]
+script = ExtResource("3")
+name = "PIC_02"
+
+[sub_resource type="Resource" id="b3"]
+script = ExtResource("3")
+name = "PIC_03"
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("2")
+name = "LIST_A"
+images = Array[ExtResource("3")]([SubResource("b1"), SubResource("b2"), SubResource("b3")])
+
+[resource]
+script = ExtResource("1")
+backgroundLists = Array[ExtResource("2")]([SubResource("l1")])

@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Character" load_steps=16 format=3 uid="uid://drfijm7yhyrs1"]
+
+[ext_resource type="Script" uid="uid://d1xeid7wlqe06" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_oihkq"]
+[ext_resource type="Script" uid="uid://c31wkx7ce3y74" path="res://addons/dialogue_nodes/objects/CharacterState.gd" id="4_h2iha"]
+
+[sub_resource type="Resource" id="Resource_yeiwt"]
+script = ExtResource("4_h2iha")
+name = "arms_crossed_scowl.png"
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_kwiqw"]
+script = ExtResource("4_h2iha")
+name = "hand_in_hair_scowl.png"
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_du3y3"]
+script = ExtResource("4_h2iha")
+name = "hand_on_back_scowl.png"
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_rgp6s"]
+script = ExtResource("4_h2iha")
+name = "middle_finger_smile.png"
+scale = Vector2(0.7, 0.7)
+animateTransition = true
+
+[sub_resource type="Resource" id="Resource_3fh8j"]
+script = ExtResource("4_h2iha")
+name = "eye_roll"
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[sub_resource type="Resource" id="Resource_qeqxa"]
+script = ExtResource("4_h2iha")
+name = "hand_on_hip"
+scale = Vector2(0.7, 0.7)
+animateTransition = false
+
+[resource]
+script = ExtResource("2_oihkq")
+name = "Ashely"
+editorName = "ashely_tshirt_new"
+color = Color(1, 1, 1, 1)
+states = Array[ExtResource("4_h2iha")]([SubResource("Resource_yeiwt"), SubResource("Resource_kwiqw"), SubResource("Resource_du3y3"), SubResource("Resource_rgp6s"), SubResource("Resource_3fh8j"), SubResource("Resource_qeqxa")])
